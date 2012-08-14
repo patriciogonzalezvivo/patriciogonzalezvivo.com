@@ -9,6 +9,7 @@ echo '<header>
 						<li class="menu_item"><a href="http://patriciogonzalezvivo.com/about.php">About</a></li>
 						<li class="menu_item"><a href="http://patriciogonzalezvivo.com/index.php">Installations</a></li>
 						<li class="menu_item"><a href="http://patriciogonzalezvivo.com/apps.php">Apps</a></li>
+						<li class="menu_item"><a href="http://patriciogonzalezvivo.com/teaching.php">Teaching</a></li>
 						<li class="menu_item"><a href="http://www.patriciogonzalezvivo.com/blog/">Blog</a></li>
 					</ul>
 				</nav>
