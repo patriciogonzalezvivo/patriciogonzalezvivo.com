@@ -9,5 +9,9 @@ echo '<section id="sidebar">
 			<h2><a href="http://github.com/patriciogv" target="_blank">GitHub</a></h2>
 			<div id="github"></div>
 		</article>
+		<article class="feeds">
+			<h2><a href="http://patriciogonzalezvivo.com/blog/wp-rss.php" target="_blank">Blog Posts</a></h2>
+			<div id="wordpress"></div>
+		</article>
 	</section >';
 ?>
