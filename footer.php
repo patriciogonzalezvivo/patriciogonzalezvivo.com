@@ -2,11 +2,11 @@
 // main footer
 
 echo '
-			</div>
-		<footer> Copyright Patricio Gonzalez Vivo 2012 </footer>
+		</div>
+		<footer> 
+			<p>Copyright Patricio Gonzalez Vivo 2012</p>	
+		</footer>
 	</body>
 </html>
 	';
 ?>
-
-	

@@ -5,13 +5,13 @@
 	<!-- CONTENT -->
 	<section class="content">
 		<div id="myslides">
-			<img class="roundPhoto" src="01.jpg" />
-			<img class="roundPhoto" src="02.jpg" />
-			<img class="roundPhoto" src="03.jpg" />
-			<img class="roundPhoto" src="04.jpg" />
-			<img class="roundPhoto" src="05.jpg" />
-			<img class="roundPhoto" src="06.jpg" />
-			<img class="roundPhoto" src="07.jpg" />
+			<img class="roundPhoto" src="01.jpg" alt="slide" />
+			<img class="roundPhoto" src="02.jpg" alt="slide"/>
+			<img class="roundPhoto" src="03.jpg" alt="slide"/>
+			<img class="roundPhoto" src="04.jpg" alt="slide"/>
+			<img class="roundPhoto" src="05.jpg" alt="slide"/>
+			<img class="roundPhoto" src="06.jpg" alt="slide"/>
+			<img class="roundPhoto" src="07.jpg" alt="slide"/>
 		</div>
 		<article>
 			<p>Eden was develop originaly for Efecto Mariposa art work with intentions to put non-expensive interactive simulators in everyday classrooms. In this new version Eden was enhanced width a flexible GUI that let the user setup any ecosystem and map it over the surface super easily.</p>	

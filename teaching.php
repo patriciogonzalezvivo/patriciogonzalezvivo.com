@@ -11,12 +11,12 @@
 			<p>2011 - 2012 <strong>Informatics aplied to Art II and Multimedia IV</strong>: undergraduate profesor for Multimedia Studies at IUNA, Buenos Aires</p>
 		</article>
 		<article class="item">
-			<a href="2010/calos/"><img class="roundPhotoTh" src="2010/calos/thumb.jpg" alt="IUNA"/></a>
+			<a href="2010/calos/"><img class="roundPhotoTh" src="2010/calos/thumb1.jpg" alt="IUNA"/></a>
 			<p>2010 <strong>Expressive Art Therapy Workshop</strong> with Kids of CALOS, Buenos Aires</p>
 		</article>
 		<article class="item">
 			<a href="2007/usal/"><img class="roundPhotoTh" src="2007/usal/thumb.jpg" alt="USAL"/></a>
-			<p>2007 - 2010 <strong>Creative Connection@</strong>: life GSLS Editor and graphic patch composer addon for openFrameworks</p>
+			<p>2007 - 2010 <strong>Creative Connection@</strong>: classes at School of Drama of Salvador University, Buenos Aires</p>
 		</article>
 	</section>
 	

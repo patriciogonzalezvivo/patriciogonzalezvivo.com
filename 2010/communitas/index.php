@@ -7,16 +7,16 @@
 	<section class="content">
 		<a href="https://vimeo.com/15171352" target="_blank">
 		<div id="myslides">
-			<img class="roundPhoto" src="01.jpg" />
-			<img class="roundPhoto" src="02.jpg" />
-			<img class="roundPhoto" src="03.jpg" />
-			<img class="roundPhoto" src="04.jpg" />
-			<img class="roundPhoto" src="05.jpg" />
-			<img class="roundPhoto" src="06.jpg" />
-			<img class="roundPhoto" src="07.jpg" />
-			<img class="roundPhoto" src="08.jpg" />
-			<img class="roundPhoto" src="09.jpg" />
-			<img class="roundPhoto" src="10.jpg" />
+			<img class="roundPhoto" src="01.jpg" alt="slide"/>
+			<img class="roundPhoto" src="02.jpg" alt="slide"/>
+			<img class="roundPhoto" src="03.jpg" alt="slide"/>
+			<img class="roundPhoto" src="04.jpg" alt="slide"/>
+			<img class="roundPhoto" src="05.jpg" alt="slide"/>
+			<img class="roundPhoto" src="06.jpg" alt="slide"/>
+			<img class="roundPhoto" src="07.jpg" alt="slide"/>
+			<img class="roundPhoto" src="08.jpg" alt="slide"/>
+			<img class="roundPhoto" src="09.jpg" alt="slide"/>
+			<img class="roundPhoto" src="10.jpg" alt="slide"/>
 		</div></a>
 		<article class="cita">
 			<p><i>“When we forget ourselves, we are the universe..”</i><br>Hakui</p>
