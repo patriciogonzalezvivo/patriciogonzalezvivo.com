@@ -10,7 +10,7 @@
 			<p>This version of CCV was original designed for a light and portable setup of Communias multiTouch Table for IEATA´s 9th International Conference ( more info and videos about it ). But it was lot of potencial. Fell free to download the code and make your own improvements:</p>
 		</article>
 		<article>
-			<p>Download: <a href="http://github.com/patriciogonzalezvivo/KinectCoreVision" target="_blank">[Source] </a><a href="http://dl.dropbox.com/u/335522/web/apps/KinectCoreVision.zip" target="_blank">[OSX Lion App]</a> <a href="https://dl.dropbox.com/u/335522/web/apps/KinectCoreVision-10.6.zip" target="_blank">[OSX Snow Leopard App]</a> <a href="http://dl.dropbox.com/u/335522/web/apps/KinectCoreVision-Win.zip" target="_blank">[Win Bin]</a><a href="http://dl.dropbox.com/u/335522/web/apps/KinectCoreVision-linux64.zip" target="_blank"> [Linux 64bit]</a><br/></p>
+			<p>Download: <a href="http://github.com/patriciogonzalezvivo/KinectCoreVision" target="_blank">[Source] </a> <a href="https://dl.dropbox.com/u/335522/web/apps/KinectCoreVision-10.6.zip" target="_blank">[OSX Snow Leopard App]</a> <a href="http://dl.dropbox.com/u/335522/web/apps/KinectCoreVision.zip" target="_blank">[OSX Lion App]</a> <a href="http://dl.dropbox.com/u/335522/web/apps/KinectCoreVision-Win.zip" target="_blank">[WinXp Bin]</a> <a href="https://dl.dropbox.com/u/335522/web/apps/KinectCoreVision-win7.zip" target="_blank">[Win7 Bin]</a> <a href="http://dl.dropbox.com/u/335522/web/apps/KinectCoreVision-linux64.zip" target="_blank"> [Linux 64bit]</a><br/></p>
 		</article>
     </section>
 	
