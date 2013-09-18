@@ -3,6 +3,10 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
+			<a href="2013/bootcamp/"><img class="roundPhotoTh" src="2013/bootcamp/thumb.jpg" alt="CodeMology"/></a>
+			<p>2013 <strong>Code Faculty</strong>: for MFA DT Parsons Bootcamp 2013</p>
+		</article>
+		<article class="item">
 			<a href="2012/shellinitiation/"><img class="roundPhotoTh" src="2012/shellinitiation/thumb.jpg" alt="CodeMology"/></a>
 			<p>2012 <strong>ShellInitiation</strong>: exoteric tutorial to Unix Terminal and Conosole</p>
 		</article>
