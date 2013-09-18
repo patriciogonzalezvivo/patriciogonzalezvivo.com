@@ -13,6 +13,9 @@
       		<p>Check the syllabus we put together with: at Jennifer Presto, Matt Felsen, Adiel Fernandez, Ricardo Vega Mora, Owen Herterich and Anthony Marefat <a href="https://github.com/patriciogonzalezvivo/bootcamp2013_code" target="_blank">https://github.com/patriciogonzalezvivo/bootcamp2013_code</a> </p>
 		</article>
 
+		<div>
+			<a href="http://www.newschool.edu/parsons/mfa-design-technology/" target="_blank"><img src="sponsor.jpg" alt="sponsor"/></a>
+		</div>
 	</section>
 	
 <?php include("../../footer.php"); ?>
