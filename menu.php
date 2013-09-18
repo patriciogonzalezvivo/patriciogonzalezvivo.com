@@ -1,18 +1,21 @@
 <?php
-// main menu
 
+// main menu
 echo '<header>
 			<div id="menu">			
-				<a id="menu_logo" href="http://patriciogonzalezvivo.com/index.php"><img src="http://patriciogonzalezvivo.com/images/menu_logo.png" alt="Tree Logo" /></a> 
+				<a id="menu_logo" href="index.php"><img src="/images/menu_logo.png" alt="Tree Logo" /></a> 
 				<nav id="menu_text">
 					<ul>
-						<li class="menu_item"><a href="http://patriciogonzalezvivo.com/about.php"> About </a></li>
-						<li class="menu_item"><a href="http://patriciogonzalezvivo.com/index.php"> Installations </a></li>
-						<li class="menu_item"><a href="http://patriciogonzalezvivo.com/apps.php"> Code </a></li>
-						<li class="menu_item"><a href="http://patriciogonzalezvivo.com/teaching.php"> Teaching </a></li>
-						<li class="menu_item"><a href="http://www.patriciogonzalezvivo.com/blog/"> Blog </a></li>
+						<li class="menu_item"><a href="/about.php"> About </a></li>
+						<li class="menu_item"><a href="index.php"> Art Installations </a></li>
+						<li class="menu_item"><a href="code-poems.php"> Code Poems </a></li>
+						<li class="menu_item"><a href="tools.php"> Creative Tools </a></li>
+						<li class="menu_item"><a href="addons.php"> OF Addons </a></li>
+						<li class="menu_item"><a href="teaching.php"> Teaching </a></li>
 					</ul>
 				</nav>
 			</div>
 		</header>';
+		
+/* 		<li class="menu_item"><a href="blog/"> Blog </a></li> */
 ?>

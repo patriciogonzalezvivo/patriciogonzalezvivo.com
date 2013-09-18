@@ -6,15 +6,17 @@
 	<section class="content">
 		<iframe src="http://player.vimeo.com/video/66371233" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 		
-		<article class="cita">
-			<p><i>“From magic spells to contemporary computing, this speculative imagination has always been linked to practical— technical and artistic—experimentation with algorithms. The opposite is true as well. Speculative imagination is embedded in today’s software culture. Reduction and totality, randomness and control, physics and metaphysics are among the tropes it is obsessed with, often short-circuiting their opposites.”</i>(Florian Cramer, 2005)</p>
-		</article>
-		
 		<article>
-			<p><strong>Natural Intentions</strong> is a project ... </p>
+			<p>Devices doesn't only shape our perception, they affect our behavior and through that, our relationship to nature. At the end, the crudeness of our intentions are exposed. We will see how this process hides a true desire of own and control that lead to the breaking of that we use to observe with wonder and admiration.</p>
 		</article>
-		
-		https://github.com/patriciogonzalezvivo/NaturalIntentions
+
+		<article>
+			<p>The goal of this project is to expose the nature of our relationship with our environment. Reviewing the history of optical devices and the intentionality of their design, we reveal a hidden modus operandi behind their technical construction. Also we will explore and deconstruct how we perceive nature. By reviewing the history of the design of optical devices, we will see a hidden pattern of power and control.</p>
+		</article>
+
+		<article>
+			<p>To metaphorically explore these issues of power and control instrumented on optical machinery I have constructed a physical metaphor which will expose our ambiguous approach to nature.</p>
+		</article>
 		
 	</section>
 	
