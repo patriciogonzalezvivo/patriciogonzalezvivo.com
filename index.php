@@ -1,7 +1,6 @@
 <?php include("header.php");?>
 <?php include("menu.php");?>
-<?php include("sidebar.php");?>
-
+<?php include("sidebar.php");?>	
 
 	<section class="content">
 

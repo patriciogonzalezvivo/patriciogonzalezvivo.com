@@ -1,14 +1,9 @@
-#menu {
-  margin-left: 35px; }
-
 #menu_logo {
   float: left; }
 
 #menu_text {
   padding-top: 68px;
-  font-size: 15px;
-  font-weight: 300;
-  color: #666666; }
+  text-align: justify; }
   #menu_text a {
     padding-left: 13px;
     text-decoration: none;
@@ -22,9 +17,10 @@
 #sidebar {
   float: right;
   position: relative;
-  width: 280px; }
+  width: 300px; }
 
 .feeds {
+  background-color: #f1f1f1;
   position: relative;
   top: -13px;
   padding-top: 0px;
@@ -33,18 +29,19 @@
   padding-right: 10px;
   border-radius: 7px;
   margin-bottom: 25px;
-  background-color: #f1f1f1;
-  font-size: 13px;
+  font-size: 0.8rem;
   font-weight: 200;
   text-align: left; }
   .feeds h2 {
-    padding-top: 7px;
-    font-size: 14px; }
+    font-size: 0.9rem;
+    padding-top: 7px; }
   .feeds p {
     padding-top: 10px; }
   .feeds a {
     text-decoration: none;
     color: #4e5d7f; }
+    .feeds a:hover {
+      color: #188069; }
   .feeds ul {
     padding-left: 0px; }
   .feeds li {
@@ -56,60 +53,22 @@
   font-size: .8em;
   margin-left: 5px; }
 
-#twitter {
-  font-size: 13px;
-  font-weight: 300; }
-  #twitter a {
-    font-style: italic;
-    font-size: 13px;
-    font-weight: 200;
-    text-decoration: none;
-    color: #4e5d7f; }
-    #twitter a:hover {
-      color: #188069; }
-
-#wordpress a {
-  font-size: 13px;
-  font-weight: 300;
-  text-decoration: none;
-  color: #4e5d7f; }
-  #wordpress a:hover {
-    color: #188069; }
-
-#github {
-  font-size: 13px;
-  font-weight: 200; }
-  #github a {
-    font-size: 13px;
-    font-weight: 300;
-    text-decoration: none;
-    color: #4e5d7f; }
-    #github a:hover {
-      color: #188069; }
-
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 15px;
-  color: #222222;
-  text-decoration: none; }
-
-#wrapper {
-  width: 920px;
-  margin: 0 auto;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: #666666;
+  text-decoration: none;
+  text-align: justify;
   background-color: white; }
 
+#wrapper {
+  width: 905px;
+  margin: 0 auto; }
+
 .content {
-  margin-left: 40px;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 300;
-  font-size: 13px;
-  text-align: justify;
-  color: #666666;
   width: 575px; }
   .content a {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
-    font-size: 13px;
     color: #188069;
     text-decoration: none; }
     .content a:hover {
@@ -128,25 +87,69 @@ body {
 
 .cita {
   width: 575px;
-  margin-top: 20px;
-  margin-bottom: 20px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 200;
-  font-size: 14px;
+  font-size: 1.0rem;
   text-align: right;
   color: #666666; }
 
-.item {
-  margin-bottom: 25px; }
-  .item p {
-    margin-top: 5px; }
+.item p {
+  margin-top: 0px; }
 
 footer {
   clear: both;
   font-family: 'Source Sans Pro', sans-serif;
+  font-size: 0.7rem;
   font-weight: 200;
   text-align: right;
-  font-size: 12px;
   color: #222222; }
   footer img {
     position: fixed; }
+
+@media only screen and (max-width: 875px) {
+  #sidebar {
+    display: none; }
+
+  #wrapper {
+    width: 575px; }
+
+  .content {
+    width: 100%; }
+
+  .cita {
+    width: 100%; } }
+/* styles for mobile browsers smaller than 480px; (iPhone) */
+@media only screen and (max-device-width: 480px) {
+  #menu_text {
+    padding-top: 0px;
+    margin-bottom: 5px;
+    font-size: 2.3rem; }
+
+  #sidebar {
+    display: none; }
+
+  #wrapper {
+    width: 100%;
+    margin: 0.02%; }
+
+  body {
+    font-size: 1.8rem; }
+
+  .content {
+    width: 100%; }
+
+  .cita {
+    width: 100%; }
+
+  .roundPhoto {
+    width: 100%; }
+
+  .roundPhotoTh {
+    width: 100%; } }
+@media only screen and (device-width: 768px) {
+  /* default iPad screens */ }
+/* different techniques for iPad screening */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
+  /* For portrait layouts only */ }
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
+  /* For landscape layouts only */ }

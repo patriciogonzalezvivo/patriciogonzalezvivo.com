@@ -1,18 +1,13 @@
 @import "colors";
 
-#menu{
-	margin-left: 35px;
-}
-
 #menu_logo{
 	float: left;
 }
 
 #menu_text{
 	padding-top: 68px;
-	font-size: 15px;
-	font-weight: 300;
-	color: $soft_gray;
+	
+	text-align: justify;//left;
 	
 	a{
 		padding-left: 13px;

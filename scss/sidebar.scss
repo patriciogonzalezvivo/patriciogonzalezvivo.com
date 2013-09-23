@@ -3,12 +3,14 @@
 #sidebar{
 	float:right;
 	position: relative;
-	width:280px;		
+	width:$sidebar_width;		
 }
 
 //	FEEDS
 //
 .feeds{
+	background-color: $chok_white;
+	
 	position: relative;
 	top:-13px;
 
@@ -20,16 +22,13 @@
 	border-radius: 7px;
 	margin-bottom: 25px;
 
-	background-color: $chok_white;//#F1F1F1;
-
-	font-size: 13px;
+	font-size: 0.8rem;
 	font-weight: 200;
-
 	text-align: left;
 	
 	h2{
+		font-size: 0.9rem;
 		padding-top: 7px;
-		font-size: 14px;
 	}
 	
 	p{
@@ -39,6 +38,10 @@
 	a{
 		text-decoration:none;
 		color: $wolf_blue;
+		
+		&:hover{
+			color: $pale_green;
+		}
 	}
 	
 	ul{
@@ -55,54 +58,4 @@
 	font-style: normal;
 	font-size: .8em;
 	margin-left: 5px;
-}
-
-//	TWITTER
-//	
-#twitter{
-	font-size: 13px;
-	font-weight: 300;
-	
-	a{
-		font-style: italic;
-		font-size: 13px;
-		font-weight: 200;
-		text-decoration:none;
-		color: $wolf_blue;
-		
-		&:hover{
-			color: $pale_green;
-		}
-	}
-}
-	
-//	WORD PRESS
-//
-#wordpress a{
-	font-size: 13px;
-	font-weight: 300;
-	text-decoration:none;
-	color: $wolf_blue;
-	
-	&:hover{
-		color: $pale_green;
-	}
-}
-
-//	GITHUB
-//
-#github{
-	font-size: 13px;
-	font-weight: 200;
-	
-	a{
-		font-size: 13px;
-		font-weight: 300;
-		text-decoration:none;
-		color: $wolf_blue;
-		
-		&:hover{
-			color: $pale_green;
-		}
-	}
 }
