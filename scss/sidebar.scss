@@ -1,0 +1,108 @@
+@import "colors";
+
+#sidebar{
+	float:right;
+	position: relative;
+	width:280px;		
+}
+
+//	FEEDS
+//
+.feeds{
+	position: relative;
+	top:-13px;
+
+	padding-top: 0px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+
+	border-radius: 7px;
+	margin-bottom: 25px;
+
+	background-color: $chok_white;//#F1F1F1;
+
+	font-size: 13px;
+	font-weight: 200;
+
+	text-align: left;
+	
+	h2{
+		padding-top: 7px;
+		font-size: 14px;
+	}
+	
+	p{
+		padding-top: 10px;
+	}
+	
+	a{
+		text-decoration:none;
+		color: $wolf_blue;
+	}
+	
+	ul{
+		padding-left: 0px;
+	}
+	
+	li{
+		list-style: none;
+		margin-bottom: 5px;
+	}
+}
+	
+.feedTime {
+	font-style: normal;
+	font-size: .8em;
+	margin-left: 5px;
+}
+
+//	TWITTER
+//	
+#twitter{
+	font-size: 13px;
+	font-weight: 300;
+	
+	a{
+		font-style: italic;
+		font-size: 13px;
+		font-weight: 200;
+		text-decoration:none;
+		color: $wolf_blue;
+		
+		&:hover{
+			color: $pale_green;
+		}
+	}
+}
+	
+//	WORD PRESS
+//
+#wordpress a{
+	font-size: 13px;
+	font-weight: 300;
+	text-decoration:none;
+	color: $wolf_blue;
+	
+	&:hover{
+		color: $pale_green;
+	}
+}
+
+//	GITHUB
+//
+#github{
+	font-size: 13px;
+	font-weight: 200;
+	
+	a{
+		font-size: 13px;
+		font-weight: 300;
+		text-decoration:none;
+		color: $wolf_blue;
+		
+		&:hover{
+			color: $pale_green;
+		}
+	}
+}

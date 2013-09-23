@@ -1,0 +1,235 @@
+	/*	GENERAL
+	---------------------------------------*/
+
+	body{
+		font-family: 'Source Sans Pro', sans-serif;
+		font-size: 15px; 
+		color: #222222; 
+		text-decoration:none;
+	}
+	
+	#wrapper {
+    	width: 920px;
+    	margin: 0 auto;
+    	background-color: #FFFFFF;
+ 	}
+
+	/* NAVIGATION MENU 
+	---------------------------------------*/
+	#menu{
+		/*margin-left: 0px;*/
+		margin-left: 35px;
+		/*width:625px;*/
+		/*height:100px;*/
+	}
+
+	#menu_logo{
+		float: left;
+	}
+
+	#menu_text{
+		padding-top: 68px;
+		font-size: 15px;
+		font-weight: 300;
+		color: #666666;
+	}
+
+	#menu_text a{
+		padding-left: 13px;
+		text-decoration:none;
+
+		/*color: #A7AEAC;*/
+/* 		color: #18806A; */
+		color: #4E5D7F; 
+/* 		color: #1e2c3e; */
+	}
+
+	#menu_text a:hover{
+		color: #18806A;
+	}
+
+	.menu_item{
+		display:inline-block;
+	}
+
+	/*	SIDEBAR
+	--------------------------------------*/
+
+	#sidebar{
+		float:right;
+		position: relative;
+		width:280px;		
+	}
+
+	.feeds{
+		position: relative;
+		top:-13px;
+
+		padding-top: 0px;
+		padding-left: 10px;
+		padding-bottom: 10px;
+		padding-right: 10px;
+
+		border-radius: 7px;
+		margin-bottom: 25px;
+
+		/*background-color: #F9F9F9;*/
+		background-color: #F1F1F1;
+
+		font-size: 13px;
+		font-weight: 200;
+
+		text-align: left;
+	}
+
+	.feeds h2{
+		padding-top: 7px;
+		font-size: 14px;
+	}
+
+	.feeds p{
+		padding-top: 10px;
+	}
+
+	.feeds a{
+		text-decoration:none;
+		color: #1D2B3D;
+	}
+
+	.feeds ul{
+		padding-left: 0px;
+	}
+
+	.feeds li{
+		list-style: none;
+		margin-bottom: 5px;
+	}
+	
+	.feedTime {
+		font-style: normal;
+		font-size: .8em;
+		margin-left: 5px;
+	}
+
+	#twitter{
+		font-size: 13px;
+		font-weight: 300;
+	}
+	
+	#twitter a{
+		font-style: italic;
+		font-size: 13px;
+		font-weight: 200;
+		text-decoration:none;
+		color: #4E5D7F;
+	}
+
+	#twitter a:hover{
+		color: #18806A;
+	}
+
+	#wordpress a{
+		font-size: 13px;
+		font-weight: 300;
+		text-decoration:none;
+		color: #4E5D7F;
+	}
+
+	#wordpress a:hover{
+		color: #18806A;
+	}
+
+	#github{
+		font-size: 13px;
+		font-weight: 200;
+	}
+
+	#github a{
+		font-size: 13px;
+		font-weight: 300;
+		text-decoration:none;
+		color: #4E5D7F;
+	}
+
+	#github a:hover{
+		color: #18806A;
+	}
+
+	/*	CONTENT
+	--------------------------------------*/
+	.content{
+		margin-left: 40px;
+		/*clear: both;*/
+
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight: 300;
+		font-size: 13px; 
+		text-align: justify;
+
+		color: #666666; 
+		width: 575px;
+	}
+
+	.content a{
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight: 300;
+		font-size: 13px;
+		color: #4E5D7F; 
+		text-decoration:none;
+	}
+
+	.content a:hover{
+		color: #18806A;
+	}
+
+	.roundPhoto{
+		border-radius: 10px;
+	}
+
+	.roundPhotoTh{
+		border-radius: 7px;
+		opacity:1.0;
+		filter:alpha(opacity=100);
+	}
+
+	.roundPhotoTh:hover{
+		opacity:0.7;
+		filter:alpha(opacity=70);
+	}
+
+	.cita{
+		width: 575px;
+		
+		margin-top: 20px;
+		margin-bottom: 20px;
+
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight: 200;
+		font-size: 14px; 
+		text-align: right;
+
+		color: #666666; 
+	}
+
+	.item{
+		margin-bottom:25px;
+	}
+	.item p{
+		margin-top: 5px;
+	}
+
+	/*	FOOTER
+	-----------------------------------*/
+	footer{
+		clear: both;
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight: 200;
+		text-align: right; 
+		font-size: 12px;
+
+		color: #222222; 
+	}
+
+	footer img{
+		position: fixed;
+	}
