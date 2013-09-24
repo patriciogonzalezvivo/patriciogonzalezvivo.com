@@ -47,7 +47,9 @@
 			<p>The invitation is to alternate the perception between the micro and the macro scale to discover the complexity and richness of the world around us, as well as to realize our participation and responsibility in this whole.</p>
 		</article>
 		
+		<div class="video-container">
 			<iframe src="http://player.vimeo.com/video/32321634?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		</div>
 		<article>
 			<p>Spacial thanks to:</p>
 			<p>- CCEBA coordinators and jury: Emiliano Causa, Matias Romero Costas and Federico Joselevich</p>

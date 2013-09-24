@@ -24,7 +24,9 @@
 		<article>
 			<p><strong>Communitas</strong> is an interactive multiTouch table made using openFrameworks and TUIO protocol. It invites people to create collective drawings. Its goal is to allow people to explore the dynamic process of co-creation with an emphasis on the core value of respecting individual differences.</p>
 		</article>
-		<iframe src="http://player.vimeo.com/video/15171352?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		<div class="video-container">
+			<iframe src="http://player.vimeo.com/video/15171352?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		</div>
 		<div>
 			<a href="http://www.espacioft.org.ar/"><img src="sponsor.jpg" alt="sponsor"/></a>
 		</div>

@@ -4,7 +4,9 @@
 
 	<!-- CONTENT -->
 	<section class="content">
-		<iframe src="http://player.vimeo.com/video/47666704?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		<div class="video-container">
+			<iframe src="http://player.vimeo.com/video/47666704?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		</div>
 		<article>
 			<p>Within our contemporary culture of play, we see the coexistence of our traditional games inheritance with cutting-edge technology. This rich encounter between the past and the “future” raises new and exciting questions about how we play and what kind of role playing has in our society.</p> 
 

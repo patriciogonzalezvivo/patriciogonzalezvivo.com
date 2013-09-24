@@ -4,8 +4,9 @@
 
 	<!-- CONTENT -->
 	<section class="content">
-	
-		<iframe width="575" height="323" src="//www.youtube.com/embed/OjUmM_4xAy8" frameborder="0" allowfullscreen></iframe>
+		<div class="video-container">
+			<iframe width="575" height="323" src="//www.youtube.com/embed/OjUmM_4xAy8" frameborder="0" allowfullscreen></iframe>
+		</div>
 		
 		<article>
 			<p>Serial client for Arduino's Firmware that reads <a href="http://pulsesensor.myshopify.com/" target="_blank">PulseSensor</a>. It was develop by Joel Murphy and Yury Gitman.</p>

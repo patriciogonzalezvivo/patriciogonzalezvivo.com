@@ -5,7 +5,9 @@
 	<!-- CONTENT -->
 	<section class="content">
 		
-		<iframe width="575" height="382" src="//www.youtube.com/embed/xJjbo71Wje4" frameborder="0" allowfullscreen></iframe>
+		<div class="video-container">
+         	<iframe src="//www.youtube.com/embed/xJjbo71Wje4" frameborder="0" width="575" height="382" allowfullscreen></iframe>
+        </div>
 		
 		<article>
 			<p><strong>FlatLand</strong> is a collaborative with <a href="https://github.com/ofZach/projectGeneratorSimple" target ="_blank">Zachary Lieberman</a> and <a href="http://ryanstaake.com/" target="_blank">Ryan Staake </a> for <a href="http://www.eyebeam.org/projects/new-cinema-the-future-of-digital-storytelling" target="_blank">EyeBeam Hackathon "New Cinema" Dic 2012</a> </p>

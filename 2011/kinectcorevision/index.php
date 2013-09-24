@@ -4,7 +4,9 @@
 
 	<!-- CONTENT -->
 	<section class="content">
-		<iframe class="roundPhoto" src="http://player.vimeo.com/video/20904879?autoplay=1" width="575" height="359" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		<div class="video-container">
+			<iframe class="roundPhoto" src="http://player.vimeo.com/video/20904879?autoplay=1" width="575" height="359" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		</div>
 		<article>
 			<p><strong>KinectCoreVision</strong> Modd version of the well know track application CommunityCoreVision for Kinect and 3D cameras using OpenNI drivers.</p>
 			<p>This version of CCV was original designed for a light and portable setup of Communias multiTouch Table for IEATA´s 9th International Conference ( more info and videos about it ). But it was lot of potencial. Fell free to download the code and make your own improvements:</p>

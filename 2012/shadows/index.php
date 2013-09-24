@@ -7,9 +7,9 @@
 		<!-- <div id="myslides">
 			<img class="roundPhoto" src="01.jpg" />
 		</div> -->
-		<article>
+		<div class="video-container">
 			<iframe src="http://player.vimeo.com/video/41256563?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-		</article>
+		</div>
 		<article class="cita">
 			<p>Some games require very few elements even just another person to play with.</p> 
 			<p>Playing with shadows is one of the oldest pastimes we have. It is the ancestor of the TV, film and theater. The shadows of our hands can create fantastic worlds. We just need a light source and our imagination.</p>

@@ -4,7 +4,9 @@
 
 	<!-- CONTENT -->
 	<section class="content">
-		<iframe src="http://player.vimeo.com/video/66371233" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		<div class="video-container">
+			<iframe src="http://player.vimeo.com/video/66371233" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		</div>
 		
 		<article>
 			<p>Devices doesn't only shape our perception, they affect our behavior and through that, our relationship to nature. At the end, the crudeness of our intentions are exposed. We will see how this process hides a true desire of own and control that lead to the breaking of that we use to observe with wonder and admiration.</p>
