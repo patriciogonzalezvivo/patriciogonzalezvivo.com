@@ -94,6 +94,9 @@ footer{
 	}
 }
 
+//	Responsive Design
+//
+
 @media only screen and (max-width : ($content_width+$sidebar_width) ) {
 	#sidebar {
 		display: none;
