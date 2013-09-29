@@ -8,6 +8,7 @@
 		<div>
 			<img src="images/about_picture.jpg" alt="Picture of Me" class="roundPhoto">
 		</div>
+		
 		<article class="cita">
 			<p><i>"If I can provide a certain type of relationship, the other person will discover within himself the capacity to use that relationship for growth and change, and personal development will occur."</i></p>
 			<p>(Carl Rogers, 1961)</p>
@@ -15,6 +16,7 @@
 
 		<article>
 			<p><strong>Patricio Gonzalez Vivo</strong> is an MFA Design & Technology candidate at Parsons the New School for Design in New York as well as a clinical psychologist specializing in nonverbal expressive art therapies. He focuses on bringing cutting-edge technologies to spaces where creativity and playing can transform people.</p>
+		</article>
 
 		<div>
 			<img src="images/qrcode.jpg" style="float:right;padding-top:100px;" alt="qrcode">

@@ -3,7 +3,14 @@
 #sidebar{
 	float:right;
 	position: relative;
-	width:$sidebar_width;		
+	width:$sidebar_width;
+	height:100%;	
+}
+
+.twitter-timeline{
+	data-link-color:$wolf_blue;
+	data-chrome:"noborders transparent";
+	height:100%;
 }
 
 //	FEEDS

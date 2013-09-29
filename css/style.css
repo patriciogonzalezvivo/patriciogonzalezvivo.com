@@ -17,7 +17,13 @@
 #sidebar {
   float: right;
   position: relative;
-  width: 300px; }
+  width: 300px;
+  height: 100%; }
+
+.twitter-timeline {
+  data-link-color: #4e5d7f;
+  data-chrome: "noborders transparent";
+  height: 100%; }
 
 .feeds {
   background-color: #f1f1f1;
