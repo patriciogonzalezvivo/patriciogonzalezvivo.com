@@ -20,6 +20,23 @@ body{
 .content{
 	width: $content_width;
 	
+	.item{
+		transition: all 400ms cubic-bezier(0.240, 1, 0.735, 1);
+		-webkit-transform:translate(0,20%);
+		
+		-webkit-transition: opacity 700 ms ease-in-out;
+		-webkit-opacity: 0;
+		
+		&.is-active {
+			-webkit-transform:translate(0,0);
+			-webkit-opacity: 1;
+		}
+		
+		&:hover {
+			-webkit-opacity: 0.6;
+		}
+	}	
+	
 	.video-container{
 		position: relative;
 		padding-bottom: 56.25%;
@@ -53,13 +70,6 @@ body{
 
 .roundPhotoTh{
 	border-radius: 7px;
-	opacity:1.0;
-	filter:alpha(opacity=100);
-	
-	&:hover{
-		opacity:0.7;
-		filter:alpha(opacity=70);
-	}
 }
 
 
@@ -148,10 +158,12 @@ footer{
 	
 	.roundPhoto{
 		width: 100%;
+		border-radius: 30px;
 	}
 
 	.roundPhotoTh{
 		width: 100%;
+		border-radius: 15px;
 	}
 }
 

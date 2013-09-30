@@ -25,40 +25,60 @@
   data-chrome: "noborders transparent";
   height: 100%; }
 
-.feeds {
-  background-color: #f1f1f1;
-  position: relative;
-  top: -13px;
-  padding-top: 0px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  border-radius: 7px;
-  margin-bottom: 25px;
-  font-size: 0.8rem;
-  font-weight: 200;
-  text-align: left; }
-  .feeds h2 {
-    font-size: 0.9rem;
-    padding-top: 7px; }
-  .feeds p {
-    padding-top: 10px; }
-  .feeds a {
-    text-decoration: none;
-    color: #4e5d7f; }
-    .feeds a:hover {
-      color: #188069; }
-  .feeds ul {
-    padding-left: 0px; }
-  .feeds li {
-    list-style: none;
-    margin-bottom: 5px; }
+/*
+.feeds{
+	background-color: $chok_white;
+	
+	position: relative;
+	top:-13px;
 
+	padding-top: 0px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	padding-right: 10px;
+
+	border-radius: 7px;
+	margin-bottom: 25px;
+
+	font-size: 0.8rem;
+	font-weight: 200;
+	text-align: left;
+	
+	h2{
+		font-size: 0.9rem;
+		padding-top: 7px;
+	}
+	
+	p{
+		padding-top: 10px;
+	}
+	
+	a{
+		text-decoration:none;
+		color: $wolf_blue;
+		
+		&:hover{
+			color: $pale_green;
+		}
+	}
+	
+	ul{
+		padding-left: 0px;
+	}
+	
+	li{
+		list-style: none;
+		margin-bottom: 5px;
+	}
+}
+*/
+/*
 .feedTime {
-  font-style: normal;
-  font-size: .8em;
-  margin-left: 5px; }
-
+	font-style: normal;
+	font-size: .8em;
+	margin-left: 5px;
+}
+*/
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
@@ -74,6 +94,16 @@ body {
 
 .content {
   width: 575px; }
+  .content .item {
+    transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1);
+    -webkit-transform: translate(0, 20%);
+    -webkit-transition: opacity 700 ms ease-in-out;
+    -webkit-opacity: 0; }
+    .content .item.is-active {
+      -webkit-transform: translate(0, 0);
+      -webkit-opacity: 1; }
+    .content .item:hover {
+      -webkit-opacity: 0.6; }
   .content .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -96,12 +126,7 @@ body {
   border-radius: 10px; }
 
 .roundPhotoTh {
-  border-radius: 7px;
-  opacity: 1.0;
-  filter: alpha(opacity=100); }
-  .roundPhotoTh:hover {
-    opacity: 0.7;
-    filter: alpha(opacity=70); }
+  border-radius: 7px; }
 
 .cita {
   width: 575px;
@@ -160,10 +185,12 @@ footer {
     width: 100%; }
 
   .roundPhoto {
-    width: 100%; }
+    width: 100%;
+    border-radius: 30px; }
 
   .roundPhotoTh {
-    width: 100%; } }
+    width: 100%;
+    border-radius: 15px; } }
 @media only screen and (device-width: 768px) {
   /* default iPad screens */ }
 /* different techniques for iPad screening */
