@@ -104,6 +104,8 @@ body {
       -webkit-opacity: 1; }
     .content .item:hover {
       -webkit-opacity: 0.6; }
+    .content .item p {
+      margin-top: 0px; }
   .content .video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -116,28 +118,22 @@ body {
       left: 0;
       width: 100%;
       height: 100%; }
+  .content .roundPhoto {
+    border-radius: 10px; }
+  .content .roundPhotoTh {
+    border-radius: 7px; }
+  .content .cita {
+    width: 575px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 200;
+    font-size: 1.0rem;
+    text-align: right;
+    color: #666666; }
   .content a {
     color: #188069;
     text-decoration: none; }
     .content a:hover {
       color: #188069; }
-
-.roundPhoto {
-  border-radius: 10px; }
-
-.roundPhotoTh {
-  border-radius: 7px; }
-
-.cita {
-  width: 575px;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 200;
-  font-size: 1.0rem;
-  text-align: right;
-  color: #666666; }
-
-.item p {
-  margin-top: 0px; }
 
 footer {
   clear: both;

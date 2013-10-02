@@ -35,7 +35,15 @@ body{
 		&:hover {
 			-webkit-opacity: 0.6;
 		}
+		
+		p{
+			margin-top: 0px;
+		}
 	}	
+	
+	#myslides{
+		
+	}
 	
 	.video-container{
 		position: relative;
@@ -52,6 +60,29 @@ body{
 		
 	}
 	
+	//	RoundPhoto
+	//
+	.roundPhoto{
+		border-radius: 10px;
+	}
+	
+	.roundPhotoTh{
+		border-radius: 7px;
+	}
+
+
+	.cita{
+		width: $content_width;
+
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight: 200;
+		font-size: 1.0rem;//14px; 
+		text-align: right;
+
+		color: $soft_gray; 
+	}
+
+			
 	a{
 		color: $pale_green;
 		text-decoration:none;
@@ -62,33 +93,6 @@ body{
 	}
 }
 
-//	RoundPhoto
-//
-.roundPhoto{
-	border-radius: 10px;
-}
-
-.roundPhotoTh{
-	border-radius: 7px;
-}
-
-
-.cita{
-	width: $content_width;
-
-	font-family: 'Source Sans Pro', sans-serif;
-	font-weight: 200;
-	font-size: 1.0rem;//14px; 
-	text-align: right;
-
-	color: $soft_gray; 
-}
-
-.item{
-	p{
-		margin-top: 0px;
-	}
-}
 
 footer{
 	clear: both;
@@ -104,7 +108,7 @@ footer{
 	}
 }
 
-//	Responsive Design
+//	------------------------------------ Responsive Design
 //
 
 @media only screen and (max-width : ($content_width+$sidebar_width) ) {
@@ -122,8 +126,7 @@ footer{
 	
 	.cita{
 		width: 100%;
-	}
-	
+	}	
 }
 
 /* styles for mobile browsers smaller than 480px; (iPhone) */
