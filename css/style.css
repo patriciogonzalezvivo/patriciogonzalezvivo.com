@@ -119,7 +119,18 @@ body {
       width: 100%;
       height: 100%; }
   .content .roundPhoto {
-    border-radius: 10px; }
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden; }
+  .content .roundPhotoFront {
+    /*
+    		-webkit-transition: opacity 1s ease-in-out;
+    		-moz-transition: opacity 1s ease-in-out;
+    		-o-transition: opacity 1s ease-in-out;
+    		transition: opacity 1s ease-in-out;
+    */
+    opacity: 1;
+    visibility: visible; }
   .content .roundPhotoTh {
     border-radius: 7px; }
   .content .cita {
@@ -145,18 +156,25 @@ footer {
   footer img {
     position: fixed; }
 
-@media only screen and (max-width: 875px) {
-  #sidebar {
-    display: none; }
-
-  #wrapper {
-    width: 575px; }
-
-  .content {
-    width: 100%; }
-
-  .cita {
-    width: 100%; } }
+/*
+@media only screen and (max-width : ($content_width+$sidebar_width) ) {
+	#sidebar {
+		display: none;
+	} 
+	
+	#wrapper {
+		width: $content_width;
+	} 
+	
+	.content{
+		width: 100%;
+	}
+	
+	.cita{
+		width: 100%;
+	}	
+}
+*/
 /* styles for mobile browsers smaller than 480px; (iPhone) */
 @media only screen and (max-device-width: 480px) {
   #menu_text {

@@ -64,6 +64,19 @@ body{
 	//
 	.roundPhoto{
 		border-radius: 10px;
+		opacity:0;
+		visibility: hidden;
+	}
+	
+	.roundPhotoFront{
+/*
+		-webkit-transition: opacity 1s ease-in-out;
+		-moz-transition: opacity 1s ease-in-out;
+		-o-transition: opacity 1s ease-in-out;
+		transition: opacity 1s ease-in-out;
+*/
+		opacity: 1;
+		visibility: visible;	
 	}
 	
 	.roundPhotoTh{
@@ -111,6 +124,7 @@ footer{
 //	------------------------------------ Responsive Design
 //
 
+/*
 @media only screen and (max-width : ($content_width+$sidebar_width) ) {
 	#sidebar {
 		display: none;
@@ -128,6 +142,7 @@ footer{
 		width: 100%;
 	}	
 }
+*/
 
 /* styles for mobile browsers smaller than 480px; (iPhone) */
 @media only screen and (max-device-width:480px){
