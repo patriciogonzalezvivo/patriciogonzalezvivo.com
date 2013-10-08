@@ -10,8 +10,8 @@ echo '
 		<meta name="keywords" content="openFrameworks, expressive, arts, creative, connection, therapy" />
 		<meta name="description" content="Patricio Gonzalez Vivo is MFA Design and Technology Candidate at Parsons and clinical psychologist specializing in nonverbal expressive therapies focused on bringing cutting edge technologies to spaces where creativity and playing can bring transformation to people." />
 		
-		<link href="http://patriciogonzalezvivo.com/ico.gif" rel="shortcut icon"  />
-		<link href="http://patriciogonzalezvivo.com/css/style.css" rel="stylesheet" />
+		<link href="/ico.gif" rel="shortcut icon"  />
+		<link href="/css/style.css" rel="stylesheet" />
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic" rel="stylesheet" type="text/css">
 		
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -35,8 +35,3 @@ echo '
 		<div id="wrapper">
 	';
 ?>	
-
-<!--
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-		<script type="text/javascript" src="http://malsup.github.com/jquery.cycle.all.js"></script>
--->

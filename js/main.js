@@ -2,7 +2,7 @@
 //
 var counter=0;
 var items=document.getElementsByClassName("item");
-var images=document.getElementById("myslides").getElementsByClassName("roundPhoto");
+var images=[];
 
 //	Avtivate Next Item
 //
@@ -18,41 +18,31 @@ function activateNext(){
 //
 function slideNext(){
 	if (counter < images.length ){
-		//	Hide privius
+		//	Hide previus
 		//
 		var previus = (counter==0)?images.length-1:counter-1;
 		images[previus].classList.remove("roundPhotoFront");
-		console.log("Poping: "+ images[previus]) ;
 		
 		//	Show Current
 		//
 		images[counter].classList.toggle("roundPhotoFront");
-		console.log("Pushing: " + images[counter]);
 
+		document.getElementById("myslides").style.height =  images[counter].height+"px" ;
 		counter++;	
 	} else {
 		counter=0;
 	}
 }
 
-//	Main Functions
+//	MENU or PROJECT
 //
-if ( items.length > 0 ){	
-	//	Animate Menu Page
-	//
+if ( items.length > 0 ){
    	setInterval( activateNext ,200);
 } else {
-	//	Animate Project Page
-	//
-	setInterval( slideNext ,300);
-	
-	/*
-//	JQuerry Slides
-	$("#myslides").cycle({
-		speed: 2000,
-		timeout: 3000
-	});
-*/
+	images=document.getElementById("myslides").getElementsByTagName("img");
+	images[images.length-1].classList.toggle("roundPhotoFront");
+	document.getElementById("myslides").style.height =  images[counter].height+"px" ;
+	setInterval( slideNext ,3000);
 }
 
 //	Tweeter Widget

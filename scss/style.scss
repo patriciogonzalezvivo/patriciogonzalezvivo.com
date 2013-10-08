@@ -23,7 +23,6 @@ body{
 	.item{
 		transition: all 400ms cubic-bezier(0.240, 1, 0.735, 1);
 		-webkit-transform:translate(0,20%);
-		
 		-webkit-transition: opacity 700 ms ease-in-out;
 		-webkit-opacity: 0;
 		
@@ -60,29 +59,30 @@ body{
 		
 	}
 	
-	//	RoundPhoto
-	//
-	.roundPhoto{
+	#myslides{
 		border-radius: 10px;
-		opacity:0;
-		visibility: hidden;
+		position:relative;
+		margin:0 auto;
+		transition: all 400ms cubic-bezier(0.240, 1, 0.735, 1);
+		
+		.roundPhoto{
+			border-radius: 10px;
+			position:absolute;
+			left:0;	
+			-webkit-transition: opacity 1s ease-in-out;
+			-webkit-opacity: 0;
+			
+			&.roundPhotoFront{
+				-webkit-opacity: 1;
+			}
+		}
 	}
 	
-	.roundPhotoFront{
-/*
-		-webkit-transition: opacity 1s ease-in-out;
-		-moz-transition: opacity 1s ease-in-out;
-		-o-transition: opacity 1s ease-in-out;
-		transition: opacity 1s ease-in-out;
-*/
-		opacity: 1;
-		visibility: visible;	
-	}
+	
 	
 	.roundPhotoTh{
 		border-radius: 7px;
 	}
-
 
 	.cita{
 		width: $content_width;
@@ -106,7 +106,6 @@ body{
 	}
 }
 
-
 footer{
 	clear: both;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -124,7 +123,6 @@ footer{
 //	------------------------------------ Responsive Design
 //
 
-/*
 @media only screen and (max-width : ($content_width+$sidebar_width) ) {
 	#sidebar {
 		display: none;
@@ -142,7 +140,6 @@ footer{
 		width: 100%;
 	}	
 }
-*/
 
 /* styles for mobile browsers smaller than 480px; (iPhone) */
 @media only screen and (max-device-width:480px){
@@ -173,6 +170,7 @@ footer{
 	.cita{
 		width: 100%;
 	}
+	
 	
 	.roundPhoto{
 		width: 100%;
