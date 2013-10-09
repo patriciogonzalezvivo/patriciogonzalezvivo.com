@@ -39,10 +39,14 @@ function slideNext(){
 if ( items.length > 0 ){
    	setInterval( activateNext ,200);
 } else {
-	images=document.getElementById("myslides").getElementsByTagName("img");
-	images[images.length-1].classList.toggle("roundPhotoFront");
-	document.getElementById("myslides").style.height =  images[counter].height+"px" ;
-	setInterval( slideNext ,3000);
+	var mySlides = document.getElementById("myslides");
+	
+	if ( mySlides != null ){
+		images=mySlides.getElementsByTagName("img");
+		images[images.length-1].classList.toggle("roundPhotoFront");
+		document.getElementById("myslides").style.height =  images[counter].height+"px" ;
+		setInterval( slideNext ,3000);
+	}
 }
 
 //	Tweeter Widget
