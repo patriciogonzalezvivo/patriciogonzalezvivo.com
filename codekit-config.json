@@ -111,15 +111,15 @@
       "initialSize" : 92236,
       "fileType" : 4096
     },
-    "\/2010\/communitas\/sponsor.jpg" : {
+    "\/2012\/shellinitiation\/04.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/communitas\/sponsor.jpg",
+      "inputAbbreviatedPath" : "\/2012\/shellinitiation\/04.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/communitas\/sponsor.jpg",
-      "initialSize" : 8990,
+      "outputAbbreviatedPath" : "\/2012\/shellinitiation\/04.jpg",
+      "initialSize" : 87061,
       "fileType" : 4096
     },
     "\/2012\/efectomariposa\/sponsor.jpg" : {
@@ -133,15 +133,15 @@
       "initialSize" : 27111,
       "fileType" : 4096
     },
-    "\/2010\/calos\/53.jpg" : {
+    "\/2011\/ofxfx\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/53.jpg",
+      "inputAbbreviatedPath" : "\/2011\/ofxfx\/thumb.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/53.jpg",
-      "initialSize" : 56809,
+      "outputAbbreviatedPath" : "\/2011\/ofxfx\/thumb.jpg",
+      "initialSize" : 65717,
       "fileType" : 4096
     },
     "\/2011\/efectomariposa\/24.jpg" : {
@@ -177,26 +177,26 @@
       "initialSize" : 63389,
       "fileType" : 4096
     },
-    "\/2011\/ofxfx\/thumb.jpg" : {
+    "\/2010\/calos\/35.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/ofxfx\/thumb.jpg",
+      "inputAbbreviatedPath" : "\/2010\/calos\/35.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/ofxfx\/thumb.jpg",
-      "initialSize" : 65717,
+      "outputAbbreviatedPath" : "\/2010\/calos\/35.jpg",
+      "initialSize" : 63041,
       "fileType" : 4096
     },
-    "\/2011\/eden\/thumb.jpg" : {
+    "\/2010\/communitas\/sponsor.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/eden\/thumb.jpg",
+      "inputAbbreviatedPath" : "\/2010\/communitas\/sponsor.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/eden\/thumb.jpg",
-      "initialSize" : 29821,
+      "outputAbbreviatedPath" : "\/2010\/communitas\/sponsor.jpg",
+      "initialSize" : 8990,
       "fileType" : 4096
     },
     "\/2012\/eden\/05.jpg" : {
@@ -232,15 +232,15 @@
       "initialSize" : 61878,
       "fileType" : 4096
     },
-    "\/2012\/shellinitiation\/04.jpg" : {
+    "\/2010\/calos\/17.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/shellinitiation\/04.jpg",
+      "inputAbbreviatedPath" : "\/2010\/calos\/17.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/shellinitiation\/04.jpg",
-      "initialSize" : 87061,
+      "outputAbbreviatedPath" : "\/2010\/calos\/17.jpg",
+      "initialSize" : 59173,
       "fileType" : 4096
     },
     "\/2010\/calos\/08.jpg" : {
@@ -254,26 +254,26 @@
       "initialSize" : 68833,
       "fileType" : 4096
     },
-    "\/2010\/calos\/17.jpg" : {
+    "\/2011\/eden\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/17.jpg",
+      "inputAbbreviatedPath" : "\/2011\/eden\/thumb.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/17.jpg",
-      "initialSize" : 59173,
+      "outputAbbreviatedPath" : "\/2011\/eden\/thumb.jpg",
+      "initialSize" : 29821,
       "fileType" : 4096
     },
-    "\/2010\/calos\/35.jpg" : {
+    "\/2010\/calos\/53.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/35.jpg",
+      "inputAbbreviatedPath" : "\/2010\/calos\/53.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/35.jpg",
-      "initialSize" : 63041,
+      "outputAbbreviatedPath" : "\/2010\/calos\/53.jpg",
+      "initialSize" : 56809,
       "fileType" : 4096
     },
     "\/addons.php" : {
@@ -390,17 +390,6 @@
       "initialSize" : 70966,
       "fileType" : 4096
     },
-    "\/2010\/calos\/thumb1.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/thumb1.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/thumb1.jpg",
-      "initialSize" : 40656,
-      "fileType" : 4096
-    },
     "\/2011\/efectomariposa\/20.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -410,6 +399,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2011\/efectomariposa\/20.jpg",
       "initialSize" : 70366,
+      "fileType" : 4096
+    },
+    "\/2010\/calos\/thumb1.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/calos\/thumb1.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/thumb1.jpg",
+      "initialSize" : 40656,
       "fileType" : 4096
     },
     "\/2010\/calos\/index.php" : {
@@ -441,17 +441,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2010\/communitas\/07.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/communitas\/07.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/communitas\/07.jpg",
-      "initialSize" : 60278,
-      "fileType" : 4096
-    },
     "\/2012\/eden\/04.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -461,6 +450,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2012\/eden\/04.jpg",
       "initialSize" : 71114,
+      "fileType" : 4096
+    },
+    "\/2010\/communitas\/07.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/communitas\/07.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/communitas\/07.jpg",
+      "initialSize" : 60278,
       "fileType" : 4096
     },
     "\/2010\/calos\/55.jpg" : {
@@ -485,15 +485,15 @@
       "initialSize" : 41617,
       "fileType" : 4096
     },
-    "\/2013\/clouds\/thumb2.jpg" : {
+    "\/2010\/calos\/46.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2013\/clouds\/thumb2.jpg",
+      "inputAbbreviatedPath" : "\/2010\/calos\/46.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2013\/clouds\/thumb2.jpg",
-      "initialSize" : 23571,
+      "outputAbbreviatedPath" : "\/2010\/calos\/46.jpg",
+      "initialSize" : 74701,
       "fileType" : 4096
     },
     "\/scss\/globals.scss" : {
@@ -508,15 +508,15 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/2010\/calos\/46.jpg" : {
+    "\/2010\/calos\/37.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/46.jpg",
+      "inputAbbreviatedPath" : "\/2010\/calos\/37.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/46.jpg",
-      "initialSize" : 74701,
+      "outputAbbreviatedPath" : "\/2010\/calos\/37.jpg",
+      "initialSize" : 62334,
       "fileType" : 4096
     },
     "\/2013\/ofxpulsesensor\/index.php" : {
@@ -539,15 +539,15 @@
       "initialSize" : 67903,
       "fileType" : 4096
     },
-    "\/2010\/calos\/37.jpg" : {
+    "\/2013\/clouds\/thumb2.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/37.jpg",
+      "inputAbbreviatedPath" : "\/2013\/clouds\/thumb2.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/37.jpg",
-      "initialSize" : 62334,
+      "outputAbbreviatedPath" : "\/2013\/clouds\/thumb2.jpg",
+      "initialSize" : 23571,
       "fileType" : 4096
     },
     "\/2010\/calos\/19.jpg" : {
@@ -678,17 +678,6 @@
       "initialSize" : 27547,
       "fileType" : 4096
     },
-    "\/2012\/shadows\/01.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/shadows\/01.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/shadows\/01.jpg",
-      "initialSize" : 43458,
-      "fileType" : 4096
-    },
     "\/2012\/ofxinteractivesurface\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -717,8 +706,19 @@
       "inputAbbreviatedPath" : "\/js\/main.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/main-ck.js",
+      "outputAbbreviatedPath" : "\/js\/main.min.js",
       "fileType" : 64
+    },
+    "\/2012\/shadows\/01.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/shadows\/01.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2012\/shadows\/01.jpg",
+      "initialSize" : 43458,
+      "fileType" : 4096
     },
     "\/2010\/communitas\/06.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -952,6 +952,17 @@
       "initialSize" : 78153,
       "fileType" : 4096
     },
+    "\/2010\/calos\/21.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/calos\/21.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/21.jpg",
+      "initialSize" : 69949,
+      "fileType" : 4096
+    },
     "\/scss\/style.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -964,17 +975,6 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/2012\/efectomariposa\/01.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/efectomariposa\/01.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/efectomariposa\/01.jpg",
-      "initialSize" : 47863,
-      "fileType" : 4096
-    },
     "\/2010\/calos\/12.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -986,14 +986,16 @@
       "initialSize" : 64767,
       "fileType" : 4096
     },
-    "\/2013\/avsys\/index.php" : {
+    "\/js\/libs\/three.min.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2013\/avsys\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/js\/libs\/three.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/js\/libs\/three.min.min.js",
+      "fileType" : 64
     },
     "\/2010\/calos\/03.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1006,15 +1008,24 @@
       "initialSize" : 58560,
       "fileType" : 4096
     },
-    "\/2010\/calos\/21.jpg" : {
+    "\/2013\/avsys\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/21.jpg",
+      "inputAbbreviatedPath" : "\/2013\/avsys\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/2012\/efectomariposa\/01.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/efectomariposa\/01.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/21.jpg",
-      "initialSize" : 69949,
+      "outputAbbreviatedPath" : "\/2012\/efectomariposa\/01.jpg",
+      "initialSize" : 47863,
       "fileType" : 4096
     },
     "\/2012\/ofplay\/index.php" : {
@@ -1034,17 +1045,6 @@
       "inputAbbreviatedPath" : "\/tools.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/js\/libs\/suncalc\/test.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/libs\/suncalc\/test.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/libs\/suncalc\/test-ck.js",
-      "fileType" : 64
     },
     "\/2011\/ofxfx\/filter3.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1077,21 +1077,21 @@
       "initialSize" : 13744,
       "fileType" : 8192
     },
-    "\/2009\/joyoflight\/index.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2009\/joyoflight\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/2007\/usal\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/2007\/usal\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/2009\/joyoflight\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2009\/joyoflight\/index.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -1203,16 +1203,16 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/images\/tutoriales\/array1.png" : {
+    "\/2012\/oca\/sponsor.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/tutoriales\/array1.png",
+      "inputAbbreviatedPath" : "\/2012\/oca\/sponsor.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/tutoriales\/array1.png",
-      "initialSize" : 12917,
-      "fileType" : 8192
+      "outputAbbreviatedPath" : "\/2012\/oca\/sponsor.jpg",
+      "initialSize" : 7846,
+      "fileType" : 4096
     },
     "\/2011\/ofxfx\/filter2.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1225,16 +1225,16 @@
       "initialSize" : 78373,
       "fileType" : 8192
     },
-    "\/2012\/oca\/sponsor.jpg" : {
+    "\/images\/tutoriales\/array1.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/oca\/sponsor.jpg",
+      "inputAbbreviatedPath" : "\/images\/tutoriales\/array1.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/oca\/sponsor.jpg",
-      "initialSize" : 7846,
-      "fileType" : 4096
+      "outputAbbreviatedPath" : "\/images\/tutoriales\/array1.png",
+      "initialSize" : 12917,
+      "fileType" : 8192
     },
     "\/2010\/calos\/59.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1258,13 +1258,13 @@
     },
     "\/js\/data\/Constellations.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/js\/data\/Constellations.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/data\/Constellations-ck.js",
+      "outputAbbreviatedPath" : "\/js\/data\/Constellations.min.js",
       "fileType" : 64
     },
     "\/images\/tutoriales\/kandinsky.jpg" : {
@@ -1388,17 +1388,6 @@
       "initialSize" : 35455,
       "fileType" : 4096
     },
-    "\/js\/libs\/suncalc\/suncalc.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/libs\/suncalc\/suncalc.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/libs\/suncalc\/suncalc-ck.js",
-      "fileType" : 64
-    },
     "\/2012\/codemology\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1409,17 +1398,6 @@
       "outputAbbreviatedPath" : "\/2012\/codemology\/thumb.jpg",
       "initialSize" : 47972,
       "fileType" : 4096
-    },
-    "\/js\/main-ck.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/main-ck.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/main-ck-ck.js",
-      "fileType" : 64
     },
     "\/2013\/gearup\/index.php" : {
       "ignoreWasSetByUser" : 0,
@@ -1483,16 +1461,16 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2012\/eden\/01.jpg" : {
+    "\/2009\/up\/self.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/eden\/01.jpg",
+      "inputAbbreviatedPath" : "\/2009\/up\/self.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/eden\/01.jpg",
-      "initialSize" : 69211,
-      "fileType" : 4096
+      "outputAbbreviatedPath" : "\/2009\/up\/self.png",
+      "initialSize" : 13711,
+      "fileType" : 8192
     },
     "\/images\/tutoriales\/coordinates.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1505,16 +1483,16 @@
       "initialSize" : 6057,
       "fileType" : 8192
     },
-    "\/2009\/up\/self.png" : {
+    "\/2012\/eden\/01.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2009\/up\/self.png",
+      "inputAbbreviatedPath" : "\/2012\/eden\/01.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2009\/up\/self.png",
-      "initialSize" : 13711,
-      "fileType" : 8192
+      "outputAbbreviatedPath" : "\/2012\/eden\/01.jpg",
+      "initialSize" : 69211,
+      "fileType" : 4096
     },
     "\/images\/tutoriales\/structure004.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1810,15 +1788,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/googlebf5b513842dbd958.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/googlebf5b513842dbd958.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/2012\/ofxinteractivesurface\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1829,6 +1798,15 @@
       "outputAbbreviatedPath" : "\/2012\/ofxinteractivesurface\/thumb.jpg",
       "initialSize" : 74734,
       "fileType" : 4096
+    },
+    "\/googlebf5b513842dbd958.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/googlebf5b513842dbd958.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2011\/ofxfx\/glow.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1984,6 +1962,17 @@
       "initialSize" : 36974,
       "fileType" : 4096
     },
+    "\/js\/star-sky.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/star-sky.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/js\/star-sky.min.min.js",
+      "fileType" : 64
+    },
     "\/sidebar.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2046,6 +2035,17 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/js\/libs\/suncalc.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/libs\/suncalc.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/js\/libs\/suncalc.min.js",
+      "fileType" : 64
+    },
     "\/2011\/ofxfx\/tint.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2057,17 +2057,6 @@
       "initialSize" : 357220,
       "fileType" : 8192
     },
-    "\/2013\/avsys\/thumb.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2013\/avsys\/thumb.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2013\/avsys\/thumb.jpg",
-      "initialSize" : 8118,
-      "fileType" : 4096
-    },
     "\/2013\/clouds\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2077,6 +2066,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2013\/clouds\/thumb.jpg",
       "initialSize" : 119462,
+      "fileType" : 4096
+    },
+    "\/2013\/avsys\/thumb.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2013\/avsys\/thumb.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2013\/avsys\/thumb.jpg",
+      "initialSize" : 8118,
       "fileType" : 4096
     },
     "\/2012\/shadows\/sponsor.jpg" : {
@@ -2196,14 +2196,16 @@
       "initialSize" : 71475,
       "fileType" : 4096
     },
-    "\/2012\/oca\/index.php" : {
+    "\/2010\/calos\/38.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/oca\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/2010\/calos\/38.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/38.jpg",
+      "initialSize" : 73556,
+      "fileType" : 4096
     },
     "\/images\/tutoriales\/pasosGit.png" : {
       "ignoreWasSetByUser" : 0,
@@ -2215,6 +2217,26 @@
       "outputAbbreviatedPath" : "\/images\/tutoriales\/pasosGit.png",
       "initialSize" : 95620,
       "fileType" : 8192
+    },
+    "\/2012\/oca\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/oca\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/js\/main.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/main.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/js\/main.min.min.js",
+      "fileType" : 64
     },
     "\/2010\/calos\/29.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -2236,17 +2258,6 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2012\/ccgsm\/sponsor.jpg",
       "initialSize" : 5861,
-      "fileType" : 4096
-    },
-    "\/2010\/calos\/38.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/38.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/38.jpg",
-      "initialSize" : 73556,
       "fileType" : 4096
     },
     "\/2010\/calos\/20.jpg" : {
@@ -2346,13 +2357,24 @@
     },
     "\/js\/data\/Stars.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/js\/data\/Stars.js",
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/data\/Stars-ck.js",
+      "outputAbbreviatedPath" : "\/js\/data\/Stars.min.js",
+      "fileType" : 64
+    },
+    "\/js\/libs\/glMatrix-0.9.5.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/libs\/glMatrix-0.9.5.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/js\/libs\/glMatrix-0.9.5.min.min.js",
       "fileType" : 64
     },
     "\/2013\/ofxvoro\/thumb.jpg" : {
@@ -2365,17 +2387,6 @@
       "outputAbbreviatedPath" : "\/2013\/ofxvoro\/thumb.jpg",
       "initialSize" : 47887,
       "fileType" : 4096
-    },
-    "\/js\/libs\/glMatrix-0.9.5.min.js" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/libs\/glMatrix-0.9.5.min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/libs\/glMatrix-0.9.5.min-ck.js",
-      "fileType" : 64
     },
     "\/images\/tutoriales\/newFile.png" : {
       "ignoreWasSetByUser" : 0,
@@ -2443,15 +2454,6 @@
       "initialSize" : 76208,
       "fileType" : 4096
     },
-    "\/2012\/codemology\/index.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/codemology\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/images\/tutoriales\/gitBash.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2471,6 +2473,15 @@
       "inputAbbreviatedPath" : "\/css\/style.css",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
+    },
+    "\/2012\/codemology\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/codemology\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2007\/usal\/02.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -2721,6 +2732,17 @@
       "initialSize" : 12984,
       "fileType" : 8192
     },
+    "\/js\/star-sky.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/star-sky.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/js\/star-sky.min.js",
+      "fileType" : 64
+    },
     "\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2902,6 +2924,15 @@
       "initialSize" : 68561,
       "fileType" : 4096
     },
+    "\/2011\/iuna\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2011\/iuna\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/2010\/calos\/15.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2911,17 +2942,6 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2010\/calos\/15.jpg",
       "initialSize" : 64570,
-      "fileType" : 4096
-    },
-    "\/2009\/joyoflight\/thumb.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2009\/joyoflight\/thumb.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2009\/joyoflight\/thumb.jpg",
-      "initialSize" : 13213,
       "fileType" : 4096
     },
     "\/2010\/calos\/06.jpg" : {
@@ -2935,14 +2955,16 @@
       "initialSize" : 54655,
       "fileType" : 4096
     },
-    "\/2011\/iuna\/index.php" : {
+    "\/2009\/joyoflight\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/iuna\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/2009\/joyoflight\/thumb.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2009\/joyoflight\/thumb.jpg",
+      "initialSize" : 13213,
+      "fileType" : 4096
     },
     "\/2012\/eden\/06.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -3074,7 +3096,41 @@
     }
   },
   "manualImportLinks" : [
-
+    {
+      "type" : 1,
+      "position" : 0,
+      "linkedFileAbbreviatedPath" : "\/js\/data\/Stars.js",
+      "baseFileAbbreviatedPath" : "\/js\/star-sky.js",
+      "followForSyntaxChecking" : 1
+    },
+    {
+      "type" : 1,
+      "position" : 1,
+      "linkedFileAbbreviatedPath" : "\/js\/data\/Constellations.js",
+      "baseFileAbbreviatedPath" : "\/js\/star-sky.js",
+      "followForSyntaxChecking" : 1
+    },
+    {
+      "type" : 1,
+      "position" : 2,
+      "linkedFileAbbreviatedPath" : "\/js\/libs\/glMatrix-0.9.5.min.js",
+      "baseFileAbbreviatedPath" : "\/js\/star-sky.js",
+      "followForSyntaxChecking" : 1
+    },
+    {
+      "type" : 1,
+      "position" : 3,
+      "linkedFileAbbreviatedPath" : "\/js\/libs\/three.min.js",
+      "baseFileAbbreviatedPath" : "\/js\/star-sky.js",
+      "followForSyntaxChecking" : 1
+    },
+    {
+      "type" : 1,
+      "position" : 4,
+      "linkedFileAbbreviatedPath" : "\/js\/libs\/suncalc.js",
+      "baseFileAbbreviatedPath" : "\/js\/star-sky.js",
+      "followForSyntaxChecking" : 1
+    }
   ],
   "projectSettings" : {
     "hamlNoEscapeInAttributes" : 0,
@@ -3096,7 +3152,7 @@
     "lessStrictUnits" : 0,
     "lessStrictMath" : 0,
     "coffeeMinifyOutput" : 1,
-    "javascriptOutputSuffix" : "-ck",
+    "javascriptOutputSuffix" : ".min",
     "jadeOutputStyle" : 0,
     "coffeeAutoOutputPathStyle" : 0,
     "autoSyncProjectSettingsFile" : 1,

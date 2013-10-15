@@ -12,22 +12,22 @@ body{
 	background-color: $pure_white;
 }
 	
+.background{
+	position:absolute;
+	top:0px;
+	left:0px;
+	margin:0 auto;
+	z-index:-999;
+}
+	
 #wrapper {
 	width: ($content_width+$sidebar_width+30px);
-    margin: 0 auto;
-    z-index : 10;
+	margin: 0 auto;
+	z-index:100;
 }
 
 .content{
 	width: $content_width;
-	
-	.background{
-		position:absolute;
-		top:0px;
-		left:0px;
-		margin:0 auto;
-		z-index:-99999;
-	}
 	
 	.item{
 		transition: all 400ms cubic-bezier(0.240, 1, 0.735, 1);

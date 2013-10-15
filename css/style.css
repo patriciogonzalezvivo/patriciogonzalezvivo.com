@@ -34,19 +34,20 @@ body {
   text-align: justify;
   background-color: white; }
 
+.background {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 0 auto;
+  z-index: -999; }
+
 #wrapper {
   width: 905px;
   margin: 0 auto;
-  z-index: 10; }
+  z-index: 100; }
 
 .content {
   width: 575px; }
-  .content .background {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    margin: 0 auto;
-    z-index: -99999; }
   .content .item {
     transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1);
     -webkit-transform: translate(0, 20%);
