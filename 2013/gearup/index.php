@@ -9,16 +9,11 @@
 		</div>
 		
 		<article>
-			<p><strong>GearUp</strong> is a DataToy's part of <a href="http://www.colleenmacklin.com/projects/petlab/" target="_blanc">PetLab</a> for PRI/MPI initiative "Make it in America".</p>
-		
+			<p><strong>GearUp</strong> was created inside <a href="http://petlab.parsons.edu/" target="_blank">PetLab<a>(run by<a href="http://www.newschool.edu/parsons/" target="_blank">Parsons, New School for Design</a> and coordinated by <a href="http://www.colleenmacklin.com/" target="_blank">Colleen Macklin</a>and <a href="https://twitter.com/jofsharp" target="_blank">John Sharp</a>). </p> 
+			<p>This is experiment around working with the journalist, design, maker and open-source communities to create real change in how we understand the world call <a href="http://petlab.parsons.edu/datatoys/about/" target="_blank">DataToy</a>. The data was provide by PRI/MPI as the initiative "Make it in America" and visualized using a series of gears that to transmit in an intuitive way how hard is to get a job in United States.</p>
+			
+			<p>The code can be found at: <a href="https://github.com/PetLabDataToys/gearUp" target="_blank">[DataToy's gitHub repository]</a> </p>
 		</article>
-		
-		<!--
-http://petlab.parsons.edu/datatoys/
-		http://petlab.parsons.edu/
-		https://github.com/PetLabDataToys/gearUp
--->
-		
 	</section>
 	
 <?php include("../../footer.php"); ?>

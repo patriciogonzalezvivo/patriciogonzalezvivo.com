@@ -44,7 +44,7 @@ if ( items.length > 0 ){
 	if ( mySlides != null ){
 		images=mySlides.getElementsByTagName("img");
 		images[images.length-1].classList.toggle("roundPhotoFront");
-		document.getElementById("myslides").style.height =  images[counter].height+"px" ;
+		document.getElementById("myslides").style.height =  images[0].height+"px" ;
 		setInterval( slideNext ,3000);
 	}
 }
@@ -62,6 +62,5 @@ if ( items.length > 0 ){
 		fjs.parentNode.insertBefore(js,fjs);
 	}
 }(document,"script","twitter-wjs");
-
 
 	

@@ -3,7 +3,11 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
-			<a href="2013/naturalintentions/"><img class="roundPhotoTh" src="2013/naturalintentions/thumb.jpg" alt="ofPlay"/></a>
+			<a href="2013/clouds/"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
+			<p>2013 <strong>CLOUDS Documentary</strong>: collaboration developing Visual Systems </p>
+		</article>
+		<article class="item">
+			<a href="2013/naturalintentions/"><img class="roundPhotoTh" src="2013/naturalintentions/thumb.jpg" alt="naturalIntentions"/></a>
 			<p>2013 <strong>Natural Intentions</strong>: an exploration about optical devices and the perception of nature </p>
 		</article>
 		<article class="item">
@@ -15,7 +19,7 @@
 			<p>2013 <strong>Audio/Video Systems</strong> with <a href="http://thesystemis.com/" target="_blank">Zack Lieberman</a></p>
 		</article>
 		<article class="item">
-			<a href="2012/flatland/"><img class="roundPhotoTh" src="2012/flatland/thumb.jpg" alt="CodeMology"/></a>
+			<a href="2012/flatland/"><img class="roundPhotoTh" src="2012/flatland/thumb.jpg" alt="FlatLand"/></a>
 			<p>2012 <strong>FlatLand</strong>: for EyeBeam New Cinema Hackathon </p>
 		</article>
 		<article class="item">
@@ -23,7 +27,7 @@
 			<p>2012 <strong>Codemology</strong>: explorations between code and alquemy</p>
 		</article>
 		<article class="item">
-			<a href="2012/algo/"><img class="roundPhotoTh" src="2012/algo/thumb.jpg" alt="CodeMology"/></a>
+			<a href="2012/algo/"><img class="roundPhotoTh" src="2012/algo/thumb.jpg" alt="Algo"/></a>
 			<p>2012 <strong>Algorithmic Animation</strong> with <a href="http://thesystemis.com/" target="_blank">Zack Lieberman</a></p>
 		</article>
 		<article class="item">

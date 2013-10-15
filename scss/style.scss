@@ -15,15 +15,24 @@ body{
 #wrapper {
 	width: ($content_width+$sidebar_width+30px);
     margin: 0 auto;
+    z-index : 10;
 }
 
 .content{
 	width: $content_width;
 	
+	.background{
+		position:absolute;
+		top:0px;
+		left:0px;
+		margin:0 auto;
+		z-index:-99999;
+	}
+	
 	.item{
 		transition: all 400ms cubic-bezier(0.240, 1, 0.735, 1);
 		-webkit-transform:translate(0,20%);
-		-webkit-transition: opacity 700 ms ease-in-out;
+		-webkit-transition: opacity 70 ms ease-in-out;
 		-webkit-opacity: 0;
 		
 		&.is-active {
@@ -39,10 +48,6 @@ body{
 			margin-top: 0px;
 		}
 	}	
-	
-	#myslides{
-		
-	}
 	
 	.video-container{
 		position: relative;
@@ -77,8 +82,6 @@ body{
 			}
 		}
 	}
-	
-	
 	
 	.roundPhotoTh{
 		border-radius: 7px;
@@ -120,7 +123,7 @@ footer{
 	}
 }
 
-//	------------------------------------ Responsive Design
+//	------------------------------------ Responsive
 //
 
 @media only screen and (max-width : ($content_width+$sidebar_width) ) {
