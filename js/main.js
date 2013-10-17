@@ -49,6 +49,42 @@ if ( items.length > 0 ){
 	}
 }
 
+//	If the user have CHROME load a subtle webGL scene based on the time of the day
+//
+if (navigator.userAgent.indexOf('Chrome') != -1 && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Chrome') + 7).split(' ')[0]) >= 15){
+ 	
+ 	//	We are in Chrome
+ 	// 
+ 	if (navigator.geolocation){
+    	navigator.geolocation.getCurrentPosition(function showPosition(position){
+    	
+    		//	We know the geo-position so we can know if the user can see the stars or not
+    		//
+	    	var d = new Date();
+	    	var times = SunCalc.getTimes(d, position.coords.latitude , position.coords.longitude);
+	    	var now = d.getHours();
+	    	
+	    	if ((now>=times.sunrise.getHours())&&(now<times.sunset.getHours())){
+		    	//	DAY
+		    	//
+		    	
+	    	} else {
+		    	//	NIGHT
+		    	//
+		    	var newScript = document.createElement('script');
+		    	newScript.type = 'text/javascript';
+		    	newScript.src = '/js/star-sky.min.js';
+		    	document.getElementsByTagName('head')[0].appendChild(newScript);
+	    	}
+	  });
+    } 
+    
+} else {
+	
+	//	NO-CHROME Browser
+	//	
+}
+
 //	Tweeter Widget
 //
 !function(d,s,id){
