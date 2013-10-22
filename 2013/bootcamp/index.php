@@ -10,7 +10,7 @@
 		</div>
 		<article>
 			<p>Bootcamp Code Faculty 2013 for Parsons MFA Design&Technology program</p>
-      		<p>Check the syllabus we put together with: at Jennifer Presto, Matt Felsen, Adiel Fernandez, Ricardo Vega Mora, Owen Herterich and Anthony Marefat <a href="https://github.com/patriciogonzalezvivo/bootcamp2013_code" target="_blank">https://github.com/patriciogonzalezvivo/bootcamp2013_code</a> </p>
+      		<p> <a href="https://github.com/patriciogonzalezvivo/bootcamp2013_code" target="_blank">Check the syllabus</a> we put together with: at Jennifer Presto, Matt Felsen, Adiel Fernandez, Ricardo Vega Mora, Owen Herterich and Anthony Marefat  </p>
 		</article>
 
 		<div>

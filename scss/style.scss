@@ -74,7 +74,7 @@ body{
 			border-radius: 10px;
 			position:absolute;
 			left:0;	
-			-webkit-transition: opacity 1s ease-in-out;
+			-webkit-transition: opacity 70ms ease-in-out;
 			-webkit-opacity: 0;
 			
 			&.roundPhotoFront{
