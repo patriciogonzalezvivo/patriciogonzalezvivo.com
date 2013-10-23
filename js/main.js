@@ -57,19 +57,28 @@ if (navigator.userAgent.indexOf('Chrome') != -1 && parseFloat(navigator.userAgen
  	// 
 	var d = new Date();
 	var now = d.getHours();
-	    	
-/* 	if((now>=7)&&(now<19)){ */
+	var shader = document.getElementById('fragmentShader');    	
+	
+	if( shader != null){
+		//	This web have a shader to render
+		//
+		var newScript = document.createElement('script');
+		newScript.type = 'text/javascript';
+		newScript.src = '/js/shader.min.js';
+		document.getElementsByTagName('head')[0].appendChild(newScript);
+		
+	} else  if((now>=7)&&(now<19)){
 		//	DAY
 		//
-		    	
-/* 	} else { */
+			
+ 	} else { 
 		//	NIGHT
 		//
 		var newScript = document.createElement('script');
 		newScript.type = 'text/javascript';
 		newScript.src = '/js/star-sky.min.js';
 		document.getElementsByTagName('head')[0].appendChild(newScript);
-/* 	} */
+ 	} 
     
 } else {
 	

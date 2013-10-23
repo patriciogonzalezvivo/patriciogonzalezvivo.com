@@ -167,7 +167,7 @@ function init() {
 		var moon3Vec = vec3.create([0, 0, radius]);
 		
 		console.log("The moon is at " + moonPos.altitude);
-		console.log("My moon is at " + 215*DEG_TO_RAD + "rad ( " + Number(215*DEG_TO_RAD-moonPos.altitude) +" )");
+		console.log("My moon is at " + 215*DEG_TO_RAD );
 		mat4.identity(moonMatrix);
 		mat4.rotateX(moonMatrix, 215*DEG_TO_RAD);	//+moonPos.altitude);
 		mat4.rotateY(moonMatrix, 25*DEG_TO_RAD);	//+moonPos.azimuth);

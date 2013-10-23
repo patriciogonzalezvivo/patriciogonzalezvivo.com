@@ -127,5 +127,5 @@
 			<p>2007 - 2010 <strong>Creative Connection@</strong>: classes at School of Drama of Salvador University, Buenos Aires</p>
 		</article>
 	</section>
-	
+
 <?php include("footer.php"); ?>
