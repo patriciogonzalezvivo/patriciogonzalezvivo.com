@@ -4,32 +4,8 @@
 
 	<section class="content">
 		<article class="item">
-			<a href="2013/bootcamp/"><img class="roundPhotoTh" src="2013/bootcamp/thumb.jpg" alt="CodeMology"/></a>
-			<p>2013 <strong>Code Faculty</strong>: for MFA DT Parsons Bootcamp 2013</p>
-		</article>
-		<article class="item">
 			<a href="2013/clouds/"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
 			<p>2013 <strong>CLOUDS Documentary</strong>: collaboration developing Visual Systems </p>
-		</article>
-		<article class="item">
-			<a href="2013/naturalintentions/"><img class="roundPhotoTh" src="2013/naturalintentions/thumb.jpg" alt="naturalIntentions"/></a>
-			<p>2013 <strong>Natural Intentions</strong>: an exploration about optical devices and the perception of nature </p>
-		</article>
-		<article class="item">
-			<a href="2013/ofxvoro/"><img class="roundPhotoTh" src="2013/ofxvoro/thumb.jpg" alt="ofPlay"/></a>
-			<p>2013 <strong>ofxVoro</strong>: 3D Voronoi addon for openFrameworks </p>
-		</article>
-		<article class="item">
-			<a href="2013/autilus/"><img class="roundPhotoTh" src="2013/autilus/thumb.jpg" alt="ofPlay"/></a>
-			<p>2013 <strong>Autilus</strong>: FFT Audio Visualizer </p>
-		</article>
-		<article class="item">
-			<a href="2013/ofxpulsesensor/"><img class="roundPhotoTh" src="2013/ofxpulsesensor/thumb.jpg" alt="ofPlay"/></a>
-			<p>2013 <strong>ofxPulseSensor</strong>: serial client for Arduino's PulseSensor</p>
-		</article>
-		<article class="item">
-			<a href="2013/avsys/"><img class="roundPhotoTh" src="2013/avsys/thumb.jpg" alt="CodeMology"/></a>
-			<p>2013 <strong>Audio/Video Systems</strong> with <a href="http://thesystemis.com/" target="_blank">Zack Lieberman</a></p>
 		</article>
 		<article class="item">
 			<a href="2013/gearup/"><img class="roundPhotoTh" src="2013/gearup/thumb.jpg" alt="ofPlay"/></a>
@@ -76,35 +52,8 @@
 			<p>2012 <strong>Shadows</strong>: La Mesa del Tiempo, Museo del Juguete San Isidro, Argentina</p>
 		</article>
 		<article class="item">
-			<a href="2012/ofxinteractivesurface/"><img class="roundPhotoTh" src="2012/ofxinteractivesurface/thumb.jpg" alt="ofxInteractiveSurface"/></a>
-			<p>2012 <strong>ofxInteractiveSurface</strong>: reactive surfaces with dynamic mapping addon for openFrameworks using MS Kinect Sensor</p>
-		<article class="item">
-			<a href="2012/ccgsm"><img class="roundPhotoTh" src="2012/ccgsm/thumb.jpg" alt="CCGSM"/></a>
-			<p>2012 <strong>openFrameworks Workshops</strong>: at CCSGM, Buenos Aires</p>
-		</article>
-		<article class="item">
-			<a href="2012/eden/"><img class="roundPhotoTh" src="2012/eden/thumb.jpg" alt="Eden 3.0"/></a>
-			<p>2012 <strong>Eden 1.2</strong>: GSLS bounch of shaders that simulates a the atmoshpere, biosphere, geoshpere and biosphere of a 3D scanned surface</p>
-		</article>
-		<article class="item">
-			<a href="2011/iuna/"><img class="roundPhotoTh" src="2011/iuna/thumb.jpg" alt="IUNA"/></a>
-			<p>2011 - 2012 <strong>Informatics aplied to Art II and Multimedia IV</strong>: undergraduate profesor for Multimedia Studies at IUNA, Buenos Aires</p>
-		</article>
-		<article class="item">
-			<a href="2012/ofxcomposer/"><img class="roundPhotoTh" src="2012/ofxcomposer/thumb.jpg" alt="ofxComposer"/></a>
-			<p>2012 <strong>ofxComposer</strong>: life GSLS Editor and graphic patch composer addon for openFrameworks</p>
-		</article>
-		<article class="item">
-			<a href="2011/ofxfx/"><img class="roundPhotoTh" src="2011/ofxfx/thumb.jpg" alt="ofxfx"/></a>
-			<p>2011 <strong>ofxFX</strong>: GSLS Shaders easy to use addon for openFrameworks</p>
-		</article>
-		<article class="item">
 			<a href="2011/efectomariposa/"><img class="roundPhotoTh" src="2011/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
 			<p>2011 <strong>Efecto Mariposa 1.0</strong>: MediaLab 2011, CCEBA, Buenos Aires, Argentina</p>
-		</article>
-		<article class="item">
-			<a href="2011/kinectcorevision/"><img class="roundPhotoTh" src="2011/kinectcorevision/thumb.jpg" alt="Kinect Core Vision"/></a>
-			<p>2011 <strong>Kinect Core Vision</strong>: CCV + Kinect + finger tracking</p>
 		</article>
 		<article class="item">
 			<a href="2011/liquidkinect/"><img class="roundPhotoTh" src="2011/liquidkinect/thumb.jpg" alt="Liquid Kinect"/></a>
