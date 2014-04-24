@@ -2,6 +2,11 @@
 <?php include("menu.php");?>
 <?php include("sidebar.php");?>
 	<section class="content">
+
+		<article class="item">
+			<a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.jpg" alt="ofPlay"/></a>
+			<p>2014 <strong>Point Cloud City</strong>: scrapping google street view and recosntructing it on a 3D environment</p>
+		</article>
 		<article class="item">
 			<a href="2013/autilus/"><img class="roundPhotoTh" src="2013/autilus/thumb.jpg" alt="ofPlay"/></a>
 			<p>2013 <strong>Autilus</strong>: FFT Audio Visualizer </p>

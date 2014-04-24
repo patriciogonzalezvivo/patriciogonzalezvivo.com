@@ -1,8 +1,6 @@
 
 <div class="video-container">
-
-			<iframe src="http://player.vimeo.com/video/54633485" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-
+<iframe src="http://player.vimeo.com/video/54633485" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 </div>
 
 [CLOUDS](http://www.cloudsdocumentary.com/) is a visually groundbreaking interactive and generative documentary that allows the viewer to explore creativity through the language of code. Filmed using a new 3-D cinema format called RGBD, viewers can interact with a Microsoft Xbox Kinect or an Oculus Rift to fly through a video game–like environment. Participants will join a community of luminaries who represent a new breed of interdisciplinary hacker-artists struggling to develop new forms of visual expression and new vocabularies of technology that resonate at a deeper human level.
