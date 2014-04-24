@@ -7,8 +7,10 @@ echo '<header>
 				<nav id="menu_text">
 					<ul>
 						<li class="menu_item"><a href="/about.php"> Me </a></li>
-						<li class="menu_item"><a href="/inst.php"> Projects </a></li>
-						<li class="menu_item"><a href="/visual.php"> Collaborations </a></li>
+						<li class="menu_item"><a href="/inst.php"> Installations </a></li>
+						<li class="menu_item"><a href="/collab.php"> Collaborations </a></li>
+						<li class="menu_item"><a href="/experiments.php"> Experiments </a></li>
+						<li class="menu_item"><a href="/teaching.php"> Teaching </a></li>
 					</ul>
 				</nav>
 			</div>

@@ -3,14 +3,6 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
-			<a href="2013/clouds/"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
-			<p>2013 <strong>CLOUDS Documentary</strong>: collaboration developing Visual Systems </p>
-		</article>
-		<article class="item">
-			<a href="2013/naturalintentions/"><img class="roundPhotoTh" src="2013/naturalintentions/thumb.jpg" alt="naturalIntentions"/></a>
-			<p>2013 <strong>Natural Intentions</strong>: an exploration about optical devices and the perception of nature </p>
-		</article>
-		<article class="item">
 			<a href="2013/autilus/"><img class="roundPhotoTh" src="2013/autilus/thumb.jpg" alt="ofPlay"/></a>
 			<p>2013 <strong>Autilus</strong>: FFT Audio Visualizer </p>
 		</article>
@@ -35,5 +27,5 @@
 			<p>2011 <strong>Liquid Kinect</strong>: Kinect + Particle System + GLSL Shaders</p>
 		</article>
 	</section>
-	
+
 <?php include("footer.php"); ?>

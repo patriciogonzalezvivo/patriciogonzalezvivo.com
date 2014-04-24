@@ -7,10 +7,6 @@
 			<p>2013 <strong>Autilus</strong>: FFT Audio Visualizer </p>
 		</article>
 		<article class="item">
-			<a href="2013/gearup/"><img class="roundPhotoTh" src="2013/gearup/thumb.jpg" alt="ofPlay"/></a>
-			<p>2013 <strong>GearUp</strong>: DataToy for MPI/PRI as part of PetLab project.</p>
-		</article>
-		<article class="item">
 			<a href="2012/picasso/"><img class="roundPhotoTh" src="2012/picasso/thumb.jpg" alt="ofPlay"/></a>
 			<p>2012 <strong>MultiTouch DrawingTool</strong> for Picasso Museum in Coruña, Spain </p>
 		</article>
@@ -55,5 +51,5 @@
 			<p>2009 <strong>JoyOfLight</strong>: iOS, OSX, Linux and Windows light drawing tool</p>
 		</article>
 	</section>
-	
+
 <?php include("footer.php"); ?>
