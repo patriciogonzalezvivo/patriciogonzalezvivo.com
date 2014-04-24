@@ -31,5 +31,5 @@
 			<p>2009 <strong>JoyOfLight</strong>: iOS, OSX, Linux and Windows light drawing tool</p>
 		</article>
 	</section>
-	
+
 <?php include("footer.php"); ?>
