@@ -4,7 +4,7 @@
 
 This series of projects are about awareness. More specifically about the tools and techniques we use to see the world around us. 
 
-These projects are part of a on going process nourished buy different motivations a long my last year as a Parson's MFA DT student. I found that awareness of my surroundings was the constant and repetitive presence on my works. Probably moved by my own limitations and lack of atention.
+These projects are part of a on going process nourished buy different motivations a long my last year as a Parson's MFA DT student. I found that awareness of my surroundings was the constant and repetitive presence on my works. Probably moved by my own limitations and lack of attention.
 
 By looking at the horizon we found a _skyline_. A place where the earth and the sky touch and differentiate from each other. This contour is the confluence of time and space. The landscape is shaped over time by forces like the erosion or human hand, is  in constant change and fluctuation. Also this skyline is defined by the particular position of the observer. Seen through technical devices allow us to look beyond our perception in different qualities of time and space.
  
@@ -441,13 +441,77 @@ Because the image has been distorted equally in one direction (left to right) it
 
 **February 15, 2014** My wife and I had the chance to make a short trip to Pittsburg. Watching the landscape change I saw mountains in a different way, now there were glitches. They expose an underlying system of tectonic plates; they are geo-glitches. Mountains have always evoked my emotions; I think about Berger's words - the pull and push of the landscape against the sky defining a contour. This contour is the background of our experiences. The tension of forces shape a scenario where our moments happen. Deserts, cities, forest, all of them have a distinctive profile, the exposure of the fabric of the earth, the cardboard mark of our location.
 
-Re-using an algorithm develop together with [Zach Lieberman](http://thesystemis.com/) I try to fix the irregularity of this landscapes. I was hable to push back this forces on the contour of the skyline. Like correcting a glitch, I push back each column of pixels after detecting the contour between the blue sky and the darker edge of the earth. The result were tensioned landscapes ready to claim back their force. 
+What happens if I try to un-glitch this geological irregularities? What happens if the tension of the contour that John Berger referee, is rased to zero?
 
-[![flat everest](https://farm8.staticflickr.com/7399/12937223415_9b012e0f79_z_d.jpg" width="575")](https://www.flickr.com/photos/106950246@N06/13129628233/)
+[![flat everest](https://farm8.staticflickr.com/7399/12937223415_9b012e0f79_z_d.jpg" width="575")](https://www.flickr.com/photos/106950246@N06/12937223415/)
 
-## Slow Images
+Re-using an algorithm develop together with [Zach Lieberman](http://thesystemis.com/) I could push back each column of pixels according to an arbitrary horizon. Like inverse sound waives that cancel each other I visually compensate the forces of the earth over the contour of the skyline. The result is a peaceful landscape. A silent image. But looking closely the forces of nature are trapped in a vigorous tension. The calmness is just a projection of our power. Our desired instrumented by digital medium is temporary and superficial. This scene could explote any time, like a bolted river, nature will reclame his power. 
 
-- Machines as a provocation to this worlds of fast images. They mean to be slow, to slow as down, to really help us see what we are missing.
+[![flat mountain02](https://farm8.staticflickr.com/7388/12937668934_48d6b3f9be_b_d.jpg" width="575")](https://www.flickr.com/photos/106950246@N06/12937668934/)
+
+
+## Ode to Slow Media
+
+**February 28, 2013** At the beginning of the Fall of 2013 I was interested on virtual environments, specially with common adopted metaphor of a Desktop. If our life is becoming more and more digital, what are the consequences of always been interacting from a "desktop"? How our awareness is influenced by the fact that we remain constantly in an digital working environment with out closing time, days off, launch breaks, sunsets, sacred spaces and celebrations. 
+
+I did a couple of experiments in this area. Trying to imagine a 3D environment that reacts to the time of the day, the task we are doing and the time we have been spending on it.
+
+<iframe src="//player.vimeo.com/video/77456638?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="574" height="359" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+This were superficial interventions. From me, the problem was in the point of view in it self. We were still looking to screen. Shiny glowing images. Digitally modify or generated. Mass produce in a glimpse of a second, instantly broadcasted, shared and copy. This images are taking over. We are staring at them. We are loosing awareness by been distracted by the shininess of digital imaginary. 
+
+> _“Videos, photographs and graphic images tend to fade in the white noise of mass culture, whereas carefully chosen image, an image made out of accurate, thoughtful brushstrokes (or any other carefully considered technique for that matter), an image that carries the wight of human touch - of human presence, of repeated analysis, of intense gazing - a full-resolution image, life-size and in real time - can be just as miraculous today as that fresco in the remote late medieval chapel.”_ Marc Valli
+
+Time to experiment with another media. Time to think with my hand and body. For me, drawing and painting can trigger a dialog of thoughts better than any other medium.
+
+<iframe class="vine-embed" src="https://vine.co/v/MW79j3aqAHJ/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+
+Drawing are seriously conceived as the natural and intuitive tool for ideas to be born. The double nature of connecting the material, sharable and tangible 2D world of paper with the invisible, cryptic and silent world of the mind allows ideas to shape themselves in a dialog that goes from the paper to the creator. Impossible new thoughts find ways to reality though the pencil and by leaving their mark form the basis for new thoughts. As matches lighting each other, drawing becomes the space between spaces, the conduction between ideas and thoughts.
+
+> _"Since drawing can mediate between perception and reflection, it plays a constitutive role in the production and communication of knowledge"_ Gansterer, 2011
+
+There is also, something about the time. Takes time to mix the right proportions of pigments to match a color. Takes time to get the right proportions of a model. Takes time to the hand to trace a contour. Takes time, to the brush to fill a space. Takes time to the paint to dry out. Analog mediums, are slow. But is that slowness witch holds and open an space on time to think, observe, contemplate and meditate. Is that slowness of analog mediums which holds thoughts and awareness.
+
+> _"The drawn hypothesis attempts to extend the space of the 
+conjectural, deferring or delaying the effects of consequential thinking in order to keep the if in flight."_ Cocker, 2011
+
+**March 27, 2014** Painting and drawings like carefully curated images. Slowly generated. They also require time to observe them. They reveal their content through time, to patience observer. Contemplation as an slow viewing practice, one that also allow thinking, that opens a dialog between the author.
+
+> _"Painting has offered an option - it is almost a lifestyle option - to the contemporary artist. It’s slower rhythms allow for a more intimate connection to human perception (which is true both from the point of view of the artist and the viewer). For example the need for models connects painting to the intricacy of human relationships.”_ Marc Valli
+
+At this point, I was more sure on the direction of my work. The tools I was making should be slow. Should provide the timeless and tireless of machines, to enhance and expand our perception, not to speed it up and block it. My machines should be a provocation to this world of fast images. They should slow the observer down. Make them wonder and question. 
+
+Machine origen is as an assistive technology and it's important to make a clear point of that.
+
+After wining World War II deciphering enigma our relationship with them shifted. They become powerful entities that should be assisted by humans to process information. On _The Psychology of Human-Computer Interaction_, Card, Stuart K., Thomas P. Moran, and Allen Newell propose a human information processor model called GOMS (for Goals, Operators, Methods, and Selection rules). Besides the major breakthrough that this represents for its time, what is very interesting to note is the conception of human. From the epistemological frameworks and school of psychology the conception of human is based on a mechanical reduction of the human mind. Users are meant to be complex data processor entities that by connecting with the tireless power of the computer can bring us to a new era, but as Lanier says: _"This ideology promotes radical freedom on the surface of the web, but that freedom, ironically, is more for machines than people."_
+
+> _"The role psychology might be expected to play in the design of the user-computer interface is suggested by the results it was able to achieve for military equipment during World War II. At that time, it had become apparent that a strong limiting factor in realizing the potential of man- machine systems, such as radar sets and military aircraft, lay in the difficulty of operating the equipment. Out of a wartime collaboration between natural scientists, engineers and psychologists came major advances, not only with respect to the man-machine systems being designed, but also with respect to psychological theory itself. Examples of the latter include the theory of signal detection, manual control theory, and a methodology for the design of cockpit instrument displays. That with psychological attention to human performance airplanes become more flyable encourages us to believe that with psychological attention to human performance computers can become more usable"_ Card, Stuart K., Thomas P. Moran, and Allen Newell. 1983
+
+The human-computer dream was one where humans can be plugged in to computers, in an intuitive and efficient way. Buy intuitive and efficient these fields understand: without to much previous explanation and without the human making mistakes. Because the psychological model behind this research is a reduction of the human psyche to terms of electronics circuits (buffers, memory, processors, inputs and outputs) the beginning of the human-computer interaction represents a project where engineers and psychologist trace the basis of how to designing computers for human-computers. 
+
+Machines as assistive technology. Machines to make us more aware. To help as see and think beyond our perception and with out taking awareness of our self and others. Technology that adds with out taking. Calmer and slower technology. One that adjust to our rhythm and not the other way.
+
+## Skyline #01
+
+- Drawing as the first technique of image generation
+
+- Drawing as a way to see. As a dialog back and forth between the eye and the tools.
+
+- Drawing as a way to search or trace.
+
+- Search for something invisible.
+	-	drawing from imagination 
+	-	shaping an idea. mapping thoughts. 
+
+- Trace something experienced.
+	- as a memory of a path
+	- as the recreation of the tension on a contour.
+
+- In both cases is a process of addition and subtraction
+
+- I'm interested on working beyond our perception of time and space. Like in maps and long exposure pictures it necessarily imply the use of technology as an extension of our experience.
+
+In this case a drawing machine will add layer over layer of material over a surface to slowly reveal an image.
 
 ## Skyline #02
 By moving we change our point of view. We left behind a landscapes in the search for a new horizon. 
@@ -481,28 +545,6 @@ What remains invisible is the subtle changes in journey. This piece shows the su
 ## Point Cloud City
 
 
-## Skyline #01
 
-- Drawing as the first technique of image generation
-
-- Drawing as a way to see. As a dialog back and forth between the eye and the tools.
-
-- Drawing as the generation of curated images. Slow images carefully crafted.
-
-- Drawing as a way to search or trace.
-
-- Search for something invisible.
-	-	drawing from imagination 
-	-	shaping an idea. mapping thoughts. 
-
-- Trace something experienced.
-	- as a memory of a path
-	- as the recreation of the tension on a contour.
-
-- In both cases is a process of addition and subtraction
-
-- I'm interested on working beyond our perception of time and space. Like in maps and long exposure pictures it necessarily imply the use of technology as an extension of our experience.
-
-In this case a drawing machine will add layer over layer of material over a surface to slowly reveal an image.
 
 

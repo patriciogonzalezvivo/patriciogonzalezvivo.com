@@ -10,8 +10,8 @@ function activateNext(){
 	var items = document.getElementsByClassName("item");
 	if (counter < items.length ){
 		items[counter].classList.add("is-active");
-		counter++;	
-	} 
+		counter++;
+	}
 }
 
 //	Transition to next slide
@@ -22,13 +22,13 @@ function slideNext(){
 		//
 		var previus = (counter==0)?images.length-1:counter-1;
 		images[previus].classList.remove("roundPhotoFront");
-		
+
 		//	Show Current
 		//
 		images[counter].classList.toggle("roundPhotoFront");
 
 		document.getElementById("myslides").style.height =  images[counter].height+"px" ;
-		counter++;	
+		counter++;
 	} else {
 		counter=0;
 	}
@@ -40,7 +40,7 @@ if ( items.length > 0 ){
    	setInterval( activateNext ,200);
 } else {
 	var mySlides = document.getElementById("myslides");
-	
+
 	if ( mySlides != null ){
 		images=mySlides.getElementsByTagName("img");
 		images[images.length-1].classList.toggle("roundPhotoFront");
@@ -52,13 +52,13 @@ if ( items.length > 0 ){
 //	If the user have CHROME load a subtle webGL scene based on the time of the day
 //
 if (navigator.userAgent.indexOf('Chrome') != -1 && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Chrome') + 7).split(' ')[0]) >= 15){
- 	
+
  	//	We are in CHROME
- 	// 
+ 	//
 	var d = new Date();
 	var now = d.getHours();
-	var shader = document.getElementById('fragmentShader');    	
-	
+	var shader = document.getElementById('fragmentShader');
+
 	if( shader != null){
 		//	This web have a shader to render
 		//
@@ -66,24 +66,24 @@ if (navigator.userAgent.indexOf('Chrome') != -1 && parseFloat(navigator.userAgen
 		newScript.type = 'text/javascript';
 		newScript.src = '/js/shader.min.js';
 		document.getElementsByTagName('head')[0].appendChild(newScript);
-		
+
 	} else  if((now>=7)&&(now<19)){
 		//	DAY
 		//
-			
- 	} else { 
+
+ 	} else {
 		//	NIGHT
 		//
 		var newScript = document.createElement('script');
 		newScript.type = 'text/javascript';
 		newScript.src = '/js/star-sky.min.js';
 		document.getElementsByTagName('head')[0].appendChild(newScript);
- 	} 
-    
+ 	}
+
 } else {
-	
+
 	//	NO-CHROME Browser
-	//	
+	//
 }
 
 //	Tweeter Widget
@@ -99,5 +99,3 @@ if (navigator.userAgent.indexOf('Chrome') != -1 && parseFloat(navigator.userAgen
 		fjs.parentNode.insertBefore(js,fjs);
 	}
 }(document,"script","twitter-wjs");
-
-	
