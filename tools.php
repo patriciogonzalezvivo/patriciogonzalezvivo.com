@@ -7,11 +7,15 @@
 			<p>2014 <strong>vPlotter</strong>: Wireless wall Plotter power by a RaspberryPi </p>
 		</article>
 		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/sNodes"><img class="roundPhotoTh" src="2013/snode/thumb.jpg" alt="sNode"/></a>
+			<a href="https://github.com/patriciogonzalezvivo/ofxFluid" target="_blank"><img class="roundPhotoTh" src="2014/ofxFluid/thumb.gif" alt="ofxFluid"/></a>
+			<p>2013 <strong>ofxFluid</strong>: GPU Fluid Simulator for openFrameworks </p>
+		</article>
+		<article class="item">
+			<a href="https://github.com/patriciogonzalezvivo/sNodes" target="_blank"><img class="roundPhotoTh" src="2013/snode/thumb.jpg" alt="sNode"/></a>
 			<p>2013 <strong>sNode</strong>: GLSL Shader prototyping tool wrote on openFrameworks and powered by Syphon</p>
 		</article>
 		<article class="item">
-			<a href="2013/ofxvoro/"><img class="roundPhotoTh" src="2013/ofxvoro/thumb.jpg" alt="ofxVoro"/></a>
+			<a href="https://github.com/patriciogonzalezvivo/ofxVoro" target="_blank"><img class="roundPhotoTh" src="2013/ofxvoro/thumb.gif" alt="ofxVoro"/></a>
 			<p>2013 <strong>ofxVoro</strong>: 3D Voronoi addon for openFrameworks </p>
 		</article>
 		<article class="item">
@@ -23,7 +27,7 @@
 			<p>2012 <strong>MultiTouch DrawingTool using LeapMotion</strong> for Picasso Museum in Coruña, Spain </p>
 		</article>
 		<article class="item">
-			<a href="2012/ofplay/"><img class="roundPhotoTh" src="2012/ofplay/thumb.jpg" alt="ofPlay"/></a>
+			<a href="https://github.com/patriciogonzalezvivo/OFPlay" target="_blank"><img class="roundPhotoTh" src="2012/ofplay/thumb.jpg" alt="ofPlay"/></a>
 			<p>2012 <strong>ofPlay</strong>: UI/UX exploration designed to help openFrameworks beginners </p>
 		</article>
 		<article class="item">

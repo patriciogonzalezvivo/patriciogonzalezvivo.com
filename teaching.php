@@ -7,7 +7,7 @@
 			<p>2013 <strong>Code Faculty</strong>: for MFA DT Parsons Bootcamp 2013</p>
 		</article>
 		<article class="item">
-			<a href="2012/shellinitiation/"><img class="roundPhotoTh" src="2012/shellinitiation/thumb.jpg" alt="CodeMology"/></a>
+			<a href="http://github.com/patriciogonzalezvivo/Shell-Initiation" target="_blank"><img class="roundPhotoTh" src="2012/shellinitiation/thumb.jpg" alt="CodeMology"/></a>
 			<p>2012 <strong>ShellInitiation</strong>: exoteric tutorial to Unix Terminal and Conosole</p>
 		</article>
 		<article class="item">
@@ -27,5 +27,5 @@
 			<p>2007 - 2010 <strong>Creative Connection@</strong>: classes at School of Drama of Salvador University, Buenos Aires</p>
 		</article>
 	</section>
-	
+
 <?php include("footer.php"); ?>
