@@ -29,6 +29,12 @@ body{
 .content{
 	width: $content_width;
 
+	p {
+		img{
+			width:575px;
+		}
+	}
+	
 	.item{
 		transition: all 400ms cubic-bezier(0.240, 1, 0.735, 1);
 		-webkit-transform:translate(0,20%);

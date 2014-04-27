@@ -1,5 +1,7 @@
 <?php
-require_once __DIR__ . '/config.php';
+define('GITHUB_USER', 'patriciogonzalezvivo');
+define('GITHUB_REPO', 'vPlotter');
+define('GITHUB_BRANCH', 'master');
 
 function post_receive($encoded_json) {
   $payload = json_decode($encoded_json);
@@ -63,9 +65,9 @@ function cache_text_files() {
 
 // Fetch images from GitHub and cache them
 function cache_images($images) {
-  rrmdir(__DIR__ . '/img');
-  mkdir(__DIR__ . '/img');
+  rrmdir(__DIR__ . '/cache/images');
+  mkdir(__DIR__ . '/cache/images');
   foreach($images as $id => $image) {
-    cache_file(get_raw_url($image->path), __DIR__ . '/img/' . basename($image->path));
+    cache_file(get_raw_url($image->path), __DIR__ . '/images/' . basename($image->path));
   }
 }

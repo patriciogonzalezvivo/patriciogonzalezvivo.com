@@ -7,19 +7,26 @@
 
 		<?php
 			include("../../parsedown/Parsedown.php");
-			require_once __DIR__ . '/config.php';
-			require_once __DIR__ . '/lib.php';
-			// cache_text_files();
 
-			if (!file_exists(__DIR__. '/cache/README.md')) {
-  			cache_all();
+			define('GITHUB_USER', 'patriciogonzalezvivo');
+			define('GITHUB_REPO', 'vPlotter');
+			define('GITHUB_BRANCH', 'master');
+
+			function get_raw_url($path) {
+				return 'https://raw.github.com/'.GITHUB_USER.'/'.GITHUB_REPO.'/'.GITHUB_BRANCH.'/'.$path;
 			}
 
-			$readme = file_get_contents( __DIR__. '/cache/README.md' );
-			print $readme;
+			function cache_file($url, $path) {
+				if (file_exists($path)) {
+					unlink($path);
+				}
+				file_put_contents($path, file_get_contents($url));
+			}
+			cache_file(get_raw_url('README.md'), __DIR__ . '/about.md');
 
 			$Parsedown = new Parsedown();
-			echo $Parsedown->text($readme);
+			echo $Parsedown->text(file_get_contents( __DIR__. '/about.md' ));
+
 		?>
 
 	</section>
