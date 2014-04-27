@@ -3,6 +3,7 @@
 
 #menu_text {
   padding-top: 68px;
+  font-size: 0.9rem;
   text-align: justify; }
   #menu_text a {
     padding-left: 13px;
@@ -42,7 +43,7 @@
 .flickr_badge_image {
   text-align: center !important; }
   .flickr_badge_image img {
-    border-radius: 3px; }
+    border-radius: 5px; }
 
 #flickr_www {
   display: block;
@@ -97,6 +98,7 @@ body {
     .content .item:hover {
       -webkit-opacity: 0.6; }
     .content .item p {
+      font-size: 0.9rem;
       margin-top: 0px; }
   .content .video-container {
     position: relative;
