@@ -1,9 +1,7 @@
 <?php include("header.php");?>
 <?php include("menu.php");?>
-<?php include("sidebar.php");?>	
-
+<?php include("sidebar.php");?>
 	<section class="content">
-
 		<article class="item">
 			<a href="2012/efectomariposa/"><img class="roundPhotoTh" src="2012/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
 			<p>2012 <strong>Efecto Mariposa 3.0</strong>: FILE, Sao Paulo, Brazil</p>
@@ -34,5 +32,4 @@
 			<p>2010 <strong>Communitas</strong>: Interactivos 2010, Espacio Fundación Telefónica, Buenos Aires, Argentina</p>
 		</article>
 	</section>
-	
 <?php include("footer.php"); ?>
