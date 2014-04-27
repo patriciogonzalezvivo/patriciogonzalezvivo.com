@@ -20,7 +20,7 @@
 		</article>
 		<article class="item">
 			<a href="2012/flatland/"><img class="roundPhotoTh" src="2012/flatland/thumb.jpg" alt="FlatLand"/></a>
-			<p>2012 <strong>FlatLand</strong>: for EyeBeam New Cinema Hackathon </p>
+			<p>2012 <strong>FlatLand</strong>: collaboration with <a href="http://thesystemis.com/" target="_blank">Zach Lieberman</a> for New Cinema Hackathon at EyeBeam </p>
 		</article>
 		<article class="item">
 			<a href="2012/codemology/"><img class="roundPhotoTh" src="2012/codemology/thumb.jpg" alt="CodeMology"/></a>
@@ -28,7 +28,7 @@
 		</article>
 		<article class="item">
 			<a href="2012/algo/"><img class="roundPhotoTh" src="2012/algo/thumb.jpg" alt="Algo"/></a>
-			<p>2012 <strong>Algorithmic Animation</strong> with <a href="http://thesystemis.com/" target="_blank">Zack Lieberman</a></p>
+			<p>2012 <strong>Algorithmic Animation</strong> with <a href="http://thesystemis.com/" target="_blank">Zach Lieberman</a></p>
 		</article>
 		<article class="item">
 			<a href="2011/liquidkinect/"><img class="roundPhotoTh" src="2011/liquidkinect/thumb.jpg" alt="Liquid Kinect"/></a>

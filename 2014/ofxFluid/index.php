@@ -7,8 +7,9 @@
 
 		<?php
 			include("../../parsedown/Parsedown.php");
+			define('GITHUB_REPO', 'ofxFluid');
 			$Parsedown = new Parsedown();
-			echo $Parsedown->text(file_get_contents ('about.md'));
+			echo $Parsedown->text(file_get_contents( 'https://raw.github.com/patriciogonzalezvivo/'.GITHUB_REPO.'/master/README.md'));
 		?>
 
 	</section>

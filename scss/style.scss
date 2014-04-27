@@ -154,6 +154,14 @@ footer{
 /* styles for mobile browsers smaller than 480px; (iPhone) */
 @media only screen and (max-device-width:480px){
 
+	.content{
+		p {
+				img:not(.icon){
+					width:100%;
+				}
+		}
+	}
+
 	#menu_text{
 		padding-top: 0px;
 		margin-bottom: 5px;
