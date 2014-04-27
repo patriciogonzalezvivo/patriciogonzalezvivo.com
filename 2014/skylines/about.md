@@ -198,7 +198,11 @@ After wining World War II deciphering enigma our relationship with them shifted.
 
 The human-computer dream was one where humans can be plugged in to computers, in an intuitive and efficient way. Buy intuitive and efficient these fields understand: without to much previous explanation and without the human making mistakes. Because the psychological model behind this research is a reduction of the human psyche to terms of electronics circuits (buffers, memory, processors, inputs and outputs) the beginning of the human-computer interaction represents a project where engineers and psychologist trace the basis of how to designing computers for human-computers. 
 
-Machines as assistive technology. Machines to make us more aware. To help as see and think beyond our perception and with out taking awareness of our self and others. Technology that adds with out taking. Calmer and slower technology. One that adjust to our rhythm and not the other way.
+Machines as assistive technology. 
+Machines to make us more aware. 
+To help as see beyond our perception without distractions.
+Calmer and slower technology. 
+One that goes at our rhythm, to let us see, to make us think.
 
 ## Skyline #01
 

@@ -4,8 +4,14 @@
 	float:right;
 	position: relative;
 	width:$sidebar_width;
-	top:-10px;
+	top:-37px;
 	height:100%;
+
+	p {
+		font-size: 0.9rem;
+		margin-bottom: -2px;
+		padding-left: 10px;
+	}
 }
 
 .twitter-timeline{

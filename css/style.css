@@ -19,8 +19,12 @@
   float: right;
   position: relative;
   width: 300px;
-  top: -10px;
+  top: -37px;
   height: 100%; }
+  #sidebar p {
+    font-size: 0.9rem;
+    margin-bottom: -2px;
+    padding-left: 10px; }
 
 .twitter-timeline {
   data-link-color: #4e5d7f;
