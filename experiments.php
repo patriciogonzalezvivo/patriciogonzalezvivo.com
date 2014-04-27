@@ -3,7 +3,7 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
-			<a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.jpg" alt="PointCloudCity"/></a>
+			<a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.gif" alt="PointCloudCity"/></a>
 			<p>2014 <strong>Point Cloud City</strong>: scrapping google street view and recosntructing it on a 3D environment</p>
 		</article>
 		<article class="item">
