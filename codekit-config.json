@@ -24,17 +24,6 @@
       "initialSize" : 35177,
       "fileType" : 4096
     },
-    "\/2012\/megaphone\/thumb.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/megaphone\/thumb.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/megaphone\/thumb.jpg",
-      "initialSize" : 47293,
-      "fileType" : 4096
-    },
     "\/2014\/skylines\/images\/hevelius.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -46,6 +35,17 @@
       "initialSize" : 1414862,
       "fileType" : 4096
     },
+    "\/2012\/megaphone\/thumb.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/megaphone\/thumb.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2012\/megaphone\/thumb.jpg",
+      "initialSize" : 47293,
+      "fileType" : 4096
+    },
     "\/2013\/naturalintentions\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -54,17 +54,6 @@
       "inputAbbreviatedPath" : "\/2013\/naturalintentions\/index.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/2014\/skylines\/images\/electronic.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/skylines\/images\/electronic.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2014\/skylines\/images\/electronic.jpg",
-      "initialSize" : 127570,
-      "fileType" : 4096
     },
     "\/2012\/shellinitiation\/01.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -175,36 +164,36 @@
       "initialSize" : 8990,
       "fileType" : 4096
     },
-    "\/2012\/efectomariposa\/sponsor.jpg" : {
+    "\/2011\/ofxfx\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/efectomariposa\/sponsor.jpg",
+      "inputAbbreviatedPath" : "\/2011\/ofxfx\/thumb.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/efectomariposa\/sponsor.jpg",
-      "initialSize" : 27111,
+      "outputAbbreviatedPath" : "\/2011\/ofxfx\/thumb.jpg",
+      "initialSize" : 65717,
       "fileType" : 4096
     },
-    "\/2014\/vPlotter\/index.php" : {
+    "\/images\/icons\/twitter.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/vPlotter\/index.php",
+      "inputAbbreviatedPath" : "\/images\/icons\/twitter.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/icons\/twitter.png",
+      "initialSize" : 3570,
+      "fileType" : 8192
+    },
+    "\/parsedown\/tests\/data\/paragraph_list.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/paragraph_list.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/2011\/efectomariposa\/24.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/24.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/24.jpg",
-      "initialSize" : 62611,
-      "fileType" : 4096
     },
     "\/2010\/calos\/44.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -215,28 +204,6 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2010\/calos\/44.jpg",
       "initialSize" : 68438,
-      "fileType" : 4096
-    },
-    "\/2011\/eden\/thumb.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/eden\/thumb.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/eden\/thumb.jpg",
-      "initialSize" : 29821,
-      "fileType" : 4096
-    },
-    "\/2010\/calos\/35.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/35.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/35.jpg",
-      "initialSize" : 63041,
       "fileType" : 4096
     },
     "\/2012\/shellinitiation\/05.jpg" : {
@@ -250,6 +217,26 @@
       "initialSize" : 63389,
       "fileType" : 4096
     },
+    "\/2010\/calos\/35.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/calos\/35.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/35.jpg",
+      "initialSize" : 63041,
+      "fileType" : 4096
+    },
+    "\/2014\/vPlotter\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2014\/vPlotter\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/2012\/eden\/05.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -261,27 +248,14 @@
       "initialSize" : 76348,
       "fileType" : 4096
     },
-    "\/2010\/calos\/26.jpg" : {
+    "\/parsedown\/tests\/data\/compound_blockquote.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/26.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/26.jpg",
-      "initialSize" : 63376,
-      "fileType" : 4096
-    },
-    "\/2012\/shellinitiation\/06.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/shellinitiation\/06.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/shellinitiation\/06.jpg",
-      "initialSize" : 61878,
-      "fileType" : 4096
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/compound_blockquote.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2010\/calos\/17.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -292,6 +266,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2010\/calos\/17.jpg",
       "initialSize" : 59173,
+      "fileType" : 4096
+    },
+    "\/2011\/efectomariposa\/24.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/24.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/24.jpg",
+      "initialSize" : 62611,
       "fileType" : 4096
     },
     "\/2010\/calos\/08.jpg" : {
@@ -305,24 +290,48 @@
       "initialSize" : 68833,
       "fileType" : 4096
     },
-    "\/parsedown\/tests\/data\/compound_blockquote.html" : {
+    "\/2012\/shellinitiation\/06.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/compound_blockquote.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/2011\/ofxfx\/thumb.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/ofxfx\/thumb.jpg",
+      "inputAbbreviatedPath" : "\/2012\/shellinitiation\/06.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/ofxfx\/thumb.jpg",
-      "initialSize" : 65717,
+      "outputAbbreviatedPath" : "\/2012\/shellinitiation\/06.jpg",
+      "initialSize" : 61878,
+      "fileType" : 4096
+    },
+    "\/2010\/calos\/53.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/calos\/53.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/53.jpg",
+      "initialSize" : 56809,
+      "fileType" : 4096
+    },
+    "\/2010\/calos\/26.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/calos\/26.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/26.jpg",
+      "initialSize" : 63376,
+      "fileType" : 4096
+    },
+    "\/2011\/eden\/thumb.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2011\/eden\/thumb.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2011\/eden\/thumb.jpg",
+      "initialSize" : 29821,
       "fileType" : 4096
     },
     "\/2012\/shellinitiation\/04.jpg" : {
@@ -336,26 +345,6 @@
       "initialSize" : 87061,
       "fileType" : 4096
     },
-    "\/parsedown\/tests\/data\/paragraph_list.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/paragraph_list.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/images\/icons\/twitter.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/icons\/twitter.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/icons\/twitter.png",
-      "initialSize" : 3570,
-      "fileType" : 8192
-    },
     "\/parsedown\/tests\/data\/strikethrough.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -365,15 +354,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2010\/calos\/53.jpg" : {
+    "\/2012\/efectomariposa\/sponsor.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/53.jpg",
+      "inputAbbreviatedPath" : "\/2012\/efectomariposa\/sponsor.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/53.jpg",
-      "initialSize" : 56809,
+      "outputAbbreviatedPath" : "\/2012\/efectomariposa\/sponsor.jpg",
+      "initialSize" : 27111,
       "fileType" : 4096
     },
     "\/parsedown\/tests\/data\/inline_title.html" : {
@@ -404,17 +393,6 @@
       "outputAbbreviatedPath" : "\/2010\/communitas\/08.jpg",
       "initialSize" : 75211,
       "fileType" : 4096
-    },
-    "\/2014\/skylines\/images\/A4988.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/skylines\/images\/A4988.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2014\/skylines\/images\/A4988.png",
-      "initialSize" : 67014,
-      "fileType" : 8192
     },
     "\/scss\/sidebar.scss" : {
       "ignoreWasSetByUser" : 0,
@@ -477,6 +455,17 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/2012\/ofxcomposer\/thumb.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/ofxcomposer\/thumb.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2012\/ofxcomposer\/thumb.jpg",
+      "initialSize" : 33651,
+      "fileType" : 4096
+    },
     "\/2012\/picasso\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -496,17 +485,6 @@
       "inputAbbreviatedPath" : "\/header.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/2012\/ofxcomposer\/thumb.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/ofxcomposer\/thumb.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/ofxcomposer\/thumb.jpg",
-      "initialSize" : 33651,
-      "fileType" : 4096
     },
     "\/parsedown\/tests\/data\/block-level_html.html" : {
       "ignoreWasSetByUser" : 0,
@@ -528,15 +506,15 @@
       "initialSize" : 70966,
       "fileType" : 4096
     },
-    "\/2010\/calos\/thumb1.jpg" : {
+    "\/2011\/efectomariposa\/20.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/thumb1.jpg",
+      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/20.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/thumb1.jpg",
-      "initialSize" : 40656,
+      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/20.jpg",
+      "initialSize" : 70366,
       "fileType" : 4096
     },
     "\/2010\/calos\/index.php" : {
@@ -548,15 +526,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2011\/efectomariposa\/20.jpg" : {
+    "\/2010\/calos\/thumb1.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/20.jpg",
+      "inputAbbreviatedPath" : "\/2010\/calos\/thumb1.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/20.jpg",
-      "initialSize" : 70366,
+      "outputAbbreviatedPath" : "\/2010\/calos\/thumb1.jpg",
+      "initialSize" : 40656,
       "fileType" : 4096
     },
     "\/2012\/efectomariposa\/09.jpg" : {
@@ -666,16 +644,16 @@
       "fileType" : 4,
       "debugStyle" : 0
     },
-    "\/2010\/calos\/37.jpg" : {
+    "\/images\/tutoriales\/codeblocks.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/37.jpg",
+      "inputAbbreviatedPath" : "\/images\/tutoriales\/codeblocks.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/37.jpg",
-      "initialSize" : 62334,
-      "fileType" : 4096
+      "outputAbbreviatedPath" : "\/images\/tutoriales\/codeblocks.png",
+      "initialSize" : 101532,
+      "fileType" : 8192
     },
     "\/2013\/ofxpulsesensor\/index.php" : {
       "ignoreWasSetByUser" : 0,
@@ -695,16 +673,16 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/images\/tutoriales\/codeblocks.png" : {
+    "\/2010\/calos\/28.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/tutoriales\/codeblocks.png",
+      "inputAbbreviatedPath" : "\/2010\/calos\/28.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/tutoriales\/codeblocks.png",
-      "initialSize" : 101532,
-      "fileType" : 8192
+      "outputAbbreviatedPath" : "\/2010\/calos\/28.jpg",
+      "initialSize" : 67903,
+      "fileType" : 4096
     },
     "\/2010\/calos\/19.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -717,6 +695,17 @@
       "initialSize" : 64278,
       "fileType" : 4096
     },
+    "\/2010\/calos\/37.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/calos\/37.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/37.jpg",
+      "initialSize" : 62334,
+      "fileType" : 4096
+    },
     "\/2013\/snode\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -726,17 +715,6 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2013\/snode\/thumb.jpg",
       "initialSize" : 16353,
-      "fileType" : 4096
-    },
-    "\/2010\/calos\/28.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/28.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/28.jpg",
-      "initialSize" : 67903,
       "fileType" : 4096
     },
     "\/2010\/calos\/10.jpg" : {
@@ -832,15 +810,6 @@
       "initialSize" : 41391,
       "fileType" : 4096
     },
-    "\/2012\/algo\/index.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/algo\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/images\/tutoriales\/PixelsInOf.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -851,6 +820,15 @@
       "outputAbbreviatedPath" : "\/images\/tutoriales\/PixelsInOf.png",
       "initialSize" : 263028,
       "fileType" : 8192
+    },
+    "\/2012\/algo\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/algo\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2012\/shellinitiation\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -863,14 +841,16 @@
       "initialSize" : 27547,
       "fileType" : 4096
     },
-    "\/2012\/ofxinteractivesurface\/index.php" : {
+    "\/2012\/shadows\/01.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/ofxinteractivesurface\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/2012\/shadows\/01.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2012\/shadows\/01.jpg",
+      "initialSize" : 43458,
+      "fileType" : 4096
     },
     "\/parsedown\/tests\/data\/compound_emphasis.html" : {
       "ignoreWasSetByUser" : 0,
@@ -878,6 +858,15 @@
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/compound_emphasis.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/2012\/ofxinteractivesurface\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/ofxinteractivesurface\/index.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -901,17 +890,6 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2012\/efectomariposa\/05.jpg",
       "initialSize" : 43193,
-      "fileType" : 4096
-    },
-    "\/2012\/shadows\/01.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/shadows\/01.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/shadows\/01.jpg",
-      "initialSize" : 43458,
       "fileType" : 4096
     },
     "\/2010\/communitas\/06.jpg" : {
@@ -954,15 +932,6 @@
       "initialSize" : 79919,
       "fileType" : 4096
     },
-    "\/2012\/efectomariposa\/index.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/efectomariposa\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/2014\/atramentum\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -974,12 +943,21 @@
       "initialSize" : 25935,
       "fileType" : 4096
     },
-    "\/pinterest-00370.html" : {
+    "\/2012\/efectomariposa\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/pinterest-00370.html",
+      "inputAbbreviatedPath" : "\/2012\/efectomariposa\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/parsedown\/tests\/data\/strong_em.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/strong_em.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -994,12 +972,30 @@
       "initialSize" : 19001,
       "fileType" : 8192
     },
-    "\/parsedown\/tests\/data\/strong_em.html" : {
+    "\/pinterest-00370.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/strong_em.html",
+      "inputAbbreviatedPath" : "\/pinterest-00370.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/parsedown\/tests\/data\/lazy_list.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/lazy_list.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/menu.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/menu.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -1013,24 +1009,6 @@
       "outputAbbreviatedPath" : "\/2012\/ofplay\/02.jpg",
       "initialSize" : 23592,
       "fileType" : 4096
-    },
-    "\/menu.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/menu.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/parsedown\/tests\/data\/lazy_list.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/lazy_list.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
     },
     "\/2012\/eden\/03.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1127,14 +1105,16 @@
       "initialSize" : 67895,
       "fileType" : 4096
     },
-    "\/2013\/clouds\/index.php" : {
+    "\/2011\/efectomariposa\/04.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2013\/clouds\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/04.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/04.jpg",
+      "initialSize" : 59202,
+      "fileType" : 4096
     },
     "\/2009\/joyoflight\/sponsor.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1147,16 +1127,14 @@
       "initialSize" : 12161,
       "fileType" : 4096
     },
-    "\/2011\/efectomariposa\/04.jpg" : {
+    "\/2013\/clouds\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/04.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/04.jpg",
-      "initialSize" : 59202,
-      "fileType" : 4096
+      "inputAbbreviatedPath" : "\/2013\/clouds\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2011\/efectomariposa\/25.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1180,17 +1158,6 @@
       "initialSize" : 78153,
       "fileType" : 4096
     },
-    "\/images\/icons\/facebook.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/icons\/facebook.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/icons\/facebook.png",
-      "initialSize" : 4740,
-      "fileType" : 8192
-    },
     "\/2010\/calos\/21.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1201,6 +1168,18 @@
       "outputAbbreviatedPath" : "\/2010\/calos\/21.jpg",
       "initialSize" : 69949,
       "fileType" : 4096
+    },
+    "\/scss\/style.scss" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/scss\/style.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/css\/style.css",
+      "fileType" : 4,
+      "debugStyle" : 0
     },
     "\/2010\/calos\/12.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1213,14 +1192,16 @@
       "initialSize" : 64767,
       "fileType" : 4096
     },
-    "\/2013\/avsys\/index.php" : {
+    "\/js\/libs\/three.min.js" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2013\/avsys\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/js\/libs\/three.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/js\/libs\/three.min.min.js",
+      "fileType" : 64
     },
     "\/2010\/calos\/03.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1244,6 +1225,24 @@
       "initialSize" : 7755,
       "fileType" : 8192
     },
+    "\/2013\/avsys\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2013\/avsys\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/2012\/ofplay\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/ofplay\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/2012\/efectomariposa\/01.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1255,25 +1254,34 @@
       "initialSize" : 47863,
       "fileType" : 4096
     },
-    "\/2012\/ofplay\/index.php" : {
+    "\/tools.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/ofplay\/index.php",
+      "inputAbbreviatedPath" : "\/tools.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/js\/libs\/three.min.js" : {
+    "\/images\/icons\/facebook.png" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/libs\/three.min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/libs\/three.min.min.js",
-      "fileType" : 64
+      "inputAbbreviatedPath" : "\/images\/icons\/facebook.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/icons\/facebook.png",
+      "initialSize" : 4740,
+      "fileType" : 8192
+    },
+    "\/parsedown\/tests\/data\/aligned_table.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/aligned_table.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2010\/communitas\/05.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1285,36 +1293,6 @@
       "outputAbbreviatedPath" : "\/2010\/communitas\/05.jpg",
       "initialSize" : 64253,
       "fileType" : 4096
-    },
-    "\/scss\/style.scss" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/scss\/style.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/css\/style.css",
-      "fileType" : 4,
-      "debugStyle" : 0
-    },
-    "\/tools.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/tools.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/parsedown\/tests\/data\/aligned_table.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/aligned_table.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
     },
     "\/2011\/ofxfx\/filter3.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1385,14 +1363,16 @@
       "initialSize" : 30889,
       "fileType" : 8192
     },
-    "\/2014\/ofxThermalPrinter\/index.php" : {
+    "\/2011\/ofxfx\/water.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/ofxThermalPrinter\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/2011\/ofxfx\/water.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2011\/ofxfx\/water.png",
+      "initialSize" : 61755,
+      "fileType" : 8192
     },
     "\/2010\/communitas\/04.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1438,16 +1418,14 @@
       "initialSize" : 190313,
       "fileType" : 8192
     },
-    "\/2011\/ofxfx\/water.png" : {
+    "\/2014\/ofxThermalPrinter\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/ofxfx\/water.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/ofxfx\/water.png",
-      "initialSize" : 61755,
-      "fileType" : 8192
+      "inputAbbreviatedPath" : "\/2014\/ofxThermalPrinter\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2012\/eden\/02.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1460,15 +1438,26 @@
       "initialSize" : 53198,
       "fileType" : 4096
     },
-    "\/2011\/ofxfx\/thumb2.jpg" : {
+    "\/2011\/efectomariposa\/17.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/ofxfx\/thumb2.jpg",
+      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/17.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/ofxfx\/thumb2.jpg",
-      "initialSize" : 24485,
+      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/17.jpg",
+      "initialSize" : 65517,
+      "fileType" : 4096
+    },
+    "\/2014\/vPlotter\/images\/diagram.jpeg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2014\/vPlotter\/images\/diagram.jpeg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2014\/vPlotter\/images\/diagram.jpeg",
+      "initialSize" : 180101,
       "fileType" : 4096
     },
     "\/2011\/efectomariposa\/21.jpg" : {
@@ -1482,6 +1471,17 @@
       "initialSize" : 88774,
       "fileType" : 4096
     },
+    "\/2011\/ofxfx\/thumb2.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2011\/ofxfx\/thumb2.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2011\/ofxfx\/thumb2.jpg",
+      "initialSize" : 24485,
+      "fileType" : 4096
+    },
     "\/2011\/kinectcorevision\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1490,17 +1490,6 @@
       "inputAbbreviatedPath" : "\/2011\/kinectcorevision\/index.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/2011\/efectomariposa\/17.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/17.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/17.jpg",
-      "initialSize" : 65517,
-      "fileType" : 4096
     },
     "\/parsedown\/tests\/data\/reference_title.html" : {
       "ignoreWasSetByUser" : 0,
@@ -1606,17 +1595,6 @@
       "initialSize" : 62642,
       "fileType" : 4096
     },
-    "\/2010\/calos\/50.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/50.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/50.jpg",
-      "initialSize" : 71033,
-      "fileType" : 4096
-    },
     "\/2014\/ofxStreetView\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1626,6 +1604,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2014\/ofxStreetView\/thumb.jpg",
       "initialSize" : 40434,
+      "fileType" : 4096
+    },
+    "\/2010\/calos\/50.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/calos\/50.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/50.jpg",
+      "initialSize" : 71033,
       "fileType" : 4096
     },
     "\/2010\/calos\/41.jpg" : {
@@ -1661,14 +1650,16 @@
       "initialSize" : 63126,
       "fileType" : 4096
     },
-    "\/parsedown\/tests\/data\/html_simple.html" : {
+    "\/2010\/calos\/23.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/html_simple.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/2010\/calos\/23.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/23.jpg",
+      "initialSize" : 72138,
+      "fileType" : 4096
     },
     "\/2012\/ccgsm\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1692,16 +1683,14 @@
       "initialSize" : 64870,
       "fileType" : 4096
     },
-    "\/2010\/calos\/23.jpg" : {
+    "\/parsedown\/tests\/data\/html_simple.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/23.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/23.jpg",
-      "initialSize" : 72138,
-      "fileType" : 4096
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/html_simple.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2010\/calos\/05.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1809,15 +1798,6 @@
       "initialSize" : 76739,
       "fileType" : 8192
     },
-    "\/parsedown\/tests\/data\/implicit_reference.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/implicit_reference.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/2012\/efectomariposa\/06.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1828,6 +1808,15 @@
       "outputAbbreviatedPath" : "\/2012\/efectomariposa\/06.jpg",
       "initialSize" : 39910,
       "fileType" : 4096
+    },
+    "\/parsedown\/tests\/data\/implicit_reference.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/implicit_reference.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2013\/ofxvoro\/index.php" : {
       "ignoreWasSetByUser" : 0,
@@ -1849,17 +1838,6 @@
       "initialSize" : 13711,
       "fileType" : 8192
     },
-    "\/2012\/eden\/01.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/eden\/01.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/eden\/01.jpg",
-      "initialSize" : 69211,
-      "fileType" : 4096
-    },
     "\/images\/tutoriales\/coordinates.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1870,6 +1848,17 @@
       "outputAbbreviatedPath" : "\/images\/tutoriales\/coordinates.png",
       "initialSize" : 6057,
       "fileType" : 8192
+    },
+    "\/2012\/eden\/01.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/eden\/01.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2012\/eden\/01.jpg",
+      "initialSize" : 69211,
+      "fileType" : 4096
     },
     "\/images\/tutoriales\/structure004.png" : {
       "ignoreWasSetByUser" : 0,
@@ -1933,21 +1922,21 @@
       "initialSize" : 32890,
       "fileType" : 4096
     },
-    "\/2012\/shellinitiation\/index.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/shellinitiation\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/parsedown\/tests\/data\/line_break.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/line_break.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/2012\/shellinitiation\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/shellinitiation\/index.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -2077,6 +2066,17 @@
       "initialSize" : 52791,
       "fileType" : 4096
     },
+    "\/js\/shader.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/shader.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/js\/shader.min.min.js",
+      "fileType" : 64
+    },
     "\/parsedown\/tests\/data\/setext_header.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2085,17 +2085,6 @@
       "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/setext_header.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/2010\/calos\/07.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/07.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/07.jpg",
-      "initialSize" : 67202,
-      "fileType" : 4096
     },
     "\/2007\/usal\/05.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -2108,27 +2097,27 @@
       "initialSize" : 82944,
       "fileType" : 4096
     },
-    "\/2012\/efectomariposa\/02.jpg" : {
+    "\/2011\/efectomariposa\/26.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/efectomariposa\/02.jpg",
+      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/26.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/efectomariposa\/02.jpg",
-      "initialSize" : 91344,
+      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/26.jpg",
+      "initialSize" : 84657,
       "fileType" : 4096
     },
-    "\/2011\/ofxfx\/fluid.png" : {
+    "\/2010\/calos\/07.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/ofxfx\/fluid.png",
+      "inputAbbreviatedPath" : "\/2010\/calos\/07.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/ofxfx\/fluid.png",
-      "initialSize" : 22003,
-      "fileType" : 8192
+      "outputAbbreviatedPath" : "\/2010\/calos\/07.jpg",
+      "initialSize" : 67202,
+      "fileType" : 4096
     },
     "\/2011\/iuna\/sponsor.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -2141,16 +2130,14 @@
       "initialSize" : 6857,
       "fileType" : 4096
     },
-    "\/js\/shader.min.js" : {
+    "\/parsedown\/tests\/data\/compound_list.html" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/shader.min.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/js\/shader.min.min.js",
-      "fileType" : 64
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/compound_list.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/images\/FelicesFiestas.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -2172,15 +2159,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2011\/efectomariposa\/26.jpg" : {
+    "\/2012\/efectomariposa\/02.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/26.jpg",
+      "inputAbbreviatedPath" : "\/2012\/efectomariposa\/02.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/26.jpg",
-      "initialSize" : 84657,
+      "outputAbbreviatedPath" : "\/2012\/efectomariposa\/02.jpg",
+      "initialSize" : 91344,
       "fileType" : 4096
     },
     "\/parsedown\/tests\/data\/image_reference.html" : {
@@ -2203,14 +2190,16 @@
       "initialSize" : 65792,
       "fileType" : 4096
     },
-    "\/parsedown\/tests\/data\/compound_list.html" : {
+    "\/2011\/ofxfx\/fluid.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/compound_list.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/2011\/ofxfx\/fluid.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2011\/ofxfx\/fluid.png",
+      "initialSize" : 22003,
+      "fileType" : 8192
     },
     "\/2014\/vPlotter\/images\/electronic.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -2252,15 +2241,6 @@
       "initialSize" : 18048,
       "fileType" : 8192
     },
-    "\/2014\/skylines\/index.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/skylines\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/2013\/bootcamp\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2270,16 +2250,14 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2014\/skylines\/images\/nema17.png" : {
+    "\/2014\/skylines\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/skylines\/images\/nema17.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2014\/skylines\/images\/nema17.png",
-      "initialSize" : 77921,
-      "fileType" : 8192
+      "inputAbbreviatedPath" : "\/2014\/skylines\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/parsedown\/tests\/data\/simple_blockquote.html" : {
       "ignoreWasSetByUser" : 0,
@@ -2319,26 +2297,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2012\/ofxcomposer\/connect.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/ofxcomposer\/connect.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/ofxcomposer\/connect.png",
-      "initialSize" : 290754,
-      "fileType" : 8192
-    },
-    "\/2012\/ofxcomposer\/index.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/ofxcomposer\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/2012\/ofxinteractivesurface\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2350,6 +2308,15 @@
       "initialSize" : 74734,
       "fileType" : 4096
     },
+    "\/2012\/ofxcomposer\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/ofxcomposer\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/googlebf5b513842dbd958.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2358,6 +2325,17 @@
       "inputAbbreviatedPath" : "\/googlebf5b513842dbd958.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
+    },
+    "\/2012\/ofxcomposer\/connect.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/ofxcomposer\/connect.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2012\/ofxcomposer\/connect.png",
+      "initialSize" : 290754,
+      "fileType" : 8192
     },
     "\/2011\/ofxfx\/glow.png" : {
       "ignoreWasSetByUser" : 0,
@@ -2476,55 +2454,15 @@
       "initialSize" : 71835,
       "fileType" : 4096
     },
-    "\/2014\/ofxPiTFT\/index.php" : {
+    "\/2010\/calos\/27.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/ofxPiTFT\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/parsedown\/tests\/data\/span-level_html.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/span-level_html.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/2012\/ofxcomposer\/titleBar.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/ofxcomposer\/titleBar.png",
+      "inputAbbreviatedPath" : "\/2010\/calos\/27.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/ofxcomposer\/titleBar.png",
-      "initialSize" : 32574,
-      "fileType" : 8192
-    },
-    "\/2010\/calos\/18.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/18.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/18.jpg",
-      "initialSize" : 57290,
-      "fileType" : 4096
-    },
-    "\/2010\/calos\/09.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/09.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/09.jpg",
-      "initialSize" : 74090,
+      "outputAbbreviatedPath" : "\/2010\/calos\/27.jpg",
+      "initialSize" : 65268,
       "fileType" : 4096
     },
     "\/2013\/ofxpulsesensor\/03.jpg" : {
@@ -2537,6 +2475,46 @@
       "outputAbbreviatedPath" : "\/2013\/ofxpulsesensor\/03.jpg",
       "initialSize" : 69428,
       "fileType" : 4096
+    },
+    "\/2012\/ofxcomposer\/titleBar.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/ofxcomposer\/titleBar.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2012\/ofxcomposer\/titleBar.png",
+      "initialSize" : 32574,
+      "fileType" : 8192
+    },
+    "\/2014\/atramentum\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2014\/atramentum\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/2010\/calos\/09.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/calos\/09.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/09.jpg",
+      "initialSize" : 74090,
+      "fileType" : 4096
+    },
+    "\/2014\/ofxPiTFT\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2014\/ofxPiTFT\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2011\/iuna\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -2558,16 +2536,14 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2010\/calos\/27.jpg" : {
+    "\/parsedown\/tests\/data\/span-level_html.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/27.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/27.jpg",
-      "initialSize" : 65268,
-      "fileType" : 4096
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/span-level_html.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2014\/skylines\/images\/camera-obscura.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -2580,14 +2556,16 @@
       "initialSize" : 561005,
       "fileType" : 4096
     },
-    "\/2014\/atramentum\/index.php" : {
+    "\/2010\/calos\/18.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/atramentum\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/2010\/calos\/18.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/18.jpg",
+      "initialSize" : 57290,
+      "fileType" : 4096
     },
     "\/js\/star-sky.min.js" : {
       "ignoreWasSetByUser" : 0,
@@ -2711,17 +2689,6 @@
       "initialSize" : 357220,
       "fileType" : 8192
     },
-    "\/2013\/avsys\/thumb.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2013\/avsys\/thumb.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2013\/avsys\/thumb.jpg",
-      "initialSize" : 8118,
-      "fileType" : 4096
-    },
     "\/2013\/clouds\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2731,6 +2698,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2013\/clouds\/thumb.jpg",
       "initialSize" : 119462,
+      "fileType" : 4096
+    },
+    "\/2013\/avsys\/thumb.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2013\/avsys\/thumb.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2013\/avsys\/thumb.jpg",
+      "initialSize" : 8118,
       "fileType" : 4096
     },
     "\/2014\/ofxThermalPrinter\/thumb.jpg" : {
@@ -2810,6 +2788,15 @@
       "initialSize" : 9212,
       "fileType" : 4096
     },
+    "\/footer.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/footer.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/parsedown\/tests\/data\/em_strong.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2818,17 +2805,6 @@
       "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/em_strong.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/2010\/calos\/56.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/56.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/56.jpg",
-      "initialSize" : 66939,
-      "fileType" : 4096
     },
     "\/2011\/efectomariposa\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -2841,26 +2817,24 @@
       "initialSize" : 38716,
       "fileType" : 4096
     },
-    "\/2010\/calos\/47.jpg" : {
+    "\/2012\/oca\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/47.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/47.jpg",
-      "initialSize" : 71475,
-      "fileType" : 4096
+      "inputAbbreviatedPath" : "\/2012\/oca\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
-    "\/2010\/calos\/38.jpg" : {
+    "\/2012\/ccgsm\/sponsor.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/38.jpg",
+      "inputAbbreviatedPath" : "\/2012\/ccgsm\/sponsor.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/38.jpg",
-      "initialSize" : 73556,
+      "outputAbbreviatedPath" : "\/2012\/ccgsm\/sponsor.jpg",
+      "initialSize" : 5861,
       "fileType" : 4096
     },
     "\/2014\/skylines\/images\/eye.jpg" : {
@@ -2896,36 +2870,27 @@
       "initialSize" : 75827,
       "fileType" : 4096
     },
-    "\/2012\/ccgsm\/sponsor.jpg" : {
+    "\/2010\/calos\/47.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/ccgsm\/sponsor.jpg",
+      "inputAbbreviatedPath" : "\/2010\/calos\/47.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/ccgsm\/sponsor.jpg",
-      "initialSize" : 5861,
+      "outputAbbreviatedPath" : "\/2010\/calos\/47.jpg",
+      "initialSize" : 71475,
       "fileType" : 4096
     },
-    "\/images\/icons\/t.png" : {
+    "\/2010\/calos\/56.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/icons\/t.png",
+      "inputAbbreviatedPath" : "\/2010\/calos\/56.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/icons\/t.png",
-      "initialSize" : 6195,
-      "fileType" : 8192
-    },
-    "\/2012\/oca\/index.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/oca\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "outputAbbreviatedPath" : "\/2010\/calos\/56.jpg",
+      "initialSize" : 66939,
+      "fileType" : 4096
     },
     "\/js\/main.min.js" : {
       "ignoreWasSetByUser" : 0,
@@ -2938,14 +2903,27 @@
       "outputAbbreviatedPath" : "\/js\/main.min.min.js",
       "fileType" : 64
     },
-    "\/2011\/liquidkinect\/index.php" : {
+    "\/2010\/calos\/20.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/liquidkinect\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/2010\/calos\/20.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/20.jpg",
+      "initialSize" : 68495,
+      "fileType" : 4096
+    },
+    "\/2010\/calos\/38.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/calos\/38.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/38.jpg",
+      "initialSize" : 73556,
+      "fileType" : 4096
     },
     "\/2010\/calos\/11.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -2980,6 +2958,17 @@
       "initialSize" : 51785,
       "fileType" : 4096
     },
+    "\/images\/icons\/t.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/icons\/t.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/icons\/t.png",
+      "initialSize" : 6195,
+      "fileType" : 8192
+    },
     "\/2011\/efectomariposa\/06.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2991,23 +2980,12 @@
       "initialSize" : 39954,
       "fileType" : 4096
     },
-    "\/2010\/calos\/20.jpg" : {
+    "\/2011\/liquidkinect\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/20.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/20.jpg",
-      "initialSize" : 68495,
-      "fileType" : 4096
-    },
-    "\/footer.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/footer.php",
+      "inputAbbreviatedPath" : "\/2011\/liquidkinect\/index.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -3188,6 +3166,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/2012\/codemology\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/codemology\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/images\/tutoriales\/gitBash.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -3198,6 +3185,15 @@
       "outputAbbreviatedPath" : "\/images\/tutoriales\/gitBash.jpg",
       "initialSize" : 11608,
       "fileType" : 4096
+    },
+    "\/css\/style.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/css\/style.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
     },
     "\/2007\/usal\/02.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -3210,33 +3206,15 @@
       "initialSize" : 96593,
       "fileType" : 4096
     },
-    "\/inst.php" : {
+    "\/2011\/efectomariposa\/02.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/inst.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/css\/style.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/style.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
-    },
-    "\/2012\/eden\/thumb.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/eden\/thumb.jpg",
+      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/02.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/eden\/thumb.jpg",
-      "initialSize" : 43712,
+      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/02.jpg",
+      "initialSize" : 61531,
       "fileType" : 4096
     },
     "\/2012\/kaleido\/thumb.jpg" : {
@@ -3250,6 +3228,15 @@
       "initialSize" : 35837,
       "fileType" : 4096
     },
+    "\/inst.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/inst.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/2012\/galiciacanibal\/index.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -3259,24 +3246,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2012\/codemology\/index.php" : {
+    "\/2012\/eden\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/codemology\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/2011\/efectomariposa\/02.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/efectomariposa\/02.jpg",
+      "inputAbbreviatedPath" : "\/2012\/eden\/thumb.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/efectomariposa\/02.jpg",
-      "initialSize" : 61531,
+      "outputAbbreviatedPath" : "\/2012\/eden\/thumb.jpg",
+      "initialSize" : 43712,
       "fileType" : 4096
     },
     "\/2011\/efectomariposa\/19.jpg" : {
@@ -3504,15 +3482,6 @@
       "initialSize" : 25561,
       "fileType" : 4096
     },
-    "\/parsedown\/tests\/data\/fenced_code_block.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/fenced_code_block.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/images\/tutoriales\/array4.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -3523,6 +3492,15 @@
       "outputAbbreviatedPath" : "\/images\/tutoriales\/array4.png",
       "initialSize" : 12984,
       "fileType" : 8192
+    },
+    "\/parsedown\/tests\/data\/fenced_code_block.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/fenced_code_block.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/js\/star-sky.js" : {
       "ignoreWasSetByUser" : 0,
@@ -3553,17 +3531,6 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2011\/iuna\/02.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/iuna\/02.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2011\/iuna\/02.jpg",
-      "initialSize" : 66782,
-      "fileType" : 4096
-    },
     "\/2011\/kinectcorevision\/thumb01.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -3573,6 +3540,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2011\/kinectcorevision\/thumb01.jpg",
       "initialSize" : 32282,
+      "fileType" : 4096
+    },
+    "\/2011\/iuna\/02.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2011\/iuna\/02.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2011\/iuna\/02.jpg",
+      "initialSize" : 66782,
       "fileType" : 4096
     },
     "\/2012\/efectomariposa\/thumb2.jpg" : {
@@ -3619,15 +3597,6 @@
       "initialSize" : 38390,
       "fileType" : 4096
     },
-    "\/2012\/picasso\/index.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/picasso\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/2014\/ofxPiTFT\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -3638,6 +3607,15 @@
       "outputAbbreviatedPath" : "\/2014\/ofxPiTFT\/thumb.jpg",
       "initialSize" : 40434,
       "fileType" : 4096
+    },
+    "\/2012\/picasso\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/picasso\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/parsedown\/tests\/data\/simple_table.html" : {
       "ignoreWasSetByUser" : 0,
@@ -3707,17 +3685,6 @@
       "inputAbbreviatedPath" : "\/collab.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/2014\/skylines\/images\/diagram.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/skylines\/images\/diagram.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2014\/skylines\/images\/diagram.png",
-      "initialSize" : 443881,
-      "fileType" : 8192
     },
     "\/2010\/communitas\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -3796,17 +3763,6 @@
       "initialSize" : 227235,
       "fileType" : 4096
     },
-    "\/2009\/joyoflight\/thumb.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2009\/joyoflight\/thumb.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2009\/joyoflight\/thumb.jpg",
-      "initialSize" : 13213,
-      "fileType" : 4096
-    },
     "\/2010\/calos\/06.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -3827,16 +3783,27 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/images\/icons\/mail.png" : {
+    "\/2009\/joyoflight\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/icons\/mail.png",
+      "inputAbbreviatedPath" : "\/2009\/joyoflight\/thumb.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/icons\/mail.png",
-      "initialSize" : 5186,
-      "fileType" : 8192
+      "outputAbbreviatedPath" : "\/2009\/joyoflight\/thumb.jpg",
+      "initialSize" : 13213,
+      "fileType" : 4096
+    },
+    "\/2012\/eden\/06.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/eden\/06.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2012\/eden\/06.jpg",
+      "initialSize" : 68678,
+      "fileType" : 4096
     },
     "\/parsedown\/tests\/data\/code_block.html" : {
       "ignoreWasSetByUser" : 0,
@@ -3858,6 +3825,26 @@
       "initialSize" : 65828,
       "fileType" : 4096
     },
+    "\/parsedown\/tests\/data\/lazy_blockquote.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/lazy_blockquote.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/images\/icons\/mail.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/icons\/mail.png",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/images\/icons\/mail.png",
+      "initialSize" : 5186,
+      "fileType" : 8192
+    },
     "\/2011\/efectomariposa\/11.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -3877,37 +3864,6 @@
       "inputAbbreviatedPath" : "\/2011\/efectomariposa\/index.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/parsedown\/tests\/data\/lazy_blockquote.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/lazy_blockquote.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/2012\/eden\/06.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/eden\/06.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/eden\/06.jpg",
-      "initialSize" : 68678,
-      "fileType" : 4096
-    },
-    "\/2014\/vPlotter\/images\/diagram.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/vPlotter\/images\/diagram.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2014\/vPlotter\/images\/diagram.png",
-      "initialSize" : 443881,
-      "fileType" : 8192
     },
     "\/2012\/efectomariposa\/04.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -3931,17 +3887,6 @@
       "initialSize" : 35507,
       "fileType" : 4096
     },
-    "\/images\/tutoriales\/proyectGenerator.png" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/tutoriales\/proyectGenerator.png",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/tutoriales\/proyectGenerator.png",
-      "initialSize" : 8749,
-      "fileType" : 8192
-    },
     "\/images\/about_picture.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -3953,16 +3898,25 @@
       "initialSize" : 44597,
       "fileType" : 4096
     },
-    "\/2013\/bootcamp\/sponsor.jpg" : {
+    "\/teaching.php" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2013\/bootcamp\/sponsor.jpg",
+      "inputAbbreviatedPath" : "\/teaching.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/images\/tutoriales\/proyectGenerator.png" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/images\/tutoriales\/proyectGenerator.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2013\/bootcamp\/sponsor.jpg",
-      "initialSize" : 2659,
-      "fileType" : 4096
+      "outputAbbreviatedPath" : "\/images\/tutoriales\/proyectGenerator.png",
+      "initialSize" : 8749,
+      "fileType" : 8192
     },
     "\/2012\/efectomariposa\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -3986,14 +3940,16 @@
       "initialSize" : 60325,
       "fileType" : 4096
     },
-    "\/teaching.php" : {
+    "\/2013\/bootcamp\/sponsor.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/teaching.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/2013\/bootcamp\/sponsor.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2013\/bootcamp\/sponsor.jpg",
+      "initialSize" : 2659,
+      "fileType" : 4096
     },
     "\/2012\/kaleido\/01.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -4008,6 +3964,13 @@
     }
   },
   "manualImportLinks" : [
+    {
+      "type" : 1,
+      "position" : 0,
+      "linkedFileAbbreviatedPath" : "\/js\/libs\/three.min.js",
+      "baseFileAbbreviatedPath" : "\/js\/shader.js",
+      "followForSyntaxChecking" : 1
+    },
     {
       "type" : 1,
       "position" : 0,
@@ -4041,13 +4004,6 @@
       "position" : 4,
       "linkedFileAbbreviatedPath" : "\/js\/libs\/three.min.js",
       "baseFileAbbreviatedPath" : "\/js\/star-sky.js",
-      "followForSyntaxChecking" : 1
-    },
-    {
-      "type" : 1,
-      "position" : 0,
-      "linkedFileAbbreviatedPath" : "\/js\/libs\/three.min.js",
-      "baseFileAbbreviatedPath" : "\/js\/shader.js",
       "followForSyntaxChecking" : 1
     }
   ],

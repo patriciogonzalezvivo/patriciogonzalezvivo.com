@@ -31,7 +31,7 @@ This thesis is a meditation about this devices. An on-going process of explorati
 
 Artists have been on the technological frontier since before the Renaissance. As Greg Turner and Ernest Edmonds said, _"the physical world of artifacts is very different from the conceptual world of the imagination, and artists often find themselves pushing technology forward, creating new artifacts either as part of, or in order to construct, their art. These new artifacts present new ways of using and thinking about other things.”_
 
-![Camera Obscura](images/camera-obscura.jpg)
+![Camera Obscura](http://patriciogonzalezvivo.com/2014/skylines/images/camera-obscura.jpg)
 
 Most of these artifacts, which develop the creative process, end up as custom tools for expression. Some of them have become so popular that it is impossible not to relate them to an expressive field: the brush for painting, the chisel for sculpture, the type notebook for poetry. Tools blend with the author to become extensions of their body and share the process of bringing imaginations to life. That could happen by learning how to use pre-existing tools, experimenting how to use them in new ways, or by developing new ones. In the new media scene, the latter two occur often.
 
