@@ -3,7 +3,11 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
-			<a href="2014/vPlotter/"><img class="roundPhotoTh" src="2014/vPlotter/thumb.jpg" alt="vPlotter"/></a>
+			<a href="2014/ofxThermalPrinter/" target="_blank"><img class="roundPhotoTh" src="2014/ofxThermalPrinter/thumb.gif" alt="ofxFluid"/></a>
+			<p>2014 <strong>ofxThermalPrinter</strong>: openFrameworks addon for Adafruit's mini thermal printer </p>
+		</article>
+		<article class="item">
+			<a href="2014/vPlotter/"><img class="roundPhotoTh" src="2014/vPlotter/thumb.gif" alt="vPlotter"/></a>
 			<p>2014 <strong>vPlotter</strong>: Wireless wall Plotter power by a RaspberryPi </p>
 		</article>
 		<article class="item">
