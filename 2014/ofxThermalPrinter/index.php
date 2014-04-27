@@ -7,13 +7,9 @@
 
 		<?php
 			include("../../parsedown/Parsedown.php");
-
-			define('GITHUB_USER', 'patriciogonzalezvivo');
 			define('GITHUB_REPO', 'ofxThermalPrinter');
-			define('GITHUB_BRANCH', 'master');
-
 			$Parsedown = new Parsedown();
-			echo $Parsedown->text(file_get_contents( 'https://raw.github.com/'.GITHUB_USER.'/'.GITHUB_REPO.'/'.GITHUB_BRANCH.'/README.md'));
+			echo $Parsedown->text(file_get_contents( 'https://raw.github.com/patriciogonzalezvivo/'.GITHUB_REPO.'/master/README.md'));
 		?>
 
 	</section>
