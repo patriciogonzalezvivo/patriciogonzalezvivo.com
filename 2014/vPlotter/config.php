@@ -6,4 +6,4 @@ define('GITHUB_BRANCH', 'master');
 
 // Copy this password in the GitHub WebHook URL
 // e.g.: http://example.com/hook.php?password=test_password
-define('GITHUB_HOOK_PASSWORD', 'pass741g');
+define('GITHUB_HOOK_PASSWORD', 'test_password');
