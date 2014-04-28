@@ -23,7 +23,7 @@
 			<p>2013 <strong>sNode</strong>: GLSL Shader prototyping tool wrote on openFrameworks and powered by Syphon</p>
 		</article>
 		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxVoro" target="_blank"><img class="roundPhotoTh" src="2013/ofxvoro/thumb.gif" alt="ofxVoro"/></a>
+			<a href="2013/ofxvoro/"><img class="roundPhotoTh" src="2013/ofxvoro/thumb.gif" alt="ofxVoro"/></a>
 			<p>2013 <strong>ofxVoro</strong>: 3D Voronoi addon for openFrameworks </p>
 		</article>
 		<article class="item">
