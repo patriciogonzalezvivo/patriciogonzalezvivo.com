@@ -4,7 +4,7 @@
 	<section class="content">
 		<article class="item">
 			<a href="2014/ofxPiTFT/" target="_blank"><img class="roundPhotoTh" src="2014/ofxPiTFT/thumb.jpg" alt="ofxPiTFT"/></a>
-			<p>2014 <strong>ofxThermalPrinter</strong>: openFrameworks addon for Adafruit's mini thermal printer </p>
+			<p>2014 <strong>ofxPiTFT</strong>: openFrameworks addon for Adafruit's RaspberryPi TFT Touch Display </p>
 		</article>
 		<article class="item">
 			<a href="2014/ofxThermalPrinter/" target="_blank"><img class="roundPhotoTh" src="2014/ofxThermalPrinter/thumb.gif" alt="ofxThermalPrinter"/></a>
