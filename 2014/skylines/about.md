@@ -75,9 +75,7 @@ After experimenting with different markers, surfaces, electronic components (cap
 
 I start by using images related to the _"virtual world"_ like desktop icons to plot (also by that time I was very interested on the desktop as a common metaphor for computers environments). This images were plot on top of a linoleum to then be carved and as a print relieve. 
 
-<iframe class="vine-embed" src="https://vine.co/v/hw7g3FgDjnt/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
-
-![Desktop Icon](https://farm8.staticflickr.com/7371/10556116273_75ac40047c_z_d.jpg)
+<iframe class="vine-embed" src="https://vine.co/v/hw7g3FgDjnt/embed/simple" width="285" height="285" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> ![Desktop Icon](https://farm8.staticflickr.com/7371/10556116273_75ac40047c_z_d.jpg" width="285" class="icon")
 
 **October 21, 2013** After the first test with the icons I decide to go further adding more texture to the prints. I decide to work with wood because it beautiful irregular texture. 
 
@@ -105,7 +103,7 @@ After doing that repeat the process of plotting on top of a peace of wood.
 
 One iteration of the plotter it was not enough. The jumps and spaces left by the Canny Algorithms didn't were enough coherent. I discover that running the edge detection several times and letting accumulate this traces result on more dramatic and rich borders.
 
-![a](https://farm8.staticflickr.com/7436/10914050484_79a754d7ae_z_d.jpg) ![b](https://farm8.staticflickr.com/7330/10913917755_45115b9118_z_d.jpg)
+![a](https://farm8.staticflickr.com/7436/10914050484_79a754d7ae_z_d.jpg" width="285" class="icon") ![b](https://farm8.staticflickr.com/7330/10913917755_45115b9118_z_d.jpg" width="285" class="icon")
 
 On the print shop this process paid off. The digital nature of the slitCam, the repetition of the edge detection algorithm, the organic surface of the wood with their imperfection and the work of my hands combine in a fluid image whose nature is unclear. 
 
@@ -113,9 +111,7 @@ On the print shop this process paid off. The digital nature of the slitCam, the 
 
 **December 2, 2013** I repeat the process. Makes me feel like an alchemist of mediums. The products of this process are dense and obscure at the same time superficial, incomplete.
 
-<iframe class="vine-embed" src="https://vine.co/v/hP3Y9erJMLr/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
-
-![Jen](https://farm4.staticflickr.com/3759/11173530623_bbac079ddb_z_d.jpg)
+<iframe class="vine-embed" src="https://vine.co/v/hP3Y9erJMLr/embed/simple" width="285" height="285" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> ![Jen](https://farm4.staticflickr.com/3759/11173530623_bbac079ddb_z_d.jpg" width="285" class="icon")
 
 
 ## Research and experiment about glitch
@@ -198,42 +194,92 @@ After wining World War II deciphering enigma our relationship with them shifted.
 
 The human-computer dream was one where humans can be plugged in to computers, in an intuitive and efficient way. Buy intuitive and efficient these fields understand: without to much previous explanation and without the human making mistakes. Because the psychological model behind this research is a reduction of the human psyche to terms of electronics circuits (buffers, memory, processors, inputs and outputs) the beginning of the human-computer interaction represents a project where engineers and psychologist trace the basis of how to designing computers for human-computers. 
 
-Machines as assistive technology. 
-Machines to make us more aware. 
-To help as see beyond our perception without distractions.
-Calmer and slower technology. 
-One that goes at our rhythm, to let us see, to make us think.
+> _Machines as assistive technology._
+
+> _Machines to make us more aware._
+
+> _To help as see beyond our perception without distractions._
+
+> _Calmer and slower technology. _
+
+> _One that goes at our rhythm, to let us see, to make us think._
 
 ## Skyline #01
 
-- Drawing as the first technique of image generation
+**March 28, 2014** Drawing is our first technique for generating images. In our personal cognitive development and in our evolution as a species.
 
-- Drawing as a way to see. As a dialog back and forth between the eye and the tools.
+Drawing set the basis for abstract thinking at the same time we learn to see. In this process we initiate a dialog back and forth between our eye and our tools.
 
-- Drawing as a way to search or trace.
+This dialog also could be between things we have seen, tracing them from memory, or with things that doesn't exist yet, drawing form the imagination. By that memories and ideas get shaped on paper.
 
-- Search for something invisible.
-	-	drawing from imagination 
-	-	shaping an idea. mapping thoughts. 
+Cartography behave in the same way, tracing contours and tracking paths along landscapes. Sometimes the terrain is not real and the map is from something in our mind. The work of [Matthew Rangel](http://matthewrangelstudio.com/) is a good example of drawing as a topographical search.
 
-- Trace something experienced.
-	- as a memory of a path
-	- as the recreation of the tension on a contour.
+![Chasing Peaks by Matthew Rangel](http://asset1.itsnicethat.com/system/files/012012/4f156bb50731397606000094/img_col_main/11DueEastfromEagleScoutPassTheBlackK.jpg?1354589807 "Chasing Peaks by Matthew Rangel")
 
-- In both cases is a process of addition and subtraction
+> _My work is centered on the ways in which human constructs of land influence our experience of a place and I explore this notion through an embodied process of visualizing the land. My prints are inspired by the extended walks that I initiate and often comprised of influential documentation I gather that becomes integral to my experience. This includes maps, observation-based drawings, photographs, historic research, and oral narratives I gather from ethnographic field research._ Matthew Rangel 
 
-- I'm interested on working beyond our perception of time and space. Like in maps and long exposure pictures it necessarily imply the use of technology as an extension of our experience.
+**March 30, 2014** I start using my [vPlotter Tool](../vPlooter/), this time open to be guide by it. I want to see through the eyes of this tool. 
+I start by drawing skylines.
 
-In this case a drawing machine will add layer over layer of material over a surface to slowly reveal an image.
+<iframe class="vine-embed" src="https://vine.co/v/MehQvLHvthl/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+
+One after the other.
+The plotter don't get tired. 
+In fact doesn't perceive the time.
+It simply obey to series of instructions.
+
+Now it's clear to me, how machines expand our perception to one where tiredness and exhaustion don't exist. That means I can draw by stretching the time. 
+
+As a long exposure image in photography (see [Dan Holdsworth photo](http://www.danholdsworth.com/" target="_blank") ) I can see something invisible to my perception. See through time.
+
+[ ![Dan Holdsworth](http://www.saatchigallery.com/imgs/artists/holdsworth_dan/dan_holdsworth_10.jpg) ](http://www.danholdsworth.com/" target="_blank" "by Dan Holdsworth")
+
+> _“I try to encourage the viewer to think about their position in relationship to the world, trying to create some kind of communion with the viewer, instead of dictating something, or surprising them.”_ [Dan Holdsworth](http://www.danholdsworth.com/" target="_blank")
+
+I'm interested on working beyond our perception of time and space. Like in maps and long exposure pictures that necessarily imply the use of technology as an extension of our experience.
+
+**Skyline #01** is a drawing machine that slowly reveal an image by tracing constantly the contours of the images coming from a camera. The lines add one over the other one. The machine will behave like a long exposure drawing. 
+
+![algorithmic long exposure](https://farm6.staticflickr.com/5547/13473380053_8e5a54de63_b_d.jpg)
 
 ## Skyline #02
-By moving we change our point of view. We left behind a landscapes in the search for a new horizon. 
 
-- Writing journey diaries or tracing maps could become a log of the transformations of context and perception. A memory of a process. A record of the past choices.
+If _Skyline #01_ see through the flow of the time. **Skyline #02** expand our perception of space.
 
-What remains invisible is the subtle changes in journey. This piece shows the subtle changes of the surroundings during a walk between Manhattan and up Hudson towns.
+**March 13, 2014** By moving we change our point of view. We left behind a landscapes in the search for a new horizon. 
+
+Journey diaries or traced maps, are a log of the transformations, a memory of the context of a process. A record of the past choices.
+
+Our perception is attached to the present. We usually fail on noticing subtle changes. In a journey, the changes on the horizon becomes invisible. The skyline change so slowly that become imperceptible.
+
+Using Google Street View as a collection of memories of the skyline I reconstitute this transition from point A to point B.
+
+![map and horizons](https://farm3.staticflickr.com/2403/13134041954_aa760bca82_b_d.jpg)
+
+This piece shows the subtle changes of the surroundings during a walk between Union Sq. (Manhattan) and up Hudson towns (where The American Landscape was develop).
+
+To record this transition I develop another tool. I'm using a Mini Thermal Printer for which [I code an openFrameworks addon](.../ofxThermalPrinter/). 
 
 <iframe src="//player.vimeo.com/video/89982939?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="574" height="326" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+**April 1, 2013** I'm working on my skyline recorder. I'm using a RaspberryPi to power this project. Together with the printer and the raspberry I'm using a [PiTFT](.../ofxPiTFT/) module to get some visual feedback. I'm still 
+
+<object type="application/x-shockwave-flash" width="574" height="323" data="https://www.flickr.com/apps/video/stewart.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param name="flashvars" value="intl_lang=en-US&photo_secret=4954536a8a&photo_id=13632669745&hd_default=false"></param><param name="movie" value="https://www.flickr.com/apps/video/stewart.swf"></param><param name="bgcolor" value="#000000"></param><param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/video/stewart.swf" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-US&photo_secret=4954536a8a&photo_id=13632669745&hd_default=false" width="574" height="323"></embed></object>
+
+**April 16, 2014** After some fail enclosure prototypes...
+
+![proto01](https://farm3.staticflickr.com/2853/13633036384_6f11b2b190_z_d.jpg" width="285" class="icon") ![proto02](https://farm3.staticflickr.com/2909/13632681385_3ce11cb456_z_d.jpg" width="285" class="icon")
+
+...I discover an old EKG machine that seams a perfect host. 
+
+![EKG Machine](https://farm8.staticflickr.com/7362/13898376254_16a59d0bb4_b_d.jpg)
+ 
+With some adjustment [the Mini Thermal Printer](../ofxThermalPrinter/) and the [TFT display of the RaspberryPi](../ofxPiTFT) are added. The skyline-recorder is almost ready. 
+
+![printer](https://farm3.staticflickr.com/2911/13917147874_dbe5486657_z_d.jpg" width="285" class="icon") ![rpi](https://farm3.staticflickr.com/2899/13916718975_0657db5031_z_d.jpg" width="285" class="icon")
+
+<object type="application/x-shockwave-flash" width="574" height="323" data="https://www.flickr.com/apps/video/stewart.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param name="flashvars" value="intl_lang=en-US&photo_secret=a9a3dd0b06&photo_id=13917946995&hd_default=false"></param><param name="movie" value="https://www.flickr.com/apps/video/stewart.swf"></param><param name="bgcolor" value="#000000"></param><param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/video/stewart.swf" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-US&photo_secret=a9a3dd0b06&photo_id=13917946995&hd_default=false" width="574" height="323"></embed></object>
+
 
 
 
