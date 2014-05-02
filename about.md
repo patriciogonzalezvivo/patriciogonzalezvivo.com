@@ -3,7 +3,7 @@
 
 Patricio Gonzalez Vivo is an artist and developer who creates interactive installations and visual applications. He is also a Psychologist specializing in Expressive Art Therapy; he uses code as an expressive language to develop a better together. His work explores interstitial spaces between organic and synthetic, analog and digital, individual and collective.
  
-His MFA in Design & Technology is from [Parsons The New School](http://www.newschool.edu/parsons/mfa-design-technology/" target="_blank"), and he is an active member of the [OpenFrameworks](www.openFrameworks.cc" target="_blank") developer community. 
+His MFA in Design & Technology is from [Parsons The New School](http://www.newschool.edu/parsons/mfa-design-technology/" target="_blank") and he is an active member of the [OpenFrameworks](www.openFrameworks.cc" target="_blank") developer community. 
 
 Patricio lives in Brooklyn, NY and Buenos Aires, Argentina.
 
@@ -11,7 +11,7 @@ Patricio lives in Brooklyn, NY and Buenos Aires, Argentina.
 
 - **2014** [SCOPE Arts Show](http://scope-art.com/)
 - **2013** [CLOUDS](http://www.cloudsdocumentary.com/) 
-- **2012** & **2013** [FILE Festiva](http://file.org.br/" target="_blank")
+- **2012 & 2013** [FILE Festiva](http://file.org.br/" target="_blank")
 - **2012** [FASE](http://encuentrofase.com.ar/" target="_blank")
 - **2012** [TEDxTenaris](https://www.ted.com/tedx/events/5003)
 - **2011** [MediaLab Residency at Centro Cultural Español](http://www.cceba.org.ar/v3/blog_medialab.php" target="_blank")
