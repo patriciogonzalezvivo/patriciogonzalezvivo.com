@@ -5,7 +5,7 @@
 	<section class="content">
 		<article class="item">
 			<a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.gif" alt="ofPlay"/></a>
-			<p>2014 <strong>Point Cloud City</strong>: scrapping google street view and recosntructing it on a 3D environment</p>
+			<p>2014 <strong>Point Cloud City</strong>: scraping google street view and reconstructing it in a 3D environment</p>
 		</article>
 		<article class="item">
 			<a href="2014/atramentum/"><img class="roundPhotoTh" src="2014/atramentum/thumb.jpg" alt="clouds"/></a>
