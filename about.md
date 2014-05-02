@@ -1,13 +1,21 @@
 
 ![IMG](images/about_picture.jpg)
 
-I'm an artist that founds on coding a expressive language to explore interstitial spaces between, organic and synthetic, old and new, analog and digital, the individual and the collective.
+Patricio Gonzalez Vivo is an artist and developer who creates interactive installations and visual applications. He is also a Psychologist specializing in Expressive Art Therapy; he uses code as an expressive language to develop a better together. His work explores interstitial spaces between organic and synthetic, analog and digital, individual and collective.
+ 
+His [MFA in Design & Technology is from Parsons The New School](http://www.newschool.edu/parsons/mfa-design-technology/" target="_blank"), and he is an active member of the [OpenFrameworks](www.openFrameworks.cc" target="_blank") developer community. 
 
-Usually this inquiry takes the shape of interactive installations, creative applications, been part of a collaboration or just a gesture.
+Patricio lives in Brooklyn, NY and Buenos Aires, Argentina.
 
-### Bio
+### Exhibitions and Residencies
 
-Patricio Gonzalez Vivo was born in Buenos Aires, Argentina in 1982. He graduated as a licensed psychologist in 2005 to then work as a Clinical Psychologist.  In 2008 he specialized in Expressive Art Therapy.  Exploring different mediums he found  an expressive channel in machine and software code. In 2009 he became an active member of the [OpenFrameworks](www.openFrameworks.cc" target="_blank") developer community. He was part of [Interactivos Telefónica](http://www.fundacion.telefonica.com.ar/que-hacemos-difundimos-conocimiento-actividades-interactivos.html" target="_blank") (2010) and [CCEBA MediaLab](http://www.cceba.org.ar/v3/blog_medialab.php" target="_blank") (2011) scholarships. He have shown his work on [Espacio Fundación Telefónica](http://www.fundacion.telefonica.com/en/" target="_blank") (2010), [Centro Cultural Español](http://www.cceba.org.ar/v3/blog_medialab.php" target="_blank") (2011), [FASE](http://encuentrofase.com.ar/" target="_blank") (2012), TEDx (2012) and [FILE](http://file.org.br/" target="_blank") (2012 and 2013). In 2014 he completed  his [MFA on Design&Technology at Parsons The New School](http://www.newschool.edu/parsons/mfa-design-technology/" target="_blank").
+- **2014** [SCOPE Arts Show](http://scope-art.com/)
+- **2013** [CLOUDS](http://www.cloudsdocumentary.com/) 
+- **2012** & **2013** [FILE Festiva](http://file.org.br/" target="_blank")
+- **2012** [FASE](http://encuentrofase.com.ar/" target="_blank")
+- **2012** [TEDxTenaris](https://www.ted.com/tedx/events/5003)
+- **2011** [MediaLab Residency at Centro Cultural Español](http://www.cceba.org.ar/v3/blog_medialab.php" target="_blank")
+- **2010** [Interactivos Residency, Fundación Telefónica](http://www.fundacion.telefonica.com/en/" target="_blank") 
 
 [ ![vimeo](images/icons/vimeo.png" width="32" class="icon) ](http://vimeo.com/patriciogv" target="_blank")
 [ ![GitHub](images/icons/github.png" width="32" class="icon) ](https://github.com/patriciogonzalezvivo" target ="_blank")
