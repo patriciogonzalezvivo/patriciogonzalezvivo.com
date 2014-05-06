@@ -1,9 +1,4 @@
-
-[![header_image](images/plain.png)](http://www.patriciogonzalezvivo.com/2014/skylines)
-
->>>> _We teach them how to see where we don't._
-
-# 1.Introduction
+# Introduction
 
 This series of projects is about awareness - about the tools and techniques we use to see the world around us.
 
@@ -12,7 +7,7 @@ These projects are part of a ongoing process nourished by different motivations 
 Looking at the horizon we find a _skyline_. A place where the earth and the sky touch and differentiate from each other. This contour is the confluence of time and space. The landscape is shaped over time by forces like the erosion or human hand; it is  in constant change and fluctuation. This skyline is also defined by the particular position of the observer. Seeing through technical devices allows us to look beyond our perception into different qualities of time and space.
 
 
-## 1.a. Landscapes
+## Landscapes
 
 Landscapes, as a pictorial theme in art, speak overall about our intention to capture the world we live in. Landscapes preserve for the future a glimpse of our context, the background of our experiences, the identity of a nation, the horizon of an era.
 
@@ -30,9 +25,9 @@ Nowadays we live in a world of images. They are easy to generate, edit and share
 This thesis is a meditation about these devices. An on-going process of exploration around the theme of seeing assisted by apparatus.
 
 
-## 1.b.The Artist as Toolmaker
+## The Artist as Toolmaker
 
-Artists have been on the technological frontier since before the Renaissance. As Greg Turner and Ernest Edmonds said, _"the physical world of artifacts is very different from the conceptual world of the imagination, and artists often find themselves pushing technology forward, creating new artifacts either as part of, or in order to construct, their art. These new artifacts present new ways of using and thinking about other things.”_
+Artists have been on the technological frontier since before the Renaissance. As Greg Turner and Ernest Edmonds said, _"the physical world of artifacts is very different from the conceptual world of the imagination, and artists often find themselves pushing technology forward, creating new artifacts either as part of, or in order to construct, their art. These new artifacts present new ways of using and thinking about other things.”_ @Art03towardsa
 
 ![Camera Obscura](images/camera-obscura.jpg)
 
@@ -58,4 +53,4 @@ As Klemmer and Hartmann warn us, _"one of the most sweeping — and unintended �
 Michael Polanyi refers to our physical body as _"the ultimate instrument of all our external knowledge, whether intellectual or practical experience is always in terms of the world to which we are attending from our body."_
 In this sense, digital creative processes that successfully incorporate the richness and rawness of direct manipulation of materials will result in a larger bandwidth of poetic and expressive potential.
 
-Inspired by William Kentridge’s methodology, I dedicated the fall of 2013 to explore the boundaries between digital and physical tools. I developed a [wall plotter (vPlotter)](http://www.patriciogonzalezvivo.com/2014/vPlotter/) that later become a tool to think about technology and perception.
+Inspired by William Kentridge’s methodology, I dedicated the fall of 2013 to explore the boundaries between digital and physical tools. I developed a [wall plotter (vPlotter)](http://www.patriciogonzalezvivo.com/2014/vPlotter/index.php) that later become a tool to think about technology and perception.
