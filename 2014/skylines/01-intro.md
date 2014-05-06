@@ -1,37 +1,7 @@
 
-![header_image](images/plain.png)
+[![header_image](images/plain.png)](http://www.patriciogonzalezvivo.com/2014/skylines)
 
 >>>> _We teach them how to see where we don't._
-
-# Table of Contents
-
-**1.Introduction**
-
-> a. Landscapes
-
-> b. The Artist as Toolmaker
-
-[ **2.The Process** ](process.php)
-
-> a.Early experiments with the vPlotter
-
-> b.Traces of the digital
-
-> c.Research and experiments with glitch
-
-> d.Ode to Slow Media
-
-> e.Skyline #01
-
-> f.Skyline #02
-
-**3.The Tools**
-
-> a.[The vPlotter](../vPlotter/)
-
-> b.[The Thermal Printer](../ofxThermalPrinter/)
-
-
 
 # 1.Introduction
 
@@ -46,7 +16,7 @@ Looking at the horizon we find a _skyline_. A place where the earth and the sky 
 
 Landscapes, as a pictorial theme in art, speak overall about our intention to capture the world we live in. Landscapes preserve for the future a glimpse of our context, the background of our experiences, the identity of a nation, the horizon of an era.
 
-As Rafael Cardoso said _"nature is not made up of landscapes. Although it contains mountains, valleys, plains, rivers, bays and much more, these natural forms only become "landscape" when they are framed by the viewer's gaze and grouped into compositions. The landscape thus depends on the observer's gaze just as much as on the actual physical features been observer."_
+As Rafael Cardoso said _"nature is not made up of landscapes. Although it contains mountains, valleys, plains, rivers, bays and much more, these natural forms only become 'landscape' when they are framed by the viewer's gaze and grouped into compositions. The landscape thus depends on the observer's gaze just as much as on the actual physical features been observer."_
 As another example, The Hudson River School, with its panoramic vistas, deep space, deft atmospheric effect and precise details define the national identity of North America scenery.
 
 By learning to draw these sceneries, artists through time understand the laws of our perception: everything from the behavior of light to the laws of perspective were discovered by learning how to see the world. In that process we develop tools, like the camera obscura, camera lucida and lens techniques, that helps us see with more precision. Artifacts were designed to assist our perception. With them our awareness of the world has expanded dramatically. We learn how to see further and closer, to get a better picture of the macro context we are inserted into, together with the micro universe hided in details.
@@ -64,7 +34,7 @@ This thesis is a meditation about these devices. An on-going process of explorat
 
 Artists have been on the technological frontier since before the Renaissance. As Greg Turner and Ernest Edmonds said, _"the physical world of artifacts is very different from the conceptual world of the imagination, and artists often find themselves pushing technology forward, creating new artifacts either as part of, or in order to construct, their art. These new artifacts present new ways of using and thinking about other things.”_
 
-![Camera Obscura](http://patriciogonzalezvivo.com/2014/skylines/images/camera-obscura.jpg)
+![Camera Obscura](images/camera-obscura.jpg)
 
 Most of these artifacts, developed by the creative process, end up as custom tools for expression. Some of them have become so popular that it is impossible not to relate them to a particular expressive field: the brush for painting, the chisel for sculpture, the notebook for poetry. Tools blend with the author to become extensions of their body and share the process of bringing imaginations to life. This can happen by learning how to use pre-existing tools, by experimenting with using tools in new ways, or by developing new tools. In the new media scene, the latter two occur often.
 
@@ -79,7 +49,7 @@ This breaks with the passive paradigm of computer _"users"_ to install an active
 
 In this spirit of self-made tools, I began a series of explorations searching for new poetic potential in between old and new apparatuses, and digital and analog media.
 
-[![William Kentridge Studio](http://arttattler.com/Images/NorthAmerica/Illinois/Chicago/Museum%20of%20Contemporary%20Art/Production%20Site/01.jpg)](https://www.youtube.com/watch?v=ja4Wk7g6sdE" target="_blank" "William Kentridge making an animation using a projector and a camera")
+[![William Kentridge Studio](http://arttattler.com/Images/NorthAmerica/Illinois/Chicago/Museum%20of%20Contemporary%20Art/Production%20Site/01.jpg)](https://www.youtube.com/watch?v=ja4Wk7g6sdE)
 
 One of my biggest inspirations for these explorations was William Kentridge, a famous artist who is not usually considered a new media artist, though in his work he uses a camera and a projector to construct animations. Sometimes he starts by filming himself performing different movements. Then, after editing the video, he projects it on top of a board and uses pieces of paper to animate frame by frame. In this process he is not only incorporating both digital and analog materials, he is sitting in the middle of a bigger apparatus. His studio becomes a tool in itself, and him a user and a vital part of it. This represents for me an excellent example of de-centralization of technology. In it, devices are reduced to a mere set of input and output devices that become part of a creative process that incorporates expressive potential from both worlds. This exquisite model of working teaches us about a flexible flow between _"real"_ and _"virtual"_ media, one where the artist can initialize an expansive dialog that integrates together analog and digital gestures.
 
@@ -88,6 +58,4 @@ As Klemmer and Hartmann warn us, _"one of the most sweeping — and unintended �
 Michael Polanyi refers to our physical body as _"the ultimate instrument of all our external knowledge, whether intellectual or practical experience is always in terms of the world to which we are attending from our body."_
 In this sense, digital creative processes that successfully incorporate the richness and rawness of direct manipulation of materials will result in a larger bandwidth of poetic and expressive potential.
 
-Inspired by William Kentridge’s methodology, I dedicated the fall of 2013 to explore the boundaries between digital and physical tools. I developed a [wall plotter (vPlotter)](../vPlotter/) that later become a tool to think about technology and perception.
-
-[ **[2.The Process >>]** ](process.php)
+Inspired by William Kentridge’s methodology, I dedicated the fall of 2013 to explore the boundaries between digital and physical tools. I developed a [wall plotter (vPlotter)](http://www.patriciogonzalezvivo.com/2014/vPlotter/) that later become a tool to think about technology and perception.

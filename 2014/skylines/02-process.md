@@ -187,25 +187,32 @@ I'm interested on working beyond our perception of time and space. Like in maps 
 
 ## 2.f.Skyline #02
 
-If _Skyline #01_ see through the flow of the time. **Skyline #02** expand our perception of space.
+If _Skyline #01_ sees through the flow of the time. **Skyline #02** expand our perception of space.
 
 **March 13, 2014** By moving we change our point of view. We left behind a landscapes in the search for a new horizon.
 
-Journey diaries or traced maps, are a log of the transformations, a memory of the context of a process. A record of the past choices.
+Journey diaries or traced maps, are a log of the transformations that occur during a trip. A record of the past choices.
 
-Our perception is attached to the present. We usually fail on noticing subtle changes. In a journey, the changes on the horizon becomes invisible. The skyline change so slowly that become imperceptible.
+Our perception is attached to the present. We usually fail on noticing subtle changes. In a journey, the changes on the horizon becomes invisible. The skyline change so slowly that is imperceptible.
 
-Using Google Street View as a collection of memories of the skyline I reconstitute this transition from point A to point B.
+By using machine memory we can recreate the points that constitute a journey. Google Street maps contain an enormous set of panoramic pictures. Since 2007 our landscapes and skylines have been archive rigorously. By using this collection of memories I could reconstitute the transitions in a journey from point A to point B. In my case from Union Sq. (Manhattan) all the way up Hudson towns (town where The American Landscape born).
 
 ![map and horizons](https://farm3.staticflickr.com/2403/13134041954_aa760bca82_b_d.jpg)
 
-This piece shows the subtle changes of the surroundings during a walk between Union Sq. (Manhattan) and up Hudson towns (where The American Landscape was develop).
+To let the user observe this transition of miles and miles in just a glimpse I decide to print the stitched horizon in a big roll of paper.
 
-To record this transition I develop another tool. I'm using a Mini Thermal Printer for which [I code an openFrameworks addon](.../ofxThermalPrinter/).
+For this I re-propose a mini thermal recipe printer connected to a RaspberryPi and running an openFrameworks program that I write that collects and compose the horizons extracted from Google Street View.
+
+For this process I develop series of digital tools in C++, like the [drivers for the printer](.../ofxThermalPrinter/) and [TFT Display](.../ofxPiTFT/), together with the C++ algorithm to extract information from Google Street View data base. 
 
 <iframe src="//player.vimeo.com/video/89982939?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="574" height="326" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-**April 1, 2013** I'm working on my skyline recorder. I'm using a RaspberryPi to power this project. Together with the printer and the raspberry I'm using a [PiTFT](.../ofxPiTFT/) module to get some visual feedback. I'm still
+**March 23, 2014** Trying to improve the stitching between panoramic views I came across some encrypted depth information inside Google Street View database. It contain 
+
+![DeepInformation](https://farm3.staticflickr.com/2862/13385172615_e96e403ebe_b_d.jpg)
+
+
+**April 1, 2014** I incorporate successfully the [PiTFT](.../ofxPiTFT/) display to the project.
 
 <object type="application/x-shockwave-flash" width="574" height="323" data="https://www.flickr.com/apps/video/stewart.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param name="flashvars" value="intl_lang=en-US&photo_secret=4954536a8a&photo_id=13632669745&hd_default=false"></param><param name="movie" value="https://www.flickr.com/apps/video/stewart.swf"></param><param name="bgcolor" value="#000000"></param><param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/video/stewart.swf" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-US&photo_secret=4954536a8a&photo_id=13632669745&hd_default=false" width="574" height="323"></embed></object>
 
