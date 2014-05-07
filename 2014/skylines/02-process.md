@@ -1,6 +1,6 @@
-# 2.The Process 
+# The Process 
 
-## 2.a.Early experiments with the vPlotter
+## Early experiments with the vPlotter
 
 **October 12, 2013** I assembled my first Plotter prototype based on [Alexander Weber's code and designs](http://tinkerlog.com/2011/09/02/der-kritzler/). This version used an Arduino to control the steppers' drivers and servo motors. This Arduino was receiving instructions from an OpenFrameworks application I coded through the USB serial port.
 
@@ -28,7 +28,7 @@ I started by using images related to the _"virtual world"_, like desktop icons, 
 
 <iframe class="vine-embed" src="https://vine.co/v/hjFOWWmLBWz/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
 
-## 2.b.Traces of the digital
+## Traces of the digital
 
 **November 16, 2013** What type of visual techniques are commonly related to digital mediums? I have been working on translating images from one medium to another. But in the end the work of my hands over the irregular surface of the wood erases almost all traces of the original virtual nature of the images. By generating images that clearly speak of their digital origins, I want to generate some intrinsic tension when they become clearly analog.
 
@@ -58,7 +58,7 @@ In the print shop this process paid off. The digital nature of the slitCam, the 
 <iframe class="vine-embed" src="https://vine.co/v/hP3Y9erJMLr/embed/simple" width="285" height="285" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> ![Jen](https://farm4.staticflickr.com/3759/11173530623_bbac079ddb_z_d.jpg" width="285" class="icon")
 
 
-## 2.c.Research and experiment about glitch
+## Research and experiment about glitch
 
 The term glitch usually refers to a technical error that leads to unexpected behavior in a system. As a clear example of ["The New Aesthetics"](http://booktwo.org/notebook/sxaesthetic/), glitches speaks about the devices we use and the influence they have over us. But glitches become an aesthetic of their own. Digital artists like [Kim Asendorf](http://kimasendorf.com/) and [Adam Ferriss](http://adamferriss.tumblr.com/) develop glitches through code, seeking ways to exploit their aesthetic qualities. This movement is know as ["Glitch Art"](http://web.archive.org/web/20100818025410/http://www.wired.co.uk/news/archive/2010-08/17/glitch-art-databending) and has many members, celebrities, conventions and festivals (ex: [GLIT.CH](http://rhizome.org/editorial/2010/oct/13/code-eroded-at-glitch/#c63266) ).
 
@@ -99,7 +99,7 @@ Re-using an algorithm develop together with [Zach Lieberman](http://thesystemis.
 [![flat mountain02](https://farm8.staticflickr.com/7388/12937668934_48d6b3f9be_b_d.jpg)](https://www.flickr.com/photos/106950246@N06/12937668934/" target="_blank")
 
 
-## 2.d.Ode to Slow Media
+## Ode to Slow Media
 
 **February 28, 2013** At the beginning of the Fall of 2013 I was interested in virtual environments, especially with the common adopted metaphor of a Desktop. If our life is becoming more and more digital, what are the consequences of always interacting from a "desktop"? How is our awareness influenced by the fact that we remain constantly in a digital working environment without closing time, days off, lunch breaks, sunsets, sacred spaces and celebrations.
 
@@ -148,7 +148,7 @@ The human-computer dream was one where humans can be plugged into computers in a
 
 > _One that goes at our rhythm, to let us see, to make us think._
 
-## 2.e.Skyline #01
+## Skyline #01
 
 **March 28, 2014** In our personal cognitive development and in our evolution as a species, drawing is our first technique for generating images.
 
@@ -186,7 +186,7 @@ I'm interested on working beyond our perception of time and space. Like in maps 
 
 ![algorithmic long exposure](https://farm6.staticflickr.com/5547/13473380053_8e5a54de63_b_d.jpg)
 
-## 2.f.Skyline #02
+## Skyline #02
 
 If _Skyline #01_ sees through the flow of the time. **Skyline #02** expand our perception of space.
 
@@ -226,7 +226,7 @@ For this process I develop series of digital tools in C++, like the [drivers for
 
 ![EKG Machine](https://farm8.staticflickr.com/7362/13898376254_16a59d0bb4_b_d.jpg)
 
-With some adjustment [the Mini Thermal Printer](../ofxThermalPrinter/) and the [TFT display of the RaspberryPi](../ofxPiTFT) are added. The skyline-recorder is almost ready.
+With some adjustment [the Mini Thermal Printer](http://www.patriciogonzalezvivo.com/2014/ofxThermalPrinter/) and the [TFT display of the RaspberryPi](http://www.patriciogonzalezvivo.com/2014/ofxPiTFT) are added. The skyline-recorder is almost ready.
 
 ![printer](https://farm3.staticflickr.com/2911/13917147874_dbe5486657_z_d.jpg" width="285" class="icon") 
 ![rpi](https://farm3.staticflickr.com/2899/13916718975_0657db5031_z_d.jpg" width="285" class="icon")
