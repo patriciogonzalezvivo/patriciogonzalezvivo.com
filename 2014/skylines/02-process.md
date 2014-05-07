@@ -208,10 +208,9 @@ For this process I develop series of digital tools in C++, like the [drivers for
 
 <iframe src="//player.vimeo.com/video/89982939?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="574" height="326" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-**March 23, 2014** Trying to improve the stitching between panoramic views I came across some encrypted depth information inside Google Street View database. It contains 
+**March 23, 2014** Trying to improve the stitching between panoramic views I came across some encrypted depth information inside Google Street View database.
 
-![DeepInformation](https://farm3.staticflickr.com/2862/13385172615_e96e403ebe_b_d.jpg)
-
+![DeepInformation](https://farm3.staticflickr.com/2862/13385172615_e96e403ebe_b_d.jpg) 
 
 **April 1, 2014** I successfully incorporate the [PiTFT](http://www.patriciogonzalezvivo.com/2014/ofxPiTFT/) display into the project.
 
