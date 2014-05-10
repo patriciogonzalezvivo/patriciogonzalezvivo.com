@@ -1,13 +1,20 @@
 # Introduction
 
-This series of projects is about awareness - about the tools and techniques we use to see the world around us.
+This series of projects is about awareness - more precisely about the tools and techniques we use to see the world around us.
 
-These projects are part of a ongoing process nourished by different motivations during my last year as a Parson's MFA DT student. I found that awareness of my surroundings was the constant and repetitive presence on my works. This was probably motivated by my own limitations and lack of attention.
+These projects are part of a ongoing process nourished by different motivations during my last year as a Parson's MFA DT student and presented as three explorations around the theme of  Landscape.
 
 Looking at the horizon we find a _skyline_. A place where the earth and the sky touch and differentiate from each other. This contour is the confluence of time and space. The landscape is shaped over time by forces like the erosion or human hand; it is  in constant change and fluctuation. This skyline is also defined by the particular position of the observer. Seeing through technical devices allows us to look beyond our perception into different qualities of time and space.
 
+- **Skylines 01**: drawing machine that algorithmically construct an image over time.
 
-## Landscapes
+- **Skylines 02**: spacial transition recorder device. 
+
+- **Skylines 03**: postcards from the Google Street View data. 
+
+This three peaces require the construction of special tools. Some physical (like the vPlotter) and some virtual (like the drivers for the Thermal Printer and Google Street View Data Scrappers ). 
+
+## Why landscapes?
 
 Landscapes, as a pictorial theme in art, speak overall about our intention to capture the world we live in. Landscapes preserve for the future a glimpse of our context, the background of our experiences, the identity of a nation, the horizon of an era.
 
