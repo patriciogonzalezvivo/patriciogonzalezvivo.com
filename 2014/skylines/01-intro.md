@@ -1,18 +1,26 @@
+![Skyline02](images/sk02-b.png)
+
 # Introduction
 
 This series of projects is about awareness - more precisely about the tools and techniques we use to see the world around us.
 
-These projects are part of a ongoing process nourished by different motivations during my last year as a Parson's MFA DT student and presented as three explorations around the theme of  Landscape.
+These projects are part of a ongoing [process](http://www.patriciogonzalezvivo.com/2014/skylines/process.php) nourished by different motivations during my last year as a Parson's MFA DT student and presented as three explorations around the theme of  Landscape.
 
 Looking at the horizon we find a _skyline_. A place where the earth and the sky touch and differentiate from each other. This contour is the confluence of time and space. The landscape is shaped over time by forces like the erosion or human hand; it is  in constant change and fluctuation. This skyline is also defined by the particular position of the observer. Seeing through technical devices allows us to look beyond our perception into different qualities of time and space.
 
-- **Skylines 01**: drawing machine that algorithmically construct an image over time.
+- **Skylines 01**: drawing machine that slowly reveals an image of the world viewed through the tireless eye of technology. By constantly adding traces of material, it demonstrates that the drive for immediacy is not (embedded within) (an inherent quality of) technology but (in our temporal nature.)
 
-- **Skylines 02**: spacial transition recorder device. 
+![Skyline01](images/sk01.png)
 
-- **Skylines 03**: postcards from the Google Street View data. 
+- **Skylines 02**: device that shows the invisible transitions of the horizon as it moves from the city to the mountains. While _Skyline #01_ sees through the flow of the time, _Skyline #02_ expands our perception of space.
 
-This three peaces require the construction of special tools. Some physical (like the vPlotter) and some virtual (like the drivers for the Thermal Printer and Google Street View Data Scrappers ). 
+![Skyline02](images/sk02.png)
+
+- **Skylines 03**: postcards revealing the invisible information of a city that is otherwise trapped inside corporate databases. By freeing this private information collected from public spaces, this questions (techniques of observation.)
+
+![Skyline03](images/sk03.png)
+
+These three pieces require the construction of special tools. Some physical (like the [vPlotter](http://www.patriciogonzalezvivo.com/2014/vPlotter/)) and some virtual (like the drivers for the [Thermal Printer](http://www.patriciogonzalezvivo.com/2014/ofxThermalPrinter/) and [Google Street View Data Scrapers](http://www.patriciogonzalezvivo.com/2014/pointcloudcity/)). 
 
 ## Why landscapes?
 
@@ -25,11 +33,13 @@ By learning to draw these sceneries, artists through time understand the laws of
 
 Because of the scale of our world, observation of space has always relied on technology. This forced us to develop and improve technology that helps us see where our eyes are blind -pushing the limits of our perception. Binoculars, telescopes, astrolabes, compasses, grids, maps, photographs and panoramic images are just some of the devices we create in this process of always looking further.
 
-[![3D Reconstruction of Google Street View panoramic and depth images](https://farm8.staticflickr.com/7073/13466577425_c218012188_z_d.jpg)](https://vimeo.com/89982874)
+[![3D Reconstruction of Google Street View panoramic and depth images](https://farm8.staticflickr.com/7401/13926886997_7ec93d13e2_b_d.jpg)](https://vimeo.com/89982874)
 
 Nowadays we live in a world of images. They are easy to generate, edit and share. Effortlessly and instantaneously we produce an enormous amount of information about the world like never before in history. 3D Maps, a digital compass, GPS devices, and panoramic cameras live in a same device in our pocket. But does this mean we are more aware of our surroundings than ever before?
 
 This thesis is a meditation about these devices. An on-going process of exploration around the theme of seeing assisted by apparatus.
+
+![Skyline02](images/sk02-a.png)
 
 
 ## The Artist as Toolmaker

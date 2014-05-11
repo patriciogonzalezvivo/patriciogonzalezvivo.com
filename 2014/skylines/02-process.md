@@ -150,6 +150,8 @@ The human-computer dream was one where humans can be plugged into computers in a
 
 ## Skyline #01
 
+![Skyline01](images/sk01.png)
+
 **March 28, 2014** In our personal cognitive development and in our evolution as a species, drawing is our first technique for generating images.
 
 Drawing sets the basis for abstract thinking at the same time as we are learning to see. In this process we initiate a dialog back and forth between our eye and our tools.
@@ -190,6 +192,8 @@ I'm interested on working beyond our perception of time and space. Like in maps 
 
 If _Skyline #01_ sees through the flow of the time. **Skyline #02** expand our perception of space.
 
+![Skyline02](images/sk02.png)
+
 **March 13, 2014** By moving we change our point of view. We leave behind a landscapes in the search for a new horizon.
 
 Journey diaries or traced maps are a log of the transformations that occur during a trip, a record of the past choices.
@@ -203,6 +207,9 @@ By using machine memory we can recreate the points that constitute a journey. Go
 To let the user observe this transition of miles and miles in just a glimpse I decide to print the stitched horizon in a big roll of paper.
 
 For this I re-purposed a mini thermal recipe printer connected to a RaspberryPi and running an openFrameworks program that I wrote which collects and composes the horizons extracted from Google Street View.
+
+![Skyline02](images/sk02-a.png)
+
 
 For this process I develop series of digital tools in C++, like the [drivers for the printer](http://www.patriciogonzalezvivo.com/2014/ofxThermalPrinter/) and [TFT Display](http://www.patriciogonzalezvivo.com/2014/ofxPiTFT/), together with the C++ algorithm to extract information from Google Street View database. 
 
