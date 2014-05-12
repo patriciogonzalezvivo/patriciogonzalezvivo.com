@@ -4,7 +4,11 @@
 
 	<section class="content">
 		<article class="item">
-			<a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.gif" alt="ofPlay"/></a>
+			<a href="2014/skylines/"><img class="roundPhotoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
+			<p>2014 <strong>SKYLINES</strong>: series of projects is about awareness and tools to see</p>
+		</article>
+		<article class="item">
+			<a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.gif" alt="PointCloudCity"/></a>
 			<p>2014 <strong>Point Cloud City</strong>: scraping google street view and reconstructing it in a 3D environment</p>
 		</article>
 		<article class="item">

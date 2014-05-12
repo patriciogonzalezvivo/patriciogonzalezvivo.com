@@ -3,6 +3,10 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
+			<a href="2014/skylines/"><img class="roundPhotoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
+			<p>2014 <strong>SKYLINES</strong>: series of projects is about awareness and tools to see</p>
+		</article>
+		<article class="item">
 			<a href="2012/efectomariposa/"><img class="roundPhotoTh" src="2012/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
 			<p>2012 <strong>Efecto Mariposa 3.0</strong>: FILE, Sao Paulo, Brazil</p>
 		</article>

@@ -22,6 +22,7 @@ We look at the horizon and see a _skyline_, the place where the earth and sky to
 
 These three pieces required the construction of special tools. Some physical (like the [vPlotter](http://www.patriciogonzalezvivo.com/2014/vPlotter/)) and some virtual (like the drivers for the [Thermal Printer](http://www.patriciogonzalezvivo.com/2014/ofxThermalPrinter/) and [Google Street View Data Scrapers](http://www.patriciogonzalezvivo.com/2014/pointcloudcity/)). 
 
+
 ## Why landscapes?
 
 Landscapes, as a pictorial theme in art, speak overall about our intention to capture the world we live in. Landscapes preserve for the future a glimpse of our context, the background of our experiences, the identity of a nation, the horizon of an era.
