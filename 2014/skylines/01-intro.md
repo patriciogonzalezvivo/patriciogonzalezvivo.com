@@ -2,25 +2,25 @@
 
 # Introduction
 
-This series of projects is about awareness - more precisely about the tools and techniques we use to see the world around us.
+This series of projects is about awareness. It is about the tools and techniques we use to see the world around us.
 
-These projects are part of a ongoing [process](http://www.patriciogonzalezvivo.com/2014/skylines/process.php) nourished by different motivations during my last year as a Parson's MFA DT student and presented as three explorations around the theme of  Landscape.
+These projects were part of an ongoing [process](http://www.patriciogonzalezvivo.com/2014/skylines/process.php) of investigation during my last year as a Parson's MFA DT student and they are presented as three explorations around the theme of skylines.
 
-Looking at the horizon we find a _skyline_. A place where the earth and the sky touch and differentiate from each other. This contour is the confluence of time and space. The landscape is shaped over time by forces like the erosion or human hand; it is  in constant change and fluctuation. This skyline is also defined by the particular position of the observer. Seeing through technical devices allows us to look beyond our perception into different qualities of time and space.
+We look at the horizon and see a _skyline_, the place where the earth and sky touch. This contour is the confluence of time and space. The landscape is in constant change and fluctuation; it is shaped over time by forces like erosion and human desire. This skyline is also defined by the particular position of the observer - seeing through technical devices allows us to look beyond our perception into different qualities of time and space.
 
-- **Skylines 01**: drawing machine that slowly reveals an image of the world viewed through the tireless eye of technology. By constantly adding traces of material, it demonstrates that the drive for immediacy is not (embedded within) (an inherent quality of) technology but (in our temporal nature.)
+- **Skylines 01**: drawing machine that slowly reveals an image of the world viewed through the tireless eye of technology. It constantly adds traces of material, demonstrating that the drive for immediacy is not inherent in technology.
 
 ![Skyline01](images/sk01.png)
 
-- **Skylines 02**: device that shows the invisible transitions of the horizon as it moves from the city to the mountains. While _Skyline #01_ sees through the flow of the time, _Skyline #02_ expands our perception of space.
+- **Skylines 02**: machine that prints the large-scale transitions of the horizon on a path from the city to the mountains. While _Skyline #01_ sees through the flow of the time, _Skyline #02_ expands our perception of space.
 
 ![Skyline02](images/sk02.png)
 
-- **Skylines 03**: postcards revealing the invisible information of a city that is otherwise trapped inside corporate databases. By freeing this private information collected from public spaces, this questions (techniques of observation.)
+- **Skylines 03**: postcards revealing the invisible information of a city that is otherwise trapped inside corporate databases, freeing private information collected from public spaces.
 
 ![Skyline03](images/sk03.png)
 
-These three pieces require the construction of special tools. Some physical (like the [vPlotter](http://www.patriciogonzalezvivo.com/2014/vPlotter/)) and some virtual (like the drivers for the [Thermal Printer](http://www.patriciogonzalezvivo.com/2014/ofxThermalPrinter/) and [Google Street View Data Scrapers](http://www.patriciogonzalezvivo.com/2014/pointcloudcity/)). 
+These three pieces required the construction of special tools. Some physical (like the [vPlotter](http://www.patriciogonzalezvivo.com/2014/vPlotter/)) and some virtual (like the drivers for the [Thermal Printer](http://www.patriciogonzalezvivo.com/2014/ofxThermalPrinter/) and [Google Street View Data Scrapers](http://www.patriciogonzalezvivo.com/2014/pointcloudcity/)). 
 
 ## Why landscapes?
 
