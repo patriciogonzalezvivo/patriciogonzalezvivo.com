@@ -62,7 +62,7 @@ This breaks with the passive paradigm of computer _"users"_ to install an active
 
 In this spirit of self-made tools, I began a series of explorations searching for new poetic potential in between old and new apparatuses, and digital and analog media.
 
-[![William Kentridge Studio](http://arttattler.com/Images/NorthAmerica/Illinois/Chicago/Museum%20of%20Contemporary%20Art/Production%20Site/01.jpg)](https://www.youtube.com/watch?v=ja4Wk7g6sdE)
+[![SKYLINES studio-like Installation](https://farm8.staticflickr.com/7396/14005408208_fbc2fab7ed_b_d.jpg)](https://www.flickr.com/photos/106950246@N06/14005408208/)
 
 One of my biggest inspirations for these explorations was William Kentridge, a famous artist who is not usually considered a new media artist, though in his work he uses a camera and a projector to construct animations. Sometimes he starts by filming himself performing different movements. Then, after editing the video, he projects it on top of a board and uses pieces of paper to animate frame by frame. In this process he is not only incorporating both digital and analog materials, he is sitting in the middle of a bigger apparatus. His studio becomes a tool in itself, and him a user and a vital part of it. This represents for me an excellent example of de-centralization of technology. In it, devices are reduced to a mere set of input and output devices that become part of a creative process that incorporates expressive potential from both worlds. This exquisite model of working teaches us about a flexible flow between _"real"_ and _"virtual"_ media, one where the artist can initialize an expansive dialog that integrates together analog and digital gestures.
 
