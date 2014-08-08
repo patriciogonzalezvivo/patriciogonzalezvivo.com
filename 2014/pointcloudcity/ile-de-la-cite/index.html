@@ -37,7 +37,7 @@
 	<script src="/js/libs/potree.min.js"></script>
 
 	<script>
-		var defaultPointSize = 0.67;
+		var defaultPointSize = 0.1;
 		var defaultLOD = 10;
 		var pointcloudPath = "cloud.js";
 	
@@ -66,18 +66,18 @@
 				}
 			});
 			
-			var pPointSize = gui.add(params, 'PointSize', 0.1, 3.0);
+			var pPointSize = gui.add(params, 'PointSize', 0.001, 1.0);
 			pPointSize.onChange(function(value){
 				pointcloudMaterial.size = value;
 			});
 		}
 		
 		function initThree(){
-			stats = new Stats();
-			stats.domElement.style.position = 'absolute';
-			stats.domElement.style.top = '0px';
-			stats.domElement.style.margin = '5px';
-			document.body.appendChild( stats.domElement );
+			// stats = new Stats();
+			// stats.domElement.style.position = 'absolute';
+			// stats.domElement.style.top = '0px';
+			// stats.domElement.style.margin = '5px';
+			// document.body.appendChild( stats.domElement );
 		
 			scene = new THREE.Scene();
 			camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.01, 10000);
@@ -109,7 +109,6 @@
 		}
 		
 		function render() {
-					
 			requestAnimationFrame(render);
 			
 			var numVisibleNodes = 0;

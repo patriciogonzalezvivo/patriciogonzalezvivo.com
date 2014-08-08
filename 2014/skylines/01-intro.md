@@ -8,17 +8,17 @@ These projects were part of an ongoing [process](http://www.patriciogonzalezvivo
 
 We look at the horizon and see a _skyline_, the place where the earth and sky touch. This contour is the confluence of time and space. The landscape is in constant change and fluctuation; it is shaped over time by forces like erosion and human desire. This skyline is also defined by the particular position of the observer - seeing through technical devices allows us to look beyond our perception into different qualities of time and space.
 
-- **Skylines 01**: drawing machine that slowly reveals an image of the world viewed through the tireless eye of technology. It constantly adds traces of material, demonstrating that the drive for immediacy is not inherent in technology.
+- [**Skylines 01**:](skylines.php?v=01) drawing machine that slowly reveals an image of the world viewed through the tireless eye of technology. It constantly adds traces of material, demonstrating that the drive for immediacy is not inherent in technology.
 
-![Skyline01](images/sk01.png)
+[![Skyline01](images/sk01.png)](skylines.php?v=01)
 
-- **Skylines 02**: machine that prints the large-scale transitions of the horizon on a path from the city to the mountains. While _Skyline #01_ sees through the flow of the time, _Skyline #02_ expands our perception of space.
+- [**Skylines 02**:](skylines.php?v=02) machine that prints the large-scale transitions of the horizon on a path from the city to the mountains. While _Skyline #01_ sees through the flow of the time, _Skyline #02_ expands our perception of space.
 
-![Skyline02](images/sk02.png)
+[![Skyline02](images/sk02.png)](skylines.php?v=02)
 
-- **Skylines 03**: postcards revealing the invisible information of a city that is otherwise trapped inside corporate databases, freeing private information collected from public spaces.
+- [**Skylines 03**:](skylines.php?v=03) postcards revealing the invisible information of a city that is otherwise trapped inside corporate databases, freeing private information collected from public spaces.
 
-![Skyline03](images/sk03.png)
+[![Skyline03](images/sk03.png)](skylines.php?v=03)
 
 These three pieces required the construction of special tools. Some physical (like the [vPlotter](http://www.patriciogonzalezvivo.com/2014/vPlotter/)) and some virtual (like the drivers for the [Thermal Printer](http://www.patriciogonzalezvivo.com/2014/ofxThermalPrinter/) and [Google Street View Data Scrapers](http://www.patriciogonzalezvivo.com/2014/pointcloudcity/)). 
 
