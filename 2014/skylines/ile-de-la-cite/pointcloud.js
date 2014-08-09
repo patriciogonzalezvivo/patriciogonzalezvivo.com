@@ -1,5 +1,5 @@
 var defaultPointSize = 0.1;
-var defaultLOD = 10;
+var defaultLOD = 20;
 var pointcloudPath = "cloud.js";
 
 var renderer;
@@ -19,7 +19,7 @@ function initGUI(){
 		LOD: defaultLOD
 	};
 
-	var pLOD = gui.add(params, 'LOD', 0.5,10);
+	var pLOD = gui.add(params, 'LOD', 0.5,20);
 	pLOD.onChange(function(value){
 				//pointCloud.LOD = value;
 				for(var i = 0; i < pointclouds.length; i++){
@@ -36,11 +36,9 @@ function initGUI(){
 function initThree(){
 
 	scene = new THREE.Scene();
-	scene.fog = new THREE.Fog( 0x050505, 2000, 3500 );
 	camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.01, 10000);
 
 	renderer = new THREE.WebGLRenderer();
-	// renderer = new THREE.CanvasRenderer();
 	renderer.setSize(window.innerWidth, window.innerHeight);
 	renderer.domElement.style.backgroundColor = '#00ff00';
 	renderer.setClearColor(0xFFFFFF,0);
@@ -51,9 +49,9 @@ function initThree(){
 	document.body.appendChild(container);
 
 	// camera and controls
-	camera.position.set(100,240,238);
+	camera.position.set(508,153,-223);
 	controls = new THREE.OrbitControls(camera, renderer.domElement);
-	controls.target.set( 100, 3, -200 );
+	controls.target.set( 100, 3, -50 );
 	camera.lookAt(controls.target);
 
 	pointcloudMaterial = new THREE.PointCloudMaterial( { size: defaultPointSize, vertexColors: true } );
@@ -83,6 +81,7 @@ function render() {
 	}
 
 	renderer.render(scene, camera);
+	console.log(camera.position);
 
 	controls.update(0.1);
 };
