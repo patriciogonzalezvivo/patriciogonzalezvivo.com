@@ -1,0 +1,25 @@
+@import "globals-inv";
+
+#menu_logo{
+	float: left;
+}
+
+#menu_text{
+	padding-top: 68px;
+	font-size: 0.9rem;
+	text-align: justify;//left;
+
+	a{
+		padding-left: 13px;
+		text-decoration:none;
+		color: $wolf_blue;
+
+		&:hover{
+			color: $pale_green;
+		}
+	}
+}
+
+.menu_item{
+	display:inline-block;
+}
