@@ -10,7 +10,7 @@
     text-decoration: none;
     color: #bfccc9; }
     #menu_text a:hover {
-      color: #b8ffc1; }
+      color: #6f9a75; }
 
 .menu_item {
   display: inline-block; }
@@ -141,10 +141,10 @@ body {
     text-align: right;
     color: #bebebe; }
   .content a {
-    color: #b8ffc1;
+    color: #6f9a75;
     text-decoration: none; }
     .content a:hover {
-      color: #b8ffc1; }
+      color: #6f9a75; }
 
 footer {
   clear: both;

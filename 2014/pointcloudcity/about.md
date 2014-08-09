@@ -4,9 +4,11 @@
 
 Point Cloud City is part of [_Skylines_](http::/www.patriciogonzalezvivo.com/2014/skylines), a series of projects about the tools and techniques we use to see the world around us. 
 
-Check the following interactive preset of Point Clouds:
+Check out these interactive Point Clouds:
 
-- [Main Postal Office, New York](/2014/pointcloudcity/ny-post-office/)
+- [Washington Square Park](wash-sq/), New York
+- [Main Post Office](ny-post-office/), New York
+- [Ile de la Cite](ile-de-la-cite/), Paris
 
 
 

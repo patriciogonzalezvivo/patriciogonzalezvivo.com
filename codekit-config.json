@@ -2,14 +2,17 @@
   "CodeKitInfo" : "This is a CodeKit project configuration file. It is designed to sync project settings across multiple machines. Modifying the contents of this file can be a poor life decision if you don't know what you're doing. This file is not useful unless accompanied by the project that created it in CodeKit. For more information, see: http:\/\/incident57.com\/codekit",
   "creatorBuild" : "8403",
   "files" : {
-    "\/2011\/liquidkinect\/index.php" : {
+    "\/scss\/sidebar.scss" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2011\/liquidkinect\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "inputAbbreviatedPath" : "\/scss\/sidebar.scss",
+      "outputStyle" : 0,
+      "shouldRunBless" : 0,
+      "outputAbbreviatedPath" : "\/css\/sidebar.css",
+      "fileType" : 4,
+      "debugStyle" : 0
     },
     "\/2014\/skylines\/images\/sk02-b.png" : {
       "ignoreWasSetByUser" : 0,
@@ -438,16 +441,16 @@
       "initialSize" : 1414862,
       "fileType" : 4096
     },
-    "\/2010\/communitas\/sponsor.jpg" : {
+    "\/images\/tutoriales\/array3.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/communitas\/sponsor.jpg",
+      "inputAbbreviatedPath" : "\/images\/tutoriales\/array3.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/communitas\/sponsor.jpg",
-      "initialSize" : 8990,
-      "fileType" : 4096
+      "outputAbbreviatedPath" : "\/images\/tutoriales\/array3.png",
+      "initialSize" : 10462,
+      "fileType" : 8192
     },
     "\/2010\/calos\/10.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -460,16 +463,16 @@
       "initialSize" : 55041,
       "fileType" : 4096
     },
-    "\/images\/tutoriales\/array3.png" : {
+    "\/2010\/communitas\/sponsor.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/images\/tutoriales\/array3.png",
+      "inputAbbreviatedPath" : "\/2010\/communitas\/sponsor.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/images\/tutoriales\/array3.png",
-      "initialSize" : 10462,
-      "fileType" : 8192
+      "outputAbbreviatedPath" : "\/2010\/communitas\/sponsor.jpg",
+      "initialSize" : 8990,
+      "fileType" : 4096
     },
     "\/2011\/efectomariposa\/19.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -642,21 +645,21 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2012\/efectomariposa\/index.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/efectomariposa\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/parsedown\/tests\/data\/url_autolinking.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/url_autolinking.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
+    "\/2012\/efectomariposa\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/efectomariposa\/index.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
@@ -868,6 +871,17 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/2012\/codemology\/thumb.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/codemology\/thumb.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2012\/codemology\/thumb.jpg",
+      "initialSize" : 47972,
+      "fileType" : 4096
+    },
     "\/2014\/skylines\/Design\/sk03.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -890,17 +904,6 @@
       "initialSize" : 70040,
       "fileType" : 4096
     },
-    "\/2010\/calos\/24.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/24.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/24.jpg",
-      "initialSize" : 68561,
-      "fileType" : 4096
-    },
     "\/2010\/communitas\/thumb.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -912,15 +915,15 @@
       "initialSize" : 37825,
       "fileType" : 4096
     },
-    "\/2012\/codemology\/thumb.jpg" : {
+    "\/2010\/calos\/24.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/codemology\/thumb.jpg",
+      "inputAbbreviatedPath" : "\/2010\/calos\/24.jpg",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/codemology\/thumb.jpg",
-      "initialSize" : 47972,
+      "outputAbbreviatedPath" : "\/2010\/calos\/24.jpg",
+      "initialSize" : 68561,
       "fileType" : 4096
     },
     "\/2010\/calos\/37.jpg" : {
@@ -976,15 +979,6 @@
       "initialSize" : 54438,
       "fileType" : 4096
     },
-    "\/parsedown\/tests\/data\/lazy_blockquote.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/lazy_blockquote.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/communitas.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -994,16 +988,14 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
-    "\/2014\/pointcloudcity\/wash-sq-high\/cloud.js" : {
+    "\/parsedown\/tests\/data\/lazy_blockquote.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/pointcloudcity\/wash-sq-high\/cloud.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 1,
-      "outputAbbreviatedPath" : "\/2014\/pointcloudcity\/wash-sq-high\/cloud.min.js",
-      "fileType" : 64
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/lazy_blockquote.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/2012\/shellinitiation\/06.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1564,6 +1556,17 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
+    "\/2014\/pointcloudcity\/wash-sq\/pointcloud.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2014\/pointcloudcity\/wash-sq\/pointcloud.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/2014\/pointcloudcity\/wash-sq\/pointcloud.min.js",
+      "fileType" : 64
+    },
     "\/2010\/calos\/26.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1902,16 +1905,16 @@
       "initialSize" : 75211,
       "fileType" : 4096
     },
-    "\/2010\/calos\/14.jpg" : {
+    "\/2014\/pointcloudcity\/ile-de-la-cite\/pointcloud.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/14.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/14.jpg",
-      "initialSize" : 64870,
-      "fileType" : 4096
+      "inputAbbreviatedPath" : "\/2014\/pointcloudcity\/ile-de-la-cite\/pointcloud.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/2014\/pointcloudcity\/ile-de-la-cite\/pointcloud.min.js",
+      "fileType" : 64
     },
     "\/2010\/calos\/41.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -1922,6 +1925,17 @@
       "processed" : 0,
       "outputAbbreviatedPath" : "\/2010\/calos\/41.jpg",
       "initialSize" : 66242,
+      "fileType" : 4096
+    },
+    "\/2010\/calos\/14.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/calos\/14.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/14.jpg",
+      "initialSize" : 64870,
       "fileType" : 4096
     },
     "\/2011\/efectomariposa\/10.jpg" : {
@@ -1955,6 +1969,17 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/2010\/calos\/54.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2010\/calos\/54.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2010\/calos\/54.jpg",
+      "initialSize" : 62204,
+      "fileType" : 4096
+    },
     "\/2010\/calos\/27.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -1974,17 +1999,6 @@
       "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/multiline_list_paragraph.html",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
-    },
-    "\/2010\/calos\/54.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2010\/calos\/54.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2010\/calos\/54.jpg",
-      "initialSize" : 62204,
-      "fileType" : 4096
     },
     "\/2014\/pointcloudcity\/ny-post-office\/index.php" : {
       "ignoreWasSetByUser" : 0,
@@ -2291,15 +2305,6 @@
       "outputAbbreviatedPath" : "\/2010\/calos\/42.jpg",
       "initialSize" : 65324,
       "fileType" : 4096
-    },
-    "\/2014\/pointcloudcity\/wash-sq\/index.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/pointcloudcity\/wash-sq\/index.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
     },
     "\/2014\/skylines\/images\/sk03.png" : {
       "ignoreWasSetByUser" : 0,
@@ -2729,15 +2734,6 @@
       "initialSize" : 74734,
       "fileType" : 4096
     },
-    "\/css\/style.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/style.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
-    },
     "\/js\/star-sky.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2749,24 +2745,6 @@
       "outputAbbreviatedPath" : "\/js\/star-sky.min.js",
       "fileType" : 64
     },
-    "\/2014\/pointcloudcity\/wash-sq-high\/index.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/pointcloudcity\/wash-sq-high\/index.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
-    "\/parsedown\/tests\/data\/self-closing_block-level_html.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/self-closing_block-level_html.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
-    },
     "\/2011\/iuna\/01.jpg" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2777,6 +2755,24 @@
       "outputAbbreviatedPath" : "\/2011\/iuna\/01.jpg",
       "initialSize" : 60325,
       "fileType" : 4096
+    },
+    "\/css\/style.css" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/css\/style.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
+    },
+    "\/parsedown\/tests\/data\/self-closing_block-level_html.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/parsedown\/tests\/data\/self-closing_block-level_html.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/parsedown\/tests\/data\/inline_link_title.html" : {
       "ignoreWasSetByUser" : 0,
@@ -2938,6 +2934,15 @@
       "initialSize" : 23592,
       "fileType" : 4096
     },
+    "\/2014\/pointcloudcity\/wash-sq\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2014\/pointcloudcity\/wash-sq\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/2014\/skylines\/images\/nema17.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -2948,6 +2953,15 @@
       "outputAbbreviatedPath" : "\/2014\/skylines\/images\/nema17.png",
       "initialSize" : 77921,
       "fileType" : 8192
+    },
+    "\/2014\/pointcloudcity\/ile-de-la-cite\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2014\/pointcloudcity\/ile-de-la-cite\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/parsedown\/tests\/data\/escaping.html" : {
       "ignoreWasSetByUser" : 0,
@@ -3660,6 +3674,17 @@
       "initialSize" : 68495,
       "fileType" : 4096
     },
+    "\/2012\/shellinitiation\/04.jpg" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2012\/shellinitiation\/04.jpg",
+      "processed" : 0,
+      "outputAbbreviatedPath" : "\/2012\/shellinitiation\/04.jpg",
+      "initialSize" : 87061,
+      "fileType" : 4096
+    },
     "\/scss-inv\/menu-inv.scss" : {
       "ignoreWasSetByUser" : 1,
       "ignore" : 1,
@@ -3671,17 +3696,6 @@
       "outputAbbreviatedPath" : "\/css\/menu-inv.css",
       "fileType" : 4,
       "debugStyle" : 0
-    },
-    "\/2012\/shellinitiation\/04.jpg" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2012\/shellinitiation\/04.jpg",
-      "processed" : 0,
-      "outputAbbreviatedPath" : "\/2012\/shellinitiation\/04.jpg",
-      "initialSize" : 87061,
-      "fileType" : 4096
     },
     "\/2012\/eden\/01.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -3724,6 +3738,17 @@
       "inputAbbreviatedPath" : "\/2014\/skylines\/skylines.php",
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
+    },
+    "\/2014\/pointcloudcity\/ile-de-la-cite\/pointcloud.min.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2014\/pointcloudcity\/ile-de-la-cite\/pointcloud.min.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 1,
+      "outputAbbreviatedPath" : "\/2014\/pointcloudcity\/ile-de-la-cite\/pointcloud.min.min.js",
+      "fileType" : 64
     },
     "\/parsedown\/tests\/data\/horizontal_rule.html" : {
       "ignoreWasSetByUser" : 0,
@@ -3905,6 +3930,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 2048
     },
+    "\/2014\/vPlotter\/index.php" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/2014\/vPlotter\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/js\/data\/Constellations.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -3915,15 +3949,6 @@
       "syntaxCheckerStyle" : 1,
       "outputAbbreviatedPath" : "\/js\/data\/Constellations.min.js",
       "fileType" : 64
-    },
-    "\/2014\/vPlotter\/index.php" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/2014\/vPlotter\/index.php",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
     },
     "\/2011\/efectomariposa\/23.jpg" : {
       "ignoreWasSetByUser" : 0,
@@ -4235,17 +4260,14 @@
       "outputAbbreviatedPath" : "\/2014\/pointcloudcity\/ny-post-office\/pointcloud.min.js",
       "fileType" : 64
     },
-    "\/scss\/sidebar.scss" : {
+    "\/2011\/liquidkinect\/index.php" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
+      "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/scss\/sidebar.scss",
-      "outputStyle" : 0,
-      "shouldRunBless" : 0,
-      "outputAbbreviatedPath" : "\/css\/sidebar.css",
-      "fileType" : 4,
-      "debugStyle" : 0
+      "inputAbbreviatedPath" : "\/2011\/liquidkinect\/index.php",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     }
   },
   "manualImportLinks" : [
