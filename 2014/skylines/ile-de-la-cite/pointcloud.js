@@ -1,12 +1,14 @@
-var defaultPointSize = 0.1;
-var defaultLOD = 20;
+if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+var defaultFocusDistance = 0.2;
+var defaultFocusAperture = 0.5;
+var defaultLOD = 10;
 var pointcloudPath = "cloud.js";
 
-var renderer;
-var camera;
-var scene;
+var camera, scene, renderer;
+
+var pointcloud;
 var pointclouds = [];
-var stats;
 var pointcloudMaterial;
 
 function initGUI(){
@@ -15,32 +17,34 @@ function initGUI(){
 	});
 
 	var params = {
-		PointSize: defaultPointSize,
+		focusDistance: defaultFocusDistance,
+		focusAperture: defaultFocusAperture,
 		LOD: defaultLOD
 	};
 
 	var pLOD = gui.add(params, 'LOD', 0.5,20);
 	pLOD.onChange(function(value){
-				//pointCloud.LOD = value;
-				for(var i = 0; i < pointclouds.length; i++){
-					pointclouds[i].LOD = value;
-				}
-			});
+		pointcloud.LOD = value;
+	});
 
-	var pPointSize = gui.add(params, 'PointSize', 0.001, 1.0);
-	pPointSize.onChange(function(value){
-		pointcloudMaterial.size = value;
+	var pfocusDistance = gui.add(params, 'focusDistance', 0.001, 1.0);
+	pfocusDistance.onChange(function(value){
+		pointcloudMaterial.uniforms.focusDistance.value = value;
+	});
+
+	var pfocusAperture = gui.add(params, 'focusAperture', 0.001, 1.0);
+	pfocusAperture.onChange(function(value){
+		pointcloudMaterial.uniforms.focusAperture.value = value;
 	});
 }
 
 function initThree(){
-
 	scene = new THREE.Scene();
+	// scene.fog = new THREE.FogExp2( 0xFFFFFF, 0.0009 );
 	camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.01, 10000);
 
 	renderer = new THREE.WebGLRenderer();
 	renderer.setSize(window.innerWidth, window.innerHeight);
-	renderer.domElement.style.backgroundColor = '#00ff00';
 	renderer.setClearColor(0xFFFFFF,0);
 
 	var container = document.createElement('div');
@@ -49,17 +53,37 @@ function initThree(){
 	document.body.appendChild(container);
 
 	// camera and controls
+	//
 	camera.position.set(508,153,-223);
 	controls = new THREE.OrbitControls(camera, renderer.domElement);
 	controls.target.set( 100, 3, -50 );
 	camera.lookAt(controls.target);
 
-	pointcloudMaterial = new THREE.PointCloudMaterial( { size: defaultPointSize, vertexColors: true } );
-			
-	// load pointcloud
+	//	Load Shader	
+	//
+	pointcloudMaterial = new THREE.ShaderMaterial( {
+		uniforms: {
+			cameraPos : { type: "v3", value: camera.position },
+			far: { type: "f", value: 100000.0 },
+			near: { type: "f", value: 1. },
+			minSize: { type: "f", value: 1.},
+			maxSize: { type: "f", value: 100. },
+			focusDistance: { type: "f", value: defaultFocusDistance },
+			focusAperture: { type: "f", value: defaultFocusAperture }
+		},
+		attributes: {},
+		vertexShader: document.getElementById( 'vertexShader' ).textContent,
+		fragmentShader: document.getElementById( 'fragmentShader' ).textContent,
+		vertexColors: true,
+		transparent: true,
+		alphaTest: 0.9
+	} ); 
+
+	// Load pointcloud
+	//
 	var pco = POCLoader.load(pointcloudPath);
 
-	var pointcloud = new Potree.PointCloudOctree(pco, pointcloudMaterial);
+	pointcloud = new Potree.PointCloudOctree(pco, pointcloudMaterial);
 	pointcloud.LOD = defaultLOD;
 	pointcloud.rotation.set(Math.PI*1.5,0,0);
 	pointcloud.moveToOrigin();
@@ -71,18 +95,10 @@ function initThree(){
 function render() {
 	requestAnimationFrame(render);
 
-	var numVisibleNodes = 0;
-	var numVisiblePoints = 0;
-	for(var i = 0; i < pointclouds.length; i++){
-		var pointcloud = pointclouds[i];
-		pointcloud.update(camera);
-		numVisibleNodes += pointcloud.numVisibleNodes;
-		numVisiblePoints += pointcloud.numVisiblePoints;
-	}
-
+	pointcloudMaterial.uniforms.cameraPos.value=camera.position;
+	pointcloud.update(camera);
 	renderer.render(scene, camera);
-	console.log(camera.position);
-
+	// console.log(camera.position);
 	controls.update(0.1);
 };
 
