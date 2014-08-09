@@ -68,7 +68,8 @@ function init() {
 	scene = new THREE.Scene();
 	scene.fog = new THREE.Fog( 0x050505, 2000, 3500 );
 
-	renderer = new THREE.CanvasRenderer();
+	// renderer = new THREE.CanvasRenderer();
+	renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerWidth, window.innerHeight );
 
 	var container = document.createElement('div');
