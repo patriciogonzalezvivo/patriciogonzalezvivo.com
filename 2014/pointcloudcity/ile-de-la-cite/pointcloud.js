@@ -1,5 +1,7 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
+document.getElementById("menu_logo_img").src = "/images/menu_logo_inv.png";
+
 var defaultFocusDistance = 0.01;
 var defaultFocusAperture = 0.0;
 var defaultLOD = 10;
