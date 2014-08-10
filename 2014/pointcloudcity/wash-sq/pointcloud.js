@@ -42,7 +42,7 @@ function initGUI(){
 
 function initThree(){
 	scene = new THREE.Scene();
-	// scene.fog = new THREE.FogExp2( 0xFFFFFF, 0.0009 );
+	scene.fog = new THREE.FogExp2( 0x000000, 0.005 );
 	camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.01, 10000);
 
 	renderer = new THREE.WebGLRenderer();
@@ -63,9 +63,9 @@ function initThree(){
 
 	//	Grid
 	//
-	var grid = new THREE.GridHelper( 200, 10 );
+	var grid = new THREE.GridHelper( 500, 10 );
 	grid.setColors( 0x389586, 0x1c4b44 );
-	grid.position.y = -35;
+	grid.position.y = -40;
 	scene.add( grid );
 
 	//	Load Shader	

@@ -7,6 +7,7 @@ Point Cloud City is part of [_Skylines_](http::/www.patriciogonzalezvivo.com/201
 Check out these interactive Point Clouds:
 
 - [Washington Square Park](wash-sq/), New York
+- [Queensboro Bridge](queensboro/), New York
 - [Main Post Office](ny-post-office/), New York
 - [Ile de la Cite](ile-de-la-cite/), Paris
 
