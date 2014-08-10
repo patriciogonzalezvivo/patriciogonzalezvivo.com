@@ -1,8 +1,8 @@
 if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 
 var defaultFocusDistance = 0.2;
-var defaultFocusAperture = 0.5;
-var defaultLOD = 10;
+var defaultFocusAperture = 0.13;
+var defaultLOD = 15;
 var pointcloudPath = "cloud.js";
 
 var camera, scene, renderer;
@@ -40,7 +40,8 @@ function initGUI(){
 
 function initThree(){
 	scene = new THREE.Scene();
-	// scene.fog = new THREE.FogExp2( 0xFFFFFF, 0.0009 );
+	scene.fog = new THREE.FogExp2( 0xFFFFFF, 0.003 );
+
 	camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.01, 10000);
 
 	renderer = new THREE.WebGLRenderer();
@@ -58,6 +59,13 @@ function initThree(){
 	controls = new THREE.OrbitControls(camera, renderer.domElement);
 	controls.target.set( 100, 3, -50 );
 	camera.lookAt(controls.target);
+
+	//	Grid
+	//
+	var grid = new THREE.GridHelper( 700, 10 );
+	grid.setColors( 0xe4e4e4, 0xeeeeee );
+	grid.position.y = -40;
+	scene.add( grid );
 
 	//	Load Shader	
 	//
