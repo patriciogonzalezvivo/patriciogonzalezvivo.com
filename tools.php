@@ -23,7 +23,7 @@
 			<p>2013 <strong>ofxFluid</strong>: GPU Fluid Simulator for openFrameworks </p>
 		</article>
 		<article class="item">
-			<a href="2013/sNodes" target="_blank"><img class="roundPhotoTh" src="2013/snode/thumb.jpg" alt="sNode"/></a>
+			<a href="2013/snode" target="_blank"><img class="roundPhotoTh" src="2013/snode/thumb.jpg" alt="sNode"/></a>
 			<p>2013 <strong>sNode</strong>: GLSL Shader prototyping tool wrote on openFrameworks and powered by Syphon</p>
 		</article>
 		<article class="item">
