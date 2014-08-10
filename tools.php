@@ -3,6 +3,10 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
+			<a href="2014/ofxStreetView/" target="_blank"><img class="roundPhotoTh" src="2014/ofxStreetView/thumb.jpg" alt="ofxStreetView"/></a>
+			<p>2014 <strong>ofxStreetView</strong>: openFrameworks addon to extract 3D StreetView Panoramas </p>
+		</article>
+		<article class="item">
 			<a href="2014/ofxPiTFT/" target="_blank"><img class="roundPhotoTh" src="2014/ofxPiTFT/thumb.jpg" alt="ofxPiTFT"/></a>
 			<p>2014 <strong>ofxPiTFT</strong>: openFrameworks addon for Adafruit's RaspberryPi TFT Touch Display </p>
 		</article>
