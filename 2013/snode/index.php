@@ -7,7 +7,7 @@
 
 	<?php
 		include("../../parsedown/Parsedown.php");
-		define('GITHUB_REPO', 'ofxVoro');
+		define('GITHUB_REPO', 'sNodes');
 		define('GITHUB_REPO_URL','github.com/patriciogonzalezvivo/'.GITHUB_REPO);
 		$Parsedown = new Parsedown();
 		echo $Parsedown->text(file_get_contents('https://raw.'.GITHUB_REPO_URL.'/master/README.md'));
