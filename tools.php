@@ -3,6 +3,10 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
+			<a href="2014/glmTile/" target="_blank"><img class="roundPhotoTh" src="2014/glmTile/thumb.gif" alt="glmTile"/></a>
+			<p>2014 <strong>glmTile</strong>: Labeled 3D Maps for <a href="https://mapzen.com/" target="_blank">Mapzen</a> </p>
+		</article>
+		<article class="item">
 			<a href="2014/ofxStreetView/" target="_blank"><img class="roundPhotoTh" src="2014/ofxStreetView/thumb.jpg" alt="ofxStreetView"/></a>
 			<p>2014 <strong>ofxStreetView</strong>: openFrameworks addon to extract 3D StreetView Panoramas </p>
 		</article>
