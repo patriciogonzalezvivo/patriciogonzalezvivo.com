@@ -8,7 +8,11 @@
 		<?php
 			include("../../parsedown/Parsedown.php");
 			$Parsedown = new Parsedown();
-			echo $Parsedown->text(file_get_contents('https://gist.githubusercontent.com/patriciogonzalezvivo/229c5cd4001c2ed45ec6/raw/0935b042c718ed460b545f251d69331da79c7c38/postgisOSM-LAS.md'));
+			define('GITHUB_REPO', 'Mesh2OSMSlicer');
+			define('GITHUB_REPO_URL','github.com/tangrams/'.GITHUB_REPO);
+			$Parsedown = new Parsedown();
+			echo $Parsedown->text(file_get_contents('https://raw.'.GITHUB_REPO_URL.'/master/README.md'));
+			echo '<p><a href="http://'.GITHUB_REPO_URL.'">Check the Git Repository</a></p>'
 		?>
 
 	</section>
