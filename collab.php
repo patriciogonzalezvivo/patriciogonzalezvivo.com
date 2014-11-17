@@ -3,6 +3,10 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
+			<a href="2014/addidas/"><img class="roundPhotoTh" src="2014/atramentum/thumb.jpg" alt="Atramentum"/></a>
+			<p>2014 <strong>Addidas #mizxflux launch in Berlin</strong>: collaboration with HellicarAndLewis</p>
+		</article>
+		<article class="item">
 			<a href="2014/atramentum/"><img class="roundPhotoTh" src="2014/atramentum/thumb.jpg" alt="Atramentum"/></a>
 			<p>2014 <strong>Atramentum</strong>: collaboration with SCOPE, FakeLove.tv and Aerosyn-Lex</p>
 		</article>
