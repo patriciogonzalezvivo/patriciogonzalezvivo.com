@@ -3,8 +3,12 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
-			<a href="2014/glmTile/" target="_blank"><img class="roundPhotoTh" src="2014/glmTile/thumb.gif" alt="glmTile"/></a>
-			<p>2014 <strong>glmTile</strong>: Labeled 3D Maps for <a href="https://mapzen.com/" target="_blank">Mapzen</a> </p>
+			<a href="2014/ofxBundler/" target="_blank"><img class="roundPhotoTh" src="2014/ofxBundler/thumb.gif" alt="ofxBundler"/></a>
+			<p>2014 <strong>ofxBundler</strong>: Bundle files reader for openFrameworks </p>
+		</article>
+		<article class="item">
+			<a href="2014/ofxVectorTile/" target="_blank"><img class="roundPhotoTh" src="2014/ofxVectorTile/thumb.gif" alt="ofxVectorTile"/></a>
+			<p>2014 <strong>ofxVectorTile</strong>: wrapper for 3D Labeled Maps at <a href="https://mapzen.com/" target="_blank">Mapzen</a> </p>
 		</article>
 		<article class="item">
 			<a href="2014/ofxStreetView/" target="_blank"><img class="roundPhotoTh" src="2014/ofxStreetView/thumb.jpg" alt="ofxStreetView"/></a>
