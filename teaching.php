@@ -3,6 +3,10 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
+			<a href="2015/thebookofshaders/"><img class="roundPhotoTh" src="2015/thebookofshaders/thumb.jpg" alt="TheBookOfShaders"/></a>
+			<p>2015 <strong>The Book of Shaders</strong>: gentle step-by-step guide through the abstract and complex universe of Fragment Shaders.</p>
+		</article>
+		<article class="item">
 			<a href="2014/sims/"><img class="roundPhotoTh" src="2014/sims/thumb.jpg" alt="simulationStudio"/></a>
 			<p>2014 <strong>Simulation Studio</strong>: Parsons MFA D&T course focus on computer simulation algorithms</p>
 		</article>
