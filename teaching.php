@@ -3,7 +3,7 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
-			<a href="2014/sims/"><img class="roundPhotoTh" src="2013/sims/thumb.jpg" alt="simulationStudio"/></a>
+			<a href="2014/sims/"><img class="roundPhotoTh" src="2014/sims/thumb.jpg" alt="simulationStudio"/></a>
 			<p>2014 <strong>Simulation Studio</strong>: Parsons MFA D&T course focus on computer simulation algorithms</p>
 		</article>
 		<article class="item">
