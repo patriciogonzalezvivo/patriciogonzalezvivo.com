@@ -4,6 +4,10 @@
 
 	<section class="content">
 		<article class="item">
+			<a href="2015/thebookofshaders/"><img class="roundPhotoTh" src="2015/thebookofshaders/thumb.jpg" alt="TheBookOfShaders"/></a>
+			<p>2015 <strong>The Book of Shaders</strong>: gentle step-by-step guide through the abstract and complex universe of Fragment Shaders.</p>
+		</article>
+		<article class="item">
 			<a href="2014/skylines/"><img class="roundPhotoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
 			<p>2014 <strong>SKYLINES</strong>: series of projects is about awareness and tools to see</p>
 		</article>
