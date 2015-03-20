@@ -1,6 +1,7 @@
 <?php
 echo '
 	<section id="sidebar">
+		<a href="http://twitter.com/patriciogv" target="_blank><img src="/images/icons/twitter.png" width="32" class="icon"/></a>
 		<table cellpadding="0" cellspacing="10" border="0" id="flickr_badge_wrapper">
 			<p>Now working on:</p>
 			<script type="text/javascript" src="https://www.flickr.com/badge_code_v2.gne?count=10&display=latest&size=m&layout=v&source=user&user=106950246%40N06"></script>
