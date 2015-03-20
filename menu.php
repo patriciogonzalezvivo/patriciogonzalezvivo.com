@@ -14,5 +14,6 @@ echo '<header>
 					</ul>
 				</nav>
 			</div>
+			<a href="http://twitter.com/patriciogv" target="_blank><img src="/images/icons/twitter.png" width="32" class="icon"></a>
 		</header>';
 ?>
