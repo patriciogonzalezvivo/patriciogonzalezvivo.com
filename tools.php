@@ -3,6 +3,10 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
+			<a href="2015/glslViewer/" target="_blank"><img class="roundPhotoTh" src="2015/glslViewer/thumb.gif" alt="glslViewer"/></a>
+			<p>2015 <strong>glslViewer</strong>: live-coding shader tool for MacOS, Linux and RaspberryPi </p>
+		</article>
+		<article class="item">
 			<a href="2014/ofxBundler/" target="_blank"><img class="roundPhotoTh" src="2014/ofxBundler/thumb.gif" alt="ofxBundler"/></a>
 			<p>2014 <strong>ofxBundler</strong>: Bundle files reader for openFrameworks </p>
 		</article>
