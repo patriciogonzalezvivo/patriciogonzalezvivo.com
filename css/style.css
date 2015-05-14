@@ -92,7 +92,7 @@ body {
 .content {
   width: 575px; }
   .content p img:not(.icon) {
-    width: 575px; }
+    max-width: 575px; }
   .content .item {
     transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1);
     -webkit-transform: translate(0, 20%);
