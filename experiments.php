@@ -3,6 +3,10 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
+			<a href="2015/tangram-sandbox/"><img class="roundPhotoTh" src="2015/tangram-sandbox/thumb.png" alt="Tangram-Sandbox"/></a>
+			<p>2015 <strong>Tangram Sandbox</strong>: Series of shader based maps using Tangram.js </p>
+		</article>
+		<article class="item">
 			<a href="2014/lidar/"><img class="roundPhotoTh" src="2014/lidar/thumb.gif" alt="Lidar"/></a>
 			<p>2014 <strong>Experiments in Crowdsourcing Point Clouds For 3D Maps</strong> at Mapzen</p>
 		</article>
