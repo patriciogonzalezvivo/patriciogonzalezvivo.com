@@ -8,7 +8,9 @@
 		<?php
 			include("parsedown/Parsedown.php");
 			$Parsedown = new Parsedown();
-			echo $Parsedown->text(file_get_contents ('about.md'));
+			echo $Parsedown->text(file_get_contents ('README.md'));
+			echo $Parsedown->text(file_get_contents ('press/README.md'));
+			echo $Parsedown->text(file_get_contents ('exhibitions/README.md'));
 		?>
 
 	</section>

@@ -1,0 +1,33 @@
+### Press
+
+- **2015** [This Brooding Cityscape is What Google Maps Dreamt about last night](http://www.fastcodesign.com/3051169/this-brooding-cityscape-is-what-google-maps-dreamt-about-last-night) at [Fast Company Design](http://www.fastcodesign.com/)
+
+- **2015** [Tilt-Ikeda](http://prostheticknowledge.tumblr.com/post/129173686541/tilt-ikeda-creative-coder-patricio-gonzalez-vivo) at [Prosthetic Knowledge](http://prostheticknowledge.tumblr.com/)
+
+- **2015** [Techno-art and the world around us](http://www.engadget.com/gallery/art-and-design-weekly/) at [Engadget](http://www.engadget.com/) 
+
+- **2015** [Tangram Vector Map](http://prostheticknowledge.tumblr.com/post/114312452831/tangram-vector-map-proof-of-concept-demo-of) at [Prosthetic Knowledge](http://prostheticknowledge.tumblr.com/)
+
+- **2015** [Футуристические карты в стиле Tron](http://geektimes.ru/post/247622/) at [GeekTimes Russia](http://geektimes.ru/)
+
+- **2015** [A Mesmerizing, Futuristic Map With Animated Traffic and Glowing Buildings](http://www.citylab.com/design/2015/03/a-mesmerizing-futuristic-map-with-animated-traffic-and-glowing-buildings/388285/) at [The Atlantic: CityLab](http://www.citylab.com/)
+
+- **2015** The Book of Shader on [Hacker News](https://news.ycombinator.com/item?id=9215582) and [Reddit](https://www.reddit.com/r/programming/comments/2zb3z0/the_book_of_shaders/)
+
+- **2015** [TANGRAM: AN OPEN SOURCE MAP RENDERING LIBRARY](https://www.raspberrypi.org/blog/tangram-an-open-source-map-rendering-library/) at [RaspberryPI official Blog](https://www.raspberrypi.org/blog/)
+
+- **2014**  [Skylines III: Patricio Gonzalez Vivo](http://designenvy.aiga.org/skylines-iii-patricio-gonzalez-vivo/) at [Designenvy](http://designenvy.aiga.org/)
+
+- **2014**  [Esplorando una città fantasma fatta di codici e dati](http://www.wired.it/tv/esplorando-una-citta-fantasma-fatta-di-codici-e-dati/) at [WIRED Itally](http://www.wired.it/)
+
+- **2014**  [Depth Maps Hidden in Google Street View Create Flickering Ghost-Cities](http://gizmodo.com/depth-maps-hidden-in-google-street-view-create-flickeri-1551425770) at [Gizmodo](http://gizmodo.com/)
+
+- **2014**  [Point Cloud City](http://prostheticknowledge.tumblr.com/post/80730362101/point-cloud-city-experiment-by-patricio-gonzalez) at [Prosthetic Knowledge](http://prostheticknowledge.tumblr.com/) 
+
+- **2012**  [FILE 2012 apresenta ‘Efecto Mariposa’, instalação de Patricio González Vivo](http://www.tecnoartenews.com/esteticas-tecnologicas/file-2012-apresenta-efecto-mariposa-instalacao-de-patricio-gonzalez-vivo/) at [TechnoArteNews](http://www.tecnoartenews.com/)
+
+- **2012**  [Mesas interactivas, simuladores y juego](http://conectarlab.com.ar/mesas-interactivas-simuladores-y-juego/) at [Conectar Igualdad](http://conectarlab.com.ar/mesas-interactivas-simuladores-y-juego/)
+
+- **2011** [Construir con las cenizas del Puyehue](http://blogs.lanacion.com.ar/ecologico/desarrollo-sustentable/construir-con-las-cenizas-del-puyehue/) at [La Nación](lanacion.com.ar)
+
+- **2011** [Communitas](http://www.lizbeck.net/2011/05/23/communitas/) at [Ed Tech](http://www.lizbeck.net/)

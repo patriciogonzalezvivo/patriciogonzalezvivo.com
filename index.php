@@ -4,6 +4,10 @@
 
 	<section class="content">
 		<article class="item">
+			<a href="http://patriciogonzalezvivo.github.io/tangram-sandbox/tangram.html?styles/tilt-ikeda#16.575/40.70321/-74.00666"><img class="roundPhotoTh" src="2015/ikeda/thumb.gif" alt="Ikeda Map"/></a>
+			<p>2015 <strong>Ikeda Map</strong>: 3D Map theme using Tangram Engine</p>
+		</article>
+		<article class="item">
 			<a href="2015/thebookofshaders/"><img class="roundPhotoTh" src="2015/thebookofshaders/thumb.jpg" alt="TheBookOfShaders"/></a>
 			<p>2015 <strong>The Book of Shaders</strong>: gentle step-by-step guide through the abstract and complex universe of Fragment Shaders.</p>
 		</article>
