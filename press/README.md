@@ -1,5 +1,7 @@
 ### Press
 
+- **2015** [A Mesmerizing 3-D Vision of New York as Pure Data](http://www.citylab.com/design/2015/09/a-mesmerizing-3-d-vision-of-new-york-as-pure-data/406870/) at [The Atlantic, CityLab](http://www.citylab.com/)
+
 - **2015** [This Brooding Cityscape is What Google Maps Dreamt about last night](http://www.fastcodesign.com/3051169/this-brooding-cityscape-is-what-google-maps-dreamt-about-last-night) at [Fast Company Design](http://www.fastcodesign.com/)
 
 - **2015** [Tilt-Ikeda](http://prostheticknowledge.tumblr.com/post/129173686541/tilt-ikeda-creative-coder-patricio-gonzalez-vivo) at [Prosthetic Knowledge](http://prostheticknowledge.tumblr.com/)
