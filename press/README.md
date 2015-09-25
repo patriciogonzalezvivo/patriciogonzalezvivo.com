@@ -1,5 +1,9 @@
 ### Press
 
+- **2015** [Take a little trip with this 3D map of New York City](http://therealdeal.com/blog/2015/09/25/take-a-little-trip-with-the-3d-map-of-new-york-city/) at [TheRealDeal](http://therealdeal.com/)
+
+- **2015** [Let This 3D Map of New York City Hypnotize You](https://www.dnainfo.com/new-york/20150924/union-square/let-this-3d-map-of-new-york-city-hypnotize-you) at [DNAinfo](https://www.dnainfo.com)
+
 - **2015** [A Mesmerizing 3-D Vision of New York as Pure Data](http://www.citylab.com/design/2015/09/a-mesmerizing-3-d-vision-of-new-york-as-pure-data/406870/) at [The Atlantic, CityLab](http://www.citylab.com/)
 
 - **2015** [This Brooding Cityscape is What Google Maps Dreamt about last night](http://www.fastcodesign.com/3051169/this-brooding-cityscape-is-what-google-maps-dreamt-about-last-night) at [Fast Company Design](http://www.fastcodesign.com/)
