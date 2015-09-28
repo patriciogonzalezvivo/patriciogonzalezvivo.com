@@ -6,6 +6,8 @@
 
 - **2015** [Tilt-Ikeda](http://prostheticknowledge.tumblr.com/post/129173686541/tilt-ikeda-creative-coder-patricio-gonzalez-vivo) at [Prosthetic Knowledge](http://prostheticknowledge.tumblr.com/)
 
+- **2015** [Interactive Maps Can Now Get the ‘Matrix’ Treatment](http://www.citylab.com/design/2015/05/interactive-maps-can-now-get-the-matrix-treatment/392981/) at [The Atlantic, CityLab](http://www.citylab.com/) 
+
 - **2015** [Techno-art and the world around us](http://www.engadget.com/gallery/art-and-design-weekly/) at [Engadget](http://www.engadget.com/) 
 
 - **2015** [Tangram Vector Map](http://prostheticknowledge.tumblr.com/post/114312452831/tangram-vector-map-proof-of-concept-demo-of) at [Prosthetic Knowledge](http://prostheticknowledge.tumblr.com/)
