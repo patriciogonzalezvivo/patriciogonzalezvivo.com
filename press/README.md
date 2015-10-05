@@ -1,5 +1,9 @@
 ### Press
 
+- **2015** [Check out this 3D map of New York City](http://nyc.suntimes.com/nyc-news/7/86/311810/3d-nyc-map) at [SunTimes](http://nyc.suntimes.com)
+
+- **2015** [Santiago y otras 20 ciudades del mundo en 3D](http://www.plataformaurbana.cl/archive/2015/09/30/santiago-y-otras-20-ciudades-del-mundo-en-3d/) at [PlataformaUrbana](http://www.plataformaurbana.cl)
+
 - **2015** [Take a little trip with this 3D map of New York City](http://therealdeal.com/blog/2015/09/25/take-a-little-trip-with-the-3d-map-of-new-york-city/) at [TheRealDeal](http://therealdeal.com/)
 
 - **2015** [Let This 3D Map of New York City Hypnotize You](https://www.dnainfo.com/new-york/20150924/union-square/let-this-3d-map-of-new-york-city-hypnotize-you) at [DNAinfo](https://www.dnainfo.com)
