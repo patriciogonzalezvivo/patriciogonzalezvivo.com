@@ -8,9 +8,9 @@
   #menu_text a {
     padding-left: 13px;
     text-decoration: none;
-    color: #4e5d7f; }
+    color: #444; }
     #menu_text a:hover {
-      color: #188069; }
+      color: #222; }
 
 .menu_item {
   display: inline-block; }
@@ -27,7 +27,7 @@
     padding-left: 10px; }
 
 .twitter-timeline {
-  data-link-color: #4e5d7f;
+  data-link-color: #444;
   data-chrome: "noborders transparent";
   height: 100%; }
 
@@ -141,10 +141,12 @@ body {
     text-align: right;
     color: #666666; }
   .content a {
-    color: #188069;
+    font-style: bold;
+    font-weight: 400;
+    color: #333;
     text-decoration: none; }
     .content a:hover {
-      color: #188069; }
+      color: #2222; }
 
 footer {
   clear: both;

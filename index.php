@@ -12,6 +12,18 @@
 			<p>2015 <strong>The Book of Shaders</strong>: gentle step-by-step guide through the abstract and complex universe of Fragment Shaders.</p>
 		</article>
 		<article class="item">
+			<a href="2015/tangram-sandbox/"><img class="roundPhotoTh" src="2015/tangram-sandbox/thumb.png" alt="Tangram-Sandbox"/></a>
+			<p>2015 <strong>Tangram Sandbox</strong>: Series of shader based maps using Tangram.js </p>
+		</article>
+		<article class="item">
+			<a href="2014/lidar/"><img class="roundPhotoTh" src="2014/lidar/thumb.gif" alt="Lidar"/></a>
+			<p>2014 <strong>Experiments in Crowdsourcing Point Clouds For 3D Maps</strong> at Mapzen</p>
+		</article>
+		<article class="item">
+			<a href="2014/advanceGL/"><img class="roundPhotoTh" src="2014/advanceGL/thumb.jpg" alt="advanceGL"/></a>
+			<p>2014 <strong>Advance GLSL Shaders</strong>: lens flairs, scatters, reflections, refractions, DoF, spherical and cube enviroment maps </p>
+		</article>
+		<article class="item">
 			<a href="2014/skylines/"><img class="roundPhotoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
 			<p>2014 <strong>SKYLINES</strong>: series of projects is about awareness and tools to see</p>
 		</article>
@@ -28,20 +40,16 @@
 			<p>2012 <strong>Efecto Mariposa 3.0</strong>: FILE, Sao Paulo, Brazil</p>
 		</article>
 		<article class="item">
-			<a href="2012/kaleido/"><img class="roundPhotoTh" src="2012/kaleido/thumb.jpg" alt="Kalidoscope"/></a>
-			<p>2012 <strong>Kalidoscope</strong>: La Mesa del Tiempo, Museo del Juguete San Isidro, Argentina</p>
-		</article>
-		<article class="item">
-			<a href="2012/oca/"><img class="roundPhotoTh" src="2012/oca/thumb.jpg" alt="Oca"/></a>
-			<p>2012 <strong>Oca</strong>: La Mesa del Tiempo, Museo del Juguete San Isidro, Argentina</p>
-		</article>
-		<article class="item">
-			<a href="2012/shadows/"><img class="roundPhotoTh" src="2012/shadows/thumb.jpg" alt="Shadows"/></a>
-			<p>2012 <strong>Shadows</strong>: La Mesa del Tiempo, Museo del Juguete San Isidro, Argentina</p>
+			<a href="2012/flatland/"><img class="roundPhotoTh" src="2012/flatland/thumb.jpg" alt="FlatLand"/></a>
+			<p>2012 <strong>FlatLand</strong>: collaboration with <a href="http://thesystemis.com/" target="_blank">Zach Lieberman</a> for New Cinema Hackathon at EyeBeam </p>
 		</article>
 		<article class="item">
 			<a href="2011/efectomariposa/"><img class="roundPhotoTh" src="2011/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
 			<p>2011 <strong>Efecto Mariposa 1.0</strong>: MediaLab 2011, CCEBA, Buenos Aires, Argentina</p>
+		</article>
+		<article class="item">
+			<a href="2011/liquidkinect/"><img class="roundPhotoTh" src="2011/liquidkinect/thumb.jpg" alt="Liquid Kinect"/></a>
+			<p>2011 <strong>Liquid Kinect</strong>: Kinect + Particle System + GLSL Shaders</p>
 		</article>
 		<article class="item">
 			<a href="2010/communitas/"><img class="roundPhotoTh" src="2010/communitas/thumb.jpg" alt="Communitas"/></a>
