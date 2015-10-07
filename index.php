@@ -20,10 +20,6 @@
 			<p>2014 <strong>Experiments in Crowdsourcing Point Clouds For 3D Maps</strong> at Mapzen</p>
 		</article>
 		<article class="item">
-			<a href="2014/advanceGL/"><img class="roundPhotoTh" src="2014/advanceGL/thumb.jpg" alt="advanceGL"/></a>
-			<p>2014 <strong>Advance GLSL Shaders</strong>: lens flairs, scatters, reflections, refractions, DoF, spherical and cube enviroment maps </p>
-		</article>
-		<article class="item">
 			<a href="2014/skylines/"><img class="roundPhotoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
 			<p>2014 <strong>SKYLINES</strong>: series of projects is about awareness and tools to see</p>
 		</article>
