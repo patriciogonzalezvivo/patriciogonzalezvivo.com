@@ -9,7 +9,7 @@
 		</article>
 		<article class="item">
 			<a href="http://patriciogonzalezvivo.github.io/RandomCity/"><img class="roundPhotoTh" src="2015/RandomCity/thumb.gif" alt="RandomCity"/></a>
-			<p>2015 <strong>RandomCity</strong>: Though the streams are chaotic, they coalesce into a kind of digital harmony</p>
+			<p>2015 <strong>RandomCity</strong>: though the streams are chaotic, they coalesce into a digital harmony</p>
 		</article>
 		<article class="item">
 			<a href="2015/thebookofshaders/"><img class="roundPhotoTh" src="2015/thebookofshaders/thumb.jpg" alt="TheBookOfShaders"/></a>
@@ -17,7 +17,7 @@
 		</article>
 		<article class="item">
 			<a href="2015/tangram-sandbox/"><img class="roundPhotoTh" src="2015/tangram-sandbox/thumb.png" alt="Tangram-Sandbox"/></a>
-			<p>2015 <strong>Tangram Sandbox</strong>: Series of shader based maps using Tangram.js </p>
+			<p>2015 <strong>Tangram Sandbox</strong>: series of shader themes for maps </p>
 		</article>
 		<article class="item">
 			<a href="2014/lidar/"><img class="roundPhotoTh" src="2014/lidar/thumb.gif" alt="Lidar"/></a>
