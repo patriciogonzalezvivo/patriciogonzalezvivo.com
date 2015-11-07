@@ -25,7 +25,7 @@
 		</article>
 		<article class="item">
 			<a href="2014/skylines/"><img class="roundPhotoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
-			<p>2014 <strong>SKYLINES</strong>: series of projects is about awareness and tools to see</p>
+			<p>2014 <strong>SKYLINES</strong>: three projects about awareness and tools for seeing</p>
 		</article>
 		<article class="item">
 			<a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.gif" alt="PointCloudCity"/></a>
@@ -40,16 +40,12 @@
 			<p>2012 <strong>Efecto Mariposa 3.0</strong>: FILE, Sao Paulo, Brazil</p>
 		</article>
 		<article class="item">
-			<a href="2012/flatland/"><img class="roundPhotoTh" src="2012/flatland/thumb.jpg" alt="FlatLand"/></a>
-			<p>2012 <strong>FlatLand</strong>: collaboration with <a href="http://thesystemis.com/" target="_blank">Zach Lieberman</a> for New Cinema Hackathon at EyeBeam </p>
-		</article>
-		<article class="item">
 			<a href="2011/efectomariposa/"><img class="roundPhotoTh" src="2011/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
 			<p>2011 <strong>Efecto Mariposa 1.0</strong>: MediaLab 2011, CCEBA, Buenos Aires, Argentina</p>
 		</article>
 		<article class="item">
 			<a href="2011/liquidkinect/"><img class="roundPhotoTh" src="2011/liquidkinect/thumb.jpg" alt="Liquid Kinect"/></a>
-			<p>2011 <strong>Liquid Kinect</strong>: Kinect + Particle System + GLSL Shaders</p>
+			<p>2011 <strong>Liquid Kinect</strong>: point cloud video using particle systems</p>
 		</article>
 		<article class="item">
 			<a href="2010/communitas/"><img class="roundPhotoTh" src="2010/communitas/thumb.jpg" alt="Communitas"/></a>
