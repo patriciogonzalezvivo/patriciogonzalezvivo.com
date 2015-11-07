@@ -1,7 +1,7 @@
 
 ![IMG](images/about_picture.jpg)
 
-Patricio Gonzalez Vivo is a New York based artist and developer. He explores interstitial spaces between organic and synthetic, analog and digital, individual and collective. In his work he uses code as an expressive language with the intention of developing a better together.
+Patricio Gonzalez Vivo (Buenos Aires, 1982) is a New York based artist and engineer. He explores interstitial spaces between organic and synthetic, analog and digital, individual and collective. In his work he uses code as an expressive language with the intention of developing a better together.
 
 Patricio studied and practiced psychotherapy and expressive art therapy . He holds an MFA in Design & Technology from [Parsons The New School](http://www.newschool.edu/parsons/mfa-design-technology/), where he now teaches. Currently he works as a Graphic Engineer at [Mapzen](http://mapzen.com) making openSource mapping tools.
 
