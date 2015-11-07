@@ -3,6 +3,10 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
+			<a href="2015/glslCanvas/" target="_blank"><img class="roundPhotoTh" src="2015/glslCanvas/thumb.gif" alt="glslCanvas"/></a>
+			<p>2015 <strong>glslCanvas</strong>: tool to load GLSL shaders on HTML Canvas using WebGL </p>
+		</article>
+		<article class="item">
 			<a href="2015/glslViewer/" target="_blank"><img class="roundPhotoTh" src="2015/glslViewer/thumb.gif" alt="glslViewer"/></a>
 			<p>2015 <strong>glslViewer</strong>: live-coding shader tool for MacOS, Linux and RaspberryPi </p>
 		</article>
