@@ -4,6 +4,10 @@
 
 	<section class="content">
 		<article class="item">
+			<a href="http://patriciogonzalezvivo.github.io/LineOfSight"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a>
+			<p>2015 <strong>LineOfSight</strong>: find the satellites in your line of sight</p>
+		</article>
+		<article class="item">
 			<a href="http://patriciogonzalezvivo.github.io/ISS/"><img class="roundPhotoTh" src="2015/ISS/thumb.gif" alt="OSM from the ISS"/></a>
 			<p>2015 <strong>ISS</strong>: zoom and see the view of openStreetMap from the International Space Station</p>
 		</article>
