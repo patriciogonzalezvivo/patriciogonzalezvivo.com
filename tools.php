@@ -51,10 +51,6 @@
 			<p>2013 <strong>ofxPulseSensor</strong>: serial client for Arduino's PulseSensor</p>
 		</article>
 		<article class="item">
-			<a href="2012/picasso/"><img class="roundPhotoTh" src="2012/picasso/thumb.jpg" alt="Picasso"/></a>
-			<p>2012 <strong>MultiTouch DrawingTool using LeapMotion</strong> for Picasso Museum in Coruña, Spain </p>
-		</article>
-		<article class="item">
 			<a href="2012/ofplay" target="_blank"><img class="roundPhotoTh" src="2012/ofplay/thumb.jpg" alt="ofPlay"/></a>
 			<p>2012 <strong>ofPlay</strong>: UI/UX exploration designed to help openFrameworks beginners </p>
 		</article>

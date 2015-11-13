@@ -23,6 +23,10 @@
 			<p>2012 <strong>Megaphone</strong>: collaboration with YESYESNO studio for interactive projection</p>
 		</article>
 		<article class="item">
+			<a href="2012/picasso/"><img class="roundPhotoTh" src="2012/picasso/thumb.jpg" alt="Picasso"/></a>
+			<p>2012 <strong>MultiTouch DrawingTool using LeapMotion</strong> for Picasso Museum in Coruña, Spain </p>
+		</article>
+		<article class="item">
 			<a href="2012/galiciacanibal/"><img class="roundPhotoTh" src="2012/galiciacanibal/thumb.jpg" alt="Galicia Canibal"/></a>
 			<p>2012 <strong>Galica Canibal</strong>: interactive scenography for revolutionary Spanish musical</p>
 		</article>
