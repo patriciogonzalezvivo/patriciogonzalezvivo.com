@@ -17,15 +17,15 @@
 		</article>
 		<article class="item">
 			<a href="2015/thebookofshaders/"><img class="roundPhotoTh" src="2015/thebookofshaders/thumb.jpg" alt="TheBookOfShaders"/></a>
-			<p>2015 <strong>The Book of Shaders</strong>: gentle step-by-step guide through the abstract and complex universe of Fragment Shaders.</p>
+			<p>2015 <strong>The Book of Shaders</strong>: Who said #shaders are a dark art? </p>
 		</article>
 		<article class="item">
 			<a href="2015/tangram-sandbox/"><img class="roundPhotoTh" src="2015/tangram-sandbox/thumb.png" alt="Tangram-Sandbox"/></a>
-			<p>2015 <strong>Tangram Sandbox</strong>: series of shader themes for maps </p>
+			<p>2015 <strong>Tangram Sandbox</strong>: series of experimental styles for maps based on GLSL shaders</p>
 		</article>
 		<article class="item">
 			<a href="2014/lidar/"><img class="roundPhotoTh" src="2014/lidar/thumb.gif" alt="Lidar"/></a>
-			<p>2014 <strong>Experiments in Crowdsourcing Point Clouds For 3D Maps</strong> at Mapzen</p>
+			<p>2014 <strong>crowdsourcing Point Clouds </strong>for 3D mapping.</p>
 		</article>
 		<article class="item">
 			<a href="2014/skylines/"><img class="roundPhotoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
@@ -33,27 +33,23 @@
 		</article>
 		<article class="item">
 			<a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.gif" alt="PointCloudCity"/></a>
-			<p>2014 <strong>Point Cloud City</strong>: scraping google street view and reconstructing it in a 3D environment</p>
+			<p>2014 <strong>Point Cloud City</strong>: private data landscapes of public places</p>
 		</article>
 		<article class="item">
 			<a href="2013/clouds/"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
-			<p>2013 <strong>CLOUDS Documentary</strong>: collaboration developing Visual Systems </p>
+			<p>2013 <strong>CLOUDS Documentary</strong>: collaboration of poetic Visual Systems</p>
 		</article>
 		<article class="item">
 			<a href="2012/efectomariposa/"><img class="roundPhotoTh" src="2012/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
-			<p>2012 <strong>Efecto Mariposa 3.0</strong>: FILE, Sao Paulo, Brazil</p>
+			<p>2012 <strong>Efecto Mariposa 3.0</strong>: interactive installation at FILE, Sao Paulo, Brazil</p>
 		</article>
 		<article class="item">
 			<a href="2011/efectomariposa/"><img class="roundPhotoTh" src="2011/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
-			<p>2011 <strong>Efecto Mariposa 1.0</strong>: MediaLab 2011, CCEBA, Buenos Aires, Argentina</p>
-		</article>
-		<article class="item">
-			<a href="2011/liquidkinect/"><img class="roundPhotoTh" src="2011/liquidkinect/thumb.jpg" alt="Liquid Kinect"/></a>
-			<p>2011 <strong>Liquid Kinect</strong>: point cloud video using particle systems</p>
+			<p>2011 <strong>Efecto Mariposa 1.0</strong>: interactive installation at MediaLab 2011, CCEBA, Buenos Aires, Argentina</p>
 		</article>
 		<article class="item">
 			<a href="2010/communitas/"><img class="roundPhotoTh" src="2010/communitas/thumb.jpg" alt="Communitas"/></a>
-			<p>2010 <strong>Communitas</strong>: Interactivos 2010, Espacio Fundación Telefónica, Buenos Aires, Argentina</p>
+			<p>2010 <strong>Communitas</strong>: interactive installation at Interactivos 2010, Espacio Fundación Telefónica, Buenos Aires, Argentina</p>
 		</article>
 	</section>
 
