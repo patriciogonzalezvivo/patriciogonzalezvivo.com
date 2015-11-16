@@ -5,7 +5,7 @@
 	<section class="content">
 		<article class="item">
 			<a href="http://patriciogonzalezvivo.github.io/LineOfSight"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a>
-			<p>2015 <strong>LineOfSight</strong>: find the satellites in your line of sight</p>
+			<p>2015 <strong>LineOfSight</strong>: find and track satellites</p>
 		</article>
 		<article class="item">
 			<a href="http://patriciogonzalezvivo.github.io/ISS/"><img class="roundPhotoTh" src="2015/ISS/thumb.gif" alt="OSM from the ISS"/></a>
