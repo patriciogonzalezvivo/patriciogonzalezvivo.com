@@ -16,7 +16,7 @@
 			<p>2015 <strong>RandomCity</strong>: though the streams are chaotic, they coalesce into a digital harmony</p>
 		</article>
 		<article class="item">
-			<a href="2015/thebookofshaders/"><img class="roundPhotoTh" src="2015/thebookofshaders/thumb.jpg" alt="TheBookOfShaders"/></a>
+			<a href="http://thebookofshaders.com/"><img class="roundPhotoTh" src="2015/thebookofshaders/thumb.jpg" alt="TheBookOfShaders"/></a>
 			<p>2015 <strong>The Book of Shaders</strong>: Who said #shaders are a dark art? </p>
 		</article>
 		<article class="item">
