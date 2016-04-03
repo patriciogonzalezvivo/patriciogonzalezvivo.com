@@ -3,6 +3,10 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
+			<a href="2016/openframe/"><img class="roundPhotoTh" src="2016/openframe/thumb1.png" alt="openframe"/></a>
+			<p>2016 shaders artwork for <strong>openFrame.io</strong></p>
+		</article>
+		<article class="item">
 			<a href="2014/addidas/"><img class="roundPhotoTh" src="2014/addidas/thumb.jpg" alt="Atramentum"/></a>
 			<p>2014 <strong>Addidas #mizxflux launch in Berlin</strong>: collaboration with HellicarAndLewis</p>
 		</article>

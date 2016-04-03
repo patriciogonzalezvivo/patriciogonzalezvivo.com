@@ -4,6 +4,10 @@
 
 	<section class="content">
 		<article class="item">
+			<a href="2016/openframe/"><img class="roundPhotoTh" src="2016/openframe/thumb1.png" alt="openframe"/></a>
+			<p>2016 shaders artwork for <strong>openFrame.io</strong></p>
+		</article>
+		<article class="item">
 			<a href="http://patriciogonzalezvivo.github.io/LineOfSight"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a>
 			<p>2015 <strong>LineOfSight</strong>: find and track satellites</p>
 		</article>
