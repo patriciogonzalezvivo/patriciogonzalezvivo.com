@@ -3,7 +3,7 @@
 <?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
-			<a href="2016/openframe/"><img class="roundPhotoTh" src="2016/openframe/thumb1.png" alt="openframe"/></a>
+			<a href="2016/openFrame/"><img class="roundPhotoTh" src="2016/openFrame/thumb1.png" alt="openframe"/></a>
 			<p>2016 shaders artwork for <strong>openFrame.io</strong></p>
 		</article>
 		<article class="item">
