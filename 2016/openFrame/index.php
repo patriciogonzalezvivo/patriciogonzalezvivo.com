@@ -5,8 +5,8 @@
 <?php
 echo '
 	<script type="text/javascript" src="http://patriciogonzalezvivo.com/glslCanvas/build/GlslCanvas.min.js"></script>
-	<link type="text/css" rel="stylesheet" href="https://cdn.rawgit.com/patriciogonzalezvivo/glslGallery/gh-pages/build/glslGallery.css">
-    <script type="text/javascript" src="https://cdn.rawgit.com/patriciogonzalezvivo/glslGallery/gh-pages/build/glslGallery.js"></script>';
+	<link type="text/css" rel="stylesheet" href="http://patriciogonzalezvivo.com/glslGallery/build/glslGallery.css">
+    <script type="text/javascript" src="http://patriciogonzalezvivo.com/glslGallery/build/glslGallery.js"></script>';
 ?>
 
 	<!-- CONTENT -->
