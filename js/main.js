@@ -49,43 +49,6 @@ if ( items.length > 0 ){
 	}
 }
 
-//	If the user have CHROME load a subtle webGL scene based on the time of the day
-//
-if (navigator.userAgent.indexOf('Chrome') != -1 && parseFloat(navigator.userAgent.substring(navigator.userAgent.indexOf('Chrome') + 7).split(' ')[0]) >= 15){
-
- 	//	We are in CHROME
- 	//
-	var d = new Date();
-	var now = d.getHours();
-	var shader = document.getElementById('fragmentShader');
-
-	if( shader != null){
-		//	This web have a shader to render
-		//
-		var newScript = document.createElement('script');
-		newScript.type = 'text/javascript';
-		newScript.src = '/js/shader.min.js';
-		document.getElementsByTagName('head')[0].appendChild(newScript);
-
-	} else  if((now>=7)&&(now<19)){
-		//	DAY
-		//
-
- 	} else {
-		//	NIGHT
-		//
-		var newScript = document.createElement('script');
-		newScript.type = 'text/javascript';
-		newScript.src = '/js/star-sky.min.js';
-		document.getElementsByTagName('head')[0].appendChild(newScript);
- 	}
-
-} else {
-
-	//	NO-CHROME Browser
-	//
-}
-
 //	Tweeter Widget
 //
 !function(d,s,id){
