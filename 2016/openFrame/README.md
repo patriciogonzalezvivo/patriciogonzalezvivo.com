@@ -1,13 +1,17 @@
-[OpenFrame](http://openframe.io/) is an **open source** platform for artists, curators and art enthusiasts to share, discover and display digital art.
-
-[OpenFrame](http://openframe.io/) is **free**. Anyone can set up a frame using an HDMI display and a Raspberry Pi.
-
 <blockquote class="twitter-video" data-lang="en"><p lang="en" dir="ltr">Really enjoying this piece by <a href="https://twitter.com/patriciogv">@patriciogv</a> in this <a href="https://twitter.com/openframe_">@openframe_</a> <a href="https://twitter.com/hashtag/shaders?src=hash">#shaders</a> <a href="https://twitter.com/Raspberry_Pi">@Raspberry_Pi</a> <a href="https://t.co/BJGuX4dgRX">pic.twitter.com/BJGuX4dgRX</a></p>&mdash; Ishac Bertran (@ishacbertran) <a href="https://twitter.com/ishacbertran/status/705810414400086018">March 4, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-[OpenFrame](http://openframe.io/) use [glslViewer](/2015/glslViewer/) to run shaders on the RaspberryPi. Which is part of   the tools ecosystem of [The Book of Shaders](http://thebookofshaders.com). Shaders created using [glslEditor](/2016/glslEditor/), can be displayed on [glslCanvas](/2015/glslCanvas/) or [glslViewer](/2015/glslViewer/) or exported to a [openframe.io](http://openframe.io) account.
+As part of this collaborating with [Jon Wohl](http://jonathanwohl.com/) and [Ishac Bertran](http://ishback.com/), I have been working on the following artworks for this platform, together with some tools that's makes easy for readers of [The Book of Shaders](http://thebookofshaders.com) to create and share shaders to [OpenFrame](http://openframe.io/).
 
-Collaborating to this great project started by [Jon Wohl](http://jonathanwohl.com/) and [Ishac Bertran](http://ishback.com/), I develop the following shader-artworks:
+### Tools
+
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4BQMKQJDQ9XH6)
+
+[OpenFrame](http://openframe.io/) is an **open source** platform for artists, curators and art enthusiasts to share, discover and display digital art. It use [glslViewer](/2015/glslViewer/) to display shaders on the RaspberryPi. Sharing content to a [openframe.io](http://openframe.io) account is easy as pressing the openFrame icon ( **[o]** ) on any [glslEditor](/2016/glslEditor/) instance or [glslGallery](https://github.com/patriciogonzalezvivo/glslGallery).
+
+### Artwork
+
+<script id='fbbvyqx'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//button.flattr.com/view/?fid=51epz1&button=compact&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbbvyqx');</script>
 
 Mandalas:
 
