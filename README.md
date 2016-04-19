@@ -7,12 +7,4 @@ Patricio’s work has been shown at [Resonate](http://resonate.io/) [FILE Festiv
 
 Patricio lives in Brooklyn and Buenos Aires. In his previous life he was a clinical psychologist and art therapist. He believes in developing a better together.
 
-<script src="https://platform.twitter.com/widgets.js"></script>
-
-<a href="https://twitter.com/intent/follow?screen_name=patriciogv"><img src="images/icons/twitter.png" width="32" class="icon"/></a>
-<a href="https://github.com/patriciogonzalezvivo" target="_blank"><img src="images/icons/github.png" width="32" class="icon"/> </a>
-<a href="http://vimeo.com/patriciogv" target="_blank"><img src="images/icons/vimeo.png" width="32" class="icon"/> </a>
-<a href="http://www.pinterest.com/patriciogonzv/" target="_blank"><img src="images/icons/pinterest.png" width="32" class="icon"/> </a>
-<a href="https://www.flickr.com/photos/106950246@N06/" target="_blank"><img src="images/icons/facebook.png" width="32" class="icon"/> </a>
-
 [patriciogonzalezvivo at gmail dot com](mailTo:patriciogonzalezvivo@gmail.com)
