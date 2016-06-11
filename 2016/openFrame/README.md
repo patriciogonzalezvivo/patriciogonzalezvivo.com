@@ -13,9 +13,17 @@ As part of this collaborating with [Jon Wohl](http://jonathanwohl.com/) and [Ish
 
 <script id='fbbvyqx'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//button.flattr.com/view/?fid=51epz1&button=compact&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbbvyqx');</script>
 
+Techno:
+
+<div class="glslGallery" data="160611135054,160517200804"></div>
+
+OpArt:
+
+<div class="glslGallery" data="160605154024,160516235834,160516233753,160516140131,160513201554,160513193817,160513210434"></div>
+
 Mandalas:
 
-<div class="glslGallery" data="160308014412,160307213819,160306124533,160306122120"></div>
+<div class="glslGallery" data="160605165154,160604182710,160602154307,160521211926,160308014412,160307213819,160306124533,160306122120"></div>
 
 Moons:
 
@@ -23,16 +31,16 @@ Moons:
 
 Pulse:
 
-<div class="glslGallery" data="160313025607,160313020334,160225221104,160308160958"></div>
+<div class="glslGallery" data="160313025607,160313020334,160225221104,160308160958,160401203223"></div>
 
 Patterns:
 
-<div class="glslGallery" data="160301005406,160306113630,160306113426,160306112725"></div>
+<div class="glslGallery" data="160506171132,160301005406,160306113630,160306113426,160306112725"></div>
 
 
 Stochastic:
 
-<div class="glslGallery" data="160313193711,160401163851,160306213426,160226222825"></div>
+<div class="glslGallery" data="160510011212,160313193711,160401163851,160306213426,160226222825,160302003807,160302101337"></div>
 
 Ikeda tribute:
 
