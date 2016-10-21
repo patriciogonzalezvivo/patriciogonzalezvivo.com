@@ -4,15 +4,19 @@
 
     <section class="content">
         <article class="item">
+            <a href="https://tangrams.github.io/tron-style/"><img class="roundPhotoTh" src="2016/tron/thumb.gif" alt="TRON2"/></a>
+            <p>2016 <strong>TRON2.0</strong>: together with <a href="https://twitter.com/sensescape" targer="_window">Geraldine Sarmiento</a></p>
+        </article>
+        <article class="item">
             <a href="2016/openFrame/"><img class="roundPhotoTh" src="2016/openFrame/thumb1.png" alt="openframe"/></a>
             <p>2016 shaders artwork for <strong>openFrame.io</strong></p>
         </article>
         <article class="item">
-            <a href="http://patriciogonzalezvivo.github.io/LineOfSight"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a>
+            <a href="https://patriciogonzalezvivo.github.io/LineOfSight"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a>
             <p>2015 <strong>LineOfSight</strong>: find and track satellites</p>
         </article>
         <article class="item">
-            <a href="http://patriciogonzalezvivo.github.io/RandomCity/"><img class="roundPhotoTh" src="2015/RandomCity/thumb.gif" alt="RandomCity"/></a>
+            <a href="https://patriciogonzalezvivo.github.io/RandomCity/"><img class="roundPhotoTh" src="2015/RandomCity/thumb.gif" alt="RandomCity"/></a>
             <p>2015 <strong>RandomCity</strong>: though the streams are chaotic, they coalesce into a digital harmony</p>
         </article>
         <article class="item">

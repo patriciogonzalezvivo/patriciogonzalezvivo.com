@@ -13,37 +13,42 @@ As part of this collaborating with [Jon Wohl](http://jonathanwohl.com/) and [Ish
 
 <script id='fbbvyqx'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//button.flattr.com/view/?fid=51epz1&button=compact&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbbvyqx');</script>
 
-Techno:
 
-<div class="glslGallery" data="160611135054,160517200804"></div>
+Moons:
 
-OpArt:
-
-<div class="glslGallery" data="160605154024,160516235834,160516233753,160516140131,160513201554,160513193817,160513210434"></div>
+<div class="glslGallery" data="161019133335,160518161359,160518161324,160304202332"></div>
 
 Mandalas:
 
 <div class="glslGallery" data="160605165154,160604182710,160602154307,160521211926,160308014412,160307213819,160306124533,160306122120"></div>
 
-Moons:
-
-<div class="glslGallery" data="160313030533,160304203554,160304203331,160304202332,160302101922"></div>
 
 Pulse:
 
-<div class="glslGallery" data="160313025607,160313020334,160225221104,160308160958,160401203223"></div>
+<div class="glslGallery" data="160313025607,160313020334,160225221104,160308160958,160401203223,160518161206"></div>
 
 Patterns:
 
 <div class="glslGallery" data="160506171132,160301005406,160306113630,160306113426,160306112725"></div>
 
+Techno:
+
+<div class="glslGallery" data="160615111404,160614015139,160611135054,160517200804"></div>
 
 Stochastic:
 
-<div class="glslGallery" data="160510011212,160313193711,160401163851,160306213426,160226222825,160302003807,160302101337"></div>
+<div class="glslGallery" data="160518161425,160510011212,160306213426,160226222825,160518160746,160518160802"></div>
 
 Ikeda tribute:
 
-<div class="glslGallery" data="160219112614,160302022724,160302102102,160401200714"></div>
+<div class="glslGallery" data="160219112614,160518161258,160518161234,160401200714"></div>
+
+Classic OpArt recode:
+
+<div class="glslGallery" data="161004153221,161003151413,160725164734,160711134607,161020140002,161005004330,160725163351,160605154024,160516235834,160516233753,160516140131,160513201554,160513193817,160513210434"></div>
+
+Clocks:
+
+<div class="glslGallery" data="160721163126,160720124031"></div>
 
 
