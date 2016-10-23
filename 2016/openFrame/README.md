@@ -14,13 +14,9 @@ As part of this collaborating with [Jon Wohl](http://jonathanwohl.com/) and [Ish
 <script id='fbbvyqx'>(function(i){var f,s=document.getElementById(i);f=document.createElement('iframe');f.src='//button.flattr.com/view/?fid=51epz1&button=compact&url='+encodeURIComponent(document.URL);f.title='Flattr';f.height=20;f.width=110;f.style.borderWidth=0;s.parentNode.insertBefore(f,s);})('fbbvyqx');</script>
 
 
-Moons:
-
-<div class="glslGallery" data="161019133335,160518161359,160518161324,160304202332"></div>
-
 Mandalas:
 
-<div class="glslGallery" data="160605165154,160604182710,160602154307,160521211926,160308014412,160307213819,160306124533,160306122120"></div>
+<div class="glslGallery" data="160604182710,160521211926,160308014412,160307213819,160306124533,160306122120"></div>
 
 
 Pulse:
