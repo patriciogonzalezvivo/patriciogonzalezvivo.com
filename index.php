@@ -4,6 +4,10 @@
 
     <section class="content">
         <article class="item">
+            <a href="2017/luna/"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
+            <p>2017 <strong>LUNA</strong>: together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
+        </article>
+        <article class="item">
             <a href="https://tangrams.github.io/tron-style/"><img class="roundPhotoTh" src="2016/tron/thumb.gif" alt="TRON2"/></a>
             <p>2016 <strong>TRON2.0</strong>: together with <a href="https://twitter.com/sensescape" targer="_window">Geraldine Sarmiento</a></p>
         </article>
