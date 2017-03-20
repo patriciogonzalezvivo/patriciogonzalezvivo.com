@@ -4,7 +4,7 @@
 
     <section class="content">
         <article class="item">
-            <a href="http://http://pixelspiritdeck.com/"><img class="roundPhotoTh" src="2017/pixelspirit/thumb.gif" alt="PixelSpirit"/></a>
+            <a href="http://pixelspiritdeck.com/"><img class="roundPhotoTh" src="2017/pixelspirit/thumb.gif" alt="PixelSpirit"/></a>
             <p>2017 <strong>PixelSpirit</strong>: one deck of cards for the modern GPU wizard of light</p>
         </article>
         <article class="item">
