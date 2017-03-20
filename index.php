@@ -4,6 +4,10 @@
 
     <section class="content">
         <article class="item">
+            <a href="http://http://pixelspiritdeck.com/"><img class="roundPhotoTh" src="2017/pixelspirit/thumb.gif" alt="PixelSpirit"/></a>
+            <p>2017 <strong>PixelSpirit</strong>: one deck of cards for the modern GPU wizard of light</p>
+        </article>
+        <article class="item">
             <a href="http://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe"><img class="roundPhotoTh" src="2017/guayupia/thumb.jpg" alt="GUAYUPIA"/></a>
             <p>2017 <strong>GUAYUPIA</strong>: in the search of a land with no evil. Together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
         </article>
