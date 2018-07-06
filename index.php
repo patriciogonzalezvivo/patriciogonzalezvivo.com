@@ -12,7 +12,7 @@
             <p>2017 <strong>GUAYUPIA</strong>: in the search of a land with no evil. Together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
         </article>
         <article class="item">
-            <a href="https://frm.fm/a/patricio_gonzalez_vivo_jen_lowe/luna"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
+            <a href="https://frm.fm/a/patricio_gonzalez_vivo/luna"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
             <p>2017 <strong>LUNA</strong>: together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
         </article>
         <article class="item">
