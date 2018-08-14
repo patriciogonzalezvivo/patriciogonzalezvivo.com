@@ -3,10 +3,14 @@ echo '
 	<section id="sidebar">
 
 		<script src="https://platform.twitter.com/widgets.js"></script>
-		<a href="https://twitter.com/intent/follow?screen_name=patriciogv"><img src="/images/icons/twitter.png" width="32" class="icon"/></a>
-		<a href="https://github.com/patriciogonzalezvivo" target="_blank"><img src="/images/icons/github.png" width="32" class="icon"/></a>
-		<a href="http://vimeo.com/patriciogv" target="_blank"><img src="/images/icons/vimeo.png" width="28" class="icon"/></a>
 
+		<a href="https://github.com/patriciogonzalezvivo" target="_blank"><img src="/images/icons/github.png" width="32" class="icon"/></a>
+
+		<a href="https://twitter.com/intent/follow?screen_name=patriciogv"><img src="/images/icons/twitter.png" width="32" class="icon"/></a>
+
+		<a href="http://www.instagram.com/patriciogonzalezvivo" target="_blank"><img src="/images/icons/instagram.png" width="32" class="icon"/></a>
+		
+		<a href="http://vimeo.com/patriciogv" target="_blank"><img src="/images/icons/vimeo.png" width="28" class="icon"/></a>
 
 		<table cellpadding="0" cellspacing="10" border="0" id="flickr_badge_wrapper">
 			<p>Now working on:</p>
