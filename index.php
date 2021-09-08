@@ -1,11 +1,9 @@
 <?php include("header.php");?>
 <?php include("menu.php");?>
-<?php include("sidebar.php");?>
-
     <section class="content">
         <article class="item">
             <a href="https://frm.fm/a/patricio_gonzalez_vivo/estrellas"><img class="roundPhotoTh" src="2018/estrellas/thumb.gif" alt="ESTRELLAS"/></a>
-            <p>2018 <strong>Estrellas</strong>: together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
+            <p>2018 <strong>Estrellas</strong>: a window to the starry sky.</p>
         </article>
         <article class="item">
             <a href="http://frm.fm/a/patricio_gonzalez_vivo/orbitas"><img class="roundPhotoTh" src="2018/orbitas/thumb.gif" alt="Orbitas"/></a>

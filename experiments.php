@@ -1,6 +1,5 @@
 <?php include("header.php");?>
 <?php include("menu.php");?>
-<?php include("sidebar.php");?>
 	<section class="content">
 		<article class="item">
 			<a href="2015/tangram-sandbox/"><img class="roundPhotoTh" src="2015/tangram-sandbox/thumb.png" alt="Tangram-Sandbox"/></a>

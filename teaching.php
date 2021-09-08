@@ -1,6 +1,6 @@
 <?php include("header.php");?>
 <?php include("menu.php");?>
-<?php include("sidebar.php");?>
+
 	<section class="content">
 		<article class="item">
 			<a href="2016/sfpc/"><img class="roundPhotoTh" src="2016/sfpc/thumb.jpg" alt="sfpc"/></a>
