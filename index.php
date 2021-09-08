@@ -2,6 +2,10 @@
 <?php include("menu.php");?>
     <section class="content">
         <article class="item">
+            <a href="https://vimeo.com/332883913"><img class="roundPhotoTh" src="2019/hogar/thumb.gif" alt="HOGAR"/></a>
+            <p>2019 <strong>Hogar</strong>: an oportunity to see a bigger picture</p>
+        </article>
+        <article class="item">
             <a href="https://frm.fm/a/patricio_gonzalez_vivo/estrellas"><img class="roundPhotoTh" src="2018/estrellas/thumb.gif" alt="ESTRELLAS"/></a>
             <p>2018 <strong>Estrellas</strong>: a window to the starry sky.</p>
         </article>
