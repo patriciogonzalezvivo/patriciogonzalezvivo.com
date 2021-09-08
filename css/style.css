@@ -193,6 +193,9 @@ footer {
     top: -100px;
     left: -60px; }
 
+  .content p img:not(.icon) {
+      max-width: 100%; }
+
   /* #wrapper {
     width: 100%;
     margin: 0.02%; } */
