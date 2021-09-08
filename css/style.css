@@ -164,11 +164,11 @@ footer {
     position: fixed; }
 
 @media only screen and (max-width: 875px) {
-  /* #sidebar {
-    display: none; } */
+  #sidebar {
+    top: -70px; }
 
-  /* #wrapper {
-    width: 575px; } */
+  #wrapper {
+    width: 100%; }
 
   .content {
     width: 100%; }
@@ -181,12 +181,17 @@ footer {
     width: 100%; }
 
   #menu_text {
-    padding-top: 0px;
+    padding-top: 26px;
     margin-bottom: 5px;
     font-size: 2.3rem; }
 
-  /* #sidebar {
-    display: none; } */
+  #wrapper {
+      width: 100%; }
+
+  #sidebar {
+    transform: scale(2);
+    top: -100px;
+    left: -60px; }
 
   /* #wrapper {
     width: 100%;

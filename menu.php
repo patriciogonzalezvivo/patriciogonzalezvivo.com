@@ -10,7 +10,7 @@ echo '<header>
 						<li class="menu_item"><a href="/tools.php"> Tools </a></li>
 						<li class="menu_item"><a href="/teaching.php"> Teaching </a></li>
 						<li class="menu_item"><a href="/collab.php"> Collab</a></li>
-						<li class="menu_item"><a href="https://shop.patriciogonzalezvivo.com/"> Shop </a></li>
+						<li class="menu_item"><a href="https://shop.patriciogonzalezvivo.com/" target="_blank"> Shop </a></li>
 					</ul>
 					
 					<section id="sidebar">
@@ -18,7 +18,6 @@ echo '<header>
 					<a href="http://www.instagram.com/patriciogonzalezvivo" target="_blank"><img src="/images/icons/instagram.png" width="32" class="icon"/></a>
 					<a href="https://www.hicetnunc.xyz/patriciogonzalezvivo/creations" target="_blank"><img src="/images/icons/hen.png" width="32" class="icon"/></a>
 					<a href="https://github.com/patriciogonzalezvivo" target="_blank"><img src="/images/icons/github.png" width="30" class="icon"/></a>
-					<a href="http://vimeo.com/patriciogv" target="_blank"><img src="/images/icons/vimeo.png" width="28" class="icon"/></a>
 					</section >
 					
 				</nav>
