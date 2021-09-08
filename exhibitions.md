@@ -1,5 +1,6 @@
 ### Exhibitions and Residencies
 
+- **2020** [BienalBit](https://bienalbit.org/webinars/hearthhogar-patricio-gonz%C3%A1lez-vivo/)
 - **2015** [+CODE](http://www.pluscode.cc/)
 - **2014** [SCOPE Arts Show](http://scope-art.com/)
 - **2013** [CLOUDS](http://www.cloudsdocumentary.com/) 
