@@ -17,6 +17,12 @@
 .menu_item {
   display: inline-block; }
 
+.roundPhotoTh {
+  width: 575px;
+  height: 165px;
+  object-fit: cover;
+}
+
 #sidebar {
   float: right;
   position: relative;
@@ -152,12 +158,6 @@ body {
     text-decoration: none; }
   .content a:hover {
     color: #2222; }
-
-  .roundPhotoTh {
-    width: 575px;
-    height: 165px;
-    object-fit: cover;
-    }
 
 footer {
   clear: both;
