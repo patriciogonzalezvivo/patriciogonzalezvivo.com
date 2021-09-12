@@ -18,20 +18,16 @@
             <p>2017 <strong>PixelSpirit</strong>: one deck of cards for the modern GPU wizard of light</p>
         </article>
         <article class="item">
-            <a href="http://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe"><img class="roundPhotoTh" src="2017/guayupia/thumb.jpg" alt="GUAYUPIA"/></a>
-            <p>2017 <strong>GUAYUPIA</strong>: in the search of a land with no evil. Together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
-        </article>
-        <article class="item">
             <a href="https://frm.fm/a/patricio_gonzalez_vivo/luna"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
             <p>2017 <strong>LUNA</strong>: together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
         </article>
         <article class="item">
-            <a href="https://tangrams.github.io/tron-style/"><img class="roundPhotoTh" src="2016/tron/thumb.gif" alt="TRON2"/></a>
-            <p>2016 <strong>TRON2.0</strong>: together with <a href="https://twitter.com/sensescape" targer="_window">Geraldine Sarmiento</a></p>
+            <a href="http://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe"><img class="roundPhotoTh" src="2017/guayupia/thumb.jpg" alt="GUAYUPIA"/></a>
+            <p>2017 <strong>GUAYUPIA</strong>: in the search of a land with no evil. Together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
         </article>
         <article class="item">
-            <a href="2016/openFrame/"><img class="roundPhotoTh" src="2016/openFrame/thumb1.png" alt="openframe"/></a>
-            <p>2016 shaders artwork for <strong>openFrame.io</strong></p>
+            <a href="https://tangrams.github.io/tron-style/"><img class="roundPhotoTh" src="2016/tron/thumb.gif" alt="TRON2"/></a>
+            <p>2016 <strong>TRON2.0</strong>: together with <a href="https://twitter.com/sensescape" targer="_window">Geraldine Sarmiento</a></p>
         </article>
         <article class="item">
             <a href="https://patriciogonzalezvivo.github.io/LineOfSight"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a>
@@ -65,10 +61,22 @@
             <a href="2013/clouds/"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
             <p>2013 <strong>CLOUDS Documentary</strong>: collaboration of poetic Visual Systems</p>
         </article>
+		<article class="item">
+            <a href="https://vimeo.com/54093238" target="_blank"><img class="roundPhotoTh" src="2012/codemology/thumb.jpg" alt="CodeMology"/></a>
+			<p>2012 <strong>Codemology</strong>: explorations between code and alquemy</p>
+        <article class="item">
+            <a href="https://github.com/patriciogonzalezvivo/flatland" target="_blank"><img class="roundPhotoTh" src="2012/flatland/thumb.jpg" alt="FlatLand"/></a>
+            <p>2012 <strong>FlatLand</strong>: collaboration with <a href="http://thesystemis.com/" target="_blank">Zach Lieberman</a> for New Cinema Hackathon at EyeBeam </p>
+        </article>
+		</article>
         <article class="item">
             <a href="2011/efectomariposa/"><img class="roundPhotoTh" src="2011/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
             <p>2011 <strong>Efecto Mariposa</strong>: realtime ecosystem simulator</p>
         </article>
+        <!-- <article class="item">
+			<a href="https://vimeo.com/19198053" target="_blank"><img class="roundPhotoTh" src="2011/liquidkinect/thumb.jpg" alt="Liquid Kinect"/></a>
+			<p>2011 <strong>Liquid Kinect</strong>: Kinect + Particle System + GLSL Shaders</p>
+		</article> -->
         <article class="item">
             <a href="2010/communitas/"><img class="roundPhotoTh" src="2010/communitas/thumb.jpg" alt="Communitas"/></a>
             <p>2010 <strong>Communitas</strong>: collective drawing interactive installation</p>

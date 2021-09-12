@@ -150,8 +150,14 @@ body {
     font-weight: 400;
     color: #333;
     text-decoration: none; }
-    .content a:hover {
-      color: #2222; }
+  .content a:hover {
+    color: #2222; }
+
+  .roundPhotoTh {
+    width: 575px;
+    height: 165px;
+    object-fit: cover;
+    }
 
 footer {
   clear: both;

@@ -2,12 +2,16 @@
 <?php include("menu.php");?>
 	<section class="content">
 		<article class="item">
-            <a href="http://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe"><img class="roundPhotoTh" src="2017/guayupia/thumb.jpg" alt="GUAYUPIA"/></a>
-            <p>2017 <strong>GUAYUPIA</strong>: in the search of a land with no evil. Together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
+            <a href="https://runwayml.com/blog/presenting-multiband-format/"><img class="roundPhotoTh" src="2021/multiband/thumb.gif" alt="MultiBand"/></a>
+            <p>2021 <strong>MultiBand</strong>: data-rich architecture that harnesses AI to empower creators.</p>
         </article>
-        <article class="item">
-            <a href="https://frm.fm/a/patricio_gonzalez_vivo_jen_lowe/luna"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
-            <p>2017 <strong>LUNA</strong>: together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
+		<article class="item">
+            <a href="https://www.youtube.com/watch?v=5Tia2oblJAg"><img class="roundPhotoTh" src="2020/depth_estimation/thumb.png" alt="Depth Estimation"/></a>
+            <p>2020 <strong>Depth estimation</strong>: create series of effects using the depth estimation data.</p>
+        </article>
+		<article class="item">
+            <a href="https://vimeo.com/298427421/9eb2faf44e"><img class="roundPhotoTh" src="2018/pointclouds/thumb_00.png" alt="Point Cloud demo"/></a>
+            <p>2018 <strong>F8 PointCloud Demo</strong>: creating inmersive VR experience with PointClouds.</p>
         </article>
 		<article class="item">
 			<a href="2016/openFrame/"><img class="roundPhotoTh" src="2016/openFrame/thumb1.png" alt="openframe"/></a>
