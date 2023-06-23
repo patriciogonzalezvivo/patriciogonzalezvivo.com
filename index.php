@@ -2,8 +2,12 @@
 <?php include("menu.php");?>
     <section class="content">
         <article class="item">
+            <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a>
+            <p>2021 <strong>Memory Studies</strong> </p>
+        </article>
+        <article class="item">
             <a href="2021/fen/"><img class="roundPhotoTh" src="2021/fen/thumb.gif" alt="Flight Studies"/></a>
-            <p>2021 <strong>FlightStudies</strong>: part of The FEN, the first NFT collection on the Tezos market</p>
+            <p>2021 <strong>Flight Studies</strong>: part of The FEN, the first NFT collection on the Tezos market</p>
         </article>
         <article class="item">
             <a href="https://vimeo.com/332883913"><img class="roundPhotoTh" src="2019/hogar/thumb.gif" alt="HOGAR"/></a>
