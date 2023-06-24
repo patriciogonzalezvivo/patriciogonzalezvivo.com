@@ -18,6 +18,10 @@
 			<p>2016 shaders artwork for <strong>openFrame.io</strong></p>
 		</article>
 		<article class="item">
+            <a href="https://tangrams.github.io/tron-style/"><img class="roundPhotoTh" src="2016/tron/thumb.gif" alt="TRON2"/></a>
+            <p>2016 <strong>TRON2.0</strong>: together with <a href="https://twitter.com/sensescape" targer="_window">Geraldine Sarmiento</a></p>
+        </article>
+		<article class="item">
 			<a href="2014/addidas/"><img class="roundPhotoTh" src="2014/addidas/thumb.jpg" alt="Atramentum"/></a>
 			<p>2014 <strong>Addidas #mizxflux launch in Berlin</strong>: collaboration with HellicarAndLewis</p>
 		</article>

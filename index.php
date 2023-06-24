@@ -1,6 +1,11 @@
 <?php include("header.php");?>
 <?php include("menu.php");?>
     <section class="content">
+
+        <!-- <article class="item">
+            <a href="https://objkt.com/collection/KT1CkDFaHiH8UtZhyR2EvoqhihsntjSikvt9"><img class="roundPhotoTh" src="2021/arcana/thumb.gif" alt="Memory Studies"/></a>
+            <p>2021 <strong>PixelFlair ARCANA</strong>: real-time NFT based on the 22 Arcana of PixelSpirit Tarot Deck.</p>
+        </article> -->
         <article class="item">
             <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a>
             <p>2021 <strong>Memory Studies</strong> </p>
@@ -34,10 +39,6 @@
             <p>2017 <strong>GUAYUPIA</strong>: in the search of a land with no evil. Together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
         </article>
         <article class="item">
-            <a href="https://tangrams.github.io/tron-style/"><img class="roundPhotoTh" src="2016/tron/thumb.gif" alt="TRON2"/></a>
-            <p>2016 <strong>TRON2.0</strong>: together with <a href="https://twitter.com/sensescape" targer="_window">Geraldine Sarmiento</a></p>
-        </article>
-        <article class="item">
             <a href="https://patriciogonzalezvivo.github.io/LineOfSight"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a>
             <p>2015 <strong>LineOfSight</strong>: find and track satellites</p>
         </article>
@@ -46,17 +47,17 @@
             <p>2015 <strong>RandomCity</strong>: though the streams are chaotic, they coalesce into a digital harmony</p>
         </article>
         <article class="item">
-            <a href="http://thebookofshaders.com/"><img class="roundPhotoTh" src="2015/thebookofshaders/thumb.jpg" alt="TheBookOfShaders"/></a>
+            <a href="http://thebookofshaders.com/"><img class="roundPhotoTh" src="https://thebookofshaders.com/thumb.jpg" alt="TheBookOfShaders"/></a>
             <p>2015 <strong>The Book of Shaders</strong>: Who said #shaders are a dark art? </p>
         </article>
-        <article class="item">
+        <!-- <article class="item">
             <a href="2015/tangram-sandbox/"><img class="roundPhotoTh" src="2015/tangram-sandbox/thumb.png" alt="Tangram-Sandbox"/></a>
             <p>2015 <strong>Tangram Sandbox</strong>: series of experimental styles for maps based on GLSL shaders</p>
-        </article>
-        <article class="item">
+        </article> -->
+        <!-- <article class="item">
             <a href="2014/lidar/"><img class="roundPhotoTh" src="2014/lidar/thumb.gif" alt="Lidar"/></a>
             <p>2014 <strong>crowdsourcing Point Clouds </strong>for 3D mapping.</p>
-        </article>
+        </article> -->
         <article class="item">
             <a href="2014/skylines/"><img class="roundPhotoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
             <p>2014 <strong>SKYLINES</strong>: three projects about awareness and tools for seeing</p>
