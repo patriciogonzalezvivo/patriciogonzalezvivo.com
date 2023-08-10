@@ -3,7 +3,7 @@
 
 	<section class="content">
 		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/lygia" target="_blank"><img class="roundPhotoTh" src="2021/lygia/thumb_00.jpg" alt="LYGIA"/></a>
+			<a href="https://lygia.xyz" target="_blank"><img class="roundPhotoTh" src="2021/lygia/thumb_00.jpg" alt="LYGIA"/></a>
 			<p>2021 <strong>LYGIA</strong>: HLSL/GLSL Shader Library designed for performance and flexibility.</p>
 		</article>
 		<article class="item">

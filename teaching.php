@@ -3,6 +3,10 @@
 
 	<section class="content">
 		<article class="item">
+			<a href="https://maximalexpression.notion.site/SHADER-PROTOTYPING-146da33982c54746a0589ebcbdbf717a"><img class="roundPhotoTh" src="2022/shader_prototyping/momento_006.gif" alt="shader prototyping"/></a>
+			<p>2022 <strong>Shader Prototyping Course</strong></p>
+		</article>
+		<article class="item">
 			<a href="2016/sfpc/"><img class="roundPhotoTh" src="2016/sfpc/thumb.jpg" alt="sfpc"/></a>
 			<p>2016 <strong>Introduction to the Language of Light</strong> at <a href="http://sfpc.io/">School for Poetic Computation</a></p>
 		</article>
@@ -11,7 +15,7 @@
 			<p>2016 <strong>Shader Studio</strong> at Parsons MFA D&T</p>
 		</article>
 		<article class="item">
-			<a href="2015/thebookofshaders/"><img class="roundPhotoTh" src="2015/thebookofshaders/thumb.jpg" alt="TheBookOfShaders"/></a>
+			<a href="2015/thebookofshaders/"><img class="roundPhotoTh" src="https://thebookofshaders.com/thumb.jpg" alt="TheBookOfShaders"/></a>
 			<p>2015 <strong>The Book of Shaders</strong>: gentle step-by-step guide through the abstract and complex universe of Fragment Shaders.</p>
 		</article>
 		<article class="item">
