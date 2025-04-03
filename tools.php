@@ -3,8 +3,12 @@
 
 	<section class="content">
 		<article class="item">
+			<a href="https://github.com/patriciogonzalezvivo/vera" target="_blank"><img class="roundPhotoTh" src="2022/vera/thumb.jpg" alt="VERA"/></a>
+			<p>2022 <strong>VERA</strong>: C++/WASM GL Framework </p>
+		</article>
+		<article class="item">
 			<a href="https://lygia.xyz" target="_blank"><img class="roundPhotoTh" src="2021/lygia/thumb_00.jpg" alt="LYGIA"/></a>
-			<p>2021 <strong>LYGIA</strong>: HLSL/GLSL Shader Library designed for performance and flexibility.</p>
+			<p>2021 <strong>LYGIA</strong>: HLSL/GLSL/WGSL/METAL/CUDA Shader Library designed for performance and flexibility.</p>
 		</article>
 		<article class="item">
 			<a href="https://github.com/patriciogonzalezvivo/hilma" target="_blank"><img class="roundPhotoTh" src="2020/hilma/thumb.jpg" alt="HILMA"/></a>
