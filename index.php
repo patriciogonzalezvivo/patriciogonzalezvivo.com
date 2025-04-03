@@ -1,7 +1,11 @@
 <?php include("header.php");?>
 <?php include("menu.php");?>
     <section class="content">
-        <!-- <article class="item">
+        <article class="item">
+            <a href="patriciogonzalezvivo.github.io/weaver"><img class="roundPhotoTh" src="2025/weaver/thumb.gif" alt="Light Weaver: connecting people across time and space through common stars."/></a>
+            <p>2025 <strong>Light Weaver</strong>: connecting people across time and space through common stars. </p>
+        </article>    
+    <!-- <article class="item">
             <a href="https://objkt.com/collection/KT1CkDFaHiH8UtZhyR2EvoqhihsntjSikvt9"><img class="roundPhotoTh" src="2021/arcana/thumb.gif" alt="Memory Studies"/></a>
             <p>2021 <strong>PixelFlair ARCANA</strong>: real-time NFT based on the 22 Arcana of PixelSpirit Tarot Deck.</p>
         </article> -->
