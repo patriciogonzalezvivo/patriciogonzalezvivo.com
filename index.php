@@ -2,7 +2,7 @@
 <?php include("menu.php");?>
     <section class="content">
         <article class="item">
-            <a href="patriciogonzalezvivo.github.io/weaver"><img class="roundPhotoTh" src="2025/weaver/thumb.gif" alt="Light Weaver: connecting people across time and space through common stars."/></a>
+            <a href="https://patriciogonzalezvivo.github.io/weaver"><img class="roundPhotoTh" src="2025/weaver/thumb.gif" alt="Light Weaver: connecting people across time and space through common stars."/></a>
             <p>2025 <strong>Light Weaver</strong>: connecting people across time and space through common stars. </p>
         </article>    
     <!-- <article class="item">
