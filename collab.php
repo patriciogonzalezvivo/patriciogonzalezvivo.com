@@ -2,7 +2,7 @@
 <?php include("menu.php");?>
 	<section class="content">
 		<article class="item">
-            <a href="https://runwayml.com/blog/presenting-multiband-format/"><img class="roundPhotoTh" src="2021/multiband/thumb.gif" alt="MultiBand"/></a>
+            <a href="https://web.archive.org/web/20211001235555/https://runwayml.com/blog/presenting-multiband-format"><img class="roundPhotoTh" src="2021/multiband/thumb.gif" alt="MultiBand"/></a>
             <p>2021 <strong>MultiBand</strong>: data-rich architecture that harnesses AI to empower creators.</p>
         </article>
 		<article class="item">
