@@ -8,7 +8,7 @@
 		</article>
 		<article class="item">
 			<a href="https://lygia.xyz" target="_blank"><img class="roundPhotoTh" src="2021/lygia/thumb_00.jpg" alt="LYGIA"/></a>
-			<p>2021 <strong>LYGIA</strong>: HLSL/GLSL/WGSL/METAL/CUDA Shader Library designed for performance and flexibility.</p>
+			<p>2021 <strong>LYGIA</strong>: GLSL/HLSL/WGSL/WESL/METAL/CUDA Shader Library.</p>
 		</article>
 		<article class="item">
 			<a href="https://github.com/patriciogonzalezvivo/hilma" target="_blank"><img class="roundPhotoTh" src="2020/hilma/thumb.jpg" alt="HILMA"/></a>
