@@ -27,7 +27,7 @@
 			<p>2020 <strong>OpenLiDAR</strong>: DIY your own LiDAR scanner with unexpensive parts.</p>
 		</article> -->
 		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/berthe" target="_blank"><img class="roundPhotoTh" src="2018/berthe/thumb.jpg" alt="BERTHE"/></a>
+			<a href="https://github.com/patriciogonzalezvivo/berthe" target="_blank"><img class="roundPhotoTh" src="2019/berthe/thumb.jpg" alt="BERTHE"/></a>
 			<p>2018 <strong>BERTHE</strong>: vector line library for plotters.</p>
 		</article>
 		<article class="item">
@@ -58,10 +58,10 @@
 			<a href="https://github.com/patriciogonzalezvivo/ofxStreetView" target="_blank"><img class="roundPhotoTh" src="2014/ofxStreetView/thumb.jpg" alt="ofxStreetView"/></a>
 			<p>2014 <strong>ofxStreetView</strong>: openFrameworks addon to extract 3D StreetView Panoramas </p>
 		</article>
-		<article class="item">
+		<!-- <article class="item">
 			<a href="https://github.com/patriciogonzalezvivo/ofxPiTFT" target="_blank"><img class="roundPhotoTh" src="2014/ofxPiTFT/thumb.jpg" alt="ofxPiTFT"/></a>
 			<p>2014 <strong>ofxPiTFT</strong>: openFrameworks addon for Adafruit's RaspberryPi TFT Touch Display </p>
-		</article>
+		</article> -->
 		<article class="item">
 			<a href="https://github.com/patriciogonzalezvivo/ofxThermalPrinter" target="_blank"><img class="roundPhotoTh" src="2014/ofxThermalPrinter/thumb.gif" alt="ofxThermalPrinter"/></a>
 			<p>2014 <strong>ofxThermalPrinter</strong>: openFrameworks addon for Adafruit's mini thermal printer </p>
@@ -75,7 +75,7 @@
 			<p>2013 <strong>ofxFluid</strong>: GPU Fluid Simulator for openFrameworks </p>
 		</article>
 		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/snode" target="_blank"><img class="roundPhotoTh" src="2013/snode/thumb.jpg" alt="sNode"/></a>
+			<a href="https://github.com/patriciogonzalezvivo/sNodes" target="_blank"><img class="roundPhotoTh" src="2013/snode/thumb.jpg" alt="sNode"/></a>
 			<p>2013 <strong>sNode</strong>: GLSL Shader prototyping tool wrote on openFrameworks and powered by Syphon</p>
 		</article>
 		<article class="item">
