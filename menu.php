@@ -10,7 +10,7 @@ echo '<header>
 						<li class="menu_item"><a href="/index.php"> Works </a></li>
 						<li class="menu_item"><a href="/tools.php"> Tools </a></li>
 						<li class="menu_item"><a href="/teaching.php"> Ed. </a></li>
-						<li class="menu_item"><a href="https://shop.patriciogonzalezvivo.com/" target="_blank"> Shop </a></li>
+						<li class="menu_item"><a href="https://shop.patriciogonzalezvivo.com/collections/all" target="_blank"> Shop </a></li>
 						</ul>
 						
 						<section id="sidebar">
