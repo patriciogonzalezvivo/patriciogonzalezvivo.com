@@ -18,13 +18,17 @@
 			<a href="https://github.com/patriciogonzalezvivo/ada" target="_blank"><img class="roundPhotoTh" src="2020/ada/thumb.png" alt="ADA"/></a>
 			<p>2020 <strong>ADA</strong>: simple library for creating apps in Windows, MacOS, Linux and Wasm</p>
 		</article>
-		<article class="item">
+		<!-- <article class="item">
 			<a href="https://github.com/patriciogonzalezvivo/midigyver" target="_blank"><img class="roundPhotoTh" src="2020/midigyver/thumb.png" alt="midiGyver"/></a>
 			<p>2020 <strong>MidiGyver</strong>: your MIDI swissarmy knife.</p>
-		</article>
-		<article class="item">
+		</article> -->
+		<!-- <article class="item">
 			<a href="https://github.com/patriciogonzalezvivo/OpenLiDAR" target="_blank"><img class="roundPhotoTh" src="2020/openlidar/thumb.gif" alt="OpenLiDAR"/></a>
 			<p>2020 <strong>OpenLiDAR</strong>: DIY your own LiDAR scanner with unexpensive parts.</p>
+		</article> -->
+		<article class="item">
+			<a href="https://github.com/patriciogonzalezvivo/berthe" target="_blank"><img class="roundPhotoTh" src="2018/berthe/thumb.jpg" alt="BERTHE"/></a>
+			<p>2018 <strong>BERTHE</strong>: vector line library for plotters.</p>
 		</article>
 		<article class="item">
 			<a href="https://github.com/patriciogonzalezvivo/hypatia" target="_blank"><img class="roundPhotoTh" src="2018/hypatia/thumb.jpg" alt="HYPATIA"/></a>

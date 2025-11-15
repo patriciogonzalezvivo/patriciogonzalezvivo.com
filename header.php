@@ -8,7 +8,7 @@ echo '
 		<title>Patricio Gonzalez Vivo</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="keywords" content="digital, art, creative coding, shaders, maps, clocks, lenses, alchemy, time and space" />
-		<meta name="description" content="Patricio Gonzalez Vivo have a MFA Design and Technology from Parsons The New School. He is Digital alchemist that creates artifacts of contemplation about time and space. Although the medium is primary light, this creations combined different technical skills related to the use of wood, metal, electricity and code. Because of the liminal nature of the artifacts, they share qualities with maps, clocks and optical lenses. " />
+		<meta name="description" content="Patricio Gonzalez Vivo multidisciplinary artist working across traditional and digital mediums. In his work, he pursues awareness and self-discovery through themes like celestial bodies, esoteric symbolism, clocks and maps." />
 
 		<link href="/ico.gif" rel="shortcut icon"  />
 		<link href="/css/style.css" rel="stylesheet" />
