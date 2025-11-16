@@ -1,4 +1,6 @@
-### Press
+### Press and Articles
+
+- **2024** [Jen Lowe and Patricio González Vivo on Democratizing Knowledge](https://www.lerandom.art/editorial/jen-lowe-and-patricio-gonzalez-vivo-on-democratizing-knowledge) by Le Random
 
 - **2015** [Look up! Interactive map reveals the satellites and space junk soaring above your head right now](http://www.dailymail.co.uk/sciencetech/article-3340930/Look-Interactive-map-reveals-satellites-space-junk-soaring-head-right-now.html) at [DailyMail](http://www.dailymail.co.uk)
 
