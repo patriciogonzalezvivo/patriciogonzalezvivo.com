@@ -38,7 +38,7 @@
             <p>2017 <strong>PixelSpirit</strong>: one deck of cards for the modern GPU wizard of light</p>
         </article>
         <article class="item">
-            <a href="https://patriciogonzalezvivo.github.io/Estrellas"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
+            <a href="https://patriciogonzalezvivo.github.io/Luna"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
             <!-- <a href="https://vimeo.com/278742301"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a> -->
             <!-- <a href="https://frm.fm/a/patricio_gonzalez_vivo/luna"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a> -->
             <p>2017 <strong>LUNA</strong>: quietly mirrors the moon’s phases and the passage of day and night</a></p>
