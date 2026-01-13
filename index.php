@@ -38,13 +38,14 @@
             <p>2017 <strong>PixelSpirit</strong>: one deck of cards for the modern GPU wizard of light</p>
         </article>
         <article class="item">
-            <a href="https://vimeo.com/278742301"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
+            <a href="https://patriciogonzalezvivo.github.io/Estrellas"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
+            <!-- <a href="https://vimeo.com/278742301"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a> -->
             <!-- <a href="https://frm.fm/a/patricio_gonzalez_vivo/luna"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a> -->
-            <p>2017 <strong>LUNA</strong>: together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
+            <p>2017 <strong>LUNA</strong>: quietly mirrors the moon’s phases and the passage of day and night</a></p>
         </article>
         <article class="item">
             <a href="http://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe"><img class="roundPhotoTh" src="2017/guayupia/thumb.jpg" alt="GUAYUPIA"/></a>
-            <p>2017 <strong>GUAYUPIA</strong>: in the search of a land with no evil. Together with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
+            <p>2017 <strong>GUAYUPIA</strong>: in the search of a land with no evil with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
         </article>
         <article class="item">
             <a href="https://vimeo.com/249558671"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a>
