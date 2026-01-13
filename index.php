@@ -77,15 +77,14 @@
             <a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.gif" alt="PointCloudCity"/></a>
             <p>2014 <strong>Point Cloud City</strong>: private data landscapes of public places</p>
         </article>
-        <article class="item">
+        <!-- <article class="item">
             <a href="2013/clouds/"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
             <p>2013 <strong>CLOUDS Documentary</strong>: collaboration of poetic Visual Systems</p>
-        </article>
+        </article> -->
 		<!-- <article class="item">
             <a href="https://vimeo.com/54093238" target="_blank"><img class="roundPhotoTh" src="2012/codemology/thumb.jpg" alt="CodeMology"/></a>
 			<p>2012 <strong>Codemology</strong>: explorations between code and alquemy</p>
         </article> -->
-
         <article class="item">
             <a href="https://github.com/patriciogonzalezvivo/flatland" target="_blank"><img class="roundPhotoTh" src="2012/flatland/thumb.jpg" alt="FlatLand"/></a>
             <p>2012 <strong>FlatLand</strong>: collaboration with <a href="http://thesystemis.com/" target="_blank">Zach Lieberman</a> for New Cinema Hackathon at EyeBeam </p>
