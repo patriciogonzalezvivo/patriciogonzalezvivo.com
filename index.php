@@ -5,6 +5,11 @@
             <a href="https://patriciogonzalezvivo.github.io/weaver"><img class="roundPhotoTh" src="2025/weaver/thumb.gif" alt="Light Weaver: connecting people across time and space through common stars."/></a>
             <p>2025 <strong>Light Weaver</strong>: connecting people across time and space through common stars. </p>
         </article>     -->
+        <article class="item">
+            <!-- <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a> -->
+            <a href="https://patriciogonzalezvivo.github.io/Orbitas2"><img class="roundPhotoTh" src="2025/orbitas2/thumb.gif" alt="Orbitas2"/></a>
+            <p>2025 <strong>Orbitas2</strong> living cosmic choreography.</p>
+        </article>
     <!-- <article class="item">
             <a href="https://objkt.com/collection/KT1CkDFaHiH8UtZhyR2EvoqhihsntjSikvt9"><img class="roundPhotoTh" src="2021/arcana/thumb.gif" alt="Memory Studies"/></a>
             <p>2021 <strong>PixelFlair ARCANA</strong>: real-time NFT based on the 22 Arcana of PixelSpirit Tarot Deck.</p>
@@ -12,11 +17,11 @@
         <article class="item">
             <!-- <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a> -->
             <a href="https://patriciogonzalezvivo.github.io/MemoryStudy"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a>
-            <p>2021 <strong>Memory Studies</strong> </p>
+            <p>2021 <strong>Memory Studies</strong>: sorting and scrambling algorithms battling over digital memories</p>
         </article>
         <article class="item">
             <a href="2021/fen/"><img class="roundPhotoTh" src="2021/fen/thumb.gif" alt="Flight Studies"/></a>
-            <p>2021 <strong>Flight Studies</strong>: part of The FEN, the first NFT collection on the Tezos market</p>
+            <p>2021 <strong>Flight Studies</strong>: part of The FEN, the first NFT collective show on the Tezos</p>
         </article>
         <article class="item">
             <a href="https://vimeo.com/332883913"><img class="roundPhotoTh" src="2019/hogar/thumb.gif" alt="HOGAR"/></a>
