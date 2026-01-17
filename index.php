@@ -12,7 +12,7 @@
         <article class="item">
             <!-- <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a> -->
             <a href="https://patriciogonzalezvivo.github.io/blink/"><img class="roundPhotoTh" src="2023/blink/thumb.gif" alt="blink"/></a>
-            <p>2023 <strong>BLINK</strong>: a memento suspended between disappearance and wonder with <a href="http://jenlowe.net/" target="_blank">Jen Lowe</a></p>
+            <p>2023 <strong>BLINK</strong>: a memento suspended between disappearance and wonder.</p>
         </article>
     <!-- <article class="item">
             <a href="https://objkt.com/collection/KT1CkDFaHiH8UtZhyR2EvoqhihsntjSikvt9"><img class="roundPhotoTh" src="2021/arcana/thumb.gif" alt="Memory Studies"/></a>
