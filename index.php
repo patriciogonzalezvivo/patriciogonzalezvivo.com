@@ -9,6 +9,11 @@
             <a href="https://patriciogonzalezvivo.github.io/Orbitas2"><img class="roundPhotoTh" src="2025/orbitas2/thumb.gif" alt="Orbitas2"/></a>
             <p>2025 <strong>Orbitas2</strong> living cosmic choreography.</p>
         </article> -->
+        <article class="item">
+            <!-- <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a> -->
+            <a href="https://patriciogonzalezvivo.github.io/blink/"><img class="roundPhotoTh" src="2023/blink/thumb.gif" alt="blink"/></a>
+            <p>2023 <strong>BLINK</strong>: a memento suspended between disappearance and wonder with <a href="http://jenlowe.net/" target="_blank">Jen Lowe</a></p>
+        </article>
     <!-- <article class="item">
             <a href="https://objkt.com/collection/KT1CkDFaHiH8UtZhyR2EvoqhihsntjSikvt9"><img class="roundPhotoTh" src="2021/arcana/thumb.gif" alt="Memory Studies"/></a>
             <p>2021 <strong>PixelFlair ARCANA</strong>: real-time NFT based on the 22 Arcana of PixelSpirit Tarot Deck.</p>
