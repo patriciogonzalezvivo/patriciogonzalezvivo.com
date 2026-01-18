@@ -1,16 +1,19 @@
 <?php include("header.php");?>
 <?php include("menu.php");?>
     <section class="content">
-        <!-- <article class="item">
+        <article class="item">
+            <a href="https://patriciogonzalezvivo.github.io/Astros/"><img class="roundPhotoTh" src="2026/astros/thumb.gif" alt="Astros"/></a>
+            <p>2026 <strong>Astros</strong>: living, luminous meditation on the present sky.</p>
+        </article>
+        <article class="item">
             <a href="https://patriciogonzalezvivo.github.io/weaver"><img class="roundPhotoTh" src="2025/weaver/thumb.gif" alt="Light Weaver: connecting people across time and space through common stars."/></a>
-            <p>2025 <strong>Light Weaver</strong>: connecting people across time and space through common stars. </p>
-        </article>     -->
+            <p>2025 <strong>Light Weaver</strong>: connecting people across time and space through common stars.</p>
+        </article>    
         <!-- <article class="item">
             <a href="https://patriciogonzalezvivo.github.io/Orbitas2"><img class="roundPhotoTh" src="2025/orbitas2/thumb.gif" alt="Orbitas2"/></a>
             <p>2025 <strong>Orbitas2</strong> living cosmic choreography.</p>
         </article> -->
         <article class="item">
-            <!-- <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a> -->
             <a href="https://patriciogonzalezvivo.github.io/blink/"><img class="roundPhotoTh" src="2023/blink/thumb.gif" alt="blink"/></a>
             <p>2023 <strong>BLINK</strong>: a memento suspended between disappearance and wonder.</p>
         </article>
@@ -19,17 +22,16 @@
             <p>2021 <strong>PixelFlair ARCANA</strong>: real-time NFT based on the 22 Arcana of PixelSpirit Tarot Deck.</p>
         </article> -->
         <article class="item">
-            <!-- <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a> -->
             <a href="https://patriciogonzalezvivo.github.io/MemoryStudy"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a>
-            <p>2021 <strong>Memory Studies</strong>: sorting and scrambling algorithms battling over digital memories</p>
+            <p>2021 <strong>Memory Studies</strong>: sorting and scrambling algorithms battling over digital memories.</p>
         </article>
         <article class="item">
             <a href="2021/fen/"><img class="roundPhotoTh" src="2021/fen/thumb.gif" alt="Flight Studies"/></a>
-            <p>2021 <strong>Flight Studies</strong>: part of The FEN, the first NFT collective show on the Tezos</p>
+            <p>2021 <strong>Flight Studies</strong>: part of The FEN, the first NFT collective show on the Tezos.</p>
         </article>
         <article class="item">
             <a href="https://vimeo.com/332883913"><img class="roundPhotoTh" src="2019/hogar/thumb.gif" alt="HOGAR"/></a>
-            <p>2019 <strong>Hogar</strong>: an oportunity to see a bigger picture</p>
+            <p>2019 <strong>Hogar</strong>: an oportunity to see a bigger picture.</p>
         </article>
         <article class="item">
             <a href="https://patriciogonzalezvivo.github.io/Estrellas"><img class="roundPhotoTh" src="2018/estrellas/thumb.gif" alt="ESTRELLAS"/></a>
