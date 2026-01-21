@@ -26,7 +26,8 @@
             <p>2021 <strong>Memory Studies</strong>: sorting and scrambling algorithms battling over digital memories.</p>
         </article>
         <article class="item">
-            <a href="2021/fen/"><img class="roundPhotoTh" src="2021/fen/thumb.gif" alt="Flight Studies"/></a>
+            <a href="https://patriciogonzalezvivo.github.io/FlightStudies/"><img class="roundPhotoTh" src="2021/fen/thumb.gif" alt="Flight Studies"/></a>
+            <!-- <a href="2021/fen/"><img class="roundPhotoTh" src="2021/fen/thumb.gif" alt="Flight Studies"/></a> -->
             <p>2021 <strong>Flight Studies</strong>: part of The FEN, the first NFT collective show on the Tezos.</p>
         </article>
         <article class="item">
