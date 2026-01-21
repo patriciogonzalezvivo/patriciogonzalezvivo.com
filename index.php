@@ -1,14 +1,14 @@
 <?php include("header.php");?>
 <?php include("menu.php");?>
     <section class="content">
-        <article class="item">
+        <!-- <article class="item">
             <a href="https://patriciogonzalezvivo.github.io/Astros/"><img class="roundPhotoTh" src="2026/astros/thumb.gif" alt="Astros"/></a>
             <p>2026 <strong>Astros</strong>: living, luminous meditation on the present sky.</p>
         </article>
         <article class="item">
             <a href="https://patriciogonzalezvivo.github.io/weaver"><img class="roundPhotoTh" src="2025/weaver/thumb.gif" alt="Light Weaver: connecting people across time and space through common stars."/></a>
             <p>2025 <strong>Light Weaver</strong>: connecting people across time and space through common stars.</p>
-        </article>    
+        </article>     -->
         <!-- <article class="item">
             <a href="https://patriciogonzalezvivo.github.io/Orbitas2"><img class="roundPhotoTh" src="2025/orbitas2/thumb.gif" alt="Orbitas2"/></a>
             <p>2025 <strong>Orbitas2</strong> living cosmic choreography.</p>
