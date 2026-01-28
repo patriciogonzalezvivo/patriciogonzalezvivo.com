@@ -19,7 +19,7 @@
         </article>
         <article class="item">
             <a href="https://vimeo.com/1159182033/"><img class="roundPhotoTh" src="2022/time/thumb_long.gif" alt="blink"/></a>
-            <p>2022 <strong>Time Studies</strong>: exploring relation between time, perception and emotional state.</p>
+            <p>2022 <strong>Time Studies</strong>: exploration between time, perception and emotional state.</p>
         </article>
     <!-- <article class="item">
             <a href="https://objkt.com/collection/KT1CkDFaHiH8UtZhyR2EvoqhihsntjSikvt9"><img class="roundPhotoTh" src="2021/arcana/thumb.gif" alt="Memory Studies"/></a>
