@@ -98,7 +98,7 @@
         </article>
         <article class="item">
             <a href="https://cloudsdocumentary.com"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
-            <p>2013 <strong>CLOUDS Documentary</strong>: collaboration of poetic Visual Systems</p>
+            <p>2013 <strong>CLOUDS Documentary</strong>: lead visual systems developer</p>
         </article>
 		<!-- <article class="item">
             <a href="https://vimeo.com/54093238" target="_blank"><img class="roundPhotoTh" src="2012/codemology/thumb.jpg" alt="CodeMology"/></a>
