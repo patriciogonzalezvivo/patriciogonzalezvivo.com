@@ -9,15 +9,13 @@ echo '<header>
 						<li class="menu_item"><a href="/about.php"> Bio </a></li>
 						<li class="menu_item"><a href="/index.php"> Works </a></li>
 						<li class="menu_item"><a href="/tools.php"> Tools </a></li>
-						<li class="menu_item"><a href="/teaching.php"> Ed. </a></li>
-						<li class="menu_item"><a href="https://shop.patriciogonzalezvivo.com/collections/all" target="_blank"> Shop </a></li>
+						<li class="menu_item"><a href="/teaching.php"> Teaching </a></li>
 						</ul>
 						
 						<section id="sidebar">
 						<a href="http://www.instagram.com/patriciogonzalezvivo" target="_blank"><img src="/images/icons/instagram.png" width="32" class="icon"/></a>
-						<a href="https://twitter.com/intent/follow?screen_name=patriciogv"><img src="/images/icons/twitter.png" width="32" class="icon"/></a>
-						<a rel="me" href="https://merveilles.town/@patricio" target="_blank"><img src="/images/icons/mastodon.png" width="32" class="icon"/></a>
-						<a href="https://bsky.app/profile/patricio.io"><img src="/images/icons/bsky.png" width="30" class="icon"/></a>
+						<a href="https://twitter.com/intent/follow?screen_name=patriciogv"><img src="/images/icons/twitter.png" width="34" class="icon"/></a>
+						<a href="https://bsky.app/profile/patricio.io"><img src="/images/icons/bsky.png" width="28" class="icon"/></a>
 						</section >
 						
 						</nav>
