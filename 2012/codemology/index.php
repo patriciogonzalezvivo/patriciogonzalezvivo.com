@@ -9,7 +9,7 @@
 		</div>
 		
 		<article class="cita">
-			<p><i>“From magic spells to contemporary computing, this speculative imagination has always been linked to practical— technical and artistic—experimentation with algorithms. The opposite is true as well. Speculative imagination is embedded in today’s software culture. Reduction and totality, randomness and control, physics and metaphysics are among the tropes it is obsessed with, often short-circuiting their opposites.”</i>(Florian Cramer, 2005)</p>
+			<p><i>“From magic spells to contemporary computing, this speculative imagination has always been linked to practical, technical and artistic, experimentation with algorithms. The opposite is true as well. Speculative imagination is embedded in today’s software culture. Reduction and totality, randomness and control, physics and metaphysics are among the tropes it is obsessed with, often short-circuiting their opposites.”</i>(Florian Cramer, 2005)</p>
 		</article>
 		
 		<article>
