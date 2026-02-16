@@ -66,16 +66,16 @@
             <a href="http://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe"><img class="roundPhotoTh" src="2017/guayupia/thumb.jpg" alt="GUAYUPIA"/></a>
             <p>2017 <strong>GUAYUPIA</strong>: in the search of a land with no evil with <a href="http://jenlowe.net/" targer="_window">Jen Lowe</a></p>
         </article>
-        <article class="item">
-            <a href="https://vimeo.com/249558671"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a>
+        <!-- <article class="item">
+            <a href="https://vimeo.com/249558671"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a> -->
             <!-- <a href="https://patriciogonzalezvivo.github.io/LineOfSight"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a> -->
-            <p>2015 <strong>LineOfSight</strong>: find and track satellites</p>
+            <!-- <p>2015 <strong>LineOfSight</strong>: find and track satellites</p>
         </article>
         <article class="item">
-            <a href="https://vimeo.com/141590783"><img class="roundPhotoTh" src="2015/RandomCity/thumb.gif" alt="RandomCity"/></a>
+            <a href="https://vimeo.com/141590783"><img class="roundPhotoTh" src="2015/RandomCity/thumb.gif" alt="RandomCity"/></a> -->
             <!-- <a href="https://patriciogonzalezvivo.github.io/RandomCity/"><img class="roundPhotoTh" src="2015/RandomCity/thumb.gif" alt="RandomCity"/></a> -->
-            <p>2015 <strong>RandomCity</strong>: though the streams are chaotic, they coalesce into a digital harmony</p>
-        </article>
+            <!-- <p>2015 <strong>RandomCity</strong>: though the streams are chaotic, they coalesce into a digital harmony</p>
+        </article> -->
         <article class="item">
             <a href="http://thebookofshaders.com/"><img class="roundPhotoTh" src="https://thebookofshaders.com/thumb.jpg" alt="TheBookOfShaders"/></a>
             <p>2015 <strong>The Book of Shaders</strong>: Who said #shaders are a dark art? </p>
@@ -92,10 +92,10 @@
             <a href="2014/skylines/"><img class="roundPhotoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
             <p>2014 <strong>SKYLINES</strong>: three projects about awareness and tools for seeing</p>
         </article>
-        <article class="item">
+        <!-- <article class="item">
             <a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.gif" alt="PointCloudCity"/></a>
             <p>2014 <strong>Point Cloud City</strong>: private data landscapes of public places</p>
-        </article>
+        </article> -->
         <article class="item">
             <a href="https://cloudsdocumentary.com"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
             <p>2013 <strong>CLOUDS Documentary</strong>: lead visual systems developer</p>

@@ -22,7 +22,8 @@
         </article>
 
         <div class="video-container">
-            <iframe src="http://player.vimeo.com/video/32321634?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            <!-- <iframe src="http://player.vimeo.com/video/32321634?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> -->
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/32321634?h=654b440c04" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
         </div>
         
         <section class="content">
