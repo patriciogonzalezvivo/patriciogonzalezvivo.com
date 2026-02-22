@@ -14,7 +14,7 @@
             <p>2025 <strong>Orbitas2</strong> living cosmic choreography.</p>
         </article> -->
         <article class="item">
-            <a href="https://patriciogonzalezvivo.github.io/blink/"><img class="roundPhotoTh" src="2023/blink/thumb.gif" alt="blink"/></a>
+            <a href="2023/blink/"><img class="roundPhotoTh" src="2023/blink/thumb.gif" alt="blink"/></a>
             <p>2023 <strong>BLINK</strong>: a memento suspended between disappearance and wonder.</p>
         </article>
         <article class="item">
