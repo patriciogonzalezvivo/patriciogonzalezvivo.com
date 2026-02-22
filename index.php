@@ -26,7 +26,7 @@
             <p>2021 <strong>PixelFlair ARCANA</strong>: real-time NFT based on the 22 Arcana of PixelSpirit Tarot Deck.</p>
         </article> -->
         <article class="item">
-            <a href="https://patriciogonzalezvivo.github.io/MemoryStudy"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a>
+            <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a>
             <p>2021 <strong>Memory Studies</strong>: sorting and scrambling algorithms battling over digital memories.</p>
         </article>
         <article class="item">
