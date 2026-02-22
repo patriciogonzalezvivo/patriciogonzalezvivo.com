@@ -143,15 +143,35 @@ body {
 }
 
 footer {
-  clear: both;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 0.7rem;
-  font-weight: 200;
-  text-align: center;
-  color: #222222; 
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+
+    clear: both;
+    font-family: 'Lucida Console', Monaco, monospace;
+    font-size: 12px;
+    font-weight: 200;
+    text-align: center;
+    color: #222222; 
+
+    position: fixed;
 }
 footer img {
     position: fixed; 
+}
+
+body.windowed-mode footer {
+    position: relative;
+    color: #666;
+    background: transparent;
+    margin-top: auto;
+    pointer-events: auto;
+}
+
+footer p {
+    margin: 0;
 }
 
 @media only screen and (max-width: 875px) {

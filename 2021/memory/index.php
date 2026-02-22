@@ -6,19 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <meta name='mobile-web-app-capable' content='yes'>
         <meta name='apple-mobile-web-app-capable' content='yes'>
-        <meta property="og:image" content="thumbnail.png" />
-        <meta property="og:title" content="Weaver" />
-        <meta property="og:url" content="https://patriciogonzalezvivo.github.io/weaver/" />
+        <meta property="og:image" content="thumb.gif" />
+        <meta property="og:title" content="Memory Studies" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Weaver" />
+        <meta property="og:site_name" content="Memory Studies" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:author" content="Patricio Gonzalez Vivo" />
         <meta property='og:description' content='by Patricio Gonzalez Vivo. Instrument for connection, presence and empathy through watching the sky together.'/>
         <meta property='og:image:width' content='512'/>
         <meta property='og:image:height' content='512'/>
 
-        <meta name="description" content="Weaver is an an instrument for connection, presence and empathy through watching the sky together." />
-        <meta name="keywords" content="Weaver, Patricio Gonzalez Vivo, sky watching, transcendent artifact, space, time, synchronization" />
+        <meta name="description" content="Memory Studies, an exploration of the intersection between memory and digital media." />
+        <meta name="keywords" content="Memory, Digital Media, Patricio Gonzalez Vivo" />
         <meta name="author" content="Patricio Gonzalez Vivo" />
         
         <link href="../../ico.gif" rel="shortcut icon"  />
@@ -131,7 +130,7 @@
         <wasm-loader></wasm-loader>
 
         <footer>
-            <p>Copyright Patricio Gonzalez Vivo 2026</p>
+            <p>© Patricio Gonzalez Vivo 2026</p>
         </footer>
     </body>
     <script type="module" src="main.js"></script>

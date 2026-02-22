@@ -6,11 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <meta name='mobile-web-app-capable' content='yes'>
         <meta name='apple-mobile-web-app-capable' content='yes'>
-        <meta property="og:image" content="thumbnail.png" />
+        <meta property="og:image" content="thumb.gif" />
         <meta property="og:title" content="BLINK" />
-        <meta property="og:url" content="https://patriciogonzalezvivo.github.io/weaver/" />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Weaver" />
+        <meta property="og:site_name" content="BLINK" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:author" content="Patricio Gonzalez Vivo" />
         <meta property='og:description' content='by Patricio Gonzalez Vivo. both memento mori and moment of delight, an object suspended between disappearance and wonder'/>
@@ -70,7 +69,7 @@
         <script src="https://cdn.jsdelivr.net/npm/three@0.124/build/three.min.js"></script>
 
         <footer>
-            <p>Copyright Patricio Gonzalez Vivo 2026</p>
+            <p>© Patricio Gonzalez Vivo 2026</p>
         </footer>
     </body>
     <script type="module" src="main.min.js"></script>

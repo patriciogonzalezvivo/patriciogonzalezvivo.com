@@ -39,7 +39,7 @@
             <p>2019 <strong>Hogar</strong>: an oportunity to see a bigger picture.</p>
         </article>
         <article class="item">
-            <a href="https://patriciogonzalezvivo.github.io/Estrellas"><img class="roundPhotoTh" src="2018/estrellas/thumb.gif" alt="ESTRELLAS"/></a>
+            <a href="2018/estrellas/"><img class="roundPhotoTh" src="2018/estrellas/thumb.gif" alt="ESTRELLAS"/></a>
             <!-- <a href="https://vimeo.com/278951084"><img class="roundPhotoTh" src="2018/estrellas/thumb.gif" alt="ESTRELLAS"/></a> -->
             <!-- <a href="https://frm.fm/a/patricio_gonzalez_vivo/estrellas"><img class="roundPhotoTh" src="2018/estrellas/thumb.gif" alt="ESTRELLAS"/></a> -->
             <p>2018 <strong>Estrellas</strong>: a window to the starry sky.</p>
