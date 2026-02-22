@@ -42,11 +42,13 @@
         </script>
     </head>
     <body class="windowed-mode">
-        <?php include("../../menu.php");?>
+        <div id="main-wrapper">
+            <?php include("../../menu.php");?>
+        </div>
         <div id="wrapper" class="windowed">
             <img id="frame-back" class="frame" src="frame_background.png" alt="">
                 <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1 width="516" height="810"></canvas>
-            <img id="frame-front" class="frame" src="frame_refleccion.png" alt="">
+            <!-- <img id="frame-front" class="frame" src="frame_refleccion.png" alt=""> -->
         </div>
         <div id="ui">
             <button id="bm-btn">

@@ -305,4 +305,11 @@ body.windowed-mode #longer-info {
         top: -120px;
         left: -2px;
     }
+
+    #wrapper.windowed {
+        width: 100%;
+        max-width: 480px;
+        height: auto; 
+        margin: 20px auto;
+    }
 }
