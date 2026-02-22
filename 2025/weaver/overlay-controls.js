@@ -54,93 +54,92 @@ class OverlayControls extends HTMLElement {
         container.appendChild(settingsButton);
         // container.appendChild(infoButton);
   
-        this.create_info_panel();
+        // this.create_info_panel();
         this.create_settings_panel();
     }
   
-    create_info_panel() {
-        // Create info panel
-        const infoPanel = document.createElement('div');
-        infoPanel.className = 'info-panel';
-        infoPanel.innerHTML = `
-            <div class="panel-header">
-                <h2>Light Weaver</h2>
-                <button class="close-button">×</button>
-                </div>
-            <p style="font-size:14px" >by <a href="https://patriciogonzalezvivo.com/">Patricio Gonzalez Vivo</a></p>
-            <p style="font-size:14px" >in collaboration with <a href="https://www.jenlowe.net/">Jen Lowe</a></p>
-            <div class="info-content">
-                <p>Light Weaver is an artifact that lets you sync with someone distant in space and time through watching the sky together. It's an instrument for connection, presence and empathy.</p> 
-                
-                <img class="info-images" src="svg/000.svg" alt="a string between two hands" />
+    // create_info_panel() {
 
-                <div>
-                    <h2>How does it work?</h3>
-                    <p>It works by showing you two overlapping star maps of the sky. One per observer. Each one is differentiated by a unique color, and mirrors a different geographical location and date. The overlapping section is the common portion of the sky where observers can see the same stars and constellation.</p>
-                    <p>Each star map has a polar projection of the sky. Meaning the stars close to the outer edge are closer to the horizon (notice the letters of the four cardinal directions) while those at the center of the chart are directly above the head of the observer.</p>
-                    <p>At the bottom you can see two globes showing each of the observers locations. If at least one of the observers is not in the present time, you will see a timeline at the top, showing the different dates and times.</p>
+        // // Create info panel
+        // const infoPanel = document.createElement('div');
+        // infoPanel.className = 'info-panel';
+        // infoPanel.innerHTML = `
+        //     <div class="panel-header">
+        //         <h2>Light Weaver</h2>
+        //         <button class="close-button">×</button>
+        //         </div>
+        //     <p style="font-size:14px" >by <a href="https://patriciogonzalezvivo.com/">Patricio Gonzalez Vivo</a></p>
+        //     <p style="font-size:14px" >in collaboration with <a href="https://www.jenlowe.net/">Jen Lowe</a></p>
+        //     <div class="info-content">
+        //         <p>Light Weaver is an artifact that lets you sync with someone distant in space and time through watching the sky together. It's an instrument for connection, presence and empathy.</p> 
+
+        //         <div>
+        //             <h2>How does it work?</h3>
+        //             <p>It works by showing you two overlapping star maps of the sky. One per observer. Each one is differentiated by a unique color, and mirrors a different geographical location and date. The overlapping section is the common portion of the sky where observers can see the same stars and constellation.</p>
+        //             <p>Each star map has a polar projection of the sky. Meaning the stars close to the outer edge are closer to the horizon (notice the letters of the four cardinal directions) while those at the center of the chart are directly above the head of the observer.</p>
+        //             <p>At the bottom you can see two globes showing each of the observers locations. If at least one of the observers is not in the present time, you will see a timeline at the top, showing the different dates and times.</p>
                     
-                    <img class="info-images" src="svg/001.svg" alt="two people watching the same constellation" />
+        //             <img class="info-images" src="svg/001.svg" alt="two people watching the same constellation" />
 
-                    <p>Both the map of the sky and the globes are interactive. You can drag the skymaps to change the time and date of the observers. The globes can be rotated to select other locations.</p>
-                    <p>In order to share this with someone you wish to connect with, you will need to provide a specific date and location by clicking on the gear in the top right corner.</p>
-                    <p>There, you can also customize the names and other parameters for each one of the observers.</p>
-                    <p>Once you are done, apply the changes and share the unique URL with the other person.</p>
-                </div>
+        //             <p>Both the map of the sky and the globes are interactive. You can drag the skymaps to change the time and date of the observers. The globes can be rotated to select other locations.</p>
+        //             <p>In order to share this with someone you wish to connect with, you will need to provide a specific date and location by clicking on the gear in the top right corner.</p>
+        //             <p>There, you can also customize the names and other parameters for each one of the observers.</p>
+        //             <p>Once you are done, apply the changes and share the unique URL with the other person.</p>
+        //         </div>
 
-                <div>
-                    <h2>How to connect with someone in the past or future?</h3>
-                    <p>If you are like me, you believe Time is just the way our consciousness perceives the world. Like a play head on a disk, all that has and will happen is already there. We are just experiencing it.</p>
-                    <p>This doesn't mean we don't have a choice. Your decisions shape the world around you and the one yet to come.</p>
-                    <p>But it is also possible to influence the past by sending intentions to those that are living and shaping that moment.</p>
-                    <p>Just like memories come back to you from the past, sometimes you can have intuitions about the future. Glimpses, dreams of what is to come.</p>
-                    <p>Through transcendent acts of presence, like prayer and ritual, you can connect with the past and the future. You can connect with the people you love and the people you will love.</p>
-                    <p>You can send them the strength and love they need to overcome their challenges.</p>
-                    <p>You can whisper peace in moments of distress. You can share the fruits of their sacrifice and effort. You could become a beacon for them to follow.</p>
-                    <p>The sky, the great equalizer, is the perfect medium to connect with others. The sky has been the blanket humanity has slept under since we learned to tell stories. It has been there since the beginning for all of us. To connect through it across time and space, we just need to tap into it.</p>
-                    <p>How to tap through it?</p>
-                    <ol>
-                        <li>Find a time and space where you can be present.</li>
-                        <li>Think of the person you want to connect with.</li>
-                        <li>Imagine the time and space they are in. When would be a moment they would have access to the sky? Ex: they are traveling by sea? camping? staying late at night celebrating?</li>
-                        <li>Using this artifact, add your name and the other persons.</li>
-                        <li>Set your location, to your here and now. Meaning to the present and the city you are at this moment.</li>
-                        <li>Consider the other person, where that person is in the world? When would the sky be visible for them? Based on that, set their geographical location, date and time.</li>
-                        <li>Drag the overlapping star charts to fine tune the perfect moment on which you and the other person share more stars.</li>
-                        <li>Once you are here and they are there. Go outside.</li>
-                        <li>Orient yourself to the direction of those constellations.</li>
-                        <li>Imagine yourself and the other person looking at the same stars. Two travelers across the night of time.</li>
-                        <li>Imagine an invisible string that connects you both.</li>
-                        <li>Let that thread of light become clear by closing your eyes.</li>
-                        <li>It's time to send the message. You can do this by praying, meditating, singing, dancing, writing, drawing, or just being present. Doesn't need to be a big gesture, let it start small and find the right shape.</li>
-                        <li>Like tuning a radio, be curious and pay attention to how the small gestures produce big gestures.</li>
-                        <li>You may receive a message back. Be open to it.</li>
-                        <li>Stay in that delicate state of presence for as long as you can. It’s subtle and fragile like keeping a balloon up in the air.</li>
-                        <li>Once you feel the connection is fading, be grateful: to you, the other and the stars you share.</li>
-                        <li>You may want to take the time to treasure what just happened, write some thoughts or draw.</li>
-                    </ol>
-                </div>
-            </div>
-        `;
+        //         <div>
+        //             <h2>How to connect with someone in the past or future?</h3>
+        //             <p>If you are like me, you believe Time is just the way our consciousness perceives the world. Like a play head on a disk, all that has and will happen is already there. We are just experiencing it.</p>
+        //             <p>This doesn't mean we don't have a choice. Your decisions shape the world around you and the one yet to come.</p>
+        //             <p>But it is also possible to influence the past by sending intentions to those that are living and shaping that moment.</p>
+        //             <p>Just like memories come back to you from the past, sometimes you can have intuitions about the future. Glimpses, dreams of what is to come.</p>
+        //             <p>Through transcendent acts of presence, like prayer and ritual, you can connect with the past and the future. You can connect with the people you love and the people you will love.</p>
+        //             <p>You can send them the strength and love they need to overcome their challenges.</p>
+        //             <p>You can whisper peace in moments of distress. You can share the fruits of their sacrifice and effort. You could become a beacon for them to follow.</p>
+        //             <p>The sky, the great equalizer, is the perfect medium to connect with others. The sky has been the blanket humanity has slept under since we learned to tell stories. It has been there since the beginning for all of us. To connect through it across time and space, we just need to tap into it.</p>
+        //             <p>How to tap through it?</p>
+        //             <ol>
+        //                 <li>Find a time and space where you can be present.</li>
+        //                 <li>Think of the person you want to connect with.</li>
+        //                 <li>Imagine the time and space they are in. When would be a moment they would have access to the sky? Ex: they are traveling by sea? camping? staying late at night celebrating?</li>
+        //                 <li>Using this artifact, add your name and the other persons.</li>
+        //                 <li>Set your location, to your here and now. Meaning to the present and the city you are at this moment.</li>
+        //                 <li>Consider the other person, where that person is in the world? When would the sky be visible for them? Based on that, set their geographical location, date and time.</li>
+        //                 <li>Drag the overlapping star charts to fine tune the perfect moment on which you and the other person share more stars.</li>
+        //                 <li>Once you are here and they are there. Go outside.</li>
+        //                 <li>Orient yourself to the direction of those constellations.</li>
+        //                 <li>Imagine yourself and the other person looking at the same stars. Two travelers across the night of time.</li>
+        //                 <li>Imagine an invisible string that connects you both.</li>
+        //                 <li>Let that thread of light become clear by closing your eyes.</li>
+        //                 <li>It's time to send the message. You can do this by praying, meditating, singing, dancing, writing, drawing, or just being present. Doesn't need to be a big gesture, let it start small and find the right shape.</li>
+        //                 <li>Like tuning a radio, be curious and pay attention to how the small gestures produce big gestures.</li>
+        //                 <li>You may receive a message back. Be open to it.</li>
+        //                 <li>Stay in that delicate state of presence for as long as you can. It’s subtle and fragile like keeping a balloon up in the air.</li>
+        //                 <li>Once you feel the connection is fading, be grateful: to you, the other and the stars you share.</li>
+        //                 <li>You may want to take the time to treasure what just happened, write some thoughts or draw.</li>
+        //             </ol>
+        //         </div>
+        //     </div>
+        // `;
 
-        infoPanel.querySelector('.close-button').addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            this.toggle_info();
-            this.handleFocus();
-        });
+    //     infoPanel.querySelector('.close-button').addEventListener('click', (e) => {
+    //         e.preventDefault();
+    //         e.stopPropagation();
+    //         this.toggle_info();
+    //         this.handleFocus();
+    //     });
 
-        infoPanel.addEventListener('blur', (e) => {
-            if (!infoPanel.contains(document.activeElement)) {
-                this.toggle_info();
-                this.handleFocus();
-            }
-        });
+    //     infoPanel.addEventListener('blur', (e) => {
+    //         if (!infoPanel.contains(document.activeElement)) {
+    //             this.toggle_info();
+    //             this.handleFocus();
+    //         }
+    //     });
 
-        this.shadowRoot.appendChild(infoPanel);
-        this.infoPanel = infoPanel;
-        this.showInfo = false;
-    }
+    //     this.shadowRoot.appendChild(infoPanel);
+    //     this.infoPanel = infoPanel;
+    //     this.showInfo = false;
+    // }
   
     // Create settings panel
     create_settings_panel() {
