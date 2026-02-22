@@ -1,233 +1,241 @@
-#menu_logo {
-  float: left; }
-
-#menu_text {
-  padding-top: 68px;
-  font-size: 0.9rem;
-  text-align: justify; }
-  #menu_text li {
-    padding-left: 13px;
-  }
-  #menu_text a {
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    font-size: 1.0rem;
+    color: #666666;
     text-decoration: none;
-    color: #444; }
-    #menu_text a:hover {
-      color: #222; }
-
-.menu_item {
-  display: inline-block; }
-
-.roundPhotoTh {
-  width: 575px;
-  height: 165px;
-  object-fit: cover;
+    /* text-align: justify; */
+    background-color: white; 
 }
 
+#menu_logo {
+    float: left; 
+}
+
+#menu_text {
+    padding-top: 68px;
+    font-size: 0.9rem;
+    /* text-align: justify;  */
+}
+#menu_text li {
+    padding-left: 13px;
+}
+#menu_text a {
+    text-decoration: none;
+    color: #444; 
+}
+#menu_text a:hover {
+    color: #222; 
+}
 #sidebar {
-  float: right;
-  position: relative;
-  /* width: 300px; */
-  top: -40px;
-  left: -18px;
-  height: 0px; }
-  #sidebar p {
+    float: right;
+    position: relative;
+    /* width: 300px; */
+    top: -40px;
+    left: -18px;
+    height: 0px; 
+}
+
+#sidebar p {
     font-size: 0.9rem;
     margin-bottom: -2px;
     /* padding-left: 10px;  */
-  }
+}
 
-.twitter-timeline {
-  data-link-color: #444;
-  data-chrome: "noborders transparent";
-  height: 100%; }
+.menu_item {
+    display: inline-block; 
+}
 
-#flickr_badge_source_txt {
-  padding: 0;
-  font: 11px Arial, Helvetica, Sans serif;
-  color: #666666; }
-
-#flickr_badge_icon {
-  display: block !important;
-  margin: 0 !important;
-  border: 1px solid black !important; }
-
-#flickr_icon_td {
-  padding: 0 5px 0 0 !important; }
-
-.flickr_badge_image {
-  text-align: center !important; }
-  /*.flickr_badge_image img {*/
-    /*border-radius: 5px; }*/
-
-#flickr_www {
-  display: block;
-  padding: 0 10px 0 10px !important;
-  font: 11px Arial, Helvetica, Sans serif !important;
-  color: #3993ff !important; }
-
-#flickr_badge_uber_wrapper a:hover,
-#flickr_badge_uber_wrapper a:link,
-#flickr_badge_uber_wrapper a:active,
-#flickr_badge_uber_wrapper a:visited {
-  text-decoration: none !important;
-  background: inherit !important;
-  color: #FFFFFF; }
-
-#flickr_badge_source {
-  padding: 0 !important;
-  font: 11px Arial, Helvetica, Sans serif !important;
-  color: #666666 !important; }
-
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 300;
-  font-size: 1.0rem;
-  color: #666666;
-  text-decoration: none;
-  text-align: justify;
-  background-color: white; }
+.roundPhotoTh {
+    width: 575px;
+    height: 165px;
+    object-fit: cover;
+}
 
 .background {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  margin: 0 auto;
-  z-index: -999; }
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 0 auto;
+    z-index: -999; 
+}
 
-#wrapper {
-  /* width: 905px; */
-  width: 600px;
-  margin: 0 auto;
-  z-index: 100; }
+#main-wrapper {
+    /* width: 905px; */
+    width: 600px;
+    margin: 0 auto;
+    z-index: 100; 
+}
 
 .content {
-  width: 575px; }
-  .content p img:not(.icon) {
-    max-width: 575px; }
-  .content .item {
+    width: 575px; 
+}
+.content p img:not(.icon) {
+    max-width: 575px; 
+}
+
+.content .item {
     transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1);
     -webkit-transform: translate(0, 20%);
     -webkit-transition: opacity 70 ms ease-in-out;
-    -webkit-opacity: 0; }
-    .content .item.is-active {
-      -webkit-transform: translate(0, 0);
-      -webkit-opacity: 1; }
-    .content .item:hover {
-      -webkit-opacity: 0.6; }
-    .content .item p {
-      font-size: 0.9rem;
-      margin-top: 0px; }
-  .content .video-container {
+    -webkit-opacity: 0; 
+}
+.content .item.is-active {
+    -webkit-transform: translate(0, 0);
+    -webkit-opacity: 1; 
+}
+.content .item:hover {
+    -webkit-opacity: 0.6; 
+}
+.content .item p {
+    font-size: 0.9rem;
+    margin-top: 0px; 
+}
+.content .video-container {
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px;
     height: 0;
-    overflow: hidden; }
-    .content .video-container iframe, .content .video-container object, .content .video-container embed {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%; }
-  .content #myslides {
+    overflow: hidden; 
+}
+.content .video-container iframe, .content .video-container object, .content .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+}
+
+.content #myslides {
     /*border-radius: 10px;*/
     position: relative;
     margin: 0 auto;
-    transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1); }
-    .content #myslides .roundPhoto {
-      /*border-radius: 10px;*/
-      position: absolute;
-      left: 0;
-      -webkit-transition: opacity 70ms ease-in-out;
-      -webkit-opacity: 0; }
-      .content #myslides .roundPhoto.roundPhotoFront {
-        -webkit-opacity: 1; }
+    transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1); 
+}
+.content #myslides .roundPhoto {
+    /*border-radius: 10px;*/
+    position: absolute;
+    left: 0;
+    -webkit-transition: opacity 70ms ease-in-out;
+    -webkit-opacity: 0; 
+}
+.content #myslides .roundPhoto.roundPhotoFront {
+    -webkit-opacity: 1; 
+}
 /*  .content .roundPhotoTh {
     border-radius: 7px; }*/
-  .content .cita {
+.content .cita {
     width: 575px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 200;
     font-size: 1.0rem;
     text-align: right;
-    color: #666666; }
-  .content a {
+    color: #666666; 
+}
+.content a {
     font-style: bold;
     font-weight: 400;
     color: #333;
-    text-decoration: none; }
-  .content a:hover {
-    color: #2222; }
+    text-decoration: none; 
+}
+.content a:hover {
+    color: #2222; 
+}
 
 footer {
   clear: both;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 0.7rem;
   font-weight: 200;
-  text-align: right;
-  color: #222222; }
-  footer img {
-    position: fixed; }
+  text-align: center;
+  color: #222222; 
+}
+footer img {
+    position: fixed; 
+}
 
 @media only screen and (max-width: 875px) {
-  #sidebar {
-    top: -70px; }
+    #sidebar {
+        top: -70px; 
+    }
 
-  #wrapper {
-    width: 100%; }
+    #main-wrapper {
+        width: 100%; 
+    }
 
-  .content {
-    width: 100%; }
+    .content {
+        width: 100%; 
+    }
 
-  .cita {
-    width: 100%; } }
+    .cita {
+        width: 100%; 
+    } 
+}
+
 /* styles for mobile browsers smaller than 480px; (iPhone) */
 @media only screen and (max-device-width: 480px) {
-  .content p img:not(.icon) {
-    width: 100%; }
+    body {
+        font-size: 1.8rem; 
+    }
+    
+    #menu_text {
+        padding-top: 26px;
+        margin-bottom: 5px;
+        font-size: 2.3rem; 
+    }
 
-  #menu_text {
-    padding-top: 26px;
-    margin-bottom: 5px;
-    font-size: 2.3rem; }
+    #sidebar {
+        transform: scale(2);
+        top: -100px;
+        left: -60px; 
+    }
 
-  #wrapper {
-      width: 100%; }
+    #main-wrapper {
+        width: 100%; 
+    }
 
-  #sidebar {
-    transform: scale(2);
-    top: -100px;
-    left: -60px; }
+    .content p img:not(.icon) {
+        max-width: 100%; 
+    }
 
-  .content p img:not(.icon) {
-      max-width: 100%; }
+    /* #main-wrapper {
+        width: 100%;
+        margin: 0.02%; 
+    } */
 
-  /* #wrapper {
-    width: 100%;
-    margin: 0.02%; } */
+    .content p img:not(.icon) {
+        width: 100%; 
+    }
+    
 
-  body {
-    font-size: 1.8rem; }
+    .content {
+        width: 100%; 
+    }
 
-  .content {
-    width: 100%; }
+    .cita {
+        width: 100%; 
+    }
 
-  .cita {
-    width: 100%; }
-
-  .roundPhoto {
-    width: 100%;
+    .roundPhoto {
+        width: 100%;
     /*border-radius: 30px; */
-  }
+    }
 
-  .roundPhotoTh {
-    width: 100%;
+    .roundPhotoTh {
+        width: 100%;
     /*border-radius: 15px; */
-    } }
+    } 
+}
+
 @media only screen and (device-width: 768px) {
-  /* default iPad screens */ }
+  /* default iPad screens */ 
+}
+
 /* different techniques for iPad screening */
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
-  /* For portrait layouts only */ }
+  /* For portrait layouts only */ 
+}
+
 @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: landscape) {
-  /* For landscape layouts only */ }
+  /* For landscape layouts only */ 
+}

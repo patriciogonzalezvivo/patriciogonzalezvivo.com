@@ -24,7 +24,7 @@
 	</head>
 
 	<body>
-		<div id="wrapper">
+		<div id="main-wrapper">
 
 		<?php include("../../../menu.php");?>
 

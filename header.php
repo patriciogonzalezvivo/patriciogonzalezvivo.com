@@ -28,6 +28,6 @@ echo '
 	</head>
 
 	<body>
-		<div id="wrapper">
+		<div id="main-wrapper">
 	';
 ?>

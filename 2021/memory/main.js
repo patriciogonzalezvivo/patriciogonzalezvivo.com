@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('resize-btn');
     if (!btn) return;
 
-    const wrapper = document.getElementById('wasm-wrapper');
+    const wrapper = document.getElementById('wrapper');
     let isFullscreen = false;
 
     btn.addEventListener('click', () => {

@@ -28,8 +28,8 @@ body.windowed-mode {
     -webkit-touch-callout: none;
 } */
 
-/* wasm-Wrapper */
-#wasm-wrapper {
+/* wrapper */
+#wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -39,22 +39,22 @@ body.windowed-mode {
 }
 
 /* Fullscreen State */
-#wasm-wrapper.fullscreen {
+#wrapper.fullscreen {
     width: 100vw;
     height: 100vh;
 }
 
-#wasm-wrapper.fullscreen .frame {
+#wrapper.fullscreen .frame {
     display: none;
 }
 
 /* Windowed State */
-#wasm-wrapper.windowed {
+#wrapper.windowed {
     width: 516px;
     height: 810px;
 }
 
-#wasm-wrapper.windowed .frame {
+#wrapper.windowed .frame {
     position: absolute;
     top: 0;
     left: 0;
@@ -64,11 +64,11 @@ body.windowed-mode {
     display: block;
 }
 
-#wasm-wrapper.windowed #frame-back {
+#wrapper.windowed #frame-back {
     z-index: 0;
 }
 
-#wasm-wrapper.windowed #frame-front {
+#wrapper.windowed #frame-front {
     z-index: 2;
 }
 
@@ -99,7 +99,7 @@ body.windowed-mode {
 
 /* div.emscripten { text-align: center; } */
 
-#wasm-wrapper.windowed canvas.emscripten {
+#wrapper.windowed canvas.emscripten {
     width: 424px;
     height: 733px;
     margin-left: 2px;
@@ -206,7 +206,7 @@ body.windowed-mode #info {
 
 
 /* Desktop Windowed Mode Logic */
-body.windowed-mode #wasm-wrapper.windowed {
+body.windowed-mode #wrapper.windowed {
     position: relative;
     top: 0;
     left: 50%;
@@ -233,7 +233,7 @@ body.windowed-mode #longer-info {
         min-height: 100vh;
     }
 
-    body.windowed-mode #wasm-wrapper.windowed {
+    body.windowed-mode #wrapper.windowed {
         position: relative;
         top: 0;
         left: 0;
@@ -245,13 +245,13 @@ body.windowed-mode #longer-info {
     }
 
     /* Use relative positioning for the background frame to establish height without aspect-ratio */
-    #wasm-wrapper.windowed #frame-back {
+    #wrapper.windowed #frame-back {
         position: relative;
         width: 100%;
         height: auto;
     }
 
-    #wasm-wrapper.windowed canvas.emscripten {
+    #wrapper.windowed canvas.emscripten {
         width: 81.7%;
         height: 89.8%;
         margin: 0;
@@ -265,12 +265,23 @@ body.windowed-mode #longer-info {
         width: 100%;
         max-width: 500px;
         margin: 20px auto;
-        padding: 0 20px 40px 20px;
     }
 
     body.windowed-mode #longer-info {
         max-width: 500px;
-        padding: 0 20px 40px 20px;
     }
 }
 
+@media only screen and (max-device-width: 480px) {
+    #menu_text {
+        padding-top: 66px;
+        /* margin-bottom: unset; */
+        font-size: 1.0rem; 
+    }
+
+    #sidebar {
+        transform: scale(1);
+        top: -120px;
+        left: -2px;
+    }
+}

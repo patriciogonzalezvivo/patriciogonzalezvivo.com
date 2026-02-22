@@ -29,7 +29,7 @@ body.windowed-mode {
 } */
 
 /* Wrapper */
-#weaver-wrapper {
+#wrapper {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -39,22 +39,22 @@ body.windowed-mode {
 }
 
 /* Fullscreen State */
-#weaver-wrapper.fullscreen {
+#wrapper.fullscreen {
     width: 100vw;
     height: 100vh;
 }
 
-#weaver-wrapper.fullscreen .frame {
+#wrapper.fullscreen .frame {
     display: none;
 }
 
 /* Windowed State */
-#weaver-wrapper.windowed {
+#wrapper.windowed {
     width: 516px;
     height: 810px;
 }
 
-#weaver-wrapper.windowed .frame {
+#wrapper.windowed .frame {
     position: absolute;
     top: 0;
     left: 0;
@@ -64,11 +64,11 @@ body.windowed-mode {
     display: block;
 }
 
-#weaver-wrapper.windowed #frame-back {
+#wrapper.windowed #frame-back {
     z-index: 0;
 }
 
-#weaver-wrapper.windowed #frame-front {
+#wrapper.windowed #frame-front {
     z-index: 2;
 }
 
@@ -99,7 +99,7 @@ body.windowed-mode {
 
 /* div.emscripten { text-align: center; } */
 
-#weaver-wrapper.windowed canvas.emscripten {
+#wrapper.windowed canvas.emscripten {
     width: 424px;
     height: 733px;
     margin-left: 2px;
@@ -207,7 +207,7 @@ body.windowed-mode #info {
 
 
 /* Desktop Windowed Mode Logic */
-body.windowed-mode #weaver-wrapper.windowed {
+body.windowed-mode #wrapper.windowed {
     position: relative;
     top: 0;
     left: 50%;
@@ -234,7 +234,7 @@ body.windowed-mode #longer-info {
         min-height: 100vh;
     }
 
-    body.windowed-mode #weaver-wrapper.windowed {
+    body.windowed-mode #wrapper.windowed {
         position: relative;
         top: 0;
         left: 0;
@@ -246,13 +246,13 @@ body.windowed-mode #longer-info {
     }
 
     /* Use relative positioning for the background frame to establish height without aspect-ratio */
-    #weaver-wrapper.windowed #frame-back {
+    #wrapper.windowed #frame-back {
         position: relative;
         width: 100%;
         height: auto;
     }
 
-    #weaver-wrapper.windowed canvas.emscripten {
+    #wrapper.windowed canvas.emscripten {
         width: 81.7%;
         height: 89.8%;
         margin: 0;

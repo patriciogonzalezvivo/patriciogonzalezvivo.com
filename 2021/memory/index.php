@@ -45,11 +45,11 @@
   </head>
   <body class="windowed-mode">
 
-	<div id="wrapper">
+	<div id="main-wrapper">
 	<?php include("../../menu.php");?>
 	</div>
 
-    <div id="wasm-wrapper" class="windowed">
+    <div id="wrapper" class="windowed">
       <img id="frame-back" class="frame" src="frame_background.png" alt="">
       <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
       <img id="frame-front" class="frame" src="frame_refleccion.png" alt="">
