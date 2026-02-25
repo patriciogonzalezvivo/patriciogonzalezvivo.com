@@ -240,10 +240,10 @@ iframe {
 
 body.windowed-mode #longer-info {
     /* opacity: 1; */
-    pointer-events: auto;
     position: relative;
+    z-index: 1;
+    pointer-events: auto;
 }
-
  
 .video-container {
     position: relative;
