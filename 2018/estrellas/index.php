@@ -6,11 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:image" content="thumb.gif" />
         <meta property="og:title" content="Estrellas" />
-        <meta property='og:description' content=''/>
-        <meta property='og:image:width' content='512'/>
-        <meta property='og:image:height' content='512'/>
+        <meta property='og:description' content='Estrellas is an instrument for connection, presence and empathy through watching the sky together.'/>
         <meta property='og:site_name' content='Patricio Gonzalez Vivo'/>
-
         <meta name="description" content="Estrellas is an instrument for connection, presence and empathy through watching the sky together." />
         <meta name="keywords" content="Estrellas, Patricio Gonzalez Vivo" />
         <meta name="author" content="Patricio Gonzalez Vivo" />
@@ -39,15 +36,23 @@
     </head>
     <body class="windowed-mode">
         
-        <div id="main-wrapper">
         <?php include("../../menu.php");?>
-        </div>
 
-        <div id="wrapper" class="windowed">
-            <img id="frame-back" class="frame" src="frame_background.png" alt="">
-            <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
-            <img id="frame-front" class="frame" src="frame_refleccion.png" alt="">
-        </div>
+        <article class="item">
+            <div class="item-image">
+                <div id="wrapper" class="windowed">
+                    <img id="frame-back" class="frame" src="frame_background.png" alt="">
+                    <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
+                    <img id="frame-front" class="frame" src="frame_refleccion.png" alt="">
+                </div>
+            </div>
+            <div class="item-info">
+                <span class="item-title">Estrellas</span>
+                <span class="item-year">2018</span>
+                <span class="item-medium">Custom real-time software</span>
+            </div>
+        </article>
+
         <div id="ui">
             <a id="frm-btn" href="https://frm.fm/a/patricio_gonzalez_vivo/estrellas" target="_blank">
                 <img src="frm_logo.png" alt="FRM Logo">
@@ -56,9 +61,9 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
             </button>
         </div>
-        <div id="info">
-            <h1>Estrellas</h1>
-            <h2>by <a href="https://patriciogonzalezvivo.com">Patricio Gonzalez Vivo</a></h2>
+
+
+        <div id="longer-info">
             <p>In collaboration with <a href="https://www.jenlowe.net/">Jen Lowe</a></p>
             <p>The stars have served as silent witnesses, teaching us about cycles, orientation, and transcendence. This real-time installation functions as a window onto the cosmos, presenting an accurate, live view of stars and celestial bodies as they exist in the present moment. By situating astronomical data within the here and now, the work seeks to restore an awareness of time as an experiential landscape rather than an abstract measure. It offers a contemporary reflection on an earlier epoch, when humanity looked to the sky for knowledge, meaning, and guidance.</p>
         </div>

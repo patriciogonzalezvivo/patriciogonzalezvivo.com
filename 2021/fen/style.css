@@ -28,19 +28,7 @@
     .item {
         flex-direction: column;
     }
-    .item-image {
-        margin-bottom: 20px;
-    }
 }
-
-/* * {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-} */
 
 /* Wrapper */
 #wrapper {
@@ -93,59 +81,17 @@ canvas.threejs {
     z-index: 1;
 }
 
-
-/* Longer Info */
-/* #longer-info {
-    position: relative;
-    opacity: 1;
-    pointer-events: auto;
-    transition: opacity 0.3s ease-in-out;
-    width: 100%;
-    max-width: 690px;
-    margin: 0 auto;
-    padding-top: 90vh;
-    padding-bottom: 50px;
-    z-index: 0;
-} */
-
-
-/* #longer-info p {
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    color: #333;
-} */
-
-
 @media (max-width: 800px) {
     #wrapper {
         position: relative;
         top: 0;
         left: 0;
-        transform: none;
-        width: 100vw;
-        /* height: 80vh; */
+        /* transform: none; */
+        /* width: 100vw; */
         top: -258px;
         margin: 0;
         z-index: 200;
     }
-    
-    /* #info {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        width: 100%;
-        max-width: 500px;
-        margin: 20px auto;
-        padding: 0 20px 0px 20px;
-    }
-    
-    #longer-info {
-        padding-top: 0;
-        max-width: 500px;
-        padding: 0 20px 40px 20px;
-    } */
 }
 
 @media only screen and (max-device-width: 480px) {

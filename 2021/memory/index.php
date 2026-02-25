@@ -66,11 +66,6 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
             </button>
         </div>
-        <!-- <div id="info">
-            <h1>Memory Studies</h1>
-            <p>This series of real-time generative artworks explores the dynamics of digital memory through the interplay of sorting and scrambling algorithms. Developed using C++ and GLSL, the works operate as autonomous systems in which allocated memory is continuously loaded, ordered, and blurred. During these moments of heightened structural vulnerability, the data undergoes gradual corruption and degradation, reflecting the instability inherent in processes of preservation and recall.</p>
-            <p>As the system approaches a threshold of maximum order or complete entropy, the memory space is released and reallocated, initiating a new cycle. This perpetual loop positions memory not as a static archive, but as a temporal, fragile process shaped by repetition, erosion, and renewal.</p>
-        </div> -->
         <div id="longer-info">
             <p>This series of real-time generative artworks explores the dynamics of digital memory through the interplay of sorting and scrambling algorithms. Developed using C++ and GLSL, the works operate as autonomous systems in which allocated memory is continuously loaded, ordered, and blurred. During these moments of heightened structural vulnerability, the data undergoes gradual corruption and degradation, reflecting the instability inherent in processes of preservation and recall.</p>
             <p>As the system approaches a threshold of maximum order or complete entropy, the memory space is released and reallocated, initiating a new cycle. This perpetual loop positions memory not as a static archive, but as a temporal, fragile process shaped by repetition, erosion, and renewal.</p>

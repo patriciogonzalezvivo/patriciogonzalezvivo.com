@@ -48,7 +48,7 @@
                 <div id="wrapper" class="windowed">
                     <img id="frame-back" class="frame" src="frame_background.png" alt="">
                         <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1 width="516" height="810"></canvas>
-                    <!-- <img id="frame-front" class="frame" src="frame_refleccion.png" alt=""> -->
+                    <img id="frame-front" class="frame" src="frame_refleccion.png" alt="">
                 </div>
             </div>
             <div class="item-info">
@@ -59,8 +59,6 @@
             </div>
         </article>
 
-
-        
         <div id="ui">
             <button id="bm-btn">
                 <a id="frm-btn" href="https://app.brightmoments.io/collections/blink" target="_blank">

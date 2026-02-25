@@ -98,74 +98,6 @@ canvas.emscripten {
     z-index: 1;
 }
 
-/* UI */
-#ui {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 100;
-}
-
-#resize-btn {
-    background: rgba(0,0,0,0.5);
-    border: 1px solid white;
-    color: white;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    outline: none;
-    transition: background 0.2s;
-}
-
-#resize-btn:hover {
-    background: rgba(0,0,0,0.8);
-}
-
-/* Info */
-#info {
-    /* position: fixed; */
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    width: 300px;
-    font-family: inherit;
-    color: black;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-    z-index: 10;
-}
-
-body.windowed-mode #info {
-    opacity: 1;
-    pointer-events: auto;
-}
-
-#info h1 {
-    font-size: 24px;
-    margin: 0 0 10px 0;
-    text-transform: uppercase;
-}
-
-#info h2 {
-    font-size: 14px;
-    margin: 0 0 20px 0;
-    font-weight: normal;
-    color: #666;
-}
-
-#info p {
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    color: #333;
-}
-
 /* Desktop Windowed Mode Logic */
 body.windowed-mode #wrapper.windowed {
     position: relative;
@@ -213,20 +145,40 @@ body.windowed-mode #info {
         margin: 0;
     }
 
-    body.windowed-mode #info {
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        width: 100%;
-        max-width: 500px;
-        margin: 20px auto;
-    }
-
     body.windowed-mode #longer-info {
         max-width: 500px;
     }
 }
+
+
+/* UI */
+#ui {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+#resize-btn {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid white;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.2s;
+}
+
+#resize-btn:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+/* Menu */
 
 @media only screen and (max-device-width: 480px) {
     #menu_text {

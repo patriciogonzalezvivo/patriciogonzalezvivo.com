@@ -135,7 +135,7 @@
         </article>
         <article class="item">
             <div class="item-image">
-                <a href="https://patriciogonzalezvivo.github.io/Luna"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
+                <a href="2017/luna/"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">LUNA</span>
