@@ -53,7 +53,7 @@
                 <!-- <p class="item-description">Exploration between time, perception and emotional state.</p> -->
             </div>
         </article>
-        <article class="item">
+        <!-- <article class="item">
             <div class="item-image">
                 <a href="https://objkt.com/collection/KT1CkDFaHiH8UtZhyR2EvoqhihsntjSikvt9"><img class="roundPhotoTh" src="2021/arcana/thumb.gif" alt="PixelFlair ARCANA"/></a>
             </div>
@@ -61,9 +61,9 @@
                 <span class="item-title">ARCANA</span>
                 <span class="item-year">2021</span>
                 <span class="item-medium">Custom real-time software</span>
-                <!-- <p class="item-description">Real-time NFT based on the 22 Arcana of PixelSpirit Tarot Deck.</p> -->
+                <p class="item-description">Real-time NFT based on the 22 Arcana of PixelSpirit Tarot Deck.</p>
             </div>
-        </article>
+        </article> -->
         <article class="item">
             <div class="item-image">
                 <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a>
