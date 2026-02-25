@@ -7,6 +7,7 @@ echo '
 	<head>
 		<title>Patricio Gonzalez Vivo</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="keywords" content="digital, art, creative coding, shaders, maps, clocks, lenses, alchemy, time and space" />
 		<meta name="description" content="Patricio Gonzalez Vivo multidisciplinary artist working across traditional and digital mediums. In his work, he pursues awareness and self-discovery through themes like celestial bodies, esoteric symbolism, clocks and maps." />
 
