@@ -408,7 +408,7 @@ footer {
 /* Mobile phones - enhanced touch and readability */
 @media (max-width: 480px) {
     body {
-        font-size: 1.0rem;
+        font-size: 0.75rem;
     }
 
     #menu_text li {
@@ -435,6 +435,10 @@ footer {
         justify-content: center;
     }
 
+    #sidebar p {
+        font-size: 0.75rem;
+    }
+
     #main-wrapper {
         padding: 0 10px;
     }
@@ -443,25 +447,29 @@ footer {
         margin-bottom: 2em;
     }
 
+    .content .item {
+        font-size: 0.675rem;
+    }
+
     #longer-info {
         padding: 0 10px 30px 10px;
     }
-/* 
+
     #longer-info p {
-        font-size: 1rem;
+        font-size: 0.75rem;
         line-height: 1.7;
     }
 
     #longer-info h2 {
-        font-size: 1.5em;
-    } */
+        font-size: 1.125em;
+    }
 
-    /* footer {
-        font-size: 0.85em;
+    footer {
+        font-size: 0.6em;
         padding: 15px 10px;
     }
 
     .cita {
-        font-size: 0.9rem;
-    } */
+        font-size: 0.75rem;
+    }
 }
