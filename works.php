@@ -246,7 +246,6 @@
                 <span class="item-title">FlatLand</span>
                 <span class="item-year">2012</span>
                 <span class="item-medium">Custom software</span>
-                <!-- <p class="item-description">Collaboration with <a href="http://thesystemis.com/" target="_blank">Zach Lieberman</a> for New Cinema Hackathon at EyeBeam</p> -->
             </div>
         </article>
         <article class="item">
@@ -260,7 +259,7 @@
                 <!-- <p class="item-description">Realtime ecosystem simulator</p> -->
             </div>
         </article>
-        <article class="item">
+        <!-- <article class="item">
             <div class="item-image">
                 <a href="https://vimeo.com/19198053" target="_blank"><img class="roundPhotoTh" src="2011/liquidkinect/thumb.jpg" alt="Liquid Kinect"/></a>
             </div>
@@ -268,9 +267,8 @@
                 <span class="item-title">Liquid Kinect</span>
                 <span class="item-year">2011</span>
                 <span class="item-medium">Custom real-time software</span>
-                <!-- <p class="item-description">Kinect + Particle System + GLSL Shaders</p> -->
             </div>
-        </article>
+        </article> -->
         <article class="item">
             <div class="item-image">
                 <a href="2010/communitas/"><img class="roundPhotoTh" src="2010/communitas/thumb.jpg" alt="Communitas"/></a>
