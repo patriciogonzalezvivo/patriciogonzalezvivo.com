@@ -1,5 +1,5 @@
 
-![IMG](images/about_picture.jpg)
+<!-- ![IMG](images/about_picture.jpg) -->
 
 **Patricio Gonzalez Vivo** (Buenos Aires, 1982) is a multidisciplinary artist whose practice spans traditional and digital media. Now based in the United States, he explores awareness, perception, and self-discovery through motifs such as celestial bodies, esoteric symbolism, temporal systems, and cartographic forms. His work weaves together the poetic and the procedural, revealing hidden structures behind the ways we measure and make sense of the world.
 
