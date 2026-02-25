@@ -202,10 +202,9 @@
                 <span class="item-title">SKYLINES</span>
                 <span class="item-year">2014</span>
                 <span class="item-medium">Mixed Media</span>
-                <!-- <p class="item-description">Three projects about awareness and tools for seeing</p> -->
             </div>
         </article>
-        <article class="item">
+        <!-- <article class="item">
             <div class="item-image">
                 <a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.gif" alt="PointCloudCity"/></a>
             </div>
@@ -213,9 +212,8 @@
                 <span class="item-title">Point Cloud City</span>
                 <span class="item-year">2014</span>
                 <span class="item-medium">Data Visualization</span>
-                <!-- <p class="item-description">Private data landscapes of public places</p> -->
             </div>
-        </article>
+        </article> -->
         <article class="item">
             <div class="item-image">
                 <a href="https://cloudsdocumentary.com"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
@@ -224,10 +222,9 @@
                 <span class="item-title">CLOUDS Documentary</span>
                 <span class="item-year">2013</span>
                 <span class="item-medium">Documentary / Interactive</span>
-                <!-- <p class="item-description">Lead visual systems developer</p> -->
             </div>
         </article>
-        <article class="item">
+        <!-- <article class="item">
             <div class="item-image">
                 <a href="2012/codemology/"><img class="roundPhotoTh" src="2012/codemology/thumb.jpg" alt="CodeMology"/></a>
             </div>
@@ -235,10 +232,9 @@
                 <span class="item-title">Codemology</span>
                 <span class="item-year">2012</span>
                 <span class="item-medium">Custom real-time software</span>
-                <!-- <p class="item-description">Explorations between code and alquemy</p> -->
             </div>
-        </article>
-        <article class="item">
+        </article> -->
+        <!-- <article class="item">
             <div class="item-image">
                 <a href="2012/flatland/"><img class="roundPhotoTh" src="2012/flatland/thumb.jpg" alt="FlatLand"/></a>
             </div>
@@ -247,7 +243,7 @@
                 <span class="item-year">2012</span>
                 <span class="item-medium">Custom software</span>
             </div>
-        </article>
+        </article> -->
         <article class="item">
             <div class="item-image">
                 <a href="2011/efectomariposa/"><img class="roundPhotoTh" src="2011/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
