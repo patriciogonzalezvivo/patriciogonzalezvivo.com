@@ -164,7 +164,7 @@
                 <span class="item-medium">Custom real-time map</span>
             </div>
         </article> -->
-        <article class="item">
+        <!-- <article class="item">
             <div class="item-image">
                 <a href="https://patriciogonzalezvivo.github.io/RandomCity/"><img class="roundPhotoTh" src="2015/RandomCity/thumb.gif" alt="RandomCity"/></a>
             </div>
@@ -173,7 +173,7 @@
                 <span class="item-year">2015</span>
                 <span class="item-medium">Generative Map</span>
             </div>
-        </article>
+        </article> -->
         <article class="item">
             <div class="item-image">
                 <a href="http://thebookofshaders.com/"><img class="roundPhotoTh" src="https://thebookofshaders.com/thumb.jpg" alt="TheBookOfShaders"/></a>
@@ -229,7 +229,7 @@
         </article>
         <article class="item">
             <div class="item-image">
-                <a href="https://vimeo.com/54093238" target="_blank"><img class="roundPhotoTh" src="2012/codemology/thumb.jpg" alt="CodeMology"/></a>
+                <a href="2012/codemology/"><img class="roundPhotoTh" src="2012/codemology/thumb.jpg" alt="CodeMology"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">Codemology</span>
@@ -240,7 +240,7 @@
         </article>
         <article class="item">
             <div class="item-image">
-                <a href="https://github.com/patriciogonzalezvivo/flatland" target="_blank"><img class="roundPhotoTh" src="2012/flatland/thumb.jpg" alt="FlatLand"/></a>
+                <a href="2012/flatland/"><img class="roundPhotoTh" src="2012/flatland/thumb.jpg" alt="FlatLand"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">FlatLand</span>
