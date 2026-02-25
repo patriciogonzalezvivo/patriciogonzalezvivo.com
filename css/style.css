@@ -326,7 +326,7 @@ footer {
     }
 
     #menu_text {
-        padding-top: 40px;
+        padding-top: 43px;
     }
 
     #menu_text li {
@@ -407,10 +407,6 @@ footer {
 }
 /* Mobile phones - enhanced touch and readability */
 @media (max-width: 480px) {
-    body {
-        font-size: 0.75rem;
-    }
-
     #menu_text li {
         padding-left: 5px;
     }
@@ -435,10 +431,6 @@ footer {
         justify-content: center;
     }
 
-    #sidebar p {
-        font-size: 0.75rem;
-    }
-
     #main-wrapper {
         padding: 0 10px;
     }
@@ -456,7 +448,6 @@ footer {
     }
 
     #longer-info p {
-        font-size: 0.75rem;
         line-height: 1.7;
     }
 
