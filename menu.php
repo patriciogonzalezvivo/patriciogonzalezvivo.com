@@ -7,7 +7,7 @@
 			<nav id="menu_text">
 				<ul>
 					<li class="menu_item"><a href="/about.php"> Bio </a></li>
-					<li class="menu_item"><a href="/index.php"> Works </a></li>
+					<li class="menu_item"><a href="/works.php"> Works </a></li>
 					<li class="menu_item"><a href="/tools.php"> Tools </a></li>
 					<li class="menu_item"><a href="/teaching.php"> Teaching </a></li>
 				</ul>

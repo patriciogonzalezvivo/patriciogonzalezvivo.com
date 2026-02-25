@@ -1,15 +1,34 @@
-@media (min-width: 768px) {
-    .item {
-        gap: 0px;
-    }
-    .item-info {
-        bottom: -692px;
-        position: relative;
-        z-index: -1;
-    }
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+    
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+    font-family: 'Lucida Console', Monaco, monospace;
+    transition: background 0.3s ease-in-out;
 }
 
-/* wrapper */
+body.windowed-mode {
+    background: white;
+    overflow-y: auto;
+    height: auto;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* Wrapper */
 #wrapper {
     position: absolute;
     top: 50%;
@@ -78,7 +97,7 @@
     -ms-interpolation-mode: nearest-neighbor;
 }
 
-/* div.emscripten { text-align: center; } */
+div.emscripten { text-align: center; }
 
 #wrapper.windowed canvas.emscripten {
     width: 424px;
@@ -106,6 +125,30 @@ canvas.emscripten {
     z-index: 100;
 }
 
+
+#frm-btn {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#frm-btn:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+#frm-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
 #resize-btn {
     background: rgba(0,0,0,0.5);
     border: 1px solid white;
@@ -125,40 +168,10 @@ canvas.emscripten {
     background: rgba(0,0,0,0.8);
 }
 
-#bm-btn {
-    background: rgba(0,0,0,0.5);
-    border: 1px solid white;
-    color: white;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    outline: none;
-    transition: background 0.2s;
-    margin-bottom: 10px;
-}
-
-#bm-btn a {
-    color: inherit;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-#bm-btn:hover {
-    background: rgba(0,0,0,0.8);
-}
-
-
 /* Info */
 #info {
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     top: 50%;
     left: 20px;
     transform: translateY(-50%);
@@ -196,6 +209,25 @@ body.windowed-mode #info {
     color: #333;
 }
 
+/* Longer Info */
+#longer-info {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    width: 100%;
+    max-width: 690px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    /* text-align: center; */
+}
+
+#longer-info p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #333;
+}
+
 /* Desktop Windowed Mode Logic */
 body.windowed-mode #wrapper.windowed {
     position: relative;
@@ -211,7 +243,11 @@ body.windowed-mode #info {
     pointer-events: auto;
 }
 
-
+body.windowed-mode #longer-info {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+}
 
 @media (max-width: 800px) {
     body.windowed-mode {
@@ -231,6 +267,7 @@ body.windowed-mode #info {
         margin: 20px auto;
     }
 
+    /* Use relative positioning for the background frame to establish height without aspect-ratio */
     #wrapper.windowed #frame-back {
         position: relative;
         width: 100%;
@@ -251,30 +288,12 @@ body.windowed-mode #info {
         width: 100%;
         max-width: 500px;
         margin: 20px auto;
+        padding: 0 20px 40px 20px;
     }
 
     body.windowed-mode #longer-info {
         max-width: 500px;
+        padding: 0 20px 40px 20px;
     }
 }
 
-@media only screen and (max-device-width: 480px) {
-    #menu_text {
-        padding-top: 66px;
-        /* margin-bottom: unset; */
-        font-size: 1.0rem; 
-    }
-
-    #sidebar {
-        transform: scale(1);
-        top: -120px;
-        left: -2px;
-    }
-
-    #wrapper.windowed {
-        width: 100%;
-        max-width: 480px;
-        height: auto; 
-        margin: 20px auto;
-    }
-}

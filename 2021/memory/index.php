@@ -20,8 +20,8 @@
         <meta name="keywords" content="Memory, Digital Media, Patricio Gonzalez Vivo" />
         <meta name="author" content="Patricio Gonzalez Vivo" />
         
-        <link href="../../ico.gif" rel="shortcut icon"  />
-        <link href="../../css/style.css" rel="stylesheet" />
+        <link href="/ico.gif" rel="shortcut icon"  />
+        <link href="/css/style.css" rel="stylesheet" />
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
@@ -44,28 +44,37 @@
     </head>
     <body class="windowed-mode">
 
-        <div id="main-wrapper">
         <?php include("../../menu.php");?>
-        </div>
 
-        <div id="wrapper" class="windowed">
-            <img id="frame-back" class="frame" src="frame_background.png" alt="">
-                <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
-            <img id="frame-front" class="frame" src="frame_refleccion.png" alt="">
-        </div>
+        <article class="item">
+            <div class="item-image">
+                <div id="wrapper" class="windowed">
+                    <img id="frame-back" class="frame" src="frame_background.png" alt="">
+                        <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
+                    <img id="frame-front" class="frame" src="frame_refleccion.png" alt="">
+                </div>
+            </div>
+            <div class="item-info">
+                <span class="item-title">Memory Studies</span>
+                <span class="item-year">2021</span>
+                <span class="item-medium">Real-time Generative Art</span>
+            </div>
+        </article>
         
         <div id="ui">
             <button id="resize-btn">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
             </button>
         </div>
-            <div id="info">
+        <!-- <div id="info">
             <h1>Memory Studies</h1>
-            <h2>by <a href="https://patriciogonzalezvivo.com">Patricio Gonzalez Vivo</a></h2>
             <p>This series of real-time generative artworks explores the dynamics of digital memory through the interplay of sorting and scrambling algorithms. Developed using C++ and GLSL, the works operate as autonomous systems in which allocated memory is continuously loaded, ordered, and blurred. During these moments of heightened structural vulnerability, the data undergoes gradual corruption and degradation, reflecting the instability inherent in processes of preservation and recall.</p>
             <p>As the system approaches a threshold of maximum order or complete entropy, the memory space is released and reallocated, initiating a new cycle. This perpetual loop positions memory not as a static archive, but as a temporal, fragile process shaped by repetition, erosion, and renewal.</p>
-        </div>
+        </div> -->
         <div id="longer-info">
+            <p>This series of real-time generative artworks explores the dynamics of digital memory through the interplay of sorting and scrambling algorithms. Developed using C++ and GLSL, the works operate as autonomous systems in which allocated memory is continuously loaded, ordered, and blurred. During these moments of heightened structural vulnerability, the data undergoes gradual corruption and degradation, reflecting the instability inherent in processes of preservation and recall.</p>
+            <p>As the system approaches a threshold of maximum order or complete entropy, the memory space is released and reallocated, initiating a new cycle. This perpetual loop positions memory not as a static archive, but as a temporal, fragile process shaped by repetition, erosion, and renewal.</p>
+
             <p>Exibitions:</p>
             <ul>
                 <p>2025 - <a href="https://thenetgala.com/">NetGala</a>, New York City </p>

@@ -1,32 +1,13 @@
-/* html,
-body {
-    margin: 0;
-    padding: 0;
+@media (min-width: 768px) {
+    /* .item {
+        transform: translateX(10%);
+    } */
+    .item-info {
+        bottom: -766px;
+        position: relative;
+        z-index: -1;
+    }
 }
-    
-body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: black;
-    font-family: 'Lucida Console', Monaco, monospace;
-    transition: background 0.3s ease-in-out;
-}
-
-body.windowed-mode {
-    background: white;
-    overflow-y: auto;
-    height: auto;
-}
-
-* {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-} */
 
 /* wrapper */
 #wrapper {
@@ -185,26 +166,6 @@ body.windowed-mode #info {
     color: #333;
 }
 
-/* Longer Info */
-#longer-info {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease-in-out;
-    width: 100%;
-    max-width: 690px;
-    margin: 0 auto;
-    padding-bottom: 50px;
-    /* text-align: center; */
-}
-
-#longer-info p {
-    font-size: 14px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-
 /* Desktop Windowed Mode Logic */
 body.windowed-mode #wrapper.windowed {
     position: relative;
@@ -220,11 +181,6 @@ body.windowed-mode #info {
     pointer-events: auto;
 }
 
-body.windowed-mode #longer-info {
-    opacity: 1;
-    pointer-events: auto;
-    position: relative;
-}
 
 @media (max-width: 800px) {
     body.windowed-mode {

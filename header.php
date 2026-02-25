@@ -26,8 +26,6 @@ echo '
 		</script>
 
 	</head>
-
 	<body>
-		<div id="main-wrapper">
 	';
 ?>

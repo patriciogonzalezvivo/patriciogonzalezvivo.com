@@ -26,21 +26,27 @@
     </head>
 	<body >
 
-		<div id="main-wrapper">
 		<?php include("../../menu.php");?>
-		</div>
 
 		<!-- <link rel="stylesheet" href="./assets/index-6afbefe9.css"> -->
-		<div id="wrapper">
-			<canvas id="threejs"></canvas>
-		</div>
-		<div id="info">
-			<h1>Flight Studies</h1>
-			<h2>by <a href="https://patriciogonzalezvivo.com">Patricio Gonzalez Vivo</a></h2>
+
+		<article class="item">
+            <div class="item-image">
+                <div id="wrapper">
+					<canvas id="threejs"></canvas>
+				</div>
+            </div>
+            <div class="item-info">
+                <span class="item-title">Flight Studies</span>
+                <span class="item-year">2021</span>
+                <span class="item-medium">Red Oak, Ucycled Screen, custom real-time software</span>
+                <span class="item-dimensions">52cm x 27cm x 5.5cm</span>
+            </div>
+        </article>		
+
+		<div id="longer-info">
 			<p>Released in April 2021, Flight Studies was created as part of a coordinated NFT release uniting more than thirty-five leading digital artists in support of #CleanNFT. A movement advocating for the migration of digital art toward low-energy, environmentally responsible blockchain platforms.</p>
 			<p>Flight Studies art works are displayed on custom made digital frames, build from repurposed e-waste and reimagined as a minimalist object of contemplation.</p>
-		</div>
-		<div id="longer-info">
 			<p>The series is generated through custom GLSL shader code and takes inspiration from the pre-cinematic motion studies of Eadweard Muybridge. Algorithmically produced chromatic aberrations, synthetic rather than optical, function as both aesthetic strategy and conceptual lens. They point to attention as a double-edged force: a means of intensification and revelation, but also one of capture, extraction, and control.</p>
 			<p>More than a century after Muybridge’s investigations into motion, contemporary image-making is deeply entangled with infrastructures of consumption and resource extraction. Proof-of-work cryptocurrency systems heighten this tension, embedding ecological cost within acts of circulation and display. In Flight Studies, the gaze is subtly redirected back toward the viewer. Our appetite for images, data, and uninterrupted visual flow emerges as both generative desire and latent threat. Like birds in open flight, we often move freely while remaining unaware of the invisible systems that shape, and constrain, our possible trajectories.</p>
 
