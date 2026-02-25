@@ -28,8 +28,6 @@
 
 		<?php include("../../menu.php");?>
 
-		<!-- <link rel="stylesheet" href="./assets/index-6afbefe9.css"> -->
-
 		<article class="item">
             <div class="item-image">
                 <div id="wrapper">

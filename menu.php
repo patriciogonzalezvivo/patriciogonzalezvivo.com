@@ -21,7 +21,3 @@
 		</div>	
 	';
 ?>
-
-<!-- <li class="menu_item"><a href="/collab.php"> Collab </a></li> -->
-<!-- <a href="https://github.com/patriciogonzalezvivo" target="_blank"><img src="/images/icons/github.png" width="30" class="icon"/></a> -->
-<!-- <a href="https://objkt.com/profile/tz1NqueFctvNCQrsELm6k4N6XfwAYu5Qp5LN/createdn" target="_blank"><img src="/images/icons/hen.png" width="32" class="icon"/></a> -->

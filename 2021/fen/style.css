@@ -1,11 +1,35 @@
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.item-image {
+    flex: 1;
+    position: relative;
+    /* left: 57px; */
+    z-index: -1;
+}
+
 @media (min-width: 768px) {
     .item {
         gap: 0px;
     }
     .item-info {
-        bottom: -692px;
+        flex: 1;
         position: relative;
+        bottom: -692px;
+        left: 80px;
         z-index: -1;
+    }
+}
+
+@media (max-width: 767px) {
+    .item {
+        flex-direction: column;
+    }
+    .item-image {
+        margin-bottom: 20px;
     }
 }
 
@@ -100,7 +124,8 @@ canvas.threejs {
         left: 0;
         transform: none;
         width: 100vw;
-        height: 80vh;
+        /* height: 80vh; */
+        top: -258px;
         margin: 0;
         z-index: 200;
     }
