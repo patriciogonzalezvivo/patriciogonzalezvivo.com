@@ -6,11 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:image" content="thumb.gif" />
         <meta property="og:title" content="Orbitas" />
-        <meta property='og:description' content=''/>
-        <meta property='og:image:width' content='512'/>
-        <meta property='og:image:height' content='512'/>
+        <meta property='og:description' content='Orbitas, a living cosmic choreography'/>
+        <meta property='og:image:width' content='640'/>
+        <meta property='og:image:height' content='179'/>
         <meta property='og:site_name' content='Patricio Gonzalez Vivo'/>
-
         <meta name="description" content="Orbitas, a living cosmic choreography" />
         <meta name="keywords" content="Orbitas, Patricio Gonzalez Vivo" />
         <meta name="author" content="Patricio Gonzalez Vivo" />
@@ -39,15 +38,25 @@
     </head>
     <body class="windowed-mode">
         
-        <div id="main-wrapper">
-            <?php include("../../menu.php");?>
-        </div>
+        <?php include("../../menu.php");?>
 
-        <div id="wrapper" class="windowed">
-            <img id="frame-back" class="frame" src="frame_background.png" alt="">
-                <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
-            <img id="frame-front" class="frame" src="frame_refleccion.png" alt="">
-        </div>
+
+        
+        <article class="item">
+            <div class="item-image">
+                <div id="wrapper" class="windowed">
+                    <img id="frame-back" class="frame" src="frame_background.png" alt="">
+                        <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
+                    <img id="frame-front" class="frame" src="frame_refleccion.png" alt="">
+                </div>
+            </div>
+            <div class="item-info">
+                <span class="item-title">Estrellas</span>
+                <span class="item-year">2018</span>
+                <span class="item-medium">Custom real-time software</span>
+            </div>
+        </article>
+
         <div id="ui">
             <a id="frm-btn" href="https://frm.fm/a/patricio_gonzalez_vivo/orbitas" target="_blank">
                 <img src="frm_logo.png" alt="FRM Logo">
@@ -56,14 +65,11 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
             </button>
         </div>
-        <div id="info">
-            <h1>Orbitas v2</h1>
-            <h2>by <a href="https://patriciogonzalezvivo.com">Patricio Gonzalez Vivo</a></h2>
+
+        <div id="longer-info">
             <p>Orbitas is a living cosmogram, a real-time simulation where planets and moons inscribe their movements into space. As the camera drifts through the solar system, luminous trails unfold, tracing celestial paths accumulated since the beginning of the year, turning motion into memory.</p>
             <p>Earth’s tilt and passage through the months align with distant stars and zodiac constellations, while the Moon cycles through its phases, breathing rhythm into the work. Time expands, scale dissolves, and the familiar calendar gives way to a cosmic one.</p>
             <p>Both instrument and invocation, Orbitas invites contemplation of the great celestial dance, a quiet reminder of our place within the vast, slow choreography of the Sun and its orbiting worlds.</p>
-        </div>
-        <div id="longer-info">
             <p>Exibitions:</p>
             <ul>
                 <p>2025 - Solar Biennale, at <a href="https://www.instagram.com/mudaclausanne/">Museum of Contemporary Design</a>, Switzerland</p>

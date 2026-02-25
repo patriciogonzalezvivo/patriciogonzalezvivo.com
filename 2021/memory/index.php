@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Weaver</title>
+        <title>Memory Studies</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <meta name='mobile-web-app-capable' content='yes'>
         <meta name='apple-mobile-web-app-capable' content='yes'>
@@ -13,8 +13,8 @@
         <meta property="og:locale" content="en_US" />
         <meta property="og:author" content="Patricio Gonzalez Vivo" />
         <meta property='og:description' content='by Patricio Gonzalez Vivo. Instrument for connection, presence and empathy through watching the sky together.'/>
-        <meta property='og:image:width' content='512'/>
-        <meta property='og:image:height' content='512'/>
+        <meta property='og:image:width' content='620'/>
+        <meta property='og:image:height' content='620'/>
 
         <meta name="description" content="Memory Studies, an exploration of the intersection between memory and digital media." />
         <meta name="keywords" content="Memory, Digital Media, Patricio Gonzalez Vivo" />

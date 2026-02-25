@@ -109,7 +109,6 @@ body.windowed-mode #info {
     pointer-events: auto;
 }
 
-
 @media (max-width: 800px) {
     body.windowed-mode {
         overflow-y: auto;

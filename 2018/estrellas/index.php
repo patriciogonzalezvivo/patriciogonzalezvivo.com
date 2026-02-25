@@ -6,12 +6,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="og:image" content="thumb.gif" />
         <meta property="og:title" content="Estrellas" />
+        <meta property='og:image:width' content='575'/>
+        <meta property='og:image:height' content='165'/>
         <meta property='og:description' content='Estrellas is an instrument for connection, presence and empathy through watching the sky together.'/>
         <meta property='og:site_name' content='Patricio Gonzalez Vivo'/>
         <meta name="description" content="Estrellas is an instrument for connection, presence and empathy through watching the sky together." />
         <meta name="keywords" content="Estrellas, Patricio Gonzalez Vivo" />
         <meta name="author" content="Patricio Gonzalez Vivo" />
-        
         <link href="../../ico.gif" rel="shortcut icon"  />
         <link href="../../css/style.css" rel="stylesheet" />
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic" rel="stylesheet" type="text/css">

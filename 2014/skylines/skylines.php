@@ -2,8 +2,7 @@
 <?php include("../../menu.php");?>
 <?php include("../../sidebar.php");?>
 
-	<!-- CONTENT -->
-	<section class="content">
+	<div id="longer-info">
 
 		<?php
 			include("../../parsedown/Parsedown.php");
@@ -15,6 +14,6 @@
 			echo '<p><a href="http://'.GITHUB_REPO_URL.'">Check the Git Repository</a></p>'
 		?>
 
-	</section>
+	</div>
 
 <?php include("../../footer.php"); ?>

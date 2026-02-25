@@ -1,10 +1,25 @@
 <html>
 	<head>
-		<title>Patricio Gonzalez Vivo</title>
+		<title>Flight Studies</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="keywords" content="digital, art, creative coding, shaders, maps, clocks, lenses, alchemy, time and space" />
-		<meta name="description" content="Patricio Gonzalez Vivo multidisciplinary artist working across traditional and digital mediums. In his work, he pursues awareness and self-discovery through themes like celestial bodies, esoteric symbolism, clocks and maps." />
+		<meta name="description" content=" displayed on custom made digital frames, build from repurposed e-waste and reimagined as a minimalist object of contemplation." />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name='mobile-web-app-capable' content='yes'>
+        <meta name='apple-mobile-web-app-capable' content='yes'>
+        <meta property="og:image" content="thumb.gif" />
+        <meta property="og:title" content="Flight Studies" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Flight Studies" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:author" content="Patricio Gonzalez Vivo" />
+        <meta property='og:description' content=' displayed on custom made digital frames, build from repurposed e-waste and reimagined as a minimalist object of contemplation.'/>
+		<meta property='og:image:width' content='640'/>
+        <meta property='og:image:height' content='320'/>
+
+
 
 		<link href="/ico.gif" rel="shortcut icon"  />
 		<link href="/css/style.css" rel="stylesheet" />

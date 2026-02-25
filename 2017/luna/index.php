@@ -4,10 +4,12 @@
         <meta charset="utf-8" />
         <title>Luna</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:image" content="thumb.gif" />
+        <meta property="og:image" content="thumb.jpg" />
         <meta property="og:title" content="Luna" />
         <meta property='og:description' content='Luna is living meditation on time and celestial rhythm'/>
         <meta property='og:site_name' content='Patricio Gonzalez Vivo'/>
+        <meta property='og:image:width' content='575'/>
+        <meta property='og:image:height' content='165'/>
 
         <meta name="description" content="Luna is living meditation on time and celestial rhythm" />
         <meta name="keywords" content="Luna, Patricio Gonzalez Vivo" />

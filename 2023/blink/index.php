@@ -13,8 +13,8 @@
         <meta property="og:locale" content="en_US" />
         <meta property="og:author" content="Patricio Gonzalez Vivo" />
         <meta property='og:description' content='by Patricio Gonzalez Vivo. both memento mori and moment of delight, an object suspended between disappearance and wonder'/>
-        <meta property='og:image:width' content='512'/>
-        <meta property='og:image:height' content='512'/>
+        <meta property='og:image:width' content='640'/>
+        <meta property='og:image:height' content='226'/>
 
         <meta name="description" content="Both memento mori and moment of delight, an object suspended between disappearance and wonder" />
         <meta name="author" content="Patricio Gonzalez Vivo" />

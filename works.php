@@ -89,7 +89,7 @@
         </article>
         <article class="item">
             <div class="item-image">
-                <a href="https://vimeo.com/332883913"><img class="roundPhotoTh" src="2019/hogar/thumb.gif" alt="HOGAR"/></a>
+                <a href="2019/hogar/"><img class="roundPhotoTh" src="2019/hogar/thumb.gif" alt="HOGAR"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">Hogar</span>

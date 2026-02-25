@@ -2,8 +2,7 @@
 <?php include("../../menu.php");?>
 <?php include("../../sidebar.php");?>
 
-	<!-- CONTENT -->
-	<section class="content">
+	<div id="longer-info">
 
 		<?php
 			include("../../parsedown/Parsedown.php");
@@ -11,6 +10,6 @@
 			echo $Parsedown->text(file_get_contents ('01-intro.md'));
 		?>
 
-	</section>
+</div>
 
 <?php include("../../footer.php"); ?>

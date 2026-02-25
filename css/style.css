@@ -186,12 +186,21 @@ body {
     margin: 0 auto;
     padding-bottom: 50px;
     z-index: -1;
+    pointer-events: auto;
 }
 
 #longer-info p {
     line-height: 1.5;
     margin-bottom: 10px;
     color: #333;
+}
+
+#longer-info p img {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    display: block;
 }
 
 body.windowed-mode #longer-info {
