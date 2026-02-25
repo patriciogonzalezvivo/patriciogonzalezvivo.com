@@ -40,8 +40,6 @@
         
         <?php include("../../menu.php");?>
 
-
-        
         <article class="item">
             <div class="item-image">
                 <div id="wrapper" class="windowed">
