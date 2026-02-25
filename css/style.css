@@ -1,7 +1,7 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
-    font-size: 1.25rem;
+    font-size: 1.0rem;
     color: #666666;
     text-decoration: none;
     background-color: white;
@@ -408,7 +408,7 @@ footer {
 /* Mobile phones - enhanced touch and readability */
 @media (max-width: 480px) {
     body {
-        font-size: .5rem;
+        font-size: 1.0rem;
     }
 
     #menu_text li {
