@@ -257,24 +257,3 @@ body.windowed-mode #info {
         max-width: 500px;
     }
 }
-
-@media only screen and (max-device-width: 480px) {
-    #menu_text {
-        padding-top: 66px;
-        /* margin-bottom: unset; */
-        font-size: 1.0rem; 
-    }
-
-    #sidebar {
-        transform: scale(1);
-        top: -120px;
-        left: -2px;
-    }
-
-    #wrapper.windowed {
-        width: 100%;
-        max-width: 480px;
-        height: auto; 
-        margin: 20px auto;
-    }
-}

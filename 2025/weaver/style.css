@@ -165,6 +165,14 @@ body.windowed-mode #wrapper.windowed {
         margin: 0;
     }
 
+    #sidebar {
+        float: center;
+        position: absolute;
+        top: -20px;
+        right: 90px;
+        height: 0px;
+    }
+
     /* body.windowed-mode #info {
         position: relative;
         top: auto;

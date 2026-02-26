@@ -36,7 +36,7 @@
   		ga("send", "pageview");
 		</script>
 		
-		<script type="module" crossorigin src="./assets/index-6397fe70.js"></script>
+		<script type="module" crossorigin src="./assets/index-53c6d30b.js"></script>
 		<link rel="stylesheet" href="style.css">
     </head>
 	<body >
