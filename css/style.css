@@ -326,10 +326,6 @@ footer {
         padding: 0 10px;
     }
 
-    #menu_text {
-        padding-top: 43px;
-    }
-
     #menu_text li {
         padding-left: 8px;
     }
@@ -409,6 +405,10 @@ footer {
 }
 /* Mobile phones - enhanced touch and readability */
 @media (max-width: 480px) {
+    #menu_text {
+       padding-top: 43px;
+   }
+
     #menu_text li {
         padding-left: 5px;
     }
