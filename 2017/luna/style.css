@@ -77,9 +77,9 @@
 /* div.emscripten { text-align: center; } */
 
 #wrapper.windowed canvas.emscripten {
-    width: 424px;
-    height: 733px;
-    margin-left: 2px;
+    width: 419px;
+    height: 721px;
+    margin-left: 1px;
     margin-top: 0px;
 }
 
@@ -135,9 +135,10 @@ body.windowed-mode #info {
     }
 
     #wrapper.windowed canvas.emscripten {
-        width: 81.7%;
-        height: 89.8%;
-        margin: 0;
+        width: 80%;
+        height: 88.5%;
+        margin-left: 1px;
+        margin-top: 2px;
     }
 
     body.windowed-mode #longer-info {

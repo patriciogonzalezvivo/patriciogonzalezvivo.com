@@ -71,7 +71,7 @@
             <div class="item-info">
                 <span class="item-title">Memory Studies</span>
                 <span class="item-year">2021</span>
-                <span class="item-medium">Generative Art</span>
+                <span class="item-medium">Real-time Generative Art</span>
                 <!-- <p class="item-description">Sorting and scrambling algorithms battling over digital memories.</p> -->
             </div>
         </article>
@@ -214,7 +214,7 @@
                 <span class="item-medium">Data Visualization</span>
             </div>
         </article> -->
-        <article class="item">
+        <!-- <article class="item">
             <div class="item-image">
                 <a href="https://cloudsdocumentary.com"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
             </div>
@@ -223,7 +223,7 @@
                 <span class="item-year">2013</span>
                 <span class="item-medium">Documentary / Interactive</span>
             </div>
-        </article>
+        </article> -->
         <!-- <article class="item">
             <div class="item-image">
                 <a href="2012/codemology/"><img class="roundPhotoTh" src="2012/codemology/thumb.jpg" alt="CodeMology"/></a>
