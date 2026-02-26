@@ -15,7 +15,7 @@
         <meta name="author" content="Patricio Gonzalez Vivo" />
         <link href="../../ico.gif" rel="shortcut icon"  />
         <link href="../../css/style.css" rel="stylesheet" />
-        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
         <script>

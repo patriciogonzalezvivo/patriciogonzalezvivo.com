@@ -4,9 +4,9 @@
 
 <?php
 echo '
-	<script type="text/javascript" src="http://patriciogonzalezvivo.com/glslCanvas/build/GlslCanvas.min.js"></script>
-	<link type="text/css" rel="stylesheet" href="http://patriciogonzalezvivo.com/glslGallery/build/glslGallery.css">
-    <script type="text/javascript" src="http://patriciogonzalezvivo.com/glslGallery/build/glslGallery.js"></script>';
+	<script type="text/javascript" src="https://patriciogonzalezvivo.com/glslCanvas/build/GlslCanvas.min.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://patriciogonzalezvivo.com/glslGallery/build/glslGallery.css">
+    <script type="text/javascript" src="https://patriciogonzalezvivo.com/glslGallery/build/glslGallery.js"></script>';
 ?>
 
 	<!-- CONTENT -->
