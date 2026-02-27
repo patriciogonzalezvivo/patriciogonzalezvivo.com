@@ -14,7 +14,7 @@ body {
 }
 
 #menu {
-    padding: 0 20px;
+    padding: 20px 20px;
 }
 
 #menu_logo {
@@ -27,7 +27,7 @@ body {
 }
 
 #menu_text {
-    padding-top: 58px;
+    padding-top: 34px;
 }
 #menu_text li {
     padding-left: 13px;
@@ -42,22 +42,10 @@ body {
 #menu_text a:hover {
     color: #222; 
 }
-#sidebar {
-    float: right;
-    position: absolute;
-    top: 11px;
-    right: 17px;
-    height: 0px;
-}
 
-#sidebar a {
-    padding: 8px;
-    display: inline-block;
-}
-
-#sidebar p {
-    font-size: 1.0rem;
-    margin-bottom: -2px;
+#menu_text img {
+    position: relative;
+    top: 19px;
 }
 
 .menu_item {
@@ -329,17 +317,12 @@ footer {
 }
 
 @media (max-width: 875px) {
-    #menu {
-        padding: 0 10px;
-    }
+    /* #menu {
+        padding: 20px 20px;
+    } */
 
     #menu_text li {
         padding-left: 8px;
-    }
-
-    #sidebar {
-        right: 0px;
-        top: -10px;
     }
 
     #main-wrapper {
@@ -413,7 +396,7 @@ footer {
 /* Mobile phones - enhanced touch and readability */
 @media (max-width: 480px) {
     #menu_text {
-       padding-top: 43px;
+       padding-top: 20px;
    }
 
     #menu_text li {
@@ -422,23 +405,15 @@ footer {
 
     #menu_text a {
         padding: 10px 6px;
-        min-height: 44px;
+        /* min-height: 44px; */
         display: inline-flex;
         align-items: center;
     }
 
-    #sidebar {
-        margin: 15px 0;
+    #menu_text img {
+        transform: translateY(10px);
     }
 
-    #sidebar a {
-        padding: 8px;
-        min-width: 44px;
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-    }
 
     #main-wrapper {
         padding: 0 10px;
