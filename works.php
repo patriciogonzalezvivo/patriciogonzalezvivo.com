@@ -51,7 +51,7 @@
                 <span class="item-medium">Custom real-time software</span>
             </div>
         </article> -->
-        <article class="item">
+        <!-- <article class="item">
             <div class="item-image">
                 <a href="2024/portraits/"><img class="roundPhotoTh" src="2024/portraits/thumb.jpg" alt="Cardboard Studies"/></a>
             </div>
@@ -60,7 +60,7 @@
                 <span class="item-year">2024</span>
                 <span class="item-medium">Acrylic or Oils on Cardboard</span>
             </div>
-        </article>
+        </article> -->
         <article class="item">
             <div class="item-image">
                 <a href="2023/blink/"><img class="roundPhotoTh" src="2023/blink/thumb.gif" alt="blink"/></a>
