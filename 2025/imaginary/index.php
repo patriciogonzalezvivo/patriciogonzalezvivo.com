@@ -9,9 +9,9 @@
 		<?php
 			// List of sold images (add filenames here as they are sold)
 			$sold_images = array(
-				// 'IMG_7185.jpeg',
-				// 'IMG_7375.jpeg',
-				// 'IMG_7444.jpeg',
+				'IMG_7185.jpeg',
+				'IMG_7375.jpeg',
+				'IMG_7444.jpeg',
 			);
 			
 			// Artwork metadata (title, year, medium, size)

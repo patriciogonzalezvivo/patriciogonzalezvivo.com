@@ -11,6 +11,26 @@
                 <span class="item-medium">Custom real-time software</span>
             </div>
         </article> -->
+        <article class="item">
+            <div class="item-image">
+                <a href="2025/imaginary/"><img class="roundPhotoTh" src="2025/imaginary/thumb.jpg" alt="Imaginary"/></a>
+            </div>
+            <div class="item-info">
+                <span class="item-title">Imaginary Portraits</span>
+                <span class="item-year">2025</span>
+                <span class="item-medium">Mixed Media on Canvas</span>
+            </div>
+        </article>
+        <article class="item">
+            <div class="item-image">
+                <a href="2025/hybrids/"><img class="roundPhotoTh" src="2025/hybrids/thumb.jpg" alt="Hybrids"/></a>
+            </div>
+            <div class="item-info">
+                <span class="item-title">Hybrids Studies</span>
+                <span class="item-year">2025</span>
+                <span class="item-medium">Oil on Canvas</span>
+            </div>
+        </article>
         <!-- <article class="item">
             <div class="item-image">
                 <a href="https://patriciogonzalezvivo.github.io/weaver"><img class="roundPhotoTh" src="2025/weaver/thumb.gif" alt="Light Weaver"/></a>
@@ -31,16 +51,6 @@
                 <span class="item-medium">Custom real-time software</span>
             </div>
         </article> -->
-        <article class="item">
-            <div class="item-image">
-                <a href="2025/hybrids/"><img class="roundPhotoTh" src="2025/hybrids/thumb.jpg" alt="Hybrids"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Hybrids</span>
-                <span class="item-year">2025</span>
-                <span class="item-medium">Oil on Canvas</span>
-            </div>
-        </article>
         <article class="item">
             <div class="item-image">
                 <a href="2024/portraits/"><img class="roundPhotoTh" src="2024/portraits/thumb.jpg" alt="Cardboard Studies"/></a>
