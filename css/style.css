@@ -396,7 +396,7 @@ footer {
 /* Mobile phones - enhanced touch and readability */
 @media (max-width: 480px) {
     #menu_text {
-       padding-top: 20px;
+       padding-top: 39px;
    }
 
     #menu_text li {
@@ -411,7 +411,7 @@ footer {
     }
 
     #menu_text img {
-        transform: translateY(10px);
+        transform: translateY(-8px);
     }
 
 
