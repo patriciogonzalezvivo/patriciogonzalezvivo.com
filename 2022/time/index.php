@@ -15,11 +15,8 @@
 	</div>
 
 	<div id="longer-info">
-		<p>Created for the <a href="https://app.brightmoments.io/collections/blink">BrightMoments exhibition</a>, BLINK emerges from a dialogue with Baroque vanitas painting, 17th-century still lifes that used fragile, transient objects to meditate on time, impermanence, and human finitude.</p>
-		<p>In BLINK, the bubble becomes both memento mori and moment of delight, an object suspended between disappearance and wonder. The work translates this historically loaded symbol into a computational language, scaling the bubble to monumental proportions while preserving its essential fragility. Flowing background streams and algorithmic fields echo visual systems developed in The Book of Shaders, situating the piece within an ongoing exploration of time, perception, and scale in code-based art.</p>
-		<p>The result is a paradoxical image: a structure that feels planetary yet impossibly delicate.</p>
-		<p>This video studies through the combination of machine-learning models with custom real-time manipulation, explores the relationship between time, perception, and emotional states.</p> 
-		<p>the series produces temporally distorted images in which duration appears to liquefy, accumulate, and collapse. The resulting works function as emotional studies, proposing time as a plastic medium shaped by sensation, memory, and affect.</p>
+		<p>This body of video work explores the relationship between time, perception, and emotional states.</p>
+		<p>By integrating machine-learning techniques, including optical flow inference and depth estimation, with real-time shader manipulation, the series produces temporally distorted images in which duration appears to liquefy, accumulate, and collapse. The resulting works function as emotional studies, proposing time as a plastic medium shaped by sensation, memory, and affect.</p> 
 	</div>
 
 <?php include("../../footer.php"); ?>
