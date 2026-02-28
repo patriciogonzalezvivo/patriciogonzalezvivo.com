@@ -1,0 +1,349 @@
+/* Portraits Gallery Styles */
+
+.portraits-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.portrait-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 1;
+}
+
+.portrait-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.portrait-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Artwork Information */
+.artwork-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6) 80%, transparent);
+    color: black;
+    padding: 20px 12px 12px 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.portrait-item:hover .artwork-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.artwork-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.artwork-details {
+    font-size: 13px;
+    margin-bottom: 3px;
+    opacity: 0.95;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.artwork-size {
+    font-size: 12px;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Sold Marker - Small Red Dot */
+.sold-marker {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #da1b1b;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.portrait-item.sold {
+    opacity: 0.85;
+}
+
+/* Fullscreen Modal */
+.fullscreen-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullscreen-modal img.fullscreen-image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    position: relative;
+    z-index: 1001;
+}
+
+.close-modal {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1002;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: black;
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 60px;
+    width: 60px;
+    height: 80px;
+    cursor: pointer;
+    z-index: 1002;
+    transition: background 0.3s ease, opacity 0.3s ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.nav-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+}
+
+.nav-arrow-left {
+    left: 20px;
+    border-radius: 0 4px 4px 0;
+}
+
+.nav-arrow-right {
+    right: 20px;
+    border-radius: 4px 0 0 4px;
+}
+
+/* Sold Marker for Fullscreen */
+.sold-marker-fullscreen {
+    display: none;
+    position: absolute;
+    bottom: 80px;
+    right: 80px;
+    width: 60px;
+    height: 60px;
+    background-color: #da1b1b;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1003;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Fullscreen Artwork Info */
+.fullscreen-info {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: black;
+    z-index: 1002;
+    max-width: 90%;
+    background-color: rgba(255,255,255,0.5);
+    width: 100%;
+}
+
+.fullscreen-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.fullscreen-details {
+    font-size: 18px;
+    margin-bottom: 6px;
+    opacity: 0.95;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+.fullscreen-size {
+    font-size: 16px;
+    opacity: 0.9;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .portraits-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .portraits-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .sold-marker {
+        width: 25px;
+        height: 25px;
+        bottom: 8px;
+        right: 8px;
+    }
+    
+    .close-modal {
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+    }
+    
+    .nav-arrow {
+        font-size: 50px;
+        width: 50px;
+        height: 70px;
+    }
+    
+    .nav-arrow-left {
+        left: 10px;
+    }
+    
+    .nav-arrow-right {
+        right: 10px;
+    }
+    
+    .sold-marker-fullscreen {
+        width: 50px;
+        height: 50px;
+        bottom: 60px;
+        right: 60px;
+    }
+    
+    .artwork-title {
+        font-size: 14px;
+    }
+    
+    .artwork-details {
+        font-size: 11px;
+    }
+    
+    .artwork-size {
+        font-size: 10px;
+    }
+    
+    .fullscreen-title {
+        font-size: 18px;
+    }
+    
+    .fullscreen-details {
+        font-size: 14px;
+    }
+    
+    .fullscreen-size {
+        font-size: 13px;
+    }
+    
+    .fullscreen-info {
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portraits-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .sold-marker {
+        width: 20px;
+        height: 20px;
+        bottom: 6px;
+        right: 6px;
+    }
+    
+    .artwork-info {
+        padding: 15px 8px 8px 8px;
+    }
+    
+    .artwork-title {
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+    
+    .artwork-details {
+        font-size: 10px;
+        margin-bottom: 2px;
+    }
+    
+    .artwork-size {
+        font-size: 9px;
+    }
+    
+    .nav-arrow {
+        font-size: 40px;
+        width: 40px;
+        height: 60px;
+    }
+    
+    .nav-arrow-left {
+        left: 5px;
+    }
+    
+    .nav-arrow-right {
+        right: 5px;
+    }
+    
+    .fullscreen-title {
+        font-size: 16px;
+    }
+    
+    .fullscreen-details {
+        font-size: 12px;
+    }
+    
+    .fullscreen-size {
+        font-size: 11px;
+    }
+}
