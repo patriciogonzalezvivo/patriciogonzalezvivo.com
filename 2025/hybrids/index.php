@@ -9,7 +9,7 @@
 		<?php
 			// List of sold images (add filenames here as they are sold)
 			$sold_images = array(
-				'IMG_4793.jpeg',
+				// 'IMG_4793.jpeg',
 				// 'IMG_4774.jpeg',
 				// 'IMG_4775.jpeg',
 			);
@@ -17,19 +17,19 @@
 			// Artwork metadata (title, year, medium, size)
 			// Add or modify entries for each artwork
 			$artwork_info = array(
-				'IMG_4826.jpeg' => array(
-					'title' => 'Untitled',
-					'year' => '2025',
-					'medium' => 'Oil over cardboard',
-					'size' => '16 x 12 inches'
-				),
+				// 'IMG_4826.jpeg' => array(
+				// 	'title' => 'Untitled',
+				// 	'year' => '2025',
+				// 	'medium' => 'Oil over cardboard',
+				// 	'size' => '16 x 12 inches'
+				// ),
 			);
 			
 			// Default values for artworks without metadata
 			$default_info = array(
 				'title' => 'Untitled',
 				'year' => '2024',
-				'medium' => 'Oil over cardboard',
+				'medium' => 'Oil over canvas',
 				'size' => '16 x 12 inches'
 			);
 			
