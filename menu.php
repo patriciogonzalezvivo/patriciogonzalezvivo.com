@@ -8,7 +8,7 @@
 				<ul>
 					<li class="menu_item"><a href="/works.php"> Works </a></li>
 					<li class="menu_item"><a href="/about.php"> About </a></li>
-					<li class="menu_item"><a href="mailto:patriciogonzalezvivo@gmail.com"> Contact </a></li>
+					<li class="menu_item"><a href="mailto:patriciogonzalezvivo@gmail.com" target="_blank"><img src="/images/icons/mail.png" width="28"/></a></li>
 					<li class="menu_item"><a href="http://www.instagram.com/patriciogonzalezvivo" target="_blank"><img src="/images/icons/instagram.png" width="32"/></a></li>
 				</ul>
 					

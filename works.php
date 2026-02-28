@@ -33,6 +33,16 @@
         </article> -->
         <article class="item">
             <div class="item-image">
+                <a href="2024/portraits/"><img class="roundPhotoTh" src="2024/portraits/thumb.jpg" alt="Cardboard Studies"/></a>
+            </div>
+            <div class="item-info">
+                <span class="item-title">Cardboard Studies</span>
+                <span class="item-year">2024</span>
+                <span class="item-medium">Oil on Cardboard</span>
+            </div>
+        </article>
+        <article class="item">
+            <div class="item-image">
                 <a href="2023/blink/"><img class="roundPhotoTh" src="2023/blink/thumb.gif" alt="blink"/></a>
             </div>
             <div class="item-info">
