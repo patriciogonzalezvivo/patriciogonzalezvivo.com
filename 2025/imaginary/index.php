@@ -66,22 +66,23 @@
 			);
 			
 			// Get all JPEG images in the directory
-			$images = glob('IMG_*.jpeg');
+			$images = glob('images/IMG_*.jpeg');
 			sort($images);
 			
 			foreach($images as $image) {
-				$is_sold = in_array($image, $sold_images);
+				$filename = basename($image);
+				$is_sold = in_array($filename, $sold_images);
 				$sold_class = $is_sold ? ' sold' : '';
 				$sold_attr = $is_sold ? ' data-sold="true"' : '';
 				
 				// Get artwork info or use defaults
-				$info = isset($artwork_info[$image]) ? $artwork_info[$image] : $default_info;
+				$info = isset($artwork_info[$filename]) ? $artwork_info[$filename] : $default_info;
 				
 				// Encode metadata for data attributes
 				$info_json = htmlspecialchars(json_encode($info), ENT_QUOTES, 'UTF-8');
 				
 				echo '<div class="portrait-item' . $sold_class . '"' . $sold_attr . ' data-info=\'' . $info_json . '\'>';
-				echo '<img src="thumbnails/' . $image . '" alt="' . htmlspecialchars($info['title']) . '" data-full="' . $image . '" class="portrait-thumb">';
+				echo '<img src="images/thumbnails/' . $filename . '" alt="' . htmlspecialchars($info['title']) . '" data-full="' . $image . '" class="portrait-thumb">';
 				if ($is_sold) {
 					echo '<div class="sold-marker"></div>';
 				}
@@ -118,7 +119,5 @@
 		echo $Parsedown->text(file_get_contents ('README.md'));
 		?>
 	</div>
-	
-	<script src="main.js"></script>
 	
 <?php include("../../footer.php"); ?>

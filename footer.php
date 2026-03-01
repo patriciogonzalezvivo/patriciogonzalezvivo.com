@@ -2,7 +2,8 @@
 // main footer
 
 echo '
-		<script type="text/javascript" src="/js/main.js" defer></script>
+		<script type="text/javascript" src="/js/slider.js" defer></script>
+		<script type="text/javascript" src="/js/gallery.js" defer></script>
 
 		<footer>
 			<p>© Patricio Gonzalez Vivo 2026</p>

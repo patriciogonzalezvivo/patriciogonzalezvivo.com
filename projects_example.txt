@@ -1,0 +1,17 @@
+# Example Project List for Portfolio Generator
+# One project per line in format: year/folder
+# Lines starting with # are comments
+
+2026/astros
+2025/imaginary
+2025/hybrids
+2023/blink
+2022/time
+2021/memory
+2021/fen
+2019/hogar
+2018/estrellas
+2017/luna
+2014/skylines
+2011/efectomariposa
+2010/communitas
