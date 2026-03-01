@@ -117,10 +117,17 @@ function render_project_item($meta, $commented = false) {
     
     $html .= '<article class="item">' . "\n";
     $html .= '            <div class="item-image">' . "\n";
-    $html .= '                <a href="' . htmlspecialchars($meta['path']) . '/">';
+    
+    // Use URL if provided, otherwise use path
+    $link = isset($meta['url']) && $meta['url'] ? $meta['url'] : $meta['path'] . '/';
+    $html .= '                <a href="' . htmlspecialchars($link) . '">';
     
     if ($meta['thumb']) {
-        $html .= '<img class="roundPhotoTh" src="' . htmlspecialchars($meta['path']) . '/' . htmlspecialchars($meta['thumb']) . '" alt="' . htmlspecialchars($meta['title']) . '"/>';
+        // For thumbnail, always use path (even for external URLs)
+        $thumb_src = isset($meta['thumbnail']) && $meta['thumbnail'] 
+            ? $meta['thumbnail'] 
+            : htmlspecialchars($meta['path']) . '/' . htmlspecialchars($meta['thumb']);
+        $html .= '<img class="roundPhotoTh" src="' . $thumb_src . '" alt="' . htmlspecialchars($meta['title']) . '"/>';
     }
     
     $html .= '</a>' . "\n";
