@@ -34,9 +34,11 @@
         </div>
         
         <div id="longer-info">
-            <p>Created for the <a href="https://app.brightmoments.io/collections/blink">BrightMoments exhibition</a>, BLINK emerges from a dialogue with Baroque vanitas painting, 17th-century still lifes that used fragile, transient objects to meditate on time, impermanence, and human finitude.</p>
-            <p>In BLINK, the bubble becomes both memento mori and moment of delight, an object suspended between disappearance and wonder. The work translates this historically loaded symbol into a computational language, scaling the bubble to monumental proportions while preserving its essential fragility. Flowing background streams and algorithmic fields echo visual systems developed in The Book of Shaders, situating the piece within an ongoing exploration of time, perception, and scale in code-based art.</p>
-            <p>The result is a paradoxical image: a structure that feels planetary yet impossibly delicate.</p>
+            <?php
+            include("../../parsedown/Parsedown.php");
+            $Parsedown = new Parsedown();
+            echo $Parsedown->text(file_get_contents('README.md'));
+            ?>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/three@0.124/build/three.min.js"></script>
         <script type="module" src="main.min.js"></script>

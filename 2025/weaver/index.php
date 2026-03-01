@@ -25,8 +25,8 @@
 			$Parsedown = new Parsedown();
 			echo $Parsedown->text(file_get_contents ('README.md'));
 			?>
-            
         </div>
+        
         <weaver-loader></weaver-loader>
         <overlay-controls></overlay-controls>
         <script type="module" src="main.js"></script>

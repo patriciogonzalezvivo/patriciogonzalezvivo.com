@@ -27,6 +27,7 @@ include("../../header.php");
                 <span class="item-title">Estrellas</span>
                 <span class="item-year">2018</span>
                 <span class="item-medium">Custom real-time software</span>
+                <p class="item-description">Made In collaboration with <a href="https://www.jenlowe.net/">Jen Lowe</a></p>
             </div>
         </article>
 
@@ -41,8 +42,11 @@ include("../../header.php");
 
 
         <div id="longer-info">
-            <p>In collaboration with <a href="https://www.jenlowe.net/">Jen Lowe</a></p>
-            <p>The stars have served as silent witnesses, teaching us about cycles, orientation, and transcendence. This real-time installation functions as a window onto the cosmos, presenting an accurate, live view of stars and celestial bodies as they exist in the present moment. By situating astronomical data within the here and now, the work seeks to restore an awareness of time as an experiential landscape rather than an abstract measure. It offers a contemporary reflection on an earlier epoch, when humanity looked to the sky for knowledge, meaning, and guidance.</p>
+            <?php
+            include("../../parsedown/Parsedown.php");
+            $Parsedown = new Parsedown();
+            echo $Parsedown->text(file_get_contents('README.md'));
+            ?>
         </div>
         <wasm-loader></wasm-loader>
 

@@ -42,13 +42,11 @@ include("../../header.php");
 
 
         <div id="longer-info">
-        	<p>Luna is a living meditation on time and celestial rhythm. This real-time digital artwork mirrors the moon’s current phase, slowly rotating to reveal both illuminated and obscured surfaces. Her form subtly transforms in sync with the lunar cycle, while the surrounding atmosphere shifts from daylight to darkness. Functioning simultaneously as a lunar calendar and a daily clock, Luna invites sustained contemplation and a heightened awareness of time’s quiet passage.</p>
-			<p>Exibitions:</p>
-			<ul>
-				<p>2017 - Historia de un malentendido at Espacio Pla, Buenos Aires</p>
-				<p>2017 - Temporal Topologies show at IFP, New York City</p>
-				<p>2018 - <a href="https://frm.fm/a/patricio_gonzalez_vivo/luna">Framed</a></p>
-			</ul>
+            <?php
+            include("../../parsedown/Parsedown.php");
+            $Parsedown = new Parsedown();
+            echo $Parsedown->text(file_get_contents('README.md'));
+            ?>
         </div>
         <wasm-loader></wasm-loader>
 
