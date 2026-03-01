@@ -1,7 +1,8 @@
 <?php
-    $page_title = "WIP";
-    $page_description = "Work in progress";
-    $page_keywords = "Patricio Gonzalez Vivo, weaver, generative art";
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
     include("../../header.php");?>
         <?php include("../../menu.php");?>
         <link rel="stylesheet" href="style.css" type="text/css" />
@@ -17,7 +18,6 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
             </button>
         </div>
-
 
         <div id="longer-info">
             <?php

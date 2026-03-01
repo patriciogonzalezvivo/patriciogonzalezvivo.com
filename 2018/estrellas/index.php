@@ -1,19 +1,14 @@
 <?php
-// Customize page metadata before including header
-$page_title = "Estrellas - Patricio Gonzalez Vivo";
-$page_description = "Estrellas is an instrument for connection, presence and empathy through watching the sky together.";
-$page_keywords = "Estrellas, Patricio Gonzalez Vivo";
-// $og_url will be auto-generated from current path
-// $og_title and $og_description will use page_title and page_description
-// $og_image will be auto-detected from thumb.gif
-// $og_image_width and $og_image_height will be auto-calculated
+    // Load project metadata from TITLE.txt, MEDIUM.txt, etc.
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    // Use metadata for page header
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
+    include("../../header.php");?>
 
-include("../../header.php");
-?>
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <link rel="stylesheet" href="style.css" type="text/css" />
-        
         <?php include("../../menu.php");?>
+        <link rel="stylesheet" href="style.css" type="text/css" />
 
         <article class="item">
             <div class="item-image">
@@ -24,10 +19,11 @@ include("../../header.php");
                 </div>
             </div>
             <div class="item-info">
-                <span class="item-title">Estrellas</span>
-                <span class="item-year">2018</span>
-                <span class="item-medium">Custom real-time software</span>
-                <p class="item-description">Made In collaboration with <a href="https://www.jenlowe.net/">Jen Lowe</a></p>
+                <span class="item-title"><?php echo htmlspecialchars($meta['title']); ?></span>
+                <span class="item-year"><?php echo htmlspecialchars($meta['year']); ?></span>
+                <span class="item-medium"><?php echo htmlspecialchars($meta['medium']); ?></span>
+                <span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions']); ?></span>
+                <p class="item-description"><?php echo htmlspecialchars($meta['description']); ?></p>
             </div>
         </article>
 
@@ -40,7 +36,6 @@ include("../../header.php");
             </button>
         </div>
 
-
         <div id="longer-info">
             <?php
             include("../../parsedown/Parsedown.php");
@@ -48,11 +43,8 @@ include("../../header.php");
             echo $Parsedown->text(file_get_contents('README.md'));
             ?>
         </div>
-        <wasm-loader></wasm-loader>
 
-        <footer>
-            <p>© Patricio Gonzalez Vivo 2026</p>
-        </footer>
-    </body>
-    <script type="module" src="main.js"></script>
-</html>
+        <wasm-loader></wasm-loader>
+        <script type="module" src="main.js"></script>
+
+<?php include("../../footer.php"); ?>

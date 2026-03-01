@@ -1,6 +1,8 @@
 <?php
-	$page_title = "Hybrids - Patricio Gonzalez Vivo";
-	$page_description = "Hybrid oil paintings by Patricio Gonzalez Vivo, 2024-2025";
+	include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
 	include("../../header.php");
 	include("../../gallery_helper.php");
 ?>

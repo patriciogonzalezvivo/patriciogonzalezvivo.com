@@ -1,5 +1,10 @@
-<?php include("../../header.php");?>
-<?php include("../../menu.php");?>
+<?php
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
+    include("../../header.php");?>
+	<?php include("../../menu.php");?>
 
 	<script src="https://fast.wistia.com/player.js" async></script>
 	<script src="https://fast.wistia.com/embed/5nu91zr9q6.js" async type="module"></script>
@@ -7,9 +12,11 @@
 	<wistia-player media-id="5nu91zr9q6" aspect="1.7777777777777777"></wistia-player>
 	
 	<div class="item-info">
-		<span class="item-title">Time Studies</span>
-		<span class="item-year">2022</span>
-		<span class="item-medium">Video Art</span>
+		<span class="item-title"><?php echo htmlspecialchars($meta['title']); ?></span>
+		<span class="item-year"><?php echo htmlspecialchars($meta['year']); ?></span>
+		<span class="item-medium"><?php echo htmlspecialchars($meta['medium']); ?></span>
+		<span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions']); ?></span>
+		<p class="item-description"><?php echo htmlspecialchars($meta['description']); ?></p>
 	</div>
 
 	<div id="longer-info">

@@ -1,7 +1,8 @@
 <?php
-    $page_title = "Astros - Patricio Gonzalez Vivo";
-    $page_description = "Astros is a living, luminous meditation on the present sky.";
-    $page_keywords = "Patricio Gonzalez Vivo, astros, generative art, real-time art, astrology";
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
     include("../../header.php");?>
         <?php include("../../menu.php");?>
         <link rel="stylesheet" href="style.css" type="text/css" />
@@ -15,10 +16,11 @@
                 </div>
             </div>
             <div class="item-info">
-                <span class="item-title">Astros</span>
-                <span class="item-year">2026</span>
-                <span class="item-medium">Real-time Generative Art</span>
-                <p class="item-description">In conversation with <a href="https://martinbonadeo.art/">Martin Bonadeo</a>, <a href="https://www.oliverioduhalde.com/">Oliverio Duhalde</a> (sound design) and <a href="https://astrologiacampusvirtual.com/profesores/alejandra-eusebi/">Alejandra Eusebi Polich</a> (astrology).</p>
+                <span class="item-title"><?php echo htmlspecialchars($meta['title']); ?></span>
+                <span class="item-year"><?php echo htmlspecialchars($meta['year']); ?></span>
+                <span class="item-medium"><?php echo htmlspecialchars($meta['medium']); ?></span>
+                <span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions']); ?></span>
+                <p class="item-description"><?php echo htmlspecialchars($meta['description']); ?></p>
             </div>
         </article>
 

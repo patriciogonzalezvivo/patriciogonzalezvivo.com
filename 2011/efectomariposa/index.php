@@ -1,8 +1,15 @@
-<?php include("../../header.php");?>
-<?php include("../../menu.php");?>
+<?php
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
+    include("../../header.php");?>
+    <?php include("../../menu.php");?>
 
-
-        <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/v2o6ybyv6g.js" async type="module"></script><style>wistia-player[media-id='v2o6ybyv6g']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/v2o6ybyv6g/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="v2o6ybyv6g" aspect="1.7777777777777777"></wistia-player>
+        <script src="https://fast.wistia.com/player.js" async></script>
+        <script src="https://fast.wistia.com/embed/v2o6ybyv6g.js" async type="module"></script>
+        <style>wistia-player[media-id='v2o6ybyv6g']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/v2o6ybyv6g/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style>
+        <wistia-player media-id="v2o6ybyv6g" aspect="1.7777777777777777"></wistia-player>
 
         <div id="longer-info">
             <?php

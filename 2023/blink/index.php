@@ -1,13 +1,10 @@
 <?php
-    // Load project metadata from TITLE.txt, MEDIUM.txt, etc.
     include("../../project_meta.php");
     $meta = get_current_project_meta();
-    
-    // Use metadata for page header
     $page_title = $meta['title'];
     $page_description = $meta['description'];
-    include("../../header.php");
-?>
+    include("../../header.php");?>
+    
     <?php include("../../menu.php");?>
         <link rel="stylesheet" href="style.css" type="text/css" />
 
@@ -20,10 +17,11 @@
                 </div>
             </div>
             <div class="item-info">
-                <span class="item-title">BLINK</span>
-                <span class="item-year">2023</span>
-                <span class="item-medium">Real-time Generative Art</span>
-                <p class="item-description">Made In collaboration with <a href="https://www.jenlowe.net/">Jen Lowe</a></p>
+                <span class="item-title"><?php echo htmlspecialchars($meta['title']); ?></span>
+                <span class="item-year"><?php echo htmlspecialchars($meta['year']); ?></span>
+                <span class="item-medium"><?php echo htmlspecialchars($meta['medium']); ?></span>
+                <span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions']); ?></span>
+                <p class="item-description"><?php echo htmlspecialchars($meta['description']); ?></p>
             </div>
         </article>
 

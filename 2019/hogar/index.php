@@ -1,18 +1,22 @@
-<?php include("../../header.php");?>
+<?php
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
+    include("../../header.php");?>
+	<?php include("../../menu.php");?>
 
-<script src="https://fast.wistia.com/player.js" async></script>
-<script src="https://fast.wistia.com/embed/xw7vb7vgnn.js" async type="module"></script>
-<style>wistia-player[media-id='xw7vb7vgnn']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/xw7vb7vgnn/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> 	
-
-<?php include("../../menu.php");?>
-
-
+	<script src="https://fast.wistia.com/player.js" async></script>
+	<script src="https://fast.wistia.com/embed/xw7vb7vgnn.js" async type="module"></script>
+	<style>wistia-player[media-id='xw7vb7vgnn']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/xw7vb7vgnn/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> 	
 	<wistia-player media-id="xw7vb7vgnn" aspect="1.7777777777777777"></wistia-player>
 
 	<div class="item-info">
-		<span class="item-title">Hogar</span>
-		<span class="item-year">2019</span>
-		<span class="item-medium">Custom real-time software</span>
+		<span class="item-title"><?php echo htmlspecialchars($meta['title']); ?></span>
+		<span class="item-year"><?php echo htmlspecialchars($meta['year']); ?></span>
+		<span class="item-medium"><?php echo htmlspecialchars($meta['medium']); ?></span>
+		<span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions']); ?></span>
+		<p class="item-description"><?php echo htmlspecialchars($meta['description']); ?></p>
 	</div>
 
 	<div id="longer-info">

@@ -1,7 +1,8 @@
 <?php
-    $page_title = "Orbitas - Patricio Gonzalez Vivo";
-    $page_description = "Orbitas, a living cosmic choreography";
-    $page_keywords = "Orbitas, Patricio Gonzalez Vivo";
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
     include("../../header.php");?>
         <?php include("../../menu.php");?>
         <link rel="stylesheet" href="style.css" type="text/css" />
