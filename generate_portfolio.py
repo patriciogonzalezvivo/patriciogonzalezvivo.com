@@ -347,15 +347,21 @@ class PortfolioGenerator:
         for i in range(2):
             result = subprocess.run(
                 ['pdflatex', '-interaction=nonstopmode', '-output-directory', str(self.temp_dir), str(tex_file)],
-                cwd=self.temp_dir,
+                cwd=self.base_path,  # Run from base path so image paths work
                 capture_output=True,
                 text=True
             )
             
-            if result.returncode != 0:
+            # Check if PDF was generated (pdflatex may return non-zero even on success with warnings)
+            pdf_file = self.temp_dir / "portfolio.pdf"
+            if not pdf_file.exists() and result.returncode != 0:
                 print(f"Error compiling LaTeX (pass {i+1}):")
                 print(result.stdout[-2000:])  # Last 2000 chars
                 return False
+            elif i == 0 and pdf_file.exists():
+                print(f"  Pass {i+1} completed (with warnings)")
+            elif pdf_file.exists():
+                print(f"  Pass {i+1} completed")
         
         # Move PDF to output location
         pdf_file = self.temp_dir / "portfolio.pdf"
