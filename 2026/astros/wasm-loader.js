@@ -31,7 +31,6 @@ class WasmLoader extends HTMLElement {
                 margin: 0;
                 padding: 0;
                 overflow: hidden;
-                background: black;
                 font-family: 'Lucida Console', Monaco, monospace;
             }
 
@@ -54,7 +53,6 @@ class WasmLoader extends HTMLElement {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: rgba(0, 0, 0, 0.8);
                 z-index: 1000;
             }
 
@@ -75,7 +73,6 @@ class WasmLoader extends HTMLElement {
                 border-bottom: 5px solid rgba(0, 0, 0, 0);
                 border-top: 5px solid rgba(0, 0, 0, 0);
                 border-radius: 100%;
-                background-color: rgba(0, 0, 0, 0);
             }
 
             @-webkit-keyframes rotation {
@@ -100,7 +97,7 @@ class WasmLoader extends HTMLElement {
                 left: 50%;
                 bottom: 25%;
                 transform: translate(-50%, -50%);
-                color: rgb(200, 200, 200);
+                color: black;
                 font-family: monospace;
             }
 
@@ -108,8 +105,8 @@ class WasmLoader extends HTMLElement {
                 height: 10px;
                 width: 200px;
                 margin-top: 90px;
-                color: rgb(200, 200, 200);
-                accent-color: rgb(200, 200, 200);
+                color: black;
+                accent-color: black;
             }
             `;
   
