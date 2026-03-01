@@ -119,7 +119,7 @@ if (is_array($google_fonts)) {
 }
 
 	echo '
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-W5MR6SK1EZ"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QT11DDJJFX"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
