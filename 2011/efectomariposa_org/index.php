@@ -6,32 +6,32 @@
 	<section class="content">
 		<a href="https://vimeo.com/32321634" target="_blank">
 		<div id="myslides">
-			<img class="roundPhoto" src="01.jpg" alt="slide"/>
-			<img class="roundPhoto" src="02.jpg" alt="slide"/>
-			<img class="roundPhoto" src="03.jpg" alt="slide"/>
-			<img class="roundPhoto" src="04.jpg" alt="slide"/>
-			<img class="roundPhoto" src="05.jpg" alt="slide"/>
-			<img class="roundPhoto" src="06.jpg" alt="slide"/>
-			<img class="roundPhoto" src="07.jpg" alt="slide"/>
-			<img class="roundPhoto" src="08.jpg" alt="slide"/>
-			<img class="roundPhoto" src="09.jpg" alt="slide"/>
-			<img class="roundPhoto" src="10.jpg" alt="slide"/>
-			<img class="roundPhoto" src="11.jpg" alt="slide"/>
-			<img class="roundPhoto" src="12.jpg" alt="slide"/>
-			<img class="roundPhoto" src="13.jpg" alt="slide"/>
-			<img class="roundPhoto" src="14.jpg" alt="slide"/>
-			<img class="roundPhoto" src="15.jpg" alt="slide"/>
-			<img class="roundPhoto" src="16.jpg" alt="slide"/>
-			<img class="roundPhoto" src="17.jpg" alt="slide"/>
-			<img class="roundPhoto" src="18.jpg" alt="slide"/>
-			<img class="roundPhoto" src="19.jpg" alt="slide"/>
-			<img class="roundPhoto" src="20.jpg" alt="slide"/>
-			<img class="roundPhoto" src="21.jpg" alt="slide"/>
-			<img class="roundPhoto" src="22.jpg" alt="slide"/>
-			<img class="roundPhoto" src="23.jpg" alt="slide"/>
-			<img class="roundPhoto" src="24.jpg" alt="slide"/>
-			<img class="roundPhoto" src="25.jpg" alt="slide"/>
-			<img class="roundPhoto" src="26.jpg" alt="slide"/>
+			<img class="photo" src="01.jpg" alt="slide"/>
+			<img class="photo" src="02.jpg" alt="slide"/>
+			<img class="photo" src="03.jpg" alt="slide"/>
+			<img class="photo" src="04.jpg" alt="slide"/>
+			<img class="photo" src="05.jpg" alt="slide"/>
+			<img class="photo" src="06.jpg" alt="slide"/>
+			<img class="photo" src="07.jpg" alt="slide"/>
+			<img class="photo" src="08.jpg" alt="slide"/>
+			<img class="photo" src="09.jpg" alt="slide"/>
+			<img class="photo" src="10.jpg" alt="slide"/>
+			<img class="photo" src="11.jpg" alt="slide"/>
+			<img class="photo" src="12.jpg" alt="slide"/>
+			<img class="photo" src="13.jpg" alt="slide"/>
+			<img class="photo" src="14.jpg" alt="slide"/>
+			<img class="photo" src="15.jpg" alt="slide"/>
+			<img class="photo" src="16.jpg" alt="slide"/>
+			<img class="photo" src="17.jpg" alt="slide"/>
+			<img class="photo" src="18.jpg" alt="slide"/>
+			<img class="photo" src="19.jpg" alt="slide"/>
+			<img class="photo" src="20.jpg" alt="slide"/>
+			<img class="photo" src="21.jpg" alt="slide"/>
+			<img class="photo" src="22.jpg" alt="slide"/>
+			<img class="photo" src="23.jpg" alt="slide"/>
+			<img class="photo" src="24.jpg" alt="slide"/>
+			<img class="photo" src="25.jpg" alt="slide"/>
+			<img class="photo" src="26.jpg" alt="slide"/>
 		</div></a>
 		<article class="cita">
 			<p><i>"A butterfly can flutter its wings over a flower in China and cause a hurricane in the Caribbean"</i></p>

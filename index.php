@@ -3,7 +3,7 @@
     <section class="content">
         <article class="item">
             <div class="item-image">
-                <a href="2023/blink/"><img class="roundPhotoTh" src="2023/blink/thumb.gif" alt="blink"/></a>
+                <a href="2023/blink/"><img class="photoTh" src="2023/blink/thumb.gif" alt="blink"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">BLINK</span>
@@ -13,7 +13,7 @@
         </article>
         <article class="item">
             <div class="item-image">
-                <a href="2022/time/"><img class="roundPhotoTh" src="2022/time/thumb_long.gif" alt="Time Studies"/></a>
+                <a href="2022/time/"><img class="photoTh" src="2022/time/thumb_long.gif" alt="Time Studies"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">Time Studies</span>
@@ -23,7 +23,7 @@
         </article>
         <article class="item">
             <div class="item-image">
-                <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a>
+                <a href="2021/memory/"><img class="photoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">Memory Studies</span>
@@ -33,7 +33,7 @@
         </article>
         <article class="item">
             <div class="item-image">
-                <a href="2021/fen/"><img class="roundPhotoTh" src="2021/fen/thumb.gif" alt="Flight Studies"/></a>
+                <a href="2021/fen/"><img class="photoTh" src="2021/fen/thumb.gif" alt="Flight Studies"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">Flight Studies</span>
@@ -44,7 +44,7 @@
         </article>
         <!-- <article class="item">
             <div class="item-image">
-                <a href="https://vimeo.com/332883913"><img class="roundPhotoTh" src="2019/hogar/thumb.gif" alt="HOGAR"/></a>
+                <a href="https://vimeo.com/332883913"><img class="photoTh" src="2019/hogar/thumb.gif" alt="HOGAR"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">Hogar</span>
@@ -54,7 +54,7 @@
         </article> -->
         <article class="item">
             <div class="item-image">
-                <a href="2018/estrellas/"><img class="roundPhotoTh" src="2018/estrellas/thumb.gif" alt="ESTRELLAS"/></a>
+                <a href="2018/estrellas/"><img class="photoTh" src="2018/estrellas/thumb.gif" alt="ESTRELLAS"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">Estrellas</span>
@@ -64,7 +64,7 @@
         </article>
         <!-- <article class="item">
             <div class="item-image">
-                <a href="2025/orbitas2/"><img class="roundPhotoTh" src="2025/orbitas2/thumb.gif" alt="Orbitas2"/></a>
+                <a href="2025/orbitas2/"><img class="photoTh" src="2025/orbitas2/thumb.gif" alt="Orbitas2"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">Orbitas2</span>
@@ -74,7 +74,7 @@
         </article> -->
         <article class="item">
             <div class="item-image">
-                <a href="2017/luna/"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
+                <a href="2017/luna/"><img class="photoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">LUNA</span>
@@ -84,7 +84,7 @@
         </article>
         <!-- <article class="item">
             <div class="item-image">
-                <a href="http://pixelspiritdeck.com/"><img class="roundPhotoTh" src="2017/pixelspirit/thumb.gif" alt="PixelSpirit"/></a>
+                <a href="http://pixelspiritdeck.com/"><img class="photoTh" src="2017/pixelspirit/thumb.gif" alt="PixelSpirit"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">PixelSpirit</span>
@@ -95,7 +95,7 @@
         </article> -->
         <!-- <article class="item">
             <div class="item-image">
-                <a href="http://thebookofshaders.com/"><img class="roundPhotoTh" src="https://thebookofshaders.com/thumb.jpg" alt="TheBookOfShaders"/></a>
+                <a href="http://thebookofshaders.com/"><img class="photoTh" src="https://thebookofshaders.com/thumb.jpg" alt="TheBookOfShaders"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">The Book of Shaders</span>
@@ -105,7 +105,7 @@
         </article> -->
         <article class="item">
             <div class="item-image">
-                <a href="2014/skylines/"><img class="roundPhotoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
+                <a href="2014/skylines/"><img class="photoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">SKYLINES</span>
@@ -115,7 +115,7 @@
         </article>
         <!-- <article class="item">
             <div class="item-image">
-                <a href="https://cloudsdocumentary.com"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
+                <a href="https://cloudsdocumentary.com"><img class="photoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">CLOUDS Documentary</span>
@@ -125,7 +125,7 @@
         </article> -->
         <article class="item">
             <div class="item-image">
-                <a href="2011/efectomariposa/"><img class="roundPhotoTh" src="2011/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
+                <a href="2011/efectomariposa/"><img class="photoTh" src="2011/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">Efecto Mariposa</span>
@@ -135,7 +135,7 @@
         </article>
         <article class="item">
             <div class="item-image">
-                <a href="2010/communitas/"><img class="roundPhotoTh" src="2010/communitas/thumb.jpg" alt="Communitas"/></a>
+                <a href="2010/communitas/"><img class="photoTh" src="2010/communitas/thumb.jpg" alt="Communitas"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">Communitas</span>

@@ -138,7 +138,7 @@ function render_gallery_item($artwork) {
     $data_attrs['data-info'] = "'" . $info_json . "'";
     
     // Build HTML
-    $html = '<div class="portrait-item' . $sold_class . '"' . $sold_attr;
+    $html = '<div class="painting-item' . $sold_class . '"' . $sold_attr;
     foreach ($data_attrs as $attr => $value) {
         if ($attr === 'data-info') {
             $html .= ' ' . $attr . '=' . $value;
@@ -152,7 +152,7 @@ function render_gallery_item($artwork) {
     $title = isset($meta['title']) ? htmlspecialchars($meta['title']) : 'Untitled';
     $html .= '<img src="' . htmlspecialchars($artwork['thumbnail']) . '" ';
     $html .= 'alt="' . $title . '" ';
-    $html .= 'class="portrait-thumb">';
+    $html .= 'class="painting-thumb">';
     
     // Sold marker
     if ($is_sold) {
@@ -181,7 +181,7 @@ function render_gallery_item($artwork) {
     }
     
     $html .= '</div>'; // .artwork-info
-    $html .= '</div>'; // .portrait-item
+    $html .= '</div>'; // .painting-item
     
     return $html;
 }
@@ -223,7 +223,7 @@ function render_gallery($options = []) {
     $html = '';
     
     // Render gallery items
-    $html .= '<div class="portraits-gallery">' . "\n";
+    $html .= '<div class="paintings-gallery">' . "\n";
     
     foreach ($artworks as $artwork) {
         $html .= '    ' . render_gallery_item($artwork) . "\n";
@@ -252,13 +252,15 @@ function render_gallery_modal() {
     <span class="close-modal">&times;</span>
     <button class="nav-arrow nav-arrow-left" aria-label="Previous image">&#8249;</button>
     <button class="nav-arrow nav-arrow-right" aria-label="Next image">&#8250;</button>
-    <img class="fullscreen-image" src="" alt="Artwork">
-    <div class="sold-marker-fullscreen"></div>
-    <div class="fullscreen-info">
-        <div class="fullscreen-title"></div>
-        <div class="fullscreen-details"></div>
-        <div class="fullscreen-size"></div>
+    <div class="fullscreen-content">
+        <img class="fullscreen-image" src="" alt="Artwork">
+        <div class="fullscreen-info">
+            <span class="fullscreen-title"></span><span class="fullscreen-year"></span>
+            <span class="fullscreen-medium"></span>
+            <span class="fullscreen-dimensions"></span>
+        </div>
     </div>
+    <div class="sold-marker-fullscreen"></div>
     <div class="fullscreen-nav">
         <button class="view-button" data-view="main">Main</button>
         <button class="view-button" data-view="detail" style="display:none;">Detail</button>

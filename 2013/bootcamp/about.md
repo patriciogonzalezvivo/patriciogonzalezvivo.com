@@ -1,5 +1,5 @@
 <div id="myslides">
-			<img class="roundPhoto" src="01.jpg" alt="slide"/>
+			<img class="photo" src="01.jpg" alt="slide"/>
 </div>
 
 

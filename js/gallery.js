@@ -5,7 +5,7 @@ const soldMarker = modal ? modal.querySelector('.sold-marker-fullscreen') : null
 const closeBtn = modal ? modal.querySelector('.close-modal') : null;
 const navLeft = modal ? modal.querySelector('.nav-arrow-left') : null;
 const navRight = modal ? modal.querySelector('.nav-arrow-right') : null;
-const portraitItems = document.querySelectorAll('.portrait-item');
+const portraitItems = document.querySelectorAll('.painting-item');
 
 let currentIndex = 0;
 
@@ -20,7 +20,7 @@ let currentView = 'main';
 // Function to display an image in fullscreen
 function showImage(index, view = 'main') {
 	const portraitItem = portraitItems[index];
-	// Get data from the parent .portrait-item div, not the img
+	// Get data from the parent .painting-item div, not the img
 	const fullSrc = portraitItem.getAttribute('data-full');
 	const detailSrc = portraitItem.getAttribute('data-detail');
 	const installationSrc = portraitItem.getAttribute('data-installation');
@@ -54,17 +54,14 @@ function showImage(index, view = 'main') {
 	if (infoData) {
 		const info = JSON.parse(infoData);
 		const titleEl = modal.querySelector('.fullscreen-title');
-		const detailsEl = modal.querySelector('.fullscreen-details');
-		const sizeEl = modal.querySelector('.fullscreen-size');
+		const yearEl = modal.querySelector('.fullscreen-year');
+		const mediumEl = modal.querySelector('.fullscreen-medium');
+		const dimensionsEl = modal.querySelector('.fullscreen-dimensions');
 		
 		if (titleEl) titleEl.textContent = info.title || 'Untitled';
-		if (detailsEl) {
-			const details = [];
-			if (info.year) details.push(info.year);
-			if (info.medium) details.push(info.medium);
-			detailsEl.textContent = details.join(' | ');
-		}
-		if (sizeEl) sizeEl.textContent = info.dimensions || info.size || '';
+		if (yearEl) yearEl.textContent = info.year || '';
+		if (mediumEl) mediumEl.textContent = info.medium || '';
+		if (dimensionsEl) dimensionsEl.textContent = info.dimensions || info.size || '';
 	}
 	
 	// Update view buttons visibility and active state

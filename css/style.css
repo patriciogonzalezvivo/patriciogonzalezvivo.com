@@ -52,7 +52,7 @@ body {
     display: inline-block; 
 }
 
-.roundPhotoTh {
+.photoTh {
     width: 575px;
     max-width: 100%;
     height: 165px;
@@ -261,13 +261,13 @@ body.windowed-mode #longer-info {
     margin: 0 auto;
     transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1); 
 }
-#myslides .roundPhoto {
+#myslides .photo {
     position: absolute;
     left: 0;
     transition: opacity 70ms ease-in-out;
     opacity: 0; 
 }
-#myslides .roundPhoto.roundPhotoFront {
+#myslides .photo.photoFront {
     opacity: 1; 
 }
 
@@ -371,7 +371,7 @@ footer {
         margin-top: 0;
     }
 
-    .roundPhotoTh {
+    .photoTh {
         width: 100%;
         /* height: auto; */
         max-width: 100%;
@@ -456,5 +456,460 @@ footer {
 
     .cita {
         font-size: 0.75rem;
+    }
+}
+
+
+/* GALLERY */
+
+/* Portraits Gallery Styles */
+
+.paintings-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.painting-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 1;
+}
+
+.painting-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.painting-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Artwork Information */
+.artwork-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.6) 80%, transparent);
+    color: black;
+    padding: 20px 12px 12px 12px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.painting-item:hover .artwork-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.artwork-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.artwork-details {
+    font-size: 13px;
+    margin-bottom: 3px;
+    opacity: 0.95;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.artwork-size {
+    font-size: 12px;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Sold Marker - Small Red Dot */
+.sold-marker {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #da1b1b;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.painting-item.sold {
+    opacity: 0.85;
+}
+
+/* Fullscreen Modal */
+.fullscreen-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.fullscreen-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.fullscreen-modal img.fullscreen-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    position: relative;
+    z-index: 1001;
+}
+
+.close-modal {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1002;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: black;
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 60px;
+    width: 60px;
+    height: 80px;
+    cursor: pointer;
+    z-index: 1002;
+    transition: background 0.3s ease, opacity 0.3s ease;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.nav-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+}
+
+.nav-arrow-left {
+    left: 20px;
+    border-radius: 0 4px 4px 0;
+}
+
+.nav-arrow-right {
+    right: 20px;
+    border-radius: 4px 0 0 4px;
+}
+
+/* Sold Marker for Fullscreen */
+.sold-marker-fullscreen {
+    display: none;
+    position: absolute;
+    bottom: 80px;
+    right: 80px;
+    width: 60px;
+    height: 60px;
+    background-color: #da1b1b;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1003;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Fullscreen Artwork Info */
+.fullscreen-info {
+    text-align: center;
+    color: #333;
+    z-index: 1002;
+    max-width: 90%;
+    margin-top: 20px;
+}
+
+.fullscreen-title {
+    font-weight: 600;
+    color: #333;
+}
+
+.fullscreen-year::after,
+.fullscreen-medium::after {
+    content: ", ";
+}
+
+.fullscreen-year,
+.fullscreen-medium,
+.fullscreen-dimensions {
+    color: #333;
+}
+
+/* On larger screens, position info to the right like item-info */
+@media (min-width: 875px) {
+    .fullscreen-content {
+        flex-direction: row;
+        gap: 30px;
+        align-items: flex-start;
+        max-width: 90%;
+    }
+    
+    .fullscreen-modal img.fullscreen-image {
+        max-width: calc(90vw - 280px);
+        max-height: 90vh;
+        flex-shrink: 1;
+    }
+    
+    .fullscreen-info {
+        text-align: left;
+        width: 250px;
+        flex-shrink: 0;
+        max-width: 250px;
+        margin-top: 0;
+    }
+    
+    .fullscreen-title,
+    .fullscreen-year,
+    .fullscreen-medium,
+    .fullscreen-dimensions {
+        display: block;
+    }
+    
+    .fullscreen-title {
+        display: inline;
+        font-size: 1.3em;
+    }
+    
+    .fullscreen-year {
+        display: inline;
+    }
+    
+    .fullscreen-year::after {
+        content: "";
+        display: block;
+    }
+    
+    .fullscreen-medium::after {
+        content: "";
+        display: block;
+    }
+}
+
+/* View Navigation Buttons */
+.fullscreen-nav {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 1002;
+}
+
+.view-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.view-button:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.view-button.active {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.view-button.active:hover {
+    background-color: #333;
+    border-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .paintings-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .paintings-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .sold-marker {
+        width: 25px;
+        height: 25px;
+        bottom: 8px;
+        right: 8px;
+    }
+    
+    .close-modal {
+        top: 20px;
+        right: 30px;
+        font-size: 40px;
+    }
+    
+    .nav-arrow {
+        font-size: 50px;
+        width: 50px;
+        height: 70px;
+    }
+    
+    .nav-arrow-left {
+        left: 10px;
+    }
+    
+    .nav-arrow-right {
+        right: 10px;
+    }
+    
+    .sold-marker-fullscreen {
+        width: 50px;
+        height: 50px;
+        bottom: 60px;
+        right: 60px;
+    }
+    
+    .artwork-title {
+        font-size: 14px;
+    }
+    
+    .artwork-details {
+        font-size: 11px;
+    }
+    
+    .artwork-size {
+        font-size: 10px;
+    }
+    
+    .fullscreen-title {
+        font-size: 18px;
+    }
+    
+    .fullscreen-details {
+        font-size: 14px;
+    }
+    
+    .fullscreen-size {
+        font-size: 13px;
+    }
+    
+    .fullscreen-info {
+        bottom: 20px;
+    }
+    
+    .fullscreen-nav {
+        top: 20px;
+    }
+    
+    .view-button {
+        padding: 6px 15px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .paintings-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .sold-marker {
+        width: 20px;
+        height: 20px;
+        bottom: 6px;
+        right: 6px;
+    }
+    
+    .artwork-info {
+        padding: 15px 8px 8px 8px;
+    }
+    
+    .artwork-title {
+        font-size: 12px;
+        margin-bottom: 3px;
+    }
+    
+    .artwork-details {
+        font-size: 10px;
+        margin-bottom: 2px;
+    }
+    
+    .artwork-size {
+        font-size: 9px;
+    }
+    
+    .nav-arrow {
+        font-size: 40px;
+        width: 40px;
+        height: 60px;
+    }
+    
+    .nav-arrow-left {
+        left: 5px;
+    }
+    
+    .nav-arrow-right {
+        right: 5px;
+    }
+    
+    .fullscreen-title {
+        font-size: 16px;
+    }
+    
+    .fullscreen-details {
+        font-size: 12px;
+    }
+    
+    .fullscreen-size {
+        font-size: 11px;
     }
 }

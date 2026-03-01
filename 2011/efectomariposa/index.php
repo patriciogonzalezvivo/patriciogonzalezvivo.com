@@ -18,34 +18,34 @@
                     <iframe title="vimeo-player" src="https://player.vimeo.com/video/32321634?h=654b440c04" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
             </div>
             <a href="https://vimeo.com/32321634" target="_blank">
-            <div id="myslides" class="roundPhoto" style="">
-                <!-- <img class="roundPhoto" src="puyehue-04.jpg" style="width: 100%; height: 640px; object-fit: cover;"/> -->
-                <img class="roundPhoto" src="images/01.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/02.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/03.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/04.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/05.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/06.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/07.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/08.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/09.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/10.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/11.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/12.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/13.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/14.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/15.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/16.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/17.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/18.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/19.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/20.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/21.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/22.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/23.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/24.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/25.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
-                <img class="roundPhoto" src="images/26.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+            <div id="myslides" class="photo" style="">
+                <!-- <img class="photo" src="puyehue-04.jpg" style="width: 100%; height: 640px; object-fit: cover;"/> -->
+                <img class="photo" src="images/01.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/02.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/03.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/04.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/05.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/06.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/07.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/08.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/09.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/10.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/11.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/12.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/13.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/14.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/15.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/16.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/17.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/18.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/19.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/20.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/21.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/22.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/23.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/24.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/25.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
+                <img class="photo" src="images/26.jpg" style="width: 100%; height: 640px; object-fit: cover;" alt="slide"/>
             </div></a>  
 
             <article>

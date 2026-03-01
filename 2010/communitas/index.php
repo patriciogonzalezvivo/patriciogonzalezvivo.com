@@ -19,17 +19,17 @@
 			<a href="http://www.espacioft.org.ar/"><img src="sponsor.jpg" alt="sponsor"/></a>
 		</article>
 		
-		<div id="myslides" class="roundPhoto">
-			<img class="roundPhoto" src="images/01.jpg" alt="slide"/>
-			<img class="roundPhoto" src="images/02.jpg" alt="slide"/>
-			<img class="roundPhoto" src="images/03.jpg" alt="slide"/>
-			<img class="roundPhoto" src="images/04.jpg" alt="slide"/>
-			<img class="roundPhoto" src="images/05.jpg" alt="slide"/>
-			<img class="roundPhoto" src="images/06.jpg" alt="slide"/>
-			<img class="roundPhoto" src="images/07.jpg" alt="slide"/>
-			<img class="roundPhoto" src="images/08.jpg" alt="slide"/>
-			<img class="roundPhoto" src="images/09.jpg" alt="slide"/>
-			<img class="roundPhoto" src="images/10.jpg" alt="slide"/>
+		<div id="myslides" class="photo">
+			<img class="photo" src="images/01.jpg" alt="slide"/>
+			<img class="photo" src="images/02.jpg" alt="slide"/>
+			<img class="photo" src="images/03.jpg" alt="slide"/>
+			<img class="photo" src="images/04.jpg" alt="slide"/>
+			<img class="photo" src="images/05.jpg" alt="slide"/>
+			<img class="photo" src="images/06.jpg" alt="slide"/>
+			<img class="photo" src="images/07.jpg" alt="slide"/>
+			<img class="photo" src="images/08.jpg" alt="slide"/>
+			<img class="photo" src="images/09.jpg" alt="slide"/>
+			<img class="photo" src="images/10.jpg" alt="slide"/>
 		</div>
 	</div>
 

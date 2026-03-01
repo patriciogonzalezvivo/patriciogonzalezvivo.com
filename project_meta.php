@@ -127,7 +127,7 @@ function render_project_item($meta, $commented = false) {
         $thumb_src = isset($meta['thumbnail']) && $meta['thumbnail'] 
             ? $meta['thumbnail'] 
             : htmlspecialchars($meta['path']) . '/' . htmlspecialchars($meta['thumb']);
-        $html .= '<img class="roundPhotoTh" src="' . $thumb_src . '" alt="' . htmlspecialchars($meta['title']) . '"/>';
+        $html .= '<img class="photoTh" src="' . $thumb_src . '" alt="' . htmlspecialchars($meta['title']) . '"/>';
     }
     
     $html .= '</a>' . "\n";

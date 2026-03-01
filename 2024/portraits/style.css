@@ -1,6 +1,6 @@
 /* Portraits Gallery Styles */
 
-.portraits-gallery {
+.paintings-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
@@ -9,7 +9,7 @@
     margin: 0 auto;
 }
 
-.portrait-item {
+.painting-item {
     position: relative;
     cursor: pointer;
     overflow: hidden;
@@ -19,12 +19,12 @@
     aspect-ratio: 1;
 }
 
-.portrait-item:hover {
+.painting-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
-.portrait-thumb {
+.painting-thumb {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -46,7 +46,7 @@
     pointer-events: none;
 }
 
-.portrait-item:hover .artwork-info {
+.painting-item:hover .artwork-info {
     opacity: 1;
     transform: translateY(0);
 }
@@ -85,7 +85,7 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-.portrait-item.sold {
+.painting-item.sold {
     opacity: 0.85;
 }
 
@@ -257,7 +257,7 @@
 
 /* Responsive Design */
 @media (max-width: 1200px) {
-    .portraits-gallery {
+    .paintings-gallery {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 15px;
         padding: 15px;
@@ -265,7 +265,7 @@
 }
 
 @media (max-width: 768px) {
-    .portraits-gallery {
+    .paintings-gallery {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
         gap: 10px;
         padding: 10px;
@@ -344,7 +344,7 @@
 }
 
 @media (max-width: 480px) {
-    .portraits-gallery {
+    .paintings-gallery {
         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     }
     

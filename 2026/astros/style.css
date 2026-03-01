@@ -3,7 +3,7 @@
         transform: translateX(10%);
     } */
     .item-info {
-        bottom: -690px;
+        bottom: -70px;
         position: relative;
         z-index: -1;
     }

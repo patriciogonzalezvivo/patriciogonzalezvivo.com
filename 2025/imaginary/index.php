@@ -7,7 +7,7 @@
 <?php include("../../menu.php");?>
 
 	<!-- GALLERY -->
-	<link rel="stylesheet" href="style.css">
+	<!-- <link rel="stylesheet" href="style.css"> -->
 	
 	<?php
 		// Render the gallery using the helper function

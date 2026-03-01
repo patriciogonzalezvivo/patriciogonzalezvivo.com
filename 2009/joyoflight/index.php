@@ -5,7 +5,7 @@
 	<!-- CONTENT -->
 	<section class="content">
 		<div class="video-container">
-			<iframe class="roundPhoto" src="http://player.vimeo.com/video/15170863?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+			<iframe class="photo" src="http://player.vimeo.com/video/15170863?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 		</div>
 		<article>
 			<p><strong>JoyOflight</strong> is an openSource application that provides a means for people to play with light-painting in an intuitive and colorful way.</p>

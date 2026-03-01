@@ -123,15 +123,15 @@ body {
     position: relative;
     margin: 0 auto;
     transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1); }
-    .content #myslides .roundPhoto {
+    .content #myslides .photo {
       border-radius: 10px;
       position: absolute;
       left: 0;
       -webkit-transition: opacity 70ms ease-in-out;
       -webkit-opacity: 0; }
-      .content #myslides .roundPhoto.roundPhotoFront {
+      .content #myslides .photo.photoFront {
         -webkit-opacity: 1; }
-  .content .roundPhotoTh {
+  .content .photoTh {
     border-radius: 7px; }
   .content .cita {
     width: 575px;
@@ -194,11 +194,11 @@ footer {
   .cita {
     width: 100%; }
 
-  .roundPhoto {
+  .photo {
     width: 100%;
     border-radius: 30px; }
 
-  .roundPhotoTh {
+  .photoTh {
     width: 100%;
     border-radius: 15px; } }
 @media only screen and (device-width: 768px) {

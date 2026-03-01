@@ -6,9 +6,9 @@
 	<!-- CONTENT -->
 	<section class="content">
 		<div id="myslides">
-			<img class="roundPhoto" src="01.jpg" alt="slide"/>
-			<img class="roundPhoto" src="02.jpg" alt="slide"/>
-			<img class="roundPhoto" src="03.jpg" alt="slide"/>
+			<img class="photo" src="01.jpg" alt="slide"/>
+			<img class="photo" src="02.jpg" alt="slide"/>
+			<img class="photo" src="03.jpg" alt="slide"/>
 		</div>
 		<article>
 			<p>OpenFrameworks workshops at CCGSM (Cultural Center General San Martin, Buenso Aires, Argentina).</p>

@@ -80,7 +80,7 @@ $artworks = get_gallery_artworks('images', 'IMG_*.jpeg', [
 ]);
 
 // Render gallery manually
-echo '<div class="portraits-gallery">';
+echo '<div class="paintings-gallery">';
 foreach ($artworks as $artwork) {
     echo render_gallery_item($artwork);
 }

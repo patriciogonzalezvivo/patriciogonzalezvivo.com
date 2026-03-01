@@ -21,11 +21,11 @@ function slideNext(){
 		//	Hide previus
 		//
 		var previus = (counter==0)?images.length-1:counter-1;
-		images[previus].classList.remove("roundPhotoFront");
+		images[previus].classList.remove("photoFront");
 
 		//	Show Current
 		//
-		images[counter].classList.toggle("roundPhotoFront");
+		images[counter].classList.toggle("photoFront");
 
 		document.getElementById("myslides").style.height =  images[counter].height+"px" ;
 		counter++;
@@ -43,7 +43,7 @@ if ( items.length > 0 ){
 
 	if ( mySlides != null ){
 		images=mySlides.getElementsByTagName("img");
-		images[images.length-1].classList.toggle("roundPhotoFront");
+		images[images.length-1].classList.toggle("photoFront");
 		document.getElementById("myslides").style.height =  images[0].height+"px" ;
 		setInterval( slideNext ,3000);
 	}

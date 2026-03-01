@@ -6,9 +6,9 @@
 	<!-- CONTENT -->
 	<section class="content">
 		<div id="myslides">
-			<img class="roundPhoto" src="01.jpg" alt="slide"/>
-			<img class="roundPhoto" src="02.jpg" alt="slide"/>
-			<img class="roundPhoto" src="03.jpg" alt="slide"/>
+			<img class="photo" src="01.jpg" alt="slide"/>
+			<img class="photo" src="02.jpg" alt="slide"/>
+			<img class="photo" src="03.jpg" alt="slide"/>
 		</div>
 		<article>
 			<p>Assistant Teacher of the Course <a href="http://www.nrogers.com/ccexcerpt.html" target="_blank"><i>Creative Connexión®</i></a>  at Performant Arts School of the Universidad del Salvador. That was an incredible space to explore the connections and possibilities of the different artistic languages on the personal journey of each student. (The Creative Connection® technique was developed by Natalie Rogers and brought to Argentina by Graciela Bottini)</p>

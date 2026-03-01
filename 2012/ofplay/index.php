@@ -6,8 +6,8 @@
 	<section class="content">
 		<a href="https://github.com/patriciogonzalezvivo/OFPlay" target="_blank">
 		<div id="myslides">
-			<img class="roundPhoto" src="01.jpg" alt="slide"/>
-			<img class="roundPhoto" src="02.jpg" alt="slide"/>
+			<img class="photo" src="01.jpg" alt="slide"/>
+			<img class="photo" src="02.jpg" alt="slide"/>
 		</div>
 		</a>
 		

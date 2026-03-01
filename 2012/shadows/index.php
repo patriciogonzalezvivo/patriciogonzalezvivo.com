@@ -5,7 +5,7 @@
 	<!-- CONTENT -->
 	<section class="content">
 		<!-- <div id="myslides">
-			<img class="roundPhoto" src="01.jpg" />
+			<img class="photo" src="01.jpg" />
 		</div> -->
 		<div class="video-container">
 			<iframe src="http://player.vimeo.com/video/41256563?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
