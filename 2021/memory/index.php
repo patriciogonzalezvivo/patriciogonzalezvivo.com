@@ -1,50 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Memory Studies</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name='mobile-web-app-capable' content='yes'>
-        <meta name='apple-mobile-web-app-capable' content='yes'>
-        <meta property="og:image" content="thumb.gif" />
-        <meta property="og:title" content="Memory Studies" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Memory Studies" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:author" content="Patricio Gonzalez Vivo" />
-        <meta property='og:description' content='by Patricio Gonzalez Vivo. Instrument for connection, presence and empathy through watching the sky together.'/>
-        <meta property='og:image:width' content='620'/>
-        <meta property='og:image:height' content='620'/>
+<?php
+    // Customize page metadata before including header
+    $page_title = "Memory Studies - Patricio Gonzalez Vivo";
+    $page_description = "Memory Studies, an exploration of the intersection between memory and digital media.";
+    $page_keywords = "Memory, Digital Media, Patricio Gonzalez Vivo";
+    // Override og_title/og_site_name for social sharing (optional)
+    $og_title = "Memory Studies";
+    $og_site_name = "Memory Studies";
+    // $og_url will be auto-generated from current path
+    // $og_description will use page_description
+    // $og_image will be auto-detected from thumb.gif
+    // $og_image_width and $og_image_height will be auto-calculated
 
-        <meta name="description" content="Memory Studies, an exploration of the intersection between memory and digital media." />
-        <meta name="keywords" content="Memory, Digital Media, Patricio Gonzalez Vivo" />
-        <meta name="author" content="Patricio Gonzalez Vivo" />
-        
-        <link href="/ico.gif" rel="shortcut icon"  />
-        <link href="/css/style.css" rel="stylesheet" />
-        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
-        <script>
-            (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
-            ga("create", "UA-18824436-1", "patriciogonzalezvivo.com");
-            ga("send", "pageview");
-        </script>
-
-        <link rel="stylesheet" href="style.css" type="text/css" />
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-W5MR6SK1EZ');
-        </script>
-    </head>
-    <body class="windowed-mode">
-
-        <?php include("../../menu.php");?>
+    include("../../header.php");
+    ?>
+    <?php include("../../menu.php");?>
+            <link rel="stylesheet" href="style.css" type="text/css" />
 
         <article class="item">
             <div class="item-image">
@@ -132,10 +102,6 @@
             -->
         </div>
         <wasm-loader></wasm-loader>
-
-        <footer>
-            <p>© Patricio Gonzalez Vivo 2026</p>
-        </footer>
-    </body>
-    <script type="module" src="main.js"></script>
-</html>
+        <script type="module" src="main.js"></script>
+	
+<?php include("../../footer.php"); ?>

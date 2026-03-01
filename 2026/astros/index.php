@@ -1,46 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title> Astros </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name='mobile-web-app-capable' content='yes'>
-        <meta name='apple-mobile-web-app-capable' content='yes'>
-        <meta property="og:image" content="thumb.gif" />
-        <meta property="og:title" content=" Astros " />
-        <meta property="og:url" content="https://patriciogonzalezvivo.com/2026/astros/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content=" Astros " />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:author" content="Patricio Gonzalez Vivo" />
-        <meta property='og:description' content='by Patricio Gonzalez Vivo. Astros is a living, luminous meditation on the present sky.'/>
-        <meta property='og:image:width' content='640'/>
-        <meta property='og:image:height' content='192'/>
-
-        <meta name="description" content=" Astros " />
-        <meta name="keywords" content="Patricio Gonzalez Vivon" />
-        <meta name="author" content="Patricio Gonzalez Vivo" />
-        
-
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-W5MR6SK1EZ"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-W5MR6SK1EZ');
-            </script>
-    </head>
-    <body class="windowed-mode">
-        
-        <link href="../../ico.gif" rel="shortcut icon"  />
-        <link href="../../css/style.css" rel="stylesheet" />
-        <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <link rel="stylesheet" href="style.css" type="text/css" />
-        <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-
+<?php
+    $page_title = "Astros - Patricio Gonzalez Vivo";
+    $page_description = "Astros is a living, luminous meditation on the present sky.";
+    $page_keywords = "Patricio Gonzalez Vivo, astros, generative art, real-time art, astrology";
+    include("../../header.php");?>
         <?php include("../../menu.php");?>
+        <link rel="stylesheet" href="style.css" type="text/css" />
 
         <article class="item">
             <div class="item-image">

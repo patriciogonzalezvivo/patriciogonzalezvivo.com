@@ -1,5 +1,8 @@
-<?php include("../../header.php");?>
-<?php include("../../menu.php");?>
+<?php
+	$page_title = "Imaginary - Patricio Gonzalez Vivo";
+	$page_description = "Imaginary oil paintings by Patricio Gonzalez Vivo, 2024-2025";
+	include("../../header.php");?>
+	<?php include("../../menu.php");?>
 
 	<!-- GALLERY -->
 	<link rel="stylesheet" href="style.css">

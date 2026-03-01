@@ -1,47 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>BLINK</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <meta name='mobile-web-app-capable' content='yes'>
-        <meta name='apple-mobile-web-app-capable' content='yes'>
-        <meta property="og:image" content="thumb.gif" />
-        <meta property="og:title" content="BLINK" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="BLINK" />
-        <meta property="og:locale" content="en_US" />
-        <meta property="og:author" content="Patricio Gonzalez Vivo" />
-        <meta property='og:description' content='by Patricio Gonzalez Vivo. both memento mori and moment of delight, an object suspended between disappearance and wonder'/>
-        <meta property='og:image:width' content='640'/>
-        <meta property='og:image:height' content='226'/>
-
-        <meta name="description" content="Both memento mori and moment of delight, an object suspended between disappearance and wonder" />
-        <meta name="author" content="Patricio Gonzalez Vivo" />
-        
-        <link href="../../ico.gif" rel="shortcut icon"  />
-        <link href="../../css/style.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic" rel="stylesheet" type="text/css">
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-        <script>
-            (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
-            ga("create", "UA-18824436-1", "patriciogonzalezvivo.com");
-            ga("send", "pageview");
-        </script>
-
+<?php
+    // Customize page metadata before including header
+    $page_title = "BLINK";
+    $page_description = "Both memento mori and moment of delight, an object suspended between disappearance and wonder";
+    include("../../header.php");?>
+    <?php include("../../menu.php");?>
         <link rel="stylesheet" href="style.css" type="text/css" />
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-W5MR6SK1EZ');
-        </script>
-    </head>
-    <body class="windowed-mode">
-        <?php include("../../menu.php");?>
 
         <article class="item">
             <div class="item-image">
@@ -76,10 +39,6 @@
             <p>The result is a paradoxical image: a structure that feels planetary yet impossibly delicate.</p>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/three@0.124/build/three.min.js"></script>
+        <script type="module" src="main.min.js"></script>
 
-        <footer>
-            <p>© Patricio Gonzalez Vivo 2026</p>
-        </footer>
-    </body>
-    <script type="module" src="main.min.js"></script>
-</html>
+<?php include("../../footer.php"); ?>

@@ -1,41 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Estrellas</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:image" content="thumb.gif" />
-        <meta property="og:title" content="Estrellas" />
-        <meta property='og:image:width' content='575'/>
-        <meta property='og:image:height' content='165'/>
-        <meta property='og:description' content='Estrellas is an instrument for connection, presence and empathy through watching the sky together.'/>
-        <meta property='og:site_name' content='Patricio Gonzalez Vivo'/>
-        <meta name="description" content="Estrellas is an instrument for connection, presence and empathy through watching the sky together." />
-        <meta name="keywords" content="Estrellas, Patricio Gonzalez Vivo" />
-        <meta name="author" content="Patricio Gonzalez Vivo" />
-        <link href="../../ico.gif" rel="shortcut icon"  />
-        <link href="../../css/style.css" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic" rel="stylesheet" type="text/css">
+<?php
+// Customize page metadata before including header
+$page_title = "Estrellas - Patricio Gonzalez Vivo";
+$page_description = "Estrellas is an instrument for connection, presence and empathy through watching the sky together.";
+$page_keywords = "Estrellas, Patricio Gonzalez Vivo";
+// $og_url will be auto-generated from current path
+// $og_title and $og_description will use page_title and page_description
+// $og_image will be auto-detected from thumb.gif
+// $og_image_width and $og_image_height will be auto-calculated
+
+include("../../header.php");
+?>
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
-        <script>
-            (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,"script","//www.google-analytics.com/analytics.js","ga");
-            ga("create", "UA-18824436-1", "patriciogonzalezvivo.com");
-            ga("send", "pageview");
-        </script>
-
         <link rel="stylesheet" href="style.css" type="text/css" />
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-W5MR6SK1EZ');
-        </script>
-    </head>
-    <body class="windowed-mode">
         
         <?php include("../../menu.php");?>
 
