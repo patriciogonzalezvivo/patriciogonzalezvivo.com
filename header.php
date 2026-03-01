@@ -124,7 +124,7 @@ if (is_array($google_fonts)) {
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag("js", new Date());
-			gtag("config", "G-W5MR6SK1EZ");
+			gtag("config", "G-QT11DDJJFX");
 		</script>';
 echo '
 	</head>
