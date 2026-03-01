@@ -221,7 +221,7 @@ class PortfolioGenerator:
     
     \vspace{2cm}
     
-    {\large Artist \& Educator}
+    {\large Multidisciplinary Artist}
     
     \vfill
     
