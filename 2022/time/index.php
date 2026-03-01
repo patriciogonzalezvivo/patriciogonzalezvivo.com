@@ -5,7 +5,7 @@
 <style>wistia-player[media-id='5nu91zr9q6']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/5nu91zr9q6/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> 
 
 <?php include("../../menu.php");?>
-<?php include("../../sidebar.php");?>
+
 
 	<wistia-player media-id="5nu91zr9q6" aspect="1.7777777777777777"></wistia-player>
 	<div class="item-info">

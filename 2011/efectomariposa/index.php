@@ -1,6 +1,6 @@
 <?php include("../../header.php");?>
 <?php include("../../menu.php");?>
-<?php include("../../sidebar.php");?>
+
 
         <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/v2o6ybyv6g.js" async type="module"></script><style>wistia-player[media-id='v2o6ybyv6g']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/v2o6ybyv6g/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="v2o6ybyv6g" aspect="1.7777777777777777"></wistia-player>
 

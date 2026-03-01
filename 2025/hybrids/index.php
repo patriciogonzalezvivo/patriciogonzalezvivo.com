@@ -1,6 +1,6 @@
 <?php include("../../header.php");?>
 <?php include("../../menu.php");?>
-<?php include("../../sidebar.php");?>
+
 
 	<!-- GALLERY -->
 	<link rel="stylesheet" href="style.css">
@@ -71,6 +71,14 @@
 			<div class="fullscreen-details"></div>
 			<div class="fullscreen-size"></div>
 		</div>
+	</div>
+
+	<div id="longer-info">
+		<?php
+		include("../../parsedown/Parsedown.php");
+		$Parsedown = new Parsedown();
+		echo $Parsedown->text(file_get_contents ('README.md'));
+		?>
 	</div>
 	
 	<script src="main.js"></script>

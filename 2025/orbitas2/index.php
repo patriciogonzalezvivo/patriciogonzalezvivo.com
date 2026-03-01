@@ -65,14 +65,11 @@
         </div>
 
         <div id="longer-info">
-            <p>Orbitas is a living cosmogram, a real-time simulation where planets and moons inscribe their movements into space. As the camera drifts through the solar system, luminous trails unfold, tracing celestial paths accumulated since the beginning of the year, turning motion into memory.</p>
-            <p>Earth’s tilt and passage through the months align with distant stars and zodiac constellations, while the Moon cycles through its phases, breathing rhythm into the work. Time expands, scale dissolves, and the familiar calendar gives way to a cosmic one.</p>
-            <p>Both instrument and invocation, Orbitas invites contemplation of the great celestial dance, a quiet reminder of our place within the vast, slow choreography of the Sun and its orbiting worlds.</p>
-            <p>Exibitions:</p>
-            <ul>
-                <p>2025 - Solar Biennale, at <a href="https://www.instagram.com/mudaclausanne/">Museum of Contemporary Design</a>, Switzerland</p>
-                <p>2018 - <a href="https://frm.fm/a/patricio_gonzalez_vivo/orbitas">Framed</a></p>
-            </ul>
+            <?php
+			include("../../parsedown/Parsedown.php");
+			$Parsedown = new Parsedown();
+			echo $Parsedown->text(file_get_contents ('README.md'));
+			?>
         </div>
         <wasm-loader></wasm-loader>
 

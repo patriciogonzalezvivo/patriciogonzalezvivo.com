@@ -1,16 +1,16 @@
 <?php include("header.php");?>
 <?php include("menu.php");?>
     <section class="content">
-         <!-- <article class="item">
+         <article class="item">
             <div class="item-image">
-                <a href="https://patriciogonzalezvivo.github.io/Astros/"><img class="roundPhotoTh" src="2026/astros/thumb.gif" alt="Astros"/></a>
+                <a href="2026/astros/"><img class="roundPhotoTh" src="2026/astros/thumb.gif" alt="Astros"/></a>
             </div>
             <div class="item-info">
                 <span class="item-title">Astros</span>
                 <span class="item-year">2026</span>
                 <span class="item-medium">Custom real-time software</span>
             </div>
-        </article> -->
+        </article>
         <article class="item">
             <div class="item-image">
                 <a href="2025/imaginary/"><img class="roundPhotoTh" src="2025/imaginary/thumb.jpg" alt="Imaginary"/></a>
