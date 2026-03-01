@@ -1,311 +1,82 @@
-<?php include("header.php");?>
-<?php include("menu.php");?>
+<?php 
+include("project_meta.php");
+
+    // Array of projects with their configuration
+    // Each entry can have:
+    //  - 'path': folder path for local projects (will load metadata from TITLE.txt, MEDIUM.txt, etc.)
+    //  - 'url': custom URL (for external sites or overriding the default path URL)
+    //  - 'thumbnail': custom thumbnail URL (overrides auto-detected thumb)
+    //  - 'commented': true to render as HTML comment
+    // For external projects without local metadata, add 'title', 'year', 'medium', 'dimensions' directly
+    $projects = [
+        ['path' => '2026/astros'],
+        ['path' => '2025/imaginary'],
+        ['path' => '2025/hybrids'],
+        // ['path' => '2025/weaver', 'url' => 'https://patriciogonzalezvivo.github.io/weaver'],
+        // ['path' => '2025/orbitas2', 'url' => 'https://patriciogonzalezvivo.github.io/Orbitas2'],
+        // ['path' => '2024/portraits'],
+        ['path' => '2023/blink'],
+        ['path' => '2022/time'],
+        // ['path' => '2021/arcana', 'url' => 'https://objkt.com/collection/KT1CkDFaHiH8UtZhyR2EvoqhihsntjSikvt9', 'description' => 'Real-time NFT based on the 22 Arcana of PixelSpirit Tarot Deck.'],
+        ['path' => '2021/memory'],
+        ['path' => '2021/fen'],
+        ['path' => '2019/hogar'],
+        ['path' => '2018/estrellas'],
+        ['path' => '2025/orbitas2', 'title' => 'Órbitas', 'year' => '2018', 'medium' => 'Custom real-time software'],
+        ['path' => '2017/pixelspirit', 'url' => 'http://pixelspiritdeck.com/', 'title' => 'PixelSpirit', 'year' => '2017', 'medium' => 'Tarot Deck / Book', 'dimensions' => '78 Cards'],
+        ['path' => '2017/luna'],
+        // ['path' => '2017/guayupia', 'url' => 'http://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe', 'title' => 'GUAYUPIA', 'year' => '2017', 'medium' => 'Documentary'],
+        // ['path' => '2015/LineOfSight', 'url' => 'https://patriciogonzalezvivo.github.io/LineOfSight', 'title' => 'LineOfSight', 'year' => '2015', 'medium' => 'Custom real-time map'],
+        // ['path' => '2015/RandomCity', 'url' => 'https://patriciogonzalezvivo.github.io/RandomCity/', 'title' => 'RandomCity', 'year' => '2015', 'medium' => 'Generative Map'],
+        ['url' => 'http://thebookofshaders.com/', 'thumbnail' => 'https://thebookofshaders.com/thumb.jpg', 'title' => 'The Book of Shaders', 'year' => '2015', 'medium' => 'Book'],
+        // ['path' => '2015/tangram-sandbox', 'title' => 'Tangram Sandbox', 'year' => '2015', 'medium' => 'Generative Maps'],
+        ['path' => '2014/skylines', 'title' => 'SKYLINES', 'year' => '2014', 'medium' => 'Mixed Media'],
+        // ['path' => '2014/pointcloudcity', 'title' => 'Point Cloud City', 'year' => '2014', 'medium' => 'Data Visualization'],
+        // ['path' => '2013/clouds', 'url' => 'https://cloudsdocumentary.com', 'title' => 'CLOUDS Documentary', 'year' => '2013', 'medium' => 'Documentary / Interactive'],
+        // ['path' => '2012/codemology', 'title' => 'Codemology', 'year' => '2012', 'medium' => 'Custom real-time software'],
+        // ['path' => '2012/flatland', 'title' => 'FlatLand', 'year' => '2012', 'medium' => 'Custom software'],
+        ['path' => '2011/efectomariposa', 'title' => 'Efecto Mariposa', 'year' => '2011', 'medium' => 'Interactive Installation'],
+        // ['path' => '2011/liquidkinect', 'url' => 'https://vimeo.com/19198053', 'title' => 'Liquid Kinect', 'year' => '2011', 'medium' => 'Custom real-time software'],
+        ['path' => '2010/communitas', 'title' => 'Communitas', 'year' => '2010', 'medium' => 'Interactive Installation'],
+    ];
+
+include("header.php");
+include("menu.php");
+?>
     <section class="content">
-         <article class="item">
-            <div class="item-image">
-                <a href="2026/astros/"><img class="roundPhotoTh" src="2026/astros/thumb.gif" alt="Astros"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Astros</span>
-                <span class="item-year">2026</span>
-                <span class="item-medium">Custom real-time software</span>
-            </div>
-        </article>
-        <article class="item">
-            <div class="item-image">
-                <a href="2025/imaginary/"><img class="roundPhotoTh" src="2025/imaginary/thumb.jpg" alt="Imaginary"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Imaginary Portraits</span>
-                <span class="item-year">2025</span>
-                <span class="item-medium">Mixed Media on Canvas</span>
-            </div>
-        </article>
-        <article class="item">
-            <div class="item-image">
-                <a href="2025/hybrids/"><img class="roundPhotoTh" src="2025/hybrids/thumb.jpg" alt="Hybrids"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Hybrids Studies</span>
-                <span class="item-year">2025</span>
-                <span class="item-medium">Oil on Canvas</span>
-            </div>
-        </article>
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="https://patriciogonzalezvivo.github.io/weaver"><img class="roundPhotoTh" src="2025/weaver/thumb.gif" alt="Light Weaver"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Light Weaver</span>
-                <span class="item-year">2025</span>
-                <span class="item-medium">Interactive Installation</span>
-            </div>
-        </article> -->
-        <!-- <article class="item"> 
-            <div class="item-image">
-                <a href="https://patriciogonzalezvivo.github.io/Orbitas2"><img class="roundPhotoTh" src="2025/orbitas2/thumb.gif" alt="Orbitas2"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Orbitas2</span>
-                <span class="item-year">2025</span>
-                <span class="item-medium">Custom real-time software</span>
-            </div>
-        </article> -->
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="2024/portraits/"><img class="roundPhotoTh" src="2024/portraits/thumb.jpg" alt="Cardboard Studies"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Cardboard Studies</span>
-                <span class="item-year">2024</span>
-                <span class="item-medium">Acrylic or Oils on Cardboard</span>
-            </div>
-        </article> -->
-        <article class="item">
-            <div class="item-image">
-                <a href="2023/blink/"><img class="roundPhotoTh" src="2023/blink/thumb.gif" alt="blink"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">BLINK</span>
-                <span class="item-year">2023</span>
-                <span class="item-medium">Real-time Generative Art</span>
-                <!-- <p class="item-description">A memento suspended between disappearance and wonder.</p> -->
-            </div>
-        </article>
-        <article class="item">
-            <div class="item-image">
-                <a href="2022/time/"><img class="roundPhotoTh" src="2022/time/thumb_long.gif" alt="Time Studies"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Time Studies</span>
-                <span class="item-year">2022</span>
-                <span class="item-medium">Video Art</span>
-                <!-- <p class="item-description">Exploration between time, perception and emotional state.</p> -->
-            </div>
-        </article>
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="https://objkt.com/collection/KT1CkDFaHiH8UtZhyR2EvoqhihsntjSikvt9"><img class="roundPhotoTh" src="2021/arcana/thumb.gif" alt="PixelFlair ARCANA"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">ARCANA</span>
-                <span class="item-year">2021</span>
-                <span class="item-medium">Custom real-time software</span>
-                <p class="item-description">Real-time NFT based on the 22 Arcana of PixelSpirit Tarot Deck.</p>
-            </div>
-        </article> -->
-        <article class="item">
-            <div class="item-image">
-                <a href="2021/memory/"><img class="roundPhotoTh" src="2021/memory/thumb.gif" alt="Memory Studies"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Memory Studies</span>
-                <span class="item-year">2021</span>
-                <span class="item-medium">Real-time Generative Art</span>
-                <!-- <p class="item-description">Sorting and scrambling algorithms battling over digital memories.</p> -->
-            </div>
-        </article>
-        <article class="item">
-            <div class="item-image">
-                <a href="2021/fen/"><img class="roundPhotoTh" src="2021/fen/thumb.gif" alt="Flight Studies"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Flight Studies</span>
-                <span class="item-year">2021</span>
-                <span class="item-medium">Red Oak, Ucycled Screen, custom real-time software</span>
-                <span class="item-dimensions">52cm x 27cm x 5.5cm</span>
-                <!-- <p class="item-description">Part of The FEN, the first NFT collective show on the Tezos.</p> -->
-            </div>
-        </article>
-        <article class="item">
-            <div class="item-image">
-                <a href="2019/hogar/"><img class="roundPhotoTh" src="2019/hogar/thumb.gif" alt="HOGAR"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Hogar</span>
-                <span class="item-year">2019</span>
-                <span class="item-medium">Custom real-time software</span>
-                <!-- <p class="item-description">An oportunity to see a bigger picture.</p> -->
-            </div>
-        </article>
-        <article class="item">
-            <div class="item-image">
-                <a href="2018/estrellas/"><img class="roundPhotoTh" src="2018/estrellas/thumb.gif" alt="ESTRELLAS"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Estrellas</span>
-                <span class="item-year">2018</span>
-                <span class="item-medium">Custom real-time software</span>
-                <!-- <p class="item-description">A window to the starry sky.</p> -->
-            </div>
-        </article>
-        <article class="item">
-            <div class="item-image">
-                <a href="2025/orbitas2/"><img class="roundPhotoTh" src="2025/orbitas2/thumb.gif" alt="Orbitas2"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Órbitas</span>
-                <span class="item-year">2018</span>
-                <span class="item-medium">Custom real-time software</span>
-                <!-- <p class="item-description">Realtime simulation that explores the patterns generated by planets and satellites.</p> -->
-            </div>
-        </article>
+<?php
+foreach ($projects as $project) {
+    $commented = isset($project['commented']) && $project['commented'];
+    
+    // Load metadata for projects with a path
+    if (isset($project['path'])) {
+        $meta = get_project_meta($project['path']);
         
-        <article class="item">
-            <div class="item-image">
-                <a href="http://pixelspiritdeck.com/"><img class="roundPhotoTh" src="2017/pixelspirit/thumb.gif" alt="PixelSpirit"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">PixelSpirit</span>
-                <span class="item-year">2017</span>
-                <span class="item-medium">Tarot Deck / Book</span>
-                <span class="item-dimensions">78 Cards</span>
-                <!-- <p class="item-description">One deck of cards for the modern GPU wizard of light</p> -->
-            </div>
-        </article>
-        <article class="item">
-            <div class="item-image">
-                <a href="2017/luna/"><img class="roundPhotoTh" src="2017/luna/thumb.jpg" alt="LUNA"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">LUNA</span>
-                <span class="item-year">2017</span>
-                <span class="item-medium">Custom real-time software</span>
-                <!-- <p class="item-description">Quietly mirrors the moon's phases and the passage of day and night</p> -->
-            </div>
-        </article>
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="http://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe"><img class="roundPhotoTh" src="2017/guayupia/thumb.jpg" alt="GUAYUPIA"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">GUAYUPIA</span>
-                <span class="item-year">2017</span>
-                <span class="item-medium">Documentary</span>
-            </div>
-        </article> -->
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="https://patriciogonzalezvivo.github.io/LineOfSight"><img class="roundPhotoTh" src="2015/LineOfSight/thumb.gif" alt="LineOfSight"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">LineOfSight</span>
-                <span class="item-year">2015</span>
-                <span class="item-medium">Custom real-time map</span>
-            </div>
-        </article> -->
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="https://patriciogonzalezvivo.github.io/RandomCity/"><img class="roundPhotoTh" src="2015/RandomCity/thumb.gif" alt="RandomCity"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">RandomCity</span>
-                <span class="item-year">2015</span>
-                <span class="item-medium">Generative Map</span>
-            </div>
-        </article> -->
-        <article class="item">
-            <div class="item-image">
-                <a href="http://thebookofshaders.com/"><img class="roundPhotoTh" src="https://thebookofshaders.com/thumb.jpg" alt="TheBookOfShaders"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">The Book of Shaders</span>
-                <span class="item-year">2015</span>
-                <span class="item-medium">Book</span>
-            </div>
-        </article>
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="2015/tangram-sandbox/"><img class="roundPhotoTh" src="2015/tangram-sandbox/thumb.png" alt="Tangram-Sandbox"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Tangram Sandbox</span>
-                <span class="item-year">2015</span>
-                <span class="item-medium">Generative Maps</span>
-            </div>
-        </article> -->
-        <article class="item">
-            <div class="item-image">
-                <a href="2014/skylines/"><img class="roundPhotoTh" src="2014/skylines/thumb.png" alt="SKYLINES"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">SKYLINES</span>
-                <span class="item-year">2014</span>
-                <span class="item-medium">Mixed Media</span>
-            </div>
-        </article>
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="2014/pointcloudcity/"><img class="roundPhotoTh" src="2014/pointcloudcity/thumb.gif" alt="PointCloudCity"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Point Cloud City</span>
-                <span class="item-year">2014</span>
-                <span class="item-medium">Data Visualization</span>
-            </div>
-        </article> -->
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="https://cloudsdocumentary.com"><img class="roundPhotoTh" src="2013/clouds/thumb.jpg" alt="clouds"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">CLOUDS Documentary</span>
-                <span class="item-year">2013</span>
-                <span class="item-medium">Documentary / Interactive</span>
-            </div>
-        </article> -->
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="2012/codemology/"><img class="roundPhotoTh" src="2012/codemology/thumb.jpg" alt="CodeMology"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Codemology</span>
-                <span class="item-year">2012</span>
-                <span class="item-medium">Custom real-time software</span>
-            </div>
-        </article> -->
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="2012/flatland/"><img class="roundPhotoTh" src="2012/flatland/thumb.jpg" alt="FlatLand"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">FlatLand</span>
-                <span class="item-year">2012</span>
-                <span class="item-medium">Custom software</span>
-            </div>
-        </article> -->
-        <article class="item">
-            <div class="item-image">
-                <a href="2011/efectomariposa/"><img class="roundPhotoTh" src="2011/efectomariposa/thumb.jpg" alt="Efecto Mariposa"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Efecto Mariposa</span>
-                <span class="item-year">2011</span>
-                <span class="item-medium">Interactive Installation</span>
-                <!-- <p class="item-description">Realtime ecosystem simulator</p> -->
-            </div>
-        </article>
-        <!-- <article class="item">
-            <div class="item-image">
-                <a href="https://vimeo.com/19198053" target="_blank"><img class="roundPhotoTh" src="2011/liquidkinect/thumb.jpg" alt="Liquid Kinect"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Liquid Kinect</span>
-                <span class="item-year">2011</span>
-                <span class="item-medium">Custom real-time software</span>
-            </div>
-        </article> -->
-        <article class="item">
-            <div class="item-image">
-                <a href="2010/communitas/"><img class="roundPhotoTh" src="2010/communitas/thumb.jpg" alt="Communitas"/></a>
-            </div>
-            <div class="item-info">
-                <span class="item-title">Communitas</span>
-                <span class="item-year">2010</span>
-                <span class="item-medium">Interactive Installation</span>
-                <!-- <p class="item-description">Collective drawing interactive installation</p> -->
-            </div>
-        </article>
+        // Override with explicitly provided values
+        if (isset($project['title'])) $meta['title'] = $project['title'];
+        if (isset($project['year'])) $meta['year'] = $project['year'];
+        if (isset($project['medium'])) $meta['medium'] = $project['medium'];
+        if (isset($project['dimensions'])) $meta['dimensions'] = $project['dimensions'];
+        if (isset($project['description'])) $meta['description'] = $project['description'];
+        if (isset($project['url'])) $meta['url'] = $project['url'];
+        if (isset($project['thumbnail'])) $meta['thumbnail'] = $project['thumbnail'];
+    } else {
+        // External project without local path - use provided metadata
+        $meta = [
+            'title' => $project['title'] ?? '',
+            'year' => $project['year'] ?? '',
+            'medium' => $project['medium'] ?? '',
+            'dimensions' => $project['dimensions'] ?? '',
+            'description' => $project['description'] ?? '',
+            'url' => $project['url'],
+            'thumbnail' => $project['thumbnail'] ?? '',
+        ];
+    }
+    
+    // Render the item
+    echo render_project_item($meta, $commented);
+}
+?>
     </section>
 
 <?php include("footer.php"); ?>

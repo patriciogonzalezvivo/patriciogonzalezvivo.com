@@ -1,17 +1,22 @@
 <?php
-    // Customize page metadata before including header
-    $page_title = "BLINK";
-    $page_description = "Both memento mori and moment of delight, an object suspended between disappearance and wonder";
-    include("../../header.php");?>
+    // Load project metadata from TITLE.txt, MEDIUM.txt, etc.
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    
+    // Use metadata for page header
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
+    include("../../header.php");
+?>
     <?php include("../../menu.php");?>
         <link rel="stylesheet" href="style.css" type="text/css" />
 
         <article class="item">
             <div class="item-image">
                 <div id="wrapper" class="windowed">
-                    <img id="frame-back" class="frame" src="frame_background.png" alt="">
+                    <img id="frame-back" class="frame" src="../../images/frame_background.png" alt="">
                         <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1 width="516" height="810"></canvas>
-                    <!-- <img id="frame-front" class="frame" src="frame_refleccion.png" alt=""> -->
+                    <!-- <img id="frame-front" class="frame" src="../../images/frame_refleccion.png" alt=""> -->
                 </div>
             </div>
             <div class="item-info">

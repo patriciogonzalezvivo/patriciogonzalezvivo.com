@@ -7,9 +7,9 @@
         <link rel="stylesheet" href="style.css" type="text/css" />
 
         <div id="wrapper" class="windowed">
-            <img id="frame-back" class="frame" src="frame_background.png" alt="">
+            <img id="frame-back" class="frame" src="../../images/frame_background.png" alt="">
             <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
-            <img id="frame-front" class="frame" src="frame_refleccion.png" alt="">
+            <img id="frame-front" class="frame" src="../../images/frame_refleccion.png" alt="">
         </div>
 
         <div id="ui">
@@ -26,7 +26,7 @@
 			echo $Parsedown->text(file_get_contents ('README.md'));
 			?>
         </div>
-        
+
         <weaver-loader></weaver-loader>
         <overlay-controls></overlay-controls>
         <script type="module" src="main.js"></script>

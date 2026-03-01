@@ -9,9 +9,9 @@
         <article class="item">
             <div class="item-image">
                 <div id="wrapper" class="windowed">
-                    <img id="frame-back" class="frame" src="frame_background.png" alt="">
+                    <img id="frame-back" class="frame" src="../../images/frame_background.png" alt="">
                         <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
-                    <img id="frame-front" class="frame" src="frame_refleccion.png" alt="">
+                    <img id="frame-front" class="frame" src="../../images/frame_refleccion.png" alt="">
                 </div>
             </div>
             <div class="item-info">
