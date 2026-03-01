@@ -28,7 +28,7 @@ include("project_meta.php");
         // ['path' => '2017/guayupia', 'url' => 'http://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe', 'title' => 'GUAYUPIA', 'year' => '2017', 'medium' => 'Documentary'],
         // ['path' => '2015/LineOfSight', 'url' => 'https://patriciogonzalezvivo.github.io/LineOfSight', 'title' => 'LineOfSight', 'year' => '2015', 'medium' => 'Custom real-time map'],
         // ['path' => '2015/RandomCity', 'url' => 'https://patriciogonzalezvivo.github.io/RandomCity/', 'title' => 'RandomCity', 'year' => '2015', 'medium' => 'Generative Map'],
-        ['url' => 'http://thebookofshaders.com/', 'thumbnail' => 'https://thebookofshaders.com/thumb.jpg', 'title' => 'The Book of Shaders', 'year' => '2015', 'medium' => 'Book'],
+        ['path' => '2015/thebookofshaders', 'url' => 'http://thebookofshaders.com/', 'title' => 'The Book of Shaders', 'year' => '2015', 'medium' => 'Book'],
         // ['path' => '2015/tangram-sandbox', 'title' => 'Tangram Sandbox', 'year' => '2015', 'medium' => 'Generative Maps'],
         ['path' => '2014/skylines', 'title' => 'SKYLINES', 'year' => '2014', 'medium' => 'Mixed Media'],
         // ['path' => '2014/pointcloudcity', 'title' => 'Point Cloud City', 'year' => '2014', 'medium' => 'Data Visualization'],
