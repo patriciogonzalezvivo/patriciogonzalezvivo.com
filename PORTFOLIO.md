@@ -19,7 +19,7 @@ A Python script that generates a professional artist portfolio PDF from a list o
    - **Linux/Mac**: Install texlive
      ```bash
      # Ubuntu/Debian
-     sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-extra
+     sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-latex-extra texlive-xetex
      
      # macOS (with Homebrew)
      brew install --cask mactex-no-gui

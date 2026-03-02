@@ -3,7 +3,7 @@
 // Default values - can be overridden by setting variables before including header.php
 if (!isset($page_title)) $page_title = "Patricio Gonzalez Vivo";
 if (!isset($page_description)) $page_description = "Patricio Gonzalez Vivo multidisciplinary artist working across traditional and digital mediums. In his work, he pursues awareness and self-discovery through themes like celestial bodies, esoteric symbolism, clocks and maps.";
-if (!isset($page_keywords)) $page_keywords = "digital, art, creative coding, shaders, maps, clocks, lenses, alchemy, time and space";
+if (!isset($page_keywords)) $page_keywords = "digital, art, oil, painting, plotting, symbolism, astrology, tarot, clocks, lenses, alchemy, time and space";
 if (!isset($page_author)) $page_author = "Patricio Gonzalez Vivo";
 
 // Open Graph defaults

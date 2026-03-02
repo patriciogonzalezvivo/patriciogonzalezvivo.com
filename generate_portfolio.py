@@ -163,7 +163,6 @@ class PortfolioGenerator:
         """Generate LaTeX document from bio and projects"""
         
         latex = r"""\documentclass[11pt,letterpaper]{article}
-\usepackage[utf8]{inputenc}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{float}
@@ -173,6 +172,22 @@ class PortfolioGenerator:
 \usepackage{titlesec}
 \usepackage{hyperref}
 \usepackage{parskip}
+\usepackage{fontspec}
+
+% Use Source Sans Pro font (matching website typography)
+% Font weights: 200 (ExtraLight), 300 (Light), 400 (Regular), 600 (SemiBold)
+\IfFontExistsTF{Source Sans Pro}{%
+    \setmainfont{Source Sans Pro}[
+        UprightFont = *-Light,
+        BoldFont = *-Semibold,
+        ItalicFont = *-LightItalic,
+        BoldItalicFont = *-SemiboldItalic
+    ]
+}{%
+    % Fallback to a clean sans-serif font
+    \setsansfont{Latin Modern Sans}
+    \renewcommand{\familydefault}{\sfdefault}
+}
 
 % Set up page style
 \pagestyle{fancy}
@@ -211,17 +226,18 @@ class PortfolioGenerator:
 % Title page
 \begin{titlepage}
     \centering
-    \vspace*{2cm}
+    \vspace*{3cm}
     
+    % Logo
+    \includegraphics[width=0.15\textwidth]{images/logo-gray.png}
+    
+    % Name
     {\Huge\bfseries Patricio Gonzalez Vivo}
     
-    \vspace{1.5cm}
+    \vspace{0.25cm}
     
+    % Portfolio label
     {\Large Portfolio}
-    
-    \vspace{2cm}
-    
-    {\large Multidisciplinary Artist}
     
     \vfill
     
@@ -269,7 +285,8 @@ class PortfolioGenerator:
         latex += "}\n\n"
         
         # Add thumbnail or first image if available
-        if project['thumb']:
+        # Note: XeLaTeX cannot handle GIF files, so we skip them
+        if project['thumb'] and not project['thumb'].endswith('.gif'):
             img_path = f"{project['path']}/{project['thumb']}"
             if (self.base_path / img_path).exists():
                 latex += "\\begin{figure}[H]\n"
@@ -277,13 +294,14 @@ class PortfolioGenerator:
                 latex += f"    \\includegraphics[width=0.8\\textwidth]{{{img_path}}}\n"
                 latex += "\\end{figure}\n\n"
         elif project['images']:
-            # Use first image as main image
-            img_path = project['images'][0]
-            if (self.base_path / img_path).exists():
-                latex += "\\begin{figure}[H]\n"
-                latex += "    \\centering\n"
-                latex += f"    \\includegraphics[width=0.8\\textwidth]{{{img_path}}}\n"
-                latex += "\\end{figure}\n\n"
+            # Use first non-GIF image as main image
+            for img_path in project['images']:
+                if not img_path.endswith('.gif') and (self.base_path / img_path).exists():
+                    latex += "\\begin{figure}[H]\n"
+                    latex += "    \\centering\n"
+                    latex += f"    \\includegraphics[width=0.8\\textwidth]{{{img_path}}}\n"
+                    latex += "\\end{figure}\n\n"
+                    break
         
         # Add description
         if project['description']:
@@ -294,8 +312,8 @@ class PortfolioGenerator:
             if paragraphs:
                 latex += self.markdown_to_latex(paragraphs[0]) + "\n\n"
         
-        # Add additional images in a grid if available
-        additional_images = project['images'][1:5] if len(project['images']) > 1 else []
+        # Add additional images in a grid if available (skip GIFs)
+        additional_images = [img for img in project['images'][1:5] if not img.endswith('.gif')] if len(project['images']) > 1 else []
         if additional_images:
             latex += self.generate_image_grid(additional_images)
         
@@ -337,22 +355,22 @@ class PortfolioGenerator:
         
         print(f"Generated LaTeX file: {tex_file}")
         
-        # Check if pdflatex is available
-        if not shutil.which('pdflatex'):
-            print("Error: pdflatex not found. Please install a LaTeX distribution (e.g., texlive)")
+        # Check if xelatex is available
+        if not shutil.which('xelatex'):
+            print("Error: xelatex not found. Please install a LaTeX distribution (e.g., texlive-xetex)")
             return False
         
-        # Compile with pdflatex (twice for proper references)
-        print("Compiling PDF...")
+        # Compile with xelatex (twice for proper references)
+        print("Compiling PDF with XeLaTeX...")
         for i in range(2):
             result = subprocess.run(
-                ['pdflatex', '-interaction=nonstopmode', '-output-directory', str(self.temp_dir), str(tex_file)],
+                ['xelatex', '-interaction=nonstopmode', '-output-directory', str(self.temp_dir), str(tex_file)],
                 cwd=self.base_path,  # Run from base path so image paths work
                 capture_output=True,
                 text=True
             )
             
-            # Check if PDF was generated (pdflatex may return non-zero even on success with warnings)
+            # Check if PDF was generated (xelatex may return non-zero even on success with warnings)
             pdf_file = self.temp_dir / "portfolio.pdf"
             if not pdf_file.exists() and result.returncode != 0:
                 print(f"Error compiling LaTeX (pass {i+1}):")
@@ -373,7 +391,7 @@ class PortfolioGenerator:
             print("Error: PDF file not generated")
             return False
     
-    def generate(self, projects_list: List[str], output_pdf: str, bio_file: str = "README.md", latex_only: bool = False) -> bool:
+    def generate(self, projects_list: List[str], output_pdf: str, bio_file: str = "README.md", latex_only: bool = False, keep_temp: bool = False) -> bool:
         """Generate portfolio PDF"""
         
         # Read artist bio
@@ -401,16 +419,18 @@ class PortfolioGenerator:
             output_tex = output_pdf.replace('.pdf', '.tex') if output_pdf.endswith('.pdf') else output_pdf + '.tex'
             Path(output_tex).write_text(latex_content)
             print(f"✓ LaTeX file generated: {output_tex}")
-            print("  (Run pdflatex manually to compile to PDF)")
+            print("  (Run xelatex manually to compile to PDF)")
             return True
         
         # Compile to PDF
         success = self.compile_latex(latex_content, output_pdf)
         
         # Cleanup
-        if success and self.temp_dir.exists():
+        if success and self.temp_dir.exists() and not keep_temp:
             print("Cleaning up temporary files...")
             shutil.rmtree(self.temp_dir)
+        elif success and keep_temp:
+            print(f"Temporary files kept in: {self.temp_dir}")
         
         return success
 
@@ -456,21 +476,14 @@ Examples:
             '2026/astros',
             '2025/imaginary',
             '2025/hybrids',
-            '2023/blink',
             '2022/time',
             '2021/memory',
             '2021/fen',
-            '2019/hogar',
-            '2018/estrellas',
-            '2017/luna',
-            '2014/skylines',
-            '2011/efectomariposa',
-            '2010/communitas',
         ]
     
     # Generate portfolio
     generator = PortfolioGenerator()
-    success = generator.generate(projects_list, args.output, args.bio, latex_only=args.latex_only)
+    success = generator.generate(projects_list, args.output, args.bio, latex_only=args.latex_only, keep_temp=args.keep_temp)
     
     if not success:
         sys.exit(1)
