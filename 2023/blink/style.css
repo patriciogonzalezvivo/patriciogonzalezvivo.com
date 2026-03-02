@@ -1,7 +1,4 @@
 @media (min-width: 768px) {
-    .item {
-        gap: 0px;
-    }
     .item-info {
         bottom: -70px;
         position: relative;
