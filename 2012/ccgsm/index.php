@@ -5,7 +5,7 @@
 
 	<!-- CONTENT -->
 	<section class="content">
-		<div id="myslides">
+		<div id="slideSet">
 			<img class="photo" src="01.jpg" alt="slide"/>
 			<img class="photo" src="02.jpg" alt="slide"/>
 			<img class="photo" src="03.jpg" alt="slide"/>

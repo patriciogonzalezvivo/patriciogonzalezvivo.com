@@ -118,19 +118,25 @@ body {
       left: 0;
       width: 100%;
       height: 100%; }
-  .content #myslides {
+  .content #slideSet {
     border-radius: 10px;
     position: relative;
     margin: 0 auto;
-    transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1); }
-    .content #myslides .photo {
+    transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1);
+    width: 100%;
+    min-height: 300px; }
+    .content #slideSet .photo {
       border-radius: 10px;
       position: absolute;
       left: 0;
-      -webkit-transition: opacity 70ms ease-in-out;
-      -webkit-opacity: 0; }
-      .content #myslides .photo.photoFront {
-        -webkit-opacity: 1; }
+      top: 0;
+      width: 100%;
+      height: auto;
+      -webkit-transition: opacity 800ms ease-in-out;
+      transition: opacity 800ms ease-in-out;
+      opacity: 0; }
+      .content #slideSet .photo.photoFront {
+        opacity: 1; }
   .content .photoTh {
     border-radius: 7px; }
   .content .cita {

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #slideSet {
+            position: relative;
+            margin: 0 auto;
+            transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1);
+            width: 100%;
+            min-height: 300px;
+            border: 2px solid red; /* Debug border */
+        }
+        #slideSet .photo {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: auto;
+            transition: opacity 70ms ease-in-out;
+            opacity: 0;
+            border: 2px solid blue; /* Debug border */
+        }
+        #slideSet .photo.photoFront {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>SlideSet Test</h1>
+    
+    <div id="slideSet" class="photo">
+        <img class="photo" src="images/01.jpg" alt="slide"/>
+        <img class="photo" src="images/02.jpg" alt="slide"/>
+        <img class="photo" src="images/03.jpg" alt="slide"/>
+    </div>
+    
+    <script>
+        console.log("Script starting...");
+        var counter = 0;
+        var items = document.getElementsByClassName("item");
+        var images = [];
+        
+        function slideNext(){
+            if (counter < images.length ){
+                var previus = (counter==0) ? images.length-1 : counter-1;
+                images[previus].classList.remove("photoFront");
+                images[counter].classList.add("photoFront");
+                
+                var height = images[counter].naturalHeight || images[counter].height;
+                if (height > 0) {
+                    document.getElementById("slideSet").style.height = height + "px";
+                }
+                console.log("Showing image " + counter + ", height: " + height);
+                counter++;
+            } else {
+                counter = 0;
+            }
+        }
+        
+        var slideSet = document.getElementById("slideSet");
+        if (slideSet != null) {
+            console.log("SlideSet found!");
+            images = slideSet.getElementsByTagName("img");
+            console.log("Found " + images.length + " images");
+            
+            if (images.length > 0) {
+                var firstImage = images[0];
+                
+                function initSlideshow() {
+                    console.log("Initializing slideshow...");
+                    images[images.length-1].classList.add("photoFront");
+                    
+                    var height = firstImage.naturalHeight || firstImage.height;
+                    console.log("Setting initial height to: " + height);
+                    if (height > 0) {
+                        document.getElementById("slideSet").style.height = height + "px";
+                    }
+                    
+                    setInterval(slideNext, 3000);
+                }
+                
+                if (firstImage.complete && firstImage.naturalHeight > 0) {
+                    console.log("Image already loaded");
+                    initSlideshow();
+                } else {
+                    console.log("Waiting for image to load...");
+                    firstImage.addEventListener('load', initSlideshow);
+                }
+            }
+        } else {
+            console.log("SlideSet NOT found!");
+        }
+    </script>
+</body>
+</html>

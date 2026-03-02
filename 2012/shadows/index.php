@@ -4,7 +4,7 @@
 
 	<!-- CONTENT -->
 	<section class="content">
-		<!-- <div id="myslides">
+		<!-- <div id="slideSet">
 			<img class="photo" src="01.jpg" />
 		</div> -->
 		<div class="video-container">

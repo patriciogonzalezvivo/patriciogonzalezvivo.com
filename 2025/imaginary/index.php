@@ -4,7 +4,7 @@
     $page_title = $meta['title'];
     $page_description = $meta['description'];
 	include("../../header.php");
-	include("../../gallery_helper.php");
+	include("../../gallery.php");
 ?>
 <?php include("../../menu.php");?>
 

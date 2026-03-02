@@ -256,18 +256,23 @@ body.windowed-mode #longer-info {
     height: 100%; 
 }
 
-#myslides {
+#slideSet {
     position: relative;
     margin: 0 auto;
-    transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1); 
+    transition: all 400ms cubic-bezier(0.24, 1, 0.735, 1);
+    width: 100%;
+    min-height: 300px; /* Ensure visibility before JS loads */
 }
-#myslides .photo {
+#slideSet .photo {
     position: absolute;
     left: 0;
-    transition: opacity 70ms ease-in-out;
+    top: 0;
+    width: 100%;
+    height: auto;
+    transition: opacity 800ms ease-in-out;
     opacity: 0; 
 }
-#myslides .photo.photoFront {
+#slideSet .photo.photoFront {
     opacity: 1; 
 }
 

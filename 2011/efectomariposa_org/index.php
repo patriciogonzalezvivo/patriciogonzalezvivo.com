@@ -5,7 +5,7 @@
 	<!-- CONTENT -->
 	<section class="content">
 		<a href="https://vimeo.com/32321634" target="_blank">
-		<div id="myslides">
+		<div id="slideSet">
 			<img class="photo" src="01.jpg" alt="slide"/>
 			<img class="photo" src="02.jpg" alt="slide"/>
 			<img class="photo" src="03.jpg" alt="slide"/>

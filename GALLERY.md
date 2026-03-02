@@ -48,7 +48,7 @@ Lines starting with `#` are treated as comments and ignored.
 
 ```php
 <?php
-include("../../gallery_helper.php");
+include("../../gallery.php");
 ?>
 
 <?php
@@ -69,7 +69,7 @@ echo render_gallery([
 ### Advanced Usage
 
 ```php
-<?php include("../../gallery_helper.php"); ?>
+<?php include("../../gallery.php"); ?>
 
 <?php
 // Get artwork data
@@ -122,7 +122,7 @@ echo render_gallery_modal();
        $page_title = "Gallery Name";
        $page_description = "Gallery description";
        include("../../header.php");
-       include("../../gallery_helper.php");
+       include("../../gallery.php");
    ?>
    <?php include("../../menu.php");?>
 
@@ -196,7 +196,7 @@ If you have galleries with hardcoded metadata arrays, use the migration script:
 
 1. Edit `migrate_gallery_metadata.php` with your data
 2. Run: `php migrate_gallery_metadata.php`
-3. Update your `index.php` to use `gallery_helper.php`
+3. Update your `index.php` to use `gallery.php`
 
 ## API Reference
 

@@ -1,4 +1,4 @@
-<div id="myslides">
+<div id="slideSet">
 			<img class="photo" src="01.jpg" alt="slide"/>
 </div>
 

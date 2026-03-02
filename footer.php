@@ -2,7 +2,7 @@
 // main footer
 
 echo '
-		<script type="text/javascript" src="/js/slider.js" defer></script>
+		<script type="text/javascript" src="/js/slideSet.js" defer></script>
 		<script type="text/javascript" src="/js/gallery.js" defer></script>
 
 		<footer>

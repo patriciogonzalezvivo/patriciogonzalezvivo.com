@@ -4,7 +4,7 @@
 
 	<!-- CONTENT -->
 	<section class="content">
-<!-- 		<article id="myslides"> -->
+<!-- 		<article id="slideSet"> -->
 			<div class="video-container">
 			<iframe src="http://player.vimeo.com/video/31940579?autoplay=1" width="575" height="359" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 			</div>
