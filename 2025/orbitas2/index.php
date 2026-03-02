@@ -38,13 +38,12 @@
 			echo $Parsedown->text(file_get_contents ('README.md'));
 			?>
 
-            <h2 style="text-align: center; margin: 2em 0 1em 0;">Related Works</h2>
+            <h2>Related Works</h2>
             <?php
                 $projects = [
                     ['path' => '2026/astros'],
                     // ['path' => '2025/weaver', 'url' => 'https://patriciogonzalezvivo.github.io/weaver'],
                     ['path' => '2018/estrellas'],
-                    ['path' => '2025/orbitas2', 'title' => 'Órbitas', 'year' => '2018'],
                     ['path' => '2017/luna'],
                 ];
 

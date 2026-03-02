@@ -30,7 +30,7 @@
             echo $Parsedown->text(file_get_contents('README.md'));
             ?>
 
-            <h2 style="text-align: center; margin: 2em 0 1em 0;">Related Works</h2>
+            <h2>Related Works</h2>
             <?php
                 $projects = [
                     ['path' => '2023/blink'],
