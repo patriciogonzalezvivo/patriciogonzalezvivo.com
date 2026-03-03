@@ -19,7 +19,7 @@
 		echo $Parsedown->text(file_get_contents ('README.md'));
 		?>
 
-<?php include("../../slideSet.php"); echo slideset(); ?>
+        <?php include("../../slideSet.php"); echo slideset(); ?>
 
 		<article>
 			<p>Communitas was develop for Interactivos 2010 at Espacio Fundación Telefónica</p>
