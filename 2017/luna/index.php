@@ -37,11 +37,14 @@
         </div>
 
         <div id="longer-info">
+
             <?php
-            include("../../parsedown/Parsedown.php");
-            $Parsedown = new Parsedown();
-            echo $Parsedown->text(file_get_contents('README.md'));
+                include("../../parsedown/Parsedown.php");
+                $Parsedown = new Parsedown();
+                echo $Parsedown->text(file_get_contents('README.md'));
             ?>
+
+            <?php include("../../slideSet.php"); echo slideset('images', 'width: 100%;'); ?>
 
             <h2>Related Works</h2>
             <?php

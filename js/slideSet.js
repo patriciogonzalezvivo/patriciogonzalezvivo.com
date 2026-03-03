@@ -25,7 +25,7 @@ function slideNext(){
 	// Show current
 	images[slideCounter].classList.add("photoFront");
 
-	var height = images[slideCounter].naturalHeight || images[slideCounter].height;
+	var height = images[slideCounter].offsetHeight;
 	if (height > 0) {
 		document.getElementById("slideSet").style.height = height + "px";
 	}
@@ -54,7 +54,7 @@ if ( slideSet != null ){
 			images[images.length-1].classList.add("photoFront");
 			
 			// Set height based on first image
-			var height = firstImage.naturalHeight || firstImage.height;
+			var height = firstImage.offsetHeight;
 			if (height > 0) {
 				document.getElementById("slideSet").style.height = height + "px";
 			}

@@ -1,3 +1,14 @@
+@media (min-width: 768px) {
+    /* .item {
+        transform: translateX(10%);
+    } */
+    .item-info {
+        bottom: -70px;
+        position: relative;
+        z-index: -1;
+    }
+}
+
 /* Wrapper */
 #wrapper {
     position: absolute;

@@ -17,13 +17,12 @@
             $Parsedown = new Parsedown();
             echo $Parsedown->text(file_get_contents ('README.md'));
             ?>
-        </div>
-        
-        <div id="longer-info">
+
             <div class="video-container">
                 <!-- <iframe src="http://player.vimeo.com/video/32321634?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> -->
-                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/32321634?h=654b440c04" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/32321634?h=654b440c04" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
             </div>
+            
             <?php include("../../slideSet.php"); ?>
             <a href="https://vimeo.com/32321634" target="_blank">
             <?php echo slideset('images', 'width: 100%; height: 640px; object-fit: cover;'); ?>

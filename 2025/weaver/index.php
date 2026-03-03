@@ -5,13 +5,27 @@
     $page_description = $meta['description'];
     include("../../header.php");?>
         <?php include("../../menu.php");?>
-        <link rel="stylesheet" href="style.css" type="text/css" />
 
-        <div id="wrapper" class="windowed">
-            <img id="frame-back" class="frame" src="../../images/frame_background.png" alt="">
-            <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
-            <img id="frame-front" class="frame" src="../../images/frame_refleccion.png" alt="">
-        </div>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+        <article class="item">
+			<div class="item-image">
+                <div id="wrapper" class="windowed">
+                    <img id="frame-back" class="frame" src="../../images/frame_background.png" alt="">
+                    <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
+                    <img id="frame-front" class="frame" src="../../images/frame_refleccion.png" alt="">
+                </div>
+            </div>
+            <div class="item-info">
+                <span class="item-title"><?php echo htmlspecialchars($meta['title']); ?></span>
+                <span class="item-year"><?php echo htmlspecialchars($meta['year']); ?></span>
+                <span class="item-medium"><?php echo htmlspecialchars($meta['medium']); ?></span>
+                <span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions']); ?></span>
+                <p class="item-description"><?php echo htmlspecialchars($meta['description']); ?></p>
+            </div>
+        </article>
 
         <div id="ui">
             <button id="resize-btn">
@@ -20,11 +34,78 @@
         </div>
 
         <div id="longer-info">
+
             <?php
-			include("../../parsedown/Parsedown.php");
-			$Parsedown = new Parsedown();
-			echo $Parsedown->text(file_get_contents ('README.md'));
-			?>
+                include("../../parsedown/Parsedown.php");
+                $Parsedown = new Parsedown();
+                echo $Parsedown->text(file_get_contents('README.md'));
+            ?>
+
+            <div>
+                <video controls width="100%" style="max-width: 800px;">
+                <source src="000.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>
+            <div>
+                <video controls width="100%" style="max-width: 800px;">
+                <source src="IMG_4879.MP4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>
+            <!-- <div>
+                <video controls width="100%" style="max-width: 800px;">
+                <source src="relics.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div> -->
+
+
+            <h2>Related Works</h2>
+            
+            <?php
+                $projects = [
+                    ['path' => '2026/astros'],
+                    ['path' => '2025/orbitas2', 'title' => 'Órbitas', 'year' => '2018'],
+                    ['path' => '2018/estrellas'],
+                    ['path' => '2017/luna'],
+                ];
+
+                foreach ($projects as $project) {
+                    $commented = isset($project['commented']) && $project['commented'];
+                    
+                    // Load metadata for projects with a path
+                    if (isset($project['path'])) {
+                        $meta = get_project_meta($project['path'], '../../');
+                        
+                        // Fix path to be relative from this page
+                        $meta['path'] = '../../' . $meta['path'];
+                        
+                        // Override with explicitly provided values
+                        if (isset($project['title'])) $meta['title'] = $project['title'];
+                        if (isset($project['year'])) $meta['year'] = $project['year'];
+                        if (isset($project['medium'])) $meta['medium'] = $project['medium'];
+                        if (isset($project['dimensions'])) $meta['dimensions'] = $project['dimensions'];
+                        if (isset($project['description'])) $meta['description'] = $project['description'];
+                        if (isset($project['url'])) $meta['url'] = $project['url'];
+                        if (isset($project['thumbnail'])) $meta['thumbnail'] = $project['thumbnail'];
+                    } else {
+                        // External project without local path - use provided metadata
+                        $meta = [
+                            'title' => $project['title'] ?? '',
+                            'year' => $project['year'] ?? '',
+                            'medium' => $project['medium'] ?? '',
+                            'dimensions' => $project['dimensions'] ?? '',
+                            'description' => $project['description'] ?? '',
+                            'url' => $project['url'],
+                            'thumbnail' => $project['thumbnail'] ?? '',
+                        ];
+                    }
+                    
+                    // Render the item
+                    echo render_project_item($meta, $commented);
+                }
+            ?>
         </div>
 
         <weaver-loader></weaver-loader>

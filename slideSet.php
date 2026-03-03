@@ -33,9 +33,9 @@
  * @param string $pattern Glob pattern for images (default: '*.{jpg,jpeg,png,gif}')
  * @return array Array of image paths sorted alphabetically
  */
-function get_slide_images($images_dir = 'images', $pattern = '*.{jpg,jpeg,png,gif}') {
+function get_slide_images($images_dir = 'images', $pattern = '*.{jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF}') {
     $image_paths = glob($images_dir . '/' . $pattern, GLOB_BRACE);
-    
+
     if (!$image_paths) {
         return [];
     }
