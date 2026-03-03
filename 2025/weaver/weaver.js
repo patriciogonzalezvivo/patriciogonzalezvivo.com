@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmp3xy6brrq.js
+// include: /tmp/tmpc5nrfj38.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -201,25 +201,25 @@ Module['FS_createPath']("/", "shaders", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/png/diffuse.png", "start": 0, "end": 132262}, {"filename": "/png/elements.png", "start": 132262, "end": 169320}, {"filename": "/shaders/Makefile", "start": 169320, "end": 169684}, {"filename": "/shaders/atmosphere.frag", "start": 169684, "end": 170863}, {"filename": "/shaders/atmosphere.vert", "start": 170863, "end": 171330}, {"filename": "/shaders/earth.frag", "start": 171330, "end": 173049}, {"filename": "/shaders/earth.vert", "start": 173049, "end": 174044}, {"filename": "/shaders/hud.frag", "start": 174044, "end": 174879}, {"filename": "/shaders/hud.vert", "start": 174879, "end": 175900}, {"filename": "/shaders/icon.frag", "start": 175900, "end": 176665}, {"filename": "/shaders/icon.vert", "start": 176665, "end": 177399}, {"filename": "/shaders/moon.frag", "start": 177399, "end": 179216}, {"filename": "/shaders/stars.frag", "start": 179216, "end": 180060}, {"filename": "/shaders/stars.vert", "start": 180060, "end": 181124}, {"filename": "/shaders/sun.frag", "start": 181124, "end": 182328}, {"filename": "/shaders/themes.glsl", "start": 182328, "end": 183943}], "remote_package_size": 183943});
+    loadPackage({"files": [{"filename": "/png/diffuse.png", "start": 0, "end": 132262}, {"filename": "/png/elements.png", "start": 132262, "end": 169320}, {"filename": "/shaders/Makefile", "start": 169320, "end": 169684}, {"filename": "/shaders/atmosphere.frag", "start": 169684, "end": 170863}, {"filename": "/shaders/atmosphere.vert", "start": 170863, "end": 171330}, {"filename": "/shaders/earth.frag", "start": 171330, "end": 173146}, {"filename": "/shaders/earth.vert", "start": 173146, "end": 174141}, {"filename": "/shaders/hud.frag", "start": 174141, "end": 174976}, {"filename": "/shaders/hud.vert", "start": 174976, "end": 175997}, {"filename": "/shaders/icon.frag", "start": 175997, "end": 176762}, {"filename": "/shaders/icon.vert", "start": 176762, "end": 177496}, {"filename": "/shaders/moon.frag", "start": 177496, "end": 179319}, {"filename": "/shaders/stars.frag", "start": 179319, "end": 180163}, {"filename": "/shaders/stars.vert", "start": 180163, "end": 181227}, {"filename": "/shaders/sun.frag", "start": 181227, "end": 182431}, {"filename": "/shaders/themes.glsl", "start": 182431, "end": 184046}], "remote_package_size": 184046});
 
   })();
 
-// end include: /tmp/tmp3xy6brrq.js
-// include: /tmp/tmpiia0vzqv.js
+// end include: /tmp/tmpc5nrfj38.js
+// include: /tmp/tmp_ugxi1nz.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmpiia0vzqv.js
-// include: /tmp/tmppnpl2hkx.js
+  // end include: /tmp/tmp_ugxi1nz.js
+// include: /tmp/tmpkyccpvsr.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmppnpl2hkx.js
+  // end include: /tmp/tmpkyccpvsr.js
 
 
 var arguments_ = [];
@@ -5459,6 +5459,9 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
   var _emscripten_glBlendFuncSeparate = (x0, x1, x2, x3) => GLctx.blendFuncSeparate(x0, x1, x2, x3);
   var _glBlendFuncSeparate = _emscripten_glBlendFuncSeparate;
 
+  var _emscripten_glBlitFramebuffer = (x0, x1, x2, x3, x4, x5, x6, x7, x8, x9) => GLctx.blitFramebuffer(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9);
+  var _glBlitFramebuffer = _emscripten_glBlitFramebuffer;
+
   var _emscripten_glBufferData = (target, size, data, usage) => {
   
       if (GL.currentContext.version >= 2) {
@@ -6288,6 +6291,9 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
 
   var _emscripten_glRenderbufferStorage = (x0, x1, x2, x3) => GLctx.renderbufferStorage(x0, x1, x2, x3);
   var _glRenderbufferStorage = _emscripten_glRenderbufferStorage;
+
+  var _emscripten_glRenderbufferStorageMultisample = (x0, x1, x2, x3, x4) => GLctx.renderbufferStorageMultisample(x0, x1, x2, x3, x4);
+  var _glRenderbufferStorageMultisample = _emscripten_glRenderbufferStorageMultisample;
 
   var _emscripten_glScissor = (x0, x1, x2, x3) => GLctx.scissor(x0, x1, x2, x3);
   var _glScissor = _emscripten_glScissor;
@@ -9880,6 +9886,8 @@ var wasmImports = {
   /** @export */
   glBlendFuncSeparate: _glBlendFuncSeparate,
   /** @export */
+  glBlitFramebuffer: _glBlitFramebuffer,
+  /** @export */
   glBufferData: _glBufferData,
   /** @export */
   glBufferSubData: _glBufferSubData,
@@ -9965,6 +9973,8 @@ var wasmImports = {
   glReadPixels: _glReadPixels,
   /** @export */
   glRenderbufferStorage: _glRenderbufferStorage,
+  /** @export */
+  glRenderbufferStorageMultisample: _glRenderbufferStorageMultisample,
   /** @export */
   glScissor: _glScissor,
   /** @export */
