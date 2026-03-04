@@ -41,24 +41,14 @@
                 echo $Parsedown->text(file_get_contents('README.md'));
             ?>
 
+            <?php include("../../slideSet.php"); echo slideset('images', 'width: 100%;'); ?>
+
             <div>
                 <video controls width="100%" style="max-width: 800px;">
                 <source src="000.mp4" type="video/mp4">
                 Your browser does not support the video tag.
                 </video>
             </div>
-            <div>
-                <video controls width="100%" style="max-width: 800px;">
-                <source src="IMG_4879.MP4" type="video/mp4">
-                Your browser does not support the video tag.
-                </video>
-            </div>
-            <!-- <div>
-                <video controls width="100%" style="max-width: 800px;">
-                <source src="relics.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-                </video>
-            </div> -->
 
 
             <h2>Related Works</h2>
