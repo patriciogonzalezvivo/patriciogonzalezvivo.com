@@ -38,6 +38,11 @@
 			echo $Parsedown->text(file_get_contents ('README.md'));
 			?>
 
+            <script src="https://fast.wistia.com/player.js" async></script>
+            <script src="https://fast.wistia.com/embed/6elymy9yw4.js" async type="module"></script>
+            <style>wistia-player[media-id='6elymy9yw4']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/6elymy9yw4/swatch'); display: block; filter: blur(5px); padding-top:100.0%; }</style>
+            <wistia-player media-id="6elymy9yw4" aspect="1.0"></wistia-player>
+
             <h2>Related Works</h2>
             <?php
                 $projects = [
