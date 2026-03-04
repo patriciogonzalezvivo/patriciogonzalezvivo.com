@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmpgd4k16gn.js
+// include: /tmp/tmpgw9sawei.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -202,25 +202,25 @@ Module['FS_createPath']("/", "ttf", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/png/noise_blue.png", "start": 0, "end": 391037}, {"filename": "/shaders/flood_encoding.frag", "start": 391037, "end": 391520}, {"filename": "/shaders/postprocessing.frag", "start": 391520, "end": 392361}, {"filename": "/shaders/raymarching.frag", "start": 392361, "end": 396263}, {"filename": "/shaders/stars.frag", "start": 396263, "end": 396770}, {"filename": "/shaders/stars.vert", "start": 396770, "end": 397234}, {"filename": "/ttf/astronomicon.ttf", "start": 397234, "end": 428798}], "remote_package_size": 428798});
+    loadPackage({"files": [{"filename": "/png/noise_blue.png", "start": 0, "end": 391037}, {"filename": "/shaders/cascade_gather.frag", "start": 391037, "end": 394736}, {"filename": "/shaders/flood_encoding.frag", "start": 394736, "end": 395219}, {"filename": "/shaders/postprocessing.frag", "start": 395219, "end": 396060}, {"filename": "/shaders/radiance_cascade.frag", "start": 396060, "end": 402891}, {"filename": "/shaders/raymarching.frag", "start": 402891, "end": 406932}, {"filename": "/shaders/stars.frag", "start": 406932, "end": 407439}, {"filename": "/shaders/stars.vert", "start": 407439, "end": 407903}, {"filename": "/ttf/astronomicon.ttf", "start": 407903, "end": 439467}], "remote_package_size": 439467});
 
   })();
 
-// end include: /tmp/tmpgd4k16gn.js
-// include: /tmp/tmp7le9jfoi.js
+// end include: /tmp/tmpgw9sawei.js
+// include: /tmp/tmpzh3hzit6.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmp7le9jfoi.js
-// include: /tmp/tmpe35w26di.js
+  // end include: /tmp/tmpzh3hzit6.js
+// include: /tmp/tmp2ksttg4r.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmpe35w26di.js
+  // end include: /tmp/tmp2ksttg4r.js
 
 
 var arguments_ = [];
@@ -2156,8 +2156,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
   ignorePermissions:true,
   filesystems:null,
   syncFSRequests:0,
-  readFiles:{
-  },
   ErrnoError:class extends Error {
         name = 'ErrnoError';
         // We set the `name` property to be able to identify `FS.ErrnoError`
@@ -2431,9 +2429,11 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
         // return 0 if any user, group or owner bits are set.
         if (perms.includes('r') && !(node.mode & 292)) {
           return 2;
-        } else if (perms.includes('w') && !(node.mode & 146)) {
+        }
+        if (perms.includes('w') && !(node.mode & 146)) {
           return 2;
-        } else if (perms.includes('x') && !(node.mode & 73)) {
+        }
+        if (perms.includes('x') && !(node.mode & 73)) {
           return 2;
         }
         return 0;
@@ -2474,10 +2474,8 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
           if (FS.isRoot(node) || FS.getPath(node) === FS.cwd()) {
             return 10;
           }
-        } else {
-          if (FS.isDir(node.mode)) {
-            return 31;
-          }
+        } else if (FS.isDir(node.mode)) {
+          return 31;
         }
         return 0;
       },
@@ -2487,13 +2485,16 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
         }
         if (FS.isLink(node.mode)) {
           return 32;
-        } else if (FS.isDir(node.mode)) {
-          if (FS.flagsToPermissionString(flags) !== 'r' // opening for write
-              || (flags & (512 | 64))) { // TODO: check for O_SEARCH? (== search for dir only)
+        }
+        var mode = FS.flagsToPermissionString(flags);
+        if (FS.isDir(node.mode)) {
+          // opening for write
+          // TODO: check for O_SEARCH? (== search for dir only)
+          if (mode !== 'r' || (flags & (512 | 64))) {
             return 31;
           }
         }
-        return FS.nodePermissions(node, FS.flagsToPermissionString(flags));
+        return FS.nodePermissions(node, mode);
       },
   checkOpExists(op, err) {
         if (!op) {
@@ -3155,11 +3156,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
         }
         if (created) {
           FS.chmod(node, mode & 0o777);
-        }
-        if (Module['logReadFiles'] && !(flags & 1)) {
-          if (!(path in FS.readFiles)) {
-            FS.readFiles[path] = 1;
-          }
         }
         return stream;
       },
@@ -3976,12 +3972,12 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
         var name = stream.getdents[idx];
         if (name === '.') {
           id = stream.node.id;
-          type = 4; // DT_DIR
+          type = 4;
         }
         else if (name === '..') {
           var lookup = FS.lookupPath(stream.path, { parent: true });
           id = lookup.node.id;
-          type = 4; // DT_DIR
+          type = 4;
         }
         else {
           var child;
@@ -3996,10 +3992,10 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
             throw e;
           }
           id = child.id;
-          type = FS.isChrdev(child.mode) ? 2 :  // DT_CHR, character device.
-                 FS.isDir(child.mode) ? 4 :     // DT_DIR, directory.
-                 FS.isLink(child.mode) ? 10 :   // DT_LNK, symbolic link.
-                 8;                             // DT_REG, regular file.
+          type = FS.isChrdev(child.mode) ? 2 : // character device.
+                 FS.isDir(child.mode) ? 4 :    // directory
+                 FS.isLink(child.mode) ? 10 :   // symbolic link.
+                 8;                            // regular file.
         }
         assert(id);
         HEAP64[((dirp + pos)>>3)] = BigInt(id);
@@ -5464,6 +5460,9 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
   var _emscripten_glBlendFuncSeparate = (x0, x1, x2, x3) => GLctx.blendFuncSeparate(x0, x1, x2, x3);
   var _glBlendFuncSeparate = _emscripten_glBlendFuncSeparate;
 
+  var _emscripten_glBlitFramebuffer = (x0, x1, x2, x3, x4, x5, x6, x7, x8, x9) => GLctx.blitFramebuffer(x0, x1, x2, x3, x4, x5, x6, x7, x8, x9);
+  var _glBlitFramebuffer = _emscripten_glBlitFramebuffer;
+
   var _emscripten_glBufferData = (target, size, data, usage) => {
   
       if (GL.currentContext.version >= 2) {
@@ -6294,6 +6293,9 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
   var _emscripten_glRenderbufferStorage = (x0, x1, x2, x3) => GLctx.renderbufferStorage(x0, x1, x2, x3);
   var _glRenderbufferStorage = _emscripten_glRenderbufferStorage;
 
+  var _emscripten_glRenderbufferStorageMultisample = (x0, x1, x2, x3, x4) => GLctx.renderbufferStorageMultisample(x0, x1, x2, x3, x4);
+  var _glRenderbufferStorageMultisample = _emscripten_glRenderbufferStorageMultisample;
+
   var _emscripten_glScissor = (x0, x1, x2, x3) => GLctx.scissor(x0, x1, x2, x3);
   var _glScissor = _emscripten_glScissor;
 
@@ -6654,10 +6656,10 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
         // might create some side data structure for use later (like an Image element, etc.).
   
         var imagePlugin = {};
-        imagePlugin['canHandle'] = function imagePlugin_canHandle(name) {
+        imagePlugin['canHandle'] = (name) => {
           return !Module['noImageDecoding'] && /\.(jpg|jpeg|png|bmp|webp)$/i.test(name);
         };
-        imagePlugin['handle'] = async function imagePlugin_handle(byteArray, name) {
+        imagePlugin['handle'] = async (byteArray, name) => {
           var b = new Blob([byteArray], { type: Browser.getMimetype(name) });
           if (b.size !== byteArray.length) { // Safari bug #118630
             // Safari's Blob can only take an ArrayBuffer
@@ -6687,10 +6689,10 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
         preloadPlugins.push(imagePlugin);
   
         var audioPlugin = {};
-        audioPlugin['canHandle'] = function audioPlugin_canHandle(name) {
+        audioPlugin['canHandle'] = (name) => {
           return !Module['noAudioDecoding'] && name.slice(-4) in { '.ogg': 1, '.wav': 1, '.mp3': 1 };
         };
-        audioPlugin['handle'] = async function audioPlugin_handle(byteArray, name) {
+        audioPlugin['handle'] = async (byteArray, name) => {
           return new Promise((resolve, reject) => {
             var done = false;
             function finish(audio) {
@@ -6703,7 +6705,7 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
             var url = URL.createObjectURL(b); // XXX we never revoke this!
             var audio = new Audio();
             audio.addEventListener('canplaythrough', () => finish(audio), false); // use addEventListener due to chromium bug 124926
-            audio.onerror = function audio_onerror(event) {
+            audio.onerror = (event) => {
               if (done) return;
               err(`warning: browser could not fully decode audio ${name}, trying slower base64 approach`);
               function encode64(data) {
@@ -7182,13 +7184,12 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
           var timeUntilNextTick = Math.max(0, MainLoop.tickStartTime + value - _emscripten_get_now())|0;
           setTimeout(MainLoop.runner, timeUntilNextTick); // doing this each time means that on exception, we stop
         };
-        MainLoop.method = 'timeout';
       } else if (mode == 1) {
         MainLoop.scheduler = function MainLoop_scheduler_rAF() {
           MainLoop.requestAnimationFrame(MainLoop.runner);
         };
-        MainLoop.method = 'rAF';
-      } else if (mode == 2) {
+      } else {
+        assert(mode == 2);
         if (!MainLoop.setImmediate) {
           if (globalThis.setImmediate) {
             MainLoop.setImmediate = setImmediate;
@@ -7219,7 +7220,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
         MainLoop.scheduler = function MainLoop_scheduler_setImmediate() {
           MainLoop.setImmediate(MainLoop.runner);
         };
-        MainLoop.method = 'immediate';
       }
       return 0;
     };
@@ -7288,11 +7288,9 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
           return;
         } else if (MainLoop.timingMode == 0) {
           MainLoop.tickStartTime = _emscripten_get_now();
-        }
-  
-        if (MainLoop.method === 'timeout' && Module['ctx']) {
-          warnOnce('Looks like you are rendering without using requestAnimationFrame for the main loop. You should use 0 for the frame rate in emscripten_set_main_loop in order to use requestAnimationFrame, as that can greatly improve your frame rates!');
-          MainLoop.method = ''; // just warn once per call to set main loop
+          if (Module['ctx']) {
+            warnOnce('Looks like you are rendering without using requestAnimationFrame for the main loop. You should use 0 for the frame rate in emscripten_set_main_loop in order to use requestAnimationFrame, as that can greatly improve your frame rates!');
+          }
         }
   
         MainLoop.runIter(iterFunc);
@@ -7323,7 +7321,6 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
   var MainLoop = {
   running:false,
   scheduler:null,
-  method:"",
   currentlyRunningMainloop:0,
   func:null,
   arg:0,
@@ -9435,7 +9432,6 @@ missingLibrarySymbols.forEach(missingLibrarySymbol)
   'FS_ignorePermissions',
   'FS_filesystems',
   'FS_syncFSRequests',
-  'FS_readFiles',
   'FS_lookupPath',
   'FS_getPath',
   'FS_hashName',
@@ -9584,6 +9580,8 @@ unexportedSymbols.forEach(unexportedRuntimeSymbol);
 
 function checkIncomingModuleAPI() {
   ignoredModuleProp('fetchSettings');
+  ignoredModuleProp('logReadFiles');
+  ignoredModuleProp('loadSplitModule');
 }
 
 // Imports from the Wasm binary.
@@ -9739,6 +9737,8 @@ var wasmImports = {
   /** @export */
   glBlendFuncSeparate: _glBlendFuncSeparate,
   /** @export */
+  glBlitFramebuffer: _glBlitFramebuffer,
+  /** @export */
   glBufferData: _glBufferData,
   /** @export */
   glBufferSubData: _glBufferSubData,
@@ -9824,6 +9824,8 @@ var wasmImports = {
   glReadPixels: _glReadPixels,
   /** @export */
   glRenderbufferStorage: _glRenderbufferStorage,
+  /** @export */
+  glRenderbufferStorageMultisample: _glRenderbufferStorageMultisample,
   /** @export */
   glScissor: _glScissor,
   /** @export */
