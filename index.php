@@ -35,7 +35,7 @@ include("menu.php");
                 <img id="frame-front" class="frame" src="images/frame_refleccion.png" alt="">
             </div>
         </div>
-        <div class="item-info" style="bottom: 0px;">
+        <div class="item-info">
             <span class="item-title"><?php echo htmlspecialchars($astros_meta['title']); ?></span>
             <span class="item-year"><?php echo htmlspecialchars($astros_meta['year']); ?></span>
             <span class="item-medium"><?php echo htmlspecialchars($astros_meta['medium']); ?></span>
@@ -49,7 +49,7 @@ include("menu.php");
 		<div class="item-image">
             <?php include("slideSet.php"); echo render_slideset(['images_dir' => '2025/imaginary/images', 'div_style' => 'width: 400px;']); ?>
         </div>
-        <div class="item-info">
+        <div class="item-info" style="bottom: 0px;">
             <span class="item-title"><?php echo htmlspecialchars($imaginary_meta['title']); ?></span>
             <span class="item-year"><?php echo htmlspecialchars($imaginary_meta['year']); ?></span>
             <span class="item-medium"><?php echo htmlspecialchars($imaginary_meta['medium']); ?></span>
