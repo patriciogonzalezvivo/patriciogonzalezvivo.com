@@ -90,10 +90,16 @@ body {
 
 .content .item.is-active {
     opacity: 1; 
+    transform: scale(.95);
+    margin-bottom: 0em;
+    margin-top: 0em;
 }
 
 .content .item:hover {
-    opacity: 0.6; 
+    /* opacity: 0.6;  */
+    transform: scale(1.0);
+    /* margin-bottom: 2em;
+    margin-top: 2em; */
 }
 
 /* Item structure - mobile first */
