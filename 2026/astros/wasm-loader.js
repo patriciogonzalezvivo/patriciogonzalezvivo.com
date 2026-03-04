@@ -5,6 +5,10 @@ class WasmLoader extends HTMLElement {
     }
   
     connectedCallback() {
+        // Support basepath attribute to allow embedding from parent pages.
+        // e.g. <wasm-loader basepath="2026/astros/"></wasm-loader>
+        const basepath = this.getAttribute('basepath') || '';
+
         // Create loader elements
         const loader = document.createElement('div');
         loader.className = 'emscripten_loader';
@@ -118,6 +122,9 @@ class WasmLoader extends HTMLElement {
   
         // Initialize Module before loading script
         window.Module = {
+            // Rewrite asset paths so .wasm/.data load from the correct directory
+            // when this component is embedded from a different URL depth.
+            locateFile: (path) => basepath + path,
             preRun: [],
             // canvas: canvas,
             onRuntimeInitialized: function() {
@@ -221,9 +228,10 @@ class WasmLoader extends HTMLElement {
             }
         };
   
-        // Load WASM script
+        // Load WASM script — path is relative to the current page URL,
+        // so prefix with basepath when embedding from a parent page.
         const script = document.createElement('script');
-        script.src = 'astros.js';
+        script.src = basepath + 'astros.js';
         script.async = true;
         document.body.appendChild(script);
     }

@@ -1,6 +1,8 @@
 <?php 
 include("project_meta.php");
 
+$astros_meta = get_project_meta('2026/astros');
+
     // Array of projects with their configuration
     // Each entry can have:
     //  - 'path': folder path for local projects (will load metadata from TITLE.txt, MEDIUM.txt, etc.)
@@ -20,40 +22,45 @@ include("project_meta.php");
 include("header.php");
 include("menu.php");
 ?>
+    <link rel="stylesheet" href="2026/astros/style.css" type="text/css" />
     <section class="content">
-<?php
-foreach ($projects as $project) {
-    $commented = isset($project['commented']) && $project['commented'];
-    
-    // Load metadata for projects with a path
-    if (isset($project['path'])) {
-        $meta = get_project_meta($project['path']);
-        
-        // Override with explicitly provided values
-        if (isset($project['title'])) $meta['title'] = $project['title'];
-        if (isset($project['year'])) $meta['year'] = $project['year'];
-        if (isset($project['medium'])) $meta['medium'] = $project['medium'];
-        if (isset($project['dimensions'])) $meta['dimensions'] = $project['dimensions'];
-        if (isset($project['description'])) $meta['description'] = $project['description'];
-        if (isset($project['url'])) $meta['url'] = $project['url'];
-        if (isset($project['thumbnail'])) $meta['thumbnail'] = $project['thumbnail'];
-    } else {
-        // External project without local path - use provided metadata
-        $meta = [
-            'title' => $project['title'] ?? '',
-            'year' => $project['year'] ?? '',
-            'medium' => $project['medium'] ?? '',
-            'dimensions' => $project['dimensions'] ?? '',
-            'description' => $project['description'] ?? '',
-            'url' => $project['url'],
-            'thumbnail' => $project['thumbnail'] ?? '',
-        ];
-    }
-    
-    // Render the item
-    echo render_project_item($meta, $commented);
-}
-?>
+
+    <a href="2026/astros/">
+    <article class="item is-active">
+        <div class="item-image">
+            <div id="wrapper" class="windowed">
+                <img id="frame-back" class="frame" src="images/frame_background.png" alt="">
+                    <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
+                <img id="frame-front" class="frame" src="images/frame_refleccion.png" alt="">
+            </div>
+        </div>
+        <div class="item-info">
+            <span class="item-title"><?php echo htmlspecialchars($astros_meta['title']); ?></span>
+            <span class="item-year"><?php echo htmlspecialchars($astros_meta['year']); ?></span>
+            <span class="item-medium"><?php echo htmlspecialchars($astros_meta['medium']); ?></span>
+            <p class="item-description"><?php echo htmlspecialchars($astros_meta['description']); ?></p>
+        </div>
+    </article>
+    </a>
+
+    <a href="2025/imaginary/">
+     <article class="item is-active">
+		<div class="item-image">
+            <?php include("slideSet.php"); echo render_slideset(['images_dir' => '2025/imaginary/images', 'div_style' => 'width: 400px;']); ?>
+        </div>
+        <div class="item-info">
+            <span class="item-title">Imaginary</span>
+            <span class="item-year">2025</span>
+            <span class="item-medium">Acrylic plotting and Oil hand painting on Canvas</span>
+            <span class="item-dimensions">16 x 12 inches</span>
+        </div>
+    </article>
+    </a>
+
+
     </section>
+
+    <wasm-loader basepath="2026/astros/"></wasm-loader>
+    <script type="module" src="2026/astros/main.js"></script>
 
 <?php include("footer.php"); ?>

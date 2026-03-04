@@ -263,6 +263,7 @@ body.windowed-mode #longer-info {
     width: 100%;
     min-height: 300px; /* Ensure visibility before JS loads */
 }
+
 #slideSet .photo {
     position: absolute;
     left: 0;
@@ -272,8 +273,9 @@ body.windowed-mode #longer-info {
     transition: opacity 800ms ease-in-out;
     opacity: 0; 
 }
+
 #slideSet .photo.photoFront {
-    opacity: 1; 
+    opacity: 1;
 }
 
 .cita {
