@@ -2,6 +2,7 @@
 include("project_meta.php");
 
 $astros_meta = get_project_meta('2026/astros');
+$imaginary_meta = get_project_meta('2025/imaginary');
 
     // Array of projects with their configuration
     // Each entry can have:
@@ -34,7 +35,7 @@ include("menu.php");
                 <img id="frame-front" class="frame" src="images/frame_refleccion.png" alt="">
             </div>
         </div>
-        <div class="item-info">
+        <div class="item-info" style="bottom: 0px;">
             <span class="item-title"><?php echo htmlspecialchars($astros_meta['title']); ?></span>
             <span class="item-year"><?php echo htmlspecialchars($astros_meta['year']); ?></span>
             <span class="item-medium"><?php echo htmlspecialchars($astros_meta['medium']); ?></span>
@@ -49,10 +50,10 @@ include("menu.php");
             <?php include("slideSet.php"); echo render_slideset(['images_dir' => '2025/imaginary/images', 'div_style' => 'width: 400px;']); ?>
         </div>
         <div class="item-info">
-            <span class="item-title">Imaginary</span>
-            <span class="item-year">2025</span>
-            <span class="item-medium">Acrylic plotting and Oil hand painting on Canvas</span>
-            <span class="item-dimensions">16 x 12 inches</span>
+            <span class="item-title"><?php echo htmlspecialchars($imaginary_meta['title']); ?></span>
+            <span class="item-year"><?php echo htmlspecialchars($imaginary_meta['year']); ?></span>
+            <span class="item-medium"><?php echo htmlspecialchars($imaginary_meta['medium']); ?></span>
+            <span class="item-dimensions"><?php echo htmlspecialchars($imaginary_meta['dimensions']); ?></span>
         </div>
     </article>
     </a>
