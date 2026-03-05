@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmpq1thm6tg.js
+// include: /tmp/tmpcyf7wnde.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -202,25 +202,25 @@ Module['FS_createPath']("/", "ttf", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/png/noise_blue.png", "start": 0, "end": 391037}, {"filename": "/shaders/cascade_gather.frag", "start": 391037, "end": 394736}, {"filename": "/shaders/flood_encoding.frag", "start": 394736, "end": 395219}, {"filename": "/shaders/postprocessing.frag", "start": 395219, "end": 396060}, {"filename": "/shaders/radiance_cascade.frag", "start": 396060, "end": 402891}, {"filename": "/shaders/raymarching.frag", "start": 402891, "end": 406933}, {"filename": "/shaders/stars.frag", "start": 406933, "end": 407440}, {"filename": "/shaders/stars.vert", "start": 407440, "end": 407904}, {"filename": "/ttf/astronomicon.ttf", "start": 407904, "end": 439468}], "remote_package_size": 439468});
+    loadPackage({"files": [{"filename": "/png/noise_blue.png", "start": 0, "end": 391037}, {"filename": "/shaders/cascade_gather.frag", "start": 391037, "end": 394736}, {"filename": "/shaders/flood_encoding.frag", "start": 394736, "end": 395219}, {"filename": "/shaders/postprocessing.frag", "start": 395219, "end": 396058}, {"filename": "/shaders/radiance_cascade.frag", "start": 396058, "end": 402889}, {"filename": "/shaders/raymarching.frag", "start": 402889, "end": 406931}, {"filename": "/shaders/stars.frag", "start": 406931, "end": 407438}, {"filename": "/shaders/stars.vert", "start": 407438, "end": 407902}, {"filename": "/ttf/astronomicon.ttf", "start": 407902, "end": 439466}], "remote_package_size": 439466});
 
   })();
 
-// end include: /tmp/tmpq1thm6tg.js
-// include: /tmp/tmpia0tr9dy.js
+// end include: /tmp/tmpcyf7wnde.js
+// include: /tmp/tmptl725z__.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmpia0tr9dy.js
-// include: /tmp/tmppsi2jdh_.js
+  // end include: /tmp/tmptl725z__.js
+// include: /tmp/tmp3w9902e7.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmppsi2jdh_.js
+  // end include: /tmp/tmp3w9902e7.js
 
 
 var arguments_ = [];
