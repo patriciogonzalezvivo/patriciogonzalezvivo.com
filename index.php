@@ -29,11 +29,15 @@ include("menu.php");
     <a href="2026/astros/">
     <article class="item is-active">
         <div class="item-image">
-            <div id="wrapper" class="windowed">
+            <!-- <div id="wrapper" class="windowed">
                 <img id="frame-back" class="frame" src="images/frame_background.png" alt="">
                     <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
                 <img id="frame-front" class="frame" src="images/frame_refleccion.png" alt="">
-            </div>
+            </div> -->
+            <script src="https://fast.wistia.com/player.js" async></script>
+            <script src="https://fast.wistia.com/embed/6elymy9yw4.js" async type="module"></script>
+            <style>wistia-player[media-id='6elymy9yw4']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/6elymy9yw4/swatch'); display: block; filter: blur(5px); padding-top:100.0%; }</style>
+            <wistia-player media-id="6elymy9yw4" aspect="1.0"></wistia-player>
         </div>
         <div class="item-info">
             <span class="item-title"><?php echo htmlspecialchars($astros_meta['title']); ?></span>
@@ -61,7 +65,7 @@ include("menu.php");
 
     </section>
 
-    <wasm-loader basepath="2026/astros/"></wasm-loader>
-    <script type="module" src="2026/astros/main.js"></script>
+    <!-- <wasm-loader basepath="2026/astros/"></wasm-loader> -->
+    <!-- <script type="module" src="2026/astros/main.js"></script> -->
 
 <?php include("footer.php"); ?>
