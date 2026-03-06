@@ -24,11 +24,11 @@ include("header.php");
 include("menu.php");
 ?>
     <link rel="stylesheet" href="2026/astros/style.css" type="text/css" />
-    <section class="content">
+    <!-- <section class="content"> -->
 
     <a href="2026/astros/">
     <article class="item is-active">
-        <div class="item-image">
+        <div class="item-image" style="width: 400px; filter: drop-shadow(10px 10px 10px #777)">
             <!-- <div id="wrapper" class="windowed">
                 <img id="frame-back" class="frame" src="images/frame_background.png" alt="">
                     <canvas class='emscripten' id='canvas' oncontextmenu='event.preventDefault()' tabindex=-1></canvas>
@@ -63,7 +63,7 @@ include("menu.php");
     </a>
 
 
-    </section>
+    <!-- </section> -->
 
     <!-- <wasm-loader basepath="2026/astros/"></wasm-loader> -->
     <!-- <script type="module" src="2026/astros/main.js"></script> -->
