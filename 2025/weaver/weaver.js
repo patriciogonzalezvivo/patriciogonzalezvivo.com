@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmp8vg6w09m.js
+// include: /tmp/tmpca8cgr5e.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -201,25 +201,25 @@ Module['FS_createPath']("/", "shaders", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/png/diffuse.png", "start": 0, "end": 132262}, {"filename": "/png/elements.png", "start": 132262, "end": 169320}, {"filename": "/shaders/Makefile", "start": 169320, "end": 169684}, {"filename": "/shaders/atmosphere.frag", "start": 169684, "end": 170863}, {"filename": "/shaders/atmosphere.vert", "start": 170863, "end": 171330}, {"filename": "/shaders/earth.frag", "start": 171330, "end": 173146}, {"filename": "/shaders/earth.vert", "start": 173146, "end": 174141}, {"filename": "/shaders/hud.frag", "start": 174141, "end": 174976}, {"filename": "/shaders/hud.vert", "start": 174976, "end": 175997}, {"filename": "/shaders/icon.frag", "start": 175997, "end": 176762}, {"filename": "/shaders/icon.vert", "start": 176762, "end": 177496}, {"filename": "/shaders/moon.frag", "start": 177496, "end": 179319}, {"filename": "/shaders/stars.frag", "start": 179319, "end": 180163}, {"filename": "/shaders/stars.vert", "start": 180163, "end": 181227}, {"filename": "/shaders/sun.frag", "start": 181227, "end": 182431}, {"filename": "/shaders/themes.glsl", "start": 182431, "end": 184046}], "remote_package_size": 184046});
+    loadPackage({"files": [{"filename": "/png/diffuse.png", "start": 0, "end": 132262}, {"filename": "/png/elements.png", "start": 132262, "end": 169320}, {"filename": "/shaders/Makefile", "start": 169320, "end": 169684}, {"filename": "/shaders/atmosphere.frag", "start": 169684, "end": 170863}, {"filename": "/shaders/atmosphere.vert", "start": 170863, "end": 171330}, {"filename": "/shaders/earth.frag", "start": 171330, "end": 173151}, {"filename": "/shaders/earth.vert", "start": 173151, "end": 174146}, {"filename": "/shaders/hud.frag", "start": 174146, "end": 174981}, {"filename": "/shaders/hud.vert", "start": 174981, "end": 176002}, {"filename": "/shaders/icon.frag", "start": 176002, "end": 176767}, {"filename": "/shaders/icon.vert", "start": 176767, "end": 177501}, {"filename": "/shaders/moon.frag", "start": 177501, "end": 179324}, {"filename": "/shaders/stars.frag", "start": 179324, "end": 180168}, {"filename": "/shaders/stars.vert", "start": 180168, "end": 181232}, {"filename": "/shaders/sun.frag", "start": 181232, "end": 182436}, {"filename": "/shaders/themes.glsl", "start": 182436, "end": 184051}], "remote_package_size": 184051});
 
   })();
 
-// end include: /tmp/tmp8vg6w09m.js
-// include: /tmp/tmpm6uefxsi.js
+// end include: /tmp/tmpca8cgr5e.js
+// include: /tmp/tmps2950zrt.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmpm6uefxsi.js
-// include: /tmp/tmp8bcj4_v9.js
+  // end include: /tmp/tmps2950zrt.js
+// include: /tmp/tmpn1rpawau.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmp8bcj4_v9.js
+  // end include: /tmp/tmpn1rpawau.js
 
 
 var arguments_ = [];

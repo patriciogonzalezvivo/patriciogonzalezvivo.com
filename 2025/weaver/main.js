@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isFullscreen = !isFullscreen;
 
         if (isFullscreen) {
+            window.scrollTo({ top: 0, behavior: 'instant' });
             wrapper.classList.add('fullscreen');
             wrapper.classList.remove('windowed');
             document.body.classList.remove('windowed-mode');
