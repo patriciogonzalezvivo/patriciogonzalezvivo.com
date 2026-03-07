@@ -18,6 +18,10 @@
 
 /* Fullscreen State */
 #wrapper.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: none;
     width: 100vw;
     height: 100vh;
 }
