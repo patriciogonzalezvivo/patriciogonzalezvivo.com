@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmp74tc7ye_.js
+// include: /tmp/tmphiyy9490.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -202,25 +202,25 @@ Module['FS_createPath']("/", "ttf", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/png/noise_blue.png", "start": 0, "end": 391037}, {"filename": "/shaders/postprocessing.frag", "start": 391037, "end": 391876}, {"filename": "/shaders/raymarching.frag", "start": 391876, "end": 395932}, {"filename": "/shaders/stars.frag", "start": 395932, "end": 396439}, {"filename": "/shaders/stars.vert", "start": 396439, "end": 396903}, {"filename": "/ttf/astronomicon.ttf", "start": 396903, "end": 428467}], "remote_package_size": 428467});
+    loadPackage({"files": [{"filename": "/png/noise_blue.png", "start": 0, "end": 391037}, {"filename": "/shaders/flood_decoding.frag", "start": 391037, "end": 391463}, {"filename": "/shaders/postprocessing.frag", "start": 391463, "end": 392302}, {"filename": "/shaders/raymarching.frag", "start": 392302, "end": 396070}, {"filename": "/shaders/stars.frag", "start": 396070, "end": 396577}, {"filename": "/shaders/stars.vert", "start": 396577, "end": 397041}, {"filename": "/ttf/astronomicon.ttf", "start": 397041, "end": 428605}], "remote_package_size": 428605});
 
   })();
 
-// end include: /tmp/tmp74tc7ye_.js
-// include: /tmp/tmpnzpfhd1j.js
+// end include: /tmp/tmphiyy9490.js
+// include: /tmp/tmps3iiu7pv.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmpnzpfhd1j.js
-// include: /tmp/tmpt5jlq3vx.js
+  // end include: /tmp/tmps3iiu7pv.js
+// include: /tmp/tmpmtk_krhl.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmpt5jlq3vx.js
+  // end include: /tmp/tmpmtk_krhl.js
 
 
 var arguments_ = [];
