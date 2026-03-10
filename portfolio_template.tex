@@ -1,0 +1,219 @@
+% =========================================================
+% ARTIST PORTFOLIO TEMPLATE
+% ---------------------------------------------------------
+% Populate this template by running:
+%   python generate_portfolio.py --template portfolio_template.tex \
+%                                --data portfolio_data.json \
+%                                --output portfolio.pdf
+%
+% The script replaces %%PLACEHOLDER%% markers with values
+% from the JSON data file and filesystem project metadata.
+%
+% Compile with xelatex (required for fontspec).
+% =========================================================
+
+\documentclass[11pt]{article}
+
+% ---------------------------------------------------------
+% PAGE LAYOUT
+% ---------------------------------------------------------
+\usepackage[a4paper, landscape, margin=1in]{geometry}
+
+% ---------------------------------------------------------
+% PACKAGES
+% ---------------------------------------------------------
+\usepackage{graphicx}     % image inclusion
+\usepackage{float}        % figure placement [H]
+\usepackage{titlesec}     % section styling
+\usepackage{fancyhdr}     % headers / footers
+\usepackage{parskip}      % no paragraph indent, space between paragraphs
+\usepackage{caption}      % captions
+\usepackage{tabularx}     % flexible tables
+\usepackage{hyperref}     % links
+\usepackage{xcolor}
+\usepackage{fontspec}     % requires xelatex
+
+% ---------------------------------------------------------
+% TYPOGRAPHY
+% ---------------------------------------------------------
+\IfFontExistsTF{Source Sans Pro}{%
+    \setmainfont{Source Sans Pro}[
+        UprightFont     = *-Light,
+        BoldFont        = *-Semibold,
+        ItalicFont      = *-LightItalic,
+        BoldItalicFont  = *-SemiboldItalic
+    ]
+}{%
+    \setsansfont{Latin Modern Sans}
+    \renewcommand{\familydefault}{\sfdefault}
+}
+
+% ---------------------------------------------------------
+% HYPERLINK STYLE
+% ---------------------------------------------------------
+\hypersetup{
+    colorlinks = true,
+    linkcolor  = black,
+    urlcolor   = black,
+}
+
+% ---------------------------------------------------------
+% HEADER / FOOTER
+% ---------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\fancyhead[L]{%%ARTIST_NAME%%}
+\fancyhead[R]{Portfolio}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---------------------------------------------------------
+% SECTION STYLE
+% ---------------------------------------------------------
+\titleformat{\section}
+  {\Large\bfseries}{}
+  {0pt}{}[\titlerule]
+
+\titleformat{\subsection}
+  {\large\bfseries}{}
+  {0pt}{}
+
+% ---------------------------------------------------------
+% ARTWORK MACRO
+% ---------------------------------------------------------
+% Parameters:
+%   #1 = image path
+%   #2 = title
+%   #3 = year
+%   #4 = medium
+%   #5 = dimensions
+%   #6 = description
+%
+% The script generates \ArtworkEntry calls for each project.
+
+\newcommand{\ArtworkEntry}[6]{
+
+\clearpage
+
+\begin{center}
+
+\includegraphics[width=0.9\textwidth,height=0.6\textheight,keepaspectratio]{#1}
+
+\vspace{1em}
+
+{\Large \textbf{#2}}
+
+\vspace{0.5em}
+
+\begin{tabular}{rl}
+Year:       & #3 \\
+Medium:     & #4 \\
+Dimensions: & #5 \\
+\end{tabular}
+
+\end{center}
+
+\vspace{1em}
+
+#6
+
+}
+
+% ---------------------------------------------------------
+% SERIES DIVIDER MACRO
+% ---------------------------------------------------------
+\newcommand{\SeriesPage}[1]{
+\clearpage
+\begin{center}
+\vspace*{0.3\textheight}
+{\Huge \textbf{#1}}
+\end{center}
+\clearpage
+}
+
+% =========================================================
+% DOCUMENT START
+% =========================================================
+\begin{document}
+
+% ---------------------------------------------------------
+% COVER PAGE
+% ---------------------------------------------------------
+\thispagestyle{empty}
+
+\begin{center}
+
+\vspace*{3cm}
+
+\includegraphics[width=4cm]{%%ARTIST_LOGO%%}
+
+\vspace{2cm}
+
+{\Huge \textbf{%%ARTIST_NAME%%}}
+
+\vspace{0.5cm}
+
+{\Large %%PORTFOLIO_TITLE%%}
+
+\vfill
+
+%%ARTIST_LOCATION%%
+
+\vspace{0.5cm}
+
+\href{mailto:%%ARTIST_EMAIL%%}{%%ARTIST_EMAIL%%}
+
+\vspace{0.5cm}
+
+\href{%%ARTIST_WEBSITE_URL%%}{%%ARTIST_WEBSITE%%}
+
+\end{center}
+
+\clearpage
+
+% ---------------------------------------------------------
+% ARTIST STATEMENT
+% ---------------------------------------------------------
+\section*{Artist Statement}
+
+%%ARTIST_STATEMENT%%
+
+\clearpage
+
+% ---------------------------------------------------------
+% SELECTED WORKS
+% ---------------------------------------------------------
+\section*{Selected Works}
+
+%%ARTWORKS%%
+
+%%OPTIONAL_CV%%
+
+%%OPTIONAL_EXHIBITIONS%%
+
+%%OPTIONAL_TALKS%%
+
+%%OPTIONAL_PRESS%%
+
+% ---------------------------------------------------------
+% CONTACT PAGE
+% ---------------------------------------------------------
+\clearpage
+\section*{Contact}
+
+\begin{tabular}{rl}
+Name:     & %%ARTIST_NAME%%     \\
+Location: & %%ARTIST_LOCATION%% \\
+Phone:    & %%ARTIST_PHONE%%    \\
+Email:    & \href{mailto:%%ARTIST_EMAIL%%}{%%ARTIST_EMAIL%%} \\
+Website:  & \href{%%ARTIST_WEBSITE_URL%%}{%%ARTIST_WEBSITE%%} \\
+\end{tabular}
+
+\vspace{1cm}
+
+Thank you for viewing this portfolio.
+
+% =========================================================
+% END DOCUMENT
+% =========================================================
+\end{document}

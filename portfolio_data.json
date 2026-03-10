@@ -1,0 +1,23 @@
+{
+  "artist": {
+    "name": "Patricio Gonzalez Vivo",
+    "portfolio_title": "Artist Portfolio",
+    "email": "patriciogonzalezvivo@gmail.com",
+    "website": "patriciogonzalezvivo.com",
+    "website_url": "https://patriciogonzalezvivo.com",
+    "location": "Durham, NC, USA",
+    "logo": "images/logo-gray.png",
+    "phone": "+1 919 717 1720",
+    "bio_file": "README.md",
+    "cv_file": "cv.md",
+    "artist_statement_file": "artist_statement.md",
+    "exhibitions_file": "exhibitions.md"
+  },
+
+  "projects": [
+    "2026/astros",
+    "2025/weaver",
+    "2025/imaginary",
+    "2021/memory"
+  ]
+}

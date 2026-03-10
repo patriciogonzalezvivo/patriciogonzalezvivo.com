@@ -12,6 +12,7 @@ Or with custom project list:
     python generate_portfolio.py --projects projects.txt --output portfolio.pdf
 """
 
+import json
 import os
 import sys
 import argparse
@@ -121,25 +122,24 @@ class PortfolioGenerator:
         """Escape special LaTeX characters"""
         if not text:
             return ""
-        
-        # Characters to escape
-        replacements = {
-            '&': r'\&',
-            '%': r'\%',
-            '$': r'\$',
-            '#': r'\#',
-            '_': r'\_',
-            '{': r'\{',
-            '}': r'\}',
-            '~': r'\textasciitilde{}',
-            '^': r'\^{}',
+
+        # Use a single-pass regex substitution so that no character is
+        # processed twice (e.g. the backslashes introduced by '\&' must not
+        # themselves get escaped in a later pass).
+        escape_map = {
             '\\': r'\textbackslash{}',
+            '&':  r'\&',
+            '%':  r'\%',
+            '$':  r'\$',
+            '#':  r'\#',
+            '_':  r'\_',
+            '{':  r'\{',
+            '}':  r'\}',
+            '~':  r'\textasciitilde{}',
+            '^':  r'\^{}',
         }
-        
-        for char, escaped in replacements.items():
-            text = text.replace(char, escaped)
-        
-        return text
+        pattern = re.compile('|'.join(re.escape(k) for k in escape_map))
+        return pattern.sub(lambda m: escape_map[m.group(0)], text)
     
     def markdown_to_latex(self, text: str) -> str:
         """Convert simple markdown to LaTeX"""
@@ -391,6 +391,183 @@ class PortfolioGenerator:
             print("Error: PDF file not generated")
             return False
     
+    # ------------------------------------------------------------------
+    # TEMPLATE-BASED WORKFLOW
+    # ------------------------------------------------------------------
+
+    def load_json_data(self, json_file: str) -> Dict:
+        """Load portfolio data from a JSON file"""
+        with open(json_file, 'r') as f:
+            return json.load(f)
+
+    def generate_artworks_latex(self, projects: List[Dict]) -> str:
+        """Generate \\ArtworkEntry calls for every project"""
+        latex = ""
+        for project in projects:
+            title = self.escape_latex(project['title'])
+            year = self.escape_latex(project['year'])
+            medium = self.escape_latex(project['medium'] or '')
+            dimensions = self.escape_latex(project['dimensions'] or '')
+
+            # Description: prefer DESCRIPTION.txt, fall back to first paragraph of about
+            desc = ""
+            if project['description']:
+                desc = self.markdown_to_latex(project['description'])
+            elif project['about']:
+                paragraphs = project['about'].split('\n\n')
+                if paragraphs:
+                    desc = self.markdown_to_latex(paragraphs[0])
+
+            # Main image: prefer thumb (non-GIF), then first image
+            main_image = ""
+            if project['thumb'] and not project['thumb'].endswith('.gif'):
+                candidate = f"{project['path']}/{project['thumb']}"
+                if (self.base_path / candidate).exists():
+                    main_image = candidate
+            if not main_image:
+                for img in project['images']:
+                    if not img.endswith('.gif') and (self.base_path / img).exists():
+                        main_image = img
+                        break
+
+            latex += (
+                f"\\ArtworkEntry\n"
+                f"{{{main_image}}}\n"
+                f"{{{title}}}\n"
+                f"{{{year}}}\n"
+                f"{{{medium}}}\n"
+                f"{{{dimensions}}}\n"
+                f"{{{desc}}}\n\n"
+            )
+
+            # Optional additional images (skip GIFs, skip the main image)
+            extra = [
+                img for img in project['images'][1:5]
+                if not img.endswith('.gif') and img != main_image
+                and (self.base_path / img).exists()
+            ]
+            if extra:
+                latex += self.generate_image_grid(extra)
+
+            latex += "\n"
+
+        return latex
+
+    def _optional_section(self, section_title: str, file_key: str, artist: Dict,
+                          section_latex: Optional[str] = None) -> str:
+        """Return a LaTeX section block from a markdown file, or '' if the file is absent."""
+        filepath = artist.get(file_key)
+        if not filepath:
+            return ''
+        full_path = self.base_path / filepath
+        if not full_path.exists():
+            print(f"  (skipping {file_key}: {filepath} not found)")
+            return ''
+        content = self.markdown_to_latex(
+            self.extract_text_from_markdown(full_path.read_text())
+        )
+        if not content.strip():
+            return ''
+        print(f"  + {file_key}: {filepath}")
+        return f"\\clearpage\n\\section*{{{section_title}}}\n\n{content}\n"
+
+    def populate_template(self, template_file: str, data: Dict, projects: List[Dict]) -> str:
+        """Populate a LaTeX template by replacing %%PLACEHOLDER%% markers"""
+        template = Path(template_file).read_text()
+
+        artist = data.get('artist', {})
+
+        # Artist statement: prefer artist_statement_file, fall back to inline field
+        statement = ''
+        stmt_path_str = artist.get('artist_statement_file')
+        if stmt_path_str:
+            stmt_path = self.base_path / stmt_path_str
+            if stmt_path.exists():
+                statement = self.markdown_to_latex(
+                    self.extract_text_from_markdown(stmt_path.read_text())
+                )
+        if not statement:
+            statement = self.markdown_to_latex(artist.get('statement', ''))
+
+        # Bio (for places where a short bio is needed separately from statement)
+        bio = ''
+        bio_path_str = artist.get('bio_file')
+        if bio_path_str:
+            bio_path = self.base_path / bio_path_str
+            if bio_path.exists():
+                bio = self.markdown_to_latex(
+                    self.extract_text_from_markdown(bio_path.read_text())
+                )
+
+        website = artist.get('website', '')
+        website_url = artist.get('website_url', f'https://{website}' if website else '')
+
+        print("Resolving optional file sections...")
+        optional_cv          = self._optional_section('Curriculum Vitae',       'cv_file',           artist)
+        optional_exhibitions = self._optional_section('Exhibitions \\& Residencies', 'exhibitions_file', artist)
+        optional_talks       = self._optional_section('Talks',                  'talks_file',        artist)
+        optional_press       = self._optional_section('Press',                  'press_file',        artist)
+
+        replacements = {
+            '%%ARTIST_NAME%%':       self.escape_latex(artist.get('name', '')),
+            '%%PORTFOLIO_TITLE%%':   self.escape_latex(artist.get('portfolio_title', 'Artist Portfolio')),
+            # Email and website are used raw inside \href — do not LaTeX-escape them
+            '%%ARTIST_EMAIL%%':      artist.get('email', ''),
+            '%%ARTIST_WEBSITE%%':    artist.get('website', ''),
+            '%%ARTIST_WEBSITE_URL%%': website_url,
+            '%%ARTIST_LOCATION%%':   self.escape_latex(artist.get('location', '')),
+            '%%ARTIST_PHONE%%':      self.escape_latex(artist.get('phone', '')),
+            '%%ARTIST_LOGO%%':       artist.get('logo', ''),
+            '%%ARTIST_STATEMENT%%':  statement if statement else bio,
+            '%%ARTWORKS%%':          self.generate_artworks_latex(projects),
+            '%%OPTIONAL_CV%%':          optional_cv,
+            '%%OPTIONAL_EXHIBITIONS%%': optional_exhibitions,
+            '%%OPTIONAL_TALKS%%':       optional_talks,
+            '%%OPTIONAL_PRESS%%':       optional_press,
+        }
+
+        for placeholder, value in replacements.items():
+            template = template.replace(placeholder, value)
+
+        return template
+
+    def generate_from_template(self, template_file: str, data_file: str, output_pdf: str,
+                               latex_only: bool = False, keep_temp: bool = False) -> bool:
+        """Generate a portfolio PDF from a LaTeX template and a JSON data file"""
+        data = self.load_json_data(data_file)
+        projects_list = data.get('projects', [])
+
+        print(f"Loading metadata for {len(projects_list)} projects...")
+        projects = []
+        for p in projects_list:
+            print(f"  - {p}")
+            projects.append(self.get_project_meta(p))
+
+        print("Populating LaTeX template...")
+        latex_content = self.populate_template(template_file, data, projects)
+
+        if latex_only:
+            output_tex = (
+                output_pdf.replace('.pdf', '.tex')
+                if output_pdf.endswith('.pdf')
+                else output_pdf + '.tex'
+            )
+            Path(output_tex).write_text(latex_content)
+            print(f"✓ LaTeX file generated: {output_tex}")
+            print("  (Run xelatex manually to compile to PDF)")
+            return True
+
+        success = self.compile_latex(latex_content, output_pdf)
+        if success and self.temp_dir.exists() and not keep_temp:
+            shutil.rmtree(self.temp_dir)
+        elif success and keep_temp:
+            print(f"Temporary files kept in: {self.temp_dir}")
+        return success
+
+    # ------------------------------------------------------------------
+    # LEGACY WORKFLOW (generate LaTeX inline without an external template)
+    # ------------------------------------------------------------------
+
     def generate(self, projects_list: List[str], output_pdf: str, bio_file: str = "README.md", latex_only: bool = False, keep_temp: bool = False) -> bool:
         """Generate portfolio PDF"""
         
@@ -441,17 +618,31 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Generate with default project list (from works.php pattern)
+  # Template + JSON workflow (recommended)
+  python generate_portfolio.py --template portfolio_template.tex \\
+                               --data portfolio_data.json \\
+                               --output portfolio.pdf
+
+  # Template + JSON, generate .tex only (no PDF compilation)
+  python generate_portfolio.py --template portfolio_template.tex \\
+                               --data portfolio_data.json \\
+                               --output portfolio.pdf --latex-only
+
+  # Legacy: generate with default project list
   python generate_portfolio.py --output portfolio.pdf
-  
-  # Generate with custom project list
+
+  # Legacy: generate with custom project list
   python generate_portfolio.py --projects projects.txt --output my_portfolio.pdf
-  
+
   # Keep temporary files for debugging
   python generate_portfolio.py --output portfolio.pdf --keep-temp
         """
     )
     
+    parser.add_argument('--template', '-t', type=str,
+                        help='Path to LaTeX template file (use with --data)')
+    parser.add_argument('--data', '-d', type=str,
+                        help='Path to JSON data file (use with --template)')
     parser.add_argument('--projects', '-p', type=str,
                         help='Path to text file with project list (one per line: year/folder)')
     parser.add_argument('--output', '-o', type=str, required=True,
@@ -465,25 +656,35 @@ Examples:
     
     args = parser.parse_args()
     
-    # Get project list
-    if args.projects:
-        # Read from file
-        with open(args.projects, 'r') as f:
-            projects_list = [line.strip() for line in f if line.strip() and not line.startswith('#')]
-    else:
-        # Default list matching works.php
-        projects_list = [
-            '2026/astros',
-            '2025/imaginary',
-            '2025/hybrids',
-            '2022/time',
-            '2021/memory',
-            '2021/fen',
-        ]
-    
-    # Generate portfolio
     generator = PortfolioGenerator()
-    success = generator.generate(projects_list, args.output, args.bio, latex_only=args.latex_only, keep_temp=args.keep_temp)
+
+    # Template + JSON workflow
+    if args.template or args.data:
+        if not args.template or not args.data:
+            print("Error: --template and --data must be used together")
+            sys.exit(1)
+        success = generator.generate_from_template(
+            args.template, args.data, args.output,
+            latex_only=args.latex_only, keep_temp=args.keep_temp
+        )
+    else:
+        # Legacy workflow: inline LaTeX generation
+        if args.projects:
+            with open(args.projects, 'r') as f:
+                projects_list = [line.strip() for line in f if line.strip() and not line.startswith('#')]
+        else:
+            projects_list = [
+                '2026/astros',
+                '2025/imaginary',
+                '2025/hybrids',
+                '2022/time',
+                '2021/memory',
+                '2021/fen',
+            ]
+        success = generator.generate(
+            projects_list, args.output, args.bio,
+            latex_only=args.latex_only, keep_temp=args.keep_temp
+        )
     
     if not success:
         sys.exit(1)
