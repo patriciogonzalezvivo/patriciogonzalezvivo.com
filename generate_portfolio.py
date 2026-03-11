@@ -106,11 +106,17 @@ class PortfolioGenerator:
         return images
 
     def get_image_caption(self, img_path: str) -> str:
-        """Return the text content of a same-name .txt sidecar file, or empty string."""
+        """Return the text content of a same-name .txt sidecar file, or empty string.
+
+        Each line is preserved as a separate line in the PDF using LaTeX forced
+        line breaks (\\\\), so the caption renders exactly as written.
+        """
         txt_file = (self.base_path / img_path).with_suffix('.txt')
-        if txt_file.exists():
-            return self.escape_latex(txt_file.read_text().strip())
-        return ""
+        if not txt_file.exists():
+            return ""
+        lines = txt_file.read_text().strip().splitlines()
+        escaped_lines = [self.escape_latex(line) for line in lines]
+        return "\\\\\n".join(escaped_lines)
     
     def escape_latex(self, text: str) -> str:
         """Escape special LaTeX characters"""
@@ -222,12 +228,9 @@ class PortfolioGenerator:
     
     % Name
     {\Huge\bfseries Patricio Gonzalez Vivo}
-    
-    \vspace{0.25cm}
-    
     % Portfolio label
     {\Large Portfolio}
-    
+
     \vfill
     
     {\small \url{https://patriciogonzalezvivo.com}}
@@ -242,10 +245,6 @@ class PortfolioGenerator:
         
         # Add biography
         latex += self.markdown_to_latex(bio)
-        latex += "\n\n\\newpage\n\n"
-        
-        # Add projects
-        latex += r"\section*{Selected Works}" + "\n\n"
         
         for project in projects:
             latex += self.generate_project_section(project)
@@ -525,7 +524,8 @@ class PortfolioGenerator:
             '%%ARTIST_LOCATION%%':   self.escape_latex(artist.get('location', '')),
             '%%ARTIST_PHONE%%':      self.escape_latex(artist.get('phone', '')),
             '%%ARTIST_LOGO%%':       artist.get('logo', ''),
-            '%%ARTIST_STATEMENT%%':  statement if statement else bio,
+            '%%ARTIST_BIO%%':        bio,
+            '%%ARTIST_STATEMENT%%':  statement,
             '%%ARTWORKS%%':          self.generate_artworks_latex(projects),
             '%%OPTIONAL_CV%%':          optional_cv,
             '%%OPTIONAL_EXHIBITIONS%%': optional_exhibitions,
