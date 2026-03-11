@@ -286,45 +286,42 @@ class PortfolioGenerator:
         latex += f"\\noindent{{\\Large\\textbf{{{title}}}}}\\hfill{{\\large {year}}}\n\n"
         latex += "\\vspace{0.3em}\\hrule\\vspace{1em}\n\n"
 
-        # Limit description to first 3 paragraphs so it never overflows the column
-        col_h = "0.78\\textheight"
-        if desc:
-            paras = [p for p in desc.split('\n\n') if p.strip()]
-            desc_short = '\n\n'.join(paras[:3])
-        else:
-            desc_short = ""
+        # Heuristic: if description is long (> ~800 chars), there is no room
+        # for an image on page 1 — treat all images as additional images instead.
+        DESC_CHAR_LIMIT = 800
+        desc_fits_with_image = len(desc) <= DESC_CHAR_LIMIT
 
-        if images:
+        if images and desc_fits_with_image:
             first_img = images[0]
             caption   = self.get_image_caption(first_img)
 
-            # Left column: description text — fixed height, content pinned to top
-            latex += "\\noindent\n"
-            latex += f"\\begin{{minipage}}[t][{col_h}][t]{{0.48\\textwidth}}\n"
-            latex += "\\vspace*{0pt}\\raggedright\n"
-            if desc_short:
-                latex += desc_short + "\n"
+            # Left column: full description, top-aligned
+            # Right column: first image pinned to bottom-right
+            col_h = "0.82\\textheight"
+            latex += "\\noindent"
+            latex += f"\\begin{{minipage}}[t][{col_h}][t]{{0.52\\textwidth}}\n"
+            latex += "\\raggedright\n"
+            if desc:
+                latex += desc + "\n"
             latex += "\\end{minipage}\n"
             latex += "\\hfill\n"
-
-            # Right column: image with optional caption pinned to bottom
+            latex += f"\\begin{{minipage}}[t][{col_h}][b]{{0.44\\textwidth}}\n"
+            latex += f"  \\includegraphics[width=\\linewidth,height=0.5\\textheight,keepaspectratio]{{{first_img}}}\n"
             if caption:
-                latex += f"\\begin{{minipage}}[t][{col_h}][b]{{0.48\\textwidth}}\n"
-                latex += (f"  \\includegraphics[width=\\linewidth,"
-                          f"height=0.68\\textheight,keepaspectratio]{{{first_img}}}\n\n")
-                latex += f"  \\vspace{{0.5em}}\n\n  {caption}\n"
-                latex += "\\end{minipage}\n\n"
-            else:
-                latex += f"\\begin{{minipage}}[t][{col_h}][t]{{0.48\\textwidth}}\n"
-                latex += (f"  \\includegraphics[width=\\linewidth,"
-                          f"height={col_h},keepaspectratio]{{{first_img}}}\n")
-                latex += "\\end{minipage}\n\n"
-        elif desc_short:
-            latex += desc_short + "\n\n"
+                latex += f"  \\vspace{{0.3em}}\n\n  {caption}\n"
+            latex += "\\end{minipage}\n\n"
+            # First image already placed; remaining images start alternating from left
+            additional_images = images[1:]
+        else:
+            # Description too long (or no images): fill page with text only
+            if desc:
+                latex += desc + "\n\n"
+            # All images go into the alternating pages
+            additional_images = images
 
         # ── Additional images (one per page) ────────────────────────────────
         # idx=0 → image LEFT, idx=1 → image RIGHT, idx=2 → LEFT, …
-        for idx, img_path in enumerate(images[1:]):
+        for idx, img_path in enumerate(additional_images):
             latex += "\\clearpage\n"
             caption       = self.get_image_caption(img_path)
             image_on_right = (idx % 2 == 1)
