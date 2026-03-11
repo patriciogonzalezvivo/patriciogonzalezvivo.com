@@ -286,32 +286,41 @@ class PortfolioGenerator:
         latex += f"\\noindent{{\\Large\\textbf{{{title}}}}}\\hfill{{\\large {year}}}\n\n"
         latex += "\\vspace{0.3em}\\hrule\\vspace{1em}\n\n"
 
+        # Limit description to first 3 paragraphs so it never overflows the column
+        col_h = "0.78\\textheight"
+        if desc:
+            paras = [p for p in desc.split('\n\n') if p.strip()]
+            desc_short = '\n\n'.join(paras[:3])
+        else:
+            desc_short = ""
+
         if images:
             first_img = images[0]
             caption   = self.get_image_caption(first_img)
 
-            # Left column: description text (top-aligned)
+            # Left column: description text — fixed height, content pinned to top
             latex += "\\noindent\n"
-            latex += "\\begin{minipage}[t]{0.48\\textwidth}\n"
-            if desc:
-                latex += desc + "\n"
+            latex += f"\\begin{{minipage}}[t][{col_h}][t]{{0.48\\textwidth}}\n"
+            latex += "\\vspace*{0pt}\\raggedright\n"
+            if desc_short:
+                latex += desc_short + "\n"
             latex += "\\end{minipage}\n"
             latex += "\\hfill\n"
 
-            # Right column: image, optional caption pinned to bottom
+            # Right column: image with optional caption pinned to bottom
             if caption:
-                latex += "\\begin{minipage}[t][0.82\\textheight][b]{0.48\\textwidth}\n"
+                latex += f"\\begin{{minipage}}[t][{col_h}][b]{{0.48\\textwidth}}\n"
                 latex += (f"  \\includegraphics[width=\\linewidth,"
-                          f"height=0.72\\textheight,keepaspectratio]{{{first_img}}}\n\n")
+                          f"height=0.68\\textheight,keepaspectratio]{{{first_img}}}\n\n")
                 latex += f"  \\vspace{{0.5em}}\n\n  {caption}\n"
                 latex += "\\end{minipage}\n\n"
             else:
-                latex += "\\begin{minipage}[t]{0.48\\textwidth}\n"
+                latex += f"\\begin{{minipage}}[t][{col_h}][t]{{0.48\\textwidth}}\n"
                 latex += (f"  \\includegraphics[width=\\linewidth,"
-                          f"height=0.82\\textheight,keepaspectratio]{{{first_img}}}\n")
+                          f"height={col_h},keepaspectratio]{{{first_img}}}\n")
                 latex += "\\end{minipage}\n\n"
-        elif desc:
-            latex += desc + "\n\n"
+        elif desc_short:
+            latex += desc_short + "\n\n"
 
         # ── Additional images (one per page) ────────────────────────────────
         # idx=0 → image LEFT, idx=1 → image RIGHT, idx=2 → LEFT, …
@@ -324,16 +333,17 @@ class PortfolioGenerator:
                         f"height={h},keepaspectratio]{{{img_path}}}\n")
 
             if caption:
-                # Fixed-height minipages so bottom-alignment works
+                # Fixed-height minipages: outer [t] so tops start at page top,
+                # inner [b] so content (image/caption) is pinned to the bottom.
                 if image_on_right:
                     # caption bottom-left, image bottom-right
                     latex += (
                         "\\noindent\n"
-                        f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
+                        f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
                         f"  {caption}\n"
                         "\\end{minipage}\n"
                         "\\hfill\n"
-                        f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
+                        f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
                         f"  {img_line}"
                         "\\end{minipage}\n\n"
                     )
@@ -341,11 +351,11 @@ class PortfolioGenerator:
                     # image bottom-left, caption bottom-right
                     latex += (
                         "\\noindent\n"
-                        f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
+                        f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
                         f"  {img_line}"
                         "\\end{minipage}\n"
                         "\\hfill\n"
-                        f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
+                        f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
                         f"  {caption}\n"
                         "\\end{minipage}\n\n"
                     )

@@ -8,9 +8,9 @@
     "location": "Durham, NC, USA",
     "logo": "images/logo-gray.png",
     "phone": "+1 919 717 1720",
+    "artist_statement_file": "artist_statement.md",
     "bio_file": "README.md",
     "cv_file": "cv.md",
-    "artist_statement_file": "artist_statement.md",
     "exhibitions_file": "exhibitions.md"
   },
 
