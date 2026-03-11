@@ -1,16 +1,19 @@
+__pycache__/*
+
 # OSX
 .DS_Store
 *.swp
 *~.nib
+
 # Thumbnails
 ._*
-/2014/skylines/print.pdf
 2015/thebookofshaders/
+
 git-pull.php
 glslCanvas/
 glslEditor/
 glslGallery/
 press/
 
-portfolio.tex
-portfolio.pdf
+*.pdf
+
