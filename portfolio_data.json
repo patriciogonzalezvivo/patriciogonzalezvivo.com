@@ -5,15 +5,12 @@
     "email": "patriciogonzalezvivo@gmail.com",
     "website": "patriciogonzalezvivo.com",
     "website_url": "https://patriciogonzalezvivo.com",
-    "location": "New York, USA",
-    "phone": "+1 919 717 1720",
     "logo": "images/logo-gray.png",
-    "bio_file": "README.md",
-    "cv_file": "cv.md",
-    "exhibitions_file": "exhibitions.md"
+    "bio_file": "README.md"
   },
 
   "projects": [
+    "2026/astros",
     "2025/weaver",
     "2025/imaginary"
   ]
