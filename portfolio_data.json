@@ -1,14 +1,13 @@
 {
   "artist": {
     "name": "Patricio Gonzalez Vivo",
-    "portfolio_title": "Artist Portfolio",
+    "portfolio_title": "Portfolio",
     "email": "patriciogonzalezvivo@gmail.com",
     "website": "patriciogonzalezvivo.com",
     "website_url": "https://patriciogonzalezvivo.com",
-    "location": "Durham, NC, USA",
-    "logo": "images/logo-gray.png",
+    "location": "New York, USA",
     "phone": "+1 919 717 1720",
-    "artist_statement_file": "artist_statement.md",
+    "logo": "images/logo-gray.png",
     "bio_file": "README.md",
     "cv_file": "cv.md",
     "exhibitions_file": "exhibitions.md"

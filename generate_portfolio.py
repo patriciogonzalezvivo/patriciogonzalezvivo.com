@@ -299,7 +299,6 @@ class PortfolioGenerator:
 \fancyhf{}
 \fancyhead[L]{Patricio Gonzalez Vivo}
 \fancyhead[R]{Portfolio}
-\fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 
 % Customize section titles
@@ -465,7 +464,7 @@ class PortfolioGenerator:
                     latex += (
                         "\\noindent\n"
                         f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
-                        f"  {img_line}"
+                        f"  \\hfill{img_line}"
                         "\\end{minipage}\n"
                         "\\hfill\n"
                         f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
@@ -600,8 +599,8 @@ class PortfolioGenerator:
 
         artist = data.get('artist', {})
 
-        # Artist statement: prefer artist_statement_file, fall back to inline field
-        statement = ''
+        # Artist statement: only populated when artist_statement_file key is present
+        optional_artist_statement = ''
         stmt_path_str = artist.get('artist_statement_file')
         if stmt_path_str:
             stmt_path = self.base_path / stmt_path_str
@@ -609,8 +608,12 @@ class PortfolioGenerator:
                 statement = self.markdown_to_latex(
                     self.extract_text_from_markdown(stmt_path.read_text())
                 )
-        if not statement:
-            statement = self.markdown_to_latex(artist.get('statement', ''))
+                if statement.strip():
+                    optional_artist_statement = (
+                        "\\section*{Artist Statement}\n\n"
+                        + statement
+                        + "\n\n\\clearpage"
+                    )
 
         # Bio (for places where a short bio is needed separately from statement)
         bio = ''
@@ -642,7 +645,7 @@ class PortfolioGenerator:
             '%%ARTIST_PHONE%%':      self.escape_latex(artist.get('phone', '')),
             '%%ARTIST_LOGO%%':       artist.get('logo', ''),
             '%%ARTIST_BIO%%':        bio,
-            '%%ARTIST_STATEMENT%%':  statement,
+            '%%OPTIONAL_ARTIST_STATEMENT%%': optional_artist_statement,
             '%%ARTWORKS%%':          self.generate_artworks_latex(projects),
             '%%OPTIONAL_CV%%':          optional_cv,
             '%%OPTIONAL_EXHIBITIONS%%': optional_exhibitions,
