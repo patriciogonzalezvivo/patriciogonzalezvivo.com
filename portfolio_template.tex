@@ -36,17 +36,15 @@
 % ---------------------------------------------------------
 % TYPOGRAPHY
 % ---------------------------------------------------------
-\IfFontExistsTF{Source Sans Pro}{%
-    \setmainfont{Source Sans Pro}[
-        UprightFont     = *-Light,
-        BoldFont        = *-Semibold,
-        ItalicFont      = *-LightItalic,
-        BoldItalicFont  = *-SemiboldItalic
-    ]
-}{%
-    \setsansfont{Latin Modern Sans}
-    \renewcommand{\familydefault}{\sfdefault}
-}
+% Montserrat from local folder
+\setmainfont{Montserrat}[
+    Path           = montserrat/,
+    UprightFont    = *-Light,
+    BoldFont       = *-SemiBold,
+    ItalicFont     = *-LightItalic,
+    BoldItalicFont = *-SemiBoldItalic,
+    Extension      = .ttf
+]
 
 % ---------------------------------------------------------
 % HYPERLINK STYLE

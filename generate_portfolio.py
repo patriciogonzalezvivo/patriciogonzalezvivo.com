@@ -93,30 +93,24 @@ class PortfolioGenerator:
         text = re.sub(r'\n{3,}', '\n\n', text)
         return text.strip()
     
-    def find_project_images(self, project_path: Path, max_images: int = 6) -> List[str]:
-        """Find representative images in a project directory"""
-        images = []
-        
-        # Check for images subfolder first
+    def find_project_images(self, project_path: Path) -> List[str]:
+        """Find all images in the project's images/ subdirectory (no thumb, no gif)."""
         images_dir = project_path / 'images'
-        if images_dir.exists():
-            search_dir = images_dir
-        else:
-            search_dir = project_path
-        
-        # Look for common image patterns
-        patterns = ['*.jpg', '*.jpeg', '*.png', '*.gif']
-        for pattern in patterns:
-            for img in sorted(search_dir.glob(pattern)):
-                # Skip thumbnails and small images
-                if 'thumb' not in img.name.lower():
-                    images.append(str(img.relative_to(self.base_path)))
-                    if len(images) >= max_images:
-                        break
-            if len(images) >= max_images:
-                break
-        
+        if not images_dir.exists():
+            return []
+
+        images = []
+        for img in sorted(images_dir.iterdir()):
+            if img.suffix.lower() in ('.jpg', '.jpeg', '.png') and 'thumb' not in img.name.lower():
+                images.append(str(img.relative_to(self.base_path)))
         return images
+
+    def get_image_caption(self, img_path: str) -> str:
+        """Return the text content of a same-name .txt sidecar file, or empty string."""
+        txt_file = (self.base_path / img_path).with_suffix('.txt')
+        if txt_file.exists():
+            return self.escape_latex(txt_file.read_text().strip())
+        return ""
     
     def escape_latex(self, text: str) -> str:
         """Escape special LaTeX characters"""
@@ -174,20 +168,15 @@ class PortfolioGenerator:
 \usepackage{parskip}
 \usepackage{fontspec}
 
-% Use Source Sans Pro font (matching website typography)
-% Font weights: 200 (ExtraLight), 300 (Light), 400 (Regular), 600 (SemiBold)
-\IfFontExistsTF{Source Sans Pro}{%
-    \setmainfont{Source Sans Pro}[
-        UprightFont = *-Light,
-        BoldFont = *-Semibold,
-        ItalicFont = *-LightItalic,
-        BoldItalicFont = *-SemiboldItalic
-    ]
-}{%
-    % Fallback to a clean sans-serif font
-    \setsansfont{Latin Modern Sans}
-    \renewcommand{\familydefault}{\sfdefault}
-}
+% Montserrat from local folder
+\setmainfont{Montserrat}[
+    Path           = montserrat/,
+    UprightFont    = *-Light,
+    BoldFont       = *-SemiBold,
+    ItalicFont     = *-LightItalic,
+    BoldItalicFont = *-SemiBoldItalic,
+    Extension      = .ttf
+]
 
 % Set up page style
 \pagestyle{fancy}
@@ -265,61 +254,124 @@ class PortfolioGenerator:
         
         return latex
     
-    def generate_project_section(self, project: Dict) -> str:
-        """Generate LaTeX for a single project"""
-        latex = ""
-        
-        # Project title and metadata
+    def generate_artwork_pages(self, project: Dict) -> str:
+        """Generate LaTeX pages for a single artwork.
+
+        Layout rules:
+        - Page 1: title (left) + year (right) heading, rule, then
+                  description text (left column) | first image (right column).
+        - Additional images (images[1:]): one image per page, alternating
+          left/right starting from the left.
+        - If a same-name .txt sidecar exists for an image, display that text
+          on the opposite side, bottom-aligned.
+        """
         title = self.escape_latex(project['title'])
-        year = self.escape_latex(project['year'])
-        
-        latex += f"\\subsection*{{{title}}}\n\n"
-        latex += f"\\textit{{{year}"
-        
-        if project['medium']:
-            latex += f" | {self.escape_latex(project['medium'])}"
-        
-        if project['dimensions']:
-            latex += f" | {self.escape_latex(project['dimensions'])}"
-        
-        latex += "}\n\n"
-        
-        # Add thumbnail or first image if available
-        # Note: XeLaTeX cannot handle GIF files, so we skip them
-        if project['thumb'] and not project['thumb'].endswith('.gif'):
-            img_path = f"{project['path']}/{project['thumb']}"
-            if (self.base_path / img_path).exists():
-                latex += "\\begin{figure}[H]\n"
-                latex += "    \\centering\n"
-                latex += f"    \\includegraphics[width=0.8\\textwidth]{{{img_path}}}\n"
-                latex += "\\end{figure}\n\n"
-        elif project['images']:
-            # Use first non-GIF image as main image
-            for img_path in project['images']:
-                if not img_path.endswith('.gif') and (self.base_path / img_path).exists():
-                    latex += "\\begin{figure}[H]\n"
-                    latex += "    \\centering\n"
-                    latex += f"    \\includegraphics[width=0.8\\textwidth]{{{img_path}}}\n"
-                    latex += "\\end{figure}\n\n"
-                    break
-        
-        # Add description
-        if project['description']:
-            latex += self.markdown_to_latex(project['description']) + "\n\n"
-        elif project['about']:
-            # Use first paragraph of about text
-            paragraphs = project['about'].split('\n\n')
-            if paragraphs:
-                latex += self.markdown_to_latex(paragraphs[0]) + "\n\n"
-        
-        # Add additional images in a grid if available (skip GIFs)
-        additional_images = [img for img in project['images'][1:5] if not img.endswith('.gif')] if len(project['images']) > 1 else []
-        if additional_images:
-            latex += self.generate_image_grid(additional_images)
-        
-        latex += "\\vspace{1cm}\n\n"
-        
+        year  = self.escape_latex(project['year'])
+
+        # Description: prefer README.md content (about), fall back to DESCRIPTION.txt
+        if project['about']:
+            desc = self.markdown_to_latex(project['about'])
+        elif project['description']:
+            desc = self.markdown_to_latex(project['description'])
+        else:
+            desc = ""
+
+        images = [img for img in project['images']
+                  if not img.endswith('.gif') and (self.base_path / img).exists()]
+
+        latex = ""
+
+        # ── Page 1 ──────────────────────────────────────────────────────────
+        latex += "\\clearpage\n"
+        # Title bar: bold title flush-left, year flush-right
+        latex += f"\\noindent{{\\Large\\textbf{{{title}}}}}\\hfill{{\\large {year}}}\n\n"
+        latex += "\\vspace{0.3em}\\hrule\\vspace{1em}\n\n"
+
+        if images:
+            first_img = images[0]
+            caption   = self.get_image_caption(first_img)
+
+            # Left column: description text (top-aligned)
+            latex += "\\noindent\n"
+            latex += "\\begin{minipage}[t]{0.48\\textwidth}\n"
+            if desc:
+                latex += desc + "\n"
+            latex += "\\end{minipage}\n"
+            latex += "\\hfill\n"
+
+            # Right column: image, optional caption pinned to bottom
+            if caption:
+                latex += "\\begin{minipage}[t][0.82\\textheight][b]{0.48\\textwidth}\n"
+                latex += (f"  \\includegraphics[width=\\linewidth,"
+                          f"height=0.72\\textheight,keepaspectratio]{{{first_img}}}\n\n")
+                latex += f"  \\vspace{{0.5em}}\n\n  {caption}\n"
+                latex += "\\end{minipage}\n\n"
+            else:
+                latex += "\\begin{minipage}[t]{0.48\\textwidth}\n"
+                latex += (f"  \\includegraphics[width=\\linewidth,"
+                          f"height=0.82\\textheight,keepaspectratio]{{{first_img}}}\n")
+                latex += "\\end{minipage}\n\n"
+        elif desc:
+            latex += desc + "\n\n"
+
+        # ── Additional images (one per page) ────────────────────────────────
+        # idx=0 → image LEFT, idx=1 → image RIGHT, idx=2 → LEFT, …
+        for idx, img_path in enumerate(images[1:]):
+            latex += "\\clearpage\n"
+            caption       = self.get_image_caption(img_path)
+            image_on_right = (idx % 2 == 1)
+            h = "0.85\\textheight"
+            img_line = (f"\\includegraphics[width=\\linewidth,"
+                        f"height={h},keepaspectratio]{{{img_path}}}\n")
+
+            if caption:
+                # Fixed-height minipages so bottom-alignment works
+                if image_on_right:
+                    # caption bottom-left, image bottom-right
+                    latex += (
+                        "\\noindent\n"
+                        f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
+                        f"  {caption}\n"
+                        "\\end{minipage}\n"
+                        "\\hfill\n"
+                        f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
+                        f"  {img_line}"
+                        "\\end{minipage}\n\n"
+                    )
+                else:
+                    # image bottom-left, caption bottom-right
+                    latex += (
+                        "\\noindent\n"
+                        f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
+                        f"  {img_line}"
+                        "\\end{minipage}\n"
+                        "\\hfill\n"
+                        f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
+                        f"  {caption}\n"
+                        "\\end{minipage}\n\n"
+                    )
+            else:
+                # No caption: image occupies its half of the page
+                if image_on_right:
+                    latex += (
+                        "\\noindent\\hfill\n"
+                        "\\begin{minipage}[t]{0.48\\textwidth}\n"
+                        f"  {img_line}"
+                        "\\end{minipage}\n\n"
+                    )
+                else:
+                    latex += (
+                        "\\noindent\n"
+                        "\\begin{minipage}[t]{0.48\\textwidth}\n"
+                        f"  {img_line}"
+                        "\\end{minipage}\n\n"
+                    )
+
         return latex
+
+    def generate_project_section(self, project: Dict) -> str:
+        """Generate LaTeX for a single project (legacy workflow)."""
+        return self.generate_artwork_pages(project)
     
     def generate_image_grid(self, images: List[str], per_row: int = 2) -> str:
         """Generate a grid of images"""
@@ -401,56 +453,11 @@ class PortfolioGenerator:
             return json.load(f)
 
     def generate_artworks_latex(self, projects: List[Dict]) -> str:
-        """Generate \\ArtworkEntry calls for every project"""
+        """Generate LaTeX artwork pages for every project."""
         latex = ""
         for project in projects:
-            title = self.escape_latex(project['title'])
-            year = self.escape_latex(project['year'])
-            medium = self.escape_latex(project['medium'] or '')
-            dimensions = self.escape_latex(project['dimensions'] or '')
-
-            # Description: prefer DESCRIPTION.txt, fall back to first paragraph of about
-            desc = ""
-            if project['description']:
-                desc = self.markdown_to_latex(project['description'])
-            elif project['about']:
-                paragraphs = project['about'].split('\n\n')
-                if paragraphs:
-                    desc = self.markdown_to_latex(paragraphs[0])
-
-            # Main image: prefer thumb (non-GIF), then first image
-            main_image = ""
-            if project['thumb'] and not project['thumb'].endswith('.gif'):
-                candidate = f"{project['path']}/{project['thumb']}"
-                if (self.base_path / candidate).exists():
-                    main_image = candidate
-            if not main_image:
-                for img in project['images']:
-                    if not img.endswith('.gif') and (self.base_path / img).exists():
-                        main_image = img
-                        break
-
-            latex += (
-                f"\\ArtworkEntry\n"
-                f"{{{main_image}}}\n"
-                f"{{{title}}}\n"
-                f"{{{year}}}\n"
-                f"{{{medium}}}\n"
-                f"{{{dimensions}}}\n"
-                f"{{{desc}}}\n\n"
-            )
-
-            # Optional additional images (skip GIFs, skip the main image)
-            extra = [
-                img for img in project['images'][1:5]
-                if not img.endswith('.gif') and img != main_image
-                and (self.base_path / img).exists()
-            ]
-            if extra:
-                latex += self.generate_image_grid(extra)
-
+            latex += self.generate_artwork_pages(project)
             latex += "\n"
-
         return latex
 
     def _optional_section(self, section_title: str, file_key: str, artist: Dict,
