@@ -50,9 +50,11 @@ class PortfolioGenerator:
         
         # Read about.md or README.md for longer description
         about = self.read_metadata_file(full_path / 'about.md')
+        readme_raw = None
         if not about:
             readme = self.read_metadata_file(full_path / 'README.md')
             if readme:
+                readme_raw = readme
                 # Extract text content (skip iframe/html tags)
                 about = self.extract_text_from_markdown(readme)
         
@@ -65,6 +67,9 @@ class PortfolioGenerator:
         
         # Find images in project directory
         images = self.find_project_images(full_path)
+
+        # Find SVG files
+        svgs = self.find_project_svgs(full_path)
         
         return {
             'path': project_path,
@@ -75,8 +80,10 @@ class PortfolioGenerator:
             'description': description,
             'dimensions': dimensions,
             'about': about,
+            'readme_raw': readme_raw,
             'thumb': thumb,
-            'images': images
+            'images': images,
+            'svgs': svgs,
         }
     
     def extract_text_from_markdown(self, markdown: str) -> str:
@@ -93,6 +100,32 @@ class PortfolioGenerator:
         text = re.sub(r'\n{3,}', '\n\n', text)
         return text.strip()
     
+    def readme_to_latex(self, markdown: str, project_path: str) -> str:
+        """Convert README.md to LaTeX, embedding SVG image refs inline as centered figures."""
+        proj_full = self.base_path / project_path
+        # Split on markdown SVG image syntax: ![alt](svg/path.svg)
+        svg_pattern = re.compile(r'!\[([^\]]*)\]\((svg/[^\)]+\.svg)\)')
+        parts = svg_pattern.split(markdown)
+        # parts = [text, alt, svg_path, text, alt, svg_path, ..., text]
+        result = []
+        for i, part in enumerate(parts):
+            mod = i % 3
+            if mod == 0:
+                # Text chunk — run through normal pipeline
+                chunk = self.extract_text_from_markdown(part)
+                result.append(self.markdown_to_latex(chunk))
+            elif mod == 1:
+                pass  # alt text — skip
+            else:
+                # svg relative path like "svg/000_light.svg"
+                abs_path = str((proj_full / part).resolve())
+                # result.append(
+                #     f"\n\n\\begin{{center}}\n"
+                #     f"  \\includesvg[scale=0.5]{{{abs_path}}}\n"
+                #     f"\\end{{center}}\n\n"
+                # )
+        return ''.join(result)
+
     def find_project_images(self, project_path: Path) -> List[str]:
         """Find all images in the project's images/ subdirectory (no thumb, no gif)."""
         images_dir = project_path / 'images'
@@ -105,18 +138,84 @@ class PortfolioGenerator:
                 images.append(str(img.relative_to(self.base_path)))
         return images
 
-    def get_image_caption(self, img_path: str) -> str:
-        """Return the text content of a same-name .txt sidecar file, or empty string.
+    def find_project_svgs(self, project_path: Path) -> List[str]:
+        """Find all SVG files in the project's svg/ subdirectory."""
+        svg_dir = project_path / 'svg'
+        if not svg_dir.exists():
+            return []
+        svgs = []
+        for svg in sorted(svg_dir.iterdir()):
+            if svg.suffix.lower() == '.svg':
+                svgs.append(str(svg.absolute()))
+        return svgs
 
-        Each line is preserved as a separate line in the PDF using LaTeX forced
-        line breaks (\\\\), so the caption renders exactly as written.
+    def get_image_caption(self, img_path: str, align_right: bool = False) -> str:
+        """Return a formatted LaTeX caption from a same-name .txt sidecar file.
+
+        The sidecar file may use structured ``key:value`` lines.  Recognised
+        keys (case-insensitive): title, year, medium, dimension/dimensions,
+        description.
+
+        Structured layout:
+            Line 1 – title, year  (comma-separated, whichever are present)
+            Line 2 – medium
+            Line 3 – dimension / description
+
+        Alignment:
+            align_right=True  (caption on the left)  → \\raggedleft
+            align_right=False (caption on the right) → \\raggedright
+
+        Falls back to plain line-by-line rendering for unstructured files.
         """
         txt_file = (self.base_path / img_path).with_suffix('.txt')
         if not txt_file.exists():
             return ""
-        lines = txt_file.read_text().strip().splitlines()
-        escaped_lines = [self.escape_latex(line) for line in lines]
-        return "\\\\\n".join(escaped_lines)
+
+        raw = txt_file.read_text().strip()
+
+        # Try to parse as key:value pairs
+        parsed = {}
+        for line in raw.splitlines():
+            if ':' in line:
+                key, _, value = line.partition(':')
+                key = key.strip().lower()
+                value = value.strip()
+                if key in ('title', 'year', 'medium', 'dimension', 'dimensions', 'description'):
+                    parsed[key] = value
+
+        if not parsed:
+            # Fallback: plain multi-line text
+            escaped_lines = [self.escape_latex(ln) for ln in raw.splitlines()]
+            return "\\\\\n".join(escaped_lines)
+
+        align_cmd = "\\raggedleft" if align_right else "\\raggedright"
+
+        caption_lines = []
+
+        # Line 1: title, year
+        line1_parts = []
+        if parsed.get('title'):
+            line1_parts.append(self.escape_latex(parsed['title']))
+        if parsed.get('year'):
+            line1_parts.append(self.escape_latex(parsed['year']))
+        if line1_parts:
+            caption_lines.append(', '.join(line1_parts))
+
+        # Line 2: medium
+        if parsed.get('medium'):
+            caption_lines.append(self.escape_latex(parsed['medium']))
+
+        # Line 3: dimension(s) or description
+        dim = parsed.get('dimension') or parsed.get('dimensions')
+        if dim:
+            caption_lines.append(self.escape_latex(dim))
+        elif parsed.get('description'):
+            caption_lines.append(self.escape_latex(parsed['description']))
+
+        if not caption_lines:
+            return ""
+
+        return align_cmd + "\n" + "\\\\\n".join(caption_lines)
     
     def escape_latex(self, text: str) -> str:
         """Escape special LaTeX characters"""
@@ -156,7 +255,17 @@ class PortfolioGenerator:
         
         # Convert blockquotes
         text = re.sub(r'^>\s+(.+)$', r'\\begin{quote}\1\\end{quote}', text, flags=re.MULTILINE)
-        
+
+        # Convert list items
+        text = re.sub(r'^\s*[\*\-]\s+(.+)$', r'\\item \1', text, flags=re.MULTILINE)
+
+        # Ensure every single newline becomes a blank line (paragraph break in LaTeX)
+        # First normalise: collapse 2+ newlines to a sentinel, convert remaining single
+        # newlines to double, then restore the sentinel.
+        text = re.sub(r'\n{2,}', '\x00', text)   # protect existing paragraph breaks
+        text = text.replace('\n', '\n\n')          # single newline → paragraph break
+        text = text.replace('\x00', '\n\n')        # restore paragraph breaks
+
         return text
     
     def generate_latex(self, bio: str, projects: List[Dict]) -> str:
@@ -172,6 +281,7 @@ class PortfolioGenerator:
 \usepackage{titlesec}
 \usepackage{hyperref}
 \usepackage{parskip}
+\usepackage[inkscapelatex=false]{svg}
 \usepackage{fontspec}
 
 % Montserrat from local folder
@@ -267,8 +377,10 @@ class PortfolioGenerator:
         title = self.escape_latex(project['title'])
         year  = self.escape_latex(project['year'])
 
-        # Description: prefer README.md content (about), fall back to DESCRIPTION.txt
-        if project['about']:
+        # Description: prefer README.md raw content (SVGs inline), then plain about, then DESCRIPTION.txt
+        if project.get('readme_raw'):
+            desc = self.readme_to_latex(project['readme_raw'], project['path'])
+        elif project['about']:
             desc = self.markdown_to_latex(project['about'])
         elif project['description']:
             desc = self.markdown_to_latex(project['description'])
@@ -277,6 +389,7 @@ class PortfolioGenerator:
 
         images = [img for img in project['images']
                   if not img.endswith('.gif') and (self.base_path / img).exists()]
+        svgs   = project.get('svgs', [])
 
         latex = ""
 
@@ -306,9 +419,11 @@ class PortfolioGenerator:
             latex += "\\end{minipage}\n"
             latex += "\\hfill\n"
             latex += f"\\begin{{minipage}}[t][{col_h}][b]{{0.44\\textwidth}}\n"
-            latex += f"  \\includegraphics[width=\\linewidth,height=0.5\\textheight,keepaspectratio]{{{first_img}}}\n"
-            if caption:
-                latex += f"  \\vspace{{0.3em}}\n\n  {caption}\n"
+
+            latex += f"\\includegraphics[width=\\linewidth,height=0.85\\textheight,keepaspectratio]{{{first_img}}}\n"
+            # latex += f"\\includegraphics[width=\\linewidth,height=0.5\\textheight,keepaspectratio]{{{first_img}}}\n"
+            # if caption:
+            #     latex += f"  \\vspace{{0.3em}}\n\n  {caption}\n"
             latex += "\\end{minipage}\n\n"
             # First image already placed; remaining images start alternating from left
             additional_images = images[1:]
@@ -323,8 +438,9 @@ class PortfolioGenerator:
         # idx=0 → image LEFT, idx=1 → image RIGHT, idx=2 → LEFT, …
         for idx, img_path in enumerate(additional_images):
             latex += "\\clearpage\n"
-            caption       = self.get_image_caption(img_path)
             image_on_right = (idx % 2 == 1)
+            # caption left  → align_right=True ; caption right → align_right=False
+            caption = self.get_image_caption(img_path, align_right=image_on_right)
             h = "0.85\\textheight"
             img_line = (f"\\includegraphics[width=\\linewidth,"
                         f"height={h},keepaspectratio]{{{img_path}}}\n")
@@ -357,21 +473,14 @@ class PortfolioGenerator:
                         "\\end{minipage}\n\n"
                     )
             else:
-                # No caption: image occupies its half of the page
-                if image_on_right:
-                    latex += (
-                        "\\noindent\\hfill\n"
-                        "\\begin{minipage}[t]{0.48\\textwidth}\n"
-                        f"  {img_line}"
-                        "\\end{minipage}\n\n"
-                    )
-                else:
-                    latex += (
-                        "\\noindent\n"
-                        "\\begin{minipage}[t]{0.48\\textwidth}\n"
-                        f"  {img_line}"
-                        "\\end{minipage}\n\n"
-                    )
+                # No caption: image fills the full text area for maximum height
+                latex += (
+                    "\\noindent\n"
+                    f"\\begin{{minipage}}[t][{h}][c]{{\\textwidth}}\n"
+                    "  \\centering\n"
+                    f"  \\includegraphics[width=\\linewidth,height={h},keepaspectratio]{{{img_path}}}\n"
+                    "\\end{minipage}\n\n"
+                )
 
         return latex
 
@@ -422,7 +531,7 @@ class PortfolioGenerator:
         print("Compiling PDF with XeLaTeX...")
         for i in range(2):
             result = subprocess.run(
-                ['xelatex', '-interaction=nonstopmode', '-output-directory', str(self.temp_dir), str(tex_file)],
+                ['xelatex', '-shell-escape', '-interaction=nonstopmode', '-output-directory', str(self.temp_dir), str(tex_file)],
                 cwd=self.base_path,  # Run from base path so image paths work
                 capture_output=True,
                 text=True
@@ -482,7 +591,8 @@ class PortfolioGenerator:
         if not content.strip():
             return ''
         print(f"  + {file_key}: {filepath}")
-        return f"\\clearpage\n\\section*{{{section_title}}}\n\n{content}\n"
+        # return f"\\clearpage\n\\section*{{{section_title}}}\n\n{content}\n"
+        return f"\\clearpage\n\n{content}\n"
 
     def populate_template(self, template_file: str, data: Dict, projects: List[Dict]) -> str:
         """Populate a LaTeX template by replacing %%PLACEHOLDER%% markers"""
