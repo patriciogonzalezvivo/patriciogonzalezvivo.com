@@ -51,7 +51,10 @@ include("menu.php");
     <a href="2025/imaginary/">
      <article class="item is-active" style="">
 		<div class="item-image">
-            <?php include("slideSet.php"); echo render_slideset(['images_dir' => '2025/imaginary/images', 'div_style' => 'width: 400px; filter: drop-shadow(10px 10px 10px #777);']); ?>
+            <?php include("slideSet.php"); echo render_slideset([
+                'images_dir' => '2025/imaginary/images', 
+                'pattern' => 'IMG_*.{jpg,jpeg,png,gif}',
+                'div_style' => 'width: 400px; filter: drop-shadow(10px 10px 10px #777);']); ?>
         </div>
         <div class="item-info" style="bottom: 0px;">
             <span class="item-title"><?php echo htmlspecialchars($imaginary_meta['title']); ?></span>
