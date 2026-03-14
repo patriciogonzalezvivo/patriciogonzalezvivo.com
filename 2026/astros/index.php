@@ -7,6 +7,8 @@
     include("../../header.php");?>
         <?php include("../../menu.php");?>
         <link rel="stylesheet" href="style.css" type="text/css" />
+        <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
         <article class="item">
             <div class="item-image">
@@ -92,6 +94,7 @@
         </div>
 
         <wasm-loader></wasm-loader>
+        <overlay-controls></overlay-controls>
         <script type="module" src="main.js"></script>
 
         <!-- <section class="content"> -->

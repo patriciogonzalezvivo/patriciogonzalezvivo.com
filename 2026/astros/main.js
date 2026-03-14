@@ -1,3 +1,4 @@
+import './overlay-controls.js'; 
 import './wasm-loader.js';
 
 document.addEventListener('DOMContentLoaded', () => {
