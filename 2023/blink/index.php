@@ -31,7 +31,7 @@
                     <svg width="24" height="24" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M0 36C19.8825 36 36 19.8816 36 0C16.1175 0 0 16.1184 0 36ZM25.4555 25.456H10.5445V10.5408H25.4555V25.456Z"></path></svg>
                 </a>
                 </button>    
-            <button id="resize-btn">
+            <button id="resize-btn" tabindex="-1">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
             </button>
         </div>

@@ -227,16 +227,29 @@ class OverlayControls extends HTMLElement {
         // Get the query parameters
         const params = new URLSearchParams(window.location.search);
 
-        // Load location
+        // Load location from URL params or get current location
         if (params.has('lat') && params.has('lng')) {
             const lat = parseFloat(params.get('lat'));
             const lng = parseFloat(params.get('lng'));
-            this.settingsPanel.querySelector('#lat').value = lat;
-            this.settingsPanel.querySelector('#lng').value = lng;
+            this.settingsPanel.querySelector('#lat').value = lat.toFixed(4);
+            this.settingsPanel.querySelector('#lng').value = lng.toFixed(4);
             window.Module.setLocation(lat, lng);
+        } else {
+            // Get current geolocation
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    this.settingsPanel.querySelector('#lat').value = lat.toFixed(4);
+                    this.settingsPanel.querySelector('#lng').value = lng.toFixed(4);
+                    window.Module.setLocation(lat, lng);
+                }, (error) => {
+                    console.warn('Geolocation error:', error);
+                });
+            }
         }
 
-        // Load local time
+        // Load local time from URL params or get current time
         if (params.has('local_year')) {
             const local_year = parseInt(params.get('local_year'));
             const local_month = parseInt(params.get('local_month'));
@@ -251,9 +264,25 @@ class OverlayControls extends HTMLElement {
             this.settingsPanel.querySelector('#local_min').value = local_min;
             
             window.Module.setLocalTime(local_year, local_month, local_day, local_hr, local_min);
+        } else {
+            // Get current local time
+            const now = new Date();
+            const local_year = now.getFullYear();
+            const local_month = now.getMonth() + 1; // JavaScript months are 0-indexed
+            const local_day = now.getDate();
+            const local_hr = now.getHours();
+            const local_min = now.getMinutes();
+            
+            this.settingsPanel.querySelector('#local_year').value = local_year;
+            this.settingsPanel.querySelector('#local_month').value = local_month;
+            this.settingsPanel.querySelector('#local_day').value = local_day;
+            this.settingsPanel.querySelector('#local_hr').value = local_hr;
+            this.settingsPanel.querySelector('#local_min').value = local_min;
+            
+            window.Module.setLocalTime(local_year, local_month, local_day, local_hr, local_min);
         }
 
-        // Load UTC time
+        // Load UTC time (only if provided in URL params)
         if (params.has('utc_year')) {
             const utc_year = parseInt(params.get('utc_year'));
             const utc_month = parseInt(params.get('utc_month'));
