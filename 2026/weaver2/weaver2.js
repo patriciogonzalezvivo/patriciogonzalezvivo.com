@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmpt52obrvp.js
+// include: /tmp/tmp5mo4f_12.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -161,6 +161,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
       }
 Module['FS_createPath']("/", "png", true, true);
 Module['FS_createPath']("/", "shaders", true, true);
+Module['FS_createPath']("/", "ttf", true, true);
 
     for (var file of metadata['files']) {
       var name = file['filename']
@@ -201,25 +202,25 @@ Module['FS_createPath']("/", "shaders", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/png/diffuse.png", "start": 0, "end": 132262}, {"filename": "/png/elements.png", "start": 132262, "end": 169320}, {"filename": "/shaders/Makefile", "start": 169320, "end": 169684}, {"filename": "/shaders/atmosphere.frag", "start": 169684, "end": 170863}, {"filename": "/shaders/atmosphere.vert", "start": 170863, "end": 171330}, {"filename": "/shaders/earth.frag", "start": 171330, "end": 173151}, {"filename": "/shaders/earth.vert", "start": 173151, "end": 174146}, {"filename": "/shaders/hud.frag", "start": 174146, "end": 174981}, {"filename": "/shaders/hud.vert", "start": 174981, "end": 176002}, {"filename": "/shaders/icon.frag", "start": 176002, "end": 176767}, {"filename": "/shaders/icon.vert", "start": 176767, "end": 177501}, {"filename": "/shaders/moon.frag", "start": 177501, "end": 179313}, {"filename": "/shaders/stars.frag", "start": 179313, "end": 180157}, {"filename": "/shaders/stars.vert", "start": 180157, "end": 181221}, {"filename": "/shaders/stars_batch.frag", "start": 181221, "end": 181965}, {"filename": "/shaders/stars_batch.vert", "start": 181965, "end": 182613}, {"filename": "/shaders/sun.frag", "start": 182613, "end": 183817}, {"filename": "/shaders/themes.glsl", "start": 183817, "end": 185432}], "remote_package_size": 185432});
+    loadPackage({"files": [{"filename": "/png/diffuse.png", "start": 0, "end": 132262}, {"filename": "/png/elements.png", "start": 132262, "end": 169320}, {"filename": "/shaders/Makefile", "start": 169320, "end": 169684}, {"filename": "/shaders/atmosphere.frag", "start": 169684, "end": 170863}, {"filename": "/shaders/atmosphere.vert", "start": 170863, "end": 171330}, {"filename": "/shaders/earth.frag", "start": 171330, "end": 173151}, {"filename": "/shaders/earth.vert", "start": 173151, "end": 174146}, {"filename": "/shaders/hud.frag", "start": 174146, "end": 174981}, {"filename": "/shaders/hud.vert", "start": 174981, "end": 176002}, {"filename": "/shaders/icon.frag", "start": 176002, "end": 176767}, {"filename": "/shaders/icon.vert", "start": 176767, "end": 177501}, {"filename": "/shaders/moon.frag", "start": 177501, "end": 179313}, {"filename": "/shaders/stars.frag", "start": 179313, "end": 180157}, {"filename": "/shaders/stars.vert", "start": 180157, "end": 181221}, {"filename": "/shaders/stars_batch.frag", "start": 181221, "end": 181965}, {"filename": "/shaders/stars_batch.vert", "start": 181965, "end": 182613}, {"filename": "/shaders/sun.frag", "start": 182613, "end": 183817}, {"filename": "/shaders/themes.glsl", "start": 183817, "end": 185432}, {"filename": "/ttf/astronomicon.ttf", "start": 185432, "end": 216996}], "remote_package_size": 216996});
 
   })();
 
-// end include: /tmp/tmpt52obrvp.js
-// include: /tmp/tmpxkdem4b2.js
+// end include: /tmp/tmp5mo4f_12.js
+// include: /tmp/tmpjy6xvmka.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmpxkdem4b2.js
-// include: /tmp/tmphp_nq9xq.js
+  // end include: /tmp/tmpjy6xvmka.js
+// include: /tmp/tmpjblq1r5_.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmphp_nq9xq.js
+  // end include: /tmp/tmpjblq1r5_.js
 
 
 var arguments_ = [];
