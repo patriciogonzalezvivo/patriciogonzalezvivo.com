@@ -14,7 +14,8 @@ body {
 }
 
 #menu {
-    padding: 20px 20px;
+    /* padding: 20px 20px; */
+    padding: 40px 40px;
 }
 
 #menu_header {
@@ -433,6 +434,14 @@ footer {
 
 /* Mobile phones - enhanced touch and readability */
 @media (max-width: 480px) {
+    #menu {
+        padding: 20px 20px;
+    }
+
+    #menu_logo_img {
+        width: 52px;
+    }
+
     #menu_name {
         flex: 1;
     }
@@ -445,7 +454,7 @@ footer {
     }
 
     #menu_name {
-        letter-spacing: 2px;
+        letter-spacing: 1px;
     }
 /* 
     #menu_text li {
