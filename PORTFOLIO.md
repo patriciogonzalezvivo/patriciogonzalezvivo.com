@@ -43,8 +43,8 @@ This will generate a PDF with the default list of projects (matching `works.php`
 
 ```text
 # projects.txt
+2026/santos
 2026/astros
-2025/imaginary
 2025/hybrids
 2023/blink
 2022/time

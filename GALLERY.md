@@ -227,4 +227,3 @@ Loads metadata from a `.txt` file.
 See the following galleries for working examples:
 - [2024/portraits](2024/portraits/)
 - [2025/hybrids](2025/hybrids/)
-- [2025/imaginary](2025/imaginary/)

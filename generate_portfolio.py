@@ -802,7 +802,7 @@ Examples:
         else:
             projects_list = [
                 '2026/astros',
-                '2025/imaginary',
+                '2026/santos',
                 '2025/hybrids',
                 '2022/time',
                 '2021/memory',

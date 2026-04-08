@@ -48,7 +48,7 @@
             <h2>Related Works</h2>
             <?php
                 $projects = [
-                    ['path' => '2025/imaginary'],
+                    ['path' => '2026/santos'],
                     // ['path' => '2025/weaver', 'url' => 'https://patriciogonzalezvivo.github.io/weaver'],
                     ['path' => '2017/pixelspirit', 'url' => 'http://pixelspiritdeck.com/', 'title' => 'PixelSpirit', 'year' => '2017', 'medium' => 'Tarot Deck / Book', 'dimensions' => '78 Cards'],
                     ['path' => '2018/estrellas'],
