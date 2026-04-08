@@ -15,7 +15,7 @@
 		// Render the gallery using the helper function
 		echo render_gallery([
 			'images_dir' => 'images',
-			'pattern' => 'IMG_*.jpeg',
+			'pattern' => 'IMG_*.jpg',
 			'defaults' => [
 				'title' => 'Untitled',
 				'year' => '2025',

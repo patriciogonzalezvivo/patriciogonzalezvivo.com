@@ -17,17 +17,47 @@ body {
     padding: 20px 20px;
 }
 
+#menu_header {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+#menu_content {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
 #menu_logo {
-    float: left;
+    flex-shrink: 0;
 }
 
 #menu_logo_img {
     max-width: 100%;
     height: auto;
+    display: block;
+}
+
+#menu_name {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #444;
+    padding-bottom: 4px;
 }
 
 #menu_text {
-    padding-top: 34px;
+    padding-top: 0;
+}
+#menu_text ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#menu_text li:first-child {
+    padding-left: 0;
 }
 #menu_text li {
     padding-left: 13px;
@@ -409,9 +439,20 @@ footer {
 }
 /* Mobile phones - enhanced touch and readability */
 @media (max-width: 480px) {
+    #menu_header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #menu_content {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
     #menu_text {
-       padding-top: 39px;
-   }
+        padding-top: 4px;
+    }
 
     #menu_text li {
         padding-left: 5px;
