@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmp9qa51dvt.js
+// include: /tmp/tmpcn40rx2l.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -202,25 +202,25 @@ Module['FS_createPath']("/", "ttf", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/png/noise_blue.png", "start": 0, "end": 391037}, {"filename": "/shaders/flood_decoding.frag", "start": 391037, "end": 391463}, {"filename": "/shaders/postprocessing.frag", "start": 391463, "end": 392709}, {"filename": "/shaders/raymarching.frag", "start": 392709, "end": 396322}, {"filename": "/shaders/stars.frag", "start": 396322, "end": 396829}, {"filename": "/shaders/stars.vert", "start": 396829, "end": 397169}, {"filename": "/ttf/astronomicon.ttf", "start": 397169, "end": 428733}], "remote_package_size": 428733});
+    loadPackage({"files": [{"filename": "/png/gold_matcap.jpg", "start": 0, "end": 82753}, {"filename": "/png/noise_blue.png", "start": 82753, "end": 473790}, {"filename": "/png/silver_matcap.jpg", "start": 473790, "end": 535230}, {"filename": "/shaders/flood_decoding.frag", "start": 535230, "end": 535656}, {"filename": "/shaders/matcap_font.frag", "start": 535656, "end": 537879}, {"filename": "/shaders/matcap_font.vert", "start": 537879, "end": 538606}, {"filename": "/shaders/matcap_lines.frag", "start": 538606, "end": 539388}, {"filename": "/shaders/matcap_lines.vert", "start": 539388, "end": 539806}, {"filename": "/shaders/postprocessing.frag", "start": 539806, "end": 541052}, {"filename": "/shaders/raymarching.frag", "start": 541052, "end": 544665}, {"filename": "/shaders/stars.frag", "start": 544665, "end": 545172}, {"filename": "/shaders/stars.vert", "start": 545172, "end": 545512}, {"filename": "/ttf/astronomicon.ttf", "start": 545512, "end": 577076}], "remote_package_size": 577076});
 
   })();
 
-// end include: /tmp/tmp9qa51dvt.js
-// include: /tmp/tmpmdr0449s.js
+// end include: /tmp/tmpcn40rx2l.js
+// include: /tmp/tmp907sh2gg.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmpmdr0449s.js
-// include: /tmp/tmpt74ql_aj.js
+  // end include: /tmp/tmp907sh2gg.js
+// include: /tmp/tmp8abookwv.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmpt74ql_aj.js
+  // end include: /tmp/tmp8abookwv.js
 
 
 var arguments_ = [];
