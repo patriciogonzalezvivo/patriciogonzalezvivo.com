@@ -26,6 +26,8 @@ include("menu.php");
     <link rel="stylesheet" href="2026/astros/style.css" type="text/css" />
     <!-- <section class="content"> -->
 
+    <div style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; align-items: center;">
+
     <a href="2026/santos/">
      <article class="item is-active" style="">
 		<div class="item-image">
@@ -64,6 +66,8 @@ include("menu.php");
         </div>
     </article>
     </a>
+
+    </div><!-- end flex row -->
 
     <!-- </section> -->
 
