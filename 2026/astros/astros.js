@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmp0n4n_vzh.js
+// include: /tmp/tmp5r5nbhjf.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -202,25 +202,25 @@ Module['FS_createPath']("/", "ttf", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/png/gold_matcap_001.jpg", "start": 0, "end": 75605}, {"filename": "/png/noise_blue.png", "start": 75605, "end": 466642}, {"filename": "/shaders/background.frag", "start": 466642, "end": 468559}, {"filename": "/shaders/flood_decoding.frag", "start": 468559, "end": 468985}, {"filename": "/shaders/matcap_font.frag", "start": 468985, "end": 471208}, {"filename": "/shaders/matcap_font.vert", "start": 471208, "end": 471935}, {"filename": "/shaders/matcap_lines.frag", "start": 471935, "end": 473201}, {"filename": "/shaders/matcap_lines.vert", "start": 473201, "end": 473619}, {"filename": "/shaders/postprocessing.frag", "start": 473619, "end": 474865}, {"filename": "/shaders/raymarching.frag", "start": 474865, "end": 478478}, {"filename": "/shaders/stars.frag", "start": 478478, "end": 478985}, {"filename": "/shaders/stars.vert", "start": 478985, "end": 479325}, {"filename": "/ttf/astronomicon.ttf", "start": 479325, "end": 510889}], "remote_package_size": 510889});
+    loadPackage({"files": [{"filename": "/png/gold_matcap_001.jpg", "start": 0, "end": 75605}, {"filename": "/png/noise_blue.png", "start": 75605, "end": 466642}, {"filename": "/shaders/background.frag", "start": 466642, "end": 468559}, {"filename": "/shaders/flood_decoding.frag", "start": 468559, "end": 468985}, {"filename": "/shaders/matcap_font.frag", "start": 468985, "end": 471208}, {"filename": "/shaders/matcap_lines.frag", "start": 471208, "end": 472497}, {"filename": "/shaders/postprocessing.frag", "start": 472497, "end": 473743}, {"filename": "/shaders/raymarching.frag", "start": 473743, "end": 477356}, {"filename": "/shaders/stars.frag", "start": 477356, "end": 477863}, {"filename": "/shaders/stars.vert", "start": 477863, "end": 478203}, {"filename": "/ttf/astronomicon.ttf", "start": 478203, "end": 509767}], "remote_package_size": 509767});
 
   })();
 
-// end include: /tmp/tmp0n4n_vzh.js
-// include: /tmp/tmp44or33lv.js
+// end include: /tmp/tmp5r5nbhjf.js
+// include: /tmp/tmp_eqsjuya.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmp44or33lv.js
-// include: /tmp/tmpykzp1gal.js
+  // end include: /tmp/tmp_eqsjuya.js
+// include: /tmp/tmpi6apmro0.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmpykzp1gal.js
+  // end include: /tmp/tmpi6apmro0.js
 
 
 var arguments_ = [];
@@ -628,7 +628,7 @@ function updateMemoryViews() {
   var b = wasmMemory.buffer;
   HEAP8 = new Int8Array(b);
   HEAP16 = new Int16Array(b);
-  HEAPU8 = new Uint8Array(b);
+  Module['HEAPU8'] = HEAPU8 = new Uint8Array(b);
   HEAPU16 = new Uint16Array(b);
   HEAP32 = new Int32Array(b);
   HEAPU32 = new Uint32Array(b);
@@ -4379,6 +4379,48 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
       return 0;
     ;
   }
+
+  var readEmAsmArgsArray = [];
+  var readEmAsmArgs = (sigPtr, buf) => {
+      // Nobody should have mutated _readEmAsmArgsArray underneath us to be something else than an array.
+      assert(Array.isArray(readEmAsmArgsArray));
+      // The input buffer is allocated on the stack, so it must be stack-aligned.
+      assert(buf % 16 == 0);
+      readEmAsmArgsArray.length = 0;
+      var ch;
+      // Most arguments are i32s, so shift the buffer pointer so it is a plain
+      // index into HEAP32.
+      while (ch = HEAPU8[sigPtr++]) {
+        var chr = String.fromCharCode(ch);
+        var validChars = ['d', 'f', 'i', 'p'];
+        // In WASM_BIGINT mode we support passing i64 values as bigint.
+        validChars.push('j');
+        assert(validChars.includes(chr), `Invalid character ${ch}("${chr}") in readEmAsmArgs! Use only [${validChars}], and do not specify "v" for void return argument.`);
+        // Floats are always passed as doubles, so all types except for 'i'
+        // are 8 bytes and require alignment.
+        var wide = (ch != 105);
+        wide &= (ch != 112);
+        buf += wide && (buf % 8) ? 4 : 0;
+        readEmAsmArgsArray.push(
+          // Special case for pointers under wasm64 or CAN_ADDRESS_2GB mode.
+          ch == 112 ? HEAPU32[((buf)>>2)] :
+          ch == 106 ? HEAP64[((buf)>>3)] :
+          ch == 105 ?
+            HEAP32[((buf)>>2)] :
+            HEAPF64[((buf)>>3)]
+        );
+        buf += wide ? 8 : 4;
+      }
+      return readEmAsmArgsArray;
+    };
+  var runEmAsmFunction = (code, sigPtr, argbuf) => {
+      var args = readEmAsmArgs(sigPtr, argbuf);
+      assert(ASM_CONSTS.hasOwnProperty(code), `No EM_ASM constant found at address ${code}.  The loaded WebAssembly file is likely out of sync with the generated JavaScript.`);
+      return ASM_CONSTS[code](...args);
+    };
+  var _emscripten_asm_const_int = (code, sigPtr, argbuf) => {
+      return runEmAsmFunction(code, sigPtr, argbuf);
+    };
 
 
   var _emscripten_get_device_pixel_ratio = () => {
@@ -9187,7 +9229,7 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   'inetNtop6',
   'readSockaddr',
   'writeSockaddr',
-  'readEmAsmArgs',
+  'runMainThreadEmAsm',
   'autoResumeAudioContext',
   'getDynCaller',
   'runtimeKeepalivePush',
@@ -9305,7 +9347,6 @@ missingLibrarySymbols.forEach(missingLibrarySymbol)
   'HEAPF32',
   'HEAPF64',
   'HEAP8',
-  'HEAPU8',
   'HEAP16',
   'HEAPU16',
   'HEAP32',
@@ -9337,6 +9378,8 @@ missingLibrarySymbols.forEach(missingLibrarySymbol)
   'timers',
   'warnOnce',
   'readEmAsmArgsArray',
+  'readEmAsmArgs',
+  'runEmAsmFunction',
   'jstoi_q',
   'getExecutableName',
   'dynCall',
@@ -9583,13 +9626,19 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('logReadFiles');
   ignoredModuleProp('loadSplitModule');
 }
+var ASM_CONSTS = {
+  3331920: ($0) => { if (typeof Module['onExportProgress'] === 'function') Module['onExportProgress']($0); },  
+ 3332010: ($0, $1, $2) => { if (typeof Module['onExportComplete'] === 'function') Module['onExportComplete']($0, $1, $2); }
+};
 
 // Imports from the Wasm binary.
 var _setLocation = Module['_setLocation'] = makeInvalidEarlyAccess('_setLocation');
 var _setLocalTime = Module['_setLocalTime'] = makeInvalidEarlyAccess('_setLocalTime');
 var _setUTCTime = Module['_setUTCTime'] = makeInvalidEarlyAccess('_setUTCTime');
+var _startExportHighRes = Module['_startExportHighRes'] = makeInvalidEarlyAccess('_startExportHighRes');
+var _freePixels = Module['_freePixels'] = makeInvalidEarlyAccess('_freePixels');
+var _free = Module['_free'] = makeInvalidEarlyAccess('_free');
 var _main = Module['_main'] = makeInvalidEarlyAccess('_main');
-var _free = makeInvalidEarlyAccess('_free');
 var _malloc = Module['_malloc'] = makeInvalidEarlyAccess('_malloc');
 var _fflush = makeInvalidEarlyAccess('_fflush');
 var _emscripten_builtin_memalign = makeInvalidEarlyAccess('_emscripten_builtin_memalign');
@@ -9610,8 +9659,10 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['setLocation'] != 'undefined', 'missing Wasm export: setLocation');
   assert(typeof wasmExports['setLocalTime'] != 'undefined', 'missing Wasm export: setLocalTime');
   assert(typeof wasmExports['setUTCTime'] != 'undefined', 'missing Wasm export: setUTCTime');
-  assert(typeof wasmExports['__main_argc_argv'] != 'undefined', 'missing Wasm export: __main_argc_argv');
+  assert(typeof wasmExports['startExportHighRes'] != 'undefined', 'missing Wasm export: startExportHighRes');
+  assert(typeof wasmExports['freePixels'] != 'undefined', 'missing Wasm export: freePixels');
   assert(typeof wasmExports['free'] != 'undefined', 'missing Wasm export: free');
+  assert(typeof wasmExports['__main_argc_argv'] != 'undefined', 'missing Wasm export: __main_argc_argv');
   assert(typeof wasmExports['malloc'] != 'undefined', 'missing Wasm export: malloc');
   assert(typeof wasmExports['fflush'] != 'undefined', 'missing Wasm export: fflush');
   assert(typeof wasmExports['emscripten_builtin_memalign'] != 'undefined', 'missing Wasm export: emscripten_builtin_memalign');
@@ -9628,8 +9679,10 @@ function assignWasmExports(wasmExports) {
   _setLocation = Module['_setLocation'] = createExportWrapper('setLocation', 2);
   _setLocalTime = Module['_setLocalTime'] = createExportWrapper('setLocalTime', 5);
   _setUTCTime = Module['_setUTCTime'] = createExportWrapper('setUTCTime', 5);
+  _startExportHighRes = Module['_startExportHighRes'] = createExportWrapper('startExportHighRes', 3);
+  _freePixels = Module['_freePixels'] = createExportWrapper('freePixels', 1);
+  _free = Module['_free'] = createExportWrapper('free', 1);
   _main = Module['_main'] = createExportWrapper('__main_argc_argv', 2);
-  _free = createExportWrapper('free', 1);
   _malloc = Module['_malloc'] = createExportWrapper('malloc', 1);
   _fflush = createExportWrapper('fflush', 1);
   _emscripten_builtin_memalign = createExportWrapper('emscripten_builtin_memalign', 2);
@@ -9684,6 +9737,8 @@ var wasmImports = {
   _tzset_js: __tzset_js,
   /** @export */
   clock_time_get: _clock_time_get,
+  /** @export */
+  emscripten_asm_const_int: _emscripten_asm_const_int,
   /** @export */
   emscripten_date_now: _emscripten_date_now,
   /** @export */
