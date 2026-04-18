@@ -9,14 +9,14 @@ include("project_meta.php");
     //  - 'commented': true to render as HTML comment
     // For external projects without local metadata, add 'title', 'year', 'medium', 'dimensions' directly
     $projects = [
-        ['path' => '2026/astros'],
         ['path' => '2026/santos'],
-        ['path' => '2026/weaver2'],
+        ['path' => '2026/astros'],
         ['path' => '2025/memories'],
+        ['path' => '2026/weaver2'],
         ['path' => '2025/hybrids'],
-        ['path' => '2025/gestures'],
         // ['path' => '2025/weaver', 'url' => 'https://patriciogonzalezvivo.github.io/weaver'],
         ['path' => '2023/blink'],
+        ['path' => '2025/gestures'],
         ['path' => '2022/time'],
         ['path' => '2021/memory'],
         ['path' => '2021/fen'],
