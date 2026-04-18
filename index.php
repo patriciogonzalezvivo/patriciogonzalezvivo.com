@@ -33,7 +33,7 @@ include("menu.php");
 		<div class="item-image">
             <?php include("slideSet.php"); echo render_slideset([
                 'images_dir' => '2026/santos/images', 
-                'pattern' => 'IMG_*.{jpg,jpeg,png,gif}',
+                'pattern' => 'DSF*.{jpg,jpeg,png,gif}',
                 'div_style' => 'width: 400px; filter: drop-shadow(10px 10px 10px #777);']); ?>
         </div>
         <div class="item-info" style="bottom: 0px;">
