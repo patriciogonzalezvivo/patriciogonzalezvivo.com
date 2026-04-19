@@ -33,7 +33,15 @@
 		$Parsedown = new Parsedown();
 		echo $Parsedown->text(file_get_contents ('README.md'));
 		?>
+        </div>
 
+        <div class="spacer" style="display:flex; gap:0.5em;">
+            <img src="images/ac1c4534a9c444ca626a0180c30348a4_original_aligned.jpg" style="width:33%; height:auto;">
+            <img src="images/ac1c4534a9c444ca626a0180c30348a4_svg_raster.png" style="width:33%; height:auto;">
+            <img src="images/ac1c4534a9c444ca626a0180c30348a4_aligned.jpg" style="width:33%; height:auto;">
+        </div>
+
+    <div id="longer-info">
 		<h2>Related Works</h2>
             <?php
                 $projects = [
