@@ -37,8 +37,10 @@
 		<h2>Related Works</h2>
             <?php
                 $projects = [
-                    ['path' => '2026/santos'],
+                    ['path' => '2025/hybrids'],
+                    ['path' => '2025/gestures'],
 					['path' => '2022/time'],
+                    ['path' => '2021/memory'],
                     ['path' => '2014/skylines'],
                 ];
 

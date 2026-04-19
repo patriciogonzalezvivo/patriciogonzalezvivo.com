@@ -38,7 +38,7 @@
             <?php
                 $projects = [
                     ['path' => '2026/santos'],
-					['path' => '2022/time'],
+					// ['path' => '2022/time'],
                     ['path' => '2014/skylines'],
                 ];
 

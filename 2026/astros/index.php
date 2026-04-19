@@ -40,16 +40,16 @@
 			echo $Parsedown->text(file_get_contents ('README.md'));
 			?>
 
-            <script src="https://fast.wistia.com/player.js" async></script>
+            <!-- <script src="https://fast.wistia.com/player.js" async></script>
             <script src="https://fast.wistia.com/embed/6elymy9yw4.js" async type="module"></script>
             <style>wistia-player[media-id='6elymy9yw4']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/6elymy9yw4/swatch'); display: block; filter: blur(5px); padding-top:100.0%; }</style>
-            <wistia-player media-id="6elymy9yw4" aspect="1.0"></wistia-player>
+            <wistia-player media-id="6elymy9yw4" aspect="1.0"></wistia-player> -->
 
             <h2>Related Works</h2>
             <?php
                 $projects = [
                     ['path' => '2026/santos'],
-                    // ['path' => '2025/weaver', 'url' => 'https://patriciogonzalezvivo.github.io/weaver'],
+                    ['path' => '2026/weaver2'],
                     ['path' => '2017/pixelspirit', 'url' => 'http://pixelspiritdeck.com/', 'title' => 'PixelSpirit', 'year' => '2017', 'medium' => 'Tarot Deck / Book', 'dimensions' => '78 Cards'],
                     ['path' => '2018/estrellas'],
                     ['path' => '2017/luna'],

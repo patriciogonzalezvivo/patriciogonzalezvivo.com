@@ -49,7 +49,7 @@
             <?php
                 $projects = [
                     ['path' => '2026/astros'],
-                    // ['path' => '2025/weaver', 'url' => 'https://patriciogonzalezvivo.github.io/weaver'],
+                    ['path' => '2026/weaver2'],
                     ['path' => '2023/blink'],
                     ['path' => '2025/orbitas2', 'title' => 'Órbitas', 'year' => '2018'],
                     ['path' => '2019/hogar'],
