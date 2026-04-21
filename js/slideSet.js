@@ -1,11 +1,9 @@
 //	Lunch Item Animation in Cascade
 //
 var menuCounter = 0;
-var slideCounter = 0;
 var items = document.getElementsByClassName("item");
-var images = [];
 
-//	Avtivate Next Item
+//	Activate Next Item
 //
 function activateNext(){
 	var items = document.getElementsByClassName("item");
@@ -15,63 +13,59 @@ function activateNext(){
 	}
 }
 
-//	Transition to next slide
+//	Initialize a single slideSet element
 //
-function slideNext(){
-	// Hide previous
-	var previus = (slideCounter == 0) ? images.length-1 : slideCounter-1;
-	images[previus].classList.remove("photoFront");
+function initSlideSet(slideSet) {
+	var images = slideSet.getElementsByTagName("img");
+	if (images.length === 0) return;
 
-	// Show current
-	images[slideCounter].classList.add("photoFront");
+	var counter = 0;
+	var firstImage = images[0];
 
-	var height = images[slideCounter].offsetHeight;
-	if (height > 0) {
-		document.getElementById("slideSet").style.height = height + "px";
+	function slideNext() {
+		var previus = (counter === 0) ? images.length - 1 : counter - 1;
+		images[previus].classList.remove("photoFront");
+
+		images[counter].classList.add("photoFront");
+
+		var height = images[counter].offsetHeight;
+		if (height > 0) {
+			slideSet.style.height = height + "px";
+		}
+
+		counter++;
+		if (counter >= images.length) {
+			counter = 0;
+		}
 	}
-	
-	// Advance counter and loop back to 0 if needed
-	slideCounter++;
-	if (slideCounter >= images.length) {
-		slideCounter = 0;
+
+	function start() {
+		// Show the last image initially
+		images[images.length - 1].classList.add("photoFront");
+
+		var height = firstImage.offsetHeight;
+		if (height > 0) {
+			slideSet.style.height = height + "px";
+		}
+
+		setInterval(slideNext, 3000);
+	}
+
+	if (firstImage.complete && firstImage.naturalHeight > 0) {
+		start();
+	} else {
+		firstImage.addEventListener('load', start);
 	}
 }
 
-//	MENU or PROJECT
+//	Initialize all slideSets on the page
 //
-// Initialize slideSet first if it exists
-var slideSet = document.getElementById("slideSet");
+// Support both id="slideSet" (legacy single) and id starting with "slideSet-" (multiple)
+var allSlideSets = Array.from(document.querySelectorAll('[id="slideSet"], [id^="slideSet-"]'));
 
-if ( slideSet != null ){
-	images = slideSet.getElementsByTagName("img");
-	
-	// Wait for first image to load before initializing
-	if (images.length > 0) {
-		var firstImage = images[0];
-		
-		function initSlideshow() {
-			// Show the last image initially
-			images[images.length-1].classList.add("photoFront");
-			
-			// Set height based on first image
-			var height = firstImage.offsetHeight;
-			if (height > 0) {
-				document.getElementById("slideSet").style.height = height + "px";
-			}
-			
-			// Start slideshow
-			setInterval( slideNext ,3000);
-		}
-		
-		// If image already loaded, init immediately
-		if (firstImage.complete && firstImage.naturalHeight > 0) {
-			initSlideshow();
-		} else {
-			// Otherwise wait for load event
-			firstImage.addEventListener('load', initSlideshow);
-		}
-	}
-}
+allSlideSets.forEach(function(slideSet) {
+	initSlideSet(slideSet);
+});
 
 // Initialize menu item animation if items exist
 if ( items.length > 0 ){
