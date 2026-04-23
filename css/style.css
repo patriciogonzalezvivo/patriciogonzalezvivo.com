@@ -192,7 +192,7 @@ iframe {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px 50px 20px;
+    /* padding: 0 20px 50px 20px; */
     box-sizing: border-box;
     z-index: -1;
     pointer-events: auto;
@@ -305,6 +305,10 @@ footer {
 
 
 @media (min-width: 480px) {
+    #longer-info .item {
+        justify-content: left;
+    }
+
     .item {
         display: flex;
         flex-direction: row;
