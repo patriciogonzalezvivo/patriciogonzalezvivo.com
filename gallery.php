@@ -180,6 +180,23 @@ function render_gallery_item($artwork) {
         $html .= '<div class="artwork-size">' . htmlspecialchars($meta['dimensions']) . '</div>';
     }
     
+    // Buy Print and Buy buttons
+    $has_print = isset($meta['print']) && !empty($meta['print']);
+    if ($has_print || !$is_sold) {
+        $html .= '<div class="artwork-buttons">';
+        if ($has_print) {
+            $html .= '<a class="artwork-btn buy-print-btn" href="' . htmlspecialchars($meta['print']) . '" target="_blank" rel="noopener noreferrer">Buy Print</a>';
+        }
+        if (!$is_sold) {
+            $title_val = isset($meta['title']) ? $meta['title'] : 'Untitled';
+            $year_val = isset($meta['year']) ? $meta['year'] : '';
+            $email_subject = 'Acquisition Inquiry: ' . $title_val . ($year_val ? ', ' . $year_val : '');
+            $email_href = 'mailto:patriciogonzalezvivo@gmail.com?subject=' . rawurlencode($email_subject);
+            $html .= '<a class="artwork-btn buy-btn" href="' . $email_href . '">Buy</a>';
+        }
+        $html .= '</div>';
+    }
+    
     $html .= '</div>'; // .artwork-info
     $html .= '</div>'; // .painting-item
     
@@ -258,6 +275,10 @@ function render_gallery_modal() {
             <span class="fullscreen-title"></span><span class="fullscreen-year"></span>
             <span class="fullscreen-medium"></span>
             <span class="fullscreen-dimensions"></span>
+            <div class="fullscreen-buttons">
+                <a class="artwork-btn buy-print-btn fullscreen-buy-print" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Buy Print</a>
+                <a class="artwork-btn buy-btn fullscreen-buy" href="#" style="display:none;">Buy</a>
+            </div>
         </div>
     </div>
     <div class="sold-marker-fullscreen"></div>

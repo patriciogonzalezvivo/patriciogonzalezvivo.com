@@ -576,6 +576,10 @@ footer {
     transform: translateY(0);
 }
 
+.painting-item:hover .artwork-buttons {
+    pointer-events: auto;
+}
+
 .artwork-title {
     font-size: 16px;
     font-weight: bold;
@@ -978,4 +982,65 @@ footer {
     .fullscreen-size {
         font-size: 11px;
     }
+}
+
+/* Gallery and Fullscreen Action Buttons */
+.artwork-buttons {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+    pointer-events: auto;
+}
+
+.artwork-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    pointer-events: auto;
+    line-height: 1.4;
+}
+
+.buy-print-btn {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.buy-print-btn:hover {
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.buy-btn {
+    background-color: rgba(25, 90, 200, 0.85);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.buy-btn:hover {
+    background-color: rgba(15, 70, 180, 1);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Fullscreen modal buy buttons */
+.fullscreen-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.fullscreen-buttons .artwork-btn {
+    padding: 8px 16px;
+    font-size: 13px;
 }

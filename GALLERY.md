@@ -161,7 +161,7 @@ echo "sold: yes" >> images/IMG_1234.txt
 cat > images/IMG_1234.txt << EOF
 title: Updated Title
 year: 2025
-medium: Oil and acrylic on canvas
+medium: Oil on canvas
 dimensions: 20 x 16 inches
 sold: yes
 EOF

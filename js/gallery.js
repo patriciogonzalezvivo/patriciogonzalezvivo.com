@@ -62,6 +62,31 @@ function showImage(index, view = 'main') {
 		if (yearEl) yearEl.textContent = info.year || '';
 		if (mediumEl) mediumEl.textContent = info.medium || '';
 		if (dimensionsEl) dimensionsEl.textContent = info.dimensions || info.size || '';
+		
+		// Buy Print button
+		const buyPrintBtn = modal.querySelector('.fullscreen-buy-print');
+		if (buyPrintBtn) {
+			if (info.print) {
+				buyPrintBtn.href = info.print;
+				buyPrintBtn.style.display = 'inline-block';
+			} else {
+				buyPrintBtn.style.display = 'none';
+			}
+		}
+		
+		// Buy button (shown when artwork is not sold)
+		const buyBtn = modal.querySelector('.fullscreen-buy');
+		if (buyBtn) {
+			if (!isSold) {
+				const title = info.title || 'Untitled';
+				const year = info.year || '';
+				const subject = 'Acquisition Inquiry: ' + title + (year ? ', ' + year : '');
+				buyBtn.href = 'mailto:patriciogonzalezvivo@gmail.com?subject=' + encodeURIComponent(subject);
+				buyBtn.style.display = 'inline-block';
+			} else {
+				buyBtn.style.display = 'none';
+			}
+		}
 	}
 	
 	// Update view buttons visibility and active state
@@ -136,6 +161,13 @@ function prevImage() {
 portraitItems.forEach((item, index) => {
 	item.addEventListener('click', function() {
 		showImage(index, 'main');
+	});
+});
+
+// Prevent buy/print buttons in gallery view from opening fullscreen
+document.querySelectorAll('.painting-item .artwork-btn').forEach(btn => {
+	btn.addEventListener('click', (e) => {
+		e.stopPropagation();
 	});
 });
 
