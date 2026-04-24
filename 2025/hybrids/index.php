@@ -28,6 +28,8 @@
 	?>
 
 	<div id="longer-info">
+        <h2 class="title"><?php echo $meta['title']; ?></h2>
+        
 		<?php
 		include("../../parsedown/Parsedown.php");
 		$Parsedown = new Parsedown();

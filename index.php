@@ -71,7 +71,7 @@ include("menu.php");
         </article>
         </a>
 
-        <a href="2025/hybrids/">
+        <!-- <a href="2025/hybrids/">
         <article class="item is-active" style="">
             <div class="item-image">
                 <?php echo render_slideset([
@@ -88,7 +88,7 @@ include("menu.php");
                 <span class="item-dimensions"><?php echo htmlspecialchars($hybrids_meta['dimensions']); ?></span>
             </div>
         </article>
-        </a>
+        </a> -->
         
 
     </div><!-- end flex row -->

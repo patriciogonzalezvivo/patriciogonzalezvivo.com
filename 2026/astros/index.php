@@ -53,7 +53,7 @@
                     ['path' => '2017/pixelspirit', 'url' => 'http://pixelspiritdeck.com/', 'title' => 'PixelSpirit', 'year' => '2017', 'medium' => 'Tarot Deck / Book', 'dimensions' => '78 Cards'],
                     ['path' => '2018/estrellas'],
                     ['path' => '2017/luna'],
-                    ['path' => '2019/hogar'],
+                    // ['path' => '2019/hogar'],
                 ];
 
                 foreach ($projects as $project) {
