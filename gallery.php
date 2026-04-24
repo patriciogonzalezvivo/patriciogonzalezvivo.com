@@ -211,7 +211,7 @@ function render_gallery_item($artwork) {
             $email_body .= "Warm regards,";
 
             $email_href = 'mailto:patriciogonzalezvivo@gmail.com?subject=' . rawurlencode($email_subject) . '&body=' . rawurlencode($email_body);
-            $html .= '<a class="artwork-btn buy-btn" href="' . $email_href . '">Buy</a>';
+            $html .= '<a class="artwork-btn buy-btn" href="' . $email_href . '">Acquire Original</a>';
         }
         $html .= '</div>';
     }
