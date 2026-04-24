@@ -27,7 +27,7 @@ include("menu.php");
     <link rel="stylesheet" href="2026/astros/style.css" type="text/css" />
     <!-- <section class="content"> -->
 
-    <div style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; align-items: center;">
+    <div style="flex-wrap: wrap; gap: 2em; justify-content: center; align-items: center;">
 
         <?php include_once("slideSet.php"); ?>
         <a href="2026/santos/">
