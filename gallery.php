@@ -199,16 +199,14 @@ function render_gallery_item($artwork) {
             $image_url = $protocol . '://' . $host . $script_dir . '/' . $artwork['main_image'];
 
             $email_body  = "Hi Patricio,\n\n";
-            $email_body .= "I hope this message finds you well.\n\n";
-            $email_body .= "I recently encountered your work, " . $title_val . ", on your website and was deeply drawn to it. ";
-            $email_body .= "The piece ( " . $image_url . " ) resonates with me and I would like to inquire about its availability.\n\n";
-            $email_body .= "Could you please share further details regarding the work, including:\n\n";
-            $email_body .= "- Availability and pricing\n";
-            $email_body .= "- Framing options\n";
-            $email_body .= "- Shipping or delivery options\n\n";
-            $email_body .= "If there are additional works related to this piece or from the same series that you would recommend, I would be very interested in learning more.\n\n";
-            $email_body .= "Thank you for your time, and I look forward to your response.\n\n";
-            $email_body .= "Warm regards,";
+            $email_body .= "I'm interested in the piece ( " . $image_url . " ) and would like to inquire about its availability.\n\n";
+            // $email_body .= "Could you please share further details regarding the work, including:\n\n";
+            // $email_body .= "- Availability and pricing\n";
+            // $email_body .= "- Framing options\n";
+            // $email_body .= "- Shipping or delivery options\n\n";
+            // $email_body .= "If there are additional works related to this piece or from the same series that you would recommend, I would be very interested in learning more.\n\n";
+            // $email_body .= "Thank you for your time, and I look forward to your response.\n\n";
+            // $email_body .= "Warm regards,";
 
             $email_href = 'mailto:patriciogonzalezvivo@gmail.com?subject=' . rawurlencode($email_subject) . '&body=' . rawurlencode($email_body);
             $html .= '<a class="artwork-btn buy-btn" href="' . $email_href . '">Acquire Original</a>';

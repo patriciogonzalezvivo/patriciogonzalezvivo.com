@@ -9,6 +9,14 @@ class WasmLoader extends HTMLElement {
         // e.g. <wasm-loader basepath="2026/astros/"></wasm-loader>
         const basepath = this.getAttribute('basepath') || '';
 
+        // Find canvas and move this element inside its parent so it overlays
+        // only the canvas area and scrolls with the page
+        const canvas = document.getElementById('canvas');
+        if (canvas && this.parentElement !== canvas.parentElement) {
+            canvas.parentElement.appendChild(this);
+            return;
+        }
+
         // Create loader elements
         const loader = document.createElement('div');
         loader.className = 'emscripten_loader';
@@ -18,23 +26,15 @@ class WasmLoader extends HTMLElement {
             <div class='emscripten_loader' id='status'>Downloading...</div>
             <progress class='emscripten_loader' value='50' max='100' id='progress'></progress>
         `;
-
-        // Create canvas element
-        const canvas = document.getElementById('canvas');
   
         // Add styles
         const style = document.createElement('style');
         style.textContent = `
             :host {
                 display: block;
-                width: 100vw;
-                height: 100vh;
-                position: fixed;
-                top: 0;
-                left: 0;
-                margin: 0;
-                padding: 0;
+                position: absolute;
                 overflow: hidden;
+                z-index: 10;
                 font-family: 'Lucida Console', Monaco, monospace;
             }
 
@@ -112,13 +112,44 @@ class WasmLoader extends HTMLElement {
                 color: black;
                 accent-color: black;
             }
+
+            #thumbnail {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: 0;
+            }
             `;
   
         this.shadowRoot.appendChild(style);
         this.shadowRoot.appendChild(loader);
+
+        // Create thumbnail outside the loader div so position:fixed is relative to viewport
+        const thumbnail = document.createElement('img');
+        thumbnail.id = 'thumbnail';
+        thumbnail.src = basepath + 'thumbnail.jpg';
+        thumbnail.onerror = () => { thumbnail.style.display = 'none'; };
+        this.shadowRoot.appendChild(thumbnail);
     
         // Store reference to shadowRoot for Module methods
         const shadowRoot = this.shadowRoot;
+
+        // Size this element to match the canvas area within its parent container
+        const matchCanvas = () => {
+            if (!canvas || !canvas.parentElement) return;
+            const wrapperRect = canvas.parentElement.getBoundingClientRect();
+            const canvasRect = canvas.getBoundingClientRect();
+            this.style.top = (canvasRect.top - wrapperRect.top) + 'px';
+            this.style.left = (canvasRect.left - wrapperRect.left) + 'px';
+            this.style.width = canvasRect.width + 'px';
+            this.style.height = canvasRect.height + 'px';
+        };
+        requestAnimationFrame(matchCanvas);
+        this._thumbnailResizeHandler = matchCanvas;
+        window.addEventListener('resize', this._thumbnailResizeHandler);
   
         // Initialize Module before loading script
         window.Module = {
@@ -240,6 +271,9 @@ class WasmLoader extends HTMLElement {
         // Clean up resize handler
         if (this._resizeHandler) {
             window.removeEventListener('resize', this._resizeHandler);
+        }
+        if (this._thumbnailResizeHandler) {
+            window.removeEventListener('resize', this._thumbnailResizeHandler);
         }
     }
 }
