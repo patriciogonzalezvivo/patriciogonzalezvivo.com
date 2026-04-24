@@ -8,4 +8,11 @@ Each portrait emerges through an [experimental process, a dialogue of complement
 
 A plotter inscribes this dual cartography, of the individual and their celestial context, onto the canvas. From there, I finish the work with oils and brushes, inhabiting the surface as a site of sensorial exploration, where structure gives way to intuition.
 
+<div class="spacer" style="display:flex; gap:0.5em;">
+    <img src="baldwin_000_original_aligned.jpg" style="width:33%; height:auto;">
+    <img src="baldwin_000_svg_raster.png" style="width:33%; height:auto;">
+    <img src="baldwin_000_aligned.jpg" style="width:33%; height:auto;">
+</div>
+
+
 These paintings are the product of dual forces: hybrid portraits shaped by both machine and hand, code and gesture, the objective and the subjective. Like their subjects, they exist as syntheses, of the material and immaterial, the earthly and the cosmic, the known and the intuited. They stand as reflections on creativity’s enduring capacity to transcend boundaries and connect us to something beyond ourselves.
