@@ -291,6 +291,25 @@ a:focus {
     color: #000;
 }
 
+.archive-btn {
+    display: inline-block;
+    padding: 0.5em 2em;
+    background: #000;
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    transition: opacity 0.2s;
+}
+
+.archive-btn:hover {
+    color: #fff;
+    opacity: 0.75;
+}
+
 footer {
     bottom: 0;
     left: 0;

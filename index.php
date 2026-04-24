@@ -98,4 +98,8 @@ include("menu.php");
     <wasm-loader basepath="2026/astros/"></wasm-loader>
     <script type="module" src="2026/astros/main.js"></script>
 
+    <div style="text-align: center; margin: 2em 0;">
+        <a href="works.php" class="archive-btn">Continue looking the Archive</a>
+    </div>
+
 <?php include("footer.php"); ?>
