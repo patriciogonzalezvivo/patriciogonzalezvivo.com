@@ -1,54 +1,54 @@
-<?php include("header.php");?>
-<?php include("menu.php");?>
-	<section class="content">
-		<article class="item">
-            <a href="https://web.archive.org/web/20211001235555/https://runwayml.com/blog/presenting-multiband-format"><img class="photoTh" src="2021/multiband/thumb.gif" alt="MultiBand"/></a>
-            <p>2021 <strong>MultiBand</strong>: data-rich architecture that harnesses AI to empower creators.</p>
-        </article>
-		<article class="item">
-            <a href="https://www.youtube.com/watch?v=5Tia2oblJAg"><img class="photoTh" src="2020/depth_estimation/thumb.png" alt="Depth Estimation"/></a>
-            <p>2020 <strong>Depth estimation</strong>: create series of effects using the depth estimation data.</p>
-        </article>
-		<article class="item">
-            <a href="https://vimeo.com/298427421/9eb2faf44e"><img class="photoTh" src="2018/pointclouds/thumb_00.png" alt="Point Cloud demo"/></a>
-            <p>2018 <strong>F8 PointCloud Demo</strong>: creating inmersive VR experience with PointClouds.</p>
-        </article>
-		<article class="item">
-			<a href="2016/openFrame/"><img class="photoTh" src="2016/openFrame/thumb1.png" alt="openframe"/></a>
-			<p>2016 shaders artwork for <strong>openFrame.io</strong></p>
-		</article>
-		<article class="item">
-            <a href="https://tangrams.github.io/tron-style/"><img class="photoTh" src="2016/tron/thumb.gif" alt="TRON2"/></a>
-            <p>2016 <strong>TRON2.0</strong>: together with <a href="https://twitter.com/sensescape" targer="_window">Geraldine Sarmiento</a></p>
-        </article>
-		<article class="item">
-			<a href="2014/addidas/"><img class="photoTh" src="2014/addidas/thumb.jpg" alt="Atramentum"/></a>
-			<p>2014 <strong>Addidas #mizxflux launch in Berlin</strong>: collaboration with HellicarAndLewis</p>
-		</article>
-		<article class="item">
-			<a href="2014/atramentum/"><img class="photoTh" src="2014/atramentum/thumb.jpg" alt="Atramentum"/></a>
-			<p>2014 <strong>Atramentum</strong>: collaboration with SCOPE, FakeLove.tv and Aerosyn-Lex</p>
-		</article>
-		<article class="item">
-			<a href="2013/clouds/"><img class="photoTh" src="2013/clouds/thumb.jpg" alt="CLOUDS"/></a>
-			<p>2013 <strong>CLOUDS Documentary</strong>: collaboration developing Visual Systems </p>
-		</article>
-		<article class="item">
-			<a href="2013/gearup/"><img class="photoTh" src="2013/gearup/thumb.gif" alt="GearUp"/></a>
-			<p>2013 <strong>GearUp</strong>: DataToy for MPI/PRI as part of PetLab project</p>
-		</article>
-		<article class="item">
-			<a href="2012/megaphone/"><img class="photoTh" src="2012/megaphone/thumb.jpg" alt="Megaphone"/></a>
-			<p>2012 <strong>Megaphone</strong>: collaboration with YESYESNO studio for interactive projection</p>
-		</article>
-		<article class="item">
-			<a href="2012/picasso/"><img class="photoTh" src="2012/picasso/thumb.jpg" alt="Picasso"/></a>
-			<p>2012 <strong>MultiTouch DrawingTool using LeapMotion</strong> for Picasso Museum in Coruña, Spain </p>
-		</article>
-		<article class="item">
-			<a href="2012/galiciacanibal/"><img class="photoTh" src="2012/galiciacanibal/thumb.jpg" alt="Galicia Canibal"/></a>
-			<p>2012 <strong>Galica Canibal</strong>: interactive scenography for revolutionary Spanish musical</p>
-		</article>
-	</section>
+<?php
+include("project_meta.php");
+
+    $projects = [
+        ['path' => '2021/multiband', 'url' => 'https://web.archive.org/web/20211001235555/https://runwayml.com/blog/presenting-multiband-format', 'title' => 'MultiBand', 'year' => '2021', 'medium' => 'RunwayML'],
+        ['path' => '2020/depth_estimation', 'url' => 'https://www.youtube.com/watch?v=5Tia2oblJAg', 'title' => 'Depth Estimation', 'year' => '2020'],
+        ['path' => '2018/pointclouds', 'url' => 'https://vimeo.com/298427421/9eb2faf44e', 'title' => 'F8 PointCloud Demo', 'year' => '2018', 'medium' => 'Facebook'],
+        ['path' => '2016/openFrame', 'title' => 'openFrame.io', 'year' => '2016', 'medium' => 'Shaders artwork'],
+        ['path' => '2016/tron', 'url' => 'https://tangrams.github.io/tron-style/', 'title' => 'TRON2.0', 'year' => '2016'],
+        ['path' => '2014/addidas', 'title' => 'Addidas #mizxflux', 'year' => '2014', 'medium' => 'HellicarAndLewis'],
+        ['path' => '2014/atramentum', 'title' => 'Atramentum', 'year' => '2014', 'medium' => 'SCOPE / FakeLove.tv / Aerosyn-Lex'],
+        ['path' => '2013/clouds', 'title' => 'CLOUDS Documentary', 'year' => '2013', 'medium' => 'Visual Systems'],
+        ['path' => '2013/gearup', 'title' => 'GearUp', 'year' => '2013', 'medium' => 'MPI/PRI PetLab'],
+        ['path' => '2012/megaphone', 'title' => 'Megaphone', 'year' => '2012', 'medium' => 'YESYESNO'],
+        ['path' => '2012/picasso', 'title' => 'MultiTouch DrawingTool', 'year' => '2012', 'medium' => 'Picasso Museum, Coruña'],
+        ['path' => '2012/galiciacanibal', 'title' => 'Galicia Canibal', 'year' => '2012', 'medium' => 'Interactive scenography'],
+    ];
+
+include("header.php");
+include("menu.php");
+?>
+    <section class="content">
+<?php
+foreach ($projects as $project) {
+    $commented = isset($project['commented']) && $project['commented'];
+
+    if (isset($project['path'])) {
+        $meta = get_project_meta($project['path']);
+
+        if (isset($project['title'])) $meta['title'] = $project['title'];
+        if (isset($project['year'])) $meta['year'] = $project['year'];
+        if (isset($project['medium'])) $meta['medium'] = $project['medium'];
+        if (isset($project['dimensions'])) $meta['dimensions'] = $project['dimensions'];
+        if (isset($project['description'])) $meta['description'] = $project['description'];
+        if (isset($project['url'])) $meta['url'] = $project['url'];
+        if (isset($project['thumbnail'])) $meta['thumbnail'] = $project['thumbnail'];
+    } else {
+        $meta = [
+            'title' => $project['title'] ?? '',
+            'year' => $project['year'] ?? '',
+            'medium' => $project['medium'] ?? '',
+            'dimensions' => $project['dimensions'] ?? '',
+            'description' => $project['description'] ?? '',
+            'url' => $project['url'],
+            'thumbnail' => $project['thumbnail'] ?? '',
+        ];
+    }
+
+    echo render_project_item($meta, $commented);
+}
+?>
+    </section>
 
 <?php include("footer.php"); ?>

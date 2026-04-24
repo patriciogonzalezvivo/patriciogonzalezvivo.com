@@ -122,13 +122,13 @@ function render_project_item($meta, $commented = false) {
     $link = isset($meta['url']) && $meta['url'] ? $meta['url'] : $meta['path'] . '/';
     $html .= '                <a href="' . htmlspecialchars($link) . '">';
     
-    if ($meta['thumb']) {
+    if ($meta['thumb'] || !empty($meta['thumbnail'])) {
         // For thumbnail, always use path (even for external URLs)
         $thumb_src = isset($meta['thumbnail']) && $meta['thumbnail'] 
             ? $meta['thumbnail'] 
             : htmlspecialchars($meta['path']) . '/' . htmlspecialchars($meta['thumb']);
 
-        if (str_ends_with($meta['thumb'], '.webm')) {
+        if ($meta['thumb'] && str_ends_with($meta['thumb'], '.webm')) {
             $html .= '<video class="photoTh" autoplay loop muted playsinline loading="lazy">'
                    . '<source src="' . $thumb_src . '" type="video/webm">'
                    . '</video>';

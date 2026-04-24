@@ -1,119 +1,70 @@
-<?php include("header.php");?>
-<?php include("menu.php");?>
+<?php
+include("project_meta.php");
 
-	<section class="content">
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/vera" target="_blank"><img class="photoTh" src="2022/vera/thumb.jpg" alt="VERA"/></a>
-			<p>2022 <strong>VERA</strong>: C++/WASM GL Framework </p>
-		</article>
-		<article class="item">
-			<a href="https://lygia.xyz" target="_blank"><img class="photoTh" src="2021/lygia/thumb_00.jpg" alt="LYGIA"/></a>
-			<p>2021 <strong>LYGIA</strong>: GLSL/HLSL/WGSL/WESL/METAL/CUDA Shader Library.</p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/hilma" target="_blank"><img class="photoTh" src="2020/hilma/thumb.jpg" alt="HILMA"/></a>
-			<p>2020 <strong>HILMA</strong>: 3D geometry library.</p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ada" target="_blank"><img class="photoTh" src="2020/ada/thumb.png" alt="ADA"/></a>
-			<p>2020 <strong>ADA</strong>: simple library for creating apps in Windows, MacOS, Linux and Wasm</p>
-		</article>
-		<!-- <article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/midigyver" target="_blank"><img class="photoTh" src="2020/midigyver/thumb.png" alt="midiGyver"/></a>
-			<p>2020 <strong>MidiGyver</strong>: your MIDI swissarmy knife.</p>
-		</article> -->
-		<!-- <article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/OpenLiDAR" target="_blank"><img class="photoTh" src="2020/openlidar/thumb.gif" alt="OpenLiDAR"/></a>
-			<p>2020 <strong>OpenLiDAR</strong>: DIY your own LiDAR scanner with unexpensive parts.</p>
-		</article> -->
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/berthe" target="_blank"><img class="photoTh" src="2019/berthe/thumb.jpg" alt="BERTHE"/></a>
-			<p>2018 <strong>BERTHE</strong>: vector line library for plotters.</p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/hypatia" target="_blank"><img class="photoTh" src="2018/hypatia/thumb.jpg" alt="HYPATIA"/></a>
-			<p>2018 <strong>HYPATIA</strong>: geo-astronomical library based</p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/glslEditor" target="_blank"><img class="photoTh" src="2016/glslEditor/thumb.gif" alt="glslEditor"/></a>
-			<p>2016 <strong>glslEditor</strong>: Web app to edit GLSL shaders (WebGL/JS) </p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/glslCanvas" target="_blank"><img class="photoTh" src="2015/glslCanvas/thumb.gif" alt="glslCanvas"/></a>
-			<p>2015 <strong>glslCanvas</strong>: tool to load GLSL shaders on HTML Canvas using WebGL and JS </p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/glslViewer/wiki" target="_blank"><img class="photoTh" src="2015/glslViewer/00.gif" alt="glslViewer" style="object-position: 0% 6%;"/></a>
-			<p>2015 <strong>glslViewer</strong>: live-coding shader tool for MacOS, Linux and RaspberryPi (OpenGL ES /C++)</p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxBundler" target="_blank"><img class="photoTh" src="2014/ofxBundler/thumb.gif" alt="ofxBundler"/></a>
-			<p>2014 <strong>ofxBundler</strong>: Bundle files reader for openFrameworks </p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxVectorTile" target="_blank"><img class="photoTh" src="2014/ofxVectorTile/thumb.gif" alt="ofxVectorTile"/></a>
-			<p>2014 <strong>ofxVectorTile</strong>: wrapper for 3D Labeled Maps at <a href="https://mapzen.com/" target="_blank">Mapzen</a> </p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxStreetView" target="_blank"><img class="photoTh" src="2014/ofxStreetView/thumb.jpg" alt="ofxStreetView"/></a>
-			<p>2014 <strong>ofxStreetView</strong>: openFrameworks addon to extract 3D StreetView Panoramas </p>
-		</article>
-		<!-- <article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxPiTFT" target="_blank"><img class="photoTh" src="2014/ofxPiTFT/thumb.jpg" alt="ofxPiTFT"/></a>
-			<p>2014 <strong>ofxPiTFT</strong>: openFrameworks addon for Adafruit's RaspberryPi TFT Touch Display </p>
-		</article> -->
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxThermalPrinter" target="_blank"><img class="photoTh" src="2014/ofxThermalPrinter/thumb.gif" alt="ofxThermalPrinter"/></a>
-			<p>2014 <strong>ofxThermalPrinter</strong>: openFrameworks addon for Adafruit's mini thermal printer </p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/vPlotter"><img class="photoTh" src="2014/vPlotter/thumb.gif" alt="vPlotter"/></a>
-			<p>2014 <strong>vPlotter</strong>: Wireless wall Plotter power by a RaspberryPi </p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxFluid" target="_blank"><img class="photoTh" src="2014/ofxFluid/thumb.gif" alt="ofxFluid"/></a>
-			<p>2013 <strong>ofxFluid</strong>: GPU Fluid Simulator for openFrameworks </p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/sNodes" target="_blank"><img class="photoTh" src="2013/snode/thumb.jpg" alt="sNode"/></a>
-			<p>2013 <strong>sNode</strong>: GLSL Shader prototyping tool wrote on openFrameworks and powered by Syphon</p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxvoro"><img class="photoTh" src="2013/ofxvoro/thumb.gif" alt="ofxVoro"/></a>
-			<p>2013 <strong>ofxVoro</strong>: 3D Voronoi addon for openFrameworks </p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxpulsesensor"><img class="photoTh" src="2013/ofxpulsesensor/thumb.jpg" alt="ofxPulsesensor"/></a>
-			<p>2013 <strong>ofxPulseSensor</strong>: serial client for Arduino's PulseSensor</p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofplay" target="_blank"><img class="photoTh" src="2012/ofplay/thumb.jpg" alt="ofPlay"/></a>
-			<p>2012 <strong>ofPlay</strong>: UI/UX exploration designed to help openFrameworks beginners </p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxinteractivesurface"><img class="photoTh" src="2012/ofxinteractivesurface/thumb.jpg" alt="ofxInteractiveSurface"/></a>
-			<p>2012 <strong>ofxInteractiveSurface</strong>: reactive surfaces with dynamic mapping addon for openFrameworks using MS Kinect Sensor</p>
-		</article>
-		<!-- <article class="item">
-			<a href="2012/eden/"><img class="photoTh" src="2012/eden/thumb.jpg" alt="Eden 3.0"/></a>
-			<p>2012 <strong>Eden 1.2</strong>: using GLSL shaders to simulates an atmoshpere, biosphere, geoshpere and biosphere</p>
-		</article> -->
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxcomposer"><img class="photoTh" src="2012/ofxcomposer/thumb.jpg" alt="ofxComposer"/></a>
-			<p>2012 <strong>ofxComposer</strong>: life GSLS Editor and graphic patch composer addon for openFrameworks</p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/ofxfx"><img class="photoTh" src="2011/ofxfx/thumb.jpg" alt="ofxfx"/></a>
-			<p>2011 <strong>ofxFX</strong>: GSLS Shaders easy to use addon for openFrameworks</p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/kinectcorevision"><img class="photoTh" src="2011/kinectcorevision/thumb.jpg" alt="Kinect Core Vision"/></a>
-			<p>2011 <strong>Kinect Core Vision</strong>: CCV + Kinect + finger tracking</p>
-		</article>
-		<article class="item">
-			<a href="https://github.com/patriciogonzalezvivo/joyoflight"><img class="photoTh" src="2009/joyoflight/thumb.jpg" alt="JoyOfLight"/></a>
-			<p>2009 <strong>JoyOfLight</strong>: iOS, OSX, Linux and Windows light drawing tool</p>
-		</article>
-	</section>
+    $projects = [
+        ['path' => '2022/vera', 'url' => 'https://github.com/patriciogonzalezvivo/vera', 'title' => 'VERA', 'year' => '2022', 'medium' => 'C++/WASM GL Framework'],
+        ['path' => '2021/lygia', 'url' => 'https://lygia.xyz', 'title' => 'LYGIA', 'year' => '2021', 'medium' => 'GLSL/HLSL/WGSL/WESL/METAL/CUDA Shader Library'],
+        ['path' => '2020/hilma', 'url' => 'https://github.com/patriciogonzalezvivo/hilma', 'title' => 'HILMA', 'year' => '2020', 'medium' => '3D geometry library'],
+        ['path' => '2020/ada', 'url' => 'https://github.com/patriciogonzalezvivo/ada', 'title' => 'ADA', 'year' => '2020', 'medium' => 'Cross-platform app library'],
+        ['path' => '2020/midigyver', 'url' => 'https://github.com/patriciogonzalezvivo/midigyver', 'title' => 'MidiGyver', 'year' => '2020', 'medium' => 'MIDI swiss army knife', 'commented' => true],
+        ['path' => '2020/openlidar', 'url' => 'https://github.com/patriciogonzalezvivo/OpenLiDAR', 'title' => 'OpenLiDAR', 'year' => '2020', 'medium' => 'DIY LiDAR scanner', 'commented' => true],
+        ['path' => '2019/berthe', 'url' => 'https://github.com/patriciogonzalezvivo/berthe', 'title' => 'BERTHE', 'year' => '2018', 'medium' => 'Vector line library for plotters'],
+        ['path' => '2018/hypatia', 'url' => 'https://github.com/patriciogonzalezvivo/hypatia', 'title' => 'HYPATIA', 'year' => '2018', 'medium' => 'Geo-astronomical library'],
+        ['path' => '2016/glslEditor', 'url' => 'https://github.com/patriciogonzalezvivo/glslEditor', 'title' => 'glslEditor', 'year' => '2016', 'medium' => 'Web GLSL shader editor (WebGL/JS)'],
+        ['path' => '2015/glslCanvas', 'url' => 'https://github.com/patriciogonzalezvivo/glslCanvas', 'title' => 'glslCanvas', 'year' => '2015', 'medium' => 'GLSL shaders on HTML Canvas (WebGL/JS)'],
+        ['path' => '2015/glslViewer', 'url' => 'https://github.com/patriciogonzalezvivo/glslViewer/wiki', 'title' => 'glslViewer', 'year' => '2015', 'medium' => 'Live-coding shader tool (OpenGL ES/C++)'],
+        ['path' => '2014/ofxBundler', 'url' => 'https://github.com/patriciogonzalezvivo/ofxBundler', 'title' => 'ofxBundler', 'year' => '2014', 'medium' => 'openFrameworks addon'],
+        ['path' => '2014/ofxVectorTile', 'url' => 'https://github.com/patriciogonzalezvivo/ofxVectorTile', 'title' => 'ofxVectorTile', 'year' => '2014', 'medium' => 'openFrameworks addon'],
+        ['path' => '2014/ofxStreetView', 'url' => 'https://github.com/patriciogonzalezvivo/ofxStreetView', 'title' => 'ofxStreetView', 'year' => '2014', 'medium' => 'openFrameworks addon'],
+        ['path' => '2014/ofxPiTFT', 'url' => 'https://github.com/patriciogonzalezvivo/ofxPiTFT', 'title' => 'ofxPiTFT', 'year' => '2014', 'medium' => 'openFrameworks addon', 'commented' => true],
+        ['path' => '2014/ofxThermalPrinter', 'url' => 'https://github.com/patriciogonzalezvivo/ofxThermalPrinter', 'title' => 'ofxThermalPrinter', 'year' => '2014', 'medium' => 'openFrameworks addon'],
+        ['path' => '2014/vPlotter', 'url' => 'https://github.com/patriciogonzalezvivo/vPlotter', 'title' => 'vPlotter', 'year' => '2014', 'medium' => 'Wireless wall plotter (RaspberryPi)'],
+        ['path' => '2014/ofxFluid', 'url' => 'https://github.com/patriciogonzalezvivo/ofxFluid', 'title' => 'ofxFluid', 'year' => '2013', 'medium' => 'GPU Fluid Simulator for openFrameworks'],
+        ['path' => '2013/snode', 'url' => 'https://github.com/patriciogonzalezvivo/sNodes', 'title' => 'sNode', 'year' => '2013', 'medium' => 'GLSL shader prototyping tool (openFrameworks)'],
+        ['path' => '2013/ofxvoro', 'url' => 'https://github.com/patriciogonzalezvivo/ofxvoro', 'title' => 'ofxVoro', 'year' => '2013', 'medium' => 'openFrameworks addon'],
+        ['path' => '2013/ofxpulsesensor', 'url' => 'https://github.com/patriciogonzalezvivo/ofxpulsesensor', 'title' => 'ofxPulseSensor', 'year' => '2013', 'medium' => 'openFrameworks addon'],
+        ['path' => '2012/ofplay', 'url' => 'https://github.com/patriciogonzalezvivo/ofplay', 'title' => 'ofPlay', 'year' => '2012', 'medium' => 'openFrameworks UI/UX addon'],
+        ['path' => '2012/ofxinteractivesurface', 'url' => 'https://github.com/patriciogonzalezvivo/ofxinteractivesurface', 'title' => 'ofxInteractiveSurface', 'year' => '2012', 'medium' => 'openFrameworks addon'],
+        ['path' => '2012/eden', 'title' => 'Eden 1.2', 'year' => '2012', 'medium' => 'GLSL atmosphere/biosphere simulator', 'commented' => true],
+        ['path' => '2012/ofxcomposer', 'url' => 'https://github.com/patriciogonzalezvivo/ofxcomposer', 'title' => 'ofxComposer', 'year' => '2012', 'medium' => 'openFrameworks addon'],
+        ['path' => '2011/ofxfx', 'url' => 'https://github.com/patriciogonzalezvivo/ofxfx', 'title' => 'ofxFX', 'year' => '2011', 'medium' => 'GLSL shaders addon for openFrameworks'],
+        ['path' => '2011/kinectcorevision', 'url' => 'https://github.com/patriciogonzalezvivo/kinectcorevision', 'title' => 'Kinect Core Vision', 'year' => '2011', 'medium' => 'CCV + Kinect finger tracking'],
+        ['path' => '2009/joyoflight', 'url' => 'https://github.com/patriciogonzalezvivo/joyoflight', 'title' => 'JoyOfLight', 'year' => '2009', 'medium' => 'iOS, OSX, Linux and Windows light drawing tool'],
+    ];
+
+include("header.php");
+include("menu.php");
+?>
+    <section class="content">
+<?php
+foreach ($projects as $project) {
+    $commented = isset($project['commented']) && $project['commented'];
+
+    if (isset($project['path'])) {
+        $meta = get_project_meta($project['path']);
+
+        if (isset($project['title'])) $meta['title'] = $project['title'];
+        if (isset($project['year'])) $meta['year'] = $project['year'];
+        if (isset($project['medium'])) $meta['medium'] = $project['medium'];
+        if (isset($project['dimensions'])) $meta['dimensions'] = $project['dimensions'];
+        if (isset($project['description'])) $meta['description'] = $project['description'];
+        if (isset($project['url'])) $meta['url'] = $project['url'];
+        if (isset($project['thumbnail'])) $meta['thumbnail'] = $project['thumbnail'];
+    } else {
+        $meta = [
+            'title' => $project['title'] ?? '',
+            'year' => $project['year'] ?? '',
+            'medium' => $project['medium'] ?? '',
+            'dimensions' => $project['dimensions'] ?? '',
+            'description' => $project['description'] ?? '',
+            'url' => $project['url'],
+            'thumbnail' => $project['thumbnail'] ?? '',
+        ];
+    }
+
+    echo render_project_item($meta, $commented);
+}
+?>
+    </section>
 
 <?php include("footer.php"); ?>
