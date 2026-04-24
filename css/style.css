@@ -545,7 +545,7 @@ footer {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    aspect-ratio: 1;
+    /* aspect-ratio: 1; */
 }
 
 .painting-item:hover {
@@ -1025,13 +1025,13 @@ footer {
 }
 
 .buy-btn {
-    background-color: rgba(25, 90, 200, 0.85);
+    background-color: rgba(30, 30, 30, 0.8);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .buy-btn:hover {
-    background-color: rgba(15, 70, 180, 1);
+    background-color: rgba(0, 0, 0, 0.95);
     color: white;
     transform: translateY(-1px);
 }

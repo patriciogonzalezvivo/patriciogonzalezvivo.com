@@ -29,7 +29,7 @@ function get_project_meta($project_path, $base_path = '') {
     
     // Auto-detect thumbnail
     $thumb = null;
-    foreach (['thumb.gif', 'thumb.jpg', 'thumb.png'] as $img) {
+    foreach (['thumb.webp', 'thumb.gif', 'thumb.jpg', 'thumb.png'] as $img) {
         if (file_exists($full_path . '/' . $img)) {
             $thumb = $img;
             break;
@@ -127,7 +127,17 @@ function render_project_item($meta, $commented = false) {
         $thumb_src = isset($meta['thumbnail']) && $meta['thumbnail'] 
             ? $meta['thumbnail'] 
             : htmlspecialchars($meta['path']) . '/' . htmlspecialchars($meta['thumb']);
-        $html .= '<img class="photoTh" src="' . $thumb_src . '" alt="' . htmlspecialchars($meta['title']) . '"/>';
+
+        if (str_ends_with($meta['thumb'], '.gif')) {
+            $webm_src = substr($thumb_src, 0, -4) . '.webm';
+            $mp4_src  = substr($thumb_src, 0, -4) . '.mp4';
+            $html .= '<video class="photoTh" autoplay loop muted playsinline loading="lazy">'
+                   . '<source src="' . $webm_src . '" type="video/webm">'
+                   . '<source src="' . $mp4_src  . '" type="video/mp4">'
+                   . '</video>';
+        } else {
+            $html .= '<img class="photoTh" loading="lazy" src="' . $thumb_src . '" alt="' . htmlspecialchars($meta['title']) . '"/>';
+        }
     }
     
     $html .= '</a>' . "\n";
