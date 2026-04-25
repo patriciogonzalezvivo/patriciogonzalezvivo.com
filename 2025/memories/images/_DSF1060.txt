@@ -1,1 +1,2 @@
 sold: yes
+dimensions: 12 x 16 inches

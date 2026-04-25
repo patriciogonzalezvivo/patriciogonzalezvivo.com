@@ -1,1 +1,2 @@
 sold: no
+dimensions: 12 x 16 inches
