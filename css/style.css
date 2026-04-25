@@ -582,21 +582,11 @@ footer {
 
 /* Artwork Information */
 .artwork-info {
-    padding: 0 12px;
+    padding: 10px 12px 12px 12px;
     color: black;
     background: white;
-    pointer-events: none;
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
-}
-
-.painting-item:hover .artwork-info {
-    max-height: 200px;
-    opacity: 1;
-    padding: 10px 12px 12px 12px;
     pointer-events: auto;
+    overflow: hidden;
 }
 
 .artwork-title {
@@ -618,8 +608,11 @@ footer {
 
 /* Sold Marker - Small Red Dot */
 .painting-item .painting-thumb-wrapper {
-    position: relative;
     flex-shrink: 0;
+}
+
+.artwork-info {
+    position: relative;
 }
 
 .sold-marker {
@@ -956,7 +949,7 @@ footer {
         right: 6px;
     }
     
-    .painting-item:hover .artwork-info {
+    .artwork-info {
         padding: 8px 8px 8px 8px;
     }
     
@@ -1008,6 +1001,12 @@ footer {
     margin-top: 8px;
     flex-wrap: wrap;
     pointer-events: auto;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.painting-item:hover .artwork-buttons {
+    opacity: 1;
 }
 
 .artwork-btn {

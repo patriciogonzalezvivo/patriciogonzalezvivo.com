@@ -148,18 +148,13 @@ function render_gallery_item($artwork) {
     }
     $html .= '>';
     
-    // Thumbnail image wrapped for sold-marker positioning
+    // Thumbnail image
     $title = isset($meta['title']) ? htmlspecialchars($meta['title']) : 'Untitled';
     $html .= '<div class="painting-thumb-wrapper">';
     $html .= '<img src="' . htmlspecialchars($artwork['thumbnail']) . '" ';
     $html .= 'alt="' . $title . '" ';
     $html .= 'loading="lazy" ';
     $html .= 'class="painting-thumb">';
-    
-    // Sold marker
-    if ($is_sold) {
-        $html .= '<div class="sold-marker"></div>';
-    }
     $html .= '</div>';
     
     // Artwork info
@@ -215,6 +210,11 @@ function render_gallery_item($artwork) {
             $html .= '<a class="artwork-btn buy-btn" href="' . $email_href . '">Acquire Original</a>';
         }
         $html .= '</div>';
+    }
+    
+    // Sold marker inside artwork-info
+    if ($is_sold) {
+        $html .= '<div class="sold-marker"></div>';
     }
     
     $html .= '</div>'; // .artwork-info
