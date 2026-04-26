@@ -142,6 +142,10 @@ body {
     display: inline-block;
 }
 
+.item-image iframe {
+    transform: translateY(-40px);
+}
+
 .item-info {
     text-align: center;
 }
