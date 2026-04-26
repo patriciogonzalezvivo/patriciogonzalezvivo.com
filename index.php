@@ -37,6 +37,17 @@ $projects = [
     ],
 ];
 
+// Pick a random featured project's default thumbnail for og:image
+$random_project = $projects[array_rand($projects)];
+$random_meta = get_project_meta($random_project['path']);
+$_static_exts = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+$_thumb = $random_meta['thumb'] ?? null;
+if ($_thumb && in_array(strtolower(pathinfo($_thumb, PATHINFO_EXTENSION)), $_static_exts)) {
+    $og_image = $random_project['path'] . '/' . $_thumb;
+} elseif (file_exists($random_project['path'] . '/thumbnail.jpg')) {
+    $og_image = $random_project['path'] . '/thumbnail.jpg';
+}
+
 include("header.php");
 include("menu.php");
 ?>

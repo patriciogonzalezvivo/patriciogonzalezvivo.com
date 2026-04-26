@@ -141,10 +141,16 @@ if ($is_embed) {
 	echo '
 		<style>
 			html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
-			body.windowed-mode #wrapper.windowed { margin-top: 0; }
 			.item-info, #longer-info, #menu, footer { display: none !important; }
-			article.item { margin: 0 !important; display: block !important; }
-			.item-image { margin: 0 !important; text-align: left !important; }
+			article.item { margin: 0 !important; padding: 0 !important; display: block !important; }
+			.item-image { margin: 0 !important; padding: 0 !important; text-align: left !important; }
+			body.windowed-mode #wrapper.windowed {
+				position: relative !important;
+				top: 0 !important;
+				left: 0 !important;
+				transform: none !important;
+				margin: 0 !important;
+			}
 		</style>';
 }
 
