@@ -6,9 +6,9 @@ Two celestial maps overlap: one for each observer. Each is rendered in a distinc
 
 Each map uses a polar projection. Stars near the outer edge rest close to the horizon (marked by the cardinal directions), while those at the center hover directly overhead. This perspective situates each observer within their own sky, while revealing where their visions align.
 
-Beside each map, a rotating globe marks the observer’s location. Both the celestial maps and the globes are fully interactive. By dragging the sky, you can shift the date and time; by rotating the globe, you can reposition the observer anywhere on Earth.
-
 ![two people watching the same constellation](svg/001_light.svg)
+
+Beside each map, a rotating globe marks the observer’s location. Both the celestial maps and the globes are fully interactive. By dragging the sky, you can shift the date and time; by rotating the globe, you can reposition the observer anywhere on Earth.
 
 To share this experience with someone, open the settings panel via the gear icon in the upper right corner. There, you can define the specific time, location, and identity of each observer, shaping the conditions of your encounter.
 
