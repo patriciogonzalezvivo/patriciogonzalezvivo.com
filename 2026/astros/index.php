@@ -3,7 +3,7 @@
     include("../../project_meta.php");
     $meta = get_current_project_meta();
     $page_title = $meta['title'];
-    $page_description = $meta['description'];
+    $page_description = implode('. ', array_filter([$meta['medium'], $meta['description']]));
     include("../../header.php");?>
         <?php include("../../menu.php");?>
         <link rel="stylesheet" href="style.css" type="text/css" />

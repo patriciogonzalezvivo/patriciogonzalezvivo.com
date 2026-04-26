@@ -16,9 +16,7 @@ $hybrids_meta = get_project_meta('2025/hybrids');
         ['path' => '2026/santos'],
         ['path' => '2026/astros'],
         ['path' => '2025/hybrids'],
-        ['path' => '2022/time'],
-        ['path' => '2021/memory'],
-        ['path' => '2021/fen'],
+        ['path' => '2026/weaver2'],
     ];
 
 include("header.php");
@@ -65,7 +63,7 @@ include("menu.php");
             <div class="item-info">
                 <span class="item-title"><?php echo htmlspecialchars($astros_meta['title']); ?></span>
                 <span class="item-year"><?php echo htmlspecialchars($astros_meta['year']); ?></span>
-                <span class="item-medium"><?php echo htmlspecialchars($astros_meta['medium']); ?></span>
+                <!-- <span class="item-medium"><?php echo htmlspecialchars($astros_meta['medium']); ?></span> -->
                 <p class="item-description"><?php echo htmlspecialchars($astros_meta['description']); ?></p>
             </div>
         </article>

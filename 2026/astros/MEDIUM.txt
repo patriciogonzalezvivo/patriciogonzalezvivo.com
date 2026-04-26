@@ -1,1 +1,1 @@
-Custom real-time software
+Generative real-time software

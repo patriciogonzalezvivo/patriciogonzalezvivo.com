@@ -2,19 +2,19 @@
 
 // Default values - can be overridden by setting variables before including header.php
 if (!isset($page_title)) $page_title = "Patricio Gonzalez Vivo";
+if (!isset($page_author)) $page_author = "Patricio Gonzalez Vivo";
 if (!isset($page_description)) $page_description = "Patricio Gonzalez Vivo multidisciplinary artist working across traditional and digital mediums. In his work, he pursues awareness and self-discovery through themes like celestial bodies, esoteric symbolism, clocks and maps.";
 if (!isset($page_keywords)) $page_keywords = "digital, art, oil, painting, plotting, symbolism, astrology, tarot, clocks, lenses, alchemy, time and space";
-if (!isset($page_author)) $page_author = "Patricio Gonzalez Vivo";
+
 
 // Open Graph defaults
+if (!isset($og_site_name)) $og_site_name = "Patricio Gonzalez Vivo";
+if (isset($page_title) && $page_title !== $og_site_name) {
+	$page_title = $page_title . " - " . $og_site_name;
+}
 if (!isset($og_title)) $og_title = $page_title;
 if (!isset($og_type)) $og_type = "website";
 if (!isset($og_description)) $og_description = $page_description;
-
-// if $page_title is set but $og_title is not set, default $og_title to $page_title
-if (!isset($page_title ) && isset($og_site_name)) {
-	$og_site_name = $page_title . " - " . "Patricio Gonzalez Vivo";
-}
 if (!isset($og_locale)) $og_locale = "en_US";
 if (!isset($og_author)) $og_author = $page_author;
 
@@ -32,7 +32,7 @@ if (!isset($og_url)) {
 
 // Auto-detect thumbnail image if not set
 if (!isset($og_image)) {
-	$possible_thumbs = array('thumb.gif', 'thumb.jpg', 'thumb.png');
+	$possible_thumbs = array('thumbnail.jpg', 'thumbnail.jpeg', 'thumbnail.png',  'thumb.webp', 'thumb.jpeg', 'thumb.jpg', 'thumb.png');
 	foreach ($possible_thumbs as $thumb) {
 		if (file_exists($thumb)) {
 			$og_image = $thumb;
@@ -50,6 +50,12 @@ if (isset($og_image) && (!isset($og_image_width) || !isset($og_image_height))) {
 			if (!isset($og_image_height)) $og_image_height = $image_info[1];
 		}
 	}
+}
+
+// Convert auto-detected og_image to absolute URL (required by Open Graph spec)
+if (isset($og_image) && substr($og_image, 0, 4) !== 'http') {
+	$request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
+	$og_image = rtrim($request_uri, '/') . '/' . $og_image;
 }
 
 // Optional OG properties (only display if set)
