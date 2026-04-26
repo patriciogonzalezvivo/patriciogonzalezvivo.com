@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmpooxs8y23.js
+// include: /tmp/tmpfn9snsp_.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -202,25 +202,25 @@ Module['FS_createPath']("/", "ttf", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/png/gold_matcap_001.jpg", "start": 0, "end": 75605}, {"filename": "/png/noise_blue.png", "start": 75605, "end": 466642}, {"filename": "/shaders/background.frag", "start": 466642, "end": 468559}, {"filename": "/shaders/flood_decoding.frag", "start": 468559, "end": 468985}, {"filename": "/shaders/matcap_font.frag", "start": 468985, "end": 471183}, {"filename": "/shaders/matcap_lines.frag", "start": 471183, "end": 472556}, {"filename": "/shaders/postprocessing.frag", "start": 472556, "end": 473802}, {"filename": "/shaders/raymarching.frag", "start": 473802, "end": 477415}, {"filename": "/shaders/stars.frag", "start": 477415, "end": 477922}, {"filename": "/shaders/stars.vert", "start": 477922, "end": 478262}, {"filename": "/ttf/astronomicon.ttf", "start": 478262, "end": 509826}], "remote_package_size": 509826});
+    loadPackage({"files": [{"filename": "/png/gold_matcap_001.jpg", "start": 0, "end": 75605}, {"filename": "/png/noise_blue.png", "start": 75605, "end": 466642}, {"filename": "/shaders/background.frag", "start": 466642, "end": 468559}, {"filename": "/shaders/flood_decoding.frag", "start": 468559, "end": 468985}, {"filename": "/shaders/matcap_font.frag", "start": 468985, "end": 471183}, {"filename": "/shaders/matcap_lines.frag", "start": 471183, "end": 472556}, {"filename": "/shaders/postprocessing.frag", "start": 472556, "end": 473802}, {"filename": "/shaders/raymarching.frag", "start": 473802, "end": 477415}, {"filename": "/shaders/stars.frag", "start": 477415, "end": 477922}, {"filename": "/shaders/stars.vert", "start": 477922, "end": 478262}, {"filename": "/ttf/astronomicon.ttf", "start": 478262, "end": 509826}, {"filename": "/ttf/roboto-thin.ttf", "start": 509826, "end": 632338}, {"filename": "/ttf/roboto.ttf", "start": 632338, "end": 790942}], "remote_package_size": 790942});
 
   })();
 
-// end include: /tmp/tmpooxs8y23.js
-// include: /tmp/tmp9jtha05t.js
+// end include: /tmp/tmpfn9snsp_.js
+// include: /tmp/tmpn7pe2x0s.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmp9jtha05t.js
-// include: /tmp/tmp5tmhxtxr.js
+  // end include: /tmp/tmpn7pe2x0s.js
+// include: /tmp/tmpu4qq28mp.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmp5tmhxtxr.js
+  // end include: /tmp/tmpu4qq28mp.js
 
 
 var arguments_ = [];
@@ -9627,8 +9627,8 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('loadSplitModule');
 }
 var ASM_CONSTS = {
-  3331936: ($0) => { if (typeof Module['onExportProgress'] === 'function') Module['onExportProgress']($0); },  
- 3332026: ($0, $1, $2) => { if (typeof Module['onExportComplete'] === 'function') Module['onExportComplete']($0, $1, $2); }
+  3331952: ($0) => { if (typeof Module['onExportProgress'] === 'function') Module['onExportProgress']($0); },  
+ 3332042: ($0, $1, $2) => { if (typeof Module['onExportComplete'] === 'function') Module['onExportComplete']($0, $1, $2); }
 };
 
 // Imports from the Wasm binary.
