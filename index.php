@@ -2,14 +2,17 @@
 include("project_meta.php");
 include_once("slideSet.php");
 
-// Each project entry supports:
-//   'path'         - local folder path (loads metadata from TITLE.txt etc.)
-//   'type'         - 'wasm' | 'gallery' | 'thumbnail' (default: thumbnail)
-//   'url'          - override link URL
-//   'images_dir'   - (gallery) directory of images relative to web root
-//   'pattern'      - (gallery) glob pattern for images
-//   'iframe_width' - (wasm) iframe width in px, default 516
-//   'iframe_height'- (wasm) iframe height in px, default 810
+/********************
+    Each project entry supports:
+      'path'         - local folder path (loads metadata from TITLE.txt etc.)
+      'type'         - 'wasm' | 'gallery' | 'thumbnail' (default: thumbnail)
+      'url'          - override link URL
+      'images_dir'   - (gallery) directory of images relative to web root
+      'pattern'      - (gallery) glob pattern for images
+      'iframe_width' - (wasm) iframe width in px, default 516
+      'iframe_height'- (wasm) iframe height in px, default 810
+********************/
+
 $projects = [
     [
         'path'         => '2026/santos',
