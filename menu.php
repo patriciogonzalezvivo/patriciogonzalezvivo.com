@@ -1,4 +1,5 @@
 <?php
+	if (isset($_GET['embed']) && $_GET['embed'] === '1') { return; }
 	// main menu
 	echo '	
 		<div id="menu">

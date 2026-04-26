@@ -124,6 +124,9 @@ if (is_array($google_fonts)) {
 		<link href="https://fonts.googleapis.com/css?family=' . $google_fonts . '" rel="stylesheet" type="text/css">';
 }
 
+$is_embed = isset($_GET['embed']) && $_GET['embed'] === '1';
+
+if (!$is_embed) {
 	echo '
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QT11DDJJFX"></script>
 		<script>
@@ -132,8 +135,21 @@ if (is_array($google_fonts)) {
 			gtag("js", new Date());
 			gtag("config", "G-QT11DDJJFX");
 		</script>';
+}
+
+if ($is_embed) {
+	echo '
+		<style>
+			html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; }
+			body.windowed-mode #wrapper.windowed { margin-top: 0; }
+			.item-info, #longer-info, #menu, footer { display: none !important; }
+			article.item { margin: 0 !important; display: block !important; }
+			.item-image { margin: 0 !important; text-align: left !important; }
+		</style>';
+}
+
 echo '
 	</head>
-	<body class="windowed-mode">
+	<body class="windowed-mode' . ($is_embed ? ' embed' : '') . '">
 	';
 ?>
