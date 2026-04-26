@@ -29,7 +29,7 @@ function get_project_meta($project_path, $base_path = '') {
     
     // Auto-detect thumbnail
     $thumb = null;
-    foreach (['thumb.webp', 'thumb.jpg', 'thumb.png', 'thumbnail.jpg', 'thumbnail.png'] as $img) {
+    foreach (['thumb.webm', 'thumb.jpg', 'thumb.png', 'thumbnail.jpg', 'thumbnail.png'] as $img) {
         if (file_exists($full_path . '/' . $img)) {
             $thumb = $img;
             break;
