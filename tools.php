@@ -32,6 +32,8 @@ include("project_meta.php");
         ['path' => '2009/joyoflight', 'url' => 'https://github.com/patriciogonzalezvivo/joyoflight', 'title' => 'JoyOfLight', 'year' => '2009', 'medium' => 'iOS, OSX, Linux and Windows light drawing tool'],
     ];
 
+set_random_og_image($projects);
+
 include("header.php");
 include("menu.php");
 ?>

@@ -1,13 +1,16 @@
 <?php 
 include("project_meta.php");
 
-    // Array of projects with their configuration
-    // Each entry can have:
-    //  - 'path': folder path for local projects (will load metadata from TITLE.txt, MEDIUM.txt, etc.)
-    //  - 'url': custom URL (for external sites or overriding the default path URL)
-    //  - 'thumbnail': custom thumbnail URL (overrides auto-detected thumb)
-    //  - 'commented': true to render as HTML comment
-    // For external projects without local metadata, add 'title', 'year', 'medium', 'dimensions' directly
+/***
+    Array of projects with their configuration
+    Each entry can have:
+     - 'path': folder path for local projects (will load metadata from TITLE.txt, MEDIUM.txt, etc.)
+     - 'url': custom URL (for external sites or overriding the default path URL)
+     - 'thumbnail': custom thumbnail URL (overrides auto-detected thumb)
+     - 'commented': true to render as HTML comment
+     - For external projects without local metadata, add 'title', 'year', 'medium', 'dimensions' directly
+****/
+
     $projects = [
         ['path' => '2026/astros'],
         ['path' => '2026/santos'],
@@ -35,6 +38,8 @@ include("project_meta.php");
         // ['path' => '2011/liquidkinect', 'url' => 'https://vimeo.com/19198053', 'title' => 'Liquid Kinect', 'year' => '2011', 'medium' => 'Custom real-time software'],
         ['path' => '2010/communitas'],
     ];
+
+set_random_og_image($projects);
 
 include("header.php");
 include("menu.php");

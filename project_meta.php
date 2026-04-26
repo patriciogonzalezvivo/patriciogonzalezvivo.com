@@ -202,4 +202,48 @@ function list_all_projects($base_path = '.', $excluded_folders = array('blog', '
     
     return $projects;
 }
+
+/**
+ * Pick a random project from a list and set $og_image to a full absolute URL.
+ *
+ * Call this BEFORE include("header.php") on any listing page (works, teaching,
+ * tools, year index, site root) so the og:image meta tag shows a real thumbnail.
+ *
+ * @param array  $projects   Array of project entries (same format as works.php etc.)
+ * @param string $root_path  Filesystem path to the site root used to locate thumbs.
+ *                           Use '.' for root-level pages; pass $root_dir for year pages.
+ */
+function set_random_og_image($projects, $root_path = '.') {
+    global $og_image;
+
+    $_static_exts = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+    $candidates = [];
+
+    foreach ($projects as $project) {
+        // Skip entries without a local path or that are commented-out
+        if (!isset($project['path'])) continue;
+        if (!empty($project['commented'])) continue;
+
+        // Prefer an explicitly provided static thumbnail override
+        if (!empty($project['thumbnail'])) {
+            $ext = strtolower(pathinfo($project['thumbnail'], PATHINFO_EXTENSION));
+            if (in_array($ext, $_static_exts)) {
+                $candidates[] = ltrim($project['thumbnail'], '/');
+                continue;
+            }
+        }
+
+        // Auto-detect from the project folder
+        $meta = get_project_meta($project['path'], rtrim($root_path, '/') . '/');
+        $thumb = $meta['thumb'] ?? null;
+        if ($thumb && in_array(strtolower(pathinfo($thumb, PATHINFO_EXTENSION)), $_static_exts)) {
+            $candidates[] = $meta['path'] . '/' . $thumb;
+        }
+    }
+
+    if (!empty($candidates)) {
+        // Set as full absolute URL so header.php's path-prefix logic is bypassed
+        $og_image = 'https://patriciogonzalezvivo.com/' . $candidates[array_rand($candidates)];
+    }
+}
 ?>

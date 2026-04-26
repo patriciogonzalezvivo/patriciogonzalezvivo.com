@@ -15,6 +15,8 @@ include("project_meta.php");
         ['path' => '2007/usal', 'title' => 'Creative Connection@', 'year' => '2007', 'medium' => 'Salvador University, Buenos Aires'],
     ];
 
+set_random_og_image($projects);
+
 include("header.php");
 include("menu.php");
 ?>
