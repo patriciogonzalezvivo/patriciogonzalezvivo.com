@@ -1,19 +1,15 @@
-Weaver is an interactive artifact that allows you to connect with someone across time and space by watching the same section of the night sky. Like sacred storytelling, rituals, prayers, and meditations, this artifact invites you to step out of linear time and immanent experience, and into one that made by the invisible strings that connect us all.
+Weaver is an interactive artifact that invites two people to meet across time and space through a shared fragment of the night sky. Like sacred storytelling, rituals, prayers, and meditations, it offers a passage beyond linear time and immediate experience; into a quiet awareness shaped by the invisible threads that bind us.
 
 ![a string between two hands](svg/000_light.svg)
 
-Two overlapping star maps of the sky. One per observer. Each one is differentiated by a unique color, mirroring the night sky from a different geographical location and date. The overlapping section is the common portion of the sky where observers can see the same stars and constellation.
+Two celestial maps overlap: one for each observer. Each is rendered in a distinct color, reflecting the night sky from a specific place and moment. Where they intersect lies a shared constellation, a common sky both participants can witness, despite distance or time.
 
-Each star map has a polar projection of the sky. Meaning the stars close to the outer edge are closer to the horizon (notice the letters of the four cardinal directions) while those at the center of the chart are directly above the head of the observer.
+Each map uses a polar projection. Stars near the outer edge rest close to the horizon (marked by the cardinal directions), while those at the center hover directly overhead. This perspective situates each observer within their own sky, while revealing where their visions align.
 
-At the bottom you can see two globes showing each of the observers locations. If at least one of the observers is not in the present time, you will see a timeline at the top, showing the different dates and times.
+Beside each map, a rotating globe marks the observer’s location. Both the celestial maps and the globes are fully interactive. By dragging the sky, you can shift the date and time; by rotating the globe, you can reposition the observer anywhere on Earth.
 
 ![two people watching the same constellation](svg/001_light.svg)
 
-Both the map of the sky and the globes are interactive. You can drag the sky maps to change the time and date of the observers. The globes can be rotated to select other locations.
+To share this experience with someone, open the settings panel via the gear icon in the upper right corner. There, you can define the specific time, location, and identity of each observer, shaping the conditions of your encounter.
 
-In order to share this with someone you wish to connect with, you will need to provide a specific date and location by clicking on the gear in the top right corner.
-
-There, you can also customize the names and other parameters for each one of the observers.
-
-Once you are done, apply the changes and share the unique URL with the other person.
+Once configured, apply your changes and share the generated URL. What you offer is not just a link, but an invitation: to pause, to look upward, and to recognize that even across distance and time, there are stars we hold in common.
