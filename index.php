@@ -26,18 +26,18 @@ $projects = [
         'iframe_width' => 516,
         'iframe_height'=> 810,
     ],
-    [
-        'path'         => '2025/hybrids',
-        'type'         => 'gallery',
-        'images_dir'   => '2025/hybrids/images',
-        'pattern'      => '_DSF*.{jpg,jpeg,png,gif}',
-    ],
-    [
-        'path'         => '2026/weaver2',
-        'type'         => 'wasm',
-        'iframe_width' => 516,
-        'iframe_height'=> 810,
-    ],
+    // [
+    //     'path'         => '2026/weaver2',
+    //     'type'         => 'wasm',
+    //     'iframe_width' => 516,
+    //     'iframe_height'=> 810,
+    // ],
+    // [
+    //     'path'         => '2025/hybrids',
+    //     'type'         => 'gallery',
+    //     'images_dir'   => '2025/hybrids/images',
+    //     'pattern'      => '_DSF*.{jpg,jpeg,png,gif}',
+    // ],
 ];
 
 set_random_og_image($projects);

@@ -638,14 +638,14 @@ footer {
 
 /* App fullscreen wrapper — must cover the sticky menu */
 #wrapper.fullscreen {
-    z-index: 9999;
+    z-index: 1000;
 }
 
 /* Fullscreen Modal */
 .fullscreen-modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 99;
     top: 0;
     left: 0;
     width: 100%;

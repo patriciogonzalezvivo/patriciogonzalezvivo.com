@@ -52,18 +52,39 @@ if (isset($og_image) && (!isset($og_image_width) || !isset($og_image_height))) {
 	}
 }
 
-// Convert auto-detected og_image to absolute URL (required by Open Graph spec)
+// Convert auto-detected og_image to a fully absolute URL (required by Open Graph spec)
 if (isset($og_image) && substr($og_image, 0, 4) !== 'http') {
 	$request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
-	$og_image = rtrim($request_uri, '/') . '/' . $og_image;
+	$og_image = 'https://patriciogonzalezvivo.com' . rtrim($request_uri, '/') . '/' . ltrim($og_image, '/');
 }
 
-// Optional OG properties (only display if set)
-// $og_image - path to image (auto-detected from thumb.gif/jpg/png if present)
-// $og_url - full URL to page (auto-generated from current path)
-// $og_image_width - image width in pixels (auto-calculated from image)
-// $og_image_height - image height in pixels (auto-calculated from image)
-// Note: $og_title defaults to $page_title, $og_description defaults to $page_description
+// Derive image MIME type for og:image:type (Facebook, Slack, Discord)
+if (isset($og_image) && !isset($og_image_type)) {
+	$_ext = strtolower(pathinfo(parse_url($og_image, PHP_URL_PATH), PATHINFO_EXTENSION));
+	$_mime = ['jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'png' => 'image/png', 'gif' => 'image/gif', 'webp' => 'image/webp'];
+	$og_image_type = $_mime[$_ext] ?? 'image/jpeg';
+}
+
+// Default alt text for og:image (accessibility + social previews)
+if (isset($og_image) && !isset($og_image_alt)) $og_image_alt = $og_title;
+
+// Twitter/X Card — set $twitter_handle = '@yourhandle' before including header.php
+// Used as fallback by Bluesky, Discord, Slack, Telegram, WhatsApp, iMessage, LinkedIn
+if (!isset($twitter_card)) $twitter_card = 'summary_large_image';
+// $twitter_handle is intentionally unset by default; define it to emit twitter:site/creator
+
+// theme-color — Discord embed accent, mobile Chrome/Safari, PWA manifest
+if (!isset($theme_color)) $theme_color = '#000000';
+
+// Optional properties (set before including header.php to override)
+// $og_image        - path/URL to image (auto-detected from thumb.* if present)
+// $og_image_type   - MIME type (auto-derived from extension)
+// $og_image_alt    - alt text (defaults to page title)
+// $og_url          - full URL to page (auto-generated from current path)
+// $og_image_width  - image width in pixels (auto-calculated from local image)
+// $og_image_height - image height in pixels (auto-calculated from local image)
+// $twitter_handle  - Twitter/X handle e.g. '@yourhandle' (optional, enables twitter:site/creator)
+// $theme_color     - hex color for theme-color meta (default '#000000')
 
 // Google Fonts - can be array or string
 if (!isset($google_fonts)) $google_fonts = "Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic";
@@ -82,6 +103,7 @@ echo '
 		<meta name="author" content="' . htmlspecialchars($page_author) . '" />
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="theme-color" content="' . htmlspecialchars($theme_color) . '" />
 		
 		<!-- Open Graph Meta Tags -->
 		<meta property="og:title" content="' . htmlspecialchars($og_title) . '" />
@@ -106,6 +128,40 @@ if (isset($og_image_width)) {
 if (isset($og_image_height)) {
 	echo '
 		<meta property="og:image:height" content="' . htmlspecialchars($og_image_height) . '" />';
+}
+if (isset($og_image_type)) {
+	echo '
+		<meta property="og:image:type" content="' . htmlspecialchars($og_image_type) . '" />';
+}
+if (isset($og_image_alt)) {
+	echo '
+		<meta property="og:image:alt" content="' . htmlspecialchars($og_image_alt) . '" />';
+}
+
+// Twitter/X · Bluesky · Discord · Slack · Telegram · WhatsApp · iMessage · LinkedIn
+echo '
+		<!-- Twitter / X · Bluesky · Discord · Slack Card -->
+		<meta name="twitter:card" content="' . htmlspecialchars($twitter_card) . '" />
+		<meta name="twitter:title" content="' . htmlspecialchars($og_title) . '" />
+		<meta name="twitter:description" content="' . htmlspecialchars($og_description) . '" />';
+
+if (isset($og_image)) {
+	echo '
+		<meta name="twitter:image" content="' . htmlspecialchars($og_image) . '" />';
+}
+if (isset($og_image_alt)) {
+	echo '
+		<meta name="twitter:image:alt" content="' . htmlspecialchars($og_image_alt) . '" />';
+}
+if (!empty($twitter_handle)) {
+	echo '
+		<meta name="twitter:site" content="' . htmlspecialchars($twitter_handle) . '" />
+		<meta name="twitter:creator" content="' . htmlspecialchars($twitter_handle) . '" />';
+}
+if (isset($og_url)) {
+	echo '
+		<!-- Canonical URL -->
+		<link rel="canonical" href="' . htmlspecialchars($og_url) . '" />';
 }
 
 echo '
