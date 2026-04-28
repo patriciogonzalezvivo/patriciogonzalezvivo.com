@@ -30,8 +30,8 @@ $projects = [
     [
         'path'         => '2026/astros',
         'type'         => 'big_thumbnail',
-        'width' => 400,
-        'height'=> 640,
+        'width' => 320,
+        'height'=> 540,
     ],
     // [
     //     'path'         => '2026/astros',
