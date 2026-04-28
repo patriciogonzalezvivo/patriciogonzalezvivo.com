@@ -5,12 +5,19 @@ include_once("slideSet.php");
 /********************
     Each project entry supports:
       'path'         - local folder path (loads metadata from TITLE.txt etc.)
-      'type'         - 'wasm' | 'gallery' | 'thumbnail' (default: thumbnail)
+      'type'         - 'wasm' | 'gallery' | 'thumbnail' | 'big_thumbnail' (default: thumbnail)
       'url'          - override link URL
       'images_dir'   - (gallery) directory of images relative to web root
       'pattern'      - (gallery) glob pattern for images
-      'iframe_width' - (wasm) iframe width in px, default 516
-      'iframe_height'- (wasm) iframe height in px, default 810
+      'width' - (wasm) iframe width in px, default 516
+      'height'- (wasm) iframe height in px, default 810
+
+    thumbnail type:
+      Uses thumbnail.* (or thumb.*) found in 'path' folder and links to the project.
+    big_thumbnail type:
+      Uses thumbnail.jpg (or .jpeg/.png) from 'path' folder as a hyperlink.
+      'width'  - (big_thumbnail) image width in px (optional)
+      'height' - (big_thumbnail) image height in px (optional)
 ********************/
 
 $projects = [
@@ -22,15 +29,21 @@ $projects = [
     ],
     [
         'path'         => '2026/astros',
-        'type'         => 'wasm',
-        'iframe_width' => 516,
-        'iframe_height'=> 810,
+        'type'         => 'big_thumbnail',
+        'width' => 430,
+        'height'=> 720,
     ],
+    // [
+    //     'path'         => '2026/astros',
+    //     'type'         => 'wasm',
+    //     'width' => 516,
+    //     'height'=> 810,
+    // ],
     // [
     //     'path'         => '2026/weaver2',
     //     'type'         => 'wasm',
-    //     'iframe_width' => 516,
-    //     'iframe_height'=> 810,
+    //     'width' => 516,
+    //     'height'=> 810,
     // ],
     // [
     //     'path'         => '2025/hybrids',
@@ -58,8 +71,8 @@ include("menu.php");
             <div class="item-image" style="filter: drop-shadow(10px 10px 10px #777);">
 
                 <?php if ($type === 'wasm'):
-                    $iw = $project['iframe_width']  ?? 516;
-                    $ih = $project['iframe_height'] ?? 810;
+                    $iw = $project['width']  ?? 516;
+                    $ih = $project['height'] ?? 810;
                 ?>
                     <iframe
                         src="<?php echo htmlspecialchars($link); ?>?embed=1"
@@ -80,7 +93,7 @@ include("menu.php");
                     ]); ?>
                     </a>
 
-                <?php else: /* thumbnail fallback */ ?>
+                <?php elseif ($type === 'thumbnail'): /* explicit thumbnail type */ ?>
                     <a href="<?php echo htmlspecialchars($link); ?>">
                     <?php if ($meta['thumb']): ?>
                         <?php if (str_ends_with($meta['thumb'], '.webm')): ?>
@@ -94,6 +107,34 @@ include("menu.php");
                         <?php endif; ?>
                     <?php endif; ?>
                     </a>
+
+                <?php elseif ($type === 'big_thumbnail'): ?>
+                    <?php
+                        $bt_src = null;
+                        $bt_base = rtrim($project['path'], '/');
+                        foreach (['thumbnail.jpg', 'thumbnail.jpeg', 'thumbnail.png'] as $_tf) {
+                            if (file_exists($bt_base . '/' . $_tf)) {
+                                $bt_src = $bt_base . '/' . $_tf;
+                                break;
+                            }
+                        }
+                        $bt_w = $project['width']  ?? null;
+                        $bt_h = $project['height'] ?? null;
+                        $bt_style = '';
+                        if ($bt_w) $bt_style .= 'width:' . (int)$bt_w . 'px;';
+                        if ($bt_h) $bt_style .= 'height:' . (int)$bt_h . 'px;';
+                        if ($bt_style) $bt_style .= 'object-fit:cover;';
+                    ?>
+                    <?php if ($bt_src): ?>
+                    <a href="<?php echo htmlspecialchars($link); ?>">
+                        <img class="photoTh" loading="lazy"
+                            src="<?php echo htmlspecialchars($bt_src); ?>"
+                            alt="<?php echo htmlspecialchars($meta['title']); ?>"
+                            <?php if ($bt_style): ?>style="<?php echo $bt_style; ?>"<?php endif; ?>/>
+                    </a>
+                    <?php endif; ?>
+
+                <?php else: /* unknown type – no visual output */ ?>
 
                 <?php endif; ?>
 

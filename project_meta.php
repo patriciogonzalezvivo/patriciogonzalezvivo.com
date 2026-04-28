@@ -233,6 +233,18 @@ function set_random_og_image($projects, $root_path = '.') {
             }
         }
 
+        // big_thumbnail type: use thumbnail.jpg from the project folder specifically
+        if (($project['type'] ?? '') === 'big_thumbnail') {
+            $proj_fs = rtrim($root_path, '/') . '/' . $project['path'];
+            foreach (['thumbnail.jpg', 'thumbnail.jpeg', 'thumbnail.png'] as $_tf) {
+                if (file_exists($proj_fs . '/' . $_tf)) {
+                    $candidates[] = $project['path'] . '/' . $_tf;
+                    break;
+                }
+            }
+            continue;
+        }
+
         // Auto-detect from the project folder
         $meta = get_project_meta($project['path'], rtrim($root_path, '/') . '/');
         $thumb = $meta['thumb'] ?? null;
