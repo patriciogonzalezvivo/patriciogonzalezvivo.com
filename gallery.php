@@ -212,10 +212,10 @@ function render_gallery_item($artwork) {
         $html .= '</div>';
     }
     
-    // Sold marker inside artwork-info
-    if ($is_sold) {
-        $html .= '<div class="sold-marker"></div>';
-    }
+    // // Sold marker inside artwork-info
+    // if ($is_sold) {
+    //     $html .= '<div class="sold-marker"></div>';
+    // }
     
     $html .= '</div>'; // .artwork-info
     $html .= '</div>'; // .painting-item
@@ -292,16 +292,16 @@ function render_gallery_modal() {
     <div class="fullscreen-content">
         <img class="fullscreen-image" src="" alt="Artwork">
         <div class="fullscreen-info">
-            <span class="fullscreen-title"></span><span class="fullscreen-year"></span>
+            <span class="fullscreen-title"></span>, <span class="fullscreen-year"></span>
             <span class="fullscreen-medium"></span>
             <span class="fullscreen-dimensions"></span>
             <div class="fullscreen-buttons">
                 <a class="artwork-btn buy-print-btn fullscreen-buy-print" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Buy Print</a>
-                <a class="artwork-btn buy-btn fullscreen-buy" href="#" style="display:none;">Buy</a>
+                <a class="artwork-btn buy-btn fullscreen-buy" href="#" style="display:none;">Acquire Original</a>
             </div>
         </div>
     </div>
-    <div class="sold-marker-fullscreen"></div>
+    <!-- <div class="sold-marker-fullscreen"></div> -->
     <div class="fullscreen-nav">
         <button class="view-button" data-view="main">Main</button>
         <button class="view-button" data-view="detail" style="display:none;">Detail</button>

@@ -158,7 +158,7 @@ include("menu.php");
     </div><!-- end flex row -->
 
     <div style="text-align: center; margin: 2em 0;">
-        <a href="works.php" class="archive-btn">Continue looking the Archive</a>
+        <a href="works.php" class="archive-btn">More Projects</a>
     </div>
 
 <?php include("footer.php"); ?>

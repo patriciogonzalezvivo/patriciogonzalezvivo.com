@@ -1,16 +1,17 @@
 <?php include("header.php"); ?>
 <?php include("menu.php"); ?>
 
-	<img src="/images/about.jpg" alt="Patricio Gonzalez Vivo">
+	<!-- <img src="/images/about.jpg" alt="Patricio Gonzalez Vivo"> -->
 
 	<div id="longer-info">
+		<img src="/images/about_thin.jpg" alt="Patricio Gonzalez Vivo" style="float: right; max-width: 300px; width: 40%; margin: 0 0 1em 1.5em;">
 		<?php
 			include("parsedown/Parsedown.php");
 			$Parsedown = new Parsedown();
 			echo $Parsedown->text(file_get_contents ('README.md'));
 
 			// Add
-			echo $Parsedown->text("[Collect](https://objkt.com/users/tz1NqueFctvNCQrsELm6k4N6XfwAYu5Qp5LN) | [Contact](mailto:patriciogonzalezvivo@gmail.com)");
+			echo $Parsedown->text("[Contact](mailto:patriciogonzalezvivo@gmail.com)");
 
 			echo $Parsedown->text(file_get_contents ('talks.md'));
 			echo $Parsedown->text(file_get_contents ('exhibitions.md'));
