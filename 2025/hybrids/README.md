@@ -14,4 +14,4 @@ Once this cartography is laid down, I return to it with oils and brushes. Freed 
 
 ![](process.png)
 
-This series of paintings are hybrid, made by machines and my own hands, yet the authorship remains unified. Both the code and the gestures are created by my singular vision. These works do not seek to replicate reality, but to evoke it through a complementary dialogue between systems, materials, and ways of seeing.
+This series of paintings are hybrid, made by machines and my own hands, yet the authorship remains unified. I create both the code and the gestures. These works do not seek to replicate reality, but to evoke it through a complementary dialogue between systems, materials, and ways of seeing.

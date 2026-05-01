@@ -39,12 +39,14 @@ $projects = [
     //     'width' => 516,
     //     'height'=> 810,
     // ],
-    // [
-    //     'path'         => '2026/weaver2',
-    //     'type'         => 'wasm',
-    //     'width' => 516,
-    //     'height'=> 810,
-    // ],
+    [
+        'path'         => '2026/weaver2',
+        'type'         => 'big_thumbnail',
+        // 'type'         => 'wasm',
+        'width' => 516,
+        'height'=> 810,
+    ],
+
     [
         'path'         => '2025/hybrids',
         'type'         => 'gallery',
