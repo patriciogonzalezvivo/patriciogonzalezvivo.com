@@ -32,19 +32,17 @@ $projects = [
         'type'         => 'big_thumbnail',
         'width' => 320,
         'height'=> 540,
-    ],
-    // [
-    //     'path'         => '2026/astros',
-    //     'type'         => 'wasm',
-    //     'width' => 516,
-    //     'height'=> 810,
-    // ],
+        // 'type'         => 'wasm',
+        // 'width' => 516,
+        // 'height'=> 810,
     [
         'path'         => '2026/weaver2',
         'type'         => 'big_thumbnail',
+        'width' => 320,
+        'height'=> 540,
         // 'type'         => 'wasm',
-        'width' => 516,
-        'height'=> 810,
+        // 'width' => 516,
+        // 'height'=> 810,
     ],
 
     [
