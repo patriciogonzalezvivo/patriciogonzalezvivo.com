@@ -35,6 +35,8 @@ $projects = [
         // 'type'         => 'wasm',
         // 'width' => 516,
         // 'height'=> 810,
+    ],
+    
     [
         'path'         => '2026/weaver2',
         'type'         => 'big_thumbnail',
