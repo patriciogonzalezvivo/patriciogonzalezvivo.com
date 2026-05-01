@@ -22,13 +22,23 @@ include_once("slideSet.php");
 
 $projects = [
     [
+        'path'         => '2026/astros',
+        'type'         => 'big_thumbnail',
+        'width' => 320,
+        'height'=> 540,
+        // 'type'         => 'wasm',
+        // 'width' => 516,
+        // 'height'=> 810,
+    ],
+    [
         'path'         => '2026/santos',
         'type'         => 'gallery',
         'images_dir'   => '2026/santos/images/thumbnails',
         'pattern'      => 'DSF*.{jpg,jpeg,png,gif}',
     ],
+    
     [
-        'path'         => '2026/astros',
+        'path'         => '2026/weaver2',
         'type'         => 'big_thumbnail',
         'width' => 320,
         'height'=> 540,
@@ -41,16 +51,6 @@ $projects = [
         'type'         => 'gallery',
         'images_dir'   => '2025/hybrids/images',
         'pattern'      => '_DSF*.{jpg,jpeg,png,gif}',
-    ],
-    
-    [
-        'path'         => '2026/weaver2',
-        'type'         => 'big_thumbnail',
-        'width' => 320,
-        'height'=> 540,
-        // 'type'         => 'wasm',
-        // 'width' => 516,
-        // 'height'=> 810,
     ],
 
 ];
