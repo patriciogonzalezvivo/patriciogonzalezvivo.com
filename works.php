@@ -18,7 +18,7 @@ include("project_meta.php");
         ['path' => '2026/weaver2'],
         ['path' => '2025/hybrids'],
         // ['path' => '2025/weaver'],
-        ['path' => '2025/gestures'],
+        // ['path' => '2025/gestures'],
         ['path' => '2023/blink'],
         ['path' => '2022/time'],
         ['path' => '2021/memory'],
