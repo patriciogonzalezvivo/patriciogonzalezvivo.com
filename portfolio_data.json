@@ -6,12 +6,14 @@
     "website": "patriciogonzalezvivo.com",
     "website_url": "https://patriciogonzalezvivo.com",
     "logo": "images/logo-gray.png",
-    "bio_file": "README.md"
+    "bio_file": "README.md",
+    "avatar_file": "images/about_thin.jpg"
   },
 
   "projects": [
     "2026/santos",
     "2026/astros",
+    "2026/weaver2",
     "2025/hybrids"
   ]
 }

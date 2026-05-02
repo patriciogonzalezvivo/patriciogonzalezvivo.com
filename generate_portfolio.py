@@ -19,8 +19,9 @@ import argparse
 import subprocess
 import shutil
 import re
+import struct
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 
 class PortfolioGenerator:
     def __init__(self, base_path: str = "."):
@@ -127,15 +128,25 @@ class PortfolioGenerator:
         return ''.join(result)
 
     def find_project_images(self, project_path: Path) -> List[str]:
-        """Find all images in the project's images/ subdirectory (no thumb, no gif)."""
-        images_dir = project_path / 'images'
-        if not images_dir.exists():
-            return []
+        """Find all images in the project's images/ subdirectory (no thumb, no gif).
 
+        Falls back to thumbnail.jpg/jpeg/png in the project root when images/ is
+        absent or empty — this covers wasm projects that only ship a thumbnail."""
+        images_dir = project_path / 'images'
         images = []
-        for img in sorted(images_dir.iterdir()):
-            if img.suffix.lower() in ('.jpg', '.jpeg', '.png') and 'thumb' not in img.name.lower():
-                images.append(str(img.relative_to(self.base_path)))
+        if images_dir.exists():
+            for img in sorted(images_dir.iterdir()):
+                if img.suffix.lower() in ('.jpg', '.jpeg', '.png') and 'thumb' not in img.name.lower():
+                    images.append(str(img.relative_to(self.base_path)))
+
+        # Fallback: use root thumbnail when no images found in images/
+        if not images:
+            for tf in ['thumbnail.jpg', 'thumbnail.jpeg', 'thumbnail.png']:
+                tf_path = project_path / tf
+                if tf_path.exists():
+                    images.append(str(tf_path.relative_to(self.base_path)))
+                    break
+
         return images
 
     def find_project_svgs(self, project_path: Path) -> List[str]:
@@ -148,6 +159,107 @@ class PortfolioGenerator:
             if svg.suffix.lower() == '.svg':
                 svgs.append(str(svg.absolute()))
         return svgs
+
+    def get_image_dimensions(self, img_path: str) -> Tuple[int, int]:
+        """Return (width, height) for a JPEG or PNG image, or (0, 0) on failure."""
+        full_path = self.base_path / img_path
+        try:
+            with open(full_path, 'rb') as f:
+                header = f.read(26)
+            # PNG: 8-byte signature + IHDR (4 len + 4 type + 4 w + 4 h)
+            if header[:8] == b'\x89PNG\r\n\x1a\n':
+                w = struct.unpack('>I', header[16:20])[0]
+                h = struct.unpack('>I', header[20:24])[0]
+                return (w, h)
+            # JPEG: scan for SOF marker
+            with open(full_path, 'rb') as f:
+                data = f.read()
+            i = 0
+            while i < len(data) - 1:
+                if data[i] != 0xFF:
+                    i += 1
+                    continue
+                marker = data[i + 1]
+                if marker in (0xC0, 0xC1, 0xC2, 0xC3):
+                    h = struct.unpack('>H', data[i + 5:i + 7])[0]
+                    w = struct.unpack('>H', data[i + 7:i + 9])[0]
+                    return (w, h)
+                if marker in (0xD8, 0xD9, 0x01) or (0xD0 <= marker <= 0xD7):
+                    i += 2
+                else:
+                    if i + 4 > len(data):
+                        break
+                    length = struct.unpack('>H', data[i + 2:i + 4])[0]
+                    i += 2 + length
+        except Exception:
+            pass
+        return (0, 0)
+
+    def parse_image_sidecar_meta(self, img_path: str) -> dict:
+        """Parse structured key:value sidecar .txt for an image."""
+        txt_file = (self.base_path / img_path).with_suffix('.txt')
+        result = {}
+        if txt_file.exists():
+            for line in txt_file.read_text().strip().splitlines():
+                if ':' in line:
+                    key, _, value = line.partition(':')
+                    key = key.strip().lower()
+                    value = value.strip()
+                    if key in ('title', 'year', 'medium', 'dimension', 'dimensions'):
+                        result[key] = value
+        return result
+
+    def _build_render_plan(self, images: List[str]) -> List[tuple]:
+        """Classify images into portrait groups of 3 per page and individuals.
+
+        Collects the full consecutive run of portrait images sharing the same
+        medium + dimensions, then divides into groups of 3.  A remainder of 1
+        or 2 images (which cannot fill a group) falls back to individual pages
+        with the old alternating left/right layout.
+
+        Returns a list of:
+          ('group', [(img_path, meta_dict), ...])  – exactly 3 portrait images
+          ('individual', img_path)                 – everything else
+        """
+        plan = []
+        i = 0
+        while i < len(images):
+            img = images[i]
+            w, h = self.get_image_dimensions(img)
+            if h > w > 0:
+                meta = self.parse_image_sidecar_meta(img)
+                medium = meta.get('medium', '')
+                dims   = meta.get('dimensions') or meta.get('dimension', '')
+                if medium or dims:
+                    # Collect the full consecutive run with same medium+dims
+                    run: List[Tuple[str, dict]] = [(img, meta)]
+                    j = i + 1
+                    while j < len(images):
+                        img2 = images[j]
+                        w2, h2 = self.get_image_dimensions(img2)
+                        if h2 > w2 > 0:
+                            meta2 = self.parse_image_sidecar_meta(img2)
+                            med2  = meta2.get('medium', '')
+                            dims2 = meta2.get('dimensions') or meta2.get('dimension', '')
+                            if med2 == medium and dims2 == dims:
+                                run.append((img2, meta2))
+                                j += 1
+                            else:
+                                break
+                        else:
+                            break
+                    if len(run) >= 3:
+                        # Full groups of 3; remainder of 1 or 2 → individual
+                        n_groups = len(run) // 3
+                        for g in range(n_groups):
+                            plan.append(('group', run[g * 3:(g + 1) * 3]))
+                        for img_path, _ in run[n_groups * 3:]:
+                            plan.append(('individual', img_path))
+                        i = j
+                        continue
+            plan.append(('individual', img))
+            i += 1
+        return plan
 
     def get_image_caption(self, img_path: str, align_right: bool = False) -> str:
         """Return a formatted LaTeX caption from a same-name .txt sidecar file.
@@ -186,7 +298,7 @@ class PortfolioGenerator:
         if not parsed:
             # Fallback: plain multi-line text
             escaped_lines = [self.escape_latex(ln) for ln in raw.splitlines()]
-            return "\\\\\n".join(escaped_lines)
+            return "{\\setstretch{1.0}" + "\\\\\n".join(escaped_lines) + "}"
 
         align_cmd = "\\raggedleft" if align_right else "\\raggedright"
 
@@ -215,7 +327,7 @@ class PortfolioGenerator:
         if not caption_lines:
             return ""
 
-        return align_cmd + "\n" + "\\\\\n".join(caption_lines)
+        return "{\\setstretch{1.0}" + align_cmd + "\n" + "\\\\\n".join(caption_lines) + "}"
     
     def escape_latex(self, text: str) -> str:
         """Escape special LaTeX characters"""
@@ -433,53 +545,101 @@ class PortfolioGenerator:
             # All images go into the alternating pages
             additional_images = images
 
-        # ── Additional images (one per page) ────────────────────────────────
-        # idx=0 → image LEFT, idx=1 → image RIGHT, idx=2 → LEFT, …
-        for idx, img_path in enumerate(additional_images):
-            latex += "\\clearpage\n"
-            image_on_right = (idx % 2 == 1)
-            # caption left  → align_right=True ; caption right → align_right=False
-            caption = self.get_image_caption(img_path, align_right=image_on_right)
-            h = "0.85\\textheight"
-            img_line = (f"\\includegraphics[width=\\linewidth,"
-                        f"height={h},keepaspectratio]{{{img_path}}}\n")
+        # ── Additional images: portrait-group pages + individual pages ──────
+        render_plan = self._build_render_plan(additional_images)
+        indiv_idx = 0   # counter for alternating left/right on individual images
 
-            if caption:
-                # Fixed-height minipages: outer [t] so tops start at page top,
-                # inner [b] so content (image/caption) is pinned to the bottom.
-                if image_on_right:
-                    # caption bottom-left, image bottom-right
+        for entry in render_plan:
+            kind = entry[0]
+
+            if kind == 'group':
+                group = entry[1]  # list of (img_path, meta_dict)
+                n = len(group)
+                # Image width fraction: share textwidth evenly across n images
+                img_frac = {2: '0.47', 3: '0.31', 4: '0.235'}.get(n, '0.235')
+                img_h    = '0.78\\textheight'
+
+                latex += "\\clearpage\n"
+                latex += "\\noindent\n"
+                for k, (img_path, _meta) in enumerate(group):
                     latex += (
-                        "\\noindent\n"
-                        f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
-                        f"  {caption}\n"
-                        "\\end{minipage}\n"
-                        "\\hfill\n"
-                        f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
-                        f"  {img_line}"
-                        "\\end{minipage}\n\n"
+                        f"\\begin{{minipage}}[b]{{{img_frac}\\textwidth}}\n"
+                        f"  \\includegraphics[width=\\linewidth,height={img_h},keepaspectratio]{{{img_path}}}\n"
+                        f"\\end{{minipage}}"
                     )
-                else:
-                    # image bottom-left, caption bottom-right
-                    latex += (
-                        "\\noindent\n"
-                        f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
-                        f"  \\hfill{img_line}"
-                        "\\end{minipage}\n"
-                        "\\hfill\n"
-                        f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
-                        f"  {caption}\n"
-                        "\\end{minipage}\n\n"
-                    )
-            else:
-                # No caption: image fills the full text area for maximum height
-                latex += (
-                    "\\noindent\n"
-                    f"\\begin{{minipage}}[t][{h}][c]{{\\textwidth}}\n"
-                    "  \\centering\n"
-                    f"  \\includegraphics[width=\\linewidth,height={h},keepaspectratio]{{{img_path}}}\n"
-                    "\\end{minipage}\n\n"
+                    if k < n - 1:
+                        latex += "\\hfill\n"
+                    else:
+                        latex += "\n"
+
+                # Caption: titles+years on one line, then medium, then dimensions
+                title_parts = []
+                for _img, m in group:
+                    t = self.escape_latex(m.get('title', ''))
+                    y = self.escape_latex(m.get('year', ''))
+                    if t and y:
+                        title_parts.append(f"\\textit{{{t}}} ({y})")
+                    elif t:
+                        title_parts.append(f"\\textit{{{t}}}")
+
+                first_meta = group[0][1]
+                common_medium = self.escape_latex(first_meta.get('medium', ''))
+                common_dims   = self.escape_latex(
+                    first_meta.get('dimensions') or first_meta.get('dimension', '')
                 )
+
+                latex += "\n\\vspace{0.6em}\n\\noindent\n"
+                latex += "{\\setstretch{1.0}\\raggedright\n"
+                if title_parts:
+                    latex += ", ".join(title_parts) + "\\\\\n"
+                if common_medium:
+                    latex += common_medium + "\\\\\n"
+                if common_dims:
+                    latex += common_dims + "\n"
+                latex += "}\n"
+
+            else:  # 'individual'
+                img_path = entry[1]
+                latex += "\\clearpage\n"
+                image_on_right = (indiv_idx % 2 == 1)
+                indiv_idx += 1
+                # caption left  → align_right=True ; caption right → align_right=False
+                caption = self.get_image_caption(img_path, align_right=image_on_right)
+                h = "0.85\\textheight"
+                img_line = (f"\\includegraphics[width=\\linewidth,"
+                            f"height={h},keepaspectratio]{{{img_path}}}\n")
+
+                if caption:
+                    if image_on_right:
+                        latex += (
+                            "\\noindent\n"
+                            f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
+                            f"  {caption}\n"
+                            "\\end{minipage}\n"
+                            "\\hfill\n"
+                            f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
+                            f"  {img_line}"
+                            "\\end{minipage}\n\n"
+                        )
+                    else:
+                        latex += (
+                            "\\noindent\n"
+                            f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
+                            f"  \\hfill{img_line}"
+                            "\\end{minipage}\n"
+                            "\\hfill\n"
+                            f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
+                            f"  {caption}\n"
+                            "\\end{minipage}\n\n"
+                        )
+                else:
+                    latex += (
+                        "\\noindent\n"
+                        f"\\begin{{minipage}}[t][{h}][c]{{\\textwidth}}\n"
+                        "  \\centering\n"
+                        f"  \\includegraphics[width=\\linewidth,height={h},keepaspectratio]{{{img_path}}}\n"
+                        "\\end{minipage}\n\n"
+                    )
 
         return latex
 
@@ -621,9 +781,21 @@ class PortfolioGenerator:
         if bio_path_str:
             bio_path = self.base_path / bio_path_str
             if bio_path.exists():
-                bio = self.markdown_to_latex(
+                bio_text = self.markdown_to_latex(
                     self.extract_text_from_markdown(bio_path.read_text())
                 )
+                avatar_file = artist.get('avatar_file', '')
+                if bio_text and avatar_file and (self.base_path / avatar_file).exists():
+                    bio = (
+                        "\\begin{wrapfigure}{r}{0.35\\textwidth}\n"
+                        "  \\vspace{-10pt}\n"
+                        f"  \\includegraphics[width=\\linewidth]{{{avatar_file}}}\n"
+                        "  \\vspace{-20pt}\n"
+                        "\\end{wrapfigure}\n\n"
+                        + bio_text
+                    )
+                else:
+                    bio = bio_text
 
         website = artist.get('website', '')
         website_url = artist.get('website_url', f'https://{website}' if website else '')
