@@ -13,9 +13,14 @@ If there is a creator who invites us into existence as co-creators, then this li
 <a href="https://www.patriciogonzalezvivo.com/2025/hybrids/">
 <div class="spacer" style="display:flex; gap:0.5em;">
     <img src="baldwin_000_original_aligned.jpg" style="width:33%; height:auto;">
-    <img src="baldwin_000_svg_raster.png" style="width:33%; height:auto;">
+    <img src="baldwin_000_svg_raster.jpg" style="width:33%; height:auto;">
     <img src="baldwin_000_aligned.jpg" style="width:33%; height:auto;">
 </div>
 </a>
 
 Technically, these portraits represent the next step in an [experimental process I began with Hybrids](../../2025/hybrids/). A practice that brings together the forces of machine and hand, code and gesture, the objective, and the subjective. Like their subjects, the works exist as syntheses: of the material and the immaterial, the earthly and the cosmic, the known and the intuited. They stand as reflections on creativity’s enduring capacity to transcend boundaries and connect us to something beyond ourselves.
+
+<div class="spacer" style="display:flex; gap:0.5em;">
+    <img src="baldwin_000_masked.png" style="width:50%; height:auto;">
+    <img src="baldwin_000_chart.jpg" style="width:50%; height:auto;">
+</div>
