@@ -6,8 +6,6 @@ That ethos of service extended into my family’s expectations. Professions such
 
 This series of portraits emerges from a personal search for an alternative lineage, one composed of figures whose service to humanity is enacted through creation. These are individuals committed to the discipline of imagination, capable of translating the invisible into form, and of reshaping the world through beauty, wonder, and possibility.
 
-We inhabit the worlds they have helped to build. Their work compels us, awakens us, and draws us beyond the inertia of the obvious. They expand perception, inviting us into deeper forms of attention and consciousness.
-
 If there is a creator who invites us into existence as co-creators, then this lineage of artists stands as a kind of secular sainthood. They are not exemplars of moral virtue in the traditional sense, but they are, for me, figures of devotion, visionaries with whom I seek communion and dialogue.
 
 <a href="https://www.patriciogonzalezvivo.com/2025/hybrids/">
@@ -18,7 +16,7 @@ If there is a creator who invites us into existence as co-creators, then this li
 </div>
 </a>
 
-Technically, these portraits represent the next step in an [experimental process I began with Hybrids](../../2025/hybrids/). A practice that brings together the forces of machine and hand, code and gesture, the objective, and the subjective. Like their subjects, the works exist as syntheses: of the material and the immaterial, the earthly and the cosmic, the known and the intuited. They stand as reflections on creativity’s enduring capacity to transcend boundaries and connect us to something beyond ourselves.
+Technically, these portraits represent the next step in an [experimental process I began with Hybrids](../../2025/hybrids/). My process brings together the forces of machine and hand, code and gesture. Like their subjects, the works exist as syntheses: of the material and the immaterial, the earthly and the cosmic, the known and the intuited. They stand as reflections on creativity’s enduring capacity to transcend boundaries and connect us to something beyond ourselves.
 
 <div class="spacer" style="display:flex; gap:0.5em;">
     <img src="baldwin_000_masked.png" style="width:50%; height:auto;">
