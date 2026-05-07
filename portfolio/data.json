@@ -11,8 +11,7 @@
   },
 
   "projects": [
-    { "path": "2026/santos",  "images_per_page": 3 },
-    { "path": "2026/astros",  "images_per_page": 2 },
-    { "path": "2026/weaver2", "images_per_page": 3 }
+    { "path": "2026/santos",  "images_per_page": 1 },
+    { "path": "2026/weaver2", "images_per_page": 1 }
   ]
 }

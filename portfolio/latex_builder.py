@@ -71,6 +71,7 @@ def build_caption(img_path: str, base_path: Path, align_right: bool = False) -> 
         A LaTeX snippet ready to be dropped inside a ``minipage``, or an
         empty string when no sidecar exists.
     """
+
     txt_file = (base_path / img_path).with_suffix('.txt')
     if not txt_file.exists():
         return ""
@@ -80,8 +81,18 @@ def build_caption(img_path: str, base_path: Path, align_right: bool = False) -> 
 
     if not parsed:
         # Unstructured file — render each line verbatim
-        lines = [escape_latex(ln) for ln in raw.splitlines()]
-        return "{\\setstretch{1.0}\\selectfont " + "\\\\\n".join(lines) + "}"
+        lines = [escape_latex(ln) for ln in raw.splitlines() if ln.strip()]
+        if not lines:
+            return ""
+        tab_col = "r" if align_right else "l"
+        prefix  = "\\hfill" if align_right else ""
+        rows    = "\\\\\n".join(lines)
+        return (
+            f"{prefix}{{\\renewcommand{{\\arraystretch}}{{1.0}}\\setstretch{{1.0}}\\selectfont\n"
+            f"\\begin{{tabular}}[b]{{@{{}}{tab_col}@{{}}}}\n"
+            + rows + "\n"
+            "\\end{tabular}}"
+        )
 
     align_cmd     = "\\raggedleft" if align_right else "\\raggedright"
     caption_lines = []
@@ -110,8 +121,18 @@ def build_caption(img_path: str, base_path: Path, align_right: bool = False) -> 
     if not caption_lines:
         return ""
 
-    body = "\\\\\n".join(caption_lines)
-    return f"{{\\setstretch{{1.0}}\\selectfont {align_cmd}\n{body}}}"
+    # Use a tabular so row spacing is not affected by the parskip package.
+    # \\[0pt] in a paragraph is overridden by parskip's \everypar hooks;
+    # tabular rows have no paragraphs and therefore no parskip interference.
+    tab_col = "r" if align_right else "l"
+    prefix  = "\\hfill" if align_right else ""
+    rows    = "\\\\\n".join(caption_lines)
+    return (
+        f"{prefix}{{\\renewcommand{{\\arraystretch}}{{1.0}}\\setstretch{{1.0}}\\selectfont\n"
+        f"\\begin{{tabular}}[b]{{@{{}}{tab_col}@{{}}}}\n"
+        + rows + "\n"
+        "\\end{tabular}}"
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -173,10 +194,11 @@ def build_artwork_pages(project: Dict, base_path: Path) -> str:
             latex += desc + "\n"
         latex += "\\end{minipage}\n"
         latex += "\\hfill\n"
+
         # Right column: image, bottom-aligned
         latex += f"\\begin{{minipage}}[t][{col_h}][b]{{0.44\\textwidth}}\n"
-        latex += f"\\includegraphics[width=\\linewidth,height=0.85\\textheight,keepaspectratio]{{{first_img}}}\n"
-        latex += "\\end{minipage}\n\n"
+        latex += f"\\includegraphics[width=\\linewidth,height={col_h},keepaspectratio]{{{first_img}}}\n"
+        latex += "\\end{minipage}%\n"
 
         additional_images = images[1:]
     else:
@@ -220,7 +242,7 @@ def _build_group_page(group: List) -> str:
     img_frac = {2: '0.47', 3: '0.31', 4: '0.235'}.get(n, '0.235')
     img_h    = '0.78\\textheight'
 
-    latex  = "\\clearpage\n\\noindent\n"
+    latex  = "\\clearpage\n{\\setlength{\\parskip}{0pt}%\n\\noindent\n"
 
     # Images side-by-side
     for k, (img_path, _meta) in enumerate(group):
@@ -247,16 +269,24 @@ def _build_group_page(group: List) -> str:
         first_meta.get('dimensions') or first_meta.get('dimension', '')
     )
 
-    latex += "\n\\vspace{0.6em}\n\\noindent\n"
-    latex += "{\\setstretch{1.0}\\selectfont\\raggedright\n"
+    group_caption_lines = []
     if title_parts:
-        latex += ", ".join(title_parts) + "\\\\\n"
+        group_caption_lines.append(", ".join(title_parts))
     if common_medium:
-        latex += common_medium + "\\\\\n"
+        group_caption_lines.append(common_medium)
     if common_dims:
-        latex += common_dims + "\n"
-    latex += "}\n"
+        group_caption_lines.append(common_dims)
 
+    if group_caption_lines:
+        rows = "\\\\\n".join(group_caption_lines)
+        latex += (
+            "\n\\vspace{0.6em}\n\\noindent\n"
+            "{\\renewcommand{\\arraystretch}{1.0}\\setstretch{1.0}\\selectfont\n"
+            "\\begin{tabular}[b]{@{}l@{}}\n"
+            + rows + "\n"
+            "\\end{tabular}}\n"
+        )
+    latex += "}%\n"  # close \parskip=0 group
     return latex
 
 
@@ -282,13 +312,15 @@ def _build_individual_page(img_path: str, base_path: Path, index: int) -> str:
     # align_right=True means caption text is right-aligned (used when caption
     # is on the left side, i.e. image is on the right).
     caption = build_caption(img_path, base_path, align_right=image_on_right)
-    h       = "0.85\\textheight"
+    # Use the full text-body height so images fill the page.
+    # \textheight already excludes the header; keepaspectratio prevents distortion.
+    h       = "\\textheight"
     img_line = (
         f"\\includegraphics[width=\\linewidth,"
         f"height={h},keepaspectratio]{{{img_path}}}\n"
     )
 
-    latex = "\\clearpage\n"
+    latex = "\\clearpage\n{\\setlength{\\parskip}{0pt}%\n"
 
     if caption:
         if image_on_right:
@@ -301,7 +333,7 @@ def _build_individual_page(img_path: str, base_path: Path, index: int) -> str:
                 "\\hfill\n"
                 f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
                 f"  {img_line}"
-                "\\end{minipage}\n\n"
+                "\\end{minipage}%\n"
             )
         else:
             # Image left, caption right
@@ -313,7 +345,7 @@ def _build_individual_page(img_path: str, base_path: Path, index: int) -> str:
                 "\\hfill\n"
                 f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
                 f"  {caption}\n"
-                "\\end{minipage}\n\n"
+                "\\end{minipage}%\n"
             )
     else:
         # No caption — full-width centred image
@@ -322,9 +354,10 @@ def _build_individual_page(img_path: str, base_path: Path, index: int) -> str:
             f"\\begin{{minipage}}[t][{h}][c]{{\\textwidth}}\n"
             "  \\centering\n"
             f"  \\includegraphics[width=\\linewidth,height={h},keepaspectratio]{{{img_path}}}\n"
-            "\\end{minipage}\n\n"
+            "\\end{minipage}%\n"
         )
 
+    latex += "}%\n"  # close \parskip=0 group
     return latex
 
 
