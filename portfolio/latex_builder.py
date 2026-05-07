@@ -327,11 +327,11 @@ def _build_individual_page(img_path: str, base_path: Path, index: int) -> str:
             # Caption left, image right
             latex += (
                 "\\noindent\n"
-                f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
+                f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
                 f"  {caption}\n"
                 "\\end{minipage}\n"
                 "\\hfill\n"
-                f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
+                f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
                 f"  {img_line}"
                 "\\end{minipage}%\n"
             )
@@ -339,11 +339,11 @@ def _build_individual_page(img_path: str, base_path: Path, index: int) -> str:
             # Image left, caption right
             latex += (
                 "\\noindent\n"
-                f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
+                f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
                 f"  \\hfill{img_line}"
                 "\\end{minipage}\n"
                 "\\hfill\n"
-                f"\\begin{{minipage}}[t][{h}][b]{{0.48\\textwidth}}\n"
+                f"\\begin{{minipage}}[b][{h}][b]{{0.48\\textwidth}}\n"
                 f"  {caption}\n"
                 "\\end{minipage}%\n"
             )
@@ -351,7 +351,7 @@ def _build_individual_page(img_path: str, base_path: Path, index: int) -> str:
         # No caption — full-width centred image
         latex += (
             "\\noindent\n"
-            f"\\begin{{minipage}}[t][{h}][c]{{\\textwidth}}\n"
+            f"\\begin{{minipage}}[b][{h}][c]{{\\textwidth}}\n"
             "  \\centering\n"
             f"  \\includegraphics[width=\\linewidth,height={h},keepaspectratio]{{{img_path}}}\n"
             "\\end{minipage}%\n"
