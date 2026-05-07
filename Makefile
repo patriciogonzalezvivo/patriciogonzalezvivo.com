@@ -1,5 +1,5 @@
 portfolio:
-	python generate_portfolio.py -t portfolio_template.tex -d portfolio_data.json -o portfolio.pdf && open portfolio.pdf && open portfolio.pdf
+	python generate_portfolio.py -t portfolio/template.tex -d portfolio/data.json -o portfolio.pdf && xdg-open portfolio.pdf
 
 server:
 	php -S localhost:8000
