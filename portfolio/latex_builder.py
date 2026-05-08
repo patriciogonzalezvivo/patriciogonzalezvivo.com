@@ -46,10 +46,6 @@ from portfolio.metadata import readme_to_latex
 # Caption builder
 # ---------------------------------------------------------------------------
 
-# Maximum description character count that still allows an image on page 1.
-_DESC_CHAR_LIMIT = 800
-
-
 def build_caption(img_path: str, base_path: Path, align_right: bool = False) -> str:
     """Build a LaTeX caption block from a same-stem ``.txt`` sidecar file.
 
@@ -155,8 +151,12 @@ def build_artwork_pages(project: Dict, base_path: Path) -> str:
     # ------------------------------------------------------------------
     # Resolve description text
     # ------------------------------------------------------------------
-    if project.get('readme_raw'):
+    if project.get('readme_raw') and project.get('inject_svgs', True):
+        # Full README with embedded SVG figures
         desc = readme_to_latex(project['readme_raw'], base_path / project['path'])
+    elif project.get('readme_raw'):
+        # SVG injection disabled — use the pre-stripped plain text
+        desc = markdown_to_latex(project.get('about') or '')
     elif project.get('about'):
         desc = markdown_to_latex(project['about'])
     elif project.get('description'):
@@ -179,33 +179,18 @@ def build_artwork_pages(project: Dict, base_path: Path) -> str:
     latex += f"\\noindent{{\\Large\\textbf{{{title}}}}}\\hfill{{\\large {year}}}\n\n"
     latex += "\\vspace{0.3em}\\hrule\\vspace{1em}\n\n"
 
-    desc_fits = len(desc) <= _DESC_CHAR_LIMIT
-
-    if images and desc_fits:
-        first_img = images[0]
-        caption   = build_caption(first_img, base_path)
-        col_h     = "0.82\\textheight"
-
-        # Left column: description, top-aligned
-        latex += "\\noindent"
-        latex += f"\\begin{{minipage}}[t][{col_h}][t]{{0.52\\textwidth}}\n"
-        latex += "\\raggedright\n"
-        if desc:
-            latex += desc + "\n"
-        latex += "\\end{minipage}\n"
-        latex += "\\hfill\n"
-
-        # Right column: image, bottom-aligned
-        latex += f"\\begin{{minipage}}[t][{col_h}][b]{{0.44\\textwidth}}\n"
-        latex += f"\\includegraphics[width=\\linewidth,height={col_h},keepaspectratio]{{{first_img}}}\n"
-        latex += "\\end{minipage}%\n"
-
-        additional_images = images[1:]
-    else:
-        # Long description or no images: full-width text, all images additional
+    if images and len(images) == 1 and Path(images[0]).name.lower().startswith('thumbnail'):
+        # Wasm / thumbnail-only project: full-width description on page 1,
+        # thumbnail gets its own full-height page.
         if desc:
             latex += desc + "\n\n"
-        additional_images = images
+        additional_images = images[:]
+    else:
+        # All other projects: description always fills page 1; every image
+        # gets its own page so nothing is squeezed alongside the text.
+        if desc:
+            latex += desc + "\n\n"
+        additional_images = images[:]
 
     # ------------------------------------------------------------------
     # Additional image pages
@@ -516,3 +501,79 @@ def _optional_section(file_key: str, artist: Dict, base_path: Path) -> str:
 
     print(f"  + {file_key}: {filepath}")
     return f"\\clearpage\n\n{content}\n"
+
+
+# ---------------------------------------------------------------------------
+# Legacy standalone document builder (no external template)
+# ---------------------------------------------------------------------------
+
+def build_legacy_document(bio: str, projects: List[Dict], base_path: Path) -> str:
+    """Build a complete LaTeX document string without an external template.
+
+    This is the "legacy" workflow: a self-contained preamble is generated
+    in-line and project pages are appended after a biography section.
+
+    Args:
+        bio:       Plain-text or Markdown biography.
+        projects:  List of project dicts (from :mod:`portfolio.metadata`).
+        base_path: Workspace root (passed to :func:`build_artwork_pages`).
+
+    Returns:
+        A complete LaTeX document string ready to pass to xelatex.
+    """
+    preamble = r"""\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{parskip}
+% SVGs are pre-converted to PDF by the Python generator (rsvg-convert)
+\usepackage{fontspec}
+
+% Montserrat from local folder
+\setmainfont{Montserrat}[
+    Path           = montserrat/,
+    UprightFont    = *-Light,
+    BoldFont       = *-SemiBold,
+    ItalicFont     = *-LightItalic,
+    BoldItalicFont = *-SemiBoldItalic,
+    Extension      = .ttf
+]
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Patricio Gonzalez Vivo}
+\fancyhead[R]{Portfolio}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\titleformat{\section}{\Large\bfseries}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\large\bfseries}{}{0em}{}
+
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{3cm}
+    \includegraphics[width=0.15\textwidth]{images/logo-gray.png}\\[1em]
+    {\Huge\bfseries Patricio Gonzalez Vivo}\\[0.5em]
+    {\Large Portfolio}
+    \vfill
+    {\small \url{https://patriciogonzalezvivo.com}}
+    \vspace{1cm}
+\end{titlepage}
+
+\section*{Biography}
+"""
+
+    body = preamble + markdown_to_latex(bio) + "\n\n"
+    for project in projects:
+        body += build_artwork_pages(project, base_path) + "\n"
+    body += r"\end{document}" + "\n"
+    return body

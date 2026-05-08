@@ -1,0 +1,60 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{fontspec}
+\usepackage{graphicx}
+% SVGs are pre-converted to PDF by the Python generator (rsvg-convert)
+
+% Montserrat from local folder (beamer uses sans by default)
+\setsansfont{Montserrat}[
+    Path           = montserrat/,
+    UprightFont    = *-Light,
+    BoldFont       = *-SemiBold,
+    ItalicFont     = *-LightItalic,
+    BoldItalicFont = *-SemiBoldItalic,
+    Extension      = .ttf
+]
+
+% ── Colour theme (dark) ─────────────────────────────────────────────────────
+\setbeamercolor{background canvas}{bg=black}
+\setbeamercolor{normal text}{fg=white}
+\setbeamercolor{frametitle}{fg=white, bg=black}
+\setbeamercolor{title}{fg=white}
+
+% ── Fonts ───────────────────────────────────────────────────────────────────
+\setbeamerfont{frametitle}{series=\bfseries, size=\normalsize}
+\setbeamerfont{title}{series=\bfseries, size=\LARGE}
+
+% ── Templates ───────────────────────────────────────────────────────────────
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{frametitle}{%
+  \vspace{0.7em}%
+  \insertframetitle\par%
+  {\color{white!35!black}\rule{\textwidth}{0.3pt}}%
+  \vspace{0.1em}%
+}
+
+\setbeamertemplate{footline}{%
+  \hspace{1em}{\tiny\color{white!35!black}%%ARTIST_NAME%%}%
+  \hfill%
+  {\tiny\color{white!35!black}\insertframenumber\ /\ \inserttotalframenumber\hspace{1em}}%
+  \vspace{0.45em}%
+}
+
+\begin{document}
+
+% ── Title frame ─────────────────────────────────────────────────────────────
+{%
+\setbeamertemplate{footline}{}%
+\begin{frame}
+  \vspace{2.5em}
+  \centering
+  {\LARGE\textbf{%%ARTIST_NAME%%}}\\[0.7em]
+  {\normalsize\color{white!55!black}%%PORTFOLIO_TITLE%%}\\[2.5em]
+  {\small\color{white!35!black}%%ARTIST_WEBSITE%%}
+\end{frame}
+}
+
+%%SLIDES%%
+
+\end{document}

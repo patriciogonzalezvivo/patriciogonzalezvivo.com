@@ -29,6 +29,8 @@ import re
 from pathlib import Path
 from typing import Dict, Optional
 
+from .images import svg_to_pdf
+
 from portfolio.images import find_images, find_svgs
 from portfolio.utils import strip_markdown, markdown_to_latex, escape_latex
 
@@ -78,14 +80,14 @@ def readme_to_latex(markdown: str, project_path: Path) -> str:
             pass  # alt text — discard
         else:
             # SVG path relative to project dir (e.g. "svg/000_light.svg")
-            # Kept as a comment placeholder; un-comment the lines below to
-            # actually embed SVGs once svg LaTeX package is confirmed working.
-            abs_path = str((project_path / part).resolve())
-            # result.append(
-            #     f"\n\n\\begin{{center}}\n"
-            #     f"  \\includesvg[scale=0.5]{{{abs_path}}}\n"
-            #     f"\\end{{center}}\n\n"
-            # )
+            svg_full = (project_path / part).resolve()
+            pdf_path = svg_to_pdf(svg_full)
+            if pdf_path:
+                result.append(
+                    f"\n\n\\begin{{center}}\n"
+                    f"  \\includegraphics[width=0.7\\textwidth]{{{pdf_path}}}\n"
+                    f"\\end{{center}}\n\n"
+                )
 
     return ''.join(result)
 
@@ -94,16 +96,26 @@ def readme_to_latex(markdown: str, project_path: Path) -> str:
 # Public API
 # ---------------------------------------------------------------------------
 
-def get_project_meta(project_path: str, base_path: Path) -> Dict:
+def get_project_meta(project_path, base_path: Path) -> Dict:
     """Read all metadata for a project and return a *project dict*.
 
     Args:
-        project_path: Workspace-relative path, e.g. ``"2025/hybrids"``.
+        project_path: Either a workspace-relative path string (e.g.
+                      ``"2025/hybrids"``) or a dict with at least a ``"path"``
+                      key (e.g. ``{"path": "2025/hybrids", "images_per_page": 2}``).
+                      Extra keys in the dict are merged into the returned dict.
         base_path:    Workspace root (``Path`` object).
 
     Returns:
         A project dict; see module docstring for key descriptions.
     """
+    # Accept either a plain string path or a dict entry from portfolio/data.json
+    extra: Dict = {}
+    if isinstance(project_path, dict):
+        entry = project_path
+        project_path = entry['path']
+        extra = {k: v for k, v in entry.items() if k != 'path'}
+
     full_path = base_path / project_path
     parts     = project_path.strip('/').split('/')
     year      = parts[0] if parts else ''
@@ -138,7 +150,7 @@ def get_project_meta(project_path: str, base_path: Path) -> Dict:
             thumb = name
             break
 
-    return {
+    result = {
         'path':           project_path,
         'year':           year,
         'folder':         folder,
@@ -153,3 +165,5 @@ def get_project_meta(project_path: str, base_path: Path) -> Dict:
         'svgs':           find_svgs(full_path),
         'images_per_page': 3,   # overwritten by the caller if set in JSON
     }
+    result.update(extra)
+    return result

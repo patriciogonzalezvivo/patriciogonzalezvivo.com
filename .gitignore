@@ -1,9 +1,11 @@
 __pycache__/*
+portfolio/__pycache__/*
 
 # OSX
 .DS_Store
 *.swp
 *~.nib
+portfolio.tex
 
 # Thumbnails
 ._*
@@ -14,6 +16,7 @@ glslCanvas/
 glslEditor/
 glslGallery/
 press/
+
 
 *.pdf
 
