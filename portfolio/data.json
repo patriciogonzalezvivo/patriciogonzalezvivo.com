@@ -12,6 +12,8 @@
     "location": "1234 Street, City, Country"
   },
 
+  "gallery_name": "< Gallery Name >",
+
   "projects": [
     { "path": "2026/santos",  "images_per_page": 1 },
     { "path": "2026/weaver2", "images_per_page": 1, "inject_svgs": false }

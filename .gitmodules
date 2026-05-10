@@ -1,3 +1,6 @@
 [submodule "parsedown"]
 	path = parsedown
 	url = https://github.com/erusev/parsedown.git
+[submodule "portfolio/berthe"]
+	path = portfolio/berthe
+	url = git@github.com:patriciogonzalezvivo/berthe.git

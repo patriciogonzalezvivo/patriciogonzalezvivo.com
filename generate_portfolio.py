@@ -31,6 +31,7 @@ from portfolio.metadata import get_project_meta
 from portfolio.latex_builder import populate_template, build_legacy_document
 from portfolio.compiler import compile_to_pdf
 from portfolio.utils import strip_markdown
+from portfolio.images import svg_to_pdf
 
 
 # ---------------------------------------------------------------------------
@@ -40,6 +41,26 @@ from portfolio.utils import strip_markdown
 def _load_json(path: str) -> dict:
     with open(path) as fh:
         return json.load(fh)
+
+
+def _generate_label_pdf(gallery_name: str, base_path: Path) -> Optional[str]:
+    """Generate a label SVG/PDF and return the PDF path relative to *base_path*.
+
+    Uses portfolio/label.py to create a full A4-landscape SVG with the label
+    near the lower-right corner, then converts it to PDF via rsvg-convert /
+    inkscape.  Returns a workspace-relative path string on success, or None.
+    """
+    from portfolio.label import generate_label_svg
+
+    svg_path = base_path / 'portfolio' / 'label_output.svg'
+    generate_label_svg(gallery_name, str(svg_path))
+
+    pdf_path = svg_to_pdf(svg_path)
+    if pdf_path is None:
+        print("Warning: could not convert label SVG to PDF — label page skipped.")
+        return None
+
+    return str(pdf_path.relative_to(base_path))
 
 
 def generate_from_template(
@@ -55,6 +76,25 @@ def generate_from_template(
     data = _load_json(data_file)
     projects_list = data.get('projects', [])
 
+    # ------------------------------------------------------------------
+    # Label page (first page) — generated from gallery_name in data.json
+    # ------------------------------------------------------------------
+    gallery_name = data.get('gallery_name', '')
+    label_page_latex = ''
+    if gallery_name:
+        print(f"Generating label page for gallery: {gallery_name}")
+        label_pdf = _generate_label_pdf(gallery_name, base_path)
+        if label_pdf:
+            label_page_latex = (
+                "\\thispagestyle{empty}\n"
+                "\\begin{tikzpicture}[overlay, remember picture]\n"
+                "  \\node[anchor=center] at (current page.center) {%\n"
+                f"    \\includegraphics[width=\\paperwidth,height=\\paperheight]{{{label_pdf}}}%\n"
+                "  };\n"
+                "\\end{tikzpicture}\n"
+                "\\clearpage"
+            )
+
     print(f"Loading metadata for {len(projects_list)} projects...")
     projects = []
     for p in projects_list:
@@ -64,6 +104,7 @@ def generate_from_template(
     print("Populating LaTeX template...")
     template_text = Path(template_file).read_text()
     latex_content = populate_template(template_text, data, projects, base_path)
+    latex_content = latex_content.replace('%%LABEL_PAGE%%', label_page_latex)
 
     if latex_only:
         output_tex = (

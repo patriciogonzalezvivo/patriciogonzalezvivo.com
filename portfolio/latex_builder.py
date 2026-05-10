@@ -401,9 +401,18 @@ def populate_template(
     # ------------------------------------------------------------------
     # Substitution map
     # ------------------------------------------------------------------
+    portfolio_title = artist.get('portfolio_title', 'Portfolio')
+    gallery_name    = data.get('gallery_name', '')
+    header_title    = (
+        escape_latex(f"{portfolio_title} \u2014 {gallery_name}")
+        if gallery_name
+        else escape_latex(portfolio_title)
+    )
+
     replacements = {
         '%%ARTIST_NAME%%':               escape_latex(artist.get('name', '')),
-        '%%PORTFOLIO_TITLE%%':           escape_latex(artist.get('portfolio_title', 'Artist Portfolio')),
+        '%%PORTFOLIO_TITLE%%':           escape_latex(portfolio_title),
+        '%%HEADER_TITLE%%':              header_title,
         # Email / website go inside \href — must NOT be LaTeX-escaped
         '%%ARTIST_EMAIL%%':              artist.get('email', ''),
         '%%ARTIST_WEBSITE%%':            artist.get('website', ''),

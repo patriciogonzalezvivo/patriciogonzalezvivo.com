@@ -32,6 +32,7 @@
 \usepackage{hyperref}     % links
 \usepackage{xcolor}
 \usepackage{wrapfig}      % text wrapping around figures
+\usepackage{tikz}         % full-page label overlay
 % SVGs are pre-converted to PDF by the Python generator (rsvg-convert)
 \usepackage{fontspec}     % requires xelatex
 
@@ -65,8 +66,8 @@
 % ---------------------------------------------------------
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small %%ARTIST_NAME%%}
-\fancyhead[R]{\small %%PORTFOLIO_TITLE%%}
+\fancyhead[L]{\small \MakeUppercase{%%ARTIST_NAME%%}}
+\fancyhead[R]{\small %%HEADER_TITLE%%}
 \renewcommand{\headrulewidth}{0pt}
 
 % ---------------------------------------------------------
@@ -138,30 +139,32 @@ Dimensions: & #5 \\
 % =========================================================
 \begin{document}
 
-% ---------------------------------------------------------
-% COVER PAGE
-% ---------------------------------------------------------
-\thispagestyle{empty}
+%%LABEL_PAGE%%
 
-\begin{center}
+% % ---------------------------------------------------------
+% % COVER PAGE
+% % ---------------------------------------------------------
+% \thispagestyle{empty}
 
-\vspace*{3cm}
+% \begin{center}
 
-\includegraphics[width=2cm]{%%ARTIST_LOGO%%}
+% \vspace*{3cm}
 
-{\LARGE \textbf{%%ARTIST_NAME%%}}
+% \includegraphics[width=2cm]{%%ARTIST_LOGO%%}
 
-{\Large %%PORTFOLIO_TITLE%%}
+% {\LARGE \textbf{%%ARTIST_NAME%%}}
 
-\vfill
+% {\Large %%PORTFOLIO_TITLE%%}
 
-\href{mailto:%%ARTIST_EMAIL%%}{%%ARTIST_EMAIL%%}
+% \vfill
 
-\href{%%ARTIST_WEBSITE_URL%%}{%%ARTIST_WEBSITE%%}
+% \href{mailto:%%ARTIST_EMAIL%%}{%%ARTIST_EMAIL%%}
 
-\end{center}
+% \href{%%ARTIST_WEBSITE_URL%%}{%%ARTIST_WEBSITE%%}
 
-\clearpage
+% \end{center}
+
+% \clearpage
 
 %%ARTIST_BIO%%
 
