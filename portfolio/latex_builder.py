@@ -416,6 +416,7 @@ def populate_template(
         # Email / website go inside \href — must NOT be LaTeX-escaped
         '%%ARTIST_EMAIL%%':              artist.get('email', ''),
         '%%ARTIST_WEBSITE%%':            artist.get('website', ''),
+        '%%ARTIST_INSTAGRAM%%':          artist.get('instagram', ''),
         '%%ARTIST_WEBSITE_URL%%':        website_url,
         '%%ARTIST_LOCATION%%':           escape_latex(artist.get('location', '')),
         '%%ARTIST_PHONE%%':              escape_latex(artist.get('phone', '')),

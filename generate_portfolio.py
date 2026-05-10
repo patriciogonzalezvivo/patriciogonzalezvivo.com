@@ -1039,6 +1039,8 @@ class PortfolioGenerator:
 
         website = artist.get('website', '')
         website_url = artist.get('website_url', f'https://{website}' if website else '')
+        instagram = artist.get('instagram', '')
+        instagram_url = artist.get('instagram_url', f'https://instagram.com/{instagram}' if instagram else '')
 
         print("Resolving optional file sections...")
         optional_cv          = self._optional_section('Curriculum Vitae',       'cv_file',           artist)
@@ -1053,6 +1055,8 @@ class PortfolioGenerator:
             '%%ARTIST_EMAIL%%':      artist.get('email', ''),
             '%%ARTIST_WEBSITE%%':    artist.get('website', ''),
             '%%ARTIST_WEBSITE_URL%%': website_url,
+            '%%ARTIST_INSTAGRAM%%':  artist.get('instagram', ''),
+            '%%ARTIST_INSTAGRAM_URL%%': instagram_url,
             '%%ARTIST_LOCATION%%':   self.escape_latex(artist.get('location', '')),
             '%%ARTIST_PHONE%%':      self.escape_latex(artist.get('phone', '')),
             '%%ARTIST_LOGO%%':       artist.get('logo', ''),
