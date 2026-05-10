@@ -9,6 +9,7 @@
 				<nav id="menu_text">
 					<ul>
 						<li class="menu_item"><a href="/works.php"> Archive </a></li>
+						<li class="menu_item"><a href="https://shop.patriciogonzalezvivo.com/"> Shop </a></li>
 						<li class="menu_item"><a href="/about.php"> About </a></li>
 						<li class="menu_item"><a href="http://www.instagram.com/patriciogonzalezvivo" target="_blank"><img src="/images/icons/instagram.png" width="32"/></a></li>
 					</ul>
