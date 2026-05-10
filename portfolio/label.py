@@ -58,7 +58,7 @@ def generate_label_svg(gallery_name: str, output_path: str) -> None:
 if __name__ == '__main__':
     gallery_name = "< Gallery Name >"
     axi = Surface( size='A4_landscape' )
-    grp_label = label( gallery_name, top_left=[160,140], size=(90, 50))
+    grp_label = label( gallery_name, top_left=[185,140], size=(90, 50))
 
     axi.add( grp_label )
 

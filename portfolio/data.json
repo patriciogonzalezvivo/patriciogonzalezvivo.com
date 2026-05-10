@@ -7,12 +7,12 @@
     "website_url": "https://patriciogonzalezvivo.com",
     "logo": "images/logo-gray.png",
     "bio_file": "README.md",
-    "avatar_file": "images/about_thin.jpg",
+    "avatar_file": "images/about_thin_bw.jpg",
     "phone": "+1 415 999 9999",
     "location": "1234 Street, City, Country"
   },
 
-  "gallery_name": "< Gallery Name >",
+  "gallery_name": "POSH Gallery",
 
   "projects": [
     { "path": "2026/santos",  "images_per_page": 1 },

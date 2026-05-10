@@ -176,8 +176,8 @@ def build_artwork_pages(project: Dict, base_path: Path) -> str:
     # Page 1: title bar + description (+ optional first image)
     # ------------------------------------------------------------------
     latex += "\\clearpage\n"
-    latex += f"\\noindent{{\\Large\\textbf{{{title}}}}}\\hfill{{\\large {year}}}\n\n"
-    latex += "\\vspace{0.3em}\\hrule\\vspace{1em}\n\n"
+    latex += f"\\noindent{{\\Large\\textbf{{{title}}}}}\\hfill{{\\large \\textcolor{{red}}{{{year}}}}}\n\n"
+    # latex += "\\vspace{0.3em}\\hrule\\vspace{1em}\n\n"
 
     if images and len(images) == 1 and Path(images[0]).name.lower().startswith('thumbnail'):
         # Wasm / thumbnail-only project: full-width description on page 1,
@@ -456,13 +456,15 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
 
     avatar_file = artist.get('avatar_file', '')
     if avatar_file and (base_path / avatar_file).exists():
+        # wrapfigure lets the bio text flow naturally (and break to a second page
+        # if needed) while the portrait floats to the right — no fixed-height
+        # minipage means no clipping and the bottom margin is always respected.
         return (
-            "\\begin{wrapfigure}{r}{0.35\\textwidth}\n"
-            "  \\vspace{-10pt}\n"
-            f"  \\includegraphics[width=\\linewidth]{{{avatar_file}}}\n"
-            "  \\vspace{-20pt}\n"
-            "\\end{wrapfigure}\n\n"
-            + bio_text
+            f"\\begin{{wrapfigure}}{{r}}{{0.35\\textwidth}}\n"
+            "\\vspace{4pt}\n"
+            f"\\includegraphics[width=\\linewidth,height=0.85\\textheight,keepaspectratio]{{{avatar_file}}}\n"
+            "\\end{wrapfigure}\n"
+            + bio_text + "\n"
         )
 
     return bio_text
