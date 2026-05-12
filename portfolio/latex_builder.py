@@ -34,6 +34,7 @@ Each artwork occupies one or more pages:
   of ``images_per_page`` per page.
 """
 
+import tempfile
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -455,6 +456,15 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
     if not bio_text:
         return ''
 
+    # Append the registration mark centered at the end of the bio
+    from portfolio.elements import generate_registration_mark_tex
+    with tempfile.NamedTemporaryFile(suffix='.tex', delete=False, mode='r') as _tmp:
+        _tmp_path = _tmp.name
+    generate_registration_mark_tex(_tmp_path)
+    with open(_tmp_path) as _f:
+        registration_mark_tex = _f.read()
+    Path(_tmp_path).unlink(missing_ok=True)
+
     avatar_file = artist.get('avatar_file', '')
     if avatar_file and (base_path / avatar_file).exists():
         # wrapfigure lets the bio text flow naturally (and break to a second page
@@ -466,9 +476,11 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
             f"\\includegraphics[width=\\linewidth,height=0.85\\textheight,keepaspectratio]{{{avatar_file}}}\n"
             "\\end{wrapfigure}\n"
             + bio_text + "\n"
+            + "\n\\vspace{10em}\n"
+            + registration_mark_tex
         )
 
-    return bio_text
+    return bio_text + "\n\\vspace{2em}\n" + registration_mark_tex
 
 
 def _build_artist_statement(artist: Dict, base_path: Path) -> str:

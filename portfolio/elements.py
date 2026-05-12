@@ -36,11 +36,12 @@ def rays_pattern(sun_center, width, height, press=2):
             rays_count += 1
     return rays
 
+
 def ripple_pattern(center, width, height, max_ripple=20):
     ripples_pattern = Path(color="black")
     for i in range(13):
         # Exponentially expanding rings give a natural wave-front appearance
-        ripple_radius = 10.0 + (2.0 ** i) * 5.0
+        ripple_radius = 5.0 + (2.0 ** i) * 5.0
         if ripple_radius > max_ripple:
             break
         ripples_pattern.add(Circle(center=center, radius=ripple_radius).getPath())
@@ -50,58 +51,19 @@ def ripple_pattern(center, width, height, max_ripple=20):
 def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0):
     grp_label_black = Group( name='label_black' )
     grp_label_red = Group( name='label_red', color='red' )
-    grp_extra = Group( name='rays', color='gray' )
+    
+    # ----------------------------------------------------------------------
 
     x = top_left[0] 
     y = top_left[1]
     w = size[0] * scale
     h = size[1] * scale
 
-    width = A4_LANDSCAPE_SIZE[0]
-    height = A4_LANDSCAPE_SIZE[1]
-
     rows_pct = [0.3, 0.1, 0.15, 0.15, 0.15]
     rows = len(rows_pct)
     row_height = h / rows
     margin = 1.5 * scale
     stroke_width = 0.5
-
-    logo_center = (40, y + size[1] * 0.5)
-
-    if os.path.exists(_LOGO_PATH):
-        grp_extra.bitmap(
-            _LOGO_PATH,
-            pos=(logo_center[0], logo_center[1]),
-            align='center',
-            scale=0.5,
-            # rotate=5,
-        )
-
-    circle = Circle(center=logo_center, radius=60 * scale, color='gray').getPath()
-    grp_extra.add( circle )
-
-    sun_center = logo_center
-
-    # moon is on the radius of Circle, opposite to the sun, at 90% of the radius
-    moon_center = polar2xy(sun_center, -45, 60)
-    ripple_pat = ripple_pattern(moon_center, width, height, max_ripple=300).getPattern(width, height)
-    ripple_pat.carve( circle )
-
-
-
-    pattern_path = rays_pattern(sun_center, width, height, press=2)
-    pattern_path.add( ripple_pat.getPath() )
-    pattern = pattern_path.getPattern(width, height)
-
-    rect = Rectangle( [top_left[0] - margin * 2.0, top_left[1] - margin * 2.0], [size[0] + 2 * margin * 2.0, size[1] + 2 * margin * 2.0], align='top_left' )
-    circle = Circle(logo_center, 30 * scale)
-    pattern.carve(Polyline(rect.getPoints()))
-    pattern.carve(Polyline(circle.getPoints()))
-    pattern_path = pattern.getPath(optimize=True)
-
-    grp_extra.path(pattern_path, color='gray')
-
-    # ----------------------------------------------------------------------
 
     for i in range(rows):
         row_height = h * rows_pct[i]
@@ -131,25 +93,92 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0):
             grp_label_black.text( "Web", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
             grp_label_black.text( "patriciogonzalezvivo.com", (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
 
-    return Group( name='label', children=[grp_label_black, grp_label_red, grp_extra] )
+    return Group( name='label', children=[grp_label_black, grp_label_red] )
 
 
 def generate_label_svg(gallery_name: str, output_path: str) -> None:
     """Generate a full A4-landscape SVG with the label near the lower-right corner."""
     axi = Surface(size='A4_landscape')
-    grp_label = label(gallery_name, top_left=[185, 140], size=(90, 50))
+    top_left = [185, 140]
+    size = [90, 50]
+    scale = 1.0
+
+    grp_label = label(gallery_name, top_left=top_left, size=size, scale=scale)
     axi.add(grp_label)
+
+    color_extra = 'rgb(200, 200, 200)'
+    grp_extra = Group( name='rays', color='gray' )
+ 
+    y = top_left[1]
+
+    width = A4_LANDSCAPE_SIZE[0]
+    height = A4_LANDSCAPE_SIZE[1]
+    margin = 1.5 * scale
+
+    logo_center = (40, y + size[1] * 0.5)
+
+    if os.path.exists(_LOGO_PATH):
+        grp_extra.bitmap(
+            _LOGO_PATH,
+            pos=(logo_center[0], logo_center[1]),
+            align='center',
+            scale=0.5,
+            # rotate=5,
+        )
+
+    moon_edge = 50
+    circle = Circle(center=logo_center, radius=moon_edge, color=color_extra).getPath()
+    grp_extra.add( circle )
+
+    sun_center = logo_center
+
+    # moon is on the radius of Circle, opposite to the sun, at 90% of the radius
+    moon_center = polar2xy(sun_center, -45, moon_edge)
+    ripple_pat = ripple_pattern(moon_center, width, height, max_ripple=300).getPattern(width, height)
+    ripple_pat.carve( circle )
+
+    pattern_path = rays_pattern(sun_center, width, height, press=2)
+    pattern_path.add( ripple_pat.getPath() )
+    pattern = pattern_path.getPattern(width, height)
+
+    rect = Rectangle( [top_left[0] - margin * 2.0, top_left[1] - margin * 2.0], [size[0] + 2 * margin * 2.0, size[1] + 2 * margin * 2.0], align='top_left' )
+    circle = Circle(logo_center, 30 * scale)
+    pattern.carve(Polyline(rect.getPoints()))
+    pattern.carve(Polyline(circle.getPoints()))
+    pattern_path = pattern.getPath(optimize=True)
+    grp_extra.path(pattern_path, color=color_extra, stroke_width=0.5)
+
+    axi.add(grp_extra)
+
     axi.toSVG(output_path)
+
+def generate_registration_mark_tex(output_path: str) -> None:
+    """Generate a TeX snippet with a registration mark centered for the end of a bio.
+
+    The output is a standalone tikzpicture block wrapped in \\begin{center} so it
+    can be \\input{}'d at the end of a bio and will be horizontally centred between
+    the left and right text borders.
+    """
+    marks = 5
+    surface_w = marks * 4   # 20 mm – tight box around the mark
+    surface_h = marks * 4
+    axi = Surface(size=(surface_w, surface_h))
+
+    center = (surface_w * 0.5, surface_h * 0.5)
+    mark_group = Group(id="registration_mark", color="black")
+    mark_group.circle(pos=center, radius=marks * 0.5)
+    mark_group.line([center[0] - marks, center[1]], [center[0] + marks, center[1]])
+    mark_group.line([center[0], center[1] - marks], [center[0], center[1] + marks])
+
+    axi.add(mark_group)
+    axi.toTeX(output_path, standalone=False)
+
+    with open(output_path, 'r') as f:
+        content = f.read()
+    with open(output_path, 'w') as f:
+        f.write('\\begin{center}\n' + content + '\\end{center}\n')
 
 
 if __name__ == '__main__':
-    generate_label_svg("Example Gallery", "label.svg")
-    # gallery_name = "< Gallery Name >"
-    # axi = Surface( size=A4_LANDSCAPE_SIZE )
-    # grp_label = label( gallery_name, top_left=[185,140], size=(90, 50))
-
-    # axi.add( grp_label )
-
-    # axi.toSVG( 'label.svg' )
-    # axi.toPNG( 'label.png' )
-    # axi.toTeX( 'label.tex' )
+    # generate_label_svg("Example Gallery", "label.svg")
+    generate_registration_mark_tex("registration_mark.tex")

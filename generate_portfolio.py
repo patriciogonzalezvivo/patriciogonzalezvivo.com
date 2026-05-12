@@ -50,7 +50,7 @@ def _generate_label_pdf(gallery_name: str, base_path: Path) -> Optional[str]:
     near the lower-right corner, then converts it to PDF via rsvg-convert /
     inkscape.  Returns a workspace-relative path string on success, or None.
     """
-    from portfolio.label import generate_label_svg
+    from portfolio.elements import generate_label_svg
 
     svg_path = base_path / 'portfolio' / 'label_output.svg'
     generate_label_svg(gallery_name, str(svg_path))
