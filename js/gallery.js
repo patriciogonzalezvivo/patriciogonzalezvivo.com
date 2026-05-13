@@ -41,6 +41,13 @@ function showImage(index, view = 'main') {
 	modalImg.src = imageSrc;
 	modal.style.display = 'flex';
 	currentIndex = index;
+
+	// Update URL hash to allow direct linking
+	const itemId = portraitItem.getAttribute('data-id');
+	if (itemId) {
+		const hashVal = view !== 'main' ? itemId + ':' + view : itemId;
+		history.replaceState(null, '', '#' + hashVal);
+	}
 	
 	if (soldMarker) {
 		if (isSold) {
@@ -181,10 +188,16 @@ viewButtons.forEach(button => {
 	});
 });
 
+// Helper to clear the URL hash without adding a history entry
+function clearHash() {
+	history.replaceState(null, '', window.location.pathname + window.location.search);
+}
+
 // Close button
 if (closeBtn) {
 	closeBtn.addEventListener('click', () => {
 		modal.style.display = 'none';
+		clearHash();
 	});
 }
 
@@ -207,6 +220,7 @@ if (navRight) {
 modal.addEventListener('click', (e) => {
 	if (e.target === modal) {
 		modal.style.display = 'none';
+		clearHash();
 	}
 });
 
@@ -216,6 +230,7 @@ document.addEventListener('keydown', (e) => {
 		switch(e.key) {
 			case 'Escape':
 				modal.style.display = 'none';
+				clearHash();
 				break;
 			case 'ArrowRight':
 			case 'Right': // For older browsers
@@ -228,5 +243,20 @@ document.addEventListener('keydown', (e) => {
 		}
 	}
 });
+
+// Open image from URL hash on page load (e.g. #DSF1034 or #DSF1034:detail)
+function openFromHash() {
+	const hash = window.location.hash.slice(1); // strip '#'
+	if (!hash) return;
+	const parts = hash.split(':');
+	const id = parts[0];
+	const view = parts[1] || 'main';
+	const idx = Array.from(portraitItems).findIndex(item => item.getAttribute('data-id') === id);
+	if (idx !== -1) {
+		showImage(idx, view);
+	}
+}
+
+openFromHash();
 
 } // End if modal exists

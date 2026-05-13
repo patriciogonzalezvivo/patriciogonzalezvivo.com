@@ -298,7 +298,7 @@ a:focus {
 .archive-btn {
     display: inline-block;
     padding: 0.5em 2em;
-    background: #9d9d9d;
+    background: #000;
     border: none;
     border-radius: 0;
     color: #fff;

@@ -139,6 +139,7 @@ function render_gallery_item($artwork) {
     
     // Build HTML
     $html = '<div class="painting-item' . $sold_class . '"' . $sold_attr;
+    $html .= ' data-id="' . htmlspecialchars($artwork['basename']) . '"';
     foreach ($data_attrs as $attr => $value) {
         if ($attr === 'data-info') {
             $html .= ' ' . $attr . '=' . $value;
