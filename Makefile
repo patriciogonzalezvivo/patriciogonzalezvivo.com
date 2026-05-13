@@ -1,7 +1,7 @@
 .PHONY: portfolio docx slides pptx server
 
 portfolio:
-	python generate_portfolio.py -t portfolio/template.tex -d portfolio/data.json -o portfolio.pdf && xdg-open portfolio.pdf
+	python generate_portfolio.py -t portfolio/template.tex -d portfolio/data.json && xdg-open $$(ls -t *.pdf | head -1)
 
 slides:
 	python generate_portfolio.py -t portfolio/beamer_template.tex -d portfolio/data.json -o portfolio_slides.pdf --slides && xdg-open portfolio_slides.pdf

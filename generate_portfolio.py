@@ -43,7 +43,32 @@ def _load_json(path: str) -> dict:
         return json.load(fh)
 
 
-def _generate_label_pdf(gallery_name: str, base_path: Path) -> Optional[str]:
+def _slugify(text: str) -> str:
+    """Convert a string to a lowercase, hyphen-separated filename-safe slug."""
+    text = text.lower().strip()
+    text = re.sub(r'[^a-z0-9]+', '-', text)
+    return text.strip('-')
+
+
+def _derive_output_filename(data: dict) -> str:
+    """Derive the output PDF filename from data.json artist fields.
+
+    Format: <portfolio_title>-<name>-<for>-<YEAR>.pdf
+    All components are slugified (lowercase, hyphens).
+    """
+    from datetime import datetime
+    artist         = data.get('artist', {})
+    portfolio_title = _slugify(artist.get('portfolio_title', 'portfolio'))
+    name            = _slugify(artist.get('name', 'artist'))
+    for_name        = _slugify(artist.get('for', ''))
+    year            = str(datetime.now().year)
+    parts = [p for p in [name, for_name, year] if p]
+    return '-'.join(parts) + '.pdf'
+
+
+def _generate_label_pdf(gallery_name: str, base_path: Path,
+                        portfolio_title: str = 'Portfolio',
+                        for_name: str = None) -> Optional[str]:
     """Generate a label SVG/PDF and return the PDF path relative to *base_path*.
 
     Uses portfolio/label.py to create a full A4-landscape SVG with the label
@@ -53,7 +78,8 @@ def _generate_label_pdf(gallery_name: str, base_path: Path) -> Optional[str]:
     from portfolio.elements import generate_label_svg
 
     svg_path = base_path / 'portfolio' / 'label_output.svg'
-    generate_label_svg(gallery_name, str(svg_path))
+    generate_label_svg(gallery_name, str(svg_path),
+                       portfolio_title=portfolio_title, for_name=for_name)
 
     pdf_path = svg_to_pdf(svg_path)
     if pdf_path is None:
@@ -66,7 +92,7 @@ def _generate_label_pdf(gallery_name: str, base_path: Path) -> Optional[str]:
 def generate_from_template(
     template_file: str,
     data_file: str,
-    output_pdf: str,
+    output_pdf: str = '',
     *,
     base_path: Path = Path('.'),
     latex_only: bool = False,
@@ -76,14 +102,24 @@ def generate_from_template(
     data = _load_json(data_file)
     projects_list = data.get('projects', [])
 
+    # Derive output filename from data.json if not explicitly provided
+    if not output_pdf:
+        output_pdf = _derive_output_filename(data)
+    print(f"Output: {output_pdf}")
+
     # ------------------------------------------------------------------
     # Label page (first page) — generated from gallery_name in data.json
     # ------------------------------------------------------------------
+    artist       = data.get('artist', {})
     gallery_name = data.get('gallery_name', '')
     label_page_latex = ''
     if gallery_name:
         print(f"Generating label page for gallery: {gallery_name}")
-        label_pdf = _generate_label_pdf(gallery_name, base_path)
+        label_pdf = _generate_label_pdf(
+            gallery_name, base_path,
+            portfolio_title=artist.get('portfolio_title', 'Portfolio'),
+            for_name=artist.get('for', None),
+        )
         if label_pdf:
             label_page_latex = (
                 "\\thispagestyle{empty}\n"
@@ -1183,8 +1219,8 @@ Examples:
                         help='Path to JSON data file (use with --template)')
     parser.add_argument('--projects', '-p', type=str,
                         help='Path to text file with project list (one per line: year/folder)')
-    parser.add_argument('--output', '-o', type=str, required=True,
-                        help='Output PDF filename')
+    parser.add_argument('--output', '-o', type=str, default='',
+                        help='Output PDF filename (derived from data.json when omitted)')
     parser.add_argument('--bio', '-b', type=str, default='README.md',
                         help='Path to biography markdown file (default: README.md)')
     parser.add_argument('--keep-temp', action='store_true',
@@ -1241,7 +1277,7 @@ Examples:
                 '2021/fen',
             ]
         success = generate(
-            projects_list, args.output, args.bio,
+            projects_list, args.output or 'portfolio.pdf', args.bio,
             latex_only=args.latex_only, keep_temp=args.keep_temp,
         )
 

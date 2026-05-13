@@ -136,9 +136,6 @@ def build_caption(img_path: str, base_path: Path, align_right: bool = False) -> 
 # URL helpers
 # ---------------------------------------------------------------------------
 
-_BASE_URL = "https://patriciogonzalezvivo.com"
-
-
 def _image_url(img_path: str, project_url: str) -> str:
     """Return the web URL for an image in the portfolio.
 
@@ -156,12 +153,13 @@ def _image_url(img_path: str, project_url: str) -> str:
 # Per-artwork page builder
 # ---------------------------------------------------------------------------
 
-def build_artwork_pages(project: Dict, base_path: Path) -> str:
+def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> str:
     """Return LaTeX for all pages belonging to a single artwork / project.
 
     Args:
         project:   Project dict produced by :func:`~portfolio.metadata.get_project_meta`.
         base_path: Workspace root.
+        base_url:  Artist website base URL (e.g. ``https://patriciogonzalezvivo.com``).
 
     Returns:
         LaTeX string (starts with ``\\clearpage``).
@@ -194,8 +192,9 @@ def build_artwork_pages(project: Dict, base_path: Path) -> str:
     latex = ""
 
     # Project and year URLs for hyperlinks
-    project_url = f"{_BASE_URL}/{project['path']}/"
-    year_url    = f"{_BASE_URL}/{year}/"
+    _root = base_url.rstrip('/') if base_url else ''
+    project_url = f"{_root}/{project['path']}/" if _root else ''
+    year_url    = f"{_root}/{year}/" if _root else ''
 
     # ------------------------------------------------------------------
     # Page 1: title bar + description (+ optional first image)
@@ -432,17 +431,17 @@ def populate_template(
     # Artwork pages
     # ------------------------------------------------------------------
     artworks_latex = "\n".join(
-        build_artwork_pages(project, base_path) for project in projects
+        build_artwork_pages(project, base_path, website_url) for project in projects
     )
 
     # ------------------------------------------------------------------
     # Substitution map
     # ------------------------------------------------------------------
     portfolio_title = artist.get('portfolio_title', 'Portfolio')
-    gallery_name    = data.get('gallery_name', '')
+    for_name        = artist.get('for', '')
     header_title    = (
-        escape_latex(f"{portfolio_title} \u2014 {gallery_name}")
-        if gallery_name
+        escape_latex(f"{portfolio_title} \u2014 {for_name}")
+        if for_name
         else escape_latex(portfolio_title)
     )
 
@@ -507,7 +506,7 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
         # Bio URL: artist website + /about
         website     = artist.get('website', '')
         website_url = artist.get('website_url', f'https://{website}' if website else '')
-        bio_url     = f"{website_url.rstrip('/')}/about" if website_url else ''
+        bio_url     = f"{website_url.rstrip('/')}/about.php" if website_url else ''
 
         avatar_img = f"\\includegraphics[width=\\linewidth,height=0.85\\textheight,keepaspectratio]{{{avatar_file}}}"
         if bio_url:
@@ -644,6 +643,6 @@ def build_legacy_document(bio: str, projects: List[Dict], base_path: Path) -> st
 
     body = preamble + markdown_to_latex(bio) + "\n\n"
     for project in projects:
-        body += build_artwork_pages(project, base_path) + "\n"
+        body += build_artwork_pages(project, base_path) + "\n"  # no base_url in legacy mode
     body += r"\end{document}" + "\n"
     return body

@@ -48,7 +48,7 @@ def ripple_pattern(center, width, height, max_ripple=20):
     return ripples_pattern
 
 
-def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0):
+def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, portfolio_title='Portfolio', for_name=None):
     grp_label_black = Group( name='label_black' )
     grp_label_red = Group( name='label_red', color='red' )
     
@@ -82,10 +82,11 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0):
             #         scale=0.5,
             #     )
         elif i == 2:
-            grp_label_black.text( "Portfolio".upper(), (x+margin, y + row_height * 0.5), scale=0.09 * scale, align='left', letter_spacing=4 )
+            grp_label_black.text( portfolio_title, (x+margin, y + row_height * 0.5), scale=0.09 * scale, align='left', letter_spacing=4 )
         elif i == 3:
+            _for_name = for_name if for_name is not None else gallery_name
             grp_label_black.text( "For", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
-            grp_label_black.text( gallery_name, (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
+            grp_label_black.text( _for_name, (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
             grp_label_black.line( (x+w*0.6, y), (x + w*0.6, y+row_height), stroke_width=stroke_width )
             grp_label_black.text( "Date" , (x + w * 0.6 + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140  )
             grp_label_red.text( datetime.now().strftime("%m-%d-%Y"), (x + w * 0.6 + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
@@ -96,14 +97,15 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0):
     return Group( name='label', children=[grp_label_black, grp_label_red] )
 
 
-def generate_label_svg(gallery_name: str, output_path: str) -> None:
+def generate_label_svg(gallery_name: str, output_path: str, portfolio_title: str = 'Portfolio', for_name: str = None) -> None:
     """Generate a full A4-landscape SVG with the label near the lower-right corner."""
     axi = Surface(size='A4_landscape')
     top_left = [185, 140]
     size = [90, 50]
     scale = 1.0
 
-    grp_label = label(gallery_name, top_left=top_left, size=size, scale=scale)
+    grp_label = label(gallery_name, top_left=top_left, size=size, scale=scale,
+                      portfolio_title=portfolio_title, for_name=for_name)
     axi.add(grp_label)
 
     color_extra = 'rgb(200, 200, 200)'

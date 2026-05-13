@@ -9,13 +9,19 @@
     "bio_file": "README.md",
     "avatar_file": "images/about_thin_bw.jpg",
     "phone": "+1 415 999 9999",
-    "location": "1234 Street, City, Country"
+    "location": "1234 Street, City, Country",
+    "for": "THE Gallery"
   },
-
   "gallery_name": "POSH Gallery",
-
   "projects": [
-    { "path": "2026/santos",  "images_per_page": 1 },
-    { "path": "2026/weaver2", "images_per_page": 1, "inject_svgs": false }
+    {
+      "path": "2026/santos",
+      "images_per_page": 1
+    },
+    {
+      "path": "2026/weaver2",
+      "images_per_page": 1,
+      "inject_svgs": false
+    }
   ]
 }
