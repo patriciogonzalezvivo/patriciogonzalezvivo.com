@@ -133,6 +133,26 @@ def build_caption(img_path: str, base_path: Path, align_right: bool = False) -> 
 
 
 # ---------------------------------------------------------------------------
+# URL helpers
+# ---------------------------------------------------------------------------
+
+_BASE_URL = "https://patriciogonzalezvivo.com"
+
+
+def _image_url(img_path: str, project_url: str) -> str:
+    """Return the web URL for an image in the portfolio.
+
+    Gallery images (inside an ``images/`` sub-directory) link directly to
+    the fullscreen hash anchor.  Everything else (slideshow frames, root
+    thumbnails) links to the project page.
+    """
+    if '/images/' in img_path:
+        basename = Path(img_path).stem
+        return f"{project_url}#{basename}"
+    return project_url
+
+
+# ---------------------------------------------------------------------------
 # Per-artwork page builder
 # ---------------------------------------------------------------------------
 
@@ -173,11 +193,18 @@ def build_artwork_pages(project: Dict, base_path: Path) -> str:
 
     latex = ""
 
+    # Project and year URLs for hyperlinks
+    project_url = f"{_BASE_URL}/{project['path']}/"
+    year_url    = f"{_BASE_URL}/{year}/"
+
     # ------------------------------------------------------------------
     # Page 1: title bar + description (+ optional first image)
     # ------------------------------------------------------------------
     latex += "\\clearpage\n"
-    latex += f"\\noindent{{\\Large\\textbf{{{title}}}}}\\hfill{{\\large \\textcolor{{red}}{{{year}}}}}\n\n"
+    latex += (
+        f"\\noindent{{\\Large\\textbf{{\\href{{{project_url}}}{{{title}}}}}}}"
+        f"\\hfill{{\\large \\href{{{year_url}}}{{\\textcolor{{red}}{{{year}}}}}}}\n\n"
+    )
     # latex += "\\vspace{0.3em}\\hrule\\vspace{1em}\n\n"
 
     if images and len(images) == 1 and Path(images[0]).name.lower().startswith('thumbnail'):
@@ -203,9 +230,9 @@ def build_artwork_pages(project: Dict, base_path: Path) -> str:
 
     for kind, payload in render_plan:
         if kind == 'group':
-            latex += _build_group_page(payload)
+            latex += _build_group_page(payload, project_url)
         else:  # 'individual'
-            latex += _build_individual_page(payload, base_path, indiv_idx)
+            latex += _build_individual_page(payload, base_path, indiv_idx, project_url)
             indiv_idx += 1
 
     return latex
@@ -215,11 +242,12 @@ def build_artwork_pages(project: Dict, base_path: Path) -> str:
 # Group page helper
 # ---------------------------------------------------------------------------
 
-def _build_group_page(group: List) -> str:
+def _build_group_page(group: List, project_url: str = '') -> str:
     """Return LaTeX for a page showing ``len(group)`` portrait images side-by-side.
 
     Args:
-        group: List of ``(img_path, meta_dict)`` tuples (2–4 items).
+        group:       List of ``(img_path, meta_dict)`` tuples (2–4 items).
+        project_url: Base project URL used to build image hyperlinks.
 
     Returns:
         LaTeX string starting with ``\\clearpage``.
@@ -232,10 +260,16 @@ def _build_group_page(group: List) -> str:
 
     # Images side-by-side
     for k, (img_path, _meta) in enumerate(group):
+        img_url = _image_url(img_path, project_url) if project_url else ''
+        img_content = (
+            f"  \\href{{{img_url}}}{{\\includegraphics[width=\\linewidth,height={img_h},keepaspectratio]{{{img_path}}}}}\n"
+            if img_url else
+            f"  \\includegraphics[width=\\linewidth,height={img_h},keepaspectratio]{{{img_path}}}\n"
+        )
         latex += (
             f"\\begin{{minipage}}[b]{{{img_frac}\\textwidth}}\n"
-            f"  \\includegraphics[width=\\linewidth,height={img_h},keepaspectratio]{{{img_path}}}\n"
-            f"\\end{{minipage}}"
+            + img_content
+            + f"\\end{{minipage}}"
         )
         latex += "\\hfill\n" if k < n - 1 else "\n"
 
@@ -280,16 +314,17 @@ def _build_group_page(group: List) -> str:
 # Individual page helper
 # ---------------------------------------------------------------------------
 
-def _build_individual_page(img_path: str, base_path: Path, index: int) -> str:
+def _build_individual_page(img_path: str, base_path: Path, index: int, project_url: str = '') -> str:
     """Return LaTeX for a single-image page with optional sidecar caption.
 
     Images alternate left and right.  The caption appears on the opposite side.
 
     Args:
-        img_path:  Workspace-relative image path.
-        base_path: Workspace root.
-        index:     Zero-based sequential index used for left/right alternation.
-                   Even → image on left; odd → image on right.
+        img_path:    Workspace-relative image path.
+        base_path:   Workspace root.
+        index:       Zero-based sequential index used for left/right alternation.
+                     Even → image on left; odd → image on right.
+        project_url: Base project URL used to build image hyperlinks.
 
     Returns:
         LaTeX string starting with ``\\clearpage``.
@@ -301,10 +336,11 @@ def _build_individual_page(img_path: str, base_path: Path, index: int) -> str:
     # Use the full text-body height so images fill the page.
     # \textheight already excludes the header; keepaspectratio prevents distortion.
     h       = "\\textheight"
-    img_line = (
-        f"\\includegraphics[width=\\linewidth,"
-        f"height={h},keepaspectratio]{{{img_path}}}\n"
-    )
+
+    img_url = _image_url(img_path, project_url) if project_url else ''
+    raw_inc = f"\\includegraphics[width=\\linewidth,height={h},keepaspectratio]{{{img_path}}}"
+    linked_inc = f"\\href{{{img_url}}}{{{raw_inc}}}" if img_url else raw_inc
+    img_line = linked_inc + "\n"
 
     latex = "\\clearpage\n{\\setlength{\\parskip}{0pt}%\n"
 
@@ -339,7 +375,7 @@ def _build_individual_page(img_path: str, base_path: Path, index: int) -> str:
             "\\noindent\n"
             f"\\begin{{minipage}}[b][{h}][c]{{\\textwidth}}\n"
             "  \\centering\n"
-            f"  \\includegraphics[width=\\linewidth,height={h},keepaspectratio]{{{img_path}}}\n"
+            f"  {linked_inc}\n"
             "\\end{minipage}%\n"
         )
 
@@ -458,6 +494,7 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
 
     # Append the registration mark centered at the end of the bio
     from portfolio.elements import generate_registration_mark_tex
+
     with tempfile.NamedTemporaryFile(suffix='.tex', delete=False, mode='r') as _tmp:
         _tmp_path = _tmp.name
     generate_registration_mark_tex(_tmp_path)
@@ -467,13 +504,22 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
 
     avatar_file = artist.get('avatar_file', '')
     if avatar_file and (base_path / avatar_file).exists():
+        # Bio URL: artist website + /about
+        website     = artist.get('website', '')
+        website_url = artist.get('website_url', f'https://{website}' if website else '')
+        bio_url     = f"{website_url.rstrip('/')}/about" if website_url else ''
+
+        avatar_img = f"\\includegraphics[width=\\linewidth,height=0.85\\textheight,keepaspectratio]{{{avatar_file}}}"
+        if bio_url:
+            avatar_img = f"\\href{{{bio_url}}}{{{avatar_img}}}"
+
         # wrapfigure lets the bio text flow naturally (and break to a second page
         # if needed) while the portrait floats to the right — no fixed-height
         # minipage means no clipping and the bottom margin is always respected.
         return (
             f"\\begin{{wrapfigure}}{{r}}{{0.35\\textwidth}}\n"
             "\\vspace{4pt}\n"
-            f"\\includegraphics[width=\\linewidth,height=0.85\\textheight,keepaspectratio]{{{avatar_file}}}\n"
+            f"{avatar_img}\n"
             "\\end{wrapfigure}\n"
             + bio_text + "\n"
             + "\n\\vspace{10em}\n"
