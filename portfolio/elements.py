@@ -48,7 +48,7 @@ def ripple_pattern(center, width, height, max_ripple=20):
     return ripples_pattern
 
 
-def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, portfolio_title='Portfolio', for_name=None):
+def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, for_name=None):
     grp_label_black = Group( name='label_black' )
     grp_label_red = Group( name='label_red', color='red' )
     
@@ -81,8 +81,6 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, portfolio_ti
             #         align='top_right',
             #         scale=0.5,
             #     )
-        elif i == 2:
-            grp_label_black.text( portfolio_title, (x+margin, y + row_height * 0.5), scale=0.09 * scale, align='left', letter_spacing=4 )
         # elif i == 3:
         #     _for_name = for_name if for_name is not None else gallery_name
         #     grp_label_black.text( "For", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
@@ -97,7 +95,7 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, portfolio_ti
     return Group( name='label', children=[grp_label_black, grp_label_red] )
 
 
-def generate_label_svg(gallery_name: str, output_path: str, portfolio_title: str = 'Portfolio', for_name: str = None) -> None:
+def generate_label_svg(gallery_name: str, output_path: str, for_name: str = None) -> None:
     """Generate a full A4-landscape SVG with the label near the lower-right corner."""
     axi = Surface(size='A4_landscape')
     top_left = [185, 140]
@@ -105,7 +103,7 @@ def generate_label_svg(gallery_name: str, output_path: str, portfolio_title: str
     scale = 1.0
 
     grp_label = label(gallery_name, top_left=top_left, size=size, scale=scale,
-                      portfolio_title=portfolio_title, for_name=for_name)
+                      for_name=for_name)
     axi.add(grp_label)
 
     color_extra = 'rgb(200, 200, 200)'
@@ -154,33 +152,5 @@ def generate_label_svg(gallery_name: str, output_path: str, portfolio_title: str
 
     axi.toSVG(output_path)
 
-def generate_registration_mark_tex(output_path: str) -> None:
-    """Generate a TeX snippet with a registration mark centered for the end of a bio.
-
-    The output is a standalone tikzpicture block wrapped in \\begin{center} so it
-    can be \\input{}'d at the end of a bio and will be horizontally centred between
-    the left and right text borders.
-    """
-    marks = 5
-    surface_w = marks * 4   # 20 mm – tight box around the mark
-    surface_h = marks * 4
-    axi = Surface(size=(surface_w, surface_h))
-
-    center = (surface_w * 0.5, surface_h * 0.5)
-    mark_group = Group(id="registration_mark", color="black")
-    mark_group.circle(pos=center, radius=marks * 0.5)
-    mark_group.line([center[0] - marks, center[1]], [center[0] + marks, center[1]])
-    mark_group.line([center[0], center[1] - marks], [center[0], center[1] + marks])
-
-    axi.add(mark_group)
-    axi.toTeX(output_path, standalone=False)
-
-    with open(output_path, 'r') as f:
-        content = f.read()
-    with open(output_path, 'w') as f:
-        f.write('\\begin{center}\n' + content + '\\end{center}\n')
-
-
 if __name__ == '__main__':
-    # generate_label_svg("Example Gallery", "label.svg")
-    generate_registration_mark_tex("registration_mark.tex")
+    generate_label_svg("Example Gallery", "label.svg")

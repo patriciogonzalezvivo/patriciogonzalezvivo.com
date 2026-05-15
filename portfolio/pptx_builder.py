@@ -16,6 +16,7 @@ Public API
 build_pptx_markdown(data, projects, base_path)  →  str
 """
 
+import re
 from pathlib import Path
 from typing import Dict, List
 
@@ -74,7 +75,6 @@ def build_pptx_markdown(
             # First paragraph only, no markdown syntax
             para = desc.split('\n\n')[0].strip()
             # Strip simple markdown syntax that would look odd in pptx
-            import re
             para = re.sub(r'\*+(.+?)\*+', r'\1', para)
             para = re.sub(r'_(.+?)_', r'\1', para)
             if len(para) > _MAX_DESC_CHARS:

@@ -212,8 +212,6 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
         f"\\noindent{{\\Large\\textbf{{\\href{{{project_url}}}{{{title}}}}}}}"
         f"\\hfill{{\\large \\href{{{year_url}}}{{\\textcolor{{red}}{{{year}}}}}}}\n\n"
     )
-    # latex += "\\vspace{0.3em}\\hrule\\vspace{1em}\n\n"
-
     # Detect a thumbnail.jpg / thumbnail.png in the project root to place
     # beside the description. Check the filesystem directly so this works
     # even when images/ sub-folder exists (find_images only falls back to
@@ -429,6 +427,14 @@ def _build_individual_page(img_path: str, base_path: Path, index: int, project_u
 # Template population
 # ---------------------------------------------------------------------------
 
+# Maps data.json file keys to their display names used in section headers.
+_SECTION_DISPLAY_NAMES: Dict[str, str] = {
+    'cv_file':           'CV',
+    'exhibitions_file':  'Exhibitions',
+    'talks_file':        'Talks',
+    'press_file':        'Press',
+}
+
 def populate_template(
     template_text: str,
     data: Dict,
@@ -480,18 +486,8 @@ def populate_template(
     # ------------------------------------------------------------------
     # Substitution map
     # ------------------------------------------------------------------
-    portfolio_title = artist.get('portfolio_title', 'Portfolio')
-    for_name        = artist.get('for', '')
-    header_title    = (
-        escape_latex(f"{portfolio_title} \u2014 {for_name}")
-        if for_name
-        else escape_latex(portfolio_title)
-    )
-
     replacements = {
-        '%%ARTIST_NAME%%':               escape_latex(artist.get('name', '')),
-        '%%PORTFOLIO_TITLE%%':           escape_latex(portfolio_title),
-        '%%HEADER_TITLE%%':              header_title,
+        '%%ARTIST_NAME%%':               escape_latex(artist.get('name', '')), 
         # Email / website go inside \href — must NOT be LaTeX-escaped
         '%%ARTIST_EMAIL%%':              artist.get('email', ''),
         '%%ARTIST_WEBSITE%%':            artist.get('website', ''),
@@ -611,13 +607,7 @@ def _optional_section(file_key: str, artist: Dict, base_path: Path) -> str:
         return ''
 
     print(f"  + {file_key}: {filepath}")
-    _section_names = {
-        'cv_file':           'CV',
-        'exhibitions_file':  'Exhibitions',
-        'talks_file':        'Talks',
-        'press_file':        'Press',
-    }
-    section_name = _section_names.get(file_key, '')
+    section_name = _SECTION_DISPLAY_NAMES.get(file_key, '')
     mark = f"\\markright{{{section_name}}}\n\n" if section_name else ""
     return f"\\clearpage\n\n{mark}{content}\n"
 
