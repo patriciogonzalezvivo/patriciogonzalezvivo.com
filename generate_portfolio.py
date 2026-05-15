@@ -52,13 +52,10 @@ def _slugify(text: str) -> str:
 
 def _derive_output_filename(data: dict) -> str:
     """Derive the output PDF filename from data.json artist fields.
-
-    Format: <portfolio_title>-<name>-<for>-<YEAR>.pdf
     All components are slugified (lowercase, hyphens).
     """
     from datetime import datetime
     artist         = data.get('artist', {})
-    portfolio_title = _slugify(artist.get('portfolio_title', 'portfolio'))
     name            = _slugify(artist.get('name', 'artist'))
     for_name        = _slugify(artist.get('for', ''))
     year            = str(datetime.now().year)
@@ -113,23 +110,22 @@ def generate_from_template(
     artist       = data.get('artist', {})
     gallery_name = data.get('gallery_name', '')
     label_page_latex = ''
-    if gallery_name:
-        print(f"Generating label page for gallery: {gallery_name}")
-        label_pdf = _generate_label_pdf(
-            gallery_name, base_path,
-            portfolio_title=artist.get('portfolio_title', 'Portfolio'),
-            for_name=artist.get('for', None),
+    print("Generating label page...")
+    label_pdf = _generate_label_pdf(
+        gallery_name, base_path,
+        portfolio_title=artist.get('portfolio_title', 'Portfolio'),
+        for_name=artist.get('for', None),
+    )
+    if label_pdf:
+        label_page_latex = (
+            "\\thispagestyle{empty}\n"
+            "\\begin{tikzpicture}[overlay, remember picture]\n"
+            "  \\node[anchor=center] at (current page.center) {%\n"
+            f"    \\includegraphics[width=\\paperwidth,height=\\paperheight]{{{label_pdf}}}%\n"
+            "  };\n"
+            "\\end{tikzpicture}\n"
+            "\\clearpage"
         )
-        if label_pdf:
-            label_page_latex = (
-                "\\thispagestyle{empty}\n"
-                "\\begin{tikzpicture}[overlay, remember picture]\n"
-                "  \\node[anchor=center] at (current page.center) {%\n"
-                f"    \\includegraphics[width=\\paperwidth,height=\\paperheight]{{{label_pdf}}}%\n"
-                "  };\n"
-                "\\end{tikzpicture}\n"
-                "\\clearpage"
-            )
 
     print(f"Loading metadata for {len(projects_list)} projects...")
     projects = []

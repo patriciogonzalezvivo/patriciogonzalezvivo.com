@@ -8,10 +8,8 @@
     "logo": "images/logo-gray.png",
     "bio_file": "README.md",
     "phone": "+1 415 999 9999",
-    "location": "1234 Street, City, Country",
-    "for": "THE Gallery"
+    "location": "1234 Street, City, Country"
   },
-  "gallery_name": "POSH Gallery",
   "projects": [
     {
       "path": "2026/santos",

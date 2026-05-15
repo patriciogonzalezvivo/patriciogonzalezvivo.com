@@ -34,7 +34,6 @@ Each artwork occupies one or more pages:
   of ``images_per_page`` per page.
 """
 
-import tempfile
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -215,18 +214,53 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
     )
     # latex += "\\vspace{0.3em}\\hrule\\vspace{1em}\n\n"
 
-    if images and len(images) == 1 and Path(images[0]).name.lower().startswith('thumbnail'):
-        # Wasm / thumbnail-only project: full-width description on page 1,
-        # thumbnail gets its own full-height page.
-        if desc:
-            latex += desc + "\n\n"
-        additional_images = images[:]
+    # Detect a thumbnail.jpg / thumbnail.png in the project root to place
+    # beside the description. Check the filesystem directly so this works
+    # even when images/ sub-folder exists (find_images only falls back to
+    # the root thumbnail when images/ is absent or empty).
+    project_root = base_path / project['path']
+    thumb_img = None
+    for _tname in ('thumbnail.png', 'thumbnail.jpg', 'thumbnail.jpeg'):
+        _tp = project_root / _tname
+        if _tp.exists():
+            thumb_img = str(_tp.relative_to(base_path))
+            break
+
+    # Exclude the thumbnail from additional image pages (avoids duplication
+    # in the WASM-fallback case where it also appears in project['images'])
+    additional_images = [
+        img for img in images
+        if not (Path(img).stem.lower() == 'thumbnail'
+                and Path(img).suffix.lower() in ('.jpg', '.jpeg', '.png'))
+    ]
+
+    if thumb_img and desc:
+        # wrapfigure: thumbnail floats right, description flows naturally
+        # around it and can break across pages (unlike minipage).
+        thumb_href = (
+            f"\\href{{{project_url}}}{{\\includegraphics[width=\\linewidth,height=0.75\\textheight,keepaspectratio]{{{thumb_img}}}}}"
+            if project_url else
+            f"\\includegraphics[width=\\linewidth,height=0.75\\textheight,keepaspectratio]{{{thumb_img}}}"
+        )
+        latex += (
+            f"\\begin{{wrapfigure}}{{r}}{{0.40\\textwidth}}\n"
+            "\\vspace{0pt}\n"
+            + thumb_href + "\n"
+            "\\end{wrapfigure}\n"
+            + desc + "\n\n"
+        )
+    elif thumb_img:
+        # No description — thumbnail full-width on page 1
+        thumb_href = (
+            f"\\href{{{project_url}}}{{\\includegraphics[width=\\textwidth,height=0.85\\textheight,keepaspectratio]{{{thumb_img}}}}}"
+            if project_url else
+            f"\\includegraphics[width=\\textwidth,height=0.85\\textheight,keepaspectratio]{{{thumb_img}}}"
+        )
+        latex += thumb_href + "\n\n"
     else:
-        # All other projects: description always fills page 1; every image
-        # gets its own page so nothing is squeezed alongside the text.
+        # No thumbnail — description fills page 1
         if desc:
             latex += desc + "\n\n"
-        additional_images = images[:]
 
     # ------------------------------------------------------------------
     # Additional image pages
@@ -500,15 +534,11 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
     if not bio_text:
         return ''
 
-    # Append the registration mark centered at the end of the bio
-    from portfolio.elements import generate_registration_mark_tex
-
-    with tempfile.NamedTemporaryFile(suffix='.tex', delete=False, mode='r') as _tmp:
-        _tmp_path = _tmp.name
-    generate_registration_mark_tex(_tmp_path)
-    with open(_tmp_path) as _f:
-        registration_mark_tex = _f.read()
-    Path(_tmp_path).unlink(missing_ok=True)
+    logo_tex = (
+        "\\begin{center}\n"
+        "\\includegraphics[height=1.5cm,keepaspectratio]{images/logo-gray.png}\n"
+        "\\end{center}\n"
+    )
 
     avatar_file = artist.get('avatar_file', '')
     if avatar_file and (base_path / avatar_file).exists():
@@ -531,11 +561,10 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
             f"{avatar_img}\n"
             "\\end{wrapfigure}\n"
             + bio_text + "\n"
-            + "\n\\vspace{10em}\n"
-            + registration_mark_tex
+            + logo_tex
         )
 
-    return "\\markright{Bio}\n" + bio_text + "\n\\vspace{2em}\n" + registration_mark_tex
+    return "\\markright{Bio}\n" + bio_text + "\n" + logo_tex
 
 
 def _build_artist_statement(artist: Dict, base_path: Path) -> str:
