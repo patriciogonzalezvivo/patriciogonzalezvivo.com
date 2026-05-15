@@ -90,9 +90,11 @@ def build_pptx_markdown(
             lines.append('')
 
         # ── Image slides ────────────────────────────────────────────────
+        skip_stems = {Path(s).stem for s in project.get('skip', [])}
         images = [
             img for img in project.get('images', [])
             if (base_path / img).exists()
+            and Path(img).stem not in skip_stems
         ][:MAX_IMAGES]
 
         for img in images:

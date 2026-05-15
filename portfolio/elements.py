@@ -69,7 +69,7 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, portfolio_ti
         row_height = h * rows_pct[i]
         y += row_height
 
-        if i > 1:
+        if i > 1 and i < 3:
             grp_label_black.line( (x, y), (x+w, y), stroke_width=stroke_width )
 
         if i == 1:
@@ -83,13 +83,13 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, portfolio_ti
             #     )
         elif i == 2:
             grp_label_black.text( portfolio_title, (x+margin, y + row_height * 0.5), scale=0.09 * scale, align='left', letter_spacing=4 )
-        elif i == 3:
-            _for_name = for_name if for_name is not None else gallery_name
-            grp_label_black.text( "For", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
-            grp_label_black.text( _for_name, (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
-            grp_label_black.line( (x+w*0.6, y), (x + w*0.6, y+row_height), stroke_width=stroke_width )
-            grp_label_black.text( "Date" , (x + w * 0.6 + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140  )
-            grp_label_red.text( datetime.now().strftime("%m-%d-%Y"), (x + w * 0.6 + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
+        # elif i == 3:
+        #     _for_name = for_name if for_name is not None else gallery_name
+        #     grp_label_black.text( "For", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
+        #     grp_label_black.text( _for_name, (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
+        #     grp_label_black.line( (x+w*0.6, y), (x + w*0.6, y+row_height), stroke_width=stroke_width )
+        #     grp_label_black.text( "Date" , (x + w * 0.6 + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140  )
+        #     grp_label_red.text( datetime.now().strftime("%m-%d-%Y"), (x + w * 0.6 + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
         # elif i == 4:
         #     grp_label_black.text( "Web", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
         #     grp_label_black.text( "patriciogonzalezvivo.com", (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )

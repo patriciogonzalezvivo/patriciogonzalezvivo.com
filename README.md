@@ -1,6 +1,3 @@
-
-<!-- ![IMG](images/about_picture.jpg) -->
-
 **Patricio Gonzalez Vivo** (b. 1982, Buenos Aires) is a multidisciplinary artist working at the intersection of painting, computation, and symbolic systems. His practice centers on the creation of artifacts of perception, tools, images, and experiences that translate between the measurable and the ineffable. Through these works, he explores how we construct meaning, memory, and presence across material and digital domains.
 
 Trained initially in clinical psychology and expressive arts therapy, Gonzalez Vivo’s early engagement with inner experience continues to inform his artistic language. In 2012, he relocated to the United States to pursue an MFA in Design & Technology at Parsons School of Design, where his focus shifted toward the development of computational and perceptual systems as artistic media.

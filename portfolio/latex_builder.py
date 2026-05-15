@@ -183,10 +183,13 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
     else:
         desc = ""
 
-    # Exclude GIFs and missing files
+    # Exclude GIFs, missing files, and any names listed in project['skip']
+    skip_stems = {Path(s).stem for s in project.get('skip', [])}
     images = [
         img for img in project['images']
-        if not img.endswith('.gif') and (base_path / img).exists()
+        if not img.endswith('.gif')
+        and (base_path / img).exists()
+        and Path(img).stem not in skip_stems
     ]
 
     latex = ""
@@ -200,6 +203,12 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
     # Page 1: title bar + description (+ optional first image)
     # ------------------------------------------------------------------
     latex += "\\clearpage\n"
+    _mark_text = (
+        f"\\href{{{project_url}}}{{{title}}}, {year}"
+        if project_url
+        else f"{title}, {year}"
+    )
+    latex += f"\\markright{{{_mark_text}}}\n"
     latex += (
         f"\\noindent{{\\Large\\textbf{{\\href{{{project_url}}}{{{title}}}}}}}"
         f"\\hfill{{\\large \\href{{{year_url}}}{{\\textcolor{{red}}{{{year}}}}}}}\n\n"
@@ -516,6 +525,7 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
         # if needed) while the portrait floats to the right — no fixed-height
         # minipage means no clipping and the bottom margin is always respected.
         return (
+            "\\markright{Bio}\n"
             f"\\begin{{wrapfigure}}{{r}}{{0.35\\textwidth}}\n"
             "\\vspace{4pt}\n"
             f"{avatar_img}\n"
@@ -525,7 +535,7 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
             + registration_mark_tex
         )
 
-    return bio_text + "\n\\vspace{2em}\n" + registration_mark_tex
+    return "\\markright{Bio}\n" + bio_text + "\n\\vspace{2em}\n" + registration_mark_tex
 
 
 def _build_artist_statement(artist: Dict, base_path: Path) -> str:
@@ -544,6 +554,8 @@ def _build_artist_statement(artist: Dict, base_path: Path) -> str:
         return ''
 
     return (
+        "\\clearpage\n\n"
+        "\\markright{Artist Statement}\n\n"
         "\\section*{Artist Statement}\n\n"
         + content
         + "\n\n\\clearpage"
@@ -569,7 +581,15 @@ def _optional_section(file_key: str, artist: Dict, base_path: Path) -> str:
         return ''
 
     print(f"  + {file_key}: {filepath}")
-    return f"\\clearpage\n\n{content}\n"
+    _section_names = {
+        'cv_file':           'CV',
+        'exhibitions_file':  'Exhibitions',
+        'talks_file':        'Talks',
+        'press_file':        'Press',
+    }
+    section_name = _section_names.get(file_key, '')
+    mark = f"\\markright{{{section_name}}}\n\n" if section_name else ""
+    return f"\\clearpage\n\n{mark}{content}\n"
 
 
 # ---------------------------------------------------------------------------
