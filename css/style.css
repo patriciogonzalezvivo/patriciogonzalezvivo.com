@@ -190,6 +190,40 @@ iframe {
     max-width: 100%;
 }
 
+/* :::wrapfig floating figures */
+.wrapfig {
+    margin-bottom: 1em;
+}
+.wrapfig--right {
+    float: right;
+    margin-left: 1.5em;
+}
+.wrapfig--left {
+    float: left;
+    margin-right: 1.5em;
+}
+.wrapfig img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.wrapfig figcaption {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 0.4em;
+    line-height: 1.3;
+    text-align: center;
+}
+/* On narrow screens wrapfigs stack full-width */
+@media (max-width: 600px) {
+    .wrapfig--right,
+    .wrapfig--left {
+        float: none;
+        margin: 0 0 1em 0;
+        width: 100% !important;
+    }
+}
+
 /* Longer Info */
 #longer-info {
     transition: opacity 0.3s ease-in-out;

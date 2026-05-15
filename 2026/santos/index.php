@@ -27,8 +27,8 @@
         <h2 class="title"><?php echo $meta['title']; ?></h2>
 
 		<?php
-		include("../../parsedown/Parsedown.php");
-		$Parsedown = new Parsedown();
+		include("../../ParsedownExtended.php");
+		$Parsedown = new ParsedownExtended();
 		echo $Parsedown->text(file_get_contents ('README.md'));
 		?>
 

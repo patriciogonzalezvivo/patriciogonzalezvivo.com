@@ -32,7 +32,7 @@ from typing import Dict, Optional
 from .images import svg_to_pdf
 
 from portfolio.images import find_images, find_svgs
-from portfolio.utils import strip_markdown, markdown_to_latex, escape_latex
+from portfolio.utils import strip_markdown, markdown_to_latex, escape_latex, _WRAPFIG_RE
 
 
 # ---------------------------------------------------------------------------
@@ -50,18 +50,21 @@ def read_file(path: Path) -> Optional[str]:
 # README / about.md conversion
 # ---------------------------------------------------------------------------
 
-def readme_to_latex(markdown: str, project_path: Path) -> str:
+def readme_to_latex(markdown: str, project_path: Path, project_dir: str = '') -> str:
     """Convert a README.md to LaTeX, embedding inline SVG figures.
 
     SVG image references using the Markdown syntax ``![alt](svg/file.svg)``
     are converted to centred ``\\includesvg`` figures; all other content
-    passes through :func:`~portfolio.utils.strip_markdown` and then
-    :func:`~portfolio.utils.markdown_to_latex`.
+    passes through :func:`~portfolio.utils.markdown_to_latex`.
 
     Args:
         markdown:     Raw Markdown text (typically README.md contents).
         project_path: Absolute path to the project directory, used to
                       resolve relative SVG paths to absolute paths.
+        project_dir:  Workspace-relative project directory (e.g.
+                      ``"2026/santos"``).  When provided, relative ``src:``
+                      paths inside ``:::wrapfig`` blocks are prefixed with
+                      this value so XeLaTeX can locate the images.
 
     Returns:
         LaTeX string ready for inclusion in the document body.
@@ -74,8 +77,24 @@ def readme_to_latex(markdown: str, project_path: Path) -> str:
     for i, part in enumerate(parts):
         mod = i % 3
         if mod == 0:
-            # Prose chunk — strip Markdown then convert to LaTeX
-            result.append(markdown_to_latex(strip_markdown(part)))
+            # Prose chunk — convert Markdown directly; wrapfig blocks and
+            # HTML/image stripping are handled inside markdown_to_latex.
+            # If a project_dir is known, resolve project-relative src: paths
+            # in :::wrapfig blocks to workspace-relative paths so XeLaTeX
+            # can find them (it runs from the workspace root).
+            chunk = part
+            if project_dir:
+                prefix = project_dir.rstrip('/')
+                def _fix_src(m: re.Match) -> str:
+                    side, body = m.group(1), m.group(2)
+                    body = re.sub(
+                        r'^(src\s*:\s*)(?!https?://)(.+)$',
+                        lambda sm: sm.group(1) + prefix + '/' + sm.group(2).strip(),
+                        body, flags=re.MULTILINE,
+                    )
+                    return f':::wrapfig {side}\n{body}:::\n'
+                chunk = _WRAPFIG_RE.sub(_fix_src, part)
+            result.append(markdown_to_latex(chunk))
         elif mod == 1:
             pass  # alt text — discard
         else:

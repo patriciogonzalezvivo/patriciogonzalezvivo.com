@@ -13,7 +13,73 @@ import re
 
 
 # ---------------------------------------------------------------------------
-# LaTeX escaping
+# :::wrapfig block directive
+# ---------------------------------------------------------------------------
+
+# Matches a full :::wrapfig block, capturing the side ('right'/'left'/'r'/'l')
+# and the raw key-value body between the opening and closing ::: fences.
+_WRAPFIG_RE = re.compile(
+    r'^:::wrapfig[ \t]+(right|left|r|l)[ \t]*\n(.*?)^:::[ \t]*$',
+    re.MULTILINE | re.DOTALL,
+)
+
+
+def _wrapfig_to_latex(side: str, body: str) -> str:
+    """Build a LaTeX ``\\begin{wrapfigure}`` block from a ``:::wrapfig`` body.
+
+    Recognised keys in *body* (one ``key: value`` pair per line):
+
+    =========  =============================================================
+    Key        Description
+    =========  =============================================================
+    src        Workspace-relative image path (required).
+    caption    Caption text shown below the image (optional).
+    link       URL to hyperlink the image via ``\\href`` (optional).
+    width      Float width as a percentage (default ``40%``).  Accepts
+               either ``40%`` or the equivalent LaTeX fraction ``0.40``.
+    =========  =============================================================
+    """
+    params: dict = {}
+    for line in body.splitlines():
+        if ':' in line:
+            k, _, v = line.partition(':')
+            params[k.strip().lower()] = v.strip()
+
+    src     = params.get('src', '')
+    caption = params.get('caption', '')
+    link    = params.get('link', '')
+    width_s = params.get('width', '40%')
+
+    if not src:
+        return ''
+
+    # Normalise width to a LaTeX fraction (e.g. '40%' → 0.40).
+    if width_s.endswith('%'):
+        try:
+            width_frac = float(width_s[:-1]) / 100
+        except ValueError:
+            width_frac = 0.40
+    else:
+        try:
+            width_frac = float(width_s)
+        except ValueError:
+            width_frac = 0.40
+
+    pos = 'r' if side[0].lower() == 'r' else 'l'
+    img = f'\\includegraphics[width=\\linewidth,keepaspectratio]{{{src}}}'
+    if link:
+        img = f'\\href{{{link}}}{{{img}}}'
+
+    latex  = f'\\begin{{wrapfigure}}{{{pos}}}{{{width_frac:.2f}\\textwidth}}\n'
+    latex += '\\vspace{0pt}\n'
+    latex += img + '\n'
+    if caption:
+        latex += '\\par\\vspace{0.4em}\n'
+        latex += f'{{\\small {escape_latex(caption)}}}\n'
+    latex += '\\end{wrapfigure}\n'
+    return latex
+
+
 # ---------------------------------------------------------------------------
 
 # Characters that have special meaning in LaTeX and must be escaped.
@@ -53,13 +119,15 @@ def strip_markdown(markdown: str) -> str:
     """Return *markdown* as plain text suitable for further processing.
 
     Removes:
+      - ``:::wrapfig`` floating-image blocks
       - HTML tags (``<…>``)
       - Markdown image syntax (``![alt](url)``)
       - Markdown link syntax, keeping the link text
       - ATX-style headers (``# Heading``)
       - Collapses runs of 3+ blank lines to a single blank line
     """
-    text = re.sub(r'<[^>]+>', '', markdown)                        # HTML tags
+    text = _WRAPFIG_RE.sub('', markdown)                           # :::wrapfig blocks
+    text = re.sub(r'<[^>]+>', '', text)                            # HTML tags
     text = re.sub(r'!\[.*?\]\(.*?\)', '', text)                    # images
     text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)         # links → text
     text = re.sub(r'^#+\s+', '', text, flags=re.MULTILINE)         # headers
@@ -74,25 +142,64 @@ def strip_markdown(markdown: str) -> str:
 def markdown_to_latex(text: str) -> str:
     """Convert a subset of Markdown to LaTeX.
 
-    Handles:
+    Handles (in processing order):
+      - ``:::wrapfig`` blocks  → ``\\begin{wrapfigure}…\\end{wrapfigure}``
+      - Markdown links         → ``\\href{url}{text}``
+      - HTML tag stripping
+      - Markdown image removal (``![alt](url)``)
+      - ATX header stripping   (``# Heading``)
       - LaTeX character escaping
-      - Bold (``**text**``) → ``\\textbf{text}``
-      - Italic (``*text*`` / ``_text_``) → ``\\textit{text}``
-      - Block-quotes (``> text``) → ``\\begin{quote}…\\end{quote}``
-      - Unordered list items (``- item`` / ``* item``) → ``\\item …``
-      - Single newlines promoted to paragraph breaks (double newline in LaTeX)
+      - Bold (``**text**``)    → ``\\textbf{text}``
+      - Italic (``*text*``)    → ``\\textit{text}``
+      - Block-quotes           → ``\\begin{quote}…\\end{quote}``
+      - Unordered list items   → ``\\item …``
+      - Single newlines promoted to paragraph breaks
     """
     if not text:
         return ""
 
+    # ------------------------------------------------------------------
+    # Pre-escape pass: extract items whose content must not be run
+    # through escape_latex (paths, URLs, image sources).
+    # ------------------------------------------------------------------
+
+    # :::wrapfig blocks → deferred LaTeX wrapfigure
+    _wf_map: dict = {}
+    def _wf_store(m: re.Match) -> str:
+        key = f'\x01WF{len(_wf_map)}\x01'
+        _wf_map[key] = _wrapfig_to_latex(m.group(1), m.group(2))
+        return key
+    text = _WRAPFIG_RE.sub(_wf_store, text)
+
+    # Markdown links [text](url) → deferred \href{url}{text}
+    _lk_map: dict = {}
+    def _lk_store(m: re.Match) -> str:
+        key = f'\x01LK{len(_lk_map)}\x01'
+        _lk_map[key] = (m.group(1), m.group(2))  # (display_text, url)
+        return key
+    text = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', _lk_store, text)
+
+    # Remove constructs with no LaTeX equivalent
+    text = re.sub(r'<[^>]+>', '', text)                         # HTML tags
+    text = re.sub(r'!\[.*?\]\(.*?\)', '', text)                 # Markdown images
+    text = re.sub(r'^#+\s+', '', text, flags=re.MULTILINE)      # ATX headers
+
+    # ------------------------------------------------------------------
+    # Escape LaTeX special characters in the remaining prose
+    # ------------------------------------------------------------------
     text = escape_latex(text)
 
-    # Inline formatting (applied after escaping so we only touch Markdown delimiters)
+    # Restore links as \href — URL kept raw, display text escaped.
+    for key, (ltext, url) in _lk_map.items():
+        text = text.replace(key, f'\\href{{{url}}}{{{escape_latex(ltext)}}}')
+
+    # ------------------------------------------------------------------
+    # Inline / block formatting (applied after escaping)
+    # ------------------------------------------------------------------
     text = re.sub(r'\*\*(.+?)\*\*', r'\\textbf{\1}', text)
     text = re.sub(r'\*(.+?)\*',     r'\\textit{\1}', text)
     text = re.sub(r'_(.+?)_',       r'\\textit{\1}', text)
 
-    # Block-level elements
     text = re.sub(
         r'^>\s+(.+)$',
         r'\\begin{quote}\1\\end{quote}',
@@ -110,5 +217,11 @@ def markdown_to_latex(text: str) -> str:
     text = re.sub(r'\n{2,}', '\x00', text)   # mark existing paragraph breaks
     text = text.replace('\n', '\n\n')          # single → double
     text = text.replace('\x00', '\n\n')        # restore
+
+    # ------------------------------------------------------------------
+    # Re-inject wrapfig LaTeX blocks
+    # ------------------------------------------------------------------
+    for key, wf_latex in _wf_map.items():
+        text = text.replace(key, wf_latex)
 
     return text

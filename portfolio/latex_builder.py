@@ -171,7 +171,8 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
     # ------------------------------------------------------------------
     if project.get('readme_raw') and project.get('inject_svgs', True):
         # Full README with embedded SVG figures
-        desc = readme_to_latex(project['readme_raw'], base_path / project['path'])
+        desc = readme_to_latex(project['readme_raw'], base_path / project['path'],
+                               project_dir=project['path'])
     elif project.get('readme_raw'):
         # SVG injection disabled — use the pre-stripped plain text
         desc = markdown_to_latex(project.get('about') or '')
@@ -526,7 +527,7 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
         print(f"  (skipping bio_file: {bio_path_str} not found)")
         return ''
 
-    bio_text = markdown_to_latex(strip_markdown(bio_path.read_text()))
+    bio_text = markdown_to_latex(bio_path.read_text())
     if not bio_text:
         return ''
 
