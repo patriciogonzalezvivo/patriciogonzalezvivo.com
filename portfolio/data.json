@@ -1,14 +1,13 @@
 {
   "artist": {
     "name": "Patricio Gonzalez Vivo",
-    "portfolio_title": "Portfolio",
     "email": "patriciogonzalezvivo@gmail.com",
     "website": "patriciogonzalezvivo.com",
     "instagram": "patriciogonzalezvivo",
-    "logo": "images/logo-gray.png",
-    "bio_file": "README.md",
     "phone": "+1 415 999 9999",
-    "location": "1234 Street, City, Country"
+    "location": "1234 Street, City, Country",
+    "logo": "images/logo-gray.png",
+    "bio_file": "README.md"
   },
   "projects": [
     {

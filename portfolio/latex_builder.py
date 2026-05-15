@@ -535,8 +535,9 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
         return ''
 
     logo_tex = (
+        "\\vspace{3em}\n"
         "\\begin{center}\n"
-        "\\includegraphics[height=1.5cm,keepaspectratio]{images/logo-gray.png}\n"
+        "\\includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}\n"
         "\\end{center}\n"
     )
 
