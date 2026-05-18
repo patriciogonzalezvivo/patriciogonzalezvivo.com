@@ -1,0 +1,460 @@
+% =========================================================
+% ARTIST PORTFOLIO TEMPLATE
+% ---------------------------------------------------------
+% Populate this template by running:
+%   python generate_portfolio.py --template portfolio_template.tex \
+%                                --data portfolio_data.json \
+%                                --output portfolio.pdf
+%
+% The script replaces %%PLACEHOLDER%% markers with values
+% from the JSON data file and filesystem project metadata.
+%
+% Compile with xelatex (required for fontspec).
+% =========================================================
+
+\documentclass[12pt]{article}
+
+% ---------------------------------------------------------
+% PAGE LAYOUT
+% ---------------------------------------------------------
+\usepackage[a4paper, landscape, margin=0.8in, headheight=22pt, headsep=14pt]{geometry}
+
+% ---------------------------------------------------------
+% PACKAGES
+% ---------------------------------------------------------
+\usepackage{graphicx}     % image inclusion
+\usepackage{float}        % figure placement [H]
+\usepackage{titlesec}     % section styling
+\usepackage{fancyhdr}     % headers / footers
+\usepackage{parskip}      % no paragraph indent, space between paragraphs
+\usepackage{caption}      % captions
+\usepackage{tabularx}     % flexible tables
+\usepackage{hyperref}     % links
+\usepackage{xcolor}
+\usepackage{wrapfig}      % text wrapping around figures
+\usepackage{tikz}         % full-page label overlay
+% SVGs are pre-converted to PDF by the Python generator (rsvg-convert)
+\usepackage{fontspec}     % requires xelatex
+
+\usepackage{setspace}
+\setstretch{1.6}
+
+% ---------------------------------------------------------
+% TYPOGRAPHY
+% ---------------------------------------------------------
+% Montserrat from local folder
+\setmainfont{Montserrat}[
+    Path           = montserrat/,
+    UprightFont    = *-Light,
+    BoldFont       = *-SemiBold,
+    ItalicFont     = *-LightItalic,
+    BoldItalicFont = *-SemiBoldItalic,
+    Extension      = .ttf
+]
+
+% ---------------------------------------------------------
+% HYPERLINK STYLE
+% ---------------------------------------------------------
+\hypersetup{
+    colorlinks = true,
+    linkcolor  = black,
+    urlcolor   = black,
+}
+
+% ---------------------------------------------------------
+% HEADER / FOOTER
+% ---------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small {\addfontfeature{LetterSpace=8}\href{https://patriciogonzalezvivo.com}{\MakeUppercase{Patricio Gonzalez Vivo}}}}
+\fancyhead[R]{\footnotesize \rightmark}
+\renewcommand{\headrulewidth}{1pt}
+
+% ---------------------------------------------------------
+% SECTION STYLE
+% ---------------------------------------------------------
+\titleformat{\section}
+  {\Large\bfseries}{}
+  {0pt}{}[\titlerule]
+
+\titleformat{\subsection}
+  {\large\bfseries}{}
+  {0pt}{}
+
+% ---------------------------------------------------------
+% ARTWORK MACRO
+% ---------------------------------------------------------
+% Parameters:
+%   #1 = image path
+%   #2 = title
+%   #3 = year
+%   #4 = medium
+%   #5 = dimensions
+%   #6 = description
+%
+% The script generates \ArtworkEntry calls for each project.
+
+\newcommand{\ArtworkEntry}[6]{
+
+\clearpage
+
+\begin{center}
+
+\includegraphics[width=0.9\textwidth,height=0.85\textheight,keepaspectratio]{#1}
+
+\vspace{1em}
+
+{\Large \textbf{#2}}
+
+\vspace{0.5em}
+
+\begin{tabular}{rl}
+Year:       & #3 \\
+Medium:     & #4 \\
+Dimensions: & #5 \\
+\end{tabular}
+
+\end{center}
+
+\vspace{1em}
+
+#6
+
+}
+
+% ---------------------------------------------------------
+% SERIES DIVIDER MACRO
+% ---------------------------------------------------------
+\newcommand{\SeriesPage}[1]{
+\clearpage
+\begin{center}
+\vspace*{0.3\textheight}
+{\Huge \textbf{#1}}
+\end{center}
+\clearpage
+}
+
+% =========================================================
+% DOCUMENT START
+% =========================================================
+\begin{document}
+
+\thispagestyle{empty}
+\begin{tikzpicture}[overlay, remember picture]
+  \node[anchor=center] at (current page.center) {%
+    \includegraphics[width=\paperwidth,height=\paperheight]{portfolio/label_output.pdf}%
+  };
+\end{tikzpicture}
+\clearpage
+
+% % ---------------------------------------------------------
+% % COVER PAGE
+% % ---------------------------------------------------------
+% \thispagestyle{empty}
+
+% \begin{center}
+
+% \vspace*{3cm}
+
+% \includegraphics[width=2cm]{images/logo-gray.png}
+
+% {\LARGE \textbf{Patricio Gonzalez Vivo}}
+
+% {\Large %%PORTFOLIO_TITLE%%}
+
+% \vfill
+
+% \href{mailto:patriciogonzalezvivo@gmail.com}{patriciogonzalezvivo@gmail.com}
+
+% \href{https://patriciogonzalezvivo.com}{patriciogonzalezvivo.com}
+
+% \end{center}
+
+% \clearpage
+
+\markright{Bio}
+\textbf{Patricio Gonzalez Vivo} (b. 1982, Buenos Aires) is a multidisciplinary artist working at the intersection of painting, computation, and symbolic systems. His practice centers on the creation of artifacts of perception, tools, images, and experiences that translate between the measurable and the ineffable. Through these works, he explores how we construct meaning, memory, and presence across material and digital domains.
+
+Trained initially in clinical psychology and expressive arts therapy, Gonzalez Vivo’s early engagement with inner experience continues to inform his artistic language. In 2012, he relocated to the United States to pursue an MFA in Design \& Technology at Parsons School of Design, where his focus shifted toward the development of computational and perceptual systems as artistic media.
+
+His body of work spans paintings, generative systems, interactive installations, and symbolic interfaces; ranging from machine-assisted portraiture and real-time cosmological visualizations to pedagogical artifacts such as tarot-based coding decks. Across these forms, his work reflects a sustained inquiry into perception as both a technical and poetic act: how images are constructed, how consciousness is mediated, and how reality is continually reinterpreted through tools.
+
+A defining aspect of his practice is tool-making. Patricio develops and releases open-source libraries and platforms that extend the possibilities of digital art, positioning software itself as both medium and infrastructure. His widely influential \href{https://thebookofshaders.com/}{Book of Shaders} has become a foundational resource for artists working with real-time graphics, while tools such as \href{https://github.com/patriciogonzalezvivo/glslViewer}{GlslViewer}, \href{https://github.com/patriciogonzalezvivo/glslCanvas}{glslCanvas} and \href{https://github.com/patriciogonzalezvivo/glsl-pipeline/}{glslPipeline} -and libraries such as \href{https://github.com/patriciogonzalezvivo/lygia}{Lygia}, \href{https://github.com/patriciogonzalezvivo/vera}{Vera}, \href{https://github.com/patriciogonzalezvivo/berthe}{Berthe}, and \href{https://github.com/patriciogonzalezvivo/hypatia}{Hypatia} are used globally as instruments for creative exploration. For the artist, this open dissemination is not ancillary but integral, a form of shared authorship and cultural contribution.
+
+His work has been exhibited and presented internationally at platforms such as \href{http://eyeofestival.com/}{EYEO}, \href{http://resonate.io/}{Resonate}, \href{https://www.grow.paris/}{GROW}, \href{http://file.org.br/}{FILE}, \href{http://espacio.fundaciontelefonica.com/}{Espacio Fundación Telefónica}, \href{https://www.brightmoments.io/}{BrightMoments}, \href{https://youtu.be/aIjeF9QgH-Q}{FlyingTokyo}, \href{https://www.dotdotdot.it/conn/graphics-machine-learning-patricio.php}{DotDotDot} and \href{http://encuentrofase.com.ar/}{FASE}. He has delivered talks and lectures at institutions including the \href{https://www.media.mit.edu/people/zachl/overview/}{MIT Media Lab}, \href{https://www.cmu.edu/cfa/studio/}{Carnegie Mellon University, Frank-Ratche Studio for Creative Inquiry} and Politecnico di Milano. He has taught at \href{http://www.newschool.edu/parsons/mfa-design-technology/}{Parsons School of Design}, \href{http://tisch.nyu.edu/itp}{ITP NYU}, \href{http://sfpc.io/}{SFPC (School for Poetic Computation)}, and the Instituto Universitario Nacional de Arte in Argentina.
+
+Across mediums and contexts, his practice proposes a contemporary synthesis: where code and gesture, machine, and hand, analysis, and intuition converge, offering new ways of seeing, and new conditions for experience.
+\vspace{3em}
+\begin{center}
+\includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}
+\end{center}
+
+
+
+
+% ---------------------------------------------------------
+% SELECTED WORKS
+% ---------------------------------------------------------
+% \section*{Selected Works}
+
+\clearpage
+\markright{\href{https://patriciogonzalezvivo.com/2026/santos/}{Santos}, 2026}
+\noindent{\Large\textbf{\href{https://patriciogonzalezvivo.com/2026/santos/}{Santos}}}\hfill{\large \href{https://patriciogonzalezvivo.com/2026/}{\textcolor{red}{2026}}}
+
+\begin{wrapfigure}{r}{0.40\textwidth}
+\vspace{0pt}
+\href{https://patriciogonzalezvivo.com/2026/santos/}{\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{2026/santos/thumbnail.jpg}}
+\end{wrapfigure}
+In Latin America, it is common to receive the name of the saint whose feast day coincides with one’s birth. To ask for someone’s santo is, in effect, to ask for their birthday. This custom reflects a deep cultural belief: that the saint linked to your day of birth becomes a protector, a guide, and a source of inspiration. Saints, historical figures revered for their moral virtue and spiritual significance, are understood to transcend linear time. Through their acts of compassion and faith, they enter a more circular, mythological temporality, becoming enduring presences within the collective imagination of Christianity.
+
+I was raised in a Catholic family. My grandfather used to read to me from a red book in his study, a compendium of saints’ lives. Alongside brief narratives, there were illustrations, each saint marked by a halo, captured at the pivotal moment of transformation when the ordinary gave way to the transcendent. Again and again, these stories returned to a common thread, self-sacrifice, service, and devotion to others. The halo functioned as a visual language for this metaphysical shift.
+
+That ethos of service extended into my family’s expectations. Professions such as law, medicine, and engineering were valued as pathways toward a life of usefulness and contribution. In my lineage, I cannot trace a single artist. There is one fragile exception, my maternal great-grandmother, a poet who reportedly burned all her writings upon marriage, as though creativity were a deviation to be corrected, a path to be relinquished in favor of duty.
+
+This series of portraits emerges from a personal search for an alternative lineage, one composed of figures whose service to humanity is enacted through creation. These are individuals committed to the discipline of imagination, capable of translating the invisible into form, and of reshaping the world through beauty, wonder, and possibility.
+
+If there is a creator who invites us into existence as co-creators, then this lineage of artists stands as a kind of secular sainthood. They are not exemplars of moral virtue in the traditional sense, but they are, for me, figures of devotion, visionaries with whom I seek communion and dialogue.
+
+    
+
+    
+
+    
+
+    
+
+    
+
+ 
+
+Technically, these portraits represent the next step in an \href{../../2025/hybrids/}{experimental process I began with Hybrids}. My process brings together the forces of machine and hand, code and gesture. Like their subjects, the works exist as syntheses: of the material and the immaterial, the earthly and the cosmic, the known and the intuited. They stand as reflections on creativity’s enduring capacity to transcend boundaries and connect us to something beyond ourselves.
+
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill\href{https://patriciogonzalezvivo.com/2026/santos/#DSF1035}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1035.jpg}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+Audre, 2025\\
+Oil on canvas\\
+16 x 12 inches
+\end{tabular}}
+\end{minipage}%
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}r@{}}
+Jorge Luis, 2025\\
+Oil on canvas\\
+16 x 12 inches
+\end{tabular}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1036}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1036.jpg}}
+\end{minipage}%
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill\href{https://patriciogonzalezvivo.com/2026/santos/#DSF1037}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1037.jpg}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+Hilma, 2025\\
+Oil on canvas\\
+16 x 12 inches
+\end{tabular}}
+\end{minipage}%
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}r@{}}
+James, 2025\\
+Oil on canvas\\
+16 x 12 inches
+\end{tabular}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1038}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1038.jpg}}
+\end{minipage}%
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill\href{https://patriciogonzalezvivo.com/2026/santos/#DSF1039}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1039.jpg}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+Octavia, 2025\\
+Oil on canvas\\
+16 x 12 inches
+\end{tabular}}
+\end{minipage}%
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}r@{}}
+David, 2026\\
+Oil on canvas\\
+16 x 12 inches
+\end{tabular}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1040}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1040.jpg}}
+\end{minipage}%
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill\href{https://patriciogonzalezvivo.com/2026/santos/#DSF1043}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1043.jpg}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+Toni, 2026\\
+Oil on canvas\\
+16 x 12 inches
+\end{tabular}}
+\end{minipage}%
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}r@{}}
+Lygia, 2026\\
+Oil on canvas\\
+16 x 12 inches
+\end{tabular}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1045}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1045.jpg}}
+\end{minipage}%
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill\href{https://patriciogonzalezvivo.com/2026/santos/#DSF1047}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1047.jpg}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+Xul, 2025\\
+Oil on canvas\\
+16 x 12 inches
+\end{tabular}}
+\end{minipage}%
+}%
+
+\clearpage
+\markright{\href{https://patriciogonzalezvivo.com/2026/weaver2/}{Weaver}, 2026}
+\noindent{\Large\textbf{\href{https://patriciogonzalezvivo.com/2026/weaver2/}{Weaver}}}\hfill{\large \href{https://patriciogonzalezvivo.com/2026/}{\textcolor{red}{2026}}}
+
+\begin{wrapfigure}{r}{0.40\textwidth}
+\vspace{0pt}
+\href{https://patriciogonzalezvivo.com/2026/weaver2/}{\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{2026/weaver2/thumbnail.png}}
+\end{wrapfigure}
+Weaver is an interactive artifact that invites two people to meet across time and space through a shared fragment of the night sky. Like sacred storytelling, rituals, prayers, and meditations, it offers a passage beyond linear time and immediate experience into a quiet awareness shaped by the invisible threads that bind us.
+
+Two celestial maps overlap: one for each observer. Each is rendered in a distinct color, reflecting the night sky from a specific place and moment. In the intersection lies their shared constellations, a common sky both participants can witness beyond distance or time.
+
+Each map uses a polar projection. Stars near the outer edge rest close to the horizon (marked by the cardinal directions), while those at the center hover directly overhead. This perspective situates each observer within their own sky, while revealing where their visions align.
+
+Beside each map, a rotating globe marks the observer’s location. Both the celestial maps and the globes are fully interactive. By dragging the sky, you can shift the date and time; by rotating the globe, you can reposition the observer anywhere on Earth.
+
+To share this experience with someone, open the settings panel via the gear icon in the upper right corner of this web page. There, you can define the specific time, location, and identity of each observer, shaping the conditions of your encounter.
+
+Once configured, apply your changes and share the generated URL. What you offer is not just a link, but an invitation: to pause, to look upward, and to recognize that even across distance and time, there are stars we hold in common.
+
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][c]{\textwidth}
+  \centering
+  \href{https://patriciogonzalezvivo.com/2026/weaver2/#000}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/weaver2/images/000.jpg}}
+\end{minipage}%
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][c]{\textwidth}
+  \centering
+  \href{https://patriciogonzalezvivo.com/2026/weaver2/#001}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/weaver2/images/001.jpg}}
+\end{minipage}%
+}%
+
+\clearpage
+
+
+
+
+
+
+
+
+
+% ---------------------------------------------------------
+% CONTACT PAGE
+% ---------------------------------------------------------
+\clearpage
+\markright{Contact}
+
+% \noindent
+% \begin{minipage}[t]{0.15\textwidth}
+% \vspace{0pt}
+% \includegraphics[width=\linewidth,keepaspectratio]{images/logo-gray.png}
+% \end{minipage}%
+% \hfill
+\begin{minipage}[t]{0.50\textwidth}
+\vspace{0.3in}
+\raggedright
+\begin{tabular}{rl}
+% \textbf{Name}:     & Patricio Gonzalez Vivo     \\
+\textbf{Location} & 1234 Street, City, Country \\
+\textbf{Phone}    & +1 415 999 9999    \\
+\textbf{Email}    & \href{mailto:patriciogonzalezvivo@gmail.com}{patriciogonzalezvivo@gmail.com} \\
+\textbf{Web}      & \href{https://patriciogonzalezvivo.com}{patriciogonzalezvivo.com} \\
+\textbf{Instagram} & \href{https://instagram.com/patriciogonzalezvivo}{@patriciogonzalezvivo} \\
+\end{tabular}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.25\textwidth}
+\vspace{0pt}
+\raggedleft
+\includegraphics[width=\linewidth,keepaspectratio]{images/qr-code.png}
+\end{minipage}
+
+\vspace{1cm}
+
+% =========================================================
+% END DOCUMENT
+% =========================================================
+\end{document}

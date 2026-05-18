@@ -22,6 +22,10 @@ function get_project_meta($project_path, $base_path = '') {
     $folder = isset($path_parts[1]) ? $path_parts[1] : '';
     
     // Read metadata files
+    $year_override = read_meta_file($full_path . '/YEAR.txt');
+    if ($year_override) {
+        $year = $year_override;
+    }
     $title = read_meta_file($full_path . '/TITLE.txt');
     $medium = read_meta_file($full_path . '/MEDIUM.txt');
     $description = read_meta_file($full_path . '/DESCRIPTION.txt');
@@ -65,6 +69,10 @@ function get_current_project_meta($dir_path = '.') {
     $year = prev($path_parts);
     
     // Read metadata files from current directory
+    $year_override = read_meta_file($dir_path . '/YEAR.txt');
+    if ($year_override) {
+        $year = $year_override;
+    }
     $title = read_meta_file($dir_path . '/TITLE.txt');
     $medium = read_meta_file($dir_path . '/MEDIUM.txt');
     $description = read_meta_file($dir_path . '/DESCRIPTION.txt');

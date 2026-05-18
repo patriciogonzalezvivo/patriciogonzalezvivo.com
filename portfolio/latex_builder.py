@@ -172,7 +172,7 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
     if project.get('readme_raw') and project.get('inject_svgs', True):
         # Full README with embedded SVG figures
         desc = readme_to_latex(project['readme_raw'], base_path / project['path'],
-                               project_dir=project['path'])
+                               project_dir=project['path'], base_url=base_url)
     elif project.get('readme_raw'):
         # SVG injection disabled — use the pre-stripped plain text
         desc = markdown_to_latex(project.get('about') or '')

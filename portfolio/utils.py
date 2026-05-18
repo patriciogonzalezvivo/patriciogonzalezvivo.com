@@ -23,6 +23,15 @@ _WRAPFIG_RE = re.compile(
     re.MULTILINE | re.DOTALL,
 )
 
+# Matches a self-contained HTML block element (one or more lines).
+# Covers the most common block tags used in README files for rich layout;
+# notably <div> flex rows, <table>, <figure>, etc.
+_HTML_BLOCK_RE = re.compile(
+    r'<(div|table|figure|section|article|aside|pre|details|canvas)'
+    r'(?:\s[^>]*)?>.*?</\1>',
+    re.DOTALL | re.IGNORECASE,
+)
+
 
 def _wrapfig_to_latex(side: str, body: str) -> str:
     """Build a LaTeX ``\\begin{wrapfigure}`` block from a ``:::wrapfig`` body.

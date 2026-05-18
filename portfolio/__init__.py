@@ -12,4 +12,5 @@ metadata       – Per-project metadata reader (TITLE.txt, README.md, …).
 latex_builder  – LaTeX content generation and template population.
 compiler       – XeLaTeX compilation and output management.
 elements       – SVG/label generation (label page, gallery name).
+html_render    – Headless-Chrome renderer for raw HTML blocks in READMEs.
 """
