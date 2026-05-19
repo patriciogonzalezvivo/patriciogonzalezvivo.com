@@ -192,7 +192,7 @@ iframe {
 
 /* :::wrapfig floating figures */
 .wrapfig {
-    margin-bottom: 1em;
+    margin: 0 0 1em 0; /* reset browser's default figure margins (1em 40px) */
 }
 .wrapfig--right {
     float: right;
@@ -201,6 +201,9 @@ iframe {
 .wrapfig--left {
     float: left;
     margin-right: 1.5em;
+}
+.wrapfig a {
+    display: block; /* ensure anchor fills full figure width */
 }
 .wrapfig img {
     width: 100%;
@@ -212,7 +215,30 @@ iframe {
     color: #888;
     margin-top: 0.4em;
     line-height: 1.3;
-    text-align: center;
+}
+.wrapfig--right figcaption {
+    text-align: right;
+}
+.wrapfig--left figcaption {
+    text-align: left;
+}
+.wrapfig figcaption .item-info {
+    margin: 0;
+    width: 100%;
+    text-align: inherit;
+}
+.wrapfig figcaption .item-title {
+    font-size: 1em;
+}
+.wrapfig-caption {
+    display: block;
+    margin-top: 0.25em;
+}
+.wrapfig--right .wrapfig-caption {
+    text-align: right;
+}
+.wrapfig--left .wrapfig-caption {
+    text-align: left;
 }
 /* On narrow screens wrapfigs stack full-width */
 @media (max-width: 600px) {

@@ -26,7 +26,6 @@ from typing import List, Dict, Optional
 from portfolio.metadata import get_project_meta
 from portfolio.latex_builder import populate_template, build_legacy_document
 from portfolio.compiler import compile_to_pdf, write_latex_only
-from portfolio.utils import strip_markdown
 from portfolio.images import svg_to_pdf
 
 
@@ -153,7 +152,7 @@ def generate(
         print(f"Error: biography file not found: {bio_file}")
         return False
 
-    bio = strip_markdown(bio_path.read_text())
+    bio = bio_path.read_text()
 
     print(f"Loading metadata for {len(projects_list)} projects...")
     projects = []

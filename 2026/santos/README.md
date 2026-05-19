@@ -10,7 +10,9 @@ If there is a creator who invites us into existence as co-creators, then this li
 
 :::wrapfig left
 src: ../../2014/skylines/images/14005408208_fbc2fab7ed_b.jpg
-caption: Skylines, 2014
+title: Skylines
+year: 2014
+medium: Installation detail at gallery
 link: ../../2014/skylines/
 :::
 

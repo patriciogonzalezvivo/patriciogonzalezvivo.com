@@ -42,7 +42,10 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
     Key        Description
     =========  =============================================================
     src        Workspace-relative image path (required).
-    caption    Caption text shown below the image (optional).
+    title      Artwork title, rendered bold on caption line 1 (optional).
+    year       Artwork year, appended to title on caption line 1 (optional).
+    medium     Artwork medium, rendered on caption line 2 (optional).
+    caption    Plain-text caption rendered below artwork info (optional).
     link       URL to hyperlink the image via ``\\href`` (optional).
     width      Float width as a percentage (default ``40%``).  Accepts
                either ``40%`` or the equivalent LaTeX fraction ``0.40``.
@@ -55,6 +58,9 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
             params[k.strip().lower()] = v.strip()
 
     src     = params.get('src', '')
+    title   = params.get('title', '')
+    year    = params.get('year', '')
+    medium  = params.get('medium', '')
     caption = params.get('caption', '')
     link    = params.get('link', '')
     width_s = params.get('width', '40%')
@@ -82,9 +88,31 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
     latex  = f'\\begin{{wrapfigure}}{{{pos}}}{{{width_frac:.2f}\\textwidth}}\n'
     latex += '\\vspace{0pt}\n'
     latex += img + '\n'
+
+    # Build structured caption lines matching the gallery artwork style.
+    caption_lines = []
+    # Line 1: title (bold) and/or year
+    if title or year:
+        parts = []
+        if title:
+            parts.append(f'\\textbf{{{escape_latex(title)}}}')
+        if year:
+            parts.append(escape_latex(year))
+        caption_lines.append(', '.join(parts))
+    # Line 2: medium
+    if medium:
+        caption_lines.append(escape_latex(medium))
+    # Line 3: plain caption text
     if caption:
+        caption_lines.append(escape_latex(caption))
+
+    if caption_lines:
+        align_cmd = '\\raggedleft' if pos == 'r' else '\\raggedright'
         latex += '\\par\\vspace{0.4em}\n'
-        latex += f'{{\\small {escape_latex(caption)}}}\n'
+        latex += '{\\small ' + align_cmd + '\n'
+        latex += ' \\\\\n'.join(caption_lines) + '\n'
+        latex += '\\par}\n'
+
     latex += '\\end{wrapfigure}\n'
     return latex
 

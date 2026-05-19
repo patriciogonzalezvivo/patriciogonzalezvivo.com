@@ -635,6 +635,7 @@ def build_legacy_document(bio: str, projects: List[Dict], base_path: Path) -> st
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{wrapfig}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{fancyhdr}

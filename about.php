@@ -4,10 +4,10 @@
 	<!-- <img src="/images/about.jpg" alt="Patricio Gonzalez Vivo"> -->
 
 	<div id="longer-info">
-		<img src="/images/about_thin.jpg" alt="Patricio Gonzalez Vivo" style="float: right; max-width: 300px; width: 40%; margin: 0 0 1em 1.5em;">
+		<!-- <img src="/images/about_thin.jpg" alt="Patricio Gonzalez Vivo" style="float: right; max-width: 300px; width: 40%; margin: 0 0 1em 1.5em;"> -->
 		<?php
-			include("parsedown/Parsedown.php");
-			$Parsedown = new Parsedown();
+			include("ParsedownExtended.php");
+			$Parsedown = new ParsedownExtended();
 			echo $Parsedown->text(file_get_contents ('README.md'));
 
 			// Add

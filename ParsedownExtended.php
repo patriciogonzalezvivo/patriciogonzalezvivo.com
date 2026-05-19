@@ -10,7 +10,10 @@
  *
  *   :::wrapfig right
  *   src: 2026/santos/images/detail.jpg
- *   caption: Installation detail, 2026
+ *   title: Santos
+ *   year: 2025–2026
+ *   medium: Oil on canvas
+ *   caption: Installation detail.
  *   link: /2026/santos/
  *   width: 40%
  *   :::
@@ -18,7 +21,10 @@
  * Keys
  * ----
  *   src      – image path (required; relative to the web root or absolute).
- *   caption  – caption text shown below the image (optional).
+ *   title    – artwork title, styled with .item-title (optional).
+ *   year     – artwork year, styled with .item-year (optional).
+ *   medium   – artwork medium, styled with .item-medium (optional).
+ *   caption  – plain-text caption shown below artwork info (optional).
  *   link     – URL to wrap the image in an <a> tag (optional).
  *   width    – CSS width of the float (default: 40%).
  *              Accepts CSS values ("40%", "320px") or a LaTeX-style
@@ -27,8 +33,15 @@
  * HTML output
  * -----------
  *   <figure class="wrapfig wrapfig--right" style="width:40%">
- *     <a href="/2026/santos/"><img src="..." alt="..."></a>
- *     <figcaption>Installation detail, 2026</figcaption>
+ *     <a href="/2026/santos/"><img src="..." alt="Santos"></a>
+ *     <figcaption>
+ *       <div class="item-info">
+ *         <span class="item-title">Santos</span>
+ *         <span class="item-year">2025–2026</span>
+ *         <span class="item-medium">Oil on canvas</span>
+ *       </div>
+ *       <span class="wrapfig-caption">Installation detail.</span>
+ *     </figcaption>
  *   </figure>
  *
  * Include this file instead of (or in addition to) parsedown/Parsedown.php,
@@ -107,6 +120,9 @@ class ParsedownExtended extends Parsedown
 
         $src     = isset($params['src'])     ? trim($params['src'])     : '';
         $caption = isset($params['caption']) ? trim($params['caption']) : '';
+        $title   = isset($params['title'])   ? trim($params['title'])   : '';
+        $year    = isset($params['year'])    ? trim($params['year'])    : '';
+        $medium  = isset($params['medium'])  ? trim($params['medium'])  : '';
         $link    = isset($params['link'])    ? trim($params['link'])    : '';
         $width   = isset($params['width'])   ? trim($params['width'])   : '40%';
 
@@ -123,8 +139,8 @@ class ParsedownExtended extends Parsedown
         $side_class = ($side === 'r') ? 'right' : 'left';
         $esc        = 'htmlspecialchars';  // shorthand
 
-        $img  = '<img src="'  . $esc($src,     ENT_QUOTES, 'UTF-8') . '"';
-        $img .= ' alt="'      . $esc($caption, ENT_QUOTES, 'UTF-8') . '">';
+        $img  = '<img src="'  . $esc($src, ENT_QUOTES, 'UTF-8') . '"';
+        $img .= ' alt="'      . $esc($title ?: $caption, ENT_QUOTES, 'UTF-8') . '">';
         $inner = $link
             ? '<a href="' . $esc($link, ENT_QUOTES, 'UTF-8') . '">' . $img . '</a>'
             : $img;
@@ -132,8 +148,27 @@ class ParsedownExtended extends Parsedown
         $html  = '<figure class="wrapfig wrapfig--' . $side_class . '"';
         $html .= ' style="width:' . $esc($width, ENT_QUOTES, 'UTF-8') . '">';
         $html .= "\n  " . $inner;
-        if ($caption !== '') {
-            $html .= "\n  <figcaption>" . $esc($caption, ENT_QUOTES, 'UTF-8') . '</figcaption>';
+
+        $has_artwork_meta = ($title !== '' || $year !== '' || $medium !== '');
+        if ($has_artwork_meta || $caption !== '') {
+            $html .= "\n  <figcaption>";
+            if ($has_artwork_meta) {
+                $html .= '<div class="item-info">';
+                if ($title !== '') {
+                    $html .= '<span class="item-title">' . $esc($title, ENT_QUOTES, 'UTF-8') . '</span>';
+                }
+                if ($year !== '') {
+                    $html .= '<span class="item-year">' . $esc($year, ENT_QUOTES, 'UTF-8') . '</span>';
+                }
+                if ($medium !== '') {
+                    $html .= '<span class="item-medium">' . $esc($medium, ENT_QUOTES, 'UTF-8') . '</span>';
+                }
+                $html .= '</div>';
+            }
+            if ($caption !== '') {
+                $html .= '<span class="wrapfig-caption">' . $esc($caption, ENT_QUOTES, 'UTF-8') . '</span>';
+            }
+            $html .= '</figcaption>';
         }
         $html .= "\n</figure>";
 
