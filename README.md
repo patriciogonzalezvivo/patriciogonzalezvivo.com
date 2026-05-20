@@ -1,22 +1,23 @@
-:::wrapfig right
+<!-- :::wrapfig right
 src: 2010/communitas/images/04.jpg
 title: Communitas
 year: 2010
 caption: Espacio Fundación Telefónica, Buenos Aires
 link: ./2010/communitas/
-:::
+::: -->
 
 **Patricio Gonzalez Vivo** (b. 1982, Buenos Aires) is a multidisciplinary artist that combines traditional oil painting, algorithmic art, and symbolic systems to explore memory and presence. As part of his process he creates artifacts of perception, tools, and interactive experiences that span across material and digital domains.
 
-Trained initially in clinical psychology and expressive arts therapy, Patricio’s early works focus on the constructions of interactive installations that foster co-creation and mindfulness between participants. Like his first work Communitas (2010), which invited visitors to collectively create a shared image through a process of mutual observation and gesture. Or his first international breakthrough Efecto Mariposa (2011), an ashed-based installation that simulate an interactive ecosystem where visitors experienced the cascade of events their interactions produce. Ultimatelly meditate on the tension between chaos and order, the individual and the collective, the ephemeral and the enduring.
-
-:::wrapfig left
+:::wrapfig right
 src: 2011/efectomariposa/images/12.jpg
 title: Efecto Mariposa
 year: 2011
+media: Interactive installation
 caption: FILE Festival, São Paulo
 link: ./2011/efectomariposa/
 :::
+
+Trained initially in clinical psychology and expressive arts therapy, Patricio’s early works focus on the constructions of interactive installations that foster co-creation and mindfulness between participants. Like his first work [Communitas (2010)](2010/communitas/), which invited visitors to collectively create a shared image through a process of mutual observation and gesture. Or his first international breakthrough [Efecto Mariposa (2011)](2011/efectomariposa/), an ashed-based installation that simulate an interactive ecosystem where visitors experienced the cascade of events their interactions produce. Ultimately meditate on the tension between chaos and order, the individual, and the collective, the ephemeral, and the enduring.
 
 In 2012, he relocated to the United States to pursue an MFA in Design & Technology at Parsons School of Design, where his focus shifted toward the developing algorithmic tools for his artistic practice. Like: Drawing machines, live coding interfaces, multiple libraries, etc. Since 2017, he had explore through the creation of his own astronomical tools the relationship between inner experience and the cosmos. Playing with scale, time, perception, and presence.
 

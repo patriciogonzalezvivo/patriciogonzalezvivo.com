@@ -113,6 +113,7 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
         latex += ' \\\\\n'.join(caption_lines) + '\n'
         latex += '\\par}\n'
 
+    latex += '\\vspace{-\\intextsep}\n'
     latex += '\\end{wrapfigure}\n'
     return latex
 

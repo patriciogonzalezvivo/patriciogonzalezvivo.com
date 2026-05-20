@@ -34,8 +34,10 @@ Each artwork occupies one or more pages:
   of ``images_per_page`` per page.
 """
 
+import re
 from pathlib import Path
 from typing import Dict, List, Optional
+from urllib.parse import urljoin
 
 from portfolio.utils import escape_latex, markdown_to_latex, strip_markdown
 from portfolio.images import build_render_plan, parse_sidecar
@@ -455,10 +457,13 @@ def populate_template(
     """
     artist = data.get('artist', {})
 
+    website     = artist.get('website', '')
+    website_url = artist.get('website_url', f'https://{website}' if website else '')
+
     # ------------------------------------------------------------------
     # Bio block (text + optional avatar wrap-figure)
     # ------------------------------------------------------------------
-    bio = _build_bio_block(artist, base_path)
+    bio = _build_bio_block(artist, base_path, website_url)
 
     # ------------------------------------------------------------------
     # Optional artist statement
@@ -468,8 +473,6 @@ def populate_template(
     # ------------------------------------------------------------------
     # Optional appendix sections (CV, exhibitions, talks, press)
     # ------------------------------------------------------------------
-    website     = artist.get('website', '')
-    website_url = artist.get('website_url', f'https://{website}' if website else '')
 
     print("Resolving optional file sections…")
     optional_cv          = _optional_section('cv_file',          artist, base_path)
@@ -516,7 +519,7 @@ def populate_template(
 # Private helpers for populate_template
 # ---------------------------------------------------------------------------
 
-def _build_bio_block(artist: Dict, base_path: Path) -> str:
+def _build_bio_block(artist: Dict, base_path: Path, base_url: str = '') -> str:
     """Return the LaTeX bio block, optionally wrapped around an avatar figure."""
     bio_path_str = artist.get('bio_file')
     if not bio_path_str:
@@ -527,7 +530,15 @@ def _build_bio_block(artist: Dict, base_path: Path) -> str:
         print(f"  (skipping bio_file: {bio_path_str} not found)")
         return ''
 
-    bio_text = markdown_to_latex(bio_path.read_text())
+    bio_raw = bio_path.read_text()
+    if base_url:
+        _root = base_url.rstrip('/') + '/'
+        bio_raw = re.sub(
+            r'^(link\s*:\s*)(?!https?://)(.+)$',
+            lambda m: m.group(1) + urljoin(_root, m.group(2).strip()),
+            bio_raw, flags=re.MULTILINE,
+        )
+    bio_text = markdown_to_latex(bio_raw)
     if not bio_text:
         return ''
 

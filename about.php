@@ -13,8 +13,8 @@
 			// Add
 			echo $Parsedown->text("[Contact](mailto:patriciogonzalezvivo@gmail.com)");
 
-			echo $Parsedown->text(file_get_contents ('talks.md'));
 			echo $Parsedown->text(file_get_contents ('exhibitions.md'));
+			echo $Parsedown->text(file_get_contents ('talks.md'));
 			echo $Parsedown->text(file_get_contents ('press.md'));
 			?>
 	</div>
