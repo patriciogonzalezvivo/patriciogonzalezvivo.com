@@ -1,3 +1,3 @@
-This body of video work explores the relationship between time, perception, and emotional states.
+This body of video work explores the relationship between time, perception, and emotional states. Shot footage is processed in real time through optical flow inference and depth estimation, then fed into shader-based manipulations that distort its temporal structure. The result is footage in which duration appears to liquefy, accumulate, and collapse images that feel felt, not just seen.
 
-By integrating machine-learning techniques, including optical flow inference and depth estimation, with real-time shader manipulation, the series produces temporally distorted images in which duration appears to liquefy, accumulate, and collapse. The resulting works function as emotional studies, proposing time as a plastic medium shaped by sensation, memory, and affect.
+These works are emotional studies: proposals for time as a plastic medium, shaped by sensation, memory, and affect rather than by the clock.

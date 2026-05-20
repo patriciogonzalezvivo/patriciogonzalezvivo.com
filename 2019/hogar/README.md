@@ -1,3 +1,3 @@
-Miles away, floating silently in space, there is a camera far enough to see the world a whole. From that perspective it looks peacefully quiet but still fragile and delicate.
+Miles away, a camera floats silently in orbit, far enough to hold the entire world in a single frame. From that distance, the Earth appears peaceful, fragile and luminous, suspended in darkness.
 
-HEARTH/HOGAR brings that realtime view to eye level. A windows of opportunity to see a bigger picture.
+*HEARTH/HOGAR* brings that view to eye level. A real-time window onto our planet as it is, right now, spinning slowly, lit by a sun that does not know borders. A reminder, available at any moment, of the larger home we share.

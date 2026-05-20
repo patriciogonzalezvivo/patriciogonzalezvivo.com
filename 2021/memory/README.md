@@ -1,8 +1,8 @@
-This series of real-time generative artworks explores the dynamics of digital memory through the interplay of sorting and scrambling algorithms. Developed using C++ and GLSL, the works operate as autonomous systems in which allocated memory is continuously loaded, ordered, and blurred. During these moments of heightened structural vulnerability, the data undergoes gradual corruption and degradation, reflecting the instability inherent in processes of preservation and recall.
+This series of real-time generative artworks explores the dynamics of digital memory, not as metaphor, but as material. The works run as live systems: allocated memory is continuously loaded, sorted, and blurred. In moments of heightened structural order, the data begins to corrupt and degrade, its patterns dissolving into noise. As the system approaches maximum order or complete entropy, the memory space is released and reallocated, and a new cycle begins.
 
-As the system approaches a threshold of maximum order or complete entropy, the memory space is released and reallocated, initiating a new cycle. This perpetual loop positions memory not as a static archive, but as a temporal, fragile process shaped by repetition, erosion, and renewal.
+What the viewer encounters is this perpetual loop — its emergence, collapse, and renewal — as something visible and felt. Memory, here, is not an archive but a living instability: shaped by repetition, erosion, and the brief clarity that precedes forgetting.
 
-Minted on the Tezos blockchain in September 2021, the project represents the culmination of an extended investigation into digital memory that began in July 2018. Across its multiple iterations, the work has served as both a research framework and a point of reference, influencing subsequent practices by other artists working with real-time systems and computational aesthetics.
+Minted on the Tezos blockchain in September 2021, the project represents the culmination of an extended investigation into digital memory that began in July 2018.
 
 ## Editions
 

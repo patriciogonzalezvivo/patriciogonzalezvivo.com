@@ -17,7 +17,7 @@ link: ../../2014/skylines/
 :::
 
 
-Technically, these portraits continue an exploration of drawing machines begun with [Skylines in 2014](../../2014/skylines/skylines.php?v=01), for which I constructed a wall plotter that slowly reveals an image through custom software translating photographs into lines. In 2025, with the [Hybrids series](../../2025/hybrids/), I began combining plotting with alla prima oil painting — bringing together the forces of machine and hand, code and gesture. In Santos, I use that same approach: converting portrait images into vector paths layered with symbolic elements singular to each subject, plotting the result with acrylic paint on a primed canvas, then completing each portrait by hand with oil.
+Technically, these portraits continue an exploration of drawing machines begun with [Skylines in 2014](../../2014/skylines/skylines.php?v=01), for which I constructed a wall plotter that slowly reveals an image through custom software translating photographs into lines. In 2025, with the [Hybrids series](../../2025/hybrids/), I began combining plotting with alla prima oil painting, bringing together the forces of machine and hand, code and gesture. In Santos, I use that same approach: converting portrait images into vector paths layered with symbolic elements singular to each subject, plotting the result with acrylic paint on a primed canvas, then completing each portrait by hand with oil.
 
 Like their subjects, the works exist as syntheses: of the material and the immaterial, the earthly and the cosmic, the known and the intuited. They stand as reflections on creativity's enduring capacity to transcend boundaries and connect us to something beyond ourselves.
 

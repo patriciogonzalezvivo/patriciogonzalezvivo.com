@@ -1,8 +1,8 @@
-Weaver is an interactive work that invites two people to meet across time and space through a shared fragment of the night sky. Like a prayer or a ritual, it offers a passage beyond immediate experience into a quiet awareness of what connects us — not despite distance, but through it.
+Weaver is an interactive work that invites two people to meet across time and space through a shared fragment of the night sky. Like a prayer or a ritual, it offers a passage beyond immediate experience into a quiet awareness of what connects us, not despite distance, but through it.
 
 ![a string between two hands](svg/000_light.svg)
 
-Two celestial maps overlap: one for each observer. Each is rendered in a distinct color, reflecting the night sky from a specific place and moment. In the intersection lies their shared constellations, a common sky both participants can witness beyond distance or time.
+Two celestial maps overlap: one for each observer. Each is rendered in a distinct color, reflecting the night sky from a specific place and moment. In the region where the maps intersect lie the constellations both participants share, a common sky that exists beyond distance or time.
 
 Each map uses a polar projection. Stars near the outer edge rest close to the horizon (marked by the cardinal directions), while those at the center hover directly overhead. This perspective situates each observer within their own sky, while revealing where their visions align.
 
