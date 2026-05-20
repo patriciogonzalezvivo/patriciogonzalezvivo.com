@@ -1,12 +1,3 @@
-<!-- 
-:::wrapfig right
-src: 2010/communitas/images/04.jpg
-title: Communitas
-year: 2010
-caption: Espacio Fundación Telefónica, Buenos Aires
-link: ./2010/communitas/
-::: -->
-
 **Patricio Gonzalez Vivo** (b. 1982, Buenos Aires) is a multidisciplinary artist whose practice moves between traditional oil painting, algorithmic systems, and symbolic structures to explore memory, perception, and presence. Through paintings, generative tools, and interactive experiences, he creates work that flows between material and digital domains.
 
 :::wrapfig right
