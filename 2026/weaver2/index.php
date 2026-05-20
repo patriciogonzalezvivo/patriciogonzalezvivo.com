@@ -36,8 +36,8 @@
         <div id="longer-info">
 
             <?php
-                include("../../parsedown/Parsedown.php");
-                $Parsedown = new Parsedown();
+                include("../../ParsedownExtended.php");
+                $Parsedown = new ParsedownExtended();
                 echo $Parsedown->text(file_get_contents('README.md'));
             ?>
 

@@ -5,9 +5,9 @@
 	<div id="longer-info">
 
 		<?php
-			include("../../parsedown/Parsedown.php");
+			include("../../ParsedownExtended.php");
 			define('GITHUB_REPO', 'Skylines'.$_GET['v']);
-			$Parsedown = new Parsedown();
+			$Parsedown = new ParsedownExtended();
 			define('GITHUB_REPO_URL','github.com/patriciogonzalezvivo/'.GITHUB_REPO);
 			echo $Parsedown->text(file_get_contents('https://raw.'.GITHUB_REPO_URL.'/master/README.md'));
 

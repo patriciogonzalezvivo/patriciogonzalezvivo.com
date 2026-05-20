@@ -6,9 +6,9 @@
 	<section class="content">
 
 		<?php
-			include("../../parsedown/Parsedown.php");
+			include("../../ParsedownExtended.php");
 			define('GITHUB_REPO', 'ofxFX');
-			$Parsedown = new Parsedown();
+			$Parsedown = new ParsedownExtended();
 			echo $Parsedown->text(file_get_contents( 'https://raw.github.com/patriciogonzalezvivo/'.GITHUB_REPO.'/master/README.md'));
 		?>
 

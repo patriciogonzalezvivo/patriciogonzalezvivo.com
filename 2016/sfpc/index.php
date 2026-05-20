@@ -6,8 +6,8 @@
 	<section class="content">
 
 		<?php
-			include("../../parsedown/Parsedown.php");
-			$Parsedown = new Parsedown();
+			include("../../ParsedownExtended.php");
+			$Parsedown = new ParsedownExtended();
 			echo $Parsedown->text(file_get_contents('https://patriciogonzalezvivo.github.io/sfpc_ll16/README.md'));
 			echo '<p><a href="http://'.GITHUB_REPO_URL.'">Check the Git Repository</a></p>'
 		?>

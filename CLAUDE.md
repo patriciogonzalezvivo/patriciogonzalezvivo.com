@@ -159,13 +159,15 @@ For related works inside a project page, pass `'../../'` as base to `get_project
 generate_portfolio.py       # CLI entry point; thin orchestrator
 portfolio/
   metadata.py               # reads flat files → project dict
-  latex_builder.py          # builds LaTeX per-project + populates template
+  latex_builder.py          # template-population orchestrator
+  pages.py                  # per-artwork LaTeX page rendering
+  sections.py               # bio / statement / appendix builders
+  legacy.py                 # standalone document builder (no-template mode)
   compiler.py               # runs xelatex x2, copies PDF to output
   images.py                 # image discovery, dimension reading, render plan
   elements.py               # label SVG generation (berthe library)
-  utils.py                  # escape_latex, markdown_to_latex, strip_markdown
+  utils.py                  # escape_latex, markdown_to_latex, find_thumbnail
   html_render.py            # renders HTML blocks to PNG via headless Chrome
-  pptx_builder.py           # PowerPoint builder (unused in main workflow)
   template.tex              # LaTeX template with %%PLACEHOLDER%% markers
   data.json                 # artist info + project list for portfolio build
   berthe/                   # vector drawing submodule (SVG generation)

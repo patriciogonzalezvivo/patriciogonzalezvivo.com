@@ -6,11 +6,11 @@
 	<section class="content">
 
 		<?php
-			include("../../parsedown/Parsedown.php");
-			$Parsedown = new Parsedown();
+			include("../../ParsedownExtended.php");
+			$Parsedown = new ParsedownExtended();
 			define('GITHUB_REPO', 'Mesh2OSMSlicer');
 			define('GITHUB_REPO_URL','github.com/tangrams/'.GITHUB_REPO);
-			$Parsedown = new Parsedown();
+			$Parsedown = new ParsedownExtended();
 			echo $Parsedown->text(file_get_contents('https://raw.'.GITHUB_REPO_URL.'/master/README.md'));
 			echo '<p><a href="http://'.GITHUB_REPO_URL.'">Check the Git Repository</a></p>'
 		?>
