@@ -112,14 +112,9 @@ include("menu.php");
 
                 <?php elseif ($type === 'big_thumbnail'): ?>
                     <?php
-                        $bt_src = null;
                         $bt_base = rtrim($project['path'], '/');
-                        foreach (['thumbnail.jpg', 'thumbnail.jpeg', 'thumbnail.png'] as $_tf) {
-                            if (file_exists($bt_base . '/' . $_tf)) {
-                                $bt_src = $bt_base . '/' . $_tf;
-                                break;
-                            }
-                        }
+                        $_bt_name = find_thumbnail($bt_base, ['thumbnail'], THUMBNAIL_EXTS_STATIC);
+                        $bt_src = $_bt_name ? $bt_base . '/' . $_bt_name : null;
                         $bt_w = $project['width']  ?? null;
                         $bt_h = $project['height'] ?? null;
                         $bt_style = '';

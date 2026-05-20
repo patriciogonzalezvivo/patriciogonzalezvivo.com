@@ -33,7 +33,10 @@ from urllib.parse import urljoin
 from .images import svg_to_pdf
 
 from portfolio.images import find_images, find_svgs
-from portfolio.utils import strip_markdown, markdown_to_latex, escape_latex, _WRAPFIG_RE, _HTML_BLOCK_RE
+from portfolio.utils import (
+    strip_markdown, markdown_to_latex, escape_latex, find_thumbnail,
+    _WRAPFIG_RE, _HTML_BLOCK_RE,
+)
 from portfolio.html_render import render_html_block
 
 
@@ -245,11 +248,7 @@ def get_project_meta(project_path, base_path: Path) -> Dict:
     # ------------------------------------------------------------------
     # Thumbnail (first match wins)
     # ------------------------------------------------------------------
-    thumb = None
-    for name in ('thumb.gif', 'thumb.jpg', 'thumb.png'):
-        if (full_path / name).exists():
-            thumb = name
-            break
+    thumb = find_thumbnail(full_path)
 
     result = {
         'path':           project_path,

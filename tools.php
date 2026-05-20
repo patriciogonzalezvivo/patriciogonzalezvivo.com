@@ -38,35 +38,7 @@ include("header.php");
 include("menu.php");
 ?>
     <section class="content">
-<?php
-foreach ($projects as $project) {
-    $commented = isset($project['commented']) && $project['commented'];
-
-    if (isset($project['path'])) {
-        $meta = get_project_meta($project['path']);
-
-        if (isset($project['title'])) $meta['title'] = $project['title'];
-        if (isset($project['year'])) $meta['year'] = $project['year'];
-        if (isset($project['medium'])) $meta['medium'] = $project['medium'];
-        if (isset($project['dimensions'])) $meta['dimensions'] = $project['dimensions'];
-        if (isset($project['description'])) $meta['description'] = $project['description'];
-        if (isset($project['url'])) $meta['url'] = $project['url'];
-        if (isset($project['thumbnail'])) $meta['thumbnail'] = $project['thumbnail'];
-    } else {
-        $meta = [
-            'title' => $project['title'] ?? '',
-            'year' => $project['year'] ?? '',
-            'medium' => $project['medium'] ?? '',
-            'dimensions' => $project['dimensions'] ?? '',
-            'description' => $project['description'] ?? '',
-            'url' => $project['url'],
-            'thumbnail' => $project['thumbnail'] ?? '',
-        ];
-    }
-
-    echo render_project_item($meta, $commented);
-}
-?>
+<?php echo render_projects_list($projects); ?>
     </section>
 
 <?php include("footer.php"); ?>

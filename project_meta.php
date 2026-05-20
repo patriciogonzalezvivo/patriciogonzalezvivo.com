@@ -1,26 +1,52 @@
 <?php
 /**
  * Project Metadata Helper
- * 
+ *
  * This file provides functions to read project metadata from text files
  * stored in each project folder (TITLE.txt, MEDIUM.txt, DESCRIPTION.txt, DIMENSIONS.txt)
  */
 
+// Canonical thumbnail extension lists.
+// THUMBNAIL_EXTS_ALL    — video/animated first, then static (for listing pages).
+// THUMBNAIL_EXTS_STATIC — only formats valid for og:image and social previews.
+const THUMBNAIL_EXTS_ALL    = ['webm', 'gif', 'webp', 'jpg', 'jpeg', 'png'];
+const THUMBNAIL_EXTS_STATIC = ['webp', 'jpg', 'jpeg', 'png', 'gif'];
+
+/**
+ * Find the first existing thumbnail file in $dir.
+ *
+ * @param string $dir    Directory to search.
+ * @param array  $kinds  Filename prefixes in priority order (e.g. ['thumbnail'] to require the higher-resolution variant).
+ * @param array  $exts   Allowed extensions in priority order.
+ * @return string|null   Filename (relative to $dir) or null when none found.
+ */
+function find_thumbnail($dir, $kinds = ['thumb', 'thumbnail'], $exts = THUMBNAIL_EXTS_ALL) {
+    foreach ($kinds as $kind) {
+        foreach ($exts as $ext) {
+            $name = $kind . '.' . $ext;
+            if (file_exists($dir . '/' . $name)) {
+                return $name;
+            }
+        }
+    }
+    return null;
+}
+
 /**
  * Get project metadata from a project path
- * 
+ *
  * @param string $project_path Path to project (e.g., "2023/blink")
  * @param string $base_path Base path to prepend (default: current directory)
  * @return array Associative array with project metadata
  */
 function get_project_meta($project_path, $base_path = '') {
     $full_path = $base_path . $project_path;
-    
+
     // Extract year from path (first folder)
     $path_parts = explode('/', trim($project_path, '/'));
     $year = $path_parts[0];
     $folder = isset($path_parts[1]) ? $path_parts[1] : '';
-    
+
     // Read metadata files
     $year_override = read_meta_file($full_path . '/YEAR.txt');
     if ($year_override) {
@@ -30,16 +56,7 @@ function get_project_meta($project_path, $base_path = '') {
     $medium = read_meta_file($full_path . '/MEDIUM.txt');
     $description = read_meta_file($full_path . '/DESCRIPTION.txt');
     $dimensions = read_meta_file($full_path . '/DIMENSIONS.txt');
-    
-    // Auto-detect thumbnail
-    $thumb = null;
-    foreach (['thumb.webm', 'thumb.gif', 'thumb.jpg', 'thumb.png', 'thumbnail.jpg', 'thumbnail.png'] as $img) {
-        if (file_exists($full_path . '/' . $img)) {
-            $thumb = $img;
-            break;
-        }
-    }
-    
+
     return array(
         'path' => $project_path,
         'year' => $year,
@@ -48,7 +65,7 @@ function get_project_meta($project_path, $base_path = '') {
         'medium' => $medium,
         'description' => $description,
         'dimensions' => $dimensions,
-        'thumb' => $thumb
+        'thumb' => find_thumbnail($full_path),
     );
 }
 
@@ -77,16 +94,7 @@ function get_current_project_meta($dir_path = '.') {
     $medium = read_meta_file($dir_path . '/MEDIUM.txt');
     $description = read_meta_file($dir_path . '/DESCRIPTION.txt');
     $dimensions = read_meta_file($dir_path . '/DIMENSIONS.txt');
-    
-    // Auto-detect thumbnail
-    $thumb = null;
-    foreach (['thumb.webm', 'thumb.gif', 'thumb.webp', 'thumb.jpg', 'thumb.png', 'thumbnail.jpg', 'thumbnail.png'] as $img) {
-        if (file_exists($dir_path . '/' . $img)) {
-            $thumb = $img;
-            break;
-        }
-    }
-    
+
     return array(
         'path' => $year . '/' . $folder,
         'year' => $year,
@@ -95,7 +103,7 @@ function get_current_project_meta($dir_path = '.') {
         'medium' => $medium,
         'description' => $description,
         'dimensions' => $dimensions,
-        'thumb' => $thumb
+        'thumb' => find_thumbnail($dir_path),
     );
 }
 
@@ -117,57 +125,110 @@ function read_meta_file($filepath) {
  * @param bool $commented Whether to wrap in HTML comments (default: false)
  */
 function render_project_item($meta, $commented = false) {
-    $html = '';
-    
-    if ($commented) {
-        $html .= "        <!-- ";
-    }
-    
+    // Normalise: empty strings instead of nulls so htmlspecialchars never
+    // hits the PHP 8.1+ deprecation for null arguments.
+    $title       = $meta['title']       ?? '';
+    $year        = $meta['year']        ?? '';
+    $medium      = $meta['medium']      ?? '';
+    $dimensions  = $meta['dimensions']  ?? '';
+    $path        = $meta['path']        ?? '';
+    $thumb       = $meta['thumb']       ?? null;
+    $thumbnail   = $meta['thumbnail']   ?? '';
+
+    $html = $commented ? "        <!-- " : '';
+
     $html .= '<article class="item">' . "\n";
     $html .= '            <div class="item-image">' . "\n";
-    
-    // Use URL if provided, otherwise use path
-    $link = isset($meta['url']) && $meta['url'] ? $meta['url'] : $meta['path'] . '/';
-    $html .= '                <a href="' . htmlspecialchars($link) . '">';
-    
-    if ($meta['thumb'] || !empty($meta['thumbnail'])) {
-        // For thumbnail, always use path (even for external URLs)
-        $thumb_src = isset($meta['thumbnail']) && $meta['thumbnail'] 
-            ? $meta['thumbnail'] 
-            : htmlspecialchars($meta['path']) . '/' . htmlspecialchars($meta['thumb']);
 
-        if ($meta['thumb'] && str_ends_with($meta['thumb'], '.webm')) {
+    // Use URL if provided, otherwise use path
+    $link = !empty($meta['url']) ? $meta['url'] : $path . '/';
+    $html .= '                <a href="' . htmlspecialchars($link) . '">';
+
+    if ($thumb || $thumbnail !== '') {
+        $thumb_src = $thumbnail !== ''
+            ? htmlspecialchars($thumbnail)
+            : htmlspecialchars($path) . '/' . htmlspecialchars($thumb);
+
+        if ($thumb && str_ends_with($thumb, '.webm')) {
             $html .= '<video class="photoTh" autoplay loop muted playsinline loading="lazy">'
                    . '<source src="' . $thumb_src . '" type="video/webm">'
                    . '</video>';
         } else {
-            $html .= '<img class="photoTh" loading="lazy" src="' . $thumb_src . '" alt="' . htmlspecialchars($meta['title']) . '"/>';
+            $html .= '<img class="photoTh" loading="lazy" src="' . $thumb_src . '" alt="' . htmlspecialchars($title) . '"/>';
         }
     }
-    
+
     $html .= '</a>' . "\n";
     $html .= '            </div>' . "\n";
     $html .= '            <div class="item-info">' . "\n";
-    $html .= '                <span class="item-title">' . htmlspecialchars($meta['title']) . '</span>' . "\n";
-    $html .= '                <span class="item-year">' . htmlspecialchars($meta['year']) . '</span>' . "\n";
-    
-    if ($meta['medium']) {
-        $html .= '                <span class="item-medium">' . htmlspecialchars($meta['medium']) . '</span>' . "\n";
+    $html .= '                <span class="item-title">' . htmlspecialchars($title) . '</span>' . "\n";
+    $html .= '                <span class="item-year">' . htmlspecialchars($year) . '</span>' . "\n";
+
+    if ($medium !== '') {
+        $html .= '                <span class="item-medium">' . htmlspecialchars($medium) . '</span>' . "\n";
     }
-    
-    if ($meta['dimensions']) {
-        $html .= '                <span class="item-dimensions">' . htmlspecialchars($meta['dimensions']) . '</span>' . "\n";
+    if ($dimensions !== '') {
+        $html .= '                <span class="item-dimensions">' . htmlspecialchars($dimensions) . '</span>' . "\n";
     }
-    
+
     $html .= '            </div>' . "\n";
     $html .= '        </article>';
-    
-    if ($commented) {
-        $html .= " -->";
+
+    if ($commented) $html .= " -->";
+
+    return $html . "\n";
+}
+
+/**
+ * Render a list of project entries as ``<article class="item">`` blocks.
+ *
+ * Each entry can be one of:
+ *  - ``['path' => 'YEAR/folder', ...overrides]``  — local project; loads
+ *    metadata from the folder and applies any provided overrides
+ *    (``title``, ``year``, ``medium``, ``dimensions``, ``description``,
+ *    ``url``, ``thumbnail``, ``commented``).
+ *  - ``['title' => '...', 'url' => '...', ...]``  — external project; uses
+ *    the provided values directly with no folder lookup.
+ *
+ * @param array  $projects    Array of project entries.
+ * @param string $base_path   Path prefix to prepend when locating project
+ *                            folders and building links. Use '' from root
+ *                            listing pages, '../../' from a project page's
+ *                            Related Works section.
+ * @return string             Concatenated HTML.
+ */
+function render_projects_list($projects, $base_path = '') {
+    $html = '';
+    foreach ($projects as $project) {
+        $commented = !empty($project['commented']);
+
+        if (isset($project['path'])) {
+            $meta = get_project_meta($project['path'], $base_path);
+            // When rendered from inside a project page, paths need the
+            // base prefix so the link resolves correctly.
+            if ($base_path !== '') {
+                $meta['path'] = $base_path . $meta['path'];
+            }
+            // Apply explicit overrides
+            foreach (['title', 'year', 'medium', 'dimensions', 'description', 'url', 'thumbnail'] as $key) {
+                if (isset($project[$key])) $meta[$key] = $project[$key];
+            }
+        } else {
+            // External project without a local path - use provided values directly
+            $meta = [
+                'title'       => $project['title']       ?? '',
+                'year'        => $project['year']        ?? '',
+                'medium'      => $project['medium']      ?? '',
+                'dimensions'  => $project['dimensions']  ?? '',
+                'description' => $project['description'] ?? '',
+                'url'         => $project['url']         ?? '',
+                'thumbnail'   => $project['thumbnail']   ?? '',
+                'thumb'       => null,
+            ];
+        }
+
+        $html .= render_project_item($meta, $commented);
     }
-    
-    $html .= "\n";
-    
     return $html;
 }
 
@@ -224,7 +285,6 @@ function list_all_projects($base_path = '.', $excluded_folders = array('blog', '
 function set_random_og_image($projects, $root_path = '.') {
     global $og_image;
 
-    $_static_exts = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
     $candidates = [];
 
     foreach ($projects as $project) {
@@ -235,30 +295,24 @@ function set_random_og_image($projects, $root_path = '.') {
         // Prefer an explicitly provided static thumbnail override
         if (!empty($project['thumbnail'])) {
             $ext = strtolower(pathinfo($project['thumbnail'], PATHINFO_EXTENSION));
-            if (in_array($ext, $_static_exts)) {
+            if (in_array($ext, THUMBNAIL_EXTS_STATIC)) {
                 $candidates[] = ltrim($project['thumbnail'], '/');
                 continue;
             }
         }
 
-        // big_thumbnail type: use thumbnail.jpg from the project folder specifically
+        $proj_fs = rtrim($root_path, '/') . '/' . $project['path'];
+
+        // big_thumbnail type: require the higher-resolution 'thumbnail.*' variant
         if (($project['type'] ?? '') === 'big_thumbnail') {
-            $proj_fs = rtrim($root_path, '/') . '/' . $project['path'];
-            foreach (['thumbnail.jpg', 'thumbnail.jpeg', 'thumbnail.png'] as $_tf) {
-                if (file_exists($proj_fs . '/' . $_tf)) {
-                    $candidates[] = $project['path'] . '/' . $_tf;
-                    break;
-                }
-            }
+            $thumb = find_thumbnail($proj_fs, ['thumbnail'], THUMBNAIL_EXTS_STATIC);
+            if ($thumb) $candidates[] = $project['path'] . '/' . $thumb;
             continue;
         }
 
-        // Auto-detect from the project folder
-        $meta = get_project_meta($project['path'], rtrim($root_path, '/') . '/');
-        $thumb = $meta['thumb'] ?? null;
-        if ($thumb && in_array(strtolower(pathinfo($thumb, PATHINFO_EXTENSION)), $_static_exts)) {
-            $candidates[] = $meta['path'] . '/' . $thumb;
-        }
+        // Auto-detect from the project folder (static formats only for og:image)
+        $thumb = find_thumbnail($proj_fs, ['thumb', 'thumbnail'], THUMBNAIL_EXTS_STATIC);
+        if ($thumb) $candidates[] = $project['path'] . '/' . $thumb;
     }
 
     if (!empty($candidates)) {

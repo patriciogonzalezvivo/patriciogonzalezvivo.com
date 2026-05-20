@@ -18,6 +18,8 @@ import re
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+from portfolio.utils import find_thumbnail, THUMBNAIL_EXTS_STATIC
+
 
 # ---------------------------------------------------------------------------
 # Image discovery
@@ -49,11 +51,9 @@ def find_images(project_path: Path, base_path: Path) -> List[str]:
 
     # Fallback: root thumbnail when images/ is empty or missing
     if not images:
-        for name in ('thumbnail.jpg', 'thumbnail.jpeg', 'thumbnail.png'):
-            tf = project_path / name
-            if tf.exists():
-                images.append(str(tf.relative_to(base_path)))
-                break
+        name = find_thumbnail(project_path, ('thumbnail',), THUMBNAIL_EXTS_STATIC)
+        if name:
+            images.append(str((project_path / name).relative_to(base_path)))
 
     return images
 

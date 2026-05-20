@@ -30,32 +30,48 @@ if (!isset($og_url)) {
 	$og_url = "https://patriciogonzalezvivo.com" . $path;
 }
 
-// Auto-detect thumbnail image if not set
-if (!isset($og_image)) {
-	$possible_thumbs = array('thumbnail.jpg', 'thumbnail.jpeg', 'thumbnail.png',  'thumb.webp', 'thumb.jpeg', 'thumb.jpg', 'thumb.png');
-	foreach ($possible_thumbs as $thumb) {
-		if (file_exists($thumb)) {
-			$og_image = $thumb;
-			break;
-		}
+// Auto-detect thumbnail image if not set. og:image only supports static
+// formats, so we restrict to THUMBNAIL_EXTS_STATIC and prefer the
+// higher-resolution 'thumbnail.*' over 'thumb.*' for social previews.
+if (!isset($og_image) && function_exists('find_thumbnail')) {
+	$og_image = find_thumbnail('.', ['thumbnail', 'thumb'], THUMBNAIL_EXTS_STATIC);
+}
+
+// Resolve og_image to a local filesystem path for dimension lookup.
+// $og_image may already be an absolute URL (e.g. set by set_random_og_image()),
+// or a path relative to the current page's directory.
+$og_image_local = null;
+if (isset($og_image)) {
+	if (substr($og_image, 0, 4) === 'http') {
+		// Strip the site prefix to recover a local filesystem path.
+		$_parsed_path = parse_url($og_image, PHP_URL_PATH);
+		if ($_parsed_path) $og_image_local = ltrim($_parsed_path, '/');
+	} else {
+		$og_image_local = $og_image;
 	}
 }
 
-// Auto-calculate image dimensions if image exists but dimensions not set
-if (isset($og_image) && (!isset($og_image_width) || !isset($og_image_height))) {
-	if (file_exists($og_image)) {
-		$image_info = getimagesize($og_image);
-		if ($image_info !== false) {
-			if (!isset($og_image_width)) $og_image_width = $image_info[0];
-			if (!isset($og_image_height)) $og_image_height = $image_info[1];
-		}
+// Auto-calculate image dimensions from the local file (works for both
+// already-absolute URLs and relative paths).
+if ($og_image_local && file_exists($og_image_local) && (!isset($og_image_width) || !isset($og_image_height))) {
+	$image_info = getimagesize($og_image_local);
+	if ($image_info !== false) {
+		if (!isset($og_image_width)) $og_image_width = $image_info[0];
+		if (!isset($og_image_height)) $og_image_height = $image_info[1];
 	}
 }
 
-// Convert auto-detected og_image to a fully absolute URL (required by Open Graph spec)
+// Convert relative og_image paths to absolute URLs (required by Open Graph spec).
+// REQUEST_URI may include a filename (e.g. /2026/santos/index.php) — strip it so
+// the image URL resolves relative to the directory, not the file.
 if (isset($og_image) && substr($og_image, 0, 4) !== 'http') {
 	$request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
-	$og_image = 'https://patriciogonzalezvivo.com' . rtrim($request_uri, '/') . '/' . ltrim($og_image, '/');
+	$_dir_path = strtok($request_uri, '?');
+	if ($_dir_path && pathinfo($_dir_path, PATHINFO_EXTENSION)) {
+		$_dir_path = dirname($_dir_path);
+	}
+	$_dir_path = rtrim($_dir_path, '/') . '/';
+	$og_image = 'https://patriciogonzalezvivo.com' . $_dir_path . ltrim($og_image, '/');
 }
 
 // Derive image MIME type for og:image:type (Facebook, Slack, Discord)

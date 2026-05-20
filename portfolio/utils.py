@@ -7,10 +7,48 @@ Responsibilities:
   - Escaping strings for safe LaTeX inclusion.
   - Converting simple Markdown to LaTeX.
   - Stripping HTML / Markdown to plain text.
+  - Locating project thumbnails by canonical naming convention.
 """
 
 import re
+from pathlib import Path
+from typing import Optional, Sequence
 from urllib.parse import urljoin
+
+
+# ---------------------------------------------------------------------------
+# Thumbnail discovery
+# ---------------------------------------------------------------------------
+
+# Canonical thumbnail extensions in priority order.
+# THUMBNAIL_EXTS_ALL    — video/animated first, then static (for listings).
+# THUMBNAIL_EXTS_STATIC — only formats valid for og:image and PDF inclusion.
+THUMBNAIL_EXTS_ALL    = ('webm', 'gif', 'webp', 'jpg', 'jpeg', 'png')
+THUMBNAIL_EXTS_STATIC = ('webp', 'jpg', 'jpeg', 'png', 'gif')
+
+
+def find_thumbnail(
+    directory: Path,
+    kinds: Sequence[str] = ('thumb', 'thumbnail'),
+    exts: Sequence[str] = THUMBNAIL_EXTS_ALL,
+) -> Optional[str]:
+    """Return the first existing thumbnail filename in *directory*, or None.
+
+    Args:
+        directory: Directory to search.
+        kinds:     Filename prefixes in priority order (``'thumb'`` is the
+                   smaller listing variant; ``'thumbnail'`` the larger one).
+        exts:     Allowed extensions in priority order.
+
+    Returns:
+        Filename relative to *directory* (e.g. ``'thumb.jpg'``), or ``None``.
+    """
+    for kind in kinds:
+        for ext in exts:
+            name = f'{kind}.{ext}'
+            if (directory / name).exists():
+                return name
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -222,6 +260,25 @@ def markdown_to_latex(text: str, base_url: str = '') -> str:
         return key
     text = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', _lk_store, text)
 
+    # Bold/italic markers must be captured BEFORE escape_latex runs, because
+    # underscores become \_ after escaping and the italic regex would
+    # otherwise corrupt them. We store the inner content raw and re-escape
+    # it during restoration.
+    _bf_map: dict = {}
+    def _bf_store(m: re.Match, tag: str) -> str:
+        key = f'\x01{tag}{len(_bf_map)}\x01'
+        _bf_map[key] = (tag, m.group(1))
+        return key
+    text = re.sub(r'\*\*(.+?)\*\*', lambda m: _bf_store(m, 'B'), text)
+    text = re.sub(r'\*(.+?)\*',     lambda m: _bf_store(m, 'I'), text)
+    # Underscore italics: avoid matching intraword underscores (e.g. file_name,
+    # snake_case identifiers) by requiring non-word boundaries on both sides.
+    text = re.sub(
+        r'(?<![A-Za-z0-9])_([^_\n]+?)_(?![A-Za-z0-9])',
+        lambda m: _bf_store(m, 'I'),
+        text,
+    )
+
     # Remove constructs with no LaTeX equivalent
     text = re.sub(r'<[^>]+>', '', text)                         # HTML tags
     text = re.sub(r'!\[.*?\]\(.*?\)', '', text)                 # Markdown images
@@ -236,13 +293,14 @@ def markdown_to_latex(text: str, base_url: str = '') -> str:
     for key, (ltext, url) in _lk_map.items():
         text = text.replace(key, f'\\href{{{url}}}{{\\textbf{{{escape_latex(ltext)}}}}}')
 
-    # ------------------------------------------------------------------
-    # Inline / block formatting (applied after escaping)
-    # ------------------------------------------------------------------
-    text = re.sub(r'\*\*(.+?)\*\*', r'\\textbf{\1}', text)
-    text = re.sub(r'\*(.+?)\*',     r'\\textit{\1}', text)
-    text = re.sub(r'_(.+?)_',       r'\\textit{\1}', text)
+    # Restore bold/italic with their inner content properly escaped.
+    for key, (tag, content) in _bf_map.items():
+        cmd = 'textbf' if tag == 'B' else 'textit'
+        text = text.replace(key, f'\\{cmd}{{{escape_latex(content)}}}')
 
+    # ------------------------------------------------------------------
+    # Block formatting (applied after escaping)
+    # ------------------------------------------------------------------
     text = re.sub(
         r'^>\s+(.+)$',
         r'\\begin{quote}\1\\end{quote}',
@@ -253,6 +311,10 @@ def markdown_to_latex(text: str, base_url: str = '') -> str:
         r'\\item \1',
         text, flags=re.MULTILINE
     )
+
+    # Wrap consecutive \item lines in an itemize environment so bare \item
+    # commands do not crash XeLaTeX.
+    text = _wrap_item_runs(text)
 
     # Promote single newlines to paragraph breaks.
     # Strategy: protect existing double-newlines, convert remaining single
@@ -268,3 +330,22 @@ def markdown_to_latex(text: str, base_url: str = '') -> str:
         text = text.replace(key, wf_latex)
 
     return text
+
+
+def _wrap_item_runs(text: str) -> str:
+    """Wrap each run of consecutive ``\\item`` lines in an itemize block."""
+    lines = text.split('\n')
+    out: list = []
+    in_list = False
+    for line in lines:
+        is_item = line.lstrip().startswith('\\item ')
+        if is_item and not in_list:
+            out.append('\\begin{itemize}')
+            in_list = True
+        elif not is_item and in_list:
+            out.append('\\end{itemize}')
+            in_list = False
+        out.append(line)
+    if in_list:
+        out.append('\\end{itemize}')
+    return '\n'.join(out)
