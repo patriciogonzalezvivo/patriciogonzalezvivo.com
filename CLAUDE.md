@@ -90,10 +90,12 @@ Appending `?embed=1` hides menu, footer, and item info — used for `wasm` type 
 - `set_random_og_image($projects, $root='.')` — picks a random static thumbnail, sets global `$og_image` as absolute URL; call BEFORE `header.php` on listing pages
 
 **`gallery.php`** — for painting galleries (e.g. `2026/santos`)
-- `render_gallery($options)` — renders `.paintings-gallery` grid + fullscreen modal
+- `render_gallery($options)` — renders `.paintings-gallery` grid + fullscreen modal; options: `images_dir`, `pattern`, `defaults`, `show_modal` (bool, default `true`)
 - `get_gallery_artworks($images_dir, $pattern, $defaults)` — finds images, loads per-image `.txt` sidecar metadata
-- `load_artwork_metadata($file, $defaults)` — parses `key: value` sidecar (supports `title`, `year`, `medium`, `dimensions`, `sold`, `print`)
+- `load_artwork_metadata($file, $defaults)` — parses `key: value` sidecar (supports `title`, `year`, `medium`, `dimensions`, `sold`, `print`); lines starting with `#` are ignored
 - `render_gallery_item($artwork)` — single painting card with Buy Print / Acquire Original buttons
+- `render_gallery_modal()` — renders fullscreen modal HTML; called automatically by `render_gallery` unless `show_modal => false`
+- `export_metadata_to_files($artwork_info, $sold_images, $output_dir)` — migration utility: writes hardcoded metadata arrays to `.txt` sidecar files
 
 **`slideSet.php`** — for slideshows
 - `render_slideset($options)` — renders `<div id="..." class="slideSet ...">` with `<img>` tags; animated by `js/slideSet.js`
@@ -231,7 +233,10 @@ medium: Oil over cardboard
 dimensions: 16 x 12 inches
 sold: yes
 print: https://...        # Buy Print URL
+# lines starting with # are ignored (comments)
 ```
+
+`sold` truthy values: `yes`, `true`, `1`, `sold` — anything else is treated as not sold.
 
 ### `template.tex` placeholders
 
