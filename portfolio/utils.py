@@ -86,7 +86,7 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
         img = f'\\href{{{link}}}{{{img}}}'
 
     latex  = f'\\begin{{wrapfigure}}{{{pos}}}{{{width_frac:.2f}\\textwidth}}\n'
-    latex += '\\vspace{0pt}\n'
+    latex += '\\vspace{-\\intextsep}\n'
     latex += img + '\n'
 
     # Build structured caption lines matching the gallery artwork style.

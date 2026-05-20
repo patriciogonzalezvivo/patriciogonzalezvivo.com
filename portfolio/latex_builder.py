@@ -533,10 +533,17 @@ def _build_bio_block(artist: Dict, base_path: Path, base_url: str = '') -> str:
     bio_raw = bio_path.read_text()
     if base_url:
         _root = base_url.rstrip('/') + '/'
+        # Resolve relative link: values in :::wrapfig blocks
         bio_raw = re.sub(
             r'^(link\s*:\s*)(?!https?://)(.+)$',
             lambda m: m.group(1) + urljoin(_root, m.group(2).strip()),
             bio_raw, flags=re.MULTILINE,
+        )
+        # Resolve relative URLs in markdown inline links [text](url)
+        bio_raw = re.sub(
+            r'\[([^\]]+)\]\((?!https?://|mailto:|#)([^)]+)\)',
+            lambda m: f'[{m.group(1)}]({urljoin(_root, m.group(2).strip())})',
+            bio_raw,
         )
     bio_text = markdown_to_latex(bio_raw)
     if not bio_text:
