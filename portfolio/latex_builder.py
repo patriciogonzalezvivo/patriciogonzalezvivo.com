@@ -177,11 +177,14 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
                                project_dir=project['path'], base_url=base_url)
     elif project.get('readme_raw'):
         # SVG injection disabled — use the pre-stripped plain text
-        desc = markdown_to_latex(project.get('about') or '')
+        _proj_url = base_url.rstrip('/') + '/' + project['path'].rstrip('/') + '/' if base_url else ''
+        desc = markdown_to_latex(project.get('about') or '', base_url=_proj_url)
     elif project.get('about'):
-        desc = markdown_to_latex(project['about'])
+        _proj_url = base_url.rstrip('/') + '/' + project['path'].rstrip('/') + '/' if base_url else ''
+        desc = markdown_to_latex(project['about'], base_url=_proj_url)
     elif project.get('description'):
-        desc = markdown_to_latex(project['description'])
+        _proj_url = base_url.rstrip('/') + '/' + project['path'].rstrip('/') + '/' if base_url else ''
+        desc = markdown_to_latex(project['description'], base_url=_proj_url)
     else:
         desc = ""
 

@@ -10,6 +10,7 @@ Responsibilities:
 """
 
 import re
+from urllib.parse import urljoin
 
 
 # ---------------------------------------------------------------------------
@@ -177,7 +178,7 @@ def strip_markdown(markdown: str) -> str:
 # Markdown → LaTeX
 # ---------------------------------------------------------------------------
 
-def markdown_to_latex(text: str) -> str:
+def markdown_to_latex(text: str, base_url: str = '') -> str:
     """Convert a subset of Markdown to LaTeX.
 
     Handles (in processing order):
@@ -211,9 +212,13 @@ def markdown_to_latex(text: str) -> str:
 
     # Markdown links [text](url) → deferred \href{url}{text}
     _lk_map: dict = {}
+    _base = base_url.rstrip('/') + '/' if base_url else ''
     def _lk_store(m: re.Match) -> str:
         key = f'\x01LK{len(_lk_map)}\x01'
-        _lk_map[key] = (m.group(1), m.group(2))  # (display_text, url)
+        url = m.group(2)
+        if _base and not url.startswith(('http://', 'https://', '#', 'mailto:')):
+            url = urljoin(_base, url)
+        _lk_map[key] = (m.group(1), url)  # (display_text, url)
         return key
     text = re.sub(r'\[([^\]]+)\]\(([^\)]+)\)', _lk_store, text)
 
@@ -227,9 +232,9 @@ def markdown_to_latex(text: str) -> str:
     # ------------------------------------------------------------------
     text = escape_latex(text)
 
-    # Restore links as \href — URL kept raw, display text escaped.
+    # Restore links as \href — URL kept raw, display text bold and escaped.
     for key, (ltext, url) in _lk_map.items():
-        text = text.replace(key, f'\\href{{{url}}}{{{escape_latex(ltext)}}}')
+        text = text.replace(key, f'\\href{{{url}}}{{\\textbf{{{escape_latex(ltext)}}}}}')
 
     # ------------------------------------------------------------------
     # Inline / block formatting (applied after escaping)
