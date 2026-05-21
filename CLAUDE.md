@@ -47,8 +47,7 @@ YEAR/project_name/
   DESCRIPTION.txt    # short description
   DIMENSIONS.txt     # dimensions string
   YEAR.txt           # optional year override (defaults to folder year)
-  about.md           # long-form description (preferred over README.md)
-  README.md          # long-form description fallback (also used as bio source)
+  README.md          # long-form description (also used as bio source)
   thumb.{webm,gif,jpg,png}   # thumbnail for listing pages (first match wins)
   thumbnail.{jpg,jpeg,png}   # larger thumbnail for big_thumbnail type & PDF
   index.php          # project page
@@ -60,7 +59,7 @@ YEAR/project_name/
   svg/               # SVG files (auto-converted to PDF for LaTeX)
 ```
 
-For `about.md`, the Python generator uses it as-is; for `README.md` it strips Markdown before LaTeX conversion (unless SVG injection is needed, in which case it processes inline).
+The Python generator strips Markdown from `README.md` before LaTeX conversion (unless SVG injection is needed, in which case it processes inline).
 
 ---
 
@@ -209,7 +208,7 @@ Controls what goes into the PDF:
   'medium':         None,          # MEDIUM.txt
   'description':    None,          # DESCRIPTION.txt
   'dimensions':     None,          # DIMENSIONS.txt
-  'about':          "...",         # about.md or stripped README.md
+  'about':          "...",         # stripped README.md content
   'readme_raw':     "...",         # raw README.md (for SVG injection)
   'thumb':          "thumb.jpg",
   'images':         ["2025/hybrids/images/01.jpg", ...],

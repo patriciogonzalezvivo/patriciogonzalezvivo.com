@@ -19,11 +19,11 @@
 				</div>
 			</div>
             <div class="item-info">
-                <span class="item-title"><?php echo htmlspecialchars($meta['title']); ?></span>
-                <span class="item-year"><?php echo htmlspecialchars($meta['year']); ?></span>
-                <span class="item-medium"><?php echo htmlspecialchars($meta['medium']); ?></span>
-                <span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions']); ?></span>
-                <p class="item-description"><?php echo htmlspecialchars($meta['description']); ?></p>
+                <span class="item-title"><?php echo htmlspecialchars($meta['title'] ?? ''); ?></span>
+                <span class="item-year"><?php echo htmlspecialchars($meta['year'] ?? ''); ?></span>
+                <span class="item-medium"><?php echo htmlspecialchars($meta['medium'] ?? ''); ?></span>
+                <span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions'] ?? ''); ?></span>
+                <p class="item-description"><?php echo htmlspecialchars($meta['description'] ?? ''); ?></p>
             </div>
         </article>
 

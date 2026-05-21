@@ -5,7 +5,7 @@ Project metadata reader for the portfolio generator.
 
 Responsibilities:
   - Reading per-project flat-file metadata (TITLE.txt, MEDIUM.txt, etc.).
-  - Parsing and converting README.md / about.md content.
+  - Parsing and converting README.md content.
   - Assembling a single *project dict* that the LaTeX builder consumes.
 
 A *project dict* has the following keys:
@@ -17,7 +17,7 @@ A *project dict* has the following keys:
     medium      (str | None) – MEDIUM.txt content
     description (str | None) – DESCRIPTION.txt content
     dimensions  (str | None) – DIMENSIONS.txt content
-    about       (str | None) – plain-text body from about.md or README.md
+    about       (str | None) – plain-text body from README.md
     readme_raw  (str | None) – raw README.md text (used for inline SVG expansion)
     thumb       (str | None) – thumbnail filename inside the project directory
     images      ([str])      – workspace-relative image paths  (see images.py)
@@ -234,16 +234,15 @@ def get_project_meta(project_path, base_path: Path) -> Dict:
     dimensions  = read_file(full_path / 'DIMENSIONS.txt')
 
     # ------------------------------------------------------------------
-    # Long-form description: about.md preferred over README.md
+    # Long-form description: README.md
     # ------------------------------------------------------------------
-    about      = read_file(full_path / 'about.md')
     readme_raw = None
+    about      = None
 
-    if not about:
-        raw = read_file(full_path / 'README.md')
-        if raw:
-            readme_raw = raw
-            about = strip_markdown(raw)
+    raw = read_file(full_path / 'README.md')
+    if raw:
+        readme_raw = raw
+        about = strip_markdown(raw)
 
     # ------------------------------------------------------------------
     # Thumbnail (first match wins)
