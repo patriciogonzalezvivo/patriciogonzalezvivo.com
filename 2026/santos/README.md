@@ -8,6 +8,8 @@ This series of portraits emerges from a personal search for an alternative linea
 
 If there is a creator who invites us into existence as co-creators, then this lineage of artists stands as a kind of secular sainthood. They are not exemplars of moral virtue in the traditional sense, but they are, for me, figures of devotion, visionaries with whom I seek communion and dialogue.
 
+## Technical note
+
 :::wrapfig left
 src: ../../2014/skylines/images/14005408208_fbc2fab7ed_b.jpg
 title: Skylines
@@ -16,8 +18,7 @@ medium: Installation detail at gallery
 link: ../../2014/skylines/
 :::
 
-
-Technically, these portraits continue an exploration of drawing machines begun with [Skylines in 2014](../../2014/skylines/skylines.php?v=01), for which I constructed a wall plotter that slowly reveals an image through custom software translating photographs into lines. In 2025, with the [Hybrids series](../../2025/hybrids/), I began combining plotting with alla prima oil painting, bringing together the forces of machine and hand, code and gesture. In Santos, I use that same approach: converting portrait images into vector paths layered with symbolic elements singular to each subject, plotting the result with acrylic paint on a primed canvas, then completing each portrait by hand with oil.
+These portraits continue an exploration of drawing machines begun with [Skylines in 2014](../../2014/skylines/skylines.php?v=01), for which I constructed a wall plotter that slowly reveals an image through custom software translating photographs into lines. In 2025, with the [Hybrids series](../../2025/hybrids/), I began combining plotting with alla prima oil painting, bringing together the forces of machine and hand, code and gesture. In Santos, I use that same approach: converting portrait images into vector paths layered with symbolic elements singular to each subject, plotting the result with acrylic paint on a primed canvas, then completing each portrait by hand with oil.
 
 Like their subjects, the works exist as syntheses: of the material and the immaterial, the earthly and the cosmic, the known and the intuited. They stand as reflections on creativity's enduring capacity to transcend boundaries and connect us to something beyond ourselves.
 
