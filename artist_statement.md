@@ -1,0 +1,7 @@
+For years I built computational systems: drawing machines, generative software, real-time tools that translate structure into image. Now I am also a painter. These are not two practices in conflict — they are two ways of asking the same questions about memory, perception, and what it means to look at another person or place with genuine attention.
+
+My hybrid paintings begin with custom software: a computer vision program analyzes a portrait and translates its structure into vector paths, which a plotter draws onto a primed canvas. What the machine produces is accurate but incomplete — a skeleton, waiting. Then I return with oil and brush. Freed from measurement, I can enter the painting as a space to inhabit rather than to describe. The scaffold is given; the presence is earned.
+
+The same investigation runs through my software works. *Weaver* maps two observers' night skies onto each other to find the stars they hold in common. *BLINK* translates the Baroque vanitas — the soap bubble as memento mori — into a real-time system at planetary scale. These works are not illustrations of ideas. They are systems built to produce a specific kind of encounter: an experience of time, scale, or connection that would not exist otherwise.
+
+What holds across all of it is a single conviction: that intelligence is embodied, that attention is a material, and that making something slowly — with a brush, with code, with a hand-built machine — remains a meaningful act of care.

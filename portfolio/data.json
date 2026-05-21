@@ -7,7 +7,8 @@
     "phone": "+1 415 999 9999",
     "location": "1234 Street, City, Country",
     "logo": "images/logo-gray.png",
-    "bio_file": "README.md"
+    "bio_file": "README.md",
+    "artist_statement_file": "artist_statement.md"
   },
   "projects": [
     {

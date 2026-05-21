@@ -1,4 +1,4 @@
-These paintings are hybrids, made by machine and by hand, yet from a single authorship. I write the code and I hold the brush. Both are commanded by the same vision.
+I write the code and I hold the brush. These paintings are made by machine and by hand, but the authorship is unified — both instruments directed by the same vision.
 
 The process begins with custom software: a program that uses computer vision to analyze a portrait, translating its structure into vector paths that a plotter draws onto a primed canvas. What emerges is a cartography of the face, its geometry laid bare, waiting.
 

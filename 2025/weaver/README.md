@@ -1,4 +1,4 @@
-Weaver is an interactive artifact that allows you to connect with someone across time and space by watching the same section of the night sky. Like sacred storytelling, rituals, prayers, and meditations, this artifact invites you to step out of linear time and immanent experience, and into one that made by the stars we hold in common.
+Weaver is an interactive work that invites two people to connect across time and space through a shared fragment of the night sky. Like a prayer or a meditation, it offers a passage beyond immediate experience — into a quiet awareness of what connects us, not despite distance, but through it.
 
 ![a string between two hands](svg/000_light.svg)
 
