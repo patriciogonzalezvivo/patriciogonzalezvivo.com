@@ -52,6 +52,31 @@ $projects = [
     //     'images_dir'   => '2025/hybrids/images',
     //     'pattern'      => '_DSF*.{jpg,jpeg,png,gif}',
     // ],
+    // [
+    //     'path'         => '2021/memory',
+    //     'type'         => 'big_thumbnail',
+    //     'type'         => 'wasm',
+    //     'width' => 420,
+    //     'height'=> 640,
+    // ],
+    // [
+    //     'path'         => '2021/fen',
+    //     'type'         => 'big_thumbnail',
+    //     'width' => 320,
+    //     'height'=> 540,
+    // ],
+    // [
+    //     'path'         => '2018/estrellas',
+    //     'type'         => 'big_thumbnail',
+    //     'width' => 320,
+    //     'height'=> 540,
+    // ],
+    [
+        'path'         => '2017/luna',
+        'type'         => 'big_thumbnail',
+        'width' => 320,
+        'height'=> 540,
+    ],
 
 ];
 

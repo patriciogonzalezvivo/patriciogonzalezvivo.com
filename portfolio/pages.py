@@ -234,6 +234,9 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
     if thumb_img and desc:
         # wrapfigure: thumbnail floats right, description flows naturally
         # around it and can break across pages (unlike minipage).
+        # \noindent\hfill right-aligns the image within the wrapfigure box so
+        # that portrait thumbnails (where keepaspectratio makes the rendered
+        # width narrower than the box) stay flush with the right margin.
         thumb_href = (
             f"\\href{{{project_url}}}{{\\includegraphics[width=\\linewidth,height=0.75\\textheight,keepaspectratio]{{{thumb_img}}}}}"
             if project_url else
@@ -241,8 +244,10 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
         )
         latex += (
             f"\\begin{{wrapfigure}}{{r}}{{0.40\\textwidth}}\n"
-            "\\vspace{0pt}\n"
+            "\\vspace{-\\intextsep}\n"
+            "\\noindent\\hfill "
             + thumb_href + "\n"
+            "\\vspace{-\\intextsep}\n"
             "\\end{wrapfigure}\n"
             + desc + "\n\n"
         )
