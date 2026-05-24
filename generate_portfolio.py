@@ -90,7 +90,8 @@ def generate_from_template(
 ) -> bool:
     """Generate a portfolio PDF from a LaTeX template and a JSON data file."""
     data = _load_json(data_file)
-    projects_list = data.get('projects', [])
+    # Accept both "sections" (new) and "projects" (legacy key) for compatibility.
+    sections_list = data.get('sections', data.get('projects', []))
 
     # Derive output filename from data.json if not explicitly provided
     if not output_pdf:
@@ -119,15 +120,21 @@ def generate_from_template(
             "\\clearpage"
         )
 
-    print(f"Loading metadata for {len(projects_list)} projects...")
-    projects = []
-    for p in projects_list:
-        print(f"  - {p}")
-        projects.append(get_project_meta(p, base_path))
+    print(f"Loading metadata for {len(sections_list)} sections...")
+    sections = []
+    for s in sections_list:
+        # Featured section: has a 'projects' list but no 'path' key.
+        # Pass it through as-is; build_featured_section_pages reads metadata lazily.
+        if isinstance(s, dict) and 'path' not in s and 'projects' in s:
+            print(f"  - [featured] {s.get('title', '(untitled)')}")
+            sections.append(s)
+        else:
+            print(f"  - {s}")
+            sections.append(get_project_meta(s, base_path))
 
     print("Populating LaTeX template...")
     template_text = Path(template_file).read_text()
-    latex_content = populate_template(template_text, data, projects, base_path)
+    latex_content = populate_template(template_text, data, sections, base_path)
     latex_content = latex_content.replace('%%LABEL_PAGE%%', label_page_latex)
 
     if latex_only:

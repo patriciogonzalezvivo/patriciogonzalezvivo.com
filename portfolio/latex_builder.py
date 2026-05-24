@@ -21,17 +21,41 @@ from pathlib import Path
 from typing import Dict, List
 
 from portfolio.utils import escape_latex
-from portfolio.pages import build_artwork_pages, build_caption  # re-exported
+from portfolio.pages import build_artwork_pages, build_caption, build_featured_section_pages  # re-exported
 from portfolio.sections import (
     build_bio_block, build_artist_statement, build_optional_section,
 )
 from portfolio.legacy import build_legacy_document  # re-exported
 
 
+def _render_section(section: Dict, base_path: Path, base_url: str) -> str:
+    """Dispatch a section dict to the appropriate LaTeX page builder.
+
+    A section with a ``path`` key is a standard artwork / project section and
+    is handled by :func:`~portfolio.pages.build_artwork_pages`.  A section
+    with a ``projects`` key (but **no** ``path``) is a *featured projects*
+    section and is handled by
+    :func:`~portfolio.pages.build_featured_section_pages`.
+
+    Args:
+        section:  Section dict from the resolved sections list.
+        base_path: Workspace root.
+        base_url:  Artist website base URL for hyperlinks.
+
+    Returns:
+        LaTeX string for the section, or an empty string for unknown types.
+    """
+    if 'path' in section:
+        return build_artwork_pages(section, base_path, base_url)
+    if 'projects' in section:
+        return build_featured_section_pages(section, base_path, base_url)
+    return ""
+
+
 def populate_template(
     template_text: str,
     data: Dict,
-    projects: List[Dict],
+    sections: List[Dict],
     base_path: Path,
 ) -> str:
     """Replace all ``%%PLACEHOLDER%%`` markers in *template_text*.
@@ -39,7 +63,9 @@ def populate_template(
     Args:
         template_text: Raw contents of a ``.tex`` template file.
         data:          Parsed ``portfolio_data.json`` dict.
-        projects:      List of project dicts (from :mod:`portfolio.metadata`).
+        sections:      List of resolved section dicts.  Each entry is either
+                       a standard project dict (has a ``path`` key) or a
+                       featured-projects dict (has a ``projects`` key).
         base_path:     Workspace root.
 
     Returns:
@@ -60,7 +86,7 @@ def populate_template(
     optional_press       = build_optional_section('press_file',       artist, base_path)
 
     artworks_latex = "\n".join(
-        build_artwork_pages(project, base_path, website_url) for project in projects
+        _render_section(section, base_path, website_url) for section in sections
     )
 
     # URL-position placeholders go inside \href{} arguments and must stay raw.

@@ -39,7 +39,7 @@ from portfolio.utils import (
     escape_latex, markdown_to_latex, find_thumbnail, THUMBNAIL_EXTS_STATIC,
 )
 from portfolio.images import build_render_plan, parse_sidecar
-from portfolio.metadata import readme_to_latex
+from portfolio.metadata import readme_to_latex, get_featured_item_meta
 
 
 # ---------------------------------------------------------------------------
@@ -424,4 +424,145 @@ def _build_individual_page(img_path: str, base_path: Path, index: int, project_u
         )
 
     latex += "}%\n"  # close \parskip=0 group
+    return latex
+
+
+# ---------------------------------------------------------------------------
+# Featured-section page builder
+# ---------------------------------------------------------------------------
+
+# Maximum thumbnails (each with a caption) to place on a single page.
+_FEATURED_MAX_PER_PAGE = 4
+
+# Minipage width fractions per number of items on the page (same proportions
+# as _GROUP_IMG_FRAC for gallery groups, extended to cover the single-item case).
+_FEATURED_IMG_FRAC: Dict[int, str] = {1: '0.60', 2: '0.47', 3: '0.31', 4: '0.235'}
+
+# Image height — all items share the same fixed maximum so thumbnails align.
+# Kept a bit below \textheight to leave vertical space for the caption block.
+_FEATURED_IMG_HEIGHT = '0.72\\textheight'
+
+
+def build_featured_section_pages(section: Dict, base_path: Path, base_url: str = '') -> str:
+    """Return LaTeX for a *featured projects* section.
+
+    A featured section is identified by the presence of a ``projects`` key
+    (a list of workspace-relative path strings) and the **absence** of a
+    ``path`` key.  Each project contributes a thumbnail image and a caption
+    block placed directly below it (title, year / medium / dimensions), styled
+    with the same ``\\begin{tabular}`` block used for individual gallery captions.
+
+    Layout rules
+    ~~~~~~~~~~~~
+    - All items on a page appear in a **single row**, side-by-side:
+
+      * 1 item  → centred at 60 % of \\textwidth
+      * 2 items → two equal columns  (47 % each)
+      * 3 items → three equal columns (31 % each)
+      * 4 items → four equal columns  (23.5 % each)
+
+    - At most :data:`_FEATURED_MAX_PER_PAGE` thumbnails are placed on one page;
+      additional items overflow to the next page.
+    - The section title and a horizontal rule appear at the top of the first
+      page only.
+
+    Args:
+        section:   Section dict containing ``title`` (str) and ``projects``
+                   (list of workspace-relative path strings).
+        base_path: Workspace root.
+        base_url:  Artist website base URL used to build thumbnail hyperlinks.
+
+    Returns:
+        LaTeX string starting with ``\\clearpage``, or an empty string when
+        the section has no valid projects.
+    """
+    title     = escape_latex(section.get('title', 'Featured Works'))
+    raw_paths = section.get('projects', [])
+    if not raw_paths:
+        return ""
+
+    # Resolve minimal metadata (thumbnail + caption fields) for every item.
+    items = [get_featured_item_meta(p, base_path) for p in raw_paths]
+
+    # Chunk into pages of at most _FEATURED_MAX_PER_PAGE items.
+    pages = [
+        items[i : i + _FEATURED_MAX_PER_PAGE]
+        for i in range(0, len(items), _FEATURED_MAX_PER_PAGE)
+    ]
+
+    latex = ""
+    for page_idx, page_items in enumerate(pages):
+        latex += "\\clearpage\n"
+
+        # Section heading + full-width rule — first page only.
+        if page_idx == 0:
+            latex += (
+                f"\\noindent{{\\Large\\textbf{{{title}}}}}\n"
+                "\\par\\vspace{0.5em}\\noindent\\hrulefill\\par\\vspace{1em}\n"
+            )
+
+        n         = len(page_items)
+        img_frac  = _FEATURED_IMG_FRAC.get(n, _FEATURED_IMG_FRAC[4])
+        img_h     = _FEATURED_IMG_HEIGHT
+
+        # All N items in a single row, separated by \hfill.
+        latex += "{\\setlength{\\parskip}{0pt}%\n\\noindent\n"
+
+        for idx, meta in enumerate(page_items):
+            # Absolute project URL for hyperlinks.
+            project_url = (
+                f"{base_url.rstrip('/')}/{meta['path'].rstrip('/')}/"
+                if base_url else ''
+            )
+
+            # Workspace-relative thumbnail path (must exist on disk).
+            thumb_rel = None
+            if meta.get('thumb'):
+                candidate = base_path / meta['path'] / meta['thumb']
+                if candidate.exists():
+                    thumb_rel = str(candidate.relative_to(base_path))
+
+            # Image — linked to project page when base_url is available.
+            if thumb_rel:
+                raw_inc = (
+                    f"\\includegraphics"
+                    f"[width=\\linewidth,height={img_h},keepaspectratio]"
+                    f"{{{thumb_rel}}}"
+                )
+                img_line = (
+                    f"\\href{{{project_url}}}{{{raw_inc}}}"
+                    if project_url else raw_inc
+                )
+            else:
+                img_line = ""
+
+            # Caption: title + year on line 1, medium on line 2, dimensions on
+            # line 3 — assembled with _caption_tabular for consistent styling.
+            caption_lines: List[str] = []
+            t = escape_latex(meta.get('title', ''))
+            y = escape_latex(meta.get('year', ''))
+            line1 = ", ".join(filter(None, [t, y]))
+            if line1:
+                caption_lines.append(line1)
+            if meta.get('medium'):
+                caption_lines.append(escape_latex(meta['medium']))
+            if meta.get('dimensions'):
+                caption_lines.append(escape_latex(meta['dimensions']))
+
+            caption = _caption_tabular(caption_lines, align_right=False) if caption_lines else ""
+
+            # Minipage: image on top, caption block below (top-aligned so
+            # all thumbnails start at the same baseline).
+            latex += f"\\begin{{minipage}}[t]{{{img_frac}\\textwidth}}\n"
+            if img_line:
+                latex += img_line + "\n"
+            if caption:
+                latex += "\\vspace{0.5em}\n" + caption + "\n"
+            latex += "\\end{minipage}"
+
+            # Separate items with \hfill; no separator after the last item.
+            latex += "\n" if idx == n - 1 else "\\hfill\n"
+
+        latex += "}%\n"  # close \parskip=0 group
+
     return latex

@@ -31,7 +31,7 @@ include("project_meta.php");
         ['path' => '2015/thebookofshaders', 'url' => 'http://thebookofshaders.com/', 'title' => 'The Book of Shaders', 'year' => '2015', 'medium' => 'Book'],
         ['path' => '2014/skylines'],
         // ['path' => '2014/pointcloudcity', 'title' => 'Point Cloud City', 'year' => '2014', 'medium' => 'Data Visualization'],
-        // ['path' => '2013/clouds', 'url' => 'https://cloudsdocumentary.com', 'title' => 'CLOUDS Documentary', 'year' => '2013', 'medium' => 'Documentary / Interactive'],
+        ['path' => '2013/clouds', 'url' => 'https://cloudsdocumentary.com'],
         // ['path' => '2012/codemology', 'title' => 'Codemology', 'year' => '2012', 'medium' => 'Custom real-time software'],
         // ['path' => '2012/flatland', 'title' => 'FlatLand', 'year' => '2012', 'medium' => 'Custom software'],
         ['path' => '2011/efectomariposa'],

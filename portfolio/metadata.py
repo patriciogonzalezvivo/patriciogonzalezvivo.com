@@ -35,7 +35,7 @@ from .images import svg_to_pdf
 from portfolio.images import find_images, find_svgs
 from portfolio.utils import (
     strip_markdown, markdown_to_latex, escape_latex, find_thumbnail,
-    _WRAPFIG_RE, _HTML_BLOCK_RE,
+    _WRAPFIG_RE, _HTML_BLOCK_RE, THUMBNAIL_EXTS_STATIC,
 )
 from portfolio.html_render import render_html_block
 
@@ -266,3 +266,45 @@ def get_project_meta(project_path, base_path: Path) -> Dict:
     }
     result.update(extra)
     return result
+
+
+def get_featured_item_meta(project_path: str, base_path: Path) -> Dict:
+    """Read minimal metadata for a featured-section thumbnail item.
+
+    Only the fields required for a thumbnail caption are loaded — no images,
+    SVGs, or README processing.  The larger ``thumbnail.*`` variant is
+    preferred over the smaller ``thumb.*`` so the featured grid looks sharp.
+
+    Args:
+        project_path: Workspace-relative path string (e.g. ``"2019/hogar"``).
+        base_path:    Workspace root.
+
+    Returns:
+        Dict with keys: ``path``, ``year``, ``folder``, ``title``, ``medium``,
+        ``dimensions``, ``thumb``.
+    """
+    full_path = base_path / project_path
+    parts     = project_path.strip('/').split('/')
+    year      = parts[0] if parts else ''
+    folder    = parts[1] if len(parts) > 1 else ''
+
+    year_override = read_file(full_path / 'YEAR.txt')
+    if year_override:
+        year = year_override
+
+    title      = read_file(full_path / 'TITLE.txt') or folder.replace('_', ' ').title()
+    medium     = read_file(full_path / 'MEDIUM.txt')
+    dimensions = read_file(full_path / 'DIMENSIONS.txt')
+
+    # Prefer the larger 'thumbnail.*' for the featured grid; fall back to 'thumb.*'
+    thumb = find_thumbnail(full_path, ('thumbnail', 'thumb'), THUMBNAIL_EXTS_STATIC)
+
+    return {
+        'path':       project_path,
+        'year':       year,
+        'folder':     folder,
+        'title':      title,
+        'medium':     medium,
+        'dimensions': dimensions,
+        'thumb':      thumb,
+    }

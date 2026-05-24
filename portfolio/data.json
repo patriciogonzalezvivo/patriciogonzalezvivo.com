@@ -10,7 +10,7 @@
     "bio_file": "README.md",
     "artist_statement_file": "artist_statement.md"
   },
-  "projects": [
+  "sections": [
     {
       "path": "2026/santos",
       "images_per_page": 1,
@@ -20,6 +20,14 @@
       "path": "2026/weaver2",
       "images_per_page": 1,
       "inject_svgs": false
+    },
+    {
+      "title": "Related Works",
+      "projects": [
+        "2019/hogar",
+        "2018/estrellas",
+        "2017/luna"
+      ]
     }
   ]
 }
