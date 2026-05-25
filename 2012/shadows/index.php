@@ -1,12 +1,36 @@
-<?php include("../../header.php");?>
+<?php
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = implode('. ', array_filter([$meta['medium'], $meta['description']]));
+    include("../../header.php");?>
 <?php include("../../menu.php");?>
 
 
-	<!-- CONTENT -->
-	<section class="content">
-		<!-- <div id="slideSet">
-			<img class="photo" src="01.jpg" />
-		</div> -->
+	<div id="longer-info">
+        <h2 class="title"><?php echo $meta['title']; ?></h2>
+
+		<?php
+		include("../../ParsedownExtended.php");
+		$Parsedown = new ParsedownExtended();
+		echo $Parsedown->text(file_get_contents ('README.md'));
+		?>
+
+		<iframe src="http://player.vimeo.com/video/41256563?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+
+		<h2>Related Works</h2>
+            <?php
+                $projects = [
+                    ['path' => '2010/communitas'],
+                    ['path' => '2011/efectomariposa'],
+                ];
+
+                echo render_projects_list($projects, '../../');
+            ?>
+	</div>
+
+	<!-- <section class="content">
 		<div class="video-container">
 			<iframe src="http://player.vimeo.com/video/41256563?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 		</div>
@@ -20,7 +44,7 @@
 
 			<p>The act of play can be seen through different theories and perspectives. Post-Freudian psychoanalysts see it not just as a potential medium for the unconscious to manifest but as a space with a unique nature between reality and fantasy where errors can be made without consequence and rules may be blend according to the imagination. This is an essential ability in order to think and explore different points of view and ways of looking at the world, which constitute the basic framework of democratic society. As such, for this project we focus on how we can see through the act of playing to discover cultural and social patterns and, at the same time, create a playground to explore new dynamics and ways of thinking.</p>
 
-			<p>From this inquiry, “Mesa Del Tiempo” was originally designed for the <a href="http://museodeljuguetesi.org.ar/" target="_blank"> Toy Museum of San Isidro </a>(Buenos Aires, Argentina) to develop new configurations of traditional games using cutting-edge technology. Each one of the different installations (Shadows, Kaleidoscope, Simon, and Oca, among others) proposes new models of play.</p>
+			<p>From this inquiry, “Mesa Del Tiempo” was originally designed for the <a href="http://museodeljuguetesi.org.ar/" target="_blank"> Museum of Toys, San Isidro </a>(Buenos Aires, Argentina) to develop new configurations of traditional games using cutting-edge technology. Each one of the different installations (Shadows, Kaleidoscope, Simon, and Oca, among others) proposes new models of play.</p>
 		</article>
 		
 		<article>
@@ -36,6 +60,6 @@
 		<div>
 			<a href="http://museodeljuguetesi.org.ar/"><img src="sponsor.jpg" alt="sponsor"/></a>
 		</div>
-	</section>
+	</section> -->
 	
 <?php include("../../footer.php"); ?>

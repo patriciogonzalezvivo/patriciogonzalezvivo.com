@@ -1,26 +1,20 @@
-<?php include("../../header.php");?>
+<?php
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = implode('. ', array_filter([$meta['medium'], $meta['description']]));
+    include("../../header.php");?>
 <?php include("../../menu.php");?>
 
-
 	<!-- CONTENT -->
-	<section class="content">
+	
+	<div id="longer-info">
+		<?php
+		include("../../ParsedownExtended.php");
+		$Parsedown = new ParsedownExtended();
+		echo $Parsedown->text(file_get_contents('README.md'));
+		?>
+	</div>
 		
-		<a href="https://github.com/patriciogonzalezvivo/Shell-Initiation" target="_blank">
-		<div id="slideSet">
-			<img class="photo" src="01.jpg" alt="slide"/>
-			<img class="photo" src="02.jpg" alt="slide"/>
-			<img class="photo" src="03.jpg" alt="slide"/>
-			<img class="photo" src="04.jpg" alt="slide"/>
-			<img class="photo" src="05.jpg" alt="slide"/>
-			<img class="photo" src="06.jpg" alt="slide"/>
-		</div>
-		</a>
-		
-		<article>
-			<p><a href="https://github.com/patriciogonzalezvivo/Shell-Initiation" target="_blank"><strong>Shell Initiation</strong></a></p> 
-			
-		</article>
-		
-	</section>
 	
 <?php include("../../footer.php"); ?>
