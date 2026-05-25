@@ -8,52 +8,52 @@ From the mind on the '/etc', entrails of the '/usr' passing throughout the hear 
   
 Let's start by understanding witch are there for:
 
-*	`/`		This is the root directory which should contain only the directories needed at the top level of the file structure.
+*   `/`     This is the root directory which should contain only the directories needed at the top level of the file structure.
 
-*	`/bin`	This is where the executable files are located. They are available to all user.
+*   `/bin`  This is where the executable files are located. They are available to all user.
 
-*	`/dev`	These are device drivers.
+*   `/dev`  These are device drivers.
 
-* 	`/etc`	Supervisor directory commands, configuration files, disk configuration files, valid user lists, groups, ethernet, hosts, where to send critical messages.
+*   `/etc`  Supervisor directory commands, configuration files, disk configuration files, valid user lists, groups, ethernet, hosts, where to send critical messages.
 
-*	`/lib`	Contains shared library files and sometimes other kernel-related files. (Similar to `/Libraries` on MacOS)
+*   `/lib`  Contains shared library files and sometimes other kernel-related files. (Similar to `/Libraries` on MacOS)
 
-*	`/boot`	Contains files for booting the system.
+*   `/boot` Contains files for booting the system.
 
-*	`/home`	Contains the home directory for users and other accounts. (`/Users` on MacOS)
+*   `/home` Contains the home directory for users and other accounts. (`/Users` on MacOS)
 
-*	`/mnt`	Used to mount other temporary file systems, such as cdrom and floppy for the CD-ROM drive and floppy diskette drive, respectively (`/Volumes` on MacOS)
+*   `/mnt`  Used to mount other temporary file systems, such as cdrom and floppy for the CD-ROM drive and floppy diskette drive, respectively (`/Volumes` on MacOS)
 
-*	`/proc`	Contains all processes marked as a file by process number or other information that is dynamic to the system. 
+*   `/proc` Contains all processes marked as a file by process number or other information that is dynamic to the system. 
 
-*	`/tmp`	Holds temporary files used between system boots
+*   `/tmp`  Holds temporary files used between system boots
 
-* 	`/var`	Typically contains variable-length files such as log and print files and any other type of file that may contain a variable amount of data
+*   `/var`  Typically contains variable-length files such as log and print files and any other type of file that may contain a variable amount of data
 
-*	`/sbin`	Contains binary (executable) files, usually for system administration. For example fdisk and ifconfig utlities.
+*   `/sbin` Contains binary (executable) files, usually for system administration. For example fdisk and ifconfig utlities.
 
-*	`/usr`	Used for miscellaneous purposes, or can be used by many users. Includes administrative commands, shared files, library files, and others. You can see how the structure repeats it self inside this folder following the previous logic. 
+*   `/usr`  Used for miscellaneous purposes, or can be used by many users. Includes administrative commands, shared files, library files, and others. You can see how the structure repeats it self inside this folder following the previous logic. 
 
-	*	`/usr/bin`		This is where the users executable files are located
+    *   `/usr/bin`      This is where the users executable files are located
 
-	*	`/usr/etc`		Configuration files for users applications
+    *   `/usr/etc`      Configuration files for users applications
 
-	*	`/usr/include`	Store all the header. Unix really designed as a SDK
+    *   `/usr/include`  Store all the header. Unix really designed as a SDK
 
-	*	`/usr/lib`		Contains shared users library files
+    *   `/usr/lib`      Contains shared users library files
 
-	*	`/usr/local`	Here you will found another tree structure holding the programs you compile
+    *   `/usr/local`    Here you will found another tree structure holding the programs you compile
 
-	*	`/usr/share`	Hold media files of your user applications
+    *   `/usr/share`    Hold media files of your user applications
 
-	*	`/usr/sbin`		Configuration files for users system applications
-	
+    *   `/usr/sbin`     Configuration files for users system applications
+    
 Like the places on a castle, each room haves it owner and it duties. By thinking on the porpoise and scope of what you are looking for, you can know where you can found it.
 Also, this rooms have some general qualities. Each one have to extra "doors" besides those to the containing rooms.  
 
-*	`.`		A reference to that directory himself
+*   `.`     A reference to that directory himself
 
-*	`..`	A reference to the lower level directory
+*   `..`    A reference to the lower level directory
 
 Finally there hidden doors to folders and files. Those how start with a dot ('.') are hard to be seen by the user. 
 
@@ -64,17 +64,17 @@ Now that we know the extensions and branches of this house tree we can explore i
 
 ###### Compas commands
 
-`ls [DIRNAME]`	Shows the contents of the directory specified.
+`ls [DIRNAME]`  Shows the contents of the directory specified.
 
-`pwd`	Shows the current directory the user is in.
-	
+`pwd`   Shows the current directory the user is in.
+    
 ###### Entering, making and destroying rooms
 
-`cd DIRNAME`	Moves you to the directory identified.
+`cd DIRNAME`    Moves you to the directory identified.
 
-`mkdir DIRNAME`	Creates the specified directory.
+`mkdir DIRNAME` Creates the specified directory.
 
-`rmdir DIRNAME`	Removes a directory.
+`rmdir DIRNAME` Removes a directory.
 
 ###### Copying, moving and erasing things
 
@@ -82,7 +82,7 @@ Now that we know the extensions and branches of this house tree we can explore i
 
 `mv FILE1 FILE2` Moves the location of or renames a file/directory.
 
-`rm FILE`	Removes a file.		
+`rm FILE`   Removes a file.     
 
 ## Accounts and privileges
 Like we said before each room have a owner. It's the same for each element or file you found in it. There are three types of lords ("users"):
@@ -98,18 +98,18 @@ In other worlds Unix supports a concept of Group Account which logically groups 
 
 So, for any file in the system, user 'Thor' may have one of the following ownership relations:
 
-*	Thor **owns** the file
-*	Thor is **a member of the group that owns** the file
-*	Thor is **neither the owner, nor belonging to the group that owns** the file
+*   Thor **owns** the file
+*   Thor is **a member of the group that owns** the file
+*   Thor is **neither the owner, nor belonging to the group that owns** the file
 
 ### Permissions
 At the same time, every file on the system has associated with it a set of permissions. Permissions tell the system what can be done with that file and by whom. 
 Like spells to objects, the owner can tell how can be read it, writed it or used it. 
 In other words:
 
-*	**read** it,
-*	**write** (modify) it and
-*	**execute** it.
+*   **read** it,
+*   **write** (modify) it and
+*   **execute** it.
 
 This **permissions** specify which of the above operations can be performed for any ownership relation with respect to the file. 
 In simpler terms, what can the owner do, what can the owner group do, and what can everybody else do with the file. 
@@ -124,9 +124,9 @@ The first column here shows the permission bit pattern for each file. The third 
 #### Permissions over directories doors
 Another interesting thing to note is that `Library/` which is a directory has permissions, too. Permissions take a different meaning for directories. Here's what they mean:
 
-*	read determines if a user can view the directory's contents, i.e. do `ls` it.
+*   read determines if a user can view the directory's contents, i.e. do `ls` it.
 
-*	write determines if a user can create new files or delete file in the directory. (Note here that this essentially means that a user with write access to a directory can delete files in the directory even if he/she doesn't have 
+*   write determines if a user can create new files or delete file in the directory. (Note here that this essentially means that a user with write access to a directory can delete files in the directory even if he/she doesn't have 
 write permissions for the file! So be careful withis.)
 
 * execute determines if the user can cd into the directory.
@@ -145,37 +145,37 @@ There are three main user administration files, that as you can imagine are loca
 #### Doorkeepers and key-makers
 If you want to restrict the access to bedrooms or the usage of objects you must speak to this key-makers and doorkeepers in order to put protective spells on them or simple a big lock. Here are their names:
 
-*	`umask`		Show the permissions that are given to view files by default
+*   `umask`     Show the permissions that are given to view files by default
 
-*	`useradd`	Adds accounts to the system.
+*   `useradd`   Adds accounts to the system.
 
-*	`usermod`	Modifies account attributes.
+*   `usermod`   Modifies account attributes.
 
-*	`userdel`	Deletes accounts from the system.
+*   `userdel`   Deletes accounts from the system.
 
-*	`groups`	Show group memberships
+*   `groups`    Show group memberships
 
-*	`groupadd`	Adds groups to the system.
+*   `groupadd`  Adds groups to the system.
 
-*	`groupmod`	Modifies group attributes.
+*   `groupmod`  Modifies group attributes.
 
-*	`groupdel`	Removes groups from the system.
+*   `groupdel`  Removes groups from the system.
 
-*	`passed`	Change user password
+*   `passed`    Change user password
 
-*	`chwon`		Change owner
+*   `chwon`     Change owner
 
-*	`chirp`		Change the group ownership of a file
+*   `chirp`     Change the group ownership of a file
 
-*	`users`		Print names of logged in users
+*   `users`     Print names of logged in users
 
-*	`uname`		Display name of the current system
+*   `uname`     Display name of the current system
 
-*	`last`		Show last logins of users
+*   `last`      Show last logins of users
 
-*	`who`		List logged in users
+*   `who`       List logged in users
 
-*	`w`			Show what logged in users are doing
+*   `w`         Show what logged in users are doing
 
 #### Super Powers
 There is a key that open all the doors. But just the Lord of the house know the phrase. It's the `sudo` command, or "super user do"

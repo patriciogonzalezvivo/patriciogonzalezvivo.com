@@ -11,7 +11,7 @@
         exit;
     }
 
-    include("../../project_meta.php");
+    include("../../server/project_meta.php");
     $meta = get_current_project_meta();
     $chapter_name = preg_replace('/\.md$/', '', $file);
     $page_title = $meta['title'] . ' — ' . $chapter_name;
@@ -23,7 +23,7 @@
     <div id="longer-info">
         <p><a href="./">&larr; <?php echo htmlspecialchars($meta['title']); ?></a></p>
         <?php
-        include("../../ParsedownExtended.php");
+        include("../../server/ParsedownExtended.php");
         $Parsedown = new ParsedownExtended();
         echo $Parsedown->text(file_get_contents(__DIR__ . '/' . $file));
         ?>

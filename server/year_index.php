@@ -13,7 +13,7 @@ $root_dir = dirname($year_dir);
 
 $page_title = $year;
 
-include($root_dir . "/project_meta.php");
+include($root_dir . "/server/project_meta.php");
 
 // Scan the year folder for project subdirectories that have TITLE.txt
 $projects = [];

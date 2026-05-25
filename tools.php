@@ -1,5 +1,5 @@
 <?php
-include("project_meta.php");
+include("server/project_meta.php");
 
     $projects = [
         ['path' => '2022/vera', 'url' => 'https://github.com/patriciogonzalezvivo/vera', 'title' => 'VERA', 'year' => '2022', 'medium' => 'C++/WASM GL Framework'],

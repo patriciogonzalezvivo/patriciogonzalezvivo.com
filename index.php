@@ -1,6 +1,6 @@
 <?php
-include("project_meta.php");
-include_once("slideSet.php");
+include("server/project_meta.php");
+include_once("server/slideSet.php");
 
 /********************
     Each project entry supports:

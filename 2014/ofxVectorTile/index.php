@@ -6,7 +6,7 @@
 	<section class="content">
 
 		<?php
-			include("../../ParsedownExtended.php");
+			include("../../server/ParsedownExtended.php");
 
 			define('GITHUB_REPO', 'ofxVectorTile');
 			define('GITHUB_REPO_URL','github.com/tangrams/'.GITHUB_REPO);

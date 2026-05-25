@@ -1,5 +1,5 @@
 <?php
-    include("../../project_meta.php");
+    include("../../server/project_meta.php");
     $meta = get_current_project_meta();
     $page_title = $meta['title'];
     $page_description = $meta['description'];
@@ -36,12 +36,12 @@
         <div id="longer-info">
 
             <?php
-                include("../../ParsedownExtended.php");
+                include("../../server/ParsedownExtended.php");
                 $Parsedown = new ParsedownExtended();
                 echo $Parsedown->text(file_get_contents('README.md'));
             ?>
 
-            <?php include("../../slideSet.php"); echo slideset('images', 'width: 100%;'); ?>
+            <?php include("../../server/slideSet.php"); echo slideset('images', 'width: 100%;'); ?>
 
             <div>
                 <video controls width="100%" style="max-width: 800px;">

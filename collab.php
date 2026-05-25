@@ -1,5 +1,5 @@
 <?php
-include("project_meta.php");
+include("server/project_meta.php");
 
     $projects = [
         ['path' => '2021/multiband', 'url' => 'https://web.archive.org/web/20211001235555/https://runwayml.com/blog/presenting-multiband-format', 'title' => 'MultiBand', 'year' => '2021', 'medium' => 'RunwayML'],

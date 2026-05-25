@@ -53,7 +53,7 @@
  * @requires parsedown/Parsedown.php
  */
 
-require_once __DIR__ . '/parsedown/Parsedown.php';
+require_once __DIR__ . '/Parsedown.php';
 
 class ParsedownExtended extends Parsedown
 {

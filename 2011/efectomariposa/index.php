@@ -1,5 +1,5 @@
 <?php
-    include("../../project_meta.php");
+    include("../../server/project_meta.php");
     $meta = get_current_project_meta();
     $page_title = $meta['title'];
     $page_description = $meta['description'];
@@ -13,7 +13,7 @@
 
         <div id="longer-info">
             <?php
-            include("../../ParsedownExtended.php");
+            include("../../server/ParsedownExtended.php");
             $Parsedown = new ParsedownExtended();
             echo $Parsedown->text(file_get_contents ('README.md'));
             ?>
@@ -23,7 +23,7 @@
                 <iframe title="vimeo-player" src="https://player.vimeo.com/video/32321634?h=654b440c04" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
             </div>
             
-            <?php include("../../slideSet.php"); ?>
+            <?php include("../../server/slideSet.php"); ?>
             <a href="https://vimeo.com/32321634" target="_blank">
             <?php echo slideset('images', 'width: 100%; height: 640px; object-fit: cover;'); ?>
             </a>  

@@ -6,7 +6,7 @@
 	<section class="content">
 
 		<?php
-			include("../../ParsedownExtended.php");
+			include("../../server/ParsedownExtended.php");
 			define('GITHUB_REPO', 'KinectCoreVision');
 			$Parsedown = new ParsedownExtended();
 			echo $Parsedown->text(file_get_contents( 'https://raw.github.com/patriciogonzalezvivo/'.GITHUB_REPO.'/master/README.md'));

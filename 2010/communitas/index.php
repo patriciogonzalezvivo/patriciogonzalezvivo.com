@@ -1,7 +1,7 @@
 
 <?php include("../../header.php");?>
 <?php include("../../menu.php");?>
-<?php include("../../project_meta.php");?>
+<?php include("../../server/project_meta.php");?>
 
 
 	<!-- <iframe title="vimeo-player" src="https://player.vimeo.com/video/15171352?h=2b8e0fde57" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen></iframe> -->
@@ -14,12 +14,12 @@
 	<div id="longer-info">
 
 		<?php
-		include("../../ParsedownExtended.php");
+		include("../../server/ParsedownExtended.php");
 		$Parsedown = new ParsedownExtended();
 		echo $Parsedown->text(file_get_contents ('README.md'));
 		?>
 
-        <?php include("../../slideSet.php"); echo slideset(); ?>
+        <?php include("../../server/slideSet.php"); echo slideset(); ?>
 
 		<article>
 			<p>Communitas was develop for Interactivos 2010 at Espacio Fundación Telefónica</p>

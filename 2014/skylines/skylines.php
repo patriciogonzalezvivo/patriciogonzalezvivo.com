@@ -5,7 +5,7 @@
 	<div id="longer-info">
 
 		<?php
-			include("../../ParsedownExtended.php");
+			include("../../server/ParsedownExtended.php");
 
 			$Parsedown = new ParsedownExtended();
 			if (isset($_GET['v']) && $_GET['v'] === '01') {

@@ -1,6 +1,6 @@
 <?php
     // Load project metadata from TITLE.txt, MEDIUM.txt, etc.
-    include("../../project_meta.php");
+    include("../../server/project_meta.php");
     $meta = get_current_project_meta();
     // Use metadata for page header
     $page_title = $meta['title'];
@@ -38,12 +38,12 @@
 
         <div id="longer-info">
             <?php
-            include("../../ParsedownExtended.php");
+            include("../../server/ParsedownExtended.php");
             $Parsedown = new ParsedownExtended();
             echo $Parsedown->text(file_get_contents('README.md'));
             ?>
 
-            <?php include("../../slideSet.php"); echo slideset(); ?>
+            <?php include("../../server/slideSet.php"); echo slideset(); ?>
 
             <h2>Related Works</h2>
             <?php

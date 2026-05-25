@@ -2,7 +2,7 @@
 	$page_title = "Portraits - Patricio Gonzalez Vivo";
 	$page_description = "Oil portrait studies by Patricio Gonzalez Vivo, 2024-2025";
 	include("../../header.php");
-	include("../../gallery.php");
+	include("../../server/gallery.php");
 ?>
 <?php include("../../menu.php");?>
 

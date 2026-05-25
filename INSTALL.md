@@ -216,7 +216,7 @@ The Makefile's `portfolio` target ends with `xdg-open` to launch the generated P
 
 ```makefile
 portfolio:
-	python generate_portfolio.py -t portfolio/template.tex -d portfolio/data.json && open $$(ls -t *.pdf | head -1)
+    python generate_portfolio.py -t portfolio/template.tex -d portfolio/data.json && open $$(ls -t *.pdf | head -1)
 ```
 
 ---

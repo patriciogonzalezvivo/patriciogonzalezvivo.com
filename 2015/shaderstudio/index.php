@@ -6,7 +6,7 @@
 	<section class="content">
 
 		<?php
-			include("../../ParsedownExtended.php");
+			include("../../server/ParsedownExtended.php");
 
 			define('GITHUB_REPO', 'ss2015');
 			define('GITHUB_REPO_URL','github.com/patriciogonzalezvivo/'.GITHUB_REPO);

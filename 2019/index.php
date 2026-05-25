@@ -1,1 +1,1 @@
-<?php $year_dir = __DIR__; include('../year_index.php'); ?>
+<?php $year_dir = __DIR__; include('../server/year_index.php'); ?>

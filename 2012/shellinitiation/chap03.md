@@ -10,12 +10,12 @@ Jobs can be put in the background either by initiating them in the background or
 
 The way a job is initiated in the background is by putting an ampersand (`&`) at the end of the command line. For example, to start a the update of the database of files on the computer we need to find and execute `locate.updatedb` (on linux it's `updatedb`) but it takes a long time to read the complete disk. So the solution is by doing: 
 
-	sudo /usr/libexec/./locate.updatedb &
+    sudo /usr/libexec/./locate.updatedb &
 
        
 A second technique is to stop the foreground job with `control` + `Z`, and then to specify that the job be continued in the background with the `bg` command (The Carrot, ^, represents holding down the control key while you press the letter after it).
 
-	sudo /usr/libexec/./locate.updatedb
+    sudo /usr/libexec/./locate.updatedb
         ^Z
         bg
        
@@ -29,18 +29,18 @@ A large compilation job is running in the background
 'updated' is started, and then stopped with `Control` + `Z`
 The report from the command `jobs -l` would look something like this:
 
-		[1]  - 12527 Running              make oberon
+        [1]  - 12527 Running              make oberon
         [2]  + 12530 Stopped              sudo ./locate.updatedb &
        
 The `[ ]` numbers are the job numbers that `bg` (background), `fg` (foreground), and `kill` use. (See the sections below for the details).
 
 The report from the command `ps -u username` would look something like this:
 
-		PID 	TTY      TIME CMD
-        10272	pts/10   3:40 sudo ./locate.updatedb &
-        9418	pts/10   0:00 csh
-        10198	pts/10   0:00 run-mozi
-        12527	pts/10   2:07 make oberon
+        PID     TTY      TIME CMD
+        10272   pts/10   3:40 sudo ./locate.updatedb &
+        9418    pts/10   0:00 csh
+        10198   pts/10   0:00 run-mozi
+        12527   pts/10   2:07 make oberon
        
 The information in this display is explained in greater detail in `man  ps`. It shows the running processes in greater detail than the `jobs` output. The numbers in the PID column are the process identification numbers associated with the processes named in the COMMAND column, and can be used by the `kill` command
 
@@ -48,7 +48,7 @@ The information in this display is explained in greater detail in `man  ps`. It 
 
 A background job may be brought to the foreground if it was initiated during the current login session. Jobs which were initiated during other login sessions and which are still running cannot be brought to the foreground. However, it is possible to send signals to such jobs using the `kill` command-- see below. A background job or a stopped job may be brought to the foreground with the command fg.
 
-	fg  %1
+    fg  %1
        
 The number following the percent sign is obtained from the leftmost column of the table given by the `jobs` command. 
 
@@ -58,11 +58,11 @@ Jobs from the current session can usually be terminated by bringing them to the 
 
 Another technique for terminating jobs running under your user id employs the `kill` command. There are two ways to refer to a particular job. The first uses the number in the leftmost column of the jobs command, as follows:
 
-	kill -9 %1
+    kill -9 %1
        
 The second way uses the process id given in the leftmost column of the `ps -gx` command, as follows:
 
-	kill -9  pid-number
+    kill -9  pid-number
        
 This can be used to terminate stopped and background jobs from the current session. It can be used to terminate jobs initiated by other login sessions of your user id.
 
@@ -74,37 +74,37 @@ The other variable which affects system performance is job priority. If your job
 
 The current load on the system may be determined with:
 
-	uptime
+    uptime
        
 The three numbers at the right of the resulting report indicate the load. If the first of the three is over 3, background jobs should only be initiated with low priority (niced). For example:
 
-	nice make oberon
+    nice make oberon
        
 To change the priority of a running job, use the command `renice`. For example, if the command `make oberon` with process ID 12527 is slowing things down too much for everyone else, you could use the command;
 
-	renice 19 12527
+    renice 19 12527
 
 #### Instruments and Commands
 
-*	`&`			Run the command in the background
+*   `&`         Run the command in the background
 
-*	`ps`		Report a snapshot of the current processes.
+*   `ps`        Report a snapshot of the current processes.
 
-*	`top`		Display system tasks
+*   `top`       Display system tasks
 
-*	`kill`		Send a signal to a process
+*   `kill`      Send a signal to a process
 
-*	`killall PROGRAM_NAME`	kill a process by app name
+*   `killall PROGRAM_NAME`  kill a process by app name
 
-*	`nice`/`renice`	Run a program with modified scheduling priority
+*   `nice`/`renice` Run a program with modified scheduling priority
 
-*	`bg` 		Place jobspec into the background, as if it had been started with `&'. If jobspec is not supplied, the current job is used.
+*   `bg`        Place jobspec into the background, as if it had been started with `&'. If jobspec is not supplied, the current job is used.
 
-*	`fg` 		Bring jobspec into the foreground and make it the current job. If jobspec is not supplied, the current job is used.
+*   `fg`        Bring jobspec into the foreground and make it the current job. If jobspec is not supplied, the current job is used.
 
-*	`jobs`		The first form lists the active jobs. The -l option lists process IDs in addition to the normal information; the -p option lists only the process ID of the job's process group leader. The -n option displays only jobs that have changed status since last notfied. If jobspec is given, output is restricted to information about that job. If jobspec is not supplied, the status of all jobs is listed.
+*   `jobs`      The first form lists the active jobs. The -l option lists process IDs in addition to the normal information; the -p option lists only the process ID of the job's process group leader. The -n option displays only jobs that have changed status since last notfied. If jobspec is given, output is restricted to information about that job. If jobspec is not supplied, the status of all jobs is listed.
 
-*	`suspend`	Suspend the execution of this shell until it receives a SIGCONT signal. The -f option means to suspend even if the shell is a login shell.
+*   `suspend`   Suspend the execution of this shell until it receives a SIGCONT signal. The -f option means to suspend even if the shell is a login shell.
 When job control is active, the kill and wait builtins also accept jobspec arguments.
 
 This capability of sending things to background or foreground it's really handy, but if you are logging on and off all the time it's gets difficult. That's why there is a very powerful application it will take you in a completely new different level. It's call [`screen`](https://github.com/patriciogonzalezvivo/Shell-Initiation/blob/master/chap03a.md) and is so much complex that certainly it deserve it [own chapter](https://github.com/patriciogonzalezvivo/Shell-Initiation/blob/master/chap03a.md)

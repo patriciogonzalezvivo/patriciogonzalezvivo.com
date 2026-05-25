@@ -1,7 +1,4 @@
-<div id="slideSet">
-			<img class="photo" src="01.jpg" alt="slide"/>
-</div>
-
+![01](01.jpg)
 
 Bootcamp Code Faculty 2013 for Parsons MFA Design&Technology program
 

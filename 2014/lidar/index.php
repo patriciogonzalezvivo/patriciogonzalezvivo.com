@@ -6,7 +6,7 @@
 	<section class="content">
 
 		<?php
-			include("../../ParsedownExtended.php");
+			include("../../server/ParsedownExtended.php");
 			$Parsedown = new ParsedownExtended();
 			define('GITHUB_REPO', 'Mesh2OSMSlicer');
 			define('GITHUB_REPO_URL','github.com/tangrams/'.GITHUB_REPO);

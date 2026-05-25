@@ -1,5 +1,5 @@
 <?php 
-include("project_meta.php");
+include("server/project_meta.php");
 
 /***
     Array of projects with their configuration
