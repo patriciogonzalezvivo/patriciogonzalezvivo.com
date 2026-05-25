@@ -1,1 +1,3 @@
 > _“When we forget ourselves, we are the universe..”_ Hakui
+
+**Communitas** it's a circular multi-touch table on which participants can make collaborative drawings. Drawings travel around the table inviting other participants to add to them, creating a collective and evolving artwork. The project was as part of the Interactivos Telefonica fellowship, on Ciudad Autonoma de Buenos Aires, Argentina in 2010. 
