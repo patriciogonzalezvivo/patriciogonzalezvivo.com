@@ -1,4 +1,4 @@
-# The Process 
+# Skyline's process 
 
 ## Early experiments with the vPlotter
 
@@ -8,7 +8,10 @@
 
 Because of my original intentions of plotting maps with this tool, I concentrated most of my efforts on resolving problems regarding precision. The movement of the plotter heads presents a lot of vibrations coming from the motors.
 
-<!-- <iframe class="vine-embed" src="https://vine.co/v/hHVwPTU7M03/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
+<video controls>
+  <source src="videos/000.mp4" type="video/mp4">
+  <p><em>"Plotting the world w #openframeworks + #arduino"</em></p>
+</video>
 
 After experimenting with different markers, surfaces, electronic components (capacitors to compensate the excess energy between the steps of the motor) and software settings (such us augmenting/reducing/smoothing the steps per line), I discovered that the biggest enhancement was using a sponge to hold the pen. This soft material successfully absorbed most of the vibrations, generating constant straight lines.
 
@@ -18,7 +21,10 @@ After experimenting with different markers, surfaces, electronic components (cap
 
 I started by using images related to the _"virtual world"_, like desktop icons, to plot (also by that time I was very interested in the desktop as a common metaphor for computer environments). These images were plotted on top of linoleum to then be carved and printed as a print relief.
 
-<!-- <iframe class="vine-embed" src="https://vine.co/v/hw7g3FgDjnt/embed/simple" width="285" height="285" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>  -->
+<video controls>
+  <source src="videos/001.mp4" type="video/mp4">
+  <p><em>"From digital to analog part 1"</em></p>
+</video>
 
 ![Desktop Icon](images/10556116273_75ac40047c_z.jpg)
 
@@ -28,7 +34,10 @@ I started by using images related to the _"virtual world"_, like desktop icons, 
 
 **October 30, 2013** I became interested in how to achieve gradient patterns using just the line of the marker. Researching I found [this interesting paper](http://archive.bridgesmathart.org/2005/bridges2005-301.pdf) proposing populating the surface of an image with points using a dithering algorithm, then applying a voronoi relaxation between them, and finally apply a Traveling Salesman Problem (TSP) solver to get a constant uninterrupted line between them. This approach seems to work pretty well on paper but is very difficult to carve on wood. Also I found that was necessary to add 
 
-<!-- <iframe class="vine-embed" src="https://vine.co/v/hjFOWWmLBWz/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
+<video controls>
+  <source src="videos/002.mp4" type="video/mp4">
+  <p><em>"3D Shell to TSP to woodcut to paper using #openframeworks and #mothernature"</em></p>
+</video>
 
 ## Traces of the digital
 
@@ -40,7 +49,10 @@ With that in mind I made my own slit cam combining my own GLSL Shader with the c
 
 The second step was to extract the contours of the image applying a Computer Vision _"Canny Edge Detection"_ algorithm.
 
-<!-- <iframe class="vine-embed" src="https://vine.co/v/htvlF5mhKpu/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
+<video controls>
+  <source src="videos/003.mp4" type="video/mp4">
+  <p><em>"SlitCam to lines"</em></p>
+</video>
 
 After doing that I repeat the process of plotting on top of a peace of wood.
 
@@ -57,7 +69,12 @@ In the print shop this process paid off. The digital nature of the slitCam, the 
 
 **December 2, 2013** I repeat the process. Makes me feel like an alchemist of mediums. The products of this process are dense and obscure at the same time superficial, incomplete.
 
-<!-- <iframe class="vine-embed" src="https://vine.co/v/hP3Y9erJMLr/embed/simple" width="285" height="285" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> ![Jen](images/11173530623_bbac079ddb_z.jpg) -->
+<video controls>
+  <source src="videos/004.mp4" type="video/mp4">
+  <p><em>"SlitCam to Ink 2"</em></p>
+</video> 
+
+![Jen](images/11173530623_bbac079ddb_z.jpg)
 
 
 ## Research and experiment about glitch
@@ -70,7 +87,10 @@ I feel inspired by these two artists. I have the feeling that by experimenting w
 
 After weeks of [collecting glitches in a Pinterest Board](http://www.pinterest.com/patriciogonzv/slit-glitch/) [one image is the chosen one](http://robertdelnaja.tumblr.com/post/41636057857), and I start to make my experiment. I grab a cardboard and start sketching the profile of it, then the whites and at last the blacks and grays. Now is the moment of the glitch. Following the directions on the image I add greens, reds and blue distortions. The colors don't mix in the right way. I remember about difference of pigment and light color theories. This is getting harder.
 
-<!-- <iframe class="vine-embed" src="https://vine.co/v/MaTYbehBQPl/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
+<!-- <video controls width="575" height="575">
+  <source src="images/vine_MaTYbehBQPl.mp4" type="video/mp4">
+  <p><em>"Glitch Study"</em> — <a href="https://vine.co/v/MaTYbehBQPl">vine.co/v/MaTYbehBQPl</a></p>
+</video> -->
 
 For most of the painting, I used the brush but its trails were too smooth to mimic the edgy shapes of the glitch. The spatula was a better tool for that. Spasmodic horizontal moves are better. I concentrate on that movement. I change the angle of the spatula in an attempt to distort the maximum amount of paint per movement. Instead the paints seems to "jump" over the surface. The wavy surface of the cardboard dictated by its own structural composition gets exposed. The glitch appears. It isn't the glitch I expected, but I think it's off course; it is a cardboard glitch.
 
@@ -115,7 +135,10 @@ These were superficial interventions. For me, the problem was in the point of vi
 
 Time to experiment with another media. Time to think with my hands and body. For me, drawing and painting can trigger a dialog of thoughts better than any other medium.
 
-<!-- <iframe class="vine-embed" src="https://vine.co/v/MW79j3aqAHJ/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
+<!-- <video controls width="575" height="575">
+  <source src="images/vine_MW79j3aqAHJ.mp4" type="video/mp4">
+  <p><em>"Dinamic Interfaces Analog Experiment cc Jamie Kosoy"</em> — <a href="https://vine.co/v/MW79j3aqAHJ">vine.co/v/MW79j3aqAHJ</a></p>
+</video> -->
 
 Drawing are conceived as the natural and intuitive tool for ideas to be born. The double nature of connecting the material, sharable and tangible 2D world of paper with the invisible, cryptic and silent world of the mind allows ideas to shape themselves in a dialog that goes from the paper to the creator. Impossible new thoughts find ways to reality though the pencil, and by leaving their mark, form the basis for new thoughts. As matches lighting each other, drawing becomes the space between spaces, the conduction between ideas and thoughts.
 
@@ -169,7 +192,10 @@ Cartography behaves in the same way, tracing contours and tracking paths along l
 **March 30, 2014** I start using my [vPlotter Tool](../vPlotter/), this time open to be guided by it. I want to see through the eyes of this tool.
 I start by drawing skylines.
 
-<!-- <iframe class="vine-embed" src="https://vine.co/v/MehQvLHvthl/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
+<video controls>
+  <source src="videos/006.mp4" type="video/mp4">
+  <p><em>"Plotter is back"</em></p>
+</video>
 
 One after the other.
 The plotter doesn't get tired.
@@ -237,6 +263,6 @@ For this process I develop series of digital tools in C++, like the [drivers for
 With some adjustment [the Mini Thermal Printer](../ofxThermalPrinter/) and the [TFT display of the RaspberryPi](../ofxPiTFT) are added. The skyline-recorder is almost ready.
 
 ![printer](images/13917147874_dbe5486657_z.jpg) 
-![rpi](https://farm3.staticflickr.com/2899/13916718975_0657db5031_z_d.jpg)
+![rpi](images/13916718975_0657db5031_z.jpg)
 
 <!-- <object type="application/x-shockwave-flash" width="574" height="323" data="https://www.flickr.com/apps/video/stewart.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param name="flashvars" value="intl_lang=en-US&photo_secret=a9a3dd0b06&photo_id=13917946995&hd_default=false"></param><param name="movie" value="https://www.flickr.com/apps/video/stewart.swf"></param><param name="bgcolor" value="#000000"></param><param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/video/stewart.swf" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-US&photo_secret=a9a3dd0b06&photo_id=13917946995&hd_default=false" width="574" height="323"></embed></object> -->
