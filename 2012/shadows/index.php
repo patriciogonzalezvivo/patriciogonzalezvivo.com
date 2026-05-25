@@ -10,13 +10,15 @@
 	<div id="longer-info">
         <h2 class="title"><?php echo $meta['title']; ?></h2>
 
+		<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/dj337xbmbs.js" async type="module"></script><style>wistia-player[media-id='dj337xbmbs']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/dj337xbmbs/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="dj337xbmbs" aspect="1.7777777777777777"></wistia-player>
+
 		<?php
 		include("../../server/ParsedownExtended.php");
 		$Parsedown = new ParsedownExtended();
 		echo $Parsedown->text(file_get_contents ('README.md'));
 		?>
 
-		<iframe src="http://player.vimeo.com/video/41256563?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		<!-- <iframe src="http://player.vimeo.com/video/41256563?autoplay=1" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> -->
 
 
 		<h2>Related Works</h2>
