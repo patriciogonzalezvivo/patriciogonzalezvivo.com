@@ -4,7 +4,7 @@
 
 This series of projects is about awareness. It is about the tools and techniques we use to see the world around us.
 
-These projects were part of an ongoing [process](http://www.patriciogonzalezvivo.com/2014/skylines/process.php) of investigation during my last year as a Parson's MFA DT student and they are presented as three explorations around the theme of skylines.
+These projects were part of an ongoing [process](process.php) of investigation during my last year as a Parson's MFA DT student and they are presented as three explorations around the theme of skylines.
 
 We look at the horizon and see a _skyline_, the place where the earth and sky touch. This contour is the confluence of time and space. The landscape is in constant change and fluctuation; it is shaped over time by forces like erosion and human desire. This skyline is also defined by the particular position of the observer - seeing through technical devices allows us to look beyond our perception into different qualities of time and space.
 
@@ -20,7 +20,7 @@ We look at the horizon and see a _skyline_, the place where the earth and sky to
 
 [![Skyline03](images/sk03.png)](skylines.php?v=03)
 
-These three pieces required the construction of special tools. Some physical (like the [vPlotter](http://www.patriciogonzalezvivo.com/2014/vPlotter/)) and some virtual (like the drivers for the [Thermal Printer](http://www.patriciogonzalezvivo.com/2014/ofxThermalPrinter/) and [Google Street View Data Scrapers](http://www.patriciogonzalezvivo.com/2014/pointcloudcity/)). 
+These three pieces required the construction of special tools. Some physical (like the [vPlotter](../vPlotter/)) and some virtual (like the drivers for the [Thermal Printer](../ofxThermalPrinter/) and [Google Street View Data Scrapers](../pointcloudcity/)). 
 
 
 ## Why landscapes?
@@ -71,4 +71,4 @@ As Klemmer and Hartmann warn us, _"one of the most sweeping, and unintended, tra
 Michael Polanyi refers to our physical body as _"the ultimate instrument of all our external knowledge, whether intellectual or practical experience is always in terms of the world to which we are attending from our body."_
 In this sense, digital creative processes that successfully incorporate the richness and rawness of direct manipulation of materials will result in a larger bandwidth of poetic and expressive potential.
 
-Inspired by William Kentridge’s methodology, I dedicated the fall of 2013 to explore the boundaries between digital and physical tools. I developed a [wall plotter (vPlotter)](http://www.patriciogonzalezvivo.com/2014/vPlotter/index.php) that later become a tool to think about technology and perception.
+Inspired by William Kentridge’s methodology, I dedicated the fall of 2013 to explore the boundaries between digital and physical tools. I developed a [wall plotter (vPlotter)](../vPlotter/index.php) that later become a tool to think about technology and perception.

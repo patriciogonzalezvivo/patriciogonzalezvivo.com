@@ -1,9 +1,13 @@
-<?php include("../../header.php");?>
-<?php include("../../menu.php");?>
+<?php
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
+    include("../../header.php");?>
+    <?php include("../../menu.php");?>
 
 
-	<!-- CONTENT -->
-	<section class="content">
+	<div id="longer-info">
 
 		<?php
 			include("../../ParsedownExtended.php");

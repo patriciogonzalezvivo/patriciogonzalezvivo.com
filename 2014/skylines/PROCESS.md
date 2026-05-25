@@ -4,29 +4,31 @@
 
 **October 12, 2013** I assembled my first Plotter prototype based on [Alexander Weber's code and designs](http://tinkerlog.com/2011/09/02/der-kritzler/). This version used an Arduino to control the steppers' drivers and servo motors. This Arduino was receiving instructions from an OpenFrameworks application I coded through the USB serial port.
 
-![First prototype of the vPlotter](https://farm8.staticflickr.com/7436/10556063253_f774f806e3_b_d.jpg)
+![First prototype of the vPlotter](images/10556063253_f774f806e3_b.jpg)
 
 Because of my original intentions of plotting maps with this tool, I concentrated most of my efforts on resolving problems regarding precision. The movement of the plotter heads presents a lot of vibrations coming from the motors.
 
-<iframe class="vine-embed" src="https://vine.co/v/hHVwPTU7M03/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+<!-- <iframe class="vine-embed" src="https://vine.co/v/hHVwPTU7M03/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
 
 After experimenting with different markers, surfaces, electronic components (capacitors to compensate the excess energy between the steps of the motor) and software settings (such us augmenting/reducing/smoothing the steps per line), I discovered that the biggest enhancement was using a sponge to hold the pen. This soft material successfully absorbed most of the vibrations, generating constant straight lines.
 
-![Plotter doing straight lines](https://farm4.staticflickr.com/3723/10555821215_cea5ff5f02_z_d.jpg)
+![Plotter doing straight lines](images/10555821215_cea5ff5f02_z.jpg)
 
 **October 14,2013** I'm happy to say the plotter is working better. Although after showing some plotting samples to Martin Mazorra (at that time my PrintMaking teacher), we agreed on the value of the plotter as a bridge between analog and digital and not as a tool of precision. Since then I've start working on my own techniques to jump between mediums.
 
 I started by using images related to the _"virtual world"_, like desktop icons, to plot (also by that time I was very interested in the desktop as a common metaphor for computer environments). These images were plotted on top of linoleum to then be carved and printed as a print relief.
 
-<iframe class="vine-embed" src="https://vine.co/v/hw7g3FgDjnt/embed/simple" width="285" height="285" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> ![Desktop Icon](https://farm8.staticflickr.com/7371/10556116273_75ac40047c_z_d.jpg" width="285" class="icon")
+<!-- <iframe class="vine-embed" src="https://vine.co/v/hw7g3FgDjnt/embed/simple" width="285" height="285" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>  -->
+
+![Desktop Icon](images/10556116273_75ac40047c_z.jpg)
 
 **October 21, 2013** After the first test with the icons I decided to go further adding more texture to the prints. I decided to work with wood because of its beautiful irregular texture.
 
-![Video-Woodcut](https://farm8.staticflickr.com/7446/10556118123_56350c44d0_z_d.jpg)
+![Video-Woodcut](images/10556118123_56350c44d0_z.jpg)
 
-**October 30, 2013** I became interested in how to achieve gradient patterns using just the line of the marker. Researching I found [this interesting paper](http://archive.bridgesmathart.org/2005/bridges2005-301.pdf" target="_blank") proposing populating the surface of an image with points using a dithering algorithm, then applying a voronoi relaxation between them, and finally apply a Traveling Salesman Problem (TSP) solver to get a constant uninterrupted line between them. This approach seems to work pretty well on paper but is very difficult to carve on wood. Also I found that was necessary to add 
+**October 30, 2013** I became interested in how to achieve gradient patterns using just the line of the marker. Researching I found [this interesting paper](http://archive.bridgesmathart.org/2005/bridges2005-301.pdf) proposing populating the surface of an image with points using a dithering algorithm, then applying a voronoi relaxation between them, and finally apply a Traveling Salesman Problem (TSP) solver to get a constant uninterrupted line between them. This approach seems to work pretty well on paper but is very difficult to carve on wood. Also I found that was necessary to add 
 
-<iframe class="vine-embed" src="https://vine.co/v/hjFOWWmLBWz/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+<!-- <iframe class="vine-embed" src="https://vine.co/v/hjFOWWmLBWz/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
 
 ## Traces of the digital
 
@@ -34,11 +36,11 @@ I started by using images related to the _"virtual world"_, like desktop icons, 
 
 With that in mind I made my own slit cam combining my own GLSL Shader with the camera input.
 
-![SlitCam](https://farm4.staticflickr.com/3766/10888058813_1e69fcdb59_z_d.jpg)
+![SlitCam](images/10888058813_1e69fcdb59_z.jpg)
 
 The second step was to extract the contours of the image applying a Computer Vision _"Canny Edge Detection"_ algorithm.
 
-<iframe class="vine-embed" src="https://vine.co/v/htvlF5mhKpu/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+<!-- <iframe class="vine-embed" src="https://vine.co/v/htvlF5mhKpu/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
 
 After doing that I repeat the process of plotting on top of a peace of wood.
 
@@ -46,16 +48,16 @@ After doing that I repeat the process of plotting on top of a peace of wood.
 
 One iteration of the plotter was not enough. The jumps and spaces left by the Canny Algorithms weren't coherent enough. I discovered that running the edge detection several times and letting these traces accumulate resulted in more dramatic and rich borders.
 
-![a](https://farm8.staticflickr.com/7436/10914050484_79a754d7ae_z_d.jpg" width="285" class="icon")
-![b](https://farm8.staticflickr.com/7330/10913917755_45115b9118_z_d.jpg" width="285" class="icon")
+![a](images/10914050484_79a754d7ae_z.jpg)
+![b](images/10913917755_45115b9118_z.jpg)
 
 In the print shop this process paid off. The digital nature of the slitCam, the repetition of the edge detection algorithm, the organic surface of the wood with their imperfection and the work of my hands combine in a fluid image whose nature is unclear.
 
-![Me](https://farm4.staticflickr.com/3727/10928643976_1a22d9e34f_b_d.jpg)
+![Me](images/10928643976_1a22d9e34f_b.jpg)
 
 **December 2, 2013** I repeat the process. Makes me feel like an alchemist of mediums. The products of this process are dense and obscure at the same time superficial, incomplete.
 
-<iframe class="vine-embed" src="https://vine.co/v/hP3Y9erJMLr/embed/simple" width="285" height="285" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> ![Jen](https://farm4.staticflickr.com/3759/11173530623_bbac079ddb_z_d.jpg" width="285" class="icon")
+<!-- <iframe class="vine-embed" src="https://vine.co/v/hP3Y9erJMLr/embed/simple" width="285" height="285" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> ![Jen](images/11173530623_bbac079ddb_z.jpg) -->
 
 
 ## Research and experiment about glitch
@@ -66,9 +68,9 @@ The term glitch usually refers to a technical error that leads to unexpected beh
 
 I feel inspired by these two artists. I have the feeling that by experimenting with the translation of mediums, I will understand more about the nature of the glitch. Like a research exercise led by the body. My hands and eyes will engage in a conversation with textures, movements and colors. I will just need to observe that process.
 
-After weeks of [collecting glitches in a Pinterest Board](http://www.pinterest.com/patriciogonzv/slit-glitch/" target="_blank") [one image is the chosen one](http://robertdelnaja.tumblr.com/post/41636057857" target="_blank"), and I start to make my experiment. I grab a cardboard and start sketching the profile of it, then the whites and at last the blacks and grays. Now is the moment of the glitch. Following the directions on the image I add greens, reds and blue distortions. The colors don't mix in the right way. I remember about difference of pigment and light color theories. This is getting harder.
+After weeks of [collecting glitches in a Pinterest Board](http://www.pinterest.com/patriciogonzv/slit-glitch/) [one image is the chosen one](http://robertdelnaja.tumblr.com/post/41636057857), and I start to make my experiment. I grab a cardboard and start sketching the profile of it, then the whites and at last the blacks and grays. Now is the moment of the glitch. Following the directions on the image I add greens, reds and blue distortions. The colors don't mix in the right way. I remember about difference of pigment and light color theories. This is getting harder.
 
-<iframe class="vine-embed" src="https://vine.co/v/MaTYbehBQPl/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+<!-- <iframe class="vine-embed" src="https://vine.co/v/MaTYbehBQPl/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
 
 For most of the painting, I used the brush but its trails were too smooth to mimic the edgy shapes of the glitch. The spatula was a better tool for that. Spasmodic horizontal moves are better. I concentrate on that movement. I change the angle of the spatula in an attempt to distort the maximum amount of paint per movement. Instead the paints seems to "jump" over the surface. The wavy surface of the cardboard dictated by its own structural composition gets exposed. The glitch appears. It isn't the glitch I expected, but I think it's off course; it is a cardboard glitch.
 
@@ -80,7 +82,7 @@ The jumps expose the structure of this system composed by acrylic paint over car
 
 The structure of the medium pushes over the image. In my paint the acrylic is dense and offers resistance. It pulls back. But digital images don't. They are like flags in the wind.
 
-**February 11, 2014** I start a second experiment. This one is about the non-resistance of digital images. Rows of pixels of a picture will be pushed by a column of pixels of a second one. The exercise will be better if the picture is a texture, a photograph that can evoke the feeling of a surface. I also collect these types of [images on a Pinterest board, I find them useful](http://www.pinterest.com/patriciogonzv/textures/" target="_blank"), like spices on kitchen shelves. One single image is distorted over and over again using different textures. The image never fights back, it is submissive and receives the distortion.
+**February 11, 2014** I start a second experiment. This one is about the non-resistance of digital images. Rows of pixels of a picture will be pushed by a column of pixels of a second one. The exercise will be better if the picture is a texture, a photograph that can evoke the feeling of a surface. I also collect these types of [images on a Pinterest board, I find them useful](http://www.pinterest.com/patriciogonzv/textures/), like spices on kitchen shelves. One single image is distorted over and over again using different textures. The image never fights back, it is submissive and receives the distortion.
 
 <iframe src="//player.vimeo.com/video/88201493?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="574" height="264" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -92,11 +94,11 @@ Because the image has been distorted equally in one direction (left to right) it
 
 What happens if I try to un-glitch these geological irregularities? What happens if the tension of the contour that John Berger referenced, is raised to zero?
 
-[![flat everest](https://farm8.staticflickr.com/7399/12937223415_9b012e0f79_z_d.jpg)](https://www.flickr.com/photos/106950246@N06/12937223415/" target="_blank")
+![flat everest](images/12937223415_9b012e0f79_z.jpg)
 
 Re-using an algorithm develop together with [Zach Lieberman](http://thesystemis.com/) I could push back each column of pixels according to an arbitrary horizon. Like inverse sound waves that cancel each other, I visually compensate the forces of the earth over the contour of the skyline. The result is a peaceful landscape. A silent image. But looking closely, the forces of nature are trapped in a vigorous tension. The calmness is just a projection of our power. Our desire instrumented by the digital medium is temporary and superficial. This scene could explode any time, like a flooded river, nature will reclaim its power.
 
-[![flat mountain02](https://farm8.staticflickr.com/7388/12937668934_48d6b3f9be_b_d.jpg)](https://www.flickr.com/photos/106950246@N06/12937668934/" target="_blank")
+![flat mountain02](images/12937668934_48d6b3f9be_b.jpg)
 
 
 ## Ode to Slow Media
@@ -113,7 +115,7 @@ These were superficial interventions. For me, the problem was in the point of vi
 
 Time to experiment with another media. Time to think with my hands and body. For me, drawing and painting can trigger a dialog of thoughts better than any other medium.
 
-<iframe class="vine-embed" src="https://vine.co/v/MW79j3aqAHJ/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+<!-- <iframe class="vine-embed" src="https://vine.co/v/MW79j3aqAHJ/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
 
 Drawing are conceived as the natural and intuitive tool for ideas to be born. The double nature of connecting the material, sharable and tangible 2D world of paper with the invisible, cryptic and silent world of the mind allows ideas to shape themselves in a dialog that goes from the paper to the creator. Impossible new thoughts find ways to reality though the pencil, and by leaving their mark, form the basis for new thoughts. As matches lighting each other, drawing becomes the space between spaces, the conduction between ideas and thoughts.
 
@@ -164,10 +166,10 @@ Cartography behaves in the same way, tracing contours and tracking paths along l
 
 > _My work is centered on the ways in which human constructs of land influence our experience of a place and I explore this notion through an embodied process of visualizing the land. My prints are inspired by the extended walks that I initiate and often comprised of influential documentation I gather that becomes integral to my experience. This includes maps, observation-based drawings, photographs, historic research, and oral narratives I gather from ethnographic field research._ Matthew Rangel
 
-**March 30, 2014** I start using my [vPlotter Tool](http://www.patriciogonzalezvivo.com/2014/vPlooter/), this time open to be guided by it. I want to see through the eyes of this tool.
+**March 30, 2014** I start using my [vPlotter Tool](../vPlotter/), this time open to be guided by it. I want to see through the eyes of this tool.
 I start by drawing skylines.
 
-<iframe class="vine-embed" src="https://vine.co/v/MehQvLHvthl/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script>
+<!-- <iframe class="vine-embed" src="https://vine.co/v/MehQvLHvthl/embed/simple" width="575" height="575" frameborder="0"></iframe><script async src="//platform.vine.co/static/scripts/embed.js" charset="utf-8"></script> -->
 
 One after the other.
 The plotter doesn't get tired.
@@ -176,17 +178,17 @@ It simply obeys the series of instructions.
 
 Now it's clear to me, how machines expand our perception to one where tiredness and exhaustion don't exist. That means I can draw by stretching the time.
 
-As a long exposure image in photography (see [Dan Holdsworth photo](http://www.danholdsworth.com/" target="_blank") ) I can see something invisible to my perception. See through time.
+As a long exposure image in photography (see [Dan Holdsworth photo](http://www.danholdsworth.com/) ) I can see something invisible to my perception. See through time.
 
-[ ![Dan Holdsworth](http://www.saatchigallery.com/imgs/artists/holdsworth_dan/dan_holdsworth_10.jpg) ](http://www.danholdsworth.com/" target="_blank" "by Dan Holdsworth")
+[ ![Dan Holdsworth](http://www.saatchigallery.com/imgs/artists/holdsworth_dan/dan_holdsworth_10.jpg) ](http://www.danholdsworth.com/ "by Dan Holdsworth")
 
-> _“I try to encourage the viewer to think about their position in relationship to the world, trying to create some kind of communion with the viewer, instead of dictating something, or surprising them.”_ [Dan Holdsworth](http://www.danholdsworth.com/" target="_blank")
+> _“I try to encourage the viewer to think about their position in relationship to the world, trying to create some kind of communion with the viewer, instead of dictating something, or surprising them.”_ [Dan Holdsworth](http://www.danholdsworth.com/)
 
 I'm interested on working beyond our perception of time and space. Like in maps and long exposure pictures that necessarily imply the use of technology as an extension of our experience.
 
 **Skyline #01** is a drawing machine that slowly reveal an image by tracing constantly the contours of the images coming from a camera. The lines add one over the other one. The machine will behave like a long exposure drawing.
 
-![algorithmic long exposure](https://farm6.staticflickr.com/5547/13473380053_8e5a54de63_b_d.jpg)
+![algorithmic long exposure](images/13473380053_8e5a54de63_b.jpg)
 
 ## Skyline #02
 
@@ -202,7 +204,7 @@ Our perception is attached to the present. We usually fail to noticing subtle ch
 
 By using machine memory we can recreate the points that constitute a journey. Google Street maps contain an enormous set of panoramic pictures. Since 2007 our landscapes and skylines have been rigorously archived. By using this collection of memories I can reconstitute the transitions in a journey from point A to point B. In my case from Union Sq. (Manhattan) all the way up to Hudson (the town where The American Landscape was born).
 
-![map and horizons](https://farm3.staticflickr.com/2403/13134041954_aa760bca82_b_d.jpg)
+![map and horizons](images/13134041954_aa760bca82_b.jpg)
 
 To let the user observe this transition of miles and miles in just a glimpse I decide to print the stitched horizon in a big roll of paper.
 
@@ -211,30 +213,30 @@ For this I re-purposed a mini thermal recipe printer connected to a RaspberryPi 
 ![Skyline02](images/sk02-a.png)
 
 
-For this process I develop series of digital tools in C++, like the [drivers for the printer](http://www.patriciogonzalezvivo.com/2014/ofxThermalPrinter/) and [TFT Display](http://www.patriciogonzalezvivo.com/2014/ofxPiTFT/), together with the C++ algorithm to extract information from Google Street View database. 
+For this process I develop series of digital tools in C++, like the [drivers for the printer](../ofxThermalPrinter/) and [TFT Display](../ofxPiTFT/), together with the C++ algorithm to extract information from Google Street View database. 
 
 <iframe src="//player.vimeo.com/video/89982939?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="574" height="326" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 **March 23, 2014** Trying to improve the stitching between panoramic views I came across some encrypted depth information inside Google Street View database.
 
-![DeepInformation](https://farm3.staticflickr.com/2862/13385172615_e96e403ebe_b_d.jpg) 
+![DeepInformation](images/13385172615_e96e403ebe_b.jpg) 
 
-**April 1, 2014** I successfully incorporate the [PiTFT](http://www.patriciogonzalezvivo.com/2014/ofxPiTFT/) display into the project.
+**April 1, 2014** I successfully incorporate the [PiTFT](../ofxPiTFT/) display into the project.
 
-<object type="application/x-shockwave-flash" width="574" height="323" data="https://www.flickr.com/apps/video/stewart.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param name="flashvars" value="intl_lang=en-US&photo_secret=4954536a8a&photo_id=13632669745&hd_default=false"></param><param name="movie" value="https://www.flickr.com/apps/video/stewart.swf"></param><param name="bgcolor" value="#000000"></param><param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/video/stewart.swf" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-US&photo_secret=4954536a8a&photo_id=13632669745&hd_default=false" width="574" height="323"></embed></object>
+<!-- <object type="application/x-shockwave-flash" width="574" height="323" data="https://www.flickr.com/apps/video/stewart.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param name="flashvars" value="intl_lang=en-US&photo_secret=4954536a8a&photo_id=13632669745&hd_default=false"></param><param name="movie" value="https://www.flickr.com/apps/video/stewart.swf"></param><param name="bgcolor" value="#000000"></param><param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/video/stewart.swf" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-US&photo_secret=4954536a8a&photo_id=13632669745&hd_default=false" width="574" height="323"></embed></object> -->
 
 **April 16, 2014** After some failed enclosure prototypes...
 
-![proto01](https://farm3.staticflickr.com/2853/13633036384_6f11b2b190_z_d.jpg" width="285" class="icon")
-![proto02](https://farm3.staticflickr.com/2909/13632681385_3ce11cb456_z_d.jpg" width="285" class="icon")
+![proto01](images/13633036384_6f11b2b190_z.jpg)
+![proto02](images/13632681385_3ce11cb456_z.jpg)
 
 ...I discover an old EKG machine that seems to be a perfect host.
 
-![EKG Machine](https://farm8.staticflickr.com/7362/13898376254_16a59d0bb4_b_d.jpg)
+![EKG Machine](images/13898376254_16a59d0bb4_b.jpg)
 
-With some adjustment [the Mini Thermal Printer](http://www.patriciogonzalezvivo.com/2014/ofxThermalPrinter/) and the [TFT display of the RaspberryPi](http://www.patriciogonzalezvivo.com/2014/ofxPiTFT) are added. The skyline-recorder is almost ready.
+With some adjustment [the Mini Thermal Printer](../ofxThermalPrinter/) and the [TFT display of the RaspberryPi](../ofxPiTFT) are added. The skyline-recorder is almost ready.
 
-![printer](https://farm3.staticflickr.com/2911/13917147874_dbe5486657_z_d.jpg" width="285" class="icon") 
-![rpi](https://farm3.staticflickr.com/2899/13916718975_0657db5031_z_d.jpg" width="285" class="icon")
+![printer](images/13917147874_dbe5486657_z.jpg) 
+![rpi](https://farm3.staticflickr.com/2899/13916718975_0657db5031_z_d.jpg)
 
-<object type="application/x-shockwave-flash" width="574" height="323" data="https://www.flickr.com/apps/video/stewart.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param name="flashvars" value="intl_lang=en-US&photo_secret=a9a3dd0b06&photo_id=13917946995&hd_default=false"></param><param name="movie" value="https://www.flickr.com/apps/video/stewart.swf"></param><param name="bgcolor" value="#000000"></param><param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/video/stewart.swf" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-US&photo_secret=a9a3dd0b06&photo_id=13917946995&hd_default=false" width="574" height="323"></embed></object>
+<!-- <object type="application/x-shockwave-flash" width="574" height="323" data="https://www.flickr.com/apps/video/stewart.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"><param name="flashvars" value="intl_lang=en-US&photo_secret=a9a3dd0b06&photo_id=13917946995&hd_default=false"></param><param name="movie" value="https://www.flickr.com/apps/video/stewart.swf"></param><param name="bgcolor" value="#000000"></param><param name="allowFullScreen" value="true"></param><embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/video/stewart.swf" bgcolor="#000000" allowfullscreen="true" flashvars="intl_lang=en-US&photo_secret=a9a3dd0b06&photo_id=13917946995&hd_default=false" width="574" height="323"></embed></object> -->

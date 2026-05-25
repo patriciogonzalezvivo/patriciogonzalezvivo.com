@@ -1,5 +1,10 @@
-<?php include("../../header.php");?>
-<?php include("../../menu.php");?>
+<?php
+    include("../../project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
+    include("../../header.php");?>
+    <?php include("../../menu.php");?>
 
 
 	<div id="longer-info">
@@ -7,7 +12,7 @@
 		<?php
 			include("../../ParsedownExtended.php");
 			$Parsedown = new ParsedownExtended();
-			echo $Parsedown->text(file_get_contents ('02-process.md'));
+			echo $Parsedown->text(file_get_contents ('PROCESS.md'));
 		?>
 
 	</div>
