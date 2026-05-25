@@ -1,5 +1,5 @@
-<?php include("header.php"); ?>
-<?php include("menu.php"); ?>
+<?php include("server/header.php"); ?>
+<?php include("server/menu.php"); ?>
 
 	<!-- <img src="/images/about.jpg" alt="Patricio Gonzalez Vivo"> -->
 
@@ -18,4 +18,4 @@
 			?>
 	</div>
 
-<?php include("footer.php"); ?>
+<?php include("server/footer.php"); ?>

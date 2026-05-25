@@ -3,8 +3,8 @@
     $meta = get_current_project_meta();
     $page_title = $meta['title'];
     $page_description = $meta['description'];
-    include("../../header.php");?>
-    <?php include("../../menu.php");?>
+    include("../../server/header.php");?>
+    <?php include("../../server/menu.php");?>
 
         <script src="https://fast.wistia.com/player.js" async></script>
         <script src="https://fast.wistia.com/embed/v2o6ybyv6g.js" async type="module"></script>
@@ -58,4 +58,4 @@
             ?>
         </div>
         
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

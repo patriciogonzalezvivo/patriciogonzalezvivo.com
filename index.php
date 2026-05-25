@@ -82,8 +82,8 @@ $projects = [
 
 set_random_og_image($projects);
 
-include("header.php");
-include("menu.php");
+include("server/header.php");
+include("server/menu.php");
 ?>
 
     <div style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; align-items: flex-start; padding: 2em 0;">
@@ -183,4 +183,4 @@ include("menu.php");
         <a href="works.php" class="archive-btn">More Projects</a>
     </div>
 
-<?php include("footer.php"); ?>
+<?php include("server/footer.php"); ?>

@@ -1,10 +1,10 @@
 <?php
 	$page_title = "Portraits - Patricio Gonzalez Vivo";
 	$page_description = "Oil portrait studies by Patricio Gonzalez Vivo, 2024-2025";
-	include("../../header.php");
+	include("../../server/header.php");
 	include("../../server/gallery.php");
 ?>
-<?php include("../../menu.php");?>
+<?php include("../../server/menu.php");?>
 
 
 	<!-- GALLERY -->
@@ -25,4 +25,4 @@
 		]);
 	?>
 	
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

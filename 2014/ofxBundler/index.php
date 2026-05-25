@@ -1,5 +1,5 @@
-<?php include("../../header.php");?>
-<?php include("../../menu.php");?>
+<?php include("../../server/header.php");?>
+<?php include("../../server/menu.php");?>
 
 
 	<!-- CONTENT -->
@@ -18,4 +18,4 @@
 		<iframe src="//player.vimeo.com/video/110926839" width="575" height="323" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	</section>
 
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

@@ -5,9 +5,9 @@
     // Use metadata for page header
     $page_title = $meta['title'];
     $page_description = $meta['description'];
-    include("../../header.php");?>
+    include("../../server/header.php");?>
 
-        <?php include("../../menu.php");?>
+        <?php include("../../server/menu.php");?>
         <link rel="stylesheet" href="style.css" type="text/css" />
 
         <article class="item">
@@ -63,4 +63,4 @@
         <wasm-loader></wasm-loader>
         <script type="module" src="main.js"></script>
 
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

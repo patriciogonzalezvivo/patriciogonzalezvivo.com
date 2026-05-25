@@ -3,8 +3,8 @@
     $meta = get_current_project_meta();
     $page_title = $meta['title'];
     $page_description = implode('. ', array_filter([$meta['medium'], $meta['description']]));
-    include("../../header.php");?>
-<?php include("../../menu.php");?>
+    include("../../server/header.php");?>
+<?php include("../../server/menu.php");?>
 
 
 	<div id="longer-info">
@@ -62,4 +62,4 @@
 		</div>
 	</section> -->
 	
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

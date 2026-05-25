@@ -34,11 +34,11 @@ include("server/project_meta.php");
 
 set_random_og_image($projects);
 
-include("header.php");
-include("menu.php");
+include("server/header.php");
+include("server/menu.php");
 ?>
     <section class="content">
 <?php echo render_projects_list($projects); ?>
     </section>
 
-<?php include("footer.php"); ?>
+<?php include("server/footer.php"); ?>

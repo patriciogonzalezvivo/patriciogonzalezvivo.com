@@ -1,5 +1,5 @@
-<?php include("../../header.php");?>
-<?php include("../../menu.php");?>
+<?php include("../../server/header.php");?>
+<?php include("../../server/menu.php");?>
 
 
 	<div id="longer-info">
@@ -21,4 +21,4 @@
 
 	</div>
 
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

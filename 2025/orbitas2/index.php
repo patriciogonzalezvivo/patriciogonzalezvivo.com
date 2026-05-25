@@ -3,8 +3,8 @@
     $meta = get_current_project_meta();
     $page_title = $meta['title'];
     $page_description = $meta['description'];
-    include("../../header.php");?>
-        <?php include("../../menu.php");?>
+    include("../../server/header.php");?>
+        <?php include("../../server/menu.php");?>
         <link rel="stylesheet" href="style.css" type="text/css" />
 
         <article class="item">
@@ -54,4 +54,4 @@
         <wasm-loader></wasm-loader>
         <script type="module" src="main.js"></script>
 
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

@@ -30,8 +30,8 @@ sort($projects);
 $_og_entries = array_map(fn($f) => ['path' => $year . '/' . $f], $projects);
 set_random_og_image($_og_entries, $root_dir);
 
-include($root_dir . "/header.php");
-include($root_dir . "/menu.php");
+include($root_dir . "/server/header.php");
+include($root_dir . "/server/menu.php");
 ?>
     <section class="content">
 <?php
@@ -48,4 +48,4 @@ if (empty($projects)) {
 ?>
     </section>
 
-<?php include($root_dir . "/footer.php"); ?>
+<?php include($root_dir . "/server/footer.php"); ?>

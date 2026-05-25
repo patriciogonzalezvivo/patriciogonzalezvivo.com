@@ -4,7 +4,7 @@ $page_title = "Point Cloud City - NY Post Office - Patricio Gonzalez Vivo";
 $page_description = "Point cloud visualization of NY Post Office";
 $page_keywords = "point cloud, 3D, visualization, NY Post Office";
 
-include("../../../header.php");
+include("../../../server/header.php");
 ?>
 		<!-- Override default style with inverted style -->
 		<link href="/css/style-inv.css" rel="stylesheet" />
@@ -15,7 +15,7 @@ include("../../../header.php");
 	<body>
 		<div id="main-wrapper">
 
-		<?php include("../../../menu.php");?>
+		<?php include("../../../server/menu.php");?>
 
 		<section class="content">
 			<?php
@@ -87,4 +87,4 @@ include("../../../header.php");
 	</body>
 </html>
 
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

@@ -1,5 +1,5 @@
-<?php include("../../../header.php");?>
-<?php include("../../../menu.php");?>
+<?php include("../../../server/header.php");?>
+<?php include("../../../server/menu.php");?>
 
 		<section class="content">
 			<?php
@@ -74,4 +74,4 @@
 	</body>
 </html>
 
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

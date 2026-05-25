@@ -3,8 +3,8 @@
     $meta = get_current_project_meta();
     $page_title = $meta['title'];
     $page_description = $meta['description'];
-    include("../../header.php");?>
-	<?php include("../../menu.php");?>
+    include("../../server/header.php");?>
+	<?php include("../../server/menu.php");?>
 		<link rel="stylesheet" href="style.css">
 		<script type="module" crossorigin src="./assets/index-53c6d30b.js"></script>
 
@@ -42,4 +42,4 @@
         
         </div>
 	
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

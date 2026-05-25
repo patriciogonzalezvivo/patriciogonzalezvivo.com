@@ -3,10 +3,10 @@
     $meta = get_current_project_meta();
     $page_title = $meta['title'];
     $page_description = $meta['description'];
-	include("../../header.php");
+	include("../../server/header.php");
 	include("../../server/gallery.php");
 ?>
-<?php include("../../menu.php");?>
+<?php include("../../server/menu.php");?>
 
 	<?php
 		// Render the gallery using the helper function
@@ -45,4 +45,4 @@
             ?>
 	</div>
 	
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

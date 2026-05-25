@@ -1,6 +1,6 @@
 
-<?php include("../../header.php");?>
-<?php include("../../menu.php");?>
+<?php include("../../server/header.php");?>
+<?php include("../../server/menu.php");?>
 
 
 	<!-- CONTENT -->
@@ -14,4 +14,4 @@
 
 	</section>
 	
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>

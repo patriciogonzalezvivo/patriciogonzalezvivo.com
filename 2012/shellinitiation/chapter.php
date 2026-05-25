@@ -16,9 +16,9 @@
     $chapter_name = preg_replace('/\.md$/', '', $file);
     $page_title = $meta['title'] . ' — ' . $chapter_name;
     $page_description = $meta['description'];
-    include("../../header.php");
+    include("../../server/header.php");
 ?>
-<?php include("../../menu.php"); ?>
+<?php include("../../server/menu.php"); ?>
 
     <div id="longer-info">
         <p><a href="./">&larr; <?php echo htmlspecialchars($meta['title']); ?></a></p>
@@ -29,4 +29,4 @@
         ?>
     </div>
 
-<?php include("../../footer.php"); ?>
+<?php include("../../server/footer.php"); ?>
