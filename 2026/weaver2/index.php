@@ -55,9 +55,9 @@
             <?php
                 $projects = [
                     ['path' => '2026/astros'],
-                    ['path' => '2025/orbitas2', 'title' => 'Órbitas', 'year' => '2018'],
                     ['path' => '2018/estrellas'],
                     ['path' => '2017/luna'],
+                    ['path' => '2017/guayupia', 'url' => 'https://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe']
                 ];
 
                 echo render_projects_list($projects, '../../');
