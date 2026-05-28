@@ -8,7 +8,7 @@ This series of portraits emerges from a personal search for an alternative linea
 
 If there is a creator who invites us into existence as co-creators, then this lineage of artists stands as a kind of secular sainthood. They are not exemplars of moral virtue in the traditional sense, but they are, for me, figures of devotion, visionaries with whom I seek communion and dialogue.
 
-## Technical note
+---
 
 :::wrapfig left
 src: ../../2014/skylines/images/14005408208_fbc2fab7ed_b.jpg
