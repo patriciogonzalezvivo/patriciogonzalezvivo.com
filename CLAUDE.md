@@ -282,6 +282,8 @@ title: Title
 year: 2010
 caption: Venue, City
 link: ./YEAR/project/
+width: 40%
+size: 70%
 :::
 ```
 

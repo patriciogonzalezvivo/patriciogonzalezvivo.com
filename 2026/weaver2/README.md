@@ -1,10 +1,16 @@
-:::wrapfig left
+:::wrapfig right
 src: svg/000_light.svg
+size_pdf: 50%
 ::: 
 
 In the middle of the nineteenth century, during the Great Potato Famine, Dudley Sarsfield Brennan (b. 1810, Ireland) and Mary Colcough (b. 1826, Ireland) left their homeland and crossed the Atlantic toward Argentina. The voyage lasted between four to six months, likely beginning on early summer. At the time, such journeys were long and unforgiving.
 
 I imagine them walking the deck at night beneath an open sky, breathing the cold ocean air. As the ship moved southward, familiar constellations slowly disappeared beyond the northern horizon while unknown stars emerged from the southern sky. I imagine them speaking quietly, sometimes in conversation, sometimes in silence, wondering about the life awaiting them across the ocean. I feel in them a mixture of grief and hope: the awareness of being small and transient beneath the immensity of the universe. A metal ship crossing a dark sea on a planet spinning around a sun, itself drifting through space.
+
+:::wrapfig left
+src: svg/001_light.svg
+size_pdf: 35%
+::: 
 
 Eventually they arrived in Buenos Aires and settled in the town of Magdalena, where their only child, Patricio, was born in 1870.
 
@@ -14,27 +20,24 @@ From my paternal family I inherited the name Patricio; from my maternal family, 
 
 From this desire, I created Weaver: a way of threading my present to their future, my past to their present. A way of seeing what they saw, and of allowing future generations to see what I see.
 
---- 
+---
 
 :::wrapfig right
-src: svg/001_light.svg
+src: thumbnail.jpg
+size: 90%
+size_pdf: 60%
 ::: 
 
-
 Weaver is an interactive work that invites two people to meet across time and space through a shared fragment of the night sky. Like a prayer or a ritual, it offers a passage beyond immediate experience into a quiet awareness of what connects us, not despite distance, but through it.
-
-<!-- ![a string between two hands](svg/000_light.svg) -->
 
 Two celestial maps overlap: one for each observer. Each is rendered in a distinct color, reflecting the night sky from a specific place and moment. In the region where the maps intersect lie the constellations both participants share, a common sky that exists beyond distance or time.
 
 
 Each map uses a polar projection. Stars near the outer edge rest close to the horizon (marked by the cardinal directions), while those at the center hover directly overhead. This perspective situates each observer within their own sky, while revealing where their visions align.
 
-<!-- ![two people watching the same constellation](svg/001_light.svg) -->
-
 Beside each map, a rotating globe marks the observer's location. Both the celestial maps and the globes are fully interactive. By dragging the sky, you can shift the date and time; by rotating the globe, you can reposition the observer anywhere on Earth.
 
---- 
+---
 
 :::wrapfig left
 src: ../../2017/guayupia/images/paths.png

@@ -38,6 +38,7 @@ from portfolio.utils import (
     _WRAPFIG_RE, _HTML_BLOCK_RE, THUMBNAIL_EXTS_STATIC,
 )
 from portfolio.html_render import render_html_block
+from portfolio.berthe.berthe.looom import is_looom_svg, looom_frame_to_png
 
 
 # ---------------------------------------------------------------------------
@@ -52,11 +53,106 @@ def read_file(path: Path) -> Optional[str]:
 
 
 # ---------------------------------------------------------------------------
+# Looom SVG wrapfig conversion
+# ---------------------------------------------------------------------------
+
+def _convert_looom_wrapfigs(chunk: str, base_path: Path, rendered_dir: Path) -> str:
+    """Replace Looom SVG ``src:`` paths in ``:::wrapfig`` blocks with PNG frames.
+
+    When a ``:::wrapfig`` block's ``src:`` key points to a Looom animation
+    SVG, this function:
+
+      1. Detects the Looom file via :func:`is_looom_svg`.
+      2. Reads optional ``frame:`` (int) and ``time:`` (float) keys from
+         the block body.  ``frame:`` takes priority; default is frame 0.
+      3. Calls :func:`looom_frame_to_png` to extract and rasterise the frame.
+      4. Replaces the ``src:`` value with the workspace-relative PNG path.
+
+    The generated PNGs are cached in *rendered_dir* under the name
+    ``looom_<stem>[_f<N>|_t<T>].png`` so repeated builds do not re-render.
+
+    Args:
+        chunk:        Markdown text that may contain ``:::wrapfig`` blocks.
+        base_path:    Workspace root (used to resolve ``src:`` paths and
+                      to compute the relative PNG output path).
+        rendered_dir: Directory where generated PNG frames are written.
+
+    Returns:
+        The chunk with Looom SVG ``src:`` values replaced by PNG paths.
+    """
+    def _replace(m: re.Match) -> str:
+        side, body = m.group(1), m.group(2)
+
+        # Extract src
+        src_m = re.search(r'^src\s*:\s*(.+)$', body, re.MULTILINE)
+        if not src_m:
+            return m.group(0)
+        src = src_m.group(1).strip()
+
+        if not src.lower().endswith('.svg'):
+            return m.group(0)
+
+        full_svg = base_path / src
+        if not full_svg.exists() or not is_looom_svg(full_svg):
+            return m.group(0)
+
+        # Parse optional frame: / time: keys
+        frame_m = re.search(r'^frame\s*:\s*(\d+)', body, re.MULTILINE)
+        time_m  = re.search(r'^time\s*:\s*([\d.]+)', body, re.MULTILINE)
+
+        use_frame: Optional[int]  = int(frame_m.group(1)) if frame_m else None
+        use_time:  float          = float(time_m.group(1)) if time_m else 0.0
+
+        # Build a deterministic cache filename
+        stem = full_svg.stem
+        if use_frame is not None:
+            png_name = f'looom_{stem}_f{use_frame}.png'
+        elif use_time != 0.0:
+            safe_t = f'{use_time:.3f}'.replace('.', '_')
+            png_name = f'looom_{stem}_t{safe_t}.png'
+        else:
+            png_name = f'looom_{stem}_f0.png'
+
+        rendered_dir.mkdir(parents=True, exist_ok=True)
+        png_path = rendered_dir / png_name
+
+        if not png_path.exists():
+            ok = looom_frame_to_png(
+                full_svg,
+                png_path,
+                frame=use_frame,
+                time=use_time,
+                margin_frac=0.10,
+                width=800,
+            )
+            if not ok:
+                # Conversion failed — keep original src unchanged
+                return m.group(0)
+
+        # Replace src: with workspace-relative PNG path
+        png_rel = str(png_path.relative_to(base_path))
+        new_body = re.sub(
+            r'^(src\s*:\s*).+$',
+            lambda sm: sm.group(1) + png_rel,
+            body,
+            flags=re.MULTILINE,
+        )
+        # Drop the frame: / time: keys so they don't end up in LaTeX captions
+        new_body = re.sub(r'^frame\s*:.*$\n?', '', new_body, flags=re.MULTILINE)
+        new_body = re.sub(r'^time\s*:.*$\n?',  '', new_body, flags=re.MULTILINE)
+
+        return f':::wrapfig {side}\n{new_body}:::'
+
+    return _WRAPFIG_RE.sub(_replace, chunk)
+
+
+# ---------------------------------------------------------------------------
 # README / about.md conversion
 # ---------------------------------------------------------------------------
 
 def readme_to_latex(markdown: str, project_path: Path, project_dir: str = '',
-                    base_url: str = '') -> str:
+                    base_url: str = '', center_svgs: bool = True,
+                    divider=None) -> str:
     """Convert a README.md to LaTeX, embedding inline SVG figures.
 
     SVG image references using the Markdown syntax ``![alt](svg/file.svg)``
@@ -123,10 +219,28 @@ def readme_to_latex(markdown: str, project_path: Path, project_dir: str = '',
                 )
                 def _fix_src(m: re.Match) -> str:
                     side, body = m.group(1), m.group(2)
-                    # Fix src: → workspace-relative path for XeLaTeX
+                    # Fix src: → workspace-relative path for XeLaTeX,
+                    # converting any .svg source to PDF on the way.
+                    def _prefix_src(sm: re.Match) -> str:
+                        rel = sm.group(2).strip()
+                        full_rel = prefix + '/' + rel
+                        if full_rel.lower().endswith('.svg'):
+                            svg_abs = _base / full_rel
+                            if is_looom_svg(svg_abs):
+                                # Leave as .svg — _convert_looom_wrapfigs
+                                # (called below) will render frame 0 to PNG.
+                                pass
+                            else:
+                                pdf_result = svg_to_pdf(svg_abs)
+                                if pdf_result:
+                                    try:
+                                        full_rel = str(pdf_result.relative_to(_base))
+                                    except ValueError:
+                                        full_rel = str(pdf_result)
+                        return sm.group(1) + full_rel
                     body = re.sub(
                         r'^(src\s*:\s*)(?!https?://)(.+)$',
-                        lambda sm: sm.group(1) + prefix + '/' + sm.group(2).strip(),
+                        _prefix_src,
                         body, flags=re.MULTILINE,
                     )
                     # Fix link: → absolute website URL
@@ -139,6 +253,11 @@ def readme_to_latex(markdown: str, project_path: Path, project_dir: str = '',
                         )
                     return f':::wrapfig {side}\n{body}:::'
                 chunk = _WRAPFIG_RE.sub(_fix_src, chunk)
+
+            # 1b-extra. Convert Looom SVG src: references to PNG frames so
+            #   XeLaTeX can embed them.  This step reads the optional
+            #   ``frame:`` / ``time:`` wrapfig keys and honours them.
+            chunk = _convert_looom_wrapfigs(chunk, _base, _rendered_dir)
 
             # 1b. Resolve relative Markdown links [text](url) to absolute URLs.
             if base_url and project_dir:
@@ -173,7 +292,7 @@ def readme_to_latex(markdown: str, project_path: Path, project_dir: str = '',
             chunk = _HTML_BLOCK_RE.sub(_render_html, chunk)
 
             # 3. Convert remaining Markdown to LaTeX, then restore images.
-            latex = markdown_to_latex(chunk)
+            latex = markdown_to_latex(chunk, divider=divider)
             for key, value in html_subs.items():
                 latex = latex.replace(key, value)
             result.append(latex)
@@ -181,14 +300,16 @@ def readme_to_latex(markdown: str, project_path: Path, project_dir: str = '',
             pass  # alt text — discard
         else:
             # SVG path relative to project dir (e.g. "svg/000_light.svg")
-            svg_full = (project_path / part).resolve()
-            pdf_path = svg_to_pdf(svg_full)
-            if pdf_path:
-                result.append(
-                    f"\n\n\\begin{{center}}\n"
-                    f"  \\includegraphics[width=0.7\\textwidth]{{{pdf_path}}}\n"
-                    f"\\end{{center}}\n\n"
-                )
+            # Only inject as a centered figure when center_svgs is enabled.
+            if center_svgs:
+                svg_full = (project_path / part).resolve()
+                pdf_path = svg_to_pdf(svg_full)
+                if pdf_path:
+                    result.append(
+                        f"\n\n\\begin{{center}}\n"
+                        f"  \\includegraphics[width=0.7\\textwidth]{{{pdf_path}}}\n"
+                        f"\\end{{center}}\n\n"
+                    )
 
     return ''.join(result)
 

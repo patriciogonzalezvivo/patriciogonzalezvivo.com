@@ -125,22 +125,30 @@ class ParsedownExtended extends Parsedown
         $medium  = isset($params['medium'])  ? trim($params['medium'])  : '';
         $link    = isset($params['link'])    ? trim($params['link'])    : '';
         $width   = isset($params['width'])   ? trim($params['width'])   : '40%';
+        $size    = isset($params['size'])    ? trim($params['size'])    : '100%';
 
         if ($src === '') {
             $Block['markup'] = '';
             return $Block;
         }
 
-        // Normalise width: a bare decimal like "0.40" becomes "40%".
+        // Normalise width/size: a bare decimal like "0.40" becomes "40%".
         if (is_numeric($width)) {
             $width = ((int) round((float) $width * 100)) . '%';
+        }
+        if (is_numeric($size)) {
+            $size = ((int) round((float) $size * 100)) . '%';
         }
 
         $side_class = ($side === 'r') ? 'right' : 'left';
         $esc        = 'htmlspecialchars';  // shorthand
 
         $img  = '<img src="'  . $esc($src, ENT_QUOTES, 'UTF-8') . '"';
-        $img .= ' alt="'      . $esc($title ?: $caption, ENT_QUOTES, 'UTF-8') . '">';
+        $img .= ' alt="'      . $esc($title ?: $caption, ENT_QUOTES, 'UTF-8') . '"';
+        if ($size !== '100%') {
+            $img .= ' style="width:' . $esc($size, ENT_QUOTES, 'UTF-8') . ';display:block;margin:0 auto"';
+        }
+        $img .= '>';
         $inner = $link
             ? '<a href="' . $esc($link, ENT_QUOTES, 'UTF-8') . '">' . $img . '</a>'
             : $img;

@@ -86,8 +86,15 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
     medium     Artwork medium, rendered on caption line 2 (optional).
     caption    Plain-text caption rendered below artwork info (optional).
     link       URL to hyperlink the image via ``\\href`` (optional).
-    width      Float width as a percentage (default ``40%``).  Accepts
+    width      Float box width as a percentage (default ``40%``).  Accepts
                either ``40%`` or the equivalent LaTeX fraction ``0.40``.
+    size       Image scale within the box as a percentage (default ``100%``).
+               Use this to shrink an image that fills too much of the box,
+               e.g. ``size: 70%`` renders the image at 70% of the box width
+               and centres it inside the float.
+    size_pdf   Same as ``size`` but applies only to the PDF (LaTeX) output;
+               overrides ``size`` when both are present.  Ignored by the
+               website (PHP) renderer.
     =========  =============================================================
     """
     params: dict = {}
@@ -103,29 +110,40 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
     caption = params.get('caption', '')
     link    = params.get('link', '')
     width_s = params.get('width', '40%')
+    # size_pdf overrides size for PDF output; size is used by both PDF and web.
+    size_s  = params.get('size_pdf') or params.get('size', '100%')
 
     if not src:
         return ''
 
-    # Normalise width to a LaTeX fraction (e.g. '40%' → 0.40).
-    if width_s.endswith('%'):
+    def _parse_frac(s: str, default: float) -> float:
+        """Parse a percentage string or bare decimal into a 0–1 fraction."""
+        s = s.strip()
+        if s.endswith('%'):
+            try:
+                return float(s[:-1]) / 100
+            except ValueError:
+                return default
         try:
-            width_frac = float(width_s[:-1]) / 100
+            return float(s)
         except ValueError:
-            width_frac = 0.40
-    else:
-        try:
-            width_frac = float(width_s)
-        except ValueError:
-            width_frac = 0.40
+            return default
+
+    width_frac = _parse_frac(width_s, 0.40)
+    size_frac  = _parse_frac(size_s,  1.00)
+    # Clamp to sensible range
+    size_frac  = max(0.05, min(1.0, size_frac))
 
     pos = 'r' if side[0].lower() == 'r' else 'l'
-    img = f'\\includegraphics[width=\\linewidth,keepaspectratio]{{{src}}}'
+    img_width = f'{size_frac:.2f}\\linewidth'
+    img = f'\\includegraphics[width={img_width},keepaspectratio]{{{src}}}'
     if link:
         img = f'\\href{{{link}}}{{{img}}}'
 
     latex  = f'\\begin{{wrapfigure}}{{{pos}}}{{{width_frac:.2f}\\textwidth}}\n'
     latex += '\\vspace{-\\intextsep}\n'
+    if size_frac < 1.0:
+        latex += '\\centering\n'
     latex += img + '\n'
 
     # Build structured caption lines matching the gallery artwork style.
@@ -208,6 +226,8 @@ def strip_markdown(markdown: str) -> str:
     text = re.sub(r'!\[.*?\]\(.*?\)', '', text)                    # images
     text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)         # links → text
     text = re.sub(r'^#+\s+', '', text, flags=re.MULTILINE)         # headers
+    text = re.sub(r'^\s*(?:-{3,}|\*{3,}|_{3,})\s*$', '', text,
+                  flags=re.MULTILINE)                              # HR lines
     text = re.sub(r'\n{3,}', '\n\n', text)                         # collapse blank lines
     return text.strip()
 
@@ -216,7 +236,7 @@ def strip_markdown(markdown: str) -> str:
 # Markdown → LaTeX
 # ---------------------------------------------------------------------------
 
-def markdown_to_latex(text: str, base_url: str = '') -> str:
+def markdown_to_latex(text: str, base_url: str = '', divider=None) -> str:
     """Convert a subset of Markdown to LaTeX.
 
     Handles (in processing order):
@@ -239,6 +259,11 @@ def markdown_to_latex(text: str, base_url: str = '') -> str:
     # Pre-escape pass: extract items whose content must not be run
     # through escape_latex (paths, URLs, image sources).
     # ------------------------------------------------------------------
+
+    # Horizontal rules (---, ***, ___) → deferred divider placeholder
+    _HR_RE = re.compile(r'^\s*(?:-{3,}|\*{3,}|_{3,})\s*$', re.MULTILINE)
+    _hr_key = '\x01HR\x01'
+    text = _HR_RE.sub(_hr_key, text)
 
     # :::wrapfig blocks → deferred LaTeX wrapfigure
     _wf_map: dict = {}
@@ -328,6 +353,22 @@ def markdown_to_latex(text: str, base_url: str = '') -> str:
     # ------------------------------------------------------------------
     for key, wf_latex in _wf_map.items():
         text = text.replace(key, wf_latex)
+
+    # Re-inject divider LaTeX (replaces --- / *** / ___ HR patterns)
+    if _hr_key in text:
+        if divider:
+            div_latex = (
+                '\n\n\\vspace{0.5em}\\begin{center}\n'
+                f'\\includegraphics[height=2em,keepaspectratio]{{{divider}}}\n'
+                '\\end{center}\\vspace{0.5em}\n\n'
+            )
+        else:
+            div_latex = (
+                '\n\n\\vspace{0.8em}\\begin{center}'
+                '\\rule{0.3\\textwidth}{0.4pt}'
+                '\\end{center}\\vspace{0.8em}\n\n'
+            )
+        text = text.replace(_hr_key, div_latex)
 
     return text
 

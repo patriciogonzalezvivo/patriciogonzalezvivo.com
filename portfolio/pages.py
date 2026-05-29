@@ -38,7 +38,8 @@ from typing import Dict, List
 from portfolio.utils import (
     escape_latex, markdown_to_latex, find_thumbnail, THUMBNAIL_EXTS_STATIC,
 )
-from portfolio.images import build_render_plan, parse_sidecar
+from portfolio.images import build_render_plan, parse_sidecar, svg_to_pdf
+from portfolio.berthe.berthe.looom import is_looom_svg, looom_frame_to_png
 from portfolio.metadata import readme_to_latex, get_featured_item_meta
 
 
@@ -173,16 +174,37 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
     # Resolve description text
     # ------------------------------------------------------------------
     project_url = _project_page_url(project, base_url)
-    if project.get('readme_raw') and project.get('inject_svgs', True):
-        # Full README with embedded SVG figures
+
+    # ------------------------------------------------------------------
+    # Resolve divider image (from data.json "divider" key)
+    # ------------------------------------------------------------------
+    divider_path = None
+    raw_divider  = project.get('divider')
+    if raw_divider:
+        divider_abs = base_path / raw_divider
+        if str(raw_divider).lower().endswith('.svg'):
+            if is_looom_svg(divider_abs):
+                # Render frame 0 of a Looom SVG to PNG
+                png_out = base_path / 'temp_portfolio' / 'html_renders' / f'divider_{divider_abs.stem}_f0.png'
+                looom_frame_to_png(divider_abs, png_out, frame=0, margin_frac=0.05, width=400)
+                divider_path = str(png_out.relative_to(base_path)) if png_out.exists() else None
+            else:
+                pdf = svg_to_pdf(divider_abs)
+                divider_path = str(pdf.relative_to(base_path)) if pdf else None
+        elif divider_abs.exists():
+            divider_path = raw_divider  # PNG/JPG — use as-is (workspace-relative)
+
+    if project.get('readme_raw'):
         desc = readme_to_latex(project['readme_raw'], base_path / project['path'],
-                               project_dir=project['path'], base_url=base_url)
-    elif project.get('readme_raw'):
-        desc = markdown_to_latex(project.get('about') or '', base_url=project_url)
+                               project_dir=project['path'], base_url=base_url,
+                               center_svgs=project.get('inject_svgs', True),
+                               divider=divider_path)
     elif project.get('about'):
-        desc = markdown_to_latex(project['about'], base_url=project_url)
+        desc = markdown_to_latex(project['about'], base_url=project_url,
+                                 divider=divider_path)
     elif project.get('description'):
-        desc = markdown_to_latex(project['description'], base_url=project_url)
+        desc = markdown_to_latex(project['description'], base_url=project_url,
+                                 divider=divider_path)
     else:
         desc = ""
 
@@ -220,8 +242,11 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
     # images/ sub-folder exists (find_images only falls back to the root
     # thumbnail when images/ is absent or empty).
     project_root = base_path / project['path']
-    _tname = find_thumbnail(project_root, ('thumbnail',), THUMBNAIL_EXTS_STATIC)
-    thumb_img = str((project_root / _tname).relative_to(base_path)) if _tname else None
+    if project.get('skip_thumbnail'):
+        thumb_img = None
+    else:
+        _tname = find_thumbnail(project_root, ('thumbnail',), THUMBNAIL_EXTS_STATIC)
+        thumb_img = str((project_root / _tname).relative_to(base_path)) if _tname else None
 
     # Exclude the thumbnail from additional image pages (avoids duplication
     # in the WASM-fallback case where it also appears in project['images'])
