@@ -586,7 +586,7 @@ These folders have `README.md` but files are empty or have only embedded media:
 ### Medium — deepens conceptual legibility
 
 6. ~~**`2025/memories` README**~~ ✓ **Done** — Barthes's *punctum* paragraph added at the end: the plotter carries the photograph's accuracy, the brush carries the fallibility of the living; the gap between them is the subject.
-7. **`2021/fen` README** — expand the "attention as extraction/capture" thread — this is the strongest conceptual idea in the piece and currently gets one sentence.
+7. ~~**`2021/fen` README** — expand the "attention as extraction/capture" thread — this is the strongest conceptual idea in the piece and currently gets one sentence.~~ ✓ **Done** — restructured core conceptual section: Muybridge's industrial origins (commissioned for labor/horse optimization), chromatic aberration as literalization of attention-as-extraction, thesis now leads the argument.
 8. **`2023/blink` README** — tighten the Baroque vanitas connection: the bubble's computational fragility IS its Baroque content. State that directly.
 9. **`2019/hogar` README** — add one sentence explaining the HEARTH/HOGAR bilingual title choice (English + Spanish). The dual naming is meaningful and unexplained.
 10. **`2026/astros` README** — add technical and collaboration context; currently the shortest README for a piece that involves significant computational work and a three-person collaboration.
