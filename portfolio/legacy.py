@@ -36,7 +36,7 @@ _LEGACY_PREAMBLE = r"""\documentclass[11pt,letterpaper]{article}
 
 % Montserrat from local folder
 \setmainfont{Montserrat}[
-    Path           = montserrat/,
+    Path           = portfolio/montserrat/,
     UprightFont    = *-Light,
     BoldFont       = *-SemiBold,
     ItalicFont     = *-LightItalic,

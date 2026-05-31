@@ -219,28 +219,10 @@ def readme_to_latex(markdown: str, project_path: Path, project_dir: str = '',
                 )
                 def _fix_src(m: re.Match) -> str:
                     side, body = m.group(1), m.group(2)
-                    # Fix src: → workspace-relative path for XeLaTeX,
-                    # converting any .svg source to PDF on the way.
-                    def _prefix_src(sm: re.Match) -> str:
-                        rel = sm.group(2).strip()
-                        full_rel = prefix + '/' + rel
-                        if full_rel.lower().endswith('.svg'):
-                            svg_abs = _base / full_rel
-                            if is_looom_svg(svg_abs):
-                                # Leave as .svg — _convert_looom_wrapfigs
-                                # (called below) will render frame 0 to PNG.
-                                pass
-                            else:
-                                pdf_result = svg_to_pdf(svg_abs)
-                                if pdf_result:
-                                    try:
-                                        full_rel = str(pdf_result.relative_to(_base))
-                                    except ValueError:
-                                        full_rel = str(pdf_result)
-                        return sm.group(1) + full_rel
+                    # Fix src: → workspace-relative path for XeLaTeX
                     body = re.sub(
                         r'^(src\s*:\s*)(?!https?://)(.+)$',
-                        _prefix_src,
+                        lambda sm: sm.group(1) + prefix + '/' + sm.group(2).strip(),
                         body, flags=re.MULTILINE,
                     )
                     # Fix link: → absolute website URL
@@ -300,15 +282,18 @@ def readme_to_latex(markdown: str, project_path: Path, project_dir: str = '',
             pass  # alt text — discard
         else:
             # SVG path relative to project dir (e.g. "svg/000_light.svg")
-            # Only inject as a centered figure when center_svgs is enabled.
-            if center_svgs:
-                svg_full = (project_path / part).resolve()
-                pdf_path = svg_to_pdf(svg_full)
-                if pdf_path:
+            svg_full = (project_path / part).resolve()
+            pdf_path = svg_to_pdf(svg_full)
+            if pdf_path:
+                if center_svgs:
                     result.append(
                         f"\n\n\\begin{{center}}\n"
                         f"  \\includegraphics[width=0.7\\textwidth]{{{pdf_path}}}\n"
                         f"\\end{{center}}\n\n"
+                    )
+                else:
+                    result.append(
+                        f"\n\n\\includegraphics[width=0.7\\textwidth]{{{pdf_path}}}\n\n"
                     )
 
     return ''.join(result)
