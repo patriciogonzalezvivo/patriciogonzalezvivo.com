@@ -53,7 +53,7 @@
 
 [CLOUDS](http://www.cloudsdocumentary.com/" target="_blank") is a visually groundbreaking interactive and generative documentary that allows the viewer to explore creativity through the language of code. Filmed using a new 3-D cinema format called RGBD, viewers can interact with a Microsoft Xbox Kinect or an Oculus Rift to fly through a video game–like environment. Participants will join a community of luminaries who represent a new breed of interdisciplinary hacker-artists struggling to develop new forms of visual expression and new vocabularies of technology that resonate at a deeper human level.
 
-As one of the creative coders, my contribution was designing and developing several **Visual Systems** — interactive metaphors that respond to the audio of each interview, translating the speaker's ideas into generative imagery. These systems include sorting algorithms, Conway's Game of Life, fractals, flocking and emergent behavior patterns, globe projections, and flight path visualizations, each matched to the conceptual territory of the interview it accompanies. I was also interviewed as a participant in the documentary.
+As one of the creative coders, my contribution was designing and developing several **Visual Systems**, interactive metaphors that respond to the audio of each interview, translating the speaker's ideas into generative imagery. These systems include sorting algorithms, Conway's Game of Life, fractals, flocking and emergent behavior patterns, globe projections, and flight path visualizations, each matched to the conceptual territory of the interview it accompanies. I was also interviewed as a participant in the documentary.
 
 ### Cast and Credits
 

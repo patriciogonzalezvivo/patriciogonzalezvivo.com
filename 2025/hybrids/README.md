@@ -1,6 +1,6 @@
-I write the code and I hold the brush. These paintings are made by machine and by hand, but the authorship is unified — both instruments directed by the same vision.
+I write the code and I hold the brush. These paintings are made by machine and by hand, both instruments directed by the same vision.
 
-The process begins with custom software: a program that reads the geometry of a portrait — its proportions, its structural relationships — translating that structure into vector paths that a plotter draws onto a primed canvas. What emerges is a cartography of the face, its geometry laid bare, waiting.
+The process begins with custom software: a program that reads the geometry of a portrait, its proportions and structural relationships, translating that structure into vector paths that a plotter draws onto a primed canvas. What emerges is a cartography of the face, its geometry laid bare, waiting.
 
 Then I return with oils. Freed from the obligation of measurement, I enter the painting as a space to inhabit rather than to describe. The machine establishes the scaffold; the hand releases the presence.
 
