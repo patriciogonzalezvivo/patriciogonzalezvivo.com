@@ -450,7 +450,7 @@ Real-time celestial positions rendered alongside astrological symbols. Collabora
 
 **`2026/weaver2`** — *Weaver* v2 (interactive web)
 Two overlapping star maps (polar projection) for two observers across time/space. Family migration story (Irish-Argentine lineage: Brennan/Colcough from Famine, Vivo from Anacapri). Extends Guayupia (2017) and the astronomical library obsession. Interactive: drag sky = change date/time; rotate globe = change location.
-*Improvements needed:* The README is the strongest in the repo — rich, personal, well-structured. Minor: inline HTML divs (`<div class="spacer">`) in the README should probably be removed or moved to the PHP page.
+*Done (2026-05-31):* Fixed five typos (continue→continues, Guaypuia→Guayupia, begining→beginning, An passion→A passion, Hypathia→Hypatia, call→called) and corrected broken Orbitas link (`../../2025/orbitas2/` → `../../2018/orbitas/`).
 
 **`2025/weaver`** — *Weaver* v1 (interactive web)
 Earlier version of the same piece. Star maps, shared sky, globe controls. Simpler README than v2, focused on interface description.
@@ -575,29 +575,105 @@ These folders have `README.md` but files are empty or have only embedded media:
 
 ## Suggested Improvements by Priority
 
-### High — affects portfolio usability
+*(Generated 2026-05-31 from full AC program review + repository reading)*
 
-1. ~~**`2018/orbitas` README** — contains wrong Vimeo embed (copy-pasted from `2018/pointclouds`). Fix the embed URL.~~ ✓ **Done** — replaced Vimeo iframe with Wistia embed (`77gszchmvi`); rewrote `index.php` to match `estrellas`/`orbitas2` structure; added `TITLE.txt` and `MEDIUM.txt`.
-2. ~~**`2013/clouds` README** — add a paragraph describing Patricio's specific role.~~ ✓ **Done** — added paragraph: Visual Systems designer (sorting, Game of Life, fractals, flocking, globes, flight patterns); also interviewed as participant.
-3. ~~**`2025/gestures` vs `2025/hybrids`** — differentiate the two series more clearly.~~ ✓ **Done** — `gestures/README.md` cleared (no text yet); Hybrids README retains its authorship framing. Gestures text to be written from scratch when ready.
-4. ~~**`2014/skylines` README** — prepend a 2-3 sentence curatorial summary.~~ ✓ **Done** — prepended 3-sentence summary: MFA thesis at Parsons 2014, three pieces (wall plotter, horizon printer, data postcards), foundational to all drawing-machine work.
-5. ~~**`2017/guayupia` README**~~ ✓ **Done** — curatorial summary prepended: Tupi-Guarani *guayupia* concept, Quechua sky-maps, Torres-Garcia south-up orientation, map as gift for their son. Research notes follow below unchanged.
+### Underlying thread — the indexical argument
+All the work is more unified than its individual statements suggest. The plotter marks, the constellation lines, the CV-drawn face-geometry, the shadow that gains memory, the burned poem — all answer the same question from different angles: **what does it mean to leave a mark, and who is allowed to?** Making this unity explicit — through the indexical logic running from Skylines (2014) to Santos (2026) — is the portfolio's strongest structural argument.
 
-### Medium — deepens conceptual legibility
+---
 
-6. ~~**`2025/memories` README**~~ ✓ **Done** — Barthes's *punctum* paragraph added at the end: the plotter carries the photograph's accuracy, the brush carries the fallibility of the living; the gap between them is the subject.
-7. ~~**`2021/fen` README** — expand the "attention as extraction/capture" thread — this is the strongest conceptual idea in the piece and currently gets one sentence.~~ ✓ **Done** — restructured core conceptual section: Muybridge's industrial origins (commissioned for labor/horse optimization), chromatic aberration as literalization of attention-as-extraction, thesis now leads the argument.
-8. ~~**`2023/blink` README** — tighten the Baroque vanitas connection: the bubble's computational fragility IS its Baroque content. State that directly.~~ ✓ **Done** — new paragraph states directly: the computational bubble is not an analogy to vanitas, it *is* vanitas in the medium native to our moment. Persists only as long as shader runs / screen stays on / transaction is valid.
-9. ~~**`2019/hogar` README** — add one sentence explaining the HEARTH/HOGAR bilingual title choice (English + Spanish). The dual naming is meaningful and unexplained.~~ ✓ **Done** — added closing paragraph: *hearth* (English, warmth/return) + *hogar* (Spanish, belonging/home); bilingual by necessity, made by an Argentine living far from Argentina.
-10. **`2026/astros` README** — add technical and collaboration context; currently the shortest README for a piece that involves significant computational work and a three-person collaboration.
+### Sharpening existing projects
 
-### Low — completeness / maintenance
+**Santos (2026)**
+- The conceptual spine is not O'Keeffe — it is the great-grandmother who burned her poems on the day she married. She is the anti-plotter: someone who erased her own indexical trace. Every Santos portrait is restoration against that specific burning. Make this explicit, not a footnote.
+- The halo is a symbol (convention) AND an index (pointing to the moment of transformation). The plotter mark is indexical — a causal trace. Name the relationship between these two kinds of index. That relationship is the work's formal argument and it's currently unstated.
+- Apply Rancière: *Santos* is an intervention in the distribution of the sensible — who enters the collective imagination as an artist-saint. Strongest when subjects are specifically those whose creativity required self-invention against family/cultural prohibition, not just already-canonized figures.
 
-11. Empty READMEs: `2013/lumiere`, `2013/autilus`, `2013/rio`, `2013/naturalintentions`, `2013/avsys` — even a single paragraph each would make them searchable and portfolio-usable.
-12. **`2016/openFrame` README** — Twitter embed is broken; glslGallery embeds depend on external JS. Add a short text description of the shader categories and their visual logic.
-13. **`2014/pointcloudcity` README** — add a written description of the technique (photogrammetry from Street View panoramas via C++/OpenFrameworks) and artistic intent.
-14. **`2014/atramentum` README** — add a written description alongside the video embeds. Currently no text that could survive in a PDF portfolio.
-15. **Sidecar `.txt` files** — confirm all images in `2026/santos/images/` have complete sidecar metadata (`title`, `year`, `medium`, `dimensions`, `sold`, `print`). This is what drives the portfolio PDF and the gallery Buy/Acquire buttons.
+**Gestures (2025) — empty README**
+- Differentiate sharply from Hybrids: Hybrids is about *hybrid authorship* (who holds the pen); Gestures is about *sovereignty over marked territory* (what the body does once the scaffold exists).
+- Reach for Merleau-Ponty without naming him: gesture is already a form of thinking — "I am my body." When the gesture is constrained by a plotter-drawn skeleton the body didn't design, the painter thinks within a frame that precedes them. Write this as one sentence, concretely.
+
+**Memories (2025)**
+- The strongest framing: these are *elegies*, not portraits. The gap between plotted accuracy and painted recall isn't just epistemology of memory — it's love. You are reconstructing someone from what remains in you.
+- Barthes's punctum in reverse: the photograph is the dead record; the painted reconstruction is the refusal of death. Push "memento" to the front, not buried.
+
+**Astros (2026)**
+- The work holds two incompatible codes for the same sky: astronomical computation (objective, quantitative) and astrological interpretation (symbolic, ancient). Stuart Hall's encoding/decoding made cosmological. Neither system cancels the other.
+- Replace "bridges ancient cosmology and contemporary computation" (too flat) with the precise claim: *Astros* refuses the hierarchy between these two knowledge systems. Astronomy tells you *where* the planet is; astrology tells you *what it means*. The irresolution is the poetic content.
+
+**BLINK (2023)**
+- The most self-reflexive layer is missing: the bubble persists only as long as the NFT transaction is valid. BLINK is not just vanitas — it is vanitas about the specific market it inhabits. A minted bubble is a question about whether the market that certifies its existence will itself last. Add this. It's honest and more pointed.
+
+**HOGAR/HEARTH (2019)**
+- The bilingual title is a Hall encoding/decoding demonstration built into the name: two communities read the same image through different cultural codes for home. "Hogar" carries the Argentine weight of *belonging*, of the place that is *yours*, that "hearth" doesn't carry in English. Put this in the statement. One sentence.
+
+**ESTRELLAS / LUNA (2018/2017)**
+- Both need one sentence naming the Hypatia library. The library is the invisible infrastructure that makes all the astronomical work possible — and noting it connects the astronomical thread to the open-source tools thread in a way that's currently invisible across project descriptions.
+
+**Time (2022)**
+- The "emotional studies" framing is correct but incomplete. Bergson's *durée* — lived duration — is not measurable clock time but felt time. Optical flow literally maps the *flow* of time across the image surface. The technical process is Bergson rendered computational.
+- Apply Eco's openness check: the series needs named emotional states mapped to distinct technical operations. Without that it risks "underbuilt" — too open, viewer has nothing to hold. Name each piece's organizing emotion and let the distortion method follow.
+
+**Memory Studies (2021)**
+- Connect material argument to infrastructure: the system is thermodynamic — it moves from entropy to brief order and back. Same is true of every data center. Memory (digital and human) is not free — it costs energy, generates heat, degrades. One sentence names the political/ecological dimension and transforms the work from phenomenological meditation to something that also names a material condition.
+
+**Weaver v1 (2025)**
+- *(Done 2026-05-31 for weaver2)* Retire this README or explicitly frame v1 as the score before the performance — the prototype that made v2's narrative possible. The current description is redundant. A one-paragraph "earlier iteration" note serves better.
+
+---
+
+### New project proposals
+
+**1. "La que quemó sus poemas" (The One Who Burned Her Poems)**
+- *Medium: plotter on paper, ash, oil — installation*
+- The plotter draws the structural geometry of handwriting — not words, but the movement patterns of cursive script extracted from Spanish handwriting of her era. Pure index: the shape of writing without its content. Semantic erasure is built into the process.
+- Ashes of burned reproductions of period handwritten text incorporated into the painting surface as medium (following Whitten's *9-11-01* logic).
+- Peirce: plotter marks = index of the act of writing. Ash = index of the act of burning. The canvas holds the trace of creation and the trace of destruction simultaneously.
+- This is the missing Santos: not an artist-saint whose work was celebrated, but the one whose creativity required a specific act of erasure to make the expected life possible.
+
+**2. "Constelaciones propias" (Own Constellations)**
+- *Medium: interactive web / printed astronomical charts*
+- Use Hypatia's accurate star position data but map *invented* constellations onto it: named after specific migration routes, family genealogies, unnamed figures (the great-grandmother's book). The charts look completely authentic — correct visual language of astronomical notation — but the constellations appear in no catalogue.
+- Like Xu Bing's *Book from the Sky*: authentic form, unreadable content. Exposes the fact that all constellation systems are invented projections. Your projections are as valid as Orion's.
+- Walton's category theory: the viewer brings "astronomical chart" as the category. Standard features = accurate stars. Contra-standard features = invented constellation lines. That friction is the meaning: whose stories are allowed to be written in the sky?
+
+**3. "Error as Portrait" — the machine reads the masters**
+- *Medium: plotter-painting series / oil on canvas*
+- Feed CV landmark detection portrait *paintings* instead of photographs: Velázquez, Goya, Murillo, Wiley. The model fails in systematic, revealing ways — finding faces where there are none, distorting proportions according to biases trained on contemporary photographic data.
+- The plotter draws these errors faithfully. The hand then paints from the *original painting* — so the canvas holds two layers: the machine's misreading and the hand's correction.
+- Lesson 108: error is information. The specific ways the model fails reveal the ideological residues of its training data — predominantly Western, contemporary, photographic — made visible as marks on the canvas. The errors are the system's self-portrait.
+- Extends the appropriation logic (Lesson 129): copy/transform/combine operates differently when the transformation is produced by a machine with systematic biases.
+
+**4. "Doble vista" — Astros developed fully**
+- *Medium: interactive web — dual-register visualization*
+- The same celestial positions rendered simultaneously in two incompatible visual registers: left panel = astronomical vocabulary (precise, quantitative, Hypatia notation); right panel = astrological visual language (symbolic, ancient, glyphic).
+- Key move: superposition mode where both registers overlay. The result is legible as neither — it produces Barthes's "third meaning": something that emerges in the encounter between two coding systems that neither alone produces.
+- Conceptual frame: not relativism (all interpretations equal) but pluralism (incommensurable knowledge systems coexist over the same phenomenon). The sky is large enough for both.
+
+**5. "Durée" — portraits over time**
+- *Medium: plotter-painting / oil on canvas*
+- Instead of one photograph as CV input, use 52 weekly portrait photographs of the same person over one year. Run CV landmark detection on all 52. Average the geometric scaffolds into a single set of paths. The plotter draws this averaged face — which belongs to no specific moment but to the entire year's duration.
+- The hand paints from memory — but memory of which moment? The averaged scaffold is a ghost: geometrically accurate to accumulation of time, faithful to no single instant.
+- Bergson's *durée* as canvas structure: the scaffold is clock time (52 measurements); the painted surface is lived duration (continuous presence). The painting holds the difference between them.
+
+**6. "Al oído" (For the Ear) — tactile Hypatia**
+- *Medium: plotter on embossed paper / raised-line prints*
+- Plot the orbital paths from the Orbitas data as plotter drawings on paper with enough pressure to create embossed, tactile traces. Maps of the cosmos readable by touch, not by eye.
+- Lesson 116 (Architectures of Interactivity): shifts the work from a field that engages the eye to one that engages the hand — Lygia Clark's *Bichos*, not Orbitas. Activation through touch.
+- Rancière argument: the astronomical thread has been exclusively visual, which excludes audiences with visual impairments from the experience of cosmic contemplation that is the work's explicit subject. Making it tactile is a claim about who belongs in the audience for this kind of perception.
+
+**7. "Palimpsest" — plotter over plotter, the accumulation of lives**
+- *Medium: plotter-painting / oil on canvas*
+- Four plotter layers on the same canvas without covering what preceded: great-great-grandparent (reconstructed from oldest photograph), their child, next generation, current generation. Each layer uses different pen color/line weight. They accumulate and overlap. The face beneath remains visible through layers above.
+- The hand paints *one face* — the artist's own — using only the colors already present in the plotter layers below.
+- Biggers's palimpsest logic (Lesson 130): the canvas is a layered document, written and written over, each inscription remaining visible. Goodman (Lesson 127): the painting *exemplifies* generational transmission — it has that property and makes it meaningful.
+
+**8. "Nocturno" — painting under dark sky, by starlight only**
+- *Medium: oil painting, site-specific / documentation photography*
+- A painting made entirely outdoors, by starlight and moonlight, without artificial light. The painter cannot see the details clearly. The resulting painting is what the painter can perceive under the cosmic light available — not what the person looks like, but how they appear in the condition the sky provides.
+- The machine is removed entirely. The painting is the slowest possible perception: a portrait at the speed of the eye adjusting to darkness.
+- Connection to astronomical thread: all the Hypatia-based works make the sky visible as data. This work makes the sky *useful* in the oldest human sense — as the only available light. The resulting painting is lit by the same stars plotted in LUNA and ESTRELLAS, connecting that thread to the plotter-painting thread through material condition rather than concept.
+- Documentation photography uses the same starlit exposure — the paintings and the documentation share the same ambient light as an indexical property.
 
 ---
 
