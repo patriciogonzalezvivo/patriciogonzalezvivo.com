@@ -5,3 +5,5 @@ These paintings begin there. Working from photographs, I use custom software to 
 Then I return with oils. In the space between the plotted lines, I reconstruct the face from memory, not the photograph's memory, but my own. The painting becomes an act of recollection as much as representation. Presence builds slowly, layer by layer, the way it does in the mind.
 
 The resulting works are neither portraits nor copies. They are mementos: physical traces of an encounter between a face and the attention brought to it. Accurate in structure, intimate in surface.
+
+Barthes wrote that what pierces us in a photograph — its *punctum* — is not what it shows but what it cannot hold: the knowledge that what was there is now gone, that the photograph is the trace of a death. These paintings work in that wound. The plotter carries the photograph's accuracy into the canvas; the brush carries the fallibility of the living. The gap between them is the subject: what we retain of those we love, and what we lose.

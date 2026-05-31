@@ -1,6 +1,8 @@
 ﻿# Guayupia
 #### by Jen Lowe and Patricio González Vivo
 
+*Guayupia* is a digital map made as a gift for their son — a way to show him where he comes from and explain the unlikely fact of his existence. Named after the Tupi-Guarani concept of *guayupia*, The Land Without Evil, the piece draws on native South American cartographic traditions: Quechua sky-maps that track time through the Milky Way's drift, Tupi-Guarani migration paths, and the south-up orientation of Joaquin Torres-Garcia. Made south-up to anchor the child's geographic first principles in the hemisphere where his family lives, the map weaves together earth, stars, shorelines, and ancestral genealogy into a cosmographical portrait of origin and belonging.
+
 > A more adequate definition of cartography needs to express not just the presence of geographical knowledge but also cosmographical or biographical information, such as the soul flight of shamans or the passage and pathways of gods, heroes, and ancestors.” (Whitehead, 303)
 
 We set out to make a map for our son, something to show him where he comes from, to explain the unlikely fact of his existence. We wondered: what could a map be?

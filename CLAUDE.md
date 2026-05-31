@@ -577,15 +577,15 @@ These folders have `README.md` but files are empty or have only embedded media:
 
 ### High — affects portfolio usability
 
-1. **`2018/orbitas` README** — contains wrong Vimeo embed (copy-pasted from `2018/pointclouds`). Fix the embed URL.
-2. **`2013/clouds` README** — add a paragraph describing Patricio's specific role (creative coder: what systems did he build?). This is a Sundance/Tribeca credit that currently doesn't speak for itself.
-3. **`2025/gestures` vs `2025/hybrids`** — differentiate the two series more clearly. Currently they share language. Gestures = post-measurement, gestural inhabitation. Hybrids = hybrid authorship / machine+hand as unified vision.
-4. **`2014/skylines` README** — prepend a 2-3 sentence curatorial summary. The thesis essay is valuable but not navigable by a curator skimming quickly.
-5. **`2017/guayupia` README** — add a short curatorial summary at the top; the research notes should follow below. Currently opens with a dense academic quote.
+1. ~~**`2018/orbitas` README** — contains wrong Vimeo embed (copy-pasted from `2018/pointclouds`). Fix the embed URL.~~ ✓ **Done** — replaced Vimeo iframe with Wistia embed (`77gszchmvi`); rewrote `index.php` to match `estrellas`/`orbitas2` structure; added `TITLE.txt` and `MEDIUM.txt`.
+2. ~~**`2013/clouds` README** — add a paragraph describing Patricio's specific role.~~ ✓ **Done** — added paragraph: Visual Systems designer (sorting, Game of Life, fractals, flocking, globes, flight patterns); also interviewed as participant.
+3. ~~**`2025/gestures` vs `2025/hybrids`** — differentiate the two series more clearly.~~ ✓ **Done** — `gestures/README.md` cleared (no text yet); Hybrids README retains its authorship framing. Gestures text to be written from scratch when ready.
+4. ~~**`2014/skylines` README** — prepend a 2-3 sentence curatorial summary.~~ ✓ **Done** — prepended 3-sentence summary: MFA thesis at Parsons 2014, three pieces (wall plotter, horizon printer, data postcards), foundational to all drawing-machine work.
+5. ~~**`2017/guayupia` README**~~ ✓ **Done** — curatorial summary prepended: Tupi-Guarani *guayupia* concept, Quechua sky-maps, Torres-Garcia south-up orientation, map as gift for their son. Research notes follow below unchanged.
 
 ### Medium — deepens conceptual legibility
 
-6. **`2025/memories` README** — strongest conceptual frame of the plotter-painting series. Explicitly position it as the most intimate/emotionally direct entry. Consider referencing Barthes's punctum (the photograph as the trace of a death).
+6. ~~**`2025/memories` README**~~ ✓ **Done** — Barthes's *punctum* paragraph added at the end: the plotter carries the photograph's accuracy, the brush carries the fallibility of the living; the gap between them is the subject.
 7. **`2021/fen` README** — expand the "attention as extraction/capture" thread — this is the strongest conceptual idea in the piece and currently gets one sentence.
 8. **`2023/blink` README** — tighten the Baroque vanitas connection: the bubble's computational fragility IS its Baroque content. State that directly.
 9. **`2019/hogar` README** — add one sentence explaining the HEARTH/HOGAR bilingual title choice (English + Spanish). The dual naming is meaningful and unexplained.

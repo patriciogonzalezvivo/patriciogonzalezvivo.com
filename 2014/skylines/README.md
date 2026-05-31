@@ -1,3 +1,5 @@
+*Skylines* is Patricio González Vivo's MFA thesis at Parsons School of Design (2014) and the foundational work of his drawing-machine practice. Three interconnected pieces explore the horizon as a threshold of perception: a custom-built wall plotter that slowly accumulates material traces, a large-scale printing machine that captures the transition from city to mountain, and a series of postcards extracting invisible data from corporate urban databases. Building the [vPlotter](../vPlotter/) hardware from scratch, the project established the technical and conceptual lineage that runs through all subsequent plotter-painting work.
+
 ![Skyline02](images/sk02-b.png)
 
 # Introduction
