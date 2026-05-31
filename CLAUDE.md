@@ -4,6 +4,11 @@ Artist portfolio for **Patricio Gonzalez Vivo** (b. 1982, Buenos Aires). Multidi
 
 **Artist Commons (AC) program context:** `2026/ac/CLAUDE.md` contains 20 lesson summaries and 20 slash commands covering visual analysis, semiotics, philosophy of art, generative/AI art, interactivity, appropriation, quilting as concept, IP law, portfolio building, and curator outreach. Load that file when doing studio critique, writing artist statements, or making professional decisions.
 
+**Custom slash commands** (`.claude/commands/`):
+- `/review-statement` — reviews and improves the artist statement / README for a specific project; pass a folder path (e.g. `2026/santos`) or a direct `.md` path as the argument.
+- `/gallery-strategy` — builds a concrete strategy for approaching curators and galleries; rooted in community presence over cold networking.
+- `/build-portfolio` — assembles or revises a curated portfolio for a specific audience and purpose; drives all decisions from the question "what do I want them to decide after five minutes with this work?"
+
 ---
 
 ## Running the project
@@ -450,7 +455,6 @@ Real-time celestial positions rendered alongside astrological symbols. Collabora
 
 **`2026/weaver2`** — *Weaver* v2 (interactive web)
 Two overlapping star maps (polar projection) for two observers across time/space. Family migration story (Irish-Argentine lineage: Brennan/Colcough from Famine, Vivo from Anacapri). Extends Guayupia (2017) and the astronomical library obsession. Interactive: drag sky = change date/time; rotate globe = change location.
-*Done (2026-05-31):* Fixed five typos (continue→continues, Guaypuia→Guayupia, begining→beginning, An passion→A passion, Hypathia→Hypatia, call→called) and corrected broken Orbitas link (`../../2025/orbitas2/` → `../../2018/orbitas/`).
 
 **`2025/weaver`** — *Weaver* v1 (interactive web)
 Earlier version of the same piece. Star maps, shared sky, globe controls. Simpler README than v2, focused on interface description.
@@ -674,6 +678,278 @@ All the work is more unified than its individual statements suggest. The plotter
 - The machine is removed entirely. The painting is the slowest possible perception: a portrait at the speed of the eye adjusting to darkness.
 - Connection to astronomical thread: all the Hypatia-based works make the sky visible as data. This work makes the sky *useful* in the oldest human sense — as the only available light. The resulting painting is lit by the same stars plotted in LUNA and ESTRELLAS, connecting that thread to the plotter-painting thread through material condition rather than concept.
 - Documentation photography uses the same starlit exposure — the paintings and the documentation share the same ambient light as an indexical property.
+
+---
+
+## Review-Statement Feedback (2026-05-31)
+
+*Applied the `/review-statement` framework (Gilda Williams three questions: What Is It? / What Might It Mean? / Why Does It Matter?) across all project READMEs. Rated A–D per section. Priority flags: 🔴 urgent rewrite needed · 🟡 worth improving · 🟢 strong.*
+
+---
+
+### `2026/santos` — Santos
+**Overall: strong prose, one structural problem**
+
+🟢 **Strengths:** The great-grandmother who burned her poetry is devastating and specific — the best opening in the repo. The theological lineage framing (halo as visual language, secular sainthood) is clear. Voice is literary and personal throughout. The link back to Skylines and Hybrids gives it a narrative arc.
+
+🟡 **What Is It? — gap:** The physical work itself is described too late and too briefly (one sentence: "converting portrait images into vector paths… plotting… oil"). A first-time viewer won't picture *what they're looking at* — canvas paintings? Prints? What scale? — until the very end. Move the physical description of a single painting to paragraph two, before the conceptual elaboration.
+
+🟡 **What Might It Mean? — gap:** The halo's dual nature (symbol + index) is gestured at through the phrase "visual language for this metaphysical shift" but not named. The plotter mark is also an index — a causal trace. That the two kinds of index meet on the same canvas is the formal argument of the work. One sentence would make this explicit without over-explaining.
+
+🟡 **Why Does It Matter?:** The great-grandmother's erasure needs to come back at the end as the stakes. Right now the statement ends on "transcend boundaries and connect us to something beyond ourselves" — too generic for a work whose origin is this specific erasure. Close by naming what the series restores that was burned.
+
+🔴 **HTML in README:** The `<div class="spacer">` block with five `<img src="refs/...">` references is raw HTML and will break PDF generation. Move to `index.php` or remove from README.
+
+🟡 **Copy-paste test failures:** "reshaping the world through beauty, wonder, and possibility" — could belong to any artist statement. "transcend boundaries and connect us to something beyond ourselves" — same. Both sentences need grounding in something specific to Santos.
+
+---
+
+### `2025/hybrids` — Hybrids
+**Overall: excellent, nearly done**
+
+🟢 **Strengths:** "I write the code and I hold the brush" is a perfect opening line — specific, paradoxical, completely traceable to Patricio. The lineage paragraph (optical devices → paint tube → plotter) earns its place. Voice is clean and confident. Concise without being thin.
+
+🟡 **What Is It? — minor gap:** "a program that uses computer vision to analyze a portrait" — which kind of computer vision? Landmark detection (face geometry) is specific and interesting; "computer vision" is vague. One word would close this. Also: what medium is the canvas? What scale are the works?
+
+🟢 **What Might It Mean?:** The scaffold/presence distinction ("freed from the obligation of measurement, I enter the painting as a space to inhabit") is the best thing in the statement and earns its central position.
+
+🟡 **Why Does It Matter?:** "The works that result do not seek to replicate reality, but to evoke it" — this closing sentence is the one copy-paste failure in an otherwise strong text. It's generic. A specific sentence about what the hand can do that the machine cannot — something only Patricio would say — would close stronger.
+
+🟡 **process.png:** The image reference appears at the bottom but is not integrated into the text. Either embed it as a `:::wrapfig` or remove the bare reference.
+
+---
+
+### `2025/memories` — Memories
+**Overall: the strongest prose statement in the collection**
+
+🟢 **Strengths:** Nearly perfect. "Memory is not a recording. It is a reconstruction" is a clean, strong opening. The Barthes paragraph (punctum, the photograph as trace of death, the brush as living refusal) is the best theoretical integration in any of the READMEs — it arrives at the right moment, is specific, and doesn't over-explain. Voice is intimate and assured.
+
+🟢 **What Is It?:** Clear, concrete, well-sequenced. The process is explained without dominating.
+
+🟢 **What Might It Mean?:** The Barthes punctum is used precisely and earns its place.
+
+🟡 **Why Does It Matter? — one gap:** "what we retain of those we love, and what we lose" is the emotional core — but it's buried in the last clause of the last sentence. A reader who skims will miss it. Consider making it the opening sentence instead, then backing into the process. The statement currently ends with its best line; that line should open it.
+
+🟡 **Stranger test:** A first-time viewer reading quickly will picture the process clearly, but may not immediately know these are paintings of *people the artist knows personally* — portraits of loved ones, not generic subjects. That specificity (these are *mementos*, not portrait studies) is present in the word "mementos" but could be made even more concrete.
+
+---
+
+### `2025/gestures` — Gestures
+**Overall: 🔴 EMPTY — needs writing from scratch**
+
+No content. This is the only current-series painting README that is empty. Given that Hybrids and Memories are so strong, the absence here creates a gap in the drawing-machine thread.
+
+**What to write:** Differentiate from Hybrids by focusing on what happens *after* the scaffold exists — the physical act of painting as a form of thinking, the body inhabiting a space it didn't design. Reach for Merleau-Ponty's logic without naming him: gesture is already thinking. The plotter-drawn skeleton constrains and liberates simultaneously. Use the same voice as Hybrids but push toward the gestural, the singular, the moment when the hand takes over.
+
+---
+
+### `2025/orbitas2` — Orbitas v2
+**Overall: strong short-form, one technical gap**
+
+🟢 **Strengths:** "living cosmogram" is a strong phrase. The "instrument and invocation" line is the best closing in any of the astronomical READMEs — it names the dual register (scientific + devotional) without over-explaining.
+
+🟡 **What Is It? — gap:** No technical sentence. Which platform? WebGL? Three.js? Custom renderer using Hypatia? The astronomical thread is built on a specific library (Hypatia) that is never mentioned here. One sentence: "Built on [Hypatia](https://github.com/patriciogonzalezvivo/hypatia), Patricio's own astronomical computation library…" would connect this piece to its infrastructure and to the broader thread.
+
+🟡 **Copy-paste test:** "quiet reminder of our place within the vast, slow choreography" — slightly generic. Could be any planetarium screen. One concrete detail (the Moon's phases, the zodiac constellations visible from the viewer's own hemisphere) would make it specific.
+
+---
+
+### `2025/weaver` — Weaver v1
+**Overall: 🟡 functional but redundant after v2**
+
+The description is accurate and clear, but it reads as a feature list (interactive mechanics, how to share the URL) rather than as an artist statement. Now that v2 has a full narrative about the family migration and the origin of the work, v1's README is purely technical by comparison.
+
+**Recommendation:** Replace the current prose with a single short paragraph that frames v1 as the earlier iteration — the technical proof before the narrative deepened. Something like: *"Weaver began here — the same two polar-projection maps, the same interactive globes, the same shared sky. What v2 adds is the story that was always underneath: why two maps, why migration, why the stars."* The technical interaction description can remain as a secondary section for users who want it.
+
+---
+
+### `2023/blink` — BLINK
+**Overall: 🟢 strong, improved in this session**
+
+The vanitas framing is precise and earns its classical reference. The new paragraph added in this session (the NFT transaction as a contemporary form of impermanence) sharpens the most self-reflexive layer. The closing on monumental scale and Book of Shaders is a strong lineage note.
+
+🟡 **What Is It? — minor gap:** A first-time viewer doesn't know from the first paragraph whether they're looking at a video, an animation, a physical installation, or a screen piece. One sentence placing them in front of a single screen showing a bubble would help.
+
+🟡 **Copy-paste test:** "a moment of delight caught between its own making and undoing" — close to generic. Compare to "the transaction is valid" line in the new paragraph, which is entirely specific. The earlier descriptive language could be brought to that same level of specificity.
+
+---
+
+### `2022/time` — Time
+**Overall: 🟡 conceptually clear, thin on specificity**
+
+🟢 **Strengths:** "Duration appears to liquefy, accumulate, and collapse" is a strong image. The refusal of conventional editing is an interesting formal claim. "Emotional time and clock time are never the same thing" is the work's thesis, clearly stated.
+
+🔴 **What Is It? — gap:** A viewer reading the first paragraph cannot picture what is on screen. Is this a single-channel video? A series? What does a viewer see — a face? A landscape? A room? Abstract patterns? The transformation process (optical flow, depth estimation, shaders) is named but the *result* — what it looks like to watch — is not described. Fix this first.
+
+🟡 **What Might It Mean? — underdeveloped:** "Emotional studies" is named but not unpacked. What does "emotional" mean here — specific moods? Distortions tied to named emotional states? Without this specificity, the series risks Eco's "underbuilt" failure: too open, nothing for the viewer to hold. Either name the organizing emotion of each piece, or make the series framing concrete: "These are studies in grief / longing / elation" rather than the generic "emotional."
+
+🟡 **Why Does It Matter?:** The closing question ("do they ask whether emotional time and clock time are ever the same thing") tells us what the work *asks* but not what it *proposes*. A statement is more powerful when it makes a claim rather than only a question. The work clearly answers the question (they are not the same); let the statement say so.
+
+---
+
+### `2021/memory` — Memory Studies
+**Overall: 🟢 strong conceptually, thin in one dimension**
+
+🟢 **Strengths:** "Memory is not an archive but a living instability" is the best one-line summary of the conceptual territory. The description of the technical loop (load/sort/blur/corrupt/reset) is clear and interesting without being over-technical.
+
+🟡 **What Is It? — minor gap:** "Real-time generative artworks" — how many? What do they look like? Colors, scale, movement? The viewer can infer a loop from the description but cannot picture a specific visual moment. One sentence describing what a viewer sees on screen (even briefly: sorted arrays of color degrading into noise, the cycle visible in real time) would ground the abstraction.
+
+🟡 **Why Does It Matter? — missing dimension:** The statement treats memory as metaphor (and does it beautifully), but the work runs on actual digital memory — allocated RAM, real data. This is memory as *material*, not just theme. One sentence naming that the system uses the computer's own memory — not simulated, not representational — would transform the reading. It also opens the ecological/political dimension: digital memory is not free; it costs energy, generates heat, degrades. That dimension is absent.
+
+---
+
+### `2021/fen` — Flight Studies
+**Overall: 🟢 the most fully developed statement in the collection**
+
+The attention/extraction argument is the strongest conceptual claim in any README. The Muybridge lineage is earned. The ecological framing (CleanNFT, upcycled frames) is built into the work at every level and doesn't feel tacked on.
+
+🟡 **What Might It Mean? — one missed beat:** "Like birds in open flight, we often move freely while remaining unaware of the invisible systems that shape, and constrain, our possible trajectories." This final metaphor weakens the ending — "birds in open flight" is a soft landing after the hard-edged analysis of the previous paragraphs. The "birds" image is nice but vague; it diffuses the critique rather than landing it. Consider cutting it and ending on the preceding sentence: "intensification and extraction are the same gesture, performed simultaneously." That's the claim. That's where to stop.
+
+🟢 **Why Does It Matter?:** The ecological/political stakes are fully present and specific. The FEN section provides clear institutional context.
+
+🟡 **Structure note:** The main statement is excellent. The "Upcycled Displays" section reads as separate documentation, not as part of the statement. Consider integrating one sentence about the frames into the main text and moving the detailed "Upcycled Displays" section to a secondary note, or keeping it as-is for documentation purposes.
+
+---
+
+### `2019/hogar` — HEARTH/HOGAR
+**Overall: 🟢 excellent short-form, complete**
+
+The bilingual title explanation is already present and handled with precision: "*hearth* — the English word for the fire at the center of a home… and *hogar*, its Spanish equivalent, which carries the same meaning but also the specific weight of belonging." This is exactly what was needed. No further changes required for the statement itself.
+
+🟡 **What Is It? — minor gap:** "Miles away, a camera floats silently in orbit" — evocative, but a first-time viewer doesn't know if this is a live feed, a simulation, or archival footage. One word — "real-time" or "live" — before "window" in the second sentence would close this. It's already implicit in "as it is, right now" but making it explicit (live satellite imagery or real-time simulation?) would sharpen the "What Is It?" answer.
+
+---
+
+### `2018/estrellas` — ESTRELLAS
+**Overall: 🟡 one paragraph, needs a sentence**
+
+The statement is poetic and functions as a short-form description. But it has no concrete visual description — what does the viewer see? A star field? On a screen? Projected on a wall? What scale? Also missing: Hypatia library credit. One sentence doing both: "Rendered in real time using [Hypatia](https://github.com/patriciogonzalezvivo/hypatia), the artist's own astronomical computation library, the installation projects an accurate live star field" would cover both gaps.
+
+🟡 **Why Does It Matter? — too general:** "an earlier epoch, when humanity looked to the sky for knowledge, meaning, and guidance" — this could describe any planetarium. One specific anchor (a particular historical tradition, a specific star, a personal moment) would make the statement traceable to Patricio rather than to astronomy as a category.
+
+---
+
+### `2018/orbitas` — Orbitas v1
+**Overall: 🟡 functional, copy-paste risk**
+
+🟡 **What Is It?:** "Our perception is tuned to a narrow threshold of time and space" — this is a strong opening for a philosophical essay but it delays the concrete description. A viewer still doesn't know what they're looking at until the second sentence. The opening works once you've read it twice; on a first pass it creates slight disorientation.
+
+🟡 **Copy-paste test:** "patterns generated by planets and satellites" — could appear in any planetary simulation description. What specific visual quality distinguishes *Orbitas* from other solar system renderings? The luminous trails, the drifting camera, the zodiac constellations — some of these specifics from Orbitas v2 could be folded in here to differentiate the two.
+
+🟡 **Hypatia gap:** Same as ESTRELLAS — one sentence naming the library would connect this to the broader thread.
+
+---
+
+### `2017/luna` — LUNA
+**Overall: 🟢 complete, precise short-form**
+
+Excellent one-paragraph statement. "Living meditation," "lunar calendar and daily clock," "time's quiet passage" — all specific to the work, none generic. The sentence structure builds naturally from what it is (mirrors the moon's phase) to what it means (living meditation) to why it matters (heightened awareness of time).
+
+🟡 **Hypatia gap:** One sentence crediting the library would complete the astronomical thread documentation.
+
+🟡 **Minor:** "Her form subtly transforms in sync with the lunar cycle" — the gendered pronoun is an interesting choice that is not explained anywhere. If intentional (the moon as feminine presence, a common association), one word confirming it is intentional would prevent it from reading as unexamined convention.
+
+---
+
+### `2017/guayupia` — Guayupia
+**Overall: 🟢 the most scholarly README in the collection — needs structural repair, not content**
+
+The research is exceptional (Quechua sky-mapping, Torres-García south-up, Tupi-Guarani migration paths, full bibliography). The personal stakes (a map made for their son) are clear. The concept (the land without evil as perpetual horizon) is earned.
+
+🔴 **Structure problem:** There is no summary paragraph at the top for a viewer who arrives without scholarly preparation. The README opens directly into research notes. A curator or journalist opening this file will be lost for the first two paragraphs. Add a three-sentence summary at the very top: what this is (a digital map), who made it (Patricio + Jen Lowe), why (for their son, to show his heritage), what it does (weaves earth, stars, genealogy, native cartography into a south-up view of the world). Then let the research notes follow as context.
+
+🟡 **Copy-paste test:** None — every sentence is specific and traceable to this work.
+
+🟡 **Length:** The research notes are valuable but should be labeled as such (perhaps a `## Research Notes` subheading) so curators know they can stop after the summary and return to the bibliography when needed.
+
+---
+
+### `2013/clouds` — CLOUDS
+**Overall: 🟡 credits-heavy, Patricio's contribution understated**
+
+The description of CLOUDS as a work is accurate. The credits section is thorough.
+
+🔴 **Missing:** Patricio's specific contribution is described in one sentence — "designing and developing several Visual Systems" with a list of algorithms. For a work that premiered at Sundance and Tribeca, this is the most significant collaborative credit in the portfolio. It needs more than a list. What was the creative challenge? What did it feel like to translate an interview's conceptual territory into a generative visual system? What is it like to be both a creative coder and an interviewed subject in the same work? One paragraph about the experience of making this would transform the README from a credits page into a personal account.
+
+🟡 **Why Does It Matter?:** Not present. CLOUDS is described as "visually groundbreaking" (copy-paste from the Kickstarter) but there's no claim about why Patricio's involvement matters or what he took from it.
+
+---
+
+### `2012/shadows` — Sombras
+**Overall: 🟢 well-written, one structural note**
+
+The shadow-play lineage (ancestor of cinema) is specific and earns its historical claim. The commission context (Museum of Toys, part of "La Mesa del Tiempo") is clear and useful.
+
+🟡 **What Is It? — minor gap:** "large surface where participants can cast shadows" — how large? A floor projection? A wall? Room-scale? One dimension or scale reference would help. Also: the statement begins with the general concept before naming the work itself. "**Sombras** is…" is already the opening, which is good, but the description of the surface arrives before the description of what participants see the shadows *do*, which is the interesting part. Reorder: name the effect first (shadows ripple back as memories), then describe the surface.
+
+🟡 **Stranger test:** The phrase "memories rippling through time" is poetic but slightly abstract for a first-time viewer. Does the shadow literally look like it moves backward in time? Does it fade, multiply, delay? One concrete sentence about what the shadow *does* visually would ground the metaphor.
+
+---
+
+### `2011/efectomariposa` — Efecto Mariposa
+**Overall: 🟢 strong short-form with good specificity**
+
+The Puyehue Volcano origin story is excellent — specific, historical, stakes are clear. "Destruction and creation, combined in an infinite fractal dance" is one of the few cases where "fractal" earns its use in an artist statement.
+
+🟡 **What Is It? — gap:** "The user can modify with his own hands the 'topology' and the 'atmosphere' of this virtual world" — what does this look like visually? Is it a touchscreen? A table surface? Infrared sensors? The interaction mechanism is unclear. The installation was a Kinect-based ash-surface table (or similar), which is specific and interesting — name it.
+
+🟡 **Voice note:** "the ability of life to cut through the face of adversity" — slightly awkward phrasing. "to persist through adversity" reads more naturally.
+
+---
+
+### `2010/communitas` — Communitas
+**Overall: 🟡 minimal but honest — needs one more paragraph**
+
+The Hakui quote is an interesting opening but creates slight distance — a viewer wonders whether they're entering the work or entering a philosophy lecture. The description (collaborative drawing that travels the table inviting additions) is clear. The fellowship context is present.
+
+🔴 **Missing:** Why did Patricio make this? What was the question? What did he discover? A single "I" sentence connecting the concept to a personal motivation would transform this from a caption into a statement. The work is about collective authorship and the tension between individual and group — what drew him to that territory?
+
+🟡 **Why Does It Matter?:** Not present. "A collective and evolving artwork" describes the output but not the stakes.
+
+---
+
+### `2014/atramentum` — Atramentum
+**Overall: 🟡 press-release tone, no personal voice**
+
+The description is accurate but reads like marketing copy from FakeLove rather than Patricio's own voice. "Mesmerizing experience," "imposing black monolith," "ethereal sense of infinite space" — these phrases are designed to generate excitement in a press context, not to communicate meaning.
+
+🔴 **Missing:** Patricio's voice is entirely absent. What was his specific contribution? What did he design technically? What did he experience making it? One paragraph from the inside would make this readable as a portfolio piece rather than a press clipping.
+
+🟡 **What Might It Mean?:** The calligraphic forms / optical flow / fluid simulation connection is interesting but unexplained — why is that the right visual language for this space? What did Aerosyn-Lex's aesthetic bring to the GLSL work? The collaboration logic is not described.
+
+---
+
+### `2014/pointcloudcity` — Point Cloud City
+**Overall: 🔴 no statement — link list only**
+
+The README is a link list and a video embed. There is no prose beyond "Part of _Skylines_, a series of projects about the tools and techniques we use to see the world around us."
+
+**What to write:** One paragraph about what point clouds do to the experience of a familiar place — how reducing Washington Square Park to a field of coordinates changes what you notice about it. What does it mean to represent a city as a data structure? What is lost and what becomes visible? The connection to Skylines (tools for seeing) is already named; one sentence developing it would complete the statement.
+
+---
+
+### `2014/advanceGL` — Advance GLSL Shaders
+**Overall: 🔴 technical log only — needs artist framing**
+
+The README is a technical log (shader techniques: bump maps, cross-hatching, DoF, atmospheric scattering) with broken Flickr/Flash embeds. No statement.
+
+**What to write:** One paragraph situating this as the research and development phase that made later work (Atramentum, Book of Shaders) possible. These shaders are the invisible infrastructure of the astronomical works — atmospheric scattering used in ESTRELLAS, the cross-hatching logic recombined in Hybrids. Frame it as a material research record, the equivalent of a sculptor's sketchbook of casting experiments.
+
+---
+
+### `2016/openFrame` — OpenFrame
+**Overall: 🟡 relies on external embeds, no text**
+
+The glslGallery divs depend on an external service that may break. No prose statement.
+
+**What to write:** One paragraph about the OpenFrame project (Raspberry Pi display platform for shader artworks), the collaboration with Jon Wohl and Ishac Bertran, and the categories as a taxonomy of what GLSL can do at slow/ambient scale. The categories (Mandalas, Pulse, Ikeda tributes, Clocks) are interesting — each is a genre with its own history. Name what attracted Patricio to making art for a display device rather than an interactive installation.
+
+---
+
+### `2013/lumiere`, `2013/autilus`, `2013/rio`, `2013/naturalintentions`, `2013/avsys`
+**All: 🔴 EMPTY**
+
+These five files have no content. They are not high priority for the portfolio (2013 is not featured work), but having empty READMEs weakens the archival completeness of the site. Minimum viable content: a one-sentence description and the exhibition/context.
 
 ---
 

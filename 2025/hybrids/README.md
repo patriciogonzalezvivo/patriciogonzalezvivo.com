@@ -4,8 +4,19 @@ The process begins with custom software: a program that uses computer vision to 
 
 Then I return with oils. Freed from the obligation of measurement, I enter the painting as a space to inhabit rather than to describe. The machine establishes the scaffold; the hand releases the presence.
 
-This practice places the work within a longer lineage of artists who have embraced emerging technologies not as replacements, but as liberating forces: from the optical devices of the Renaissance, to the material innovations of Flemish oil painting, to the portable paint tube that opened the world to Impressionism. Each reflects a willingness to claim new tools and turn them toward the irreducible work of art-making.
+---
 
-The works that result do not seek to replicate reality, but to evoke it, through a complementary dialogue between systems, materials, and ways of seeing.
+:::wrapfig left
+src: ../../2014/skylines/images/14005408208_fbc2fab7ed_b.jpg
+title: Skylines
+year: 2014
+medium: Installation detail at gallery
+link: ../../2014/skylines/
+:::
+
+These portraits continue an exploration of drawing machines begun with [Skylines in 2014](../../2014/skylines/skylines.php?v=01), for which I constructed a wall plotter that slowly reveals an image through custom software translating photographs into lines. This practice reaches back into a longer lineage of artists who have embraced emerging technologies not as replacements, but as liberating forces: from the optical devices of the Renaissance, to the material innovations of Flemish oil painting, to the portable paint tube that opened the world to Impressionism. Each reflects a willingness to claim new tools and turn them toward the irreplaceable act of art-making.
+
+
+What the machine cannot give the painting is what the hand is for: the weight of encounter, the residue of attention, the specific moment when a face stops being data and becomes someone.
 
 ![](process.png)
