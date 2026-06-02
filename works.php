@@ -26,7 +26,7 @@ include("server/project_meta.php");
         ['path' => '2019/hogar'],
         ['path' => '2018/estrellas'],
         ['path' => '2025/orbitas2', 'title' => 'Órbitas', 'year' => '2018'],
-        ['path' => '2017/pixelspirit', 'url' => 'http://pixelspiritdeck.com/', 'title' => 'PixelSpirit', 'year' => '2017', 'medium' => 'Tarot Deck', 'dimensions' => '78 Cards'],
+        ['path' => '2017/pixelspirit', 'dimensions' => '50 Cards'],
         ['path' => '2017/guayupia', 'url' => 'https://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe'],
         ['path' => '2017/luna'],
         ['path' => '2015/thebookofshaders', 'url' => 'http://thebookofshaders.com/', 'title' => 'The Book of Shaders', 'year' => '2015', 'medium' => 'Book'],

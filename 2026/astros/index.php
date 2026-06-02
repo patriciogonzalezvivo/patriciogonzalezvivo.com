@@ -50,7 +50,7 @@
                 $projects = [
                     ['path' => '2026/santos'],
                     ['path' => '2026/weaver2'],
-                    ['path' => '2017/pixelspirit', 'url' => 'http://pixelspiritdeck.com/', 'title' => 'PixelSpirit', 'year' => '2017', 'medium' => 'Tarot Deck / Book', 'dimensions' => '78 Cards'],
+                    ['path' => '2017/pixelspirit'],
                     ['path' => '2018/estrellas'],
                     ['path' => '2017/luna'],
                     // ['path' => '2019/hogar'],

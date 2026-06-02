@@ -1,31 +1,8 @@
-<!--### Shop-->
+The [PixelSpirit](https://pixelspiritdeck.com/) Elements Deck is a tarot deck for learning GLSL shaders. Each PixelSpirit card has a visual element and its GLSL shader code. The cards are ordered from simplest to most complex, building a library of code functions that combine like a book of spells to form an infinite visual language. This deck is a **tool for learning**, a **library**, and an **oracle**.
 
-<div id="shop" class="centering-panel">
-    <div class="centering-element" id='product-component-d9b6f93439a'></div>
-    
-<p>The PixelSpirit Elements Deck is a tarot deck for learning GLSL shaders. Each PixelSpirit card has a visual element and its GLSL shader code. The cards are ordered from simplest to most complex, building a library of code functions that combine like a book of spells to form an infinite visual language. This deck is a [**tool for learning**](#cards-as-teacher), a [**library**](#cards-as-library), and an [**oracle**](#cards-as-oracle).</p>
+In the 50 cards of this deck you will find the 22 major arcana—the ancestral archetypes of the traditional Tarot deck. The wisdom of these powerful cards will guide you on your shader journey.
 
-<p>In the 50 cards of this deck you will find the 22 major arcana—the ancestral archetypes of the traditional Tarot deck. The wisdom of these powerful cards will guide you on your shader journey.</p>
-
-![](./imgs/loop.png)
-
-<div class="centering-element newsletter">
-        <!-- Begin MailChimp Signup Form -->
-        <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
-        <style type="text/css">
-            #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
-            /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-               We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-        </style>
-
-<div id="fd-form-623357787e7ec064e82a1d1e"></div>
-
-<span><a href="https://twitter.com/intent/follow?screen_name=pixelspiritdeck" target="_blank"><img class='icon' src="./imgs/icons/twitterb.png"></a></span> <span><a href="https://instagram.com/pixelspiritdeck/" target="_blank"><img class='icon' src="./imgs/icons/instagramb.png"></a></span>
-</div>
-    
-</div>
-
-![](./imgs/loop.png)
+---
 
 ### Cards as Teacher
 
@@ -83,7 +60,7 @@
 
 <!--**Re-Code**: the perfect way to go through the cards teaching yourself shaders is through [this online editor: editor.pixelspiritdeck.com/](http://editor.pixelspiritdeck.com/).-->
 
-![](./imgs/loop.png)
+---
 
 ### Cards as Library
 
@@ -130,9 +107,7 @@ Search for the cards with those numbers, and you will find the needed functions.
 </div>
 </div>
 
-You can download [the code for the functions in the library here](https://github.com/patriciogonzalezvivo/PixelSpiritDeck/tree/master/lib) under [this license](https://github.com/patriciogonzalezvivo/PixelSpiritDeck/blob/master/LICENSE).
-
-![](./imgs/loop.png)
+---
 
 ### Cards as Oracle 
 
@@ -144,41 +119,6 @@ Each card refers to an archetype: a luminous symbolic structure that may resonat
 
 ![](./imgs/mayor_arcana.png)
 
-![](./imgs/loop.png)
 
-
-### Author
-
-[**Patricio Gonzalez Vivo**](http://patriciogonzalezvivo.com) (1982, Buenos Aires, Argentina) is an artist and developer. He explores interstitial spaces between organic and synthetic, analog and digital, individual and collective. In his work he uses code as an expressive language with the intention of developing a better together. <a rel="me" href="https://merveilles.town/@patricio" target="_blank"><img src="/imgs/icons/mastodon.png" width="32" class="icon"/></a>  <a href="https://twitter.com/intent/follow?screen_name=patriciogv"><img src="./imgs/icons/twitterb.png" width="32" class="icon"/></a>  <a href="https://www.instagram.com/patriciogonzalezvivo/" target="_blank"><img class='icon' width="32" src="./imgs/icons/instagramb.png"></a>  <a href="https://github.com/patriciogonzalezvivo" target="_blank"><img src="./imgs/icons/github.png" width="32" class="icon"/></a>
-
-
-![](./imgs/loop.png)
+---
  
-
-### Acknowledgments
-
-These cards, as well as [The Book of Shaders](http://thebookofshaders.com), wouldn't be possible without the help of [Jen Lowe](http://jenlowe.net), my life partner, love of my life, and constant collaborator.
-
-Thanks to: [Lynn Cherny](https://twitter.com/arnicas), [Manolo Gamboa Naon](https://twitter.com/manoloidee), [Salome Asega](https://twitter.com/suhlomay), [Jaume Sanches Elias](https://twitter.com/thespite), [Geraldine Sarmiento](https::/twitter.com/sensescape), [Kevin Kripper](https://www.facebook.com/kevin.kripper), [Rachel Binx](https://twitter.com/rachelbinx) for their friendship and key feedback on this project.
-
-Thanks to the people involved with the[Three.js](https://threejs.org/) library for making the construction of this WebGL page a pleasure. (Special thanks for that incredible lens flair.)
-
-Also thanks to [DailyMinimal.com](http://www.dailyminimal.com/) and [Maria Linares Freire](https://twitter.com/LinaresFreire) for their constant stream of inspiration.
-
-![](./imgs/loop.png)
-
-<!--## Projects that use PixelSpirit Deck
-
-**PixelSpirit Table** by [Colin Evoy Sebestyen](http://www.movecraft.com/)
-
-<iframe src="https://player.vimeo.com/video/231285044?title=0&byline=0&portrait=0" width="575" height="323" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-
-![](./imgs/loop.png)
-
--->
-
-<div id="contact">
-    
-<div id="fd-form-623374b3e4da3a4464c3094b"></div>
-
-</div>

@@ -5,18 +5,6 @@ class WasmLoader extends HTMLElement {
     }
   
     connectedCallback() {
-        // Support basepath attribute to allow embedding from parent pages.
-        // e.g. <wasm-loader basepath="2026/astros/"></wasm-loader>
-        const basepath = this.getAttribute('basepath') || '';
-
-        // Find canvas and move this element inside its parent so it overlays
-        // only the canvas area and scrolls with the page
-        const canvas = document.getElementById('canvas');
-        if (canvas && this.parentElement !== canvas.parentElement) {
-            canvas.parentElement.appendChild(this);
-            return;
-        }
-
         // Create loader elements
         const loader = document.createElement('div');
         loader.className = 'emscripten_loader';
@@ -26,15 +14,24 @@ class WasmLoader extends HTMLElement {
             <div class='emscripten_loader' id='status'>Downloading...</div>
             <progress class='emscripten_loader' value='50' max='100' id='progress'></progress>
         `;
+
+        // Create canvas element
+        const canvas = document.getElementById('canvas');
   
         // Add styles
         const style = document.createElement('style');
         style.textContent = `
             :host {
                 display: block;
-                position: absolute;
+                width: 100vw;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                margin: 0;
+                padding: 0;
                 overflow: hidden;
-                z-index: 10;
+                background: black;
                 font-family: 'Lucida Console', Monaco, monospace;
             }
 
@@ -57,6 +54,7 @@ class WasmLoader extends HTMLElement {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                background: rgba(0, 0, 0, 0.8);
                 z-index: 1000;
             }
 
@@ -77,6 +75,7 @@ class WasmLoader extends HTMLElement {
                 border-bottom: 5px solid rgba(0, 0, 0, 0);
                 border-top: 5px solid rgba(0, 0, 0, 0);
                 border-radius: 100%;
+                background-color: rgba(0, 0, 0, 0);
             }
 
             @-webkit-keyframes rotation {
@@ -101,7 +100,7 @@ class WasmLoader extends HTMLElement {
                 left: 50%;
                 bottom: 25%;
                 transform: translate(-50%, -50%);
-                color: black;
+                color: rgb(200, 200, 200);
                 font-family: monospace;
             }
 
@@ -109,53 +108,26 @@ class WasmLoader extends HTMLElement {
                 height: 10px;
                 width: 200px;
                 margin-top: 90px;
-                color: black;
-                accent-color: black;
-            }
-
-            #thumbnail {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                z-index: 0;
+                color: rgb(200, 200, 200);
+                accent-color: rgb(200, 200, 200);
             }
             `;
   
         this.shadowRoot.appendChild(style);
         this.shadowRoot.appendChild(loader);
-
-        // Create thumbnail outside the loader div so position:fixed is relative to viewport
-        const thumbnail = document.createElement('img');
-        thumbnail.id = 'thumbnail';
-        thumbnail.src = basepath + 'thumbnail.jpg';
-        thumbnail.onerror = () => { thumbnail.style.display = 'none'; };
-        this.shadowRoot.appendChild(thumbnail);
     
         // Store reference to shadowRoot for Module methods
         const shadowRoot = this.shadowRoot;
-
-        // Size this element to match the canvas area within its parent container
-        const matchCanvas = () => {
-            if (!canvas || !canvas.parentElement) return;
-            const wrapperRect = canvas.parentElement.getBoundingClientRect();
-            const canvasRect = canvas.getBoundingClientRect();
-            this.style.top = (canvasRect.top - wrapperRect.top) + 'px';
-            this.style.left = (canvasRect.left - wrapperRect.left) + 'px';
-            this.style.width = canvasRect.width + 'px';
-            this.style.height = canvasRect.height + 'px';
-        };
-        requestAnimationFrame(matchCanvas);
-        this._thumbnailResizeHandler = matchCanvas;
-        window.addEventListener('resize', this._thumbnailResizeHandler);
   
         // Initialize Module before loading script
         window.Module = {
-            // Rewrite asset paths so .wasm/.data load from the correct directory
-            // when this component is embedded from a different URL depth.
-            locateFile: (path) => basepath + path,
+            // locateFile: function(path, prefix) {
+            //     // Append cache-busting timestamp to .data and .wasm files
+            //     if (path.endsWith('.data') || path.endsWith('.wasm')) {
+            //         return prefix + path + '?v=' + Date.now();
+            //     }
+            //     return prefix + path;
+            // },
             preRun: [],
             // canvas: canvas,
             onRuntimeInitialized: function() {
@@ -176,6 +148,10 @@ class WasmLoader extends HTMLElement {
                 window.Module.setLocation =   window.Module.cwrap('setLocation', 'void', ['number', 'number']);
                 window.Module.setLocalTime =    window.Module.cwrap('setLocalTime', 'void', [ 'number', 'number', 'number', 'number', 'number']);
                 window.Module.setUTCTime =    window.Module.cwrap('setUTCTime', 'void', [ 'number', 'number', 'number', 'number', 'number']);
+                window.Module.setNow =         window.Module.cwrap('setNow', 'void', ['number']);
+                window.Module.setUi =          window.Module.cwrap('setUi', 'void', ['number']);
+                window.Module.setDegrees =     window.Module.cwrap('setDegrees', 'void', ['number']);
+                window.Module.setHorizon =     window.Module.cwrap('setHorizon', 'void', ['number']);
                 window.module_loaded = true;
 
                 navigator.geolocation.getCurrentPosition((position) => {
@@ -192,6 +168,43 @@ class WasmLoader extends HTMLElement {
 
             printErr: function(text) {
                 console.error('WASM Error:', text);
+            },
+
+            // WebGL context creation with explicit color space settings
+            preinitializedWebGLContext: null,
+            
+            // Override context creation to enforce sRGB color space
+            createContext: function(canvas, useWebGL, setInModule, webGLContextAttributes) {
+                // Force sRGB color space attributes for consistent rendering across devices
+                const contextAttributes = {
+                    ...webGLContextAttributes,
+                    // Explicitly request sRGB framebuffer for consistent color across devices
+                    alpha: true,
+                    depth: true,
+                    stencil: false,
+                    antialias: false,
+                    premultipliedAlpha: true,
+                    preserveDrawingBuffer: false,
+                    powerPreference: "default",
+                    failIfMajorPerformanceCaveat: false,
+                    majorVersion: 2,
+                    minorVersion: 0,
+                    enableExtensionsByDefault: true,
+                };
+                
+                let ctx = canvas.getContext('webgl2', contextAttributes);
+                if (!ctx) {
+                    ctx = canvas.getContext('webgl', contextAttributes);
+                }
+                
+                if (ctx && ctx.canvas) {
+                    // Explicitly set drawing buffer color space to sRGB
+                    if (ctx.drawingBufferColorSpace !== undefined) {
+                        ctx.drawingBufferColorSpace = 'srgb';
+                    }
+                }
+                
+                return ctx;
             },
 
             // canvas: canvas,
@@ -259,10 +272,9 @@ class WasmLoader extends HTMLElement {
             }
         };
   
-        // Load WASM script — path is relative to the current page URL,
-        // so prefix with basepath when embedding from a parent page.
+        // Load WASM script
         const script = document.createElement('script');
-        script.src = basepath + 'astros.js';
+        script.src = 'astros.js';
         script.async = true;
         document.body.appendChild(script);
     }
@@ -271,9 +283,6 @@ class WasmLoader extends HTMLElement {
         // Clean up resize handler
         if (this._resizeHandler) {
             window.removeEventListener('resize', this._resizeHandler);
-        }
-        if (this._thumbnailResizeHandler) {
-            window.removeEventListener('resize', this._thumbnailResizeHandler);
         }
     }
 }

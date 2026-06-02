@@ -1,0 +1,1 @@
+50 cards pairing visual archetypes with their shader code, ordered from simplest to most complex, building a library of functions that compose like spells into an infinite visual language.

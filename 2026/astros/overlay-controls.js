@@ -92,6 +92,34 @@ class OverlayControls extends HTMLElement {
                     </div>
                 </div>
   
+                <div class="display_group">
+                    <h3>Display</h3>
+
+                    <div class="form-group toggle-group">
+                        <label for="toggle_ui">UI Labels</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle_ui" name="toggle_ui" />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="form-group toggle-group">
+                        <label for="toggle_degrees">Degrees</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle_degrees" name="toggle_degrees" />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+
+                    <div class="form-group toggle-group">
+                        <label for="toggle_horizon">Horizon</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="toggle_horizon" name="toggle_horizon" />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
                 <button type="submit" class="submit-button">Apply Settings</button>
             </form>
         `;
@@ -154,6 +182,18 @@ class OverlayControls extends HTMLElement {
                         window.Module.setUTCTime(utc_year, utc_month, utc_day, utc_hr, utc_min);
                     }
                     break;
+
+                case 'toggle_ui':
+                    window.Module.setUi(field.checked ? 1 : 0);
+                    break;
+
+                case 'toggle_degrees':
+                    window.Module.setDegrees(field.checked ? 1 : 0);
+                    break;
+
+                case 'toggle_horizon':
+                    window.Module.setHorizon(field.checked ? 1 : 0);
+                    break;
             }
         }
 
@@ -186,6 +226,11 @@ class OverlayControls extends HTMLElement {
                 params.set('lat', formData.get('lat'));
                 params.set('lng', formData.get('lng'));
             }
+
+            // Add display toggle params
+            params.set('ui', formData.get('toggle_ui') ? '1' : '0');
+            params.set('degrees', formData.get('toggle_degrees') ? '1' : '0');
+            params.set('horizon', formData.get('toggle_horizon') ? '1' : '0');
 
             // Add local time params
             params.set('local_year', formData.get('local_year'));
@@ -297,6 +342,23 @@ class OverlayControls extends HTMLElement {
             this.settingsPanel.querySelector('#utc_min').value = utc_min;
             
             window.Module.setUTCTime(utc_year, utc_month, utc_day, utc_hr, utc_min);
+        }
+
+        // Load display toggles from URL params
+        if (params.has('ui')) {
+            const val = params.get('ui') === '1';
+            this.settingsPanel.querySelector('#toggle_ui').checked = val;
+            window.Module.setUi(val ? 1 : 0);
+        }
+        if (params.has('degrees')) {
+            const val = params.get('degrees') === '1';
+            this.settingsPanel.querySelector('#toggle_degrees').checked = val;
+            window.Module.setDegrees(val ? 1 : 0);
+        }
+        if (params.has('horizon')) {
+            const val = params.get('horizon') === '1';
+            this.settingsPanel.querySelector('#toggle_horizon').checked = val;
+            window.Module.setHorizon(val ? 1 : 0);
         }
 
         // Initialize city autocomplete
@@ -652,6 +714,69 @@ a {
 
 .autocomplete-suggestion:hover {
     background: rgba(255, 255, 255, 0.1);
+}
+
+.display_group {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(36, 67, 79, 0.88);
+    border-radius: 8px;
+}
+
+.display_group h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.toggle-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 24px;
+    transition: background-color 0.2s;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background-color: #4CAF50;
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+    transform: translateX(20px);
 }
 `;
   

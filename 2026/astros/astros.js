@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmpfn9snsp_.js
+// include: /tmp/tmpn_iymrb7.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -202,25 +202,25 @@ Module['FS_createPath']("/", "ttf", true, true);
     }
 
     }
-    loadPackage({"files": [{"filename": "/png/gold_matcap_001.jpg", "start": 0, "end": 75605}, {"filename": "/png/noise_blue.png", "start": 75605, "end": 466642}, {"filename": "/shaders/background.frag", "start": 466642, "end": 468559}, {"filename": "/shaders/flood_decoding.frag", "start": 468559, "end": 468985}, {"filename": "/shaders/matcap_font.frag", "start": 468985, "end": 471183}, {"filename": "/shaders/matcap_lines.frag", "start": 471183, "end": 472556}, {"filename": "/shaders/postprocessing.frag", "start": 472556, "end": 473802}, {"filename": "/shaders/raymarching.frag", "start": 473802, "end": 477415}, {"filename": "/shaders/stars.frag", "start": 477415, "end": 477922}, {"filename": "/shaders/stars.vert", "start": 477922, "end": 478262}, {"filename": "/ttf/astronomicon.ttf", "start": 478262, "end": 509826}, {"filename": "/ttf/roboto-thin.ttf", "start": 509826, "end": 632338}, {"filename": "/ttf/roboto.ttf", "start": 632338, "end": 790942}], "remote_package_size": 790942});
+    loadPackage({"files": [{"filename": "/png/gold_matcap_001.jpg", "start": 0, "end": 75605}, {"filename": "/png/noise_blue.png", "start": 75605, "end": 466642}, {"filename": "/shaders/background.frag", "start": 466642, "end": 468559}, {"filename": "/shaders/flood_decoding.frag", "start": 468559, "end": 468985}, {"filename": "/shaders/matcap_font.frag", "start": 468985, "end": 471183}, {"filename": "/shaders/matcap_lines.frag", "start": 471183, "end": 472556}, {"filename": "/shaders/postprocessing.frag", "start": 472556, "end": 473802}, {"filename": "/shaders/raymarching.frag", "start": 473802, "end": 477415}, {"filename": "/shaders/stars.frag", "start": 477415, "end": 477922}, {"filename": "/shaders/stars.vert", "start": 477922, "end": 478262}, {"filename": "/ttf/astronomicon.ttf", "start": 478262, "end": 509826}, {"filename": "/ttf/roboto.ttf", "start": 509826, "end": 668430}], "remote_package_size": 668430});
 
   })();
 
-// end include: /tmp/tmpfn9snsp_.js
-// include: /tmp/tmpn7pe2x0s.js
+// end include: /tmp/tmpn_iymrb7.js
+// include: /tmp/tmpp94_5apo.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmpn7pe2x0s.js
-// include: /tmp/tmpu4qq28mp.js
+  // end include: /tmp/tmpp94_5apo.js
+// include: /tmp/tmp1jfsb6wl.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmpu4qq28mp.js
+  // end include: /tmp/tmp1jfsb6wl.js
 
 
 var arguments_ = [];
@@ -9638,6 +9638,10 @@ var _setUTCTime = Module['_setUTCTime'] = makeInvalidEarlyAccess('_setUTCTime');
 var _startExportHighRes = Module['_startExportHighRes'] = makeInvalidEarlyAccess('_startExportHighRes');
 var _freePixels = Module['_freePixels'] = makeInvalidEarlyAccess('_freePixels');
 var _free = Module['_free'] = makeInvalidEarlyAccess('_free');
+var _setNow = Module['_setNow'] = makeInvalidEarlyAccess('_setNow');
+var _setUi = Module['_setUi'] = makeInvalidEarlyAccess('_setUi');
+var _setDegrees = Module['_setDegrees'] = makeInvalidEarlyAccess('_setDegrees');
+var _setHorizon = Module['_setHorizon'] = makeInvalidEarlyAccess('_setHorizon');
 var _main = Module['_main'] = makeInvalidEarlyAccess('_main');
 var _malloc = Module['_malloc'] = makeInvalidEarlyAccess('_malloc');
 var _fflush = makeInvalidEarlyAccess('_fflush');
@@ -9662,6 +9666,10 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['startExportHighRes'] != 'undefined', 'missing Wasm export: startExportHighRes');
   assert(typeof wasmExports['freePixels'] != 'undefined', 'missing Wasm export: freePixels');
   assert(typeof wasmExports['free'] != 'undefined', 'missing Wasm export: free');
+  assert(typeof wasmExports['setNow'] != 'undefined', 'missing Wasm export: setNow');
+  assert(typeof wasmExports['setUi'] != 'undefined', 'missing Wasm export: setUi');
+  assert(typeof wasmExports['setDegrees'] != 'undefined', 'missing Wasm export: setDegrees');
+  assert(typeof wasmExports['setHorizon'] != 'undefined', 'missing Wasm export: setHorizon');
   assert(typeof wasmExports['__main_argc_argv'] != 'undefined', 'missing Wasm export: __main_argc_argv');
   assert(typeof wasmExports['malloc'] != 'undefined', 'missing Wasm export: malloc');
   assert(typeof wasmExports['fflush'] != 'undefined', 'missing Wasm export: fflush');
@@ -9682,6 +9690,10 @@ function assignWasmExports(wasmExports) {
   _startExportHighRes = Module['_startExportHighRes'] = createExportWrapper('startExportHighRes', 3);
   _freePixels = Module['_freePixels'] = createExportWrapper('freePixels', 1);
   _free = Module['_free'] = createExportWrapper('free', 1);
+  _setNow = Module['_setNow'] = createExportWrapper('setNow', 1);
+  _setUi = Module['_setUi'] = createExportWrapper('setUi', 1);
+  _setDegrees = Module['_setDegrees'] = createExportWrapper('setDegrees', 1);
+  _setHorizon = Module['_setHorizon'] = createExportWrapper('setHorizon', 1);
   _main = Module['_main'] = createExportWrapper('__main_argc_argv', 2);
   _malloc = Module['_malloc'] = createExportWrapper('malloc', 1);
   _fflush = createExportWrapper('fflush', 1);
