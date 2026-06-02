@@ -46,6 +46,19 @@ $projects = [
         // 'width' => 516,
         // 'height'=> 810,
     ],
+    [
+        'path'         => '2023/blink',
+        'type'         => 'wasm',
+        'width' => 320,
+        'height'=> 540,
+    ],
+    [
+        'path'         => '2021/fen',
+        'type'         => 'wasm',
+        'width' => 320,
+        'height'=> 540,
+    ],
+
     // [
     //     'path'         => '2025/hybrids',
     //     'type'         => 'gallery',
@@ -78,6 +91,26 @@ $projects = [
         'height'=> 540,
     ],
 
+    [
+        'path'         => '2017/pixelspirit',
+        'type'         => 'big_thumbnail',
+        'width' => 320,
+        'height'=> 540,
+    ],
+
+    [
+        'path'         => '2017/guayupia',
+        'type'         => 'big_thumbnail',
+        'width' => 320,
+        'height'=> 540,
+    ],
+
+    [
+        'path'         => '2011/efectomariposa',
+        'type'         => 'big_thumbnail',
+        'width' => 480,
+        'height'=> 320,
+    ],
 ];
 
 set_random_og_image($projects);
