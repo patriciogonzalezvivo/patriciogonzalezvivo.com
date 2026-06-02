@@ -46,18 +46,6 @@ $projects = [
         // 'width' => 516,
         // 'height'=> 810,
     ],
-    [
-        'path'         => '2023/blink',
-        'type'         => 'wasm',
-        'width' => 320,
-        'height'=> 540,
-    ],
-    [
-        'path'         => '2021/fen',
-        'type'         => 'wasm',
-        'width' => 320,
-        'height'=> 540,
-    ],
 
     // [
     //     'path'         => '2025/hybrids',
@@ -65,24 +53,26 @@ $projects = [
     //     'images_dir'   => '2025/hybrids/images',
     //     'pattern'      => '_DSF*.{jpg,jpeg,png,gif}',
     // ],
+
+    // [
+    //     'path'         => '2023/blink',
+    //     'type'         => 'wasm',
+    // ],
+
+    // [
+    //     'path'         => '2021/fen',
+    //     'type'         => 'wasm',
+    // ],
+
     // [
     //     'path'         => '2021/memory',
     //     'type'         => 'big_thumbnail',
     //     'type'         => 'wasm',
-    //     'width' => 420,
-    //     'height'=> 640,
     // ],
-    // [
-    //     'path'         => '2021/fen',
-    //     'type'         => 'big_thumbnail',
-    //     'width' => 320,
-    //     'height'=> 540,
-    // ],
+
     // [
     //     'path'         => '2018/estrellas',
-    //     'type'         => 'big_thumbnail',
-    //     'width' => 320,
-    //     'height'=> 540,
+    //     'type'         => 'wasm',
     // ],
     [
         'path'         => '2017/luna',
@@ -103,6 +93,13 @@ $projects = [
         'type'         => 'big_thumbnail',
         'width' => 320,
         'height'=> 540,
+    ],
+
+     [
+        'path'         => '2014/skylines',
+        'type'         => 'big_thumbnail',
+        'width' => 480,
+        'height'=> 320,
     ],
 
     [
@@ -213,7 +210,7 @@ include("server/menu.php");
     </div><!-- end flex row -->
 
     <div style="text-align: center; margin: 2em 0;">
-        <a href="works.php" class="archive-btn">More Projects</a>
+        <a href="works.php" class="archive-btn">All Projects</a>
     </div>
 
 <?php include("server/footer.php"); ?>
