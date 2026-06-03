@@ -386,6 +386,268 @@ footer {
     text-align: center;
 }
 
+/* ============================================================
+   FEATURED RAIL — desktop: horizontal snap scroll (natural widths)
+                   mobile:  vertical stack
+   ============================================================ */
+
+.rail-wrapper {
+    position: relative;
+}
+
+.rail-arrow {
+    position: absolute;
+    top: calc(3em + min(31vh, 280px));
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    width: 44px;
+    height: 60px;
+    font-size: 2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+    transition: background 0.3s ease, opacity 0.3s ease;
+    padding: 0;
+}
+
+.rail-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+}
+
+.rail-arrow:disabled {
+    opacity: 0.15;
+    cursor: default;
+    pointer-events: none;
+}
+
+.rail-arrow--prev { left: 20px; border-radius: 0 4px 4px 0; }
+.rail-arrow--next { right: 20px; border-radius: 4px 0 0 4px; }
+
+.rail-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 1.25em 0 0.5em;
+}
+
+.rail-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ccc;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.rail-dot.is-active {
+    background: #333;
+    transform: scale(1.5);
+}
+
+/* dots inside fullscreen gallery modal */
+.gallery-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    max-width: 80%;
+    z-index: 1002;
+}
+
+.gallery-dots .rail-dot {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.gallery-dots .rail-dot.is-active {
+    background: white;
+}
+
+@media (max-width: 768px) {
+    .rail-arrow { display: none; }
+}
+
+.featured-rail {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    align-items: flex-start;
+    padding: 3em 5vw 3em;
+    scroll-padding-left: 5vw;
+    gap: 5vw;
+    scrollbar-width: none;
+}
+
+.featured-rail::-webkit-scrollbar {
+    display: none;
+}
+
+.featured-rail .item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin: 0;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none;
+    max-width: 90vw;
+}
+
+/* image area: tall fixed height, width follows aspect ratio */
+.featured-rail .item-image {
+    flex: none;
+    height: min(62vh, 560px);
+    overflow: hidden;
+    filter: none !important;
+}
+
+.featured-rail .item-image a {
+    display: block;
+    height: 100%;
+}
+
+.featured-rail .item-image img,
+.featured-rail .item-image video {
+    height: 100% !important;
+    width: auto !important;
+    max-width: none !important;
+    display: block;
+}
+
+.featured-rail .item-image iframe {
+    height: 100% !important;
+    width: auto !important;
+    transform: none !important;
+    display: block;
+    border: none;
+    aspect-ratio: 9 / 16;
+}
+
+/* slideSet: let it fill the fixed height */
+.featured-rail .slideSet {
+    height: 100% !important;
+    width: auto !important;
+    aspect-ratio: 3 / 4;
+    min-height: unset !important;
+    z-index: 0 !important;
+}
+
+.featured-rail .slideSet .photo {
+    height: 100% !important;
+    width: auto !important;
+    object-fit: cover !important;
+}
+
+/* info panel below the image */
+.featured-rail .item-info {
+    flex: none;
+    width: auto;
+    padding: 0;
+    display: block;
+    text-align: left;
+    background: transparent;
+    border: none;
+}
+
+.featured-rail .item-info a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.featured-rail .item-title {
+    display: block !important;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #222;
+    line-height: 1.2;
+}
+
+.featured-rail .item-year {
+    display: inline !important;
+    font-size: 0.9em;
+    color: #888;
+}
+
+.featured-rail .item-year::after {
+    content: "" !important;
+}
+
+.featured-rail .item-medium {
+    display: block !important;
+    margin-top: 0.15em;
+    font-size: 0.85em;
+    color: #888;
+    line-height: 1.4;
+}
+
+.featured-rail .item-medium::after {
+    content: "" !important;
+}
+
+.featured-rail .item-dimensions {
+    display: block !important;
+    font-size: 0.8em;
+    color: #aaa;
+}
+
+/* Mobile — vertical stack */
+@media (max-width: 768px) {
+    .featured-rail {
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: visible;
+        height: auto;
+        scroll-snap-type: none;
+        padding: 1.5em 1em;
+        gap: 3em;
+        align-items: stretch;
+    }
+
+    .featured-rail .item {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        scroll-snap-align: none;
+    }
+
+    .featured-rail .item-image {
+        height: auto;
+        width: 100%;
+    }
+
+    .featured-rail .item-image img,
+    .featured-rail .item-image video {
+        height: auto !important;
+        width: 100% !important;
+    }
+
+    .featured-rail .slideSet {
+        width: 100% !important;
+        aspect-ratio: 3 / 4;
+        height: auto !important;
+    }
+
+    .featured-rail .item-info {
+        padding: 0 0.25em;
+    }
+}
+
 
 @media (min-width: 480px) {
     #longer-info .item {

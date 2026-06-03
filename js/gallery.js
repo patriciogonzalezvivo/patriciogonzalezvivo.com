@@ -13,9 +13,27 @@ let currentIndex = 0;
 if (!modal || !modalImg) {
 	console.log('Gallery modal not found on this page');
 } else {
-	
+
 // Current view state ('main', 'detail', or 'installation')
 let currentView = 'main';
+
+// Dots
+const galleryDotsContainer = modal.querySelector('.gallery-dots');
+let galleryDots = [];
+if (galleryDotsContainer && portraitItems.length > 0) {
+	galleryDots = Array.from(portraitItems).map((_, i) => {
+		const dot = document.createElement('button');
+		dot.className = 'rail-dot';
+		dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+		dot.addEventListener('click', (e) => { e.stopPropagation(); showImage(i, currentView); });
+		galleryDotsContainer.appendChild(dot);
+		return dot;
+	});
+}
+
+function updateGalleryDots(index) {
+	galleryDots.forEach((d, i) => d.classList.toggle('is-active', i === index));
+}
 
 // Function to display an image in fullscreen
 function showImage(index, view = 'main') {
@@ -41,6 +59,7 @@ function showImage(index, view = 'main') {
 	modalImg.src = imageSrc;
 	modal.style.display = 'flex';
 	currentIndex = index;
+	updateGalleryDots(index);
 
 	// Update URL hash to allow direct linking
 	const itemId = portraitItem.getAttribute('data-id');

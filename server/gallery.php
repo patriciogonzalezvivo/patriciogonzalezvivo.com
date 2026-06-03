@@ -308,6 +308,7 @@ function render_gallery_modal() {
         <button class="view-button" data-view="detail" style="display:none;">Detail</button>
         <button class="view-button" data-view="installation" style="display:none;">Installation</button>
     </div>
+    <div class="gallery-dots"></div>
 </div>
 
 HTML;

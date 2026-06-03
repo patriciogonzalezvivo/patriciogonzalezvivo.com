@@ -24,11 +24,6 @@ $projects = [
     // [
     //     'path'         => '2026/astros',
     //     'type'         => 'big_thumbnail',
-    //     'width' => 320,
-    //     'height'=> 540,
-    //     // 'type'         => 'wasm',
-    //     // 'width' => 516,
-    //     // 'height'=> 810,
     // ],
     [
         'path'         => '2026/santos',
@@ -36,15 +31,10 @@ $projects = [
         'images_dir'   => '2026/santos/images/thumbnails',
         'pattern'      => 'DSF*.{jpg,jpeg,png,gif}',
     ],
-    
+
     [
         'path'         => '2026/weaver2',
         'type'         => 'big_thumbnail',
-        'width' => 320,
-        'height'=> 540,
-        // 'type'         => 'wasm',
-        // 'width' => 516,
-        // 'height'=> 810,
     ],
 
     // [
@@ -66,7 +56,6 @@ $projects = [
 
     // [
     //     'path'         => '2021/memory',
-    //     'type'         => 'big_thumbnail',
     //     'type'         => 'wasm',
     // ],
 
@@ -77,36 +66,26 @@ $projects = [
     [
         'path'         => '2017/luna',
         'type'         => 'big_thumbnail',
-        'width' => 320,
-        'height'=> 540,
     ],
 
     [
         'path'         => '2017/pixelspirit',
         'type'         => 'big_thumbnail',
-        'width' => 320,
-        'height'=> 540,
     ],
 
     [
         'path'         => '2017/guayupia',
         'type'         => 'big_thumbnail',
-        'width' => 320,
-        'height'=> 540,
     ],
 
-     [
+    [
         'path'         => '2014/skylines',
         'type'         => 'big_thumbnail',
-        'width' => 480,
-        'height'=> 320,
     ],
 
     [
         'path'         => '2011/efectomariposa',
         'type'         => 'big_thumbnail',
-        'width' => 480,
-        'height'=> 320,
     ],
 ];
 
@@ -116,7 +95,7 @@ include("server/header.php");
 include("server/menu.php");
 ?>
 
-    <div style="display: flex; flex-wrap: wrap; gap: 2em; justify-content: center; align-items: flex-start; padding: 2em 0;">
+    <div class="featured-rail">
 
     <?php foreach ($projects as $project):
         $meta  = get_project_meta($project['path']);
@@ -125,7 +104,7 @@ include("server/menu.php");
         $slug  = str_replace('/', '-', $project['path']);
     ?>
         <article class="item is-active">
-            <div class="item-image" style="filter: drop-shadow(10px 10px 10px #777);">
+            <div class="item-image">
 
                 <?php if ($type === 'wasm'):
                     $iw = $project['width']  ?? 516;
@@ -146,7 +125,6 @@ include("server/menu.php");
                         'class'     => 'slideSet photo',
                         'images_dir'=> $project['images_dir'],
                         'pattern'   => $project['pattern'] ?? '*.{jpg,jpeg,png,gif}',
-                        'div_style' => 'width: 400px;',
                     ]); ?>
                     </a>
 
@@ -212,5 +190,100 @@ include("server/menu.php");
     <div style="text-align: center; margin: 2em 0;">
         <a href="works.php" class="archive-btn">All Projects</a>
     </div>
+
+<script>
+(function () {
+    var rail = document.querySelector('.featured-rail');
+    if (!rail) return;
+
+    var items = Array.from(rail.querySelectorAll(':scope > .item'));
+    if (items.length === 0) return;
+
+    var current = 0;
+    var locked  = false;
+
+    function goTo(index) {
+        index = Math.max(0, Math.min(index, items.length - 1));
+        current = index;
+        var scrollPad = parseFloat(getComputedStyle(rail).scrollPaddingLeft) || 0;
+        var target = rail.scrollLeft
+                   + items[index].getBoundingClientRect().left
+                   - rail.getBoundingClientRect().left
+                   - scrollPad;
+        rail.scrollTo({ left: target, behavior: 'smooth' });
+        updateUI();
+    }
+
+    function updateUI() {
+        dots.forEach(function (d, i) { d.classList.toggle('is-active', i === current); });
+        prevBtn.disabled = (current === 0);
+        nextBtn.disabled = (current === items.length - 1);
+    }
+
+    /* wheel: snap one item per tick */
+    rail.addEventListener('wheel', function (e) {
+        if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
+            e.preventDefault();
+            if (!locked) {
+                locked = true;
+                goTo(current + (e.deltaY > 0 ? 1 : -1));
+                setTimeout(function () { locked = false; }, 550);
+            }
+        }
+    }, { passive: false });
+
+    /* track current item during touch/trackpad free-scroll;
+       guard prevents IntersectionObserver from firing wrong index
+       before images have loaded and items have their proper widths */
+    var observerReady = false;
+    setTimeout(function () { observerReady = true; }, 600);
+
+    var observer = new IntersectionObserver(function (entries) {
+        if (!observerReady) return;
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+                current = items.indexOf(entry.target);
+                updateUI();
+            }
+        });
+    }, { root: rail, threshold: 0.5 });
+    items.forEach(function (item) { observer.observe(item); });
+
+    /* wrap rail so arrows/dots can be positioned relative to it */
+    var wrapper = document.createElement('div');
+    wrapper.className = 'rail-wrapper';
+    rail.parentNode.insertBefore(wrapper, rail);
+    wrapper.appendChild(rail);
+
+    /* arrows */
+    function makeArrow(dir) {
+        var btn = document.createElement('button');
+        btn.className = 'rail-arrow rail-arrow--' + dir;
+        btn.innerHTML = dir === 'prev' ? '&#8249;' : '&#8250;';
+        btn.setAttribute('aria-label', dir === 'prev' ? 'Previous project' : 'Next project');
+        btn.addEventListener('click', function () { goTo(current + (dir === 'prev' ? -1 : 1)); });
+        wrapper.appendChild(btn);
+        return btn;
+    }
+    var prevBtn = makeArrow('prev');
+    var nextBtn = makeArrow('next');
+
+    /* dots */
+    var dotsEl = document.createElement('div');
+    dotsEl.className = 'rail-dots';
+    wrapper.appendChild(dotsEl);
+
+    var dots = items.map(function (_, i) {
+        var d = document.createElement('button');
+        d.className = 'rail-dot';
+        d.setAttribute('aria-label', 'Go to project ' + (i + 1));
+        d.addEventListener('click', function () { goTo(i); });
+        dotsEl.appendChild(d);
+        return d;
+    });
+
+    updateUI();
+})();
+</script>
 
 <?php include("server/footer.php"); ?>
