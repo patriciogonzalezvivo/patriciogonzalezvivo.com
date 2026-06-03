@@ -32,6 +32,9 @@
                 include("../../server/ParsedownExtended.php");
                 $Parsedown = new ParsedownExtended();
                 echo $Parsedown->text(file_get_contents('README.md'));
+
+                echo '<h2>Research Notes</h2>';
+                echo $Parsedown->text(file_get_contents('NOTES.md'));
             ?>
             <h2>Related Works</h2>
             <?php

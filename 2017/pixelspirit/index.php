@@ -11,8 +11,8 @@
 
     <article class="item">
         <div class="item-image" style="width: 25%;">
+            <img src="imgs/mayor_arcana.png" alt="<?php echo htmlspecialchars($meta['title'] ?? ''); ?>" />
             
-            <?php include("../../server/slideSet.php"); echo slideset('images', 'width: 100%;'); ?>
         </div>
         <div class="item-info">
             <span class="item-title"><?php echo htmlspecialchars($meta['title'] ?? ''); ?></span>
@@ -32,6 +32,8 @@
             $Parsedown = new ParsedownExtended();
             echo $Parsedown->text(file_get_contents('README.md'));
         ?>
+
+        <?php include("../../server/slideSet.php"); echo slideset('images', 'width: 100%;'); ?>
 
         <h2>Related Works</h2>
         <?php

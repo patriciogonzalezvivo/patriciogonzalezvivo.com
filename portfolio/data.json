@@ -28,6 +28,14 @@
         "2018/estrellas",
         "2017/luna"
       ]
+    },
+    {
+      "path": "2017/pixelspirit",
+      "images_per_page": 2
+    },
+    {
+      "path": "2011/efectomariposa",
+      "images_per_page": 2
     }
   ]
 }
