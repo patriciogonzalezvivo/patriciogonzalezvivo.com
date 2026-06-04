@@ -71,7 +71,7 @@
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   color: #bebebe;
   text-decoration: none;
   text-align: justify;
@@ -143,7 +143,7 @@ body {
     width: 575px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 200;
-    font-size: 1.0rem;
+    font-size: 1.2rem;
     text-align: right;
     color: #bebebe; }
   .content a {

@@ -56,11 +56,13 @@ def build_bio_block(artist: Dict, base_path: Path, base_url: str = '') -> str:
     if not bio_text:
         return ''
 
+    logo_file = artist.get('logo', 'images/logo-gray.png')
     logo_tex = (
-        "\\vspace{3em}\n"
+        "\\ifdim\\dimexpr\\pagegoal-\\pagetotal\\relax > 3.5cm\n"
         "\\begin{center}\n"
-        "\\includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}\n"
+        f"\\includegraphics[height=2cm,keepaspectratio]{{{logo_file}}}\n"
         "\\end{center}\n"
+        "\\fi\n"
     )
 
     avatar_file = artist.get('avatar_file', '')
@@ -105,12 +107,22 @@ def build_artist_statement(artist: Dict, base_path: Path) -> str:
     if not content.strip():
         return ''
 
+    logo_file = artist.get('logo', 'images/logo-gray.png')
+    logo_tex = (
+        "\\ifdim\\dimexpr\\pagegoal-\\pagetotal\\relax > 3.5cm\n"
+        "\\begin{center}\n"
+        f"\\includegraphics[height=2cm,keepaspectratio]{{{logo_file}}}\n"
+        "\\end{center}\n"
+        "\\fi\n"
+    )
+
     return (
         "\\clearpage\n\n"
         "\\markright{Artist Statement}\n\n"
         "\\section*{Artist Statement}\n\n"
         + content
-        + "\n\n\\clearpage"
+        + "\n\n" + logo_tex
+        + "\n\\clearpage"
     )
 
 

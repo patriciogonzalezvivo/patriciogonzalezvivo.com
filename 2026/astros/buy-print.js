@@ -384,7 +384,7 @@ var BUY_PRINT_CSS = [
 '.status { padding: 10px; border-radius: 6px; font-size: 0.85rem; margin-bottom: 12px; background: rgba(76,175,80,0.15); border: 1px solid rgba(76,175,80,0.4); color: #a5d6a7; line-height: 1.4; }',
 '.status.error { background: rgba(244,67,54,0.15); border-color: rgba(244,67,54,0.4); color: #ef9a9a; }',
 '.status.hidden { display: none; }',
-'.primary-button { width: 100%; padding: 14px; background: #4CAF50; color: white; border: none; border-radius: 6px; font-size: 1rem; font-family: inherit; cursor: pointer; transition: background 0.2s; }',
+'.primary-button { width: 100%; padding: 14px; background: #4CAF50; color: white; border: none; border-radius: 6px; font-size: 1.2rem; font-family: inherit; cursor: pointer; transition: background 0.2s; }',
 '.primary-button:hover:not(:disabled) { background: #45a049; }',
 '.primary-button:disabled { opacity: 0.6; cursor: wait; }',
 '.secondary-button { width: 100%; padding: 10px; margin-top: 8px; background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; font-size: 0.85rem; font-family: inherit; cursor: pointer; transition: background 0.2s, color 0.2s; }',

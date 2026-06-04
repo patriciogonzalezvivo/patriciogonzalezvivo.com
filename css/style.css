@@ -1,7 +1,7 @@
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
-    font-size: 1.0rem;
+    font-size: 1.2rem;
     text-align: justify;
     color: #666666;
     text-decoration: none;
@@ -325,7 +325,7 @@ body.windowed-mode #longer-info {
 .cita {
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 200;
-    font-size: 1.0rem;
+    font-size: 1.2rem;
     text-align: right;
     color: #666666;
     max-width: 100%;

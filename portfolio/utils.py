@@ -95,6 +95,11 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
     size_pdf   Same as ``size`` but applies only to the PDF (LaTeX) output;
                overrides ``size`` when both are present.  Ignored by the
                website (PHP) renderer.
+    margin     Gap between the float box and the surrounding text column,
+               as a length with a CSS-like unit (e.g. ``0.5cm``, ``8pt``,
+               ``1em``).  Defaults to LaTeX's current ``\columnsep``.
+    margin_pdf Same as ``margin`` but applies only to the PDF output;
+               overrides ``margin`` when both are present.
     =========  =============================================================
     """
     params: dict = {}
@@ -109,9 +114,11 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
     medium  = params.get('medium', '')
     caption = params.get('caption', '')
     link    = params.get('link', '')
-    width_s = params.get('width', '40%')
+    width_s  = params.get('width', '40%')
     # size_pdf overrides size for PDF output; size is used by both PDF and web.
-    size_s  = params.get('size_pdf') or params.get('size', '100%')
+    size_s   = params.get('size_pdf') or params.get('size', '100%')
+    # margin_pdf overrides margin for PDF output.
+    margin_s = params.get('margin_pdf') or params.get('margin', '')
 
     if not src:
         return ''
@@ -135,15 +142,30 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
     size_frac  = max(0.05, min(1.0, size_frac))
 
     pos = 'r' if side[0].lower() == 'r' else 'l'
-    img_width = f'{size_frac:.2f}\\linewidth'
+    # Scale the box width to match the actual image size so the gap between
+    # the image and the surrounding text stays tight regardless of scale.
+    box_frac  = width_frac * size_frac
+    img_width = '\\linewidth'
     img = f'\\includegraphics[width={img_width},keepaspectratio]{{{src}}}'
     if link:
         img = f'\\href{{{link}}}{{{img}}}'
 
-    latex  = f'\\begin{{wrapfigure}}{{{pos}}}{{{width_frac:.2f}\\textwidth}}\n'
+    if margin_s:
+        # Add the margin as an hspace on the text-facing side of the image,
+        # and widen the box to match. This is more reliable than \columnsep
+        # (which wrapfig reads at \everypar, after any restore would fire).
+        # right → space goes left (between text and right-side image)
+        # left  → space goes right (between left-side image and text)
+        box_width = f'\\dimexpr {box_frac:.2f}\\textwidth + {margin_s}\\relax'
+        if pos == 'r':
+            img = f'\\hspace{{{margin_s}}}' + img
+        else:
+            img = img + f'\\hspace{{{margin_s}}}'
+    else:
+        box_width = f'{box_frac:.2f}\\textwidth'
+
+    latex  = f'\\begin{{wrapfigure}}{{{pos}}}{{{box_width}}}\n'
     latex += '\\vspace{-\\intextsep}\n'
-    if size_frac < 1.0:
-        latex += '\\centering\n'
     latex += img + '\n'
 
     # Build structured caption lines matching the gallery artwork style.
@@ -165,7 +187,7 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
 
     if caption_lines:
         align_cmd = '\\raggedleft' if pos == 'r' else '\\raggedright'
-        latex += '\\par\\vspace{0.4em}\n'
+        latex += '\\par\\vspace{0.1em}\n'
         latex += '{\\small ' + align_cmd + '\n'
         latex += ' \\\\\n'.join(caption_lines) + '\n'
         latex += '\\par}\n'

@@ -1182,7 +1182,7 @@ a {
     width: 97%;
     padding: 4px;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     -webkit-tap-highlight-color: transparent;
 
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1243,7 +1243,7 @@ a {
     color: white;
     border: none;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
     margin-top: 20px;
     transition: background-color 0.3s;
@@ -1297,7 +1297,7 @@ a {
 
 .info-content p {
     margin-bottom: 20px;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 .info-images {
