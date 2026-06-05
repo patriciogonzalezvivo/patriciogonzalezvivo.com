@@ -203,6 +203,10 @@ p {
 .cards > div {
     flex: 1; /*grow*/
 }
+/* PDF-only static rows: hidden on the website, visible to Chrome during PDF rendering */
+.cards-pdf {
+    display: none !important;
+}
 
 /* entire container, keeps perspective */
 .flip-container {

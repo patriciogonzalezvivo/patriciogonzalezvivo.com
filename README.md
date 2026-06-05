@@ -6,8 +6,8 @@ title: Efecto Mariposa
 year: 2011
 caption: FILE Festival, São Paulo
 link: ./2011/efectomariposa/
-size_pdf: 80%
-margin_pdf: 3.5cm
+size_pdf: 70%
+margin_pdf: 1cm
 :::
 
 Originally trained in clinical psychology and expressive arts therapy, González Vivo's early installations in Buenos Aires explored how collective gesture creates shared meaning. [Efecto Mariposa (2011)](2011/efectomariposa/), built on volcanic ash from the Puyehue eruption, made ecological consequence palpable at the scale of a visitor's hand: participants reshaping a simulated landscape and watching life slowly return to what they had disturbed. That work became his first international exhibition, at FILE Festival São Paulo.

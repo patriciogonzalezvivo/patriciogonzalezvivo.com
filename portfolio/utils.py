@@ -144,25 +144,27 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
     pos = 'r' if side[0].lower() == 'r' else 'l'
     # Scale the box width to match the actual image size so the gap between
     # the image and the surrounding text stays tight regardless of scale.
-    box_frac  = width_frac * size_frac
-    img_width = '\\linewidth'
-    img = f'\\includegraphics[width={img_width},keepaspectratio]{{{src}}}'
-    if link:
-        img = f'\\href{{{link}}}{{{img}}}'
+    box_frac = width_frac * size_frac
 
     if margin_s:
-        # Add the margin as an hspace on the text-facing side of the image,
-        # and widen the box to match. This is more reliable than \columnsep
-        # (which wrapfig reads at \everypar, after any restore would fire).
-        # right → space goes left (between text and right-side image)
-        # left  → space goes right (between left-side image and text)
+        # Widen the box by the margin so the extra gap comes from the box
+        # itself rather than from \columnsep. The image width is reduced by
+        # the same amount so it stays flush with the page edge. The \hspace
+        # fills the gap on the text-facing side.
         box_width = f'\\dimexpr {box_frac:.2f}\\textwidth + {margin_s}\\relax'
+        img_width = f'\\dimexpr\\linewidth - {margin_s}\\relax'
+        img = f'\\includegraphics[width={img_width},keepaspectratio]{{{src}}}'
+        if link:
+            img = f'\\href{{{link}}}{{{img}}}'
         if pos == 'r':
-            img = f'\\hspace{{{margin_s}}}' + img
+            img = f'\\hspace{{{margin_s}}}' + img   # gap on the left (text side)
         else:
-            img = img + f'\\hspace{{{margin_s}}}'
+            img = img + f'\\hspace{{{margin_s}}}'   # gap on the right (text side)
     else:
         box_width = f'{box_frac:.2f}\\textwidth'
+        img = f'\\includegraphics[width=\\linewidth,keepaspectratio]{{{src}}}'
+        if link:
+            img = f'\\href{{{link}}}{{{img}}}'
 
     latex  = f'\\begin{{wrapfigure}}{{{pos}}}{{{box_width}}}\n'
     latex += '\\vspace{-\\intextsep}\n'
