@@ -44,6 +44,24 @@ from portfolio.metadata import readme_to_latex, get_featured_item_meta
 
 
 # ---------------------------------------------------------------------------
+# Logo helper
+# ---------------------------------------------------------------------------
+
+def _logo_if_space(logo_file: str) -> str:
+    """Return a LaTeX block that places the logo only when enough vertical
+    space remains on the current page (same test used in sections.py)."""
+    if not logo_file:
+        return ''
+    return (
+        "\\ifdim\\dimexpr\\pagegoal-\\pagetotal\\relax > 3.5cm\n"
+        "\\begin{center}\n"
+        f"\\includegraphics[height=2cm,keepaspectratio]{{{logo_file}}}\n"
+        "\\end{center}\n"
+        "\\fi\n"
+    )
+
+
+# ---------------------------------------------------------------------------
 # Caption builder
 # ---------------------------------------------------------------------------
 
@@ -156,7 +174,7 @@ def _project_page_url(project: Dict, base_url: str) -> str:
 # Per-artwork page builder
 # ---------------------------------------------------------------------------
 
-def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> str:
+def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '', logo_file: str = '') -> str:
     """Return LaTeX for all pages belonging to a single artwork / project.
 
     Args:
@@ -288,6 +306,8 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
         # No thumbnail — description fills page 1
         latex += desc + "\n\n"
 
+    latex += _logo_if_space(logo_file)
+
     # ------------------------------------------------------------------
     # Additional image pages
     # ------------------------------------------------------------------
@@ -298,7 +318,7 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '') -> s
 
     for kind, payload in render_plan:
         if kind == 'group':
-            latex += _build_group_page(payload, project_url)
+            latex += _build_group_page(payload, project_url, logo_file)
         else:  # 'individual'
             latex += _build_individual_page(payload, base_path, indiv_idx, project_url)
             indiv_idx += 1
@@ -316,7 +336,7 @@ _GROUP_IMG_FRAC: Dict[int, str] = {2: '0.47', 3: '0.31', 4: '0.235'}
 _GROUP_IMG_HEIGHT = '0.78\\textheight'
 
 
-def _build_group_page(group: List, project_url: str = '') -> str:
+def _build_group_page(group: List, project_url: str = '', logo_file: str = '') -> str:
     """Return LaTeX for a page showing ``len(group)`` portrait images side-by-side.
 
     Args:
@@ -381,6 +401,7 @@ def _build_group_page(group: List, project_url: str = '') -> str:
             "\\end{tabular}}\n"
         )
     latex += "}%\n"  # close \parskip=0 group
+    latex += _logo_if_space(logo_file)
     return latex
 
 
@@ -473,7 +494,7 @@ _FEATURED_IMG_FRAC: Dict[int, str] = {1: '0.60', 2: '0.47', 3: '0.31', 4: '0.235
 _FEATURED_IMG_HEIGHT = '0.72\\textheight'
 
 
-def build_featured_section_pages(section: Dict, base_path: Path, base_url: str = '') -> str:
+def build_featured_section_pages(section: Dict, base_path: Path, base_url: str = '', logo_file: str = '') -> str:
     """Return LaTeX for a *featured projects* section.
 
     A featured section is identified by the presence of a ``projects`` key
@@ -594,5 +615,6 @@ def build_featured_section_pages(section: Dict, base_path: Path, base_url: str =
             latex += "\n" if idx == n - 1 else "\\hfill\n"
 
         latex += "}%\n"  # close \parskip=0 group
+        latex += _logo_if_space(logo_file)
 
     return latex

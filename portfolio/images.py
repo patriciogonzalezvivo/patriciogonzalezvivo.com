@@ -18,6 +18,8 @@ import re
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+from portfolio.berthe.berthe.convert import svg_to_pdf as _berthe_svg_to_pdf
+
 from portfolio.utils import find_thumbnail, THUMBNAIL_EXTS_STATIC
 
 
@@ -231,47 +233,26 @@ def build_render_plan(
 # ---------------------------------------------------------------------------
 
 def svg_to_pdf(svg_path: Path) -> Optional[Path]:
-    """Convert an SVG file to a PDF sibling, using the first available tool.
-
-    Tries in order:
-      1. ``rsvg-convert`` (``librsvg2-bin`` — fast, no LaTeX required)
-      2. ``inkscape``    (already present on most TeX systems)
+    """Convert an SVG file to a PDF sibling using Berthe (rsvg-convert).
 
     The output is written next to the source with a ``.pdf`` extension
     (e.g. ``svg/000_light.svg`` → ``svg/000_light.pdf``) and the conversion
     is skipped when the PDF is already up-to-date.
 
-    Returns the ``.pdf`` path on success, or ``None`` when no converter is
-    available or the conversion fails.
+    Returns the ``.pdf`` path on success, or ``None`` when rsvg-convert is
+    not available or the conversion fails.
     """
     pdf_path = svg_path.with_suffix('.pdf')
 
-    # Skip if PDF is already up-to-date
     if pdf_path.exists() and pdf_path.stat().st_mtime >= svg_path.stat().st_mtime:
         return pdf_path
 
-    # ── rsvg-convert ────────────────────────────────────────────────────────
-    if shutil.which('rsvg-convert'):
-        result = subprocess.run(
-            ['rsvg-convert', '--format=pdf', '--output', str(pdf_path), str(svg_path)],
-            capture_output=True, text=True,
-        )
-        if result.returncode == 0 and pdf_path.exists():
-            return pdf_path
-        print(f"Warning: rsvg-convert failed for {svg_path.name}: {result.stderr.strip()}")
-
-    # ── inkscape (fallback) ──────────────────────────────────────────────────
-    if shutil.which('inkscape'):
-        result = subprocess.run(
-            ['inkscape', str(svg_path), f'--export-filename={pdf_path}'],
-            capture_output=True, text=True,
-        )
-        if result.returncode == 0 and pdf_path.exists():
-            return pdf_path
-        print(f"Warning: inkscape export failed for {svg_path.name}: {result.stderr.strip()}")
+    if _berthe_svg_to_pdf(svg_path, pdf_path) and pdf_path.exists():
+        return pdf_path
 
     print(
         f"Warning: could not convert {svg_path.name} to PDF — SVG will be skipped.\n"
-        "  Install rsvg-convert with:  sudo apt install librsvg2-bin"
+        "  Install rsvg-convert:  brew install librsvg   (macOS)\n"
+        "                         sudo apt install librsvg2-bin  (Linux)"
     )
     return None

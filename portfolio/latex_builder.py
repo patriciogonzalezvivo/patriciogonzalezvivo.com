@@ -28,27 +28,25 @@ from portfolio.sections import (
 from portfolio.legacy import build_legacy_document  # re-exported
 
 
-def _render_section(section: Dict, base_path: Path, base_url: str) -> str:
-    """Dispatch a section dict to the appropriate LaTeX page builder.
+def _section_logo(section: Dict, default_logo: str) -> str:
+    """Return the effective logo path for a section.
 
-    A section with a ``path`` key is a standard artwork / project section and
-    is handled by :func:`~portfolio.pages.build_artwork_pages`.  A section
-    with a ``projects`` key (but **no** ``path``) is a *featured projects*
-    section and is handled by
-    :func:`~portfolio.pages.build_featured_section_pages`.
-
-    Args:
-        section:  Section dict from the resolved sections list.
-        base_path: Workspace root.
-        base_url:  Artist website base URL for hyperlinks.
-
-    Returns:
-        LaTeX string for the section, or an empty string for unknown types.
+    Per-section ``logo`` key behaviour:
+      - absent          → inherit *default_logo* from ``artist.logo``
+      - false/null/""   → no logo (returns empty string)
+      - "path/to/img"   → override image for this section only
     """
+    if 'logo' not in section:
+        return default_logo
+    return section['logo'] or ''
+
+
+def _render_section(section: Dict, base_path: Path, base_url: str, logo_file: str = '') -> str:
+    """Dispatch a section dict to the appropriate LaTeX page builder."""
     if 'path' in section:
-        return build_artwork_pages(section, base_path, base_url)
+        return build_artwork_pages(section, base_path, base_url, logo_file=logo_file)
     if 'projects' in section:
-        return build_featured_section_pages(section, base_path, base_url)
+        return build_featured_section_pages(section, base_path, base_url, logo_file=logo_file)
     return ""
 
 
@@ -85,8 +83,10 @@ def populate_template(
     optional_talks       = build_optional_section('talks_file',       artist, base_path)
     optional_press       = build_optional_section('press_file',       artist, base_path)
 
+    default_logo = artist.get('logo', 'images/logo-gray.png')
     artworks_latex = "\n".join(
-        _render_section(section, base_path, website_url) for section in sections
+        _render_section(section, base_path, website_url, _section_logo(section, default_logo))
+        for section in sections
     )
 
     # URL-position placeholders go inside \href{} arguments and must stay raw.

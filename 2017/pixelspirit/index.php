@@ -33,54 +33,6 @@
             echo $Parsedown->text(file_get_contents('README.md'));
         ?>
 
-        <div class="cards" style="width: 100%; padding-bottom: 40%;">
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="front"><img src="./imgs/cards/000-front.png" style="max-width: 100%;"></div>
-                    <div class="back"><img src="./imgs/cards/000-back.png" style="max-width: 100%;"></div>
-                </div>
-            </div>
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="front"><img src="./imgs/cards/001-front.png" style="max-width: 100%;"></div>
-                    <div class="back"><img src="./imgs/cards/001-back.png" style="max-width: 100%;"></div>
-                </div>
-            </div>
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="front"><img src="./imgs/cards/002-front.png" style="max-width: 100%;"></div>
-                    <div class="back"><img src="./imgs/cards/002-back.png" style="max-width: 100%;"></div>
-                </div>
-            </div>
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="front"><img src="./imgs/cards/003-front.png" style="max-width: 100%;"></div>
-                    <div class="back"><img src="./imgs/cards/003-back.png" style="max-width: 100%;"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="cards" style="width: 73%; padding-bottom: 40%; margin: auto;">
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="front"><img src="./imgs/cards/004-back.png" style="max-width: 100%;"></div>
-                    <div class="back"><img src="./imgs/cards/004-front.png" style="max-width: 100%;"></div>
-                </div>
-            </div>
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="front"><img src="./imgs/cards/008-back.png" style="max-width: 100%;"></div>
-                    <div class="back"><img src="./imgs/cards/008-front.png" style="max-width: 100%;"></div>
-                </div>
-            </div>
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="front"><img src="./imgs/cards/012-back.png" style="max-width: 100%;"></div>
-                    <div class="back"><img src="./imgs/cards/012-front.png" style="max-width: 100%;"></div>
-                </div>
-            </div>
-        </div>
-
         <?php include("../../server/slideSet.php"); echo slideset('images', 'width: 100%;'); ?>
 
         <h2>Related Works</h2>

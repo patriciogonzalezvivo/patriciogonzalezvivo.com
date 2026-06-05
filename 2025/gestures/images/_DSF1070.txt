@@ -1,2 +1,3 @@
 dimensions: 12 x 16 inches
 print: https://shop.patriciogonzalezvivo.com/products/untitle-7
+sold: yes

@@ -352,7 +352,20 @@ The current `portfolio/data.json` uses a `"sections"` array (not `"projects"`). 
 - `{ "path": "YEAR/folder", ... }` — a standard project section → calls `build_artwork_pages()`
 - `{ "title": "...", "projects": ["YEAR/folder", ...] }` — a featured group → calls `build_featured_section_pages()`
 
-Optional per-project keys: `images_per_page` (int, default 3), `skip` (list of image stems to exclude), `skip_thumbnail` (bool), `inject_svgs` (bool).
+Optional per-project keys: `images_per_page` (int, default 3), `skip` (list of image stems to exclude), `skip_thumbnail` (bool), `inject_svgs` (bool), `logo` (see below).
+
+**Per-section `logo` key** — controls whether the logo appears at the bottom of the section's pages (when space permits):
+- absent → inherits `artist.logo` (default behaviour)
+- `false` / `null` / `""` → suppresses the logo for this section
+- `"path/to/img.png"` → uses a different image for this section only
+
+```json
+{ "path": "2026/santos" }                           // inherits artist.logo
+{ "path": "2026/santos", "logo": false }            // no logo
+{ "path": "2026/santos", "logo": "images/alt.png" } // custom image
+```
+
+The logo is placed with `\ifdim\dimexpr\pagegoal-\pagetotal\relax > 3.5cm` so it only renders when at least 3.5 cm of vertical space remains on the page. It is added to: the title/description page (Page 1 of each project), group image pages, and featured-section pages. Individual full-page image pages are excluded.
 
 ### Key `portfolio/` Python modules
 
@@ -471,7 +484,7 @@ label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, for_name=None)
 
 ### The Through-Line
 
-Patricio González Vivo makes instruments of attention. Not metaphorical ones — actual instruments: plotters, satellite feeds, depth sensors, shaders, astronomical libraries, tarot decks. Each is built to make present what ordinary perception has filtered out, at scales from the cosmic (the solar system, the star field, the rotating planet) to the ecological (the ash that records geological force) to the human face. The through-line from 2010 to 2026 is not medium — the work moves freely between oil and code, ash and satellite, shader and canvas — but gesture: *reveal what was always there but rarely felt.*
+Patricio González Vivo makes instruments of attention. Not metaphorical ones — actual instruments: plotters, satellite feeds, depth sensors, shaders, astronomical libraries, tarot decks. Each is built to make present what ordinary perception has filtered out, at scales from the cosmic (the solar system, the star field, the rotating planet) to the ecological (the ash that records geological force) to the human face. The through-line from 2010 to 2026 is not medium — the work moves freely between oil and code, ash and satellite, shader and canvas — but question: *what does it take for an artifact to develop presence?*
 
 **Three gestures that recur across every major work:**
 
@@ -479,15 +492,17 @@ Patricio González Vivo makes instruments of attention. Not metaphorical ones �
 
 **2. The mark as presence.** A mark is indexical: a causal trace of something that was here. The plotter's line, the hand in the ash, the shadow that ripples back, the code that generates the image, the trails that planets leave across the year. Every mark in this practice carries the same question: *whose presence is recorded here, and what did it cost?* The great-grandmother who burned her poems inverted this — an anti-mark, an erasure. The Santos series is restoration against that specific burning.
 
-**3. Two systems on one surface.** The strongest works hold two incompatible knowledge systems simultaneously without resolving them: code and tarot (PixelSpirit), astronomy and astrology (Astros), machine precision and human presence (Hybrids/Santos), intimate home and planetary home (HOGAR), migration story and star map (Weaver), English and Spanish (HEARTH/HOGAR). The irresolution is the content.
+**3. Two systems on one surface.** The strongest works hold two incompatible knowledge systems simultaneously without resolving them: code and tarot (PixelSpirit), astronomy and astrology (Astros), machine precision and human presence (Hybrids/Santos), intimate home and planetary home (HOGAR), migration story and star map (Weaver), English and Spanish (HEARTH/HOGAR). The irresolution is the content — and it is often in that contact between two systems that presence develops.
 
 ### The Personal Mythology
 
-The works form a personal mythology around a single axis: *the gap between what we know and what we feel.* You can know that the stars are above every city ceiling; you cannot feel it without an instrument. You can know your ancestors crossed an ocean and watched unfamiliar stars appear; you cannot feel their sky without a map that shows it. You can know a hand gesture in a sandbox destroys rivers and collapses ecosystems; you cannot feel the scale of that consequence until you watch it happen under your own hands.
+The works form a personal mythology around a single question: *what does it take for an artifact to develop presence?* Not perception — presence: the quality of being *there*, of addressing you, of persisting beyond the encounter.
 
-The practice — across every medium — is the construction of instruments for crossing that gap. Not information. Awareness. Not data. Presence.
+The practice traces a threshold that runs through every medium. A plotter drawing alone is a diagram; completed by hand, it becomes something that addresses you like a face. Satellite data alone is an instrument; with its atmospheric scattering restored, it becomes a planet that looks alive and breathable. Stellar coordinates alone are data; tied to a family migration and shared between two people, they become a connection that outlasts the screen. Volcanic ash alone is material; holding the consequence of every hand that shaped it, it becomes something that persists and responds.
 
-Personal stakes running through the work: parenting (LUNA, HOGAR), family migration (Weaver, Guayupia, Santos), Argentine/immigrant identity (HOGAR, Efecto Mariposa, Santos), and a consistent pedagogy — building open tools for others to learn to see (Book of Shaders, PixelSpirit, LYGIA, Vera, Shell Initiation).
+The question is always the same: what combination of process, material, and human act crosses that threshold? In this practice the answer consistently involves two systems in contact — machine and hand, code and gesture, data and imagination — where neither system alone achieves what both together develop.
+
+Personal stakes running through the work: parenting (LUNA, HOGAR), family migration (Weaver, Guayupia, Santos), Argentine/immigrant identity (HOGAR, Efecto Mariposa, Santos), and a consistent pedagogy — building open tools for others to develop their own sense of presence (Book of Shaders, PixelSpirit, LYGIA, Vera, Shell Initiation).
 
 ---
 
@@ -546,9 +561,9 @@ Personal stakes running through the work: parenting (LUNA, HOGAR), family migrat
 
 ### The Unifying Frame
 
-For curators, gallerists, and grant applications, the practice can be introduced in one sentence: *Patricio González Vivo builds instruments of attention — works that make present what technology, circumstance, or scale has filtered from ordinary perception.*
+For curators, gallerists, and grant applications, the practice can be introduced in one sentence: *Patricio González Vivo builds instruments — plotters, satellite feeds, shaders, astronomical libraries — that ask a single question through every medium: what does it take for an artifact to develop presence?*
 
-This holds the full range: the plotter that reveals the face's geometry, the satellite that restores Earth's atmospheric glow, the shader deck that makes the language of light holdable, the installation of volcanic ash that makes ecological consequence felt at the scale of a hand.
+This holds the full range: the portrait that begins as a machine drawing and develops into a face that addresses you; the satellite visualization that restores what the sensor stripped and becomes a planet that looks alive; the celestial map that connects two people across time and becomes a shared sky; the volcanic ash that holds the consequence of every gesture made in it.
 
 ### Three Entry Points by Curatorial Context
 

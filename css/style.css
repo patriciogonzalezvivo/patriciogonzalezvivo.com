@@ -1386,3 +1386,8 @@ footer {
     padding: 8px 16px;
     font-size: 13px;
 }
+
+/* PDF-only layout blocks — hidden when serving the site */
+.cards-pdf {
+    display: none;
+}

@@ -42,6 +42,52 @@ from portfolio.berthe.berthe.looom import is_looom_svg, looom_frame_to_png
 
 
 # ---------------------------------------------------------------------------
+# HTML pre-processing helpers
+
+_DIV_OPEN_RE  = re.compile(r'<div\b', re.IGNORECASE)
+_DIV_CLOSE_RE = re.compile(r'</div\s*>', re.IGNORECASE)
+
+
+def _strip_div_class(text: str, class_name: str) -> str:
+    """Remove all <div class="class_name">...</div> blocks from *text*.
+
+    Uses bracket counting to handle nested divs correctly, so inner
+    elements inside the matched block are removed along with the outer tag.
+    Only strips divs whose class attribute is *exactly* class_name (no
+    substring or multi-class match).
+    """
+    root_re = re.compile(
+        r'<div\s[^>]*class=["\']' + re.escape(class_name) + r'["\'][^>]*>',
+        re.IGNORECASE,
+    )
+    result = []
+    pos = 0
+    while pos < len(text):
+        m = root_re.search(text, pos)
+        if m is None:
+            result.append(text[pos:])
+            break
+        result.append(text[pos:m.start()])
+        # Walk forward counting <div> / </div> to find the closing tag.
+        depth = 1
+        scan = m.end()
+        while depth > 0 and scan < len(text):
+            nxt_open  = _DIV_OPEN_RE.search(text, scan)
+            nxt_close = _DIV_CLOSE_RE.search(text, scan)
+            if nxt_close is None:
+                scan = len(text)
+                break
+            if nxt_open is not None and nxt_open.start() < nxt_close.start():
+                depth += 1
+                scan = nxt_open.end()
+            else:
+                depth -= 1
+                scan = nxt_close.end()
+        pos = scan
+    return ''.join(result)
+
+
+# ---------------------------------------------------------------------------
 # Low-level file helpers
 # ---------------------------------------------------------------------------
 
@@ -257,6 +303,11 @@ def readme_to_latex(markdown: str, project_path: Path, project_dir: str = '',
             #    them with \\includegraphics placeholders.  The placeholders
             #    survive markdown_to_latex's escape pass (\\x01 is not a
             #    LaTeX-special character) and are re-injected afterwards.
+
+            # Strip website-only blocks (class="cards") before regex runs so
+            # nested inner divs don't leak through the non-greedy HTML matcher.
+            chunk = _strip_div_class(chunk, 'cards')
+
             html_subs: dict = {}
             def _render_html(m: re.Match) -> str:
                 img_path = render_html_block(
