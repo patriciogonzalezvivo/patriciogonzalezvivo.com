@@ -1,4 +1,4 @@
-My first child was a toddler when we lived in Brooklyn. Every night we read *Goodnight Moon* together: its quiet room, its red balloon, its moon hanging in the painted window. For a toddler, the picture of the moon and the moon are the same thing. The moon existed in that book before it existed in the sky.
+My first child was a toddler when we lived in Brooklyn. Every night we read *Goodnight Moon* together: its quiet room, its red balloon, its painted moon. For a toddler, the picture of the moon and the moon are the same thing. The moon existed in that book before it existed in the sky.
 
 So I built a window that could always find it.
 
