@@ -6,7 +6,7 @@ Collaboration with [Hellicar&Lewis](http://www.hellicarandlewis.com/adidas/" tar
 
 When users tweeted or instagrammed with the #mizxflux hashtag, our installation would grab their imagery and then projection map it onto not only the ZX FLUX shoe but also a sculptural surface based on the topology of Berlin. Social users would then receive an image tweeted to their account in return – taken by a digital SLR camera installed as part of the installation. Finally, the entire installation was audio reactive, meaning DJ’s at the launch event could change the appearance of the sculpture in real time with their mix.
 
-In addition to the creation of the bespoke installation, we were also tasked with producing graphic, motion and film assets for the launch – all based on the realtime visuals created by the installation itself.
+In addition to the creation of the bespoke installation, we were also tasked with producing graphic, motion and film assets for the launch, all based on the realtime visuals created by the installation itself.
 
 Since premiering in Berlin, the installation has also been exhibited at the new Adidas Originals Flagship store on Carnaby Street, London.
 

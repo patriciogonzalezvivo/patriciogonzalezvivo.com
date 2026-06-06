@@ -1,4 +1,4 @@
-A prism doesn't change the light. It reveals what was already inside it — the full spectrum hidden in what appeared to be a single color.
+A prism doesn't change the light. It reveals what was already inside it: the full spectrum hidden in what appeared to be a single color.
 
 The tarot works the same way. A question enters undifferentiated, felt but not yet legible. The cards refract it: angles become visible, patterns emerge that weren't apparent before the light passed through the system. The meaning was already there; the cards give it form.
 
@@ -41,7 +41,7 @@ Each card carries a visual element on its face, a form made entirely of light, a
 
 The twenty-two Major Arcana are woven through the fifty cards, not as decoration but because GLSL and the tarot share a deeper structural logic. Both are prismatic systems: elemental vocabularies in which finite symbols combine into an infinite visual language, asking their practitioners to see forces that operate just beneath the threshold of ordinary perception. The shader function runs identically across every pixel on the screen; what you see is the same instruction, applied infinitely across a field of light. The tarot archetype appears differently in every reading; what you receive is the same deep structure, refracted through the particular question you brought.
 
-To move through the deck — examining the code, forming an image in the mind, then turning the card to see — is to practice this double reading: to hold the image and its generative structure simultaneously, and to feel how completely one was hidden inside the other until you looked.
+To move through the deck, examining the code, forming an image in the mind, then turning the card to see, is to practice this double reading: to hold the image and its generative structure simultaneously, and to feel how completely one was hidden inside the other until you looked.
 
 <div class="cards-pdf" style="display:flex; gap:0.5em; width:73%; margin:auto;">
     <img src="./imgs/cards/004-back.png" style="width:32%; height:auto;">
@@ -69,4 +69,4 @@ To move through the deck — examining the code, forming an image in the mind, t
     </div>
 </div>
 
-*Pixel Spirit* grew from the same conviction that produced the [Book of Shaders](https://thebookofshaders.com/): that the language of light should be learnable by anyone willing to begin with card 00. The deck extends that project into something physical — a prism you can hold in your hands, shuffle, spread across a table, and consult without a screen.
+*Pixel Spirit* grew from the same conviction that produced the [Book of Shaders](https://thebookofshaders.com/): that the language of light should be learnable by anyone willing to begin with card 00. The deck extends that project into something physical: a prism you can hold in your hands, shuffle, spread across a table, and consult without a screen.

@@ -6,4 +6,4 @@ As the camera moves, its reference point shifts: Earth at the center, then the S
 
 Built on [Hypatia](https://github.com/patriciogonzalezvivo/hypatia), the astronomical computation library developed across a decade of learning to calculate stellar and planetary positions, *Orbitas* is both instrument and invocation: exact in its data, unhurried in its drift.
 
-It continues a thread that runs from [LUNA (2017)](../../2017/luna/) through [ESTRELLAS (2018)](../../2018/estrellas/), [Weaver (2025–2026)](../../2026/weaver2/), and [Astros (2026)](../../2026/astros/), all built from the same impulse: to make the scale of where we are not just known, but felt.
+It continues a thread that runs from [LUNA (2017)](../../2017/luna/) through [ESTRELLAS (2018)](../../2018/estrellas/), [Weaver (2025–2026)](../../2026/weaver2/), and [Astros (2026)](../../2026/astros/), all built from the same impulse: to make the scale of where we are something felt, not only known.

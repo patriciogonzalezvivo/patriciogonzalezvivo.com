@@ -1,10 +1,10 @@
-My first child was a toddler when we lived in Brooklyn. Every night we read *Goodnight Moon* together — its quiet room, its red balloon, its moon hanging in the painted window. For a toddler, the picture of the moon and the moon are the same thing. The moon existed in that book before it existed in the sky.
+My first child was a toddler when we lived in Brooklyn. Every night we read *Goodnight Moon* together: its quiet room, its red balloon, its moon hanging in the painted window. For a toddler, the picture of the moon and the moon are the same thing. The moon existed in that book before it existed in the sky.
 
 So I built a window that could always find it.
 
 *LUNA* is a real-time portrait of the moon, accurate to the current hour: its phase, its illumination, the slow rotation of its face, the atmosphere around it shifting from day to night. Housed in a frame made from an old monitor, a Raspberry Pi, and wood, it is a domestic object that behaves like a window pointed perpetually at the sky, regardless of where you hang it or what the clouds are doing outside.
 
-What it does is simple. It tells you how the moon looks right now. But what it asks is different: to notice the moon, to pay attention to their changing phases, their rithms and motion — and how that change relates to your life whether or not you looked at it. *LUNA* does not simulate or approximate. It's a token of attention. A reminder of the moon's presence, that it exists.
+What it does is simple. It tells you how the moon looks right now. But what it asks is different: to notice the moon, to pay attention to their changing phases, their rhythms and motion, and how that change relates to your life whether or not you looked at it. *LUNA* does not simulate or approximate. It's a token of attention. A reminder of the moon's presence, that it exists.
 
 That shift, from the moon in the book to the moon as a present, living thing, is what the work is after. Not information. Awareness.
 
