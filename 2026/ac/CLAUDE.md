@@ -106,8 +106,10 @@ Kirby Ferguson's three-step frame for examining any work's relationship to its s
 ### Encoding / Openness (Lesson 136 · `/meaning-conditions`)
 Before finalizing any work, run it through Eco's four-degree check: Is the viewer given enough to complete the meaning (guided/open) or is the structure so loose it collapses (underbuilt)? The open work is not the vague work — it is the precisely structured invitation.
 
-### Write About Your Art (Lesson 133 · `/write-about-art`)
-Three questions: What are you making? How are you making it? Why does it matter? Answer each in a single specific sentence. Specificity is the only virtue — "explores themes of memory" is a failure. The word-list method: brainstorm 30–50 words associated with the work, find the unexpected ones, build sentences from those.
+### Write About Your Art (Lessons 133–137 · `/write-about-art`)
+Three-question framework: (1) **What is it?** — concrete, specific, what does it look like? (2) **What might it mean?** — scaffolding for viewer understanding, broad themes grounded in the work, write from wonder not answers. (3) **Why does it matter?** — traceable to questions 1–2, personal stakes, reasons to care.
+
+**Key concepts:** Specificity as primary virtue (not "explores themes of memory" but the exact imagery that makes it specific to you). Word-list brainstorming: 30–50 words → find unexpected ones → build sentences. Free-writing exercises to generate material. Avoid art clichés ("interrogates," "liminal," "explores themes") — if you've heard it before, rewrite. Scaffolding as primary job: set up conditions for viewers to think more deeply, not explain everything away. The open work is precisely structured, not vague.
 
 ---
 
@@ -153,3 +155,4 @@ When working on any art project in this directory, apply these orientations:
 | 133 | How to Write About Your Art Part 1 | `summaries/133_Write_About_Art.md` | `/write-about-art` |
 | 135 | Text in Visual Art Part 1 (Dada/Cubism/Surrealism) | `summaries/135_Text_in_Visual_Art.md` | `/text-in-art` |
 | 136 | Philosophy of Art: How Does It Mean? Part 2 (Saussure/Barthes/Hall/Eco) | `summaries/136_Philosophy_How_Does_It_Mean_Part2.md` | `/meaning-conditions` |
+| 137 | How to Write About Your Art Part 2 (scaffolding, clichés, meaning) | `summaries/137_Write_About_Art_Part2.md` | `/write-about-art` |
