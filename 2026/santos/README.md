@@ -24,9 +24,9 @@ These portraits continue an exploration of drawing machines begun with [Skylines
 Like their subjects, the works exist as syntheses: of the material and the immaterial, the earthly and the cosmic, the known and the intuited.
 
 <div class="spacer" style="display:flex; gap:0.5em;">
-    <img src="refs/okeeffe_001.jpg" style="width:20%; height:auto;">
-    <img src="refs/okeeffe_002.jpg" style="width:20%; height:auto;">
-    <img src="refs/okeeffe_003.jpg" style="width:20%; height:auto;">
-    <img src="refs/okeeffe_004.jpg" style="width:20%; height:auto;">
-    <img src="refs/okeeffe_005.jpg" style="width:20%; height:auto;">
+    <img src="refs/okeeffe_001.jpg" style="width:25%; height:auto;">
+    <!-- <img src="refs/okeeffe_002.jpg" style="width:25%; height:auto;"> -->
+    <img src="refs/okeeffe_003.jpg" style="width:25%; height:auto;">
+    <img src="refs/okeeffe_004.jpg" style="width:25%; height:auto;">
+    <img src="refs/okeeffe_005.jpg" style="width:25%; height:auto;">
 </div> 
