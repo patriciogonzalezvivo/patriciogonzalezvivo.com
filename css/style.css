@@ -653,21 +653,60 @@ body.windowed-mode #wrapper.windowed {
     display: inline-block; /* shrinks to iframe's intrinsic width */
 }
 
-/* poster sits on top of the blank iframe until the app has loaded */
-.featured-rail .item-image .wasm-poster {
+/* overlay covers the blank iframe until the app loads, then fades */
+.featured-rail .item-image .wasm-overlay {
     position: absolute;
     inset: 0;
+    z-index: 2;
+    transition: opacity 0.5s ease;
+}
+.featured-rail .item-image .wasm-overlay.is-loaded {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* poster link fills the overlay — clicking navigates to the project */
+.featured-rail .item-image .wasm-poster-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.featured-rail .item-image .wasm-poster {
+    display: block;
     width: 100% !important;
     height: 100% !important;
     max-width: none !important;
     object-fit: cover;
-    z-index: 1;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
 }
 
-.featured-rail .item-image .wasm-poster.is-loaded {
-    opacity: 0;
+/* play button — sits above the resize-btn that appears once the app loads
+   matches #resize-btn positioning: bottom:20px right:20px, 50×50px */
+.wasm-play-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.50);
+    border: 1px solid white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    padding: 0;
+    transition: background 0.2s;
+}
+.wasm-play-btn:hover {
+    background: rgba(0, 0, 0, 0.80);
+}
+.wasm-play-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: rgba(255, 255, 255, 0.9);
+    margin-left: 3px; /* optical centre for play triangle */
+    flex-shrink: 0;
 }
 
 /* slideSet: let it fill the fixed height */

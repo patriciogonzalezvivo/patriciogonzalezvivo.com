@@ -121,10 +121,17 @@ include("server/menu.php");
                             title="<?php echo htmlspecialchars($meta['title']); ?>"
                         ></iframe>
                         <?php if ($_wasm_poster_src): ?>
-                        <img class="wasm-poster"
-                             src="<?php echo htmlspecialchars($_wasm_poster_src); ?>"
-                             alt="<?php echo htmlspecialchars($meta['title']); ?>"
-                             loading="lazy" />
+                        <div class="wasm-overlay">
+                            <a class="wasm-poster-link" href="<?php echo htmlspecialchars($link); ?>">
+                                <img class="wasm-poster"
+                                     src="<?php echo htmlspecialchars($_wasm_poster_src); ?>"
+                                     alt="<?php echo htmlspecialchars($meta['title']); ?>"
+                                     loading="lazy" />
+                            </a>
+                            <button class="wasm-play-btn" aria-label="Play <?php echo htmlspecialchars($meta['title']); ?>">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="5,3 19,12 5,21"/></svg>
+                            </button>
+                        </div>
                         <?php endif; ?>
                     </div>
 
@@ -294,19 +301,35 @@ include("server/menu.php");
 
     updateUI();
 
-    /* lazy-load wasm iframes: swap data-src → src on first hover, fade poster on load */
+    /* wasm iframes: play button loads the app; poster link navigates to project */
     items.forEach(function (item) {
-        item.addEventListener('mouseenter', function () {
+        var playBtn = item.querySelector('.wasm-play-btn');
+        if (!playBtn) return;
+        playBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
             var iframe = item.querySelector('iframe[data-src]');
-            if (!iframe) return;
-            var poster = item.querySelector('.wasm-poster');
+            if (!iframe) return; /* already loaded */
+            var overlay = item.querySelector('.wasm-overlay');
             iframe.src = iframe.getAttribute('data-src');
             iframe.removeAttribute('data-src');
-            if (poster) {
-                iframe.addEventListener('load', function () {
-                    poster.classList.add('is-loaded');
-                }, { once: true });
-            }
+            playBtn.style.display = 'none';
+            iframe.addEventListener('load', function () {
+                if (overlay) overlay.classList.add('is-loaded');
+
+                /* Redirect #ui button clicks (fullscreen, FRM, etc.) to the
+                   project page — same-origin so contentDocument is accessible */
+                try {
+                    var projectUrl = iframe.src.replace(/\?embed=1$/, '');
+                    var ui = iframe.contentDocument.getElementById('ui');
+                    if (ui) {
+                        ui.addEventListener('click', function (ev) {
+                            ev.stopImmediatePropagation();
+                            ev.preventDefault();
+                            window.location.href = projectUrl;
+                        }, true /* capture: fires before the app's own listeners */);
+                    }
+                } catch (err) { /* cross-origin fallback — do nothing */ }
+            }, { once: true });
         });
     });
 })();
