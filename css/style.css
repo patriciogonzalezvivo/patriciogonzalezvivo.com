@@ -387,6 +387,113 @@ footer {
 }
 
 /* ============================================================
+   WASM PROJECT FRAME — shared by all WebGL/WASM projects
+   (#wrapper only exists on those pages, so these rules are safe globally)
+   ============================================================ */
+
+#wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+#wrapper.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Windowed: 9/16 aspect ratio with cast shadow */
+#wrapper.windowed {
+    height: 733px;
+    aspect-ratio: 9 / 16;
+    box-shadow:
+        0 32px 80px rgba(0, 0, 0, 0.45),
+        0 12px 28px rgba(0, 0, 0, 0.25),
+        0  4px  8px rgba(0, 0, 0, 0.20);
+}
+
+/* Gloss highlight: linear fade top→bottom, clipped to a top-left triangle
+   by the diagonal running from (35%, 0%) to (0%, 65%) */
+#wrapper.windowed::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.22)  0%,
+        transparent                65%
+    );
+    clip-path: polygon(0% 0%, 35% 0%, 0% 65%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+#wrapper.fullscreen::after {
+    display: none;
+}
+
+/* Canvas fills the wrapper edge-to-edge */
+.emscripten {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    margin: 0;
+    border: 0;
+    overflow: hidden;
+    display: block;
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+/* Windowed-mode page layout */
+body.windowed-mode #wrapper.windowed {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+    body.windowed-mode {
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    body.windowed-mode #wrapper.windowed {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        max-width: 440px;
+        height: auto;
+        aspect-ratio: 9 / 16;
+        margin: 20px auto;
+        box-shadow:
+            0 16px 40px rgba(0, 0, 0, 0.4),
+            0  6px 14px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* ============================================================
    FEATURED RAIL — desktop: horizontal snap scroll (natural widths)
                    mobile:  vertical stack
    ============================================================ */
@@ -537,6 +644,30 @@ footer {
     display: block;
     border: none;
     aspect-ratio: 9 / 16;
+}
+
+/* wasm lazy-load wrapper + thumbnail poster */
+.wasm-wrapper {
+    position: relative;
+    height: 100%;
+    display: inline-block; /* shrinks to iframe's intrinsic width */
+}
+
+/* poster sits on top of the blank iframe until the app has loaded */
+.featured-rail .item-image .wasm-poster {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    object-fit: cover;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.featured-rail .item-image .wasm-poster.is-loaded {
+    opacity: 0;
 }
 
 /* slideSet: let it fill the fixed height */

@@ -34,7 +34,7 @@ $projects = [
 
     [
         'path'         => '2026/weaver2',
-        'type'         => 'big_thumbnail',
+        'type'         => 'wasm',
     ],
 
     // [
@@ -65,7 +65,7 @@ $projects = [
     // ],
     [
         'path'         => '2017/luna',
-        'type'         => 'big_thumbnail',
+        'type'         => 'wasm',
     ],
 
     [
@@ -109,14 +109,24 @@ include("server/menu.php");
                 <?php if ($type === 'wasm'):
                     $iw = $project['width']  ?? 516;
                     $ih = $project['height'] ?? 810;
+                    $_wasm_poster = find_thumbnail($project['path'], ['thumbnail', 'thumb'], THUMBNAIL_EXTS_STATIC);
+                    $_wasm_poster_src = $_wasm_poster ? $project['path'] . '/' . $_wasm_poster : null;
                 ?>
-                    <iframe
-                        src="<?php echo htmlspecialchars($link); ?>?embed=1"
-                        width="<?php echo $iw; ?>"
-                        height="<?php echo $ih; ?>"
-                        style="border: none; display: block;"
-                        title="<?php echo htmlspecialchars($meta['title']); ?>"
-                    ></iframe>
+                    <div class="wasm-wrapper">
+                        <iframe
+                            data-src="<?php echo htmlspecialchars($link); ?>?embed=1"
+                            width="<?php echo $iw; ?>"
+                            height="<?php echo $ih; ?>"
+                            style="border: none; display: block;"
+                            title="<?php echo htmlspecialchars($meta['title']); ?>"
+                        ></iframe>
+                        <?php if ($_wasm_poster_src): ?>
+                        <img class="wasm-poster"
+                             src="<?php echo htmlspecialchars($_wasm_poster_src); ?>"
+                             alt="<?php echo htmlspecialchars($meta['title']); ?>"
+                             loading="lazy" />
+                        <?php endif; ?>
+                    </div>
 
                 <?php elseif ($type === 'gallery'): ?>
                     <a href="<?php echo htmlspecialchars($link); ?>">
@@ -283,6 +293,22 @@ include("server/menu.php");
     });
 
     updateUI();
+
+    /* lazy-load wasm iframes: swap data-src → src on first hover, fade poster on load */
+    items.forEach(function (item) {
+        item.addEventListener('mouseenter', function () {
+            var iframe = item.querySelector('iframe[data-src]');
+            if (!iframe) return;
+            var poster = item.querySelector('.wasm-poster');
+            iframe.src = iframe.getAttribute('data-src');
+            iframe.removeAttribute('data-src');
+            if (poster) {
+                iframe.addEventListener('load', function () {
+                    poster.classList.add('is-loaded');
+                }, { once: true });
+            }
+        });
+    });
 })();
 </script>
 
