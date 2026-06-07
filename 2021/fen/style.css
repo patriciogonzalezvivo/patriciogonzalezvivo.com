@@ -9,6 +9,7 @@
 /* Wrapper */
 #wrapper {
     position: relative;
+    top: 400px;
     transition: all 0.3s ease-in-out;
     pointer-events: none;
     z-index: 100;

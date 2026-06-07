@@ -5,12 +5,12 @@ include_once("server/slideSet.php");
 /********************
     Each project entry supports:
       'path'         - local folder path (loads metadata from TITLE.txt etc.)
-      'type'         - 'wasm' | 'gallery' | 'thumbnail' | 'big_thumbnail' (default: thumbnail)
+      'type'         - 'live' | 'gallery' | 'thumbnail' | 'big_thumbnail' (default: thumbnail)
       'url'          - override link URL
       'images_dir'   - (gallery) directory of images relative to web root
       'pattern'      - (gallery) glob pattern for images
-      'width' - (wasm) iframe width in px, default 516
-      'height'- (wasm) iframe height in px, default 810
+      'width' - (live) iframe width in px, default 516
+      'height'- (live) iframe height in px, default 810
 
     thumbnail type:
       Uses thumbnail.* (or thumb.*) found in 'path' folder and links to the project.
@@ -34,7 +34,7 @@ $projects = [
 
     [
         'path'         => '2026/weaver2',
-        'type'         => 'wasm',
+        'type'         => 'live',
     ],
 
     // [
@@ -46,26 +46,26 @@ $projects = [
 
     // [
     //     'path'         => '2023/blink',
-    //     'type'         => 'wasm',
+    //     'type'         => 'live',
     // ],
 
     // [
     //     'path'         => '2021/fen',
-    //     'type'         => 'wasm',
+    //     'type'         => 'live',
     // ],
 
     // [
     //     'path'         => '2021/memory',
-    //     'type'         => 'wasm',
+    //     'type'         => 'live',
     // ],
 
     // [
     //     'path'         => '2018/estrellas',
-    //     'type'         => 'wasm',
+    //     'type'         => 'live',
     // ],
     [
         'path'         => '2017/luna',
-        'type'         => 'wasm',
+        'type'         => 'live',
     ],
 
     [
@@ -106,7 +106,7 @@ include("server/menu.php");
         <article class="item is-active">
             <div class="item-image">
 
-                <?php if ($type === 'wasm'):
+                <?php if ($type === 'live'):
                     $iw = $project['width']  ?? 516;
                     $ih = $project['height'] ?? 810;
                     $_wasm_poster = find_thumbnail($project['path'], ['thumbnail', 'thumb'], THUMBNAIL_EXTS_STATIC);
@@ -301,7 +301,7 @@ include("server/menu.php");
 
     updateUI();
 
-    /* wasm iframes: play button loads the app; poster link navigates to project */
+    /* live app iframes: play button loads the app; poster link navigates to project */
     items.forEach(function (item) {
         var playBtn = item.querySelector('.wasm-play-btn');
         if (!playBtn) return;

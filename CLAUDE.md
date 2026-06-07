@@ -86,7 +86,7 @@ Every page includes:
 
 ### Embed mode
 
-Appending `?embed=1` hides menu, footer, and item info — used for `wasm` type iframes.
+Appending `?embed=1` hides menu, footer, and item info — used for `live` type iframes.
 
 ### Key PHP files
 
@@ -123,7 +123,7 @@ Appending `?embed=1` hides menu, footer, and item info — used for `wasm` type 
 ['path' => 'YEAR/folder', 'type' => 'thumbnail']       // thumb.* image link (default)
 ['path' => 'YEAR/folder', 'type' => 'big_thumbnail',    // thumbnail.jpg as larger img
  'width' => 320, 'height' => 540]
-['path' => 'YEAR/folder', 'type' => 'wasm',             // iframe with ?embed=1
+['path' => 'YEAR/folder', 'type' => 'live',             // iframe with ?embed=1
  'width' => 516, 'height' => 810]
 ['path' => 'YEAR/folder', 'type' => 'gallery',          // slideSet of images
  'images_dir' => 'YEAR/folder/images/thumbnails',
