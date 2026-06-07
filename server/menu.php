@@ -5,7 +5,7 @@
 		<div id="menu">
 			<div id="menu_header">
 				<a id="menu_logo" href="/index.php"><img id="menu_logo_img" src="/images/menu_logo.png" alt="Tree Logo" /></a>
-				<a id="menu_logo" href="/index.php"><span id="menu_name">PATRICIO GONZALEZ VIVO</span></a>
+				<a href="/index.php"><span id="menu_name">PATRICIO GONZALEZ VIVO</span></a>
 				<nav id="menu_text">
 					<ul>
 						<li class="menu_item"><a href="/works.php"> Archive </a></li>

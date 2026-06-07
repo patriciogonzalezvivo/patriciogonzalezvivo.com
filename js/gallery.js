@@ -17,6 +17,18 @@ if (!modal || !modalImg) {
 // Current view state ('main', 'detail', or 'installation')
 let currentView = 'main';
 
+// Cache repeated modal sub-element queries
+const titleEl        = modal.querySelector('.fullscreen-title');
+const yearEl         = modal.querySelector('.fullscreen-year');
+const mediumEl       = modal.querySelector('.fullscreen-medium');
+const dimensionsEl   = modal.querySelector('.fullscreen-dimensions');
+const buyPrintBtn    = modal.querySelector('.fullscreen-buy-print');
+const buyBtn         = modal.querySelector('.fullscreen-buy');
+const navContainer   = modal.querySelector('.fullscreen-nav');
+const mainBtn        = modal.querySelector('.view-button[data-view="main"]');
+const detailBtn      = modal.querySelector('.view-button[data-view="detail"]');
+const installationBtn = modal.querySelector('.view-button[data-view="installation"]');
+
 // Dots
 const galleryDotsContainer = modal.querySelector('.gallery-dots');
 let galleryDots = [];
@@ -78,19 +90,14 @@ function showImage(index, view = 'main') {
 	
 	// Display artwork info in fullscreen
 	if (infoData) {
-		const info = JSON.parse(infoData);
-		const titleEl = modal.querySelector('.fullscreen-title');
-		const yearEl = modal.querySelector('.fullscreen-year');
-		const mediumEl = modal.querySelector('.fullscreen-medium');
-		const dimensionsEl = modal.querySelector('.fullscreen-dimensions');
-		
+		let info;
+		try { info = JSON.parse(infoData); } catch(e) { info = {}; }
+
 		if (titleEl) titleEl.textContent = info.title || 'Untitled';
 		if (yearEl) yearEl.textContent = info.year || '';
 		if (mediumEl) mediumEl.textContent = info.medium || '';
 		if (dimensionsEl) dimensionsEl.textContent = info.dimensions || info.size || '';
-		
-		// Buy Print button
-		const buyPrintBtn = modal.querySelector('.fullscreen-buy-print');
+
 		if (buyPrintBtn) {
 			if (info.print) {
 				buyPrintBtn.href = info.print;
@@ -99,9 +106,7 @@ function showImage(index, view = 'main') {
 				buyPrintBtn.style.display = 'none';
 			}
 		}
-		
-		// Buy button (shown when artwork is not sold)
-		const buyBtn = modal.querySelector('.fullscreen-buy');
+
 		if (buyBtn) {
 			if (!isSold) {
 				const title = info.title || 'Untitled';
@@ -123,51 +128,33 @@ function showImage(index, view = 'main') {
 function updateViewButtons(portraitItem) {
 	const detailSrc = portraitItem.getAttribute('data-detail');
 	const installationSrc = portraitItem.getAttribute('data-installation');
-	const navContainer = modal.querySelector('.fullscreen-nav');
-	const mainBtn = modal.querySelector('.view-button[data-view="main"]');
-	const detailBtn = modal.querySelector('.view-button[data-view="detail"]');
-	const installationBtn = modal.querySelector('.view-button[data-view="installation"]');
-	
-	// Count available views
+
 	const hasDetail = !!detailSrc;
 	const hasInstallation = !!installationSrc;
 	const viewCount = 1 + (hasDetail ? 1 : 0) + (hasInstallation ? 1 : 0);
-	
+
 	if (!navContainer) return;
-	
-	// Hide entire nav if only one view available
+
 	if (viewCount === 1) {
 		navContainer.style.display = 'none';
 		return;
 	}
-	
-	// Show nav and configure buttons
+
 	navContainer.style.display = 'flex';
-	
-	// Main button (always available)
+
 	if (mainBtn) {
 		mainBtn.style.display = 'inline-block';
 		mainBtn.classList.toggle('active', currentView === 'main');
 	}
-	
-	// Detail button
+
 	if (detailBtn) {
-		if (hasDetail) {
-			detailBtn.style.display = 'inline-block';
-			detailBtn.classList.toggle('active', currentView === 'detail');
-		} else {
-			detailBtn.style.display = 'none';
-		}
+		detailBtn.style.display = hasDetail ? 'inline-block' : 'none';
+		if (hasDetail) detailBtn.classList.toggle('active', currentView === 'detail');
 	}
-	
-	// Installation button
+
 	if (installationBtn) {
-		if (hasInstallation) {
-			installationBtn.style.display = 'inline-block';
-			installationBtn.classList.toggle('active', currentView === 'installation');
-		} else {
-			installationBtn.style.display = 'none';
-		}
+		installationBtn.style.display = hasInstallation ? 'inline-block' : 'none';
+		if (hasInstallation) installationBtn.classList.toggle('active', currentView === 'installation');
 	}
 }
 
@@ -270,7 +257,7 @@ function openFromHash() {
 	const parts = hash.split(':');
 	const id = parts[0];
 	const view = parts[1] || 'main';
-	const idx = Array.from(portraitItems).findIndex(item => item.getAttribute('data-id') === id);
+	const idx = [...portraitItems].findIndex(item => item.getAttribute('data-id') === id);
 	if (idx !== -1) {
 		showImage(idx, view);
 	}

@@ -1018,9 +1018,9 @@ footer {
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    font-size: 60px;
-    width: 60px;
-    height: 80px;
+    font-size: 2em;
+    width: 44px;
+    height: 60px;
     cursor: pointer;
     z-index: 1002;
     transition: background 0.3s ease, opacity 0.3s ease;
@@ -1208,20 +1208,14 @@ footer {
         font-size: 40px;
     }
     
-    .nav-arrow {
-        font-size: 50px;
-        width: 50px;
-        height: 70px;
-    }
-    
     .nav-arrow-left {
         left: 10px;
     }
-    
+
     .nav-arrow-right {
         right: 10px;
     }
-    
+
     .sold-marker-fullscreen {
         width: 50px;
         height: 50px;
@@ -1293,20 +1287,14 @@ footer {
         font-size: 9px;
     }
     
-    .nav-arrow {
-        font-size: 40px;
-        width: 40px;
-        height: 60px;
-    }
-    
     .nav-arrow-left {
         left: 5px;
     }
-    
+
     .nav-arrow-right {
         right: 5px;
     }
-    
+
     .fullscreen-title {
         font-size: 16px;
     }

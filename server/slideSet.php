@@ -104,55 +104,9 @@ function render_slideset($options = []) {
 }
 
 /**
- * Render a slideSet with manually specified images
- * Useful when you need more control over which images to include
- * 
- * @param array $images Array of image paths
- * @param array $options Configuration options (same as render_slideset)
- * @return string Complete slideSet HTML
- */
-function render_slideset_manual($images, $options = []) {
-    // Default options
-    $defaults = [
-        'id' => 'slideSet',
-        'class' => 'photo',
-        'img_class' => 'photo',
-        'img_style' => '',
-        'div_style' => '',
-        'alt' => 'slide',
-    ];
-    
-    $options = array_merge($defaults, $options);
-    
-    if (empty($images)) {
-        return '<!-- No images provided -->';
-    }
-    
-    // Build HTML
-    $html = '<div id="' . htmlspecialchars($options['id']) . '" class="' . htmlspecialchars($options['class']) . '"';
-    if (!empty($options['div_style'])) {
-        $html .= ' style="' . htmlspecialchars($options['div_style']) . '"';
-    }
-    $html .= '>' . "\n";
-    
-    foreach ($images as $image) {
-        $html .= '    <img class="' . htmlspecialchars($options['img_class']) . '" ';
-        $html .= 'src="' . htmlspecialchars($image) . '" ';
-        if (!empty($options['img_style'])) {
-            $html .= 'style="' . htmlspecialchars($options['img_style']) . '" ';
-        }
-        $html .= 'alt="' . htmlspecialchars($options['alt']) . '"/>' . "\n";
-    }
-    
-    $html .= '</div>' . "\n";
-    
-    return $html;
-}
-
-/**
  * Render slideSet with simpler parameters
  * Convenience function for common use cases
- * 
+ *
  * @param string $images_dir Directory containing images (default: 'images')
  * @param string $img_style Optional inline style for images (default: '')
  * @return string Complete slideSet HTML
@@ -162,15 +116,5 @@ function slideset($images_dir = 'images', $img_style = '') {
         'images_dir' => $images_dir,
         'img_style' => $img_style,
     ]);
-}
-
-/**
- * Output slideSet directly (echoes immediately)
- * Convenience function for simple cases
- * 
- * @param array $options Configuration options (same as render_slideset)
- */
-function display_slideset($options = []) {
-    echo render_slideset($options);
 }
 ?>

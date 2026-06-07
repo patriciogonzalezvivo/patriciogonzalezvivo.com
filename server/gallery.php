@@ -199,24 +199,12 @@ function render_gallery_item($artwork) {
 
             $email_body  = "Hi Patricio,\n\n";
             $email_body .= "I'm interested in the piece ( " . $image_url . " ) and would like to inquire about its availability.\n\n";
-            // $email_body .= "Could you please share further details regarding the work, including:\n\n";
-            // $email_body .= "- Availability and pricing\n";
-            // $email_body .= "- Framing options\n";
-            // $email_body .= "- Shipping or delivery options\n\n";
-            // $email_body .= "If there are additional works related to this piece or from the same series that you would recommend, I would be very interested in learning more.\n\n";
-            // $email_body .= "Thank you for your time, and I look forward to your response.\n\n";
-            // $email_body .= "Warm regards,";
 
             $email_href = 'mailto:patriciogonzalezvivo@gmail.com?subject=' . rawurlencode($email_subject) . '&body=' . rawurlencode($email_body);
             $html .= '<a class="artwork-btn buy-btn" href="' . $email_href . '">Acquire Original</a>';
         }
         $html .= '</div>';
     }
-    
-    // // Sold marker inside artwork-info
-    // if ($is_sold) {
-    //     $html .= '<div class="sold-marker"></div>';
-    // }
     
     $html .= '</div>'; // .artwork-info
     $html .= '</div>'; // .painting-item
@@ -302,7 +290,6 @@ function render_gallery_modal() {
             </div>
         </div>
     </div>
-    <!-- <div class="sold-marker-fullscreen"></div> -->
     <div class="fullscreen-nav">
         <button class="view-button" data-view="main">Main</button>
         <button class="view-button" data-view="detail" style="display:none;">Detail</button>

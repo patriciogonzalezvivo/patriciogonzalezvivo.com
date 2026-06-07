@@ -11,7 +11,7 @@ echo '
 		<script type="text/javascript" src="/js/gallery.js" defer></script>
 
 		<footer>
-			<p>© Patricio Gonzalez Vivo 2026</p>
+			<p>© Patricio Gonzalez Vivo ' . date('Y') . '</p>
 		</footer>
 	</body>
 </html>

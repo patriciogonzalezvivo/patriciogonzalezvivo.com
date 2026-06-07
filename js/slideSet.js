@@ -1,4 +1,4 @@
-//	Lunch Item Animation in Cascade
+//	Launch Item Animation in Cascade
 //
 var menuCounter = 0;
 var items = document.getElementsByClassName("item");
@@ -6,7 +6,6 @@ var items = document.getElementsByClassName("item");
 //	Activate Next Item
 //
 function activateNext(){
-	var items = document.getElementsByClassName("item");
 	if (menuCounter < items.length ){
 		items[menuCounter].classList.add("is-active");
 		menuCounter++;
@@ -23,8 +22,8 @@ function initSlideSet(slideSet) {
 	var firstImage = images[0];
 
 	function slideNext() {
-		var previus = (counter === 0) ? images.length - 1 : counter - 1;
-		images[previus].classList.remove("photoFront");
+		var previous = (counter === 0) ? images.length - 1 : counter - 1;
+		images[previous].classList.remove("photoFront");
 
 		images[counter].classList.add("photoFront");
 
