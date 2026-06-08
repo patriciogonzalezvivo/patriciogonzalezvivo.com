@@ -34,7 +34,7 @@ $projects = [
 
     [
         'path'         => '2026/weaver2',
-        'type'         => 'live',
+        'type'         => 'big_thumbnail',
     ],
 
     // [
@@ -65,7 +65,7 @@ $projects = [
     // ],
     [
         'path'         => '2017/luna',
-        'type'         => 'live',
+        'type'         => 'big_thumbnail',
     ],
 
     [
