@@ -1,4 +1,4 @@
-**Patricio González Vivo** (b. 1982, Buenos Aires) builds instruments of attention. Across oil painting, interactive installation, real-time digital simulation, and physical drawing machines, his work is organized around a single question: what does it take for an artifact to develop presence?
+**Patricio González Vivo** (b. 1982, Buenos Aires) builds instruments of attention. Across oil painting, interactive installation, real-time digital simulation, and physical drawing machines, his work is organized around a single question: what can two systems produce together that neither holds alone?
 
 :::wrapfig right
 src: 2011/efectomariposa/images/12.jpg

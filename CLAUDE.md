@@ -484,7 +484,7 @@ label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, for_name=None)
 
 ### The Through-Line
 
-Patricio González Vivo makes instruments of attention. Not metaphorical ones — actual instruments: plotters, satellite feeds, depth sensors, shaders, astronomical libraries, tarot decks. Each is built to make present what ordinary perception has filtered out, at scales from the cosmic (the solar system, the star field, the rotating planet) to the ecological (the ash that records geological force) to the human face. The through-line from 2010 to 2026 is not medium — the work moves freely between oil and code, ash and satellite, shader and canvas — but question: *what does it take for an artifact to develop presence?*
+Patricio González Vivo makes instruments of attention. Not metaphorical ones — actual instruments: plotters, satellite feeds, depth sensors, shaders, astronomical libraries, tarot decks. Each is built to make present what ordinary perception has filtered out, at scales from the cosmic (the solar system, the star field, the rotating planet) to the ecological (the ash that records geological force) to the human face. The through-line from 2010 to 2026 is not medium — the work moves freely between oil and code, ash and satellite, shader and canvas — but question: *what can two systems produce together that neither holds alone?*
 
 **Three gestures that recur across every major work:**
 
@@ -496,11 +496,11 @@ Patricio González Vivo makes instruments of attention. Not metaphorical ones �
 
 ### The Personal Mythology
 
-The works form a personal mythology around a single question: *what does it take for an artifact to develop presence?* Not perception — presence: the quality of being *there*, of addressing you, of persisting beyond the encounter.
+The works form a personal mythology around a single question: *what can two systems produce together that neither holds alone?*
 
 The practice traces a threshold that runs through every medium. A plotter drawing alone is a diagram; completed by hand, it becomes something that addresses you like a face. Satellite data alone is an instrument; with its atmospheric scattering restored, it becomes a planet that looks alive and breathable. Stellar coordinates alone are data; tied to a family migration and shared between two people, they become a connection that outlasts the screen. Volcanic ash alone is material; holding the consequence of every hand that shaped it, it becomes something that persists and responds.
 
-The question is always the same: what combination of process, material, and human act crosses that threshold? In this practice the answer consistently involves two systems in contact — machine and hand, code and gesture, data and imagination — where neither system alone achieves what both together develop.
+The question is always the same: what can the contact between two systems produce that neither holds alone? In this practice the systems are always different — machine and hand, code and gesture, data and imagination, migration and sky — but the structure of the question persists.
 
 Personal stakes running through the work: parenting (LUNA, HOGAR), family migration (Weaver, Guayupia, Santos), Argentine/immigrant identity (HOGAR, Efecto Mariposa, Santos), and a consistent pedagogy — building open tools for others to develop their own sense of presence (Book of Shaders, PixelSpirit, LYGIA, Vera, Shell Initiation).
 
@@ -561,7 +561,7 @@ Personal stakes running through the work: parenting (LUNA, HOGAR), family migrat
 
 ### The Unifying Frame
 
-For curators, gallerists, and grant applications, the practice can be introduced in one sentence: *Patricio González Vivo builds instruments — plotters, satellite feeds, shaders, astronomical libraries — that ask a single question through every medium: what does it take for an artifact to develop presence?*
+For curators, gallerists, and grant applications, the practice can be introduced in one sentence: *Patricio González Vivo builds instruments — plotters, satellite feeds, shaders, astronomical libraries — that ask a single question through every medium: what can two systems produce together that neither holds alone?*
 
 This holds the full range: the portrait that begins as a machine drawing and develops into a face that addresses you; the satellite visualization that restores what the sensor stripped and becomes a planet that looks alive; the celestial map that connects two people across time and becomes a shared sky; the volcanic ash that holds the consequence of every gesture made in it.
 
