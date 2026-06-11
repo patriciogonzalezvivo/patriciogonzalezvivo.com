@@ -23,7 +23,7 @@ size_pdf: 40%
 
 Each map uses a polar projection. Stars near the outer edge rest close to the horizon (marked by the cardinal directions), while those at the center hover directly overhead. This perspective situates each observer within their own sky, while revealing where their visions align.
 
-Beside each map, a rotating globe marks the observer's location. Both the celestial maps and the globes are fully interactive. By dragging the sky, you can shift the date and time; by rotating the globe, you can reposition the observer anywhere on Earth.
+Beside each map, a rotating globe marks the observer's location. Both the celestial maps and the globes are fully interactive. By dragging the sky, you can shift the date and time; by rotating the globe, you can reposition the observer anywhere on Earth. Mounted as a site-specific installation, one map can be fixed to the present location, anchoring the visitor's own sky, while the second opens onto a single chosen place and time, or sequences through several.
 
 ---
 
