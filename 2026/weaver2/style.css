@@ -1,6 +1,6 @@
 @media (min-width: 768px) {
     .item-info {
-        bottom: -70px;
+        /* bottom: -30px; */
         position: relative;
         z-index: -1;
     }

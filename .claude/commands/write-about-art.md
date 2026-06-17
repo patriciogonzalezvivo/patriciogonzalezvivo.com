@@ -1,4 +1,4 @@
-You are helping an artist write or improve the artist statement for a specific work or body of work. Apply the frameworks from Lessons 133 and 137 of the Artist Commons program — instructor Haiver's complete art-writing curriculum drawing on Gilda Williams's three-question structure, Jerry Saltz's plain-language principles, Charles Bukowski's "say a hard thing in a simple way," and the concept of scaffolding for viewer understanding.
+You are helping an artist write or improve the artist statement for a specific work or body of work. Apply the frameworks from Lessons 133, 137, and 140 of the Artist Commons program — instructor Haiver's complete art-writing curriculum drawing on Gilda Williams's three-question structure, Jerry Saltz's plain-language principles, Charles Bukowski's "say a hard thing in a simple way," the concept of scaffolding for viewer understanding, and a full revision practice (hotspotting, editing hacks, and writing partners) that treats editing — not drafting — as the real work of writing.
 
 ---
 
@@ -110,6 +110,54 @@ Read the draft aloud. Do all sentences sound like something a real person would 
 
 ---
 
+## Revision: The Real Work of Writing (Lesson 140)
+
+A draft is not a statement. Revision is where writing actually happens — "the writing begins when you've finished" (Mark Twain); "my pencils outlast their erasers" (Nabokov). When the artist has a draft (however rough), shift into revision mode. Do not treat the first version as precious.
+
+**First, reframe three things:**
+- **The statement is a roadmap, not the journey.** It shows a stranger — who has no reason to care — where things are so they can navigate the work themselves. Give them a chart into the work, not a lecture about it.
+- **Composition is nonlinear.** The thesis is discovered *by* writing, so the opening paragraph is often written last. Don't force a straight line from first sentence to final one; gather strong bits and stitch them together.
+- **Permission to have begun badly.** "Nothing begins good, but everything good begins." The hard part is done. Now the job is to find the right words in the right order.
+
+### Hotspotting (the primary revision exercise)
+
+1. Go through the draft and mark only the few **most meaningful** sentences — the ones that carry an important idea poetically yet clearly. Be **stingy**; find the truly essential ones.
+2. Copy *one* of those sentences onto a fresh page. It's not a blank page — it already has a good idea on it.
+3. Write new text *around that idea* for ~15 minutes, without worrying how it flows with the rest of the draft.
+4. Compare the new material to the original. Cut large sections of the original and sub in the sharper new language. Repeat for a few more key sentences.
+
+Rationale: the first draft is about *getting to* the good idea; the second draft is about *saying it best*. Hotspotting makes room to find new language for an idea already crystallized.
+
+### Editing hacks — make the familiar strange
+
+All of these dislocate the writer from over-familiar text so they can see it clearly. Recommend them actively:
+
+- **Read it aloud** (or use a text-to-speech app). Write for the ear; a sentence that collapses when spoken needs fixing.
+- **Change the font and size, then reread.** The words land in new places; it reads like someone else wrote it.
+- **Print it out and edit by hand.** Combine with the above for maximum effect.
+- **Change where the piece starts.** The first paragraph or two is often disposable preamble — the highest-risk place to lose a reader. Cut to something substantial faster.
+- **Cut the abstractions from the opening.** Anchor in what the work *is* (medium, scale, what you're looking at), not in abstraction.
+- **Anticipate misunderstandings.** List how the work has been misread before; add a clear sentence to head those off. Clarifying, not defensive.
+- **Swap words for connotation.** *Odor* vs. *aroma* — same sense, opposite feeling. "Bad smell" is weaker than "bad odor." Circle ~5 words where a connotation-rich choice hits harder.
+- **Identify the words that make people *feel* the work** — muscular verbs, exact adjectives. Reading is emotional, not only intellectual.
+
+### Sentence-level craft
+
+- **One thought per sentence** (Zinsser). Readers process one thought at a time; "be grateful for the period." Give the first fact, then the next that builds on it. Don't string clauses into a wilderness.
+- **Style is rhythm** (Woolf; Didion). Vary sentence length deliberately — "become stretchy" (Fitch): among long sentences, throw in threes, fivers, and sevens.
+- **Pick a better verb** (Fitch; Mary Oliver's "verbs of muscle, adjectives of exactitude"). Hunt the artist's repeated "ruts" and replace them with precise words.
+
+### Writing partners and editors
+
+- **Always have an editor.** A writer friend, a traded service, or 30 paid minutes. AI tools have detectable tics (always opening with a curiosity-baiting question); art-world readers can "smell the odor of AI" — flag this if the draft reads machine-generated.
+- **Record-and-transcribe:** if writing is hard, record the artist explaining the work to a partner (or being interviewed about it), then transcribe and edit into a first draft.
+- **Swap-and-revise:** editing someone else's statement is a shortcut to improving your own — you spot moves to emulate and recover the essential thing they left out.
+- **Red Star exercise:** print the statement and mark a red star wherever attention drifts. Best late in drafting; it flags exactly where the reader is lost.
+
+**The only universal is persistence.** Pick the methods that work for this artist; the goal is to keep going, not to follow one prescribed path.
+
+---
+
 ## Key Principles from Lesson 137
 
 **"An artist says a hard thing in a simple way."** (Charles Bukowski)
@@ -141,6 +189,10 @@ Read the draft aloud. Do all sentences sound like something a real person would 
 4. **Grandmother test.** Is technical explanation accessible to someone smart but outside the field?
 5. **Halfway test.** If someone stops after the first paragraph, do they leave with useful clarity?
 6. **Scaffolding test.** After reading the full statement, can a viewer who didn't understand the work before now think more deeply about it?
+7. **Hotspot test.** Mark the strongest sentence. Could the whole statement be rebuilt around it — and is everything weaker than it pulling its weight?
+8. **Preamble test.** Cut the first paragraph. Does the statement get *better*, getting to something substantial faster?
+9. **Connotation test.** Are the key words chosen for what they *evoke*, not just what they denote? Do any verbs sit in a tired "rut"?
+10. **Red Star test.** Reading straight through, where does attention drift? Those points need revision, not the points you think are weak.
 
 ---
 

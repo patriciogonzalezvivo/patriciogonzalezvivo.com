@@ -2,7 +2,7 @@
 
 Artist portfolio for **Patricio Gonzalez Vivo** (b. 1982, Buenos Aires). Multidisciplinary artist working across traditional and digital media — oil painting, drawing machines/plotters, generative/shader code, astronomical instruments, interactive web, and NFT/blockchain work. Serves as both a PHP website and a PDF portfolio generator.
 
-**Artist Commons (AC) program context:** `2026/ac/CLAUDE.md` contains 20 lesson summaries and 20 slash commands covering visual analysis, semiotics, philosophy of art, generative/AI art, interactivity, appropriation, quilting as concept, IP law, portfolio building, and curator outreach. Load that file when doing studio critique, writing artist statements, or making professional decisions.
+**Artist Commons (AC) program context:** `2026/ac/CLAUDE.md` contains 23 lesson summaries and 20 slash commands covering visual analysis, semiotics, philosophy of art, generative/AI art, interactivity, appropriation, quilting as concept, IP law, portfolio building, curator outreach, text in visual art, systems-based/generative practice, and writing/revising artist statements. Load that file when doing studio critique, writing artist statements, or making professional decisions.
 
 **Custom slash commands** (`.claude/commands/`):
 - `/review-statement` — reviews and improves the artist statement / README for a specific project; pass a folder path (e.g. `2026/santos`) or a direct `.md` path as the argument.
@@ -484,7 +484,7 @@ label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, for_name=None)
 
 ### The Through-Line
 
-Patricio González Vivo makes instruments of attention. Not metaphorical ones — actual instruments: plotters, satellite feeds, depth sensors, shaders, astronomical libraries, tarot decks. Each is built to make present what ordinary perception has filtered out, at scales from the cosmic (the solar system, the star field, the rotating planet) to the ecological (the ash that records geological force) to the human face. The through-line from 2010 to 2026 is not medium — the work moves freely between oil and code, ash and satellite, shader and canvas — but question: *what can two systems produce together that neither holds alone?*
+Patricio González Vivo makes instruments of attention and wonder. Not metaphorical ones — actual instruments: plotters, satellite feeds, depth sensors, shaders, astronomical libraries, tarot decks. Each is built to make present what ordinary perception has filtered out, at scales from the cosmic (the solar system, the star field, the rotating planet) to the ecological (the ash that records geological force) to the human face. The through-line from 2010 to 2026 is not medium — the work moves freely between oil and code, ash and satellite, shader and canvas — but question: *what does it take for an artifact to develop presence?*
 
 **Three gestures that recur across every major work:**
 
@@ -496,11 +496,11 @@ Patricio González Vivo makes instruments of attention. Not metaphorical ones �
 
 ### The Personal Mythology
 
-The works form a personal mythology around a single question: *what can two systems produce together that neither holds alone?*
+The works form a personal mythology around a single question: *what does it take for an artifact to develop presence?*
 
 The practice traces a threshold that runs through every medium. A plotter drawing alone is a diagram; completed by hand, it becomes something that addresses you like a face. Satellite data alone is an instrument; with its atmospheric scattering restored, it becomes a planet that looks alive and breathable. Stellar coordinates alone are data; tied to a family migration and shared between two people, they become a connection that outlasts the screen. Volcanic ash alone is material; holding the consequence of every hand that shaped it, it becomes something that persists and responds.
 
-The question is always the same: what can the contact between two systems produce that neither holds alone? In this practice the systems are always different — machine and hand, code and gesture, data and imagination, migration and sky — but the structure of the question persists.
+The question is always the same: *what does it take for an artifact to develop presence?* The systems change — machine and hand, code and gesture, data and imagination, migration and sky — but the question persists.
 
 Personal stakes running through the work: parenting (LUNA, HOGAR), family migration (Weaver, Guayupia, Santos), Argentine/immigrant identity (HOGAR, Efecto Mariposa, Santos), and a consistent pedagogy — building open tools for others to develop their own sense of presence (Book of Shaders, PixelSpirit, LYGIA, Vera, Shell Initiation).
 
@@ -515,7 +515,7 @@ Personal stakes running through the work: parenting (LUNA, HOGAR), family migrat
 - `2025/hybrids` 🟢 — "I write the code and I hold the brush." Strong. Could name medium/scale.
 - `2025/gestures` 🟢 — Written. Opens with the plotted/painted body contrast; distinguishes from Hybrids; hands as self-referential subject. Complete.
 - `2025/memories` 🟢 — Best statement in the collection. Opens with "What we retain of those we love, and what we lose." Barthes punctum closes it. Complete.
-- `2026/santos` 🟢 — Strong. The `<div class="spacer">` block references `refs/okeeffe_*.jpg` — if those files exist Chrome renders them as a PNG in the PDF; if absent it renders blank. Move to `index.php` if website-only. Generic closing sentence ("transcend boundaries") could be stronger.
+- `2026/santos` 🟢 — Strong. The `<div class="spacer">` block references `refs/okeeffe_*.jpg` — if those files exist Chrome renders them as a PNG in the PDF; if absent it renders blank. Move to `index.php` if website-only. Closing sentence updated to return to the great-grandmother/burning image.
 
 **Astronomical instruments**
 - `2017/luna` 🟢 — *Goodnight Moon* / Brooklyn opening. Full lineage to Hypatia named. Complete.
@@ -561,7 +561,7 @@ Personal stakes running through the work: parenting (LUNA, HOGAR), family migrat
 
 ### The Unifying Frame
 
-For curators, gallerists, and grant applications, the practice can be introduced in one sentence: *Patricio González Vivo builds instruments — plotters, satellite feeds, shaders, astronomical libraries — that ask a single question through every medium: what can two systems produce together that neither holds alone?*
+For curators, gallerists, and grant applications, the practice can be introduced in one sentence: *Patricio González Vivo builds instruments of attention and wonder — plotters, satellite feeds, shaders, astronomical libraries — that ask a single question through every medium: what does it take for an artifact to develop presence?*
 
 This holds the full range: the portrait that begins as a machine drawing and develops into a face that addresses you; the satellite visualization that restores what the sensor stripped and becomes a planet that looks alive; the celestial map that connects two people across time and becomes a shared sky; the volcanic ash that holds the consequence of every gesture made in it.
 

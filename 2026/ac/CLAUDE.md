@@ -1,6 +1,6 @@
 # CLAUDE.md — Artist Studio Context
 
-This file is the standing context for all conversations about an artist's practice. Load it at the start of any project session. It maps the theoretical frameworks, critical tools, and practical knowledge available from a completed Artist Commons (AC) program — 20 lessons, 20 summary files, and 20 Claude Code slash commands — and provides routing guidance for applying them to studio work, critique, analysis, writing, and professional decisions.
+This file is the standing context for all conversations about an artist's practice. Load it at the start of any project session. It maps the theoretical frameworks, critical tools, and practical knowledge available from a completed Artist Commons (AC) program — 23 lessons, 23 summary files, and 20 Claude Code slash commands — and provides routing guidance for applying them to studio work, critique, analysis, writing, and professional decisions.
 
 ---
 
@@ -15,7 +15,7 @@ When discussing the artist's work, apply frameworks from this program rather tha
 ## What Is Available
 
 ### Summaries (`2026/ac/summaries/`)
-Twenty markdown files, one per lesson. Each covers: overview, key concepts and frameworks, artists and works referenced, core takeaways, and studio reflection questions. Read these when you need the full detail of a framework before applying it.
+Twenty-three markdown files, one per lesson. Each covers: overview, key concepts and frameworks, artists and works referenced, core takeaways, and studio reflection questions. Read these when you need the full detail of a framework before applying it.
 
 ### Slash Commands (`.claude/commands/`)
 Twenty interactive skill prompts. Each walks the artist through a structured studio exercise using the lesson's frameworks. Invoke by typing `/command-name` followed by a description of the work.
@@ -28,7 +28,7 @@ Use this to decide which framework or command to reach for based on what the art
 
 ### Analyzing or describing a work (yours or another artist's)
 - Start with `/visual-analysis` (Feldman Method: describe → analyze → interpret → evaluate). This is the foundational tool for any close reading of a visual work.
-- For works that use text as a visual element, add `/text-in-art` (Dada, Cubism, Constructivism, Surrealism).
+- For works that use text as a visual element, add `/text-in-art` (Part 1: Dada, Cubism, Constructivism, Surrealism; Part 2: conceptual art, feminist art, AIDS activism, and text moved out of the gallery into public/commercial circulation).
 - For works involving moving image, interaction, or digital media, add `/interactivity-analysis` or `/narrative-interactivity`.
 
 ### Critiquing work in a group or cohort setting
@@ -58,7 +58,7 @@ Use this to decide which framework or command to reach for based on what the art
 - For quilting as conceptual framework applicable to any medium: `/quilting-contemporary` (quilt as verb not noun; palimpsest; story quilts; memorial and activism). This command is useful even if the artist does not work with fabric — the quilting logic (select disparate elements, layer and piece, stitch to unify while showing seams) applies to any practice.
 
 ### Writing about the work (statements, essays, applications)
-- Use `/write-about-art` (three-question framework; word-list brainstorm method; specificity as primary virtue; anti-generality discipline).
+- Use `/write-about-art` (three-question framework; word-list brainstorm method; specificity as primary virtue; anti-generality discipline; and the full revision practice from Lesson 140 — hotspotting, editing hacks, and writing partners). Reach for the revision half when the artist already has a draft and needs to sharpen it, not generate it.
 - For criticism that reaches a public audience: `/cultural-criticism` (Alissa Wilkinson's model of criticism as expansion; pseudonarrative; how business shapes form).
 
 ### Professional and practical decisions
@@ -106,10 +106,12 @@ Kirby Ferguson's three-step frame for examining any work's relationship to its s
 ### Encoding / Openness (Lesson 136 · `/meaning-conditions`)
 Before finalizing any work, run it through Eco's four-degree check: Is the viewer given enough to complete the meaning (guided/open) or is the structure so loose it collapses (underbuilt)? The open work is not the vague work — it is the precisely structured invitation.
 
-### Write About Your Art (Lessons 133–137 · `/write-about-art`)
+### Write About Your Art (Lessons 133–137, 140 · `/write-about-art`)
 Three-question framework: (1) **What is it?** — concrete, specific, what does it look like? (2) **What might it mean?** — scaffolding for viewer understanding, broad themes grounded in the work, write from wonder not answers. (3) **Why does it matter?** — traceable to questions 1–2, personal stakes, reasons to care.
 
 **Key concepts:** Specificity as primary virtue (not "explores themes of memory" but the exact imagery that makes it specific to you). Word-list brainstorming: 30–50 words → find unexpected ones → build sentences. Free-writing exercises to generate material. Avoid art clichés ("interrogates," "liminal," "explores themes") — if you've heard it before, rewrite. Scaffolding as primary job: set up conditions for viewers to think more deeply, not explain everything away. The open work is precisely structured, not vague.
+
+**Revision (Lesson 140):** Editing — not drafting — is the real writing. The statement is a roadmap, not the journey; composition is nonlinear (the thesis is found by writing, so the opening is often written last). Core exercise is **hotspotting** (mark the few strongest sentences, rewrite fresh text around each, sub it back in). Editing hacks make familiar text strange again: read aloud, change the font, print and edit by hand, cut the preamble, swap words for connotation (*aroma* vs. *odor*). Sentence craft: one thought per sentence, vary rhythm, pick verbs of muscle. Use writing partners, swapped drafts, and the Red Star exercise (mark where attention drifts) to get out of your own head.
 
 ---
 
@@ -156,3 +158,6 @@ When working on any art project in this directory, apply these orientations:
 | 135 | Text in Visual Art Part 1 (Dada/Cubism/Surrealism) | `summaries/135_Text_in_Visual_Art.md` | `/text-in-art` |
 | 136 | Philosophy of Art: How Does It Mean? Part 2 (Saussure/Barthes/Hall/Eco) | `summaries/136_Philosophy_How_Does_It_Mean_Part2.md` | `/meaning-conditions` |
 | 137 | How to Write About Your Art Part 2 (scaffolding, clichés, meaning) | `summaries/137_Write_About_Art_Part2.md` | `/write-about-art` |
+| 138 | Visiting Artist: Sasha Stiles — Crafting Systems (generative poetry, systems-based artwork) | `summaries/138_Visiting_Artist_Sasha_Stiles.md` | — (see `/systems-uncertainty`, `/write-about-art`) |
+| 139 | Text in Visual Art Part 2 (conceptual art, feminist art, AIDS activism) | `summaries/139_Text_in_Visual_Art_Part2.md` | `/text-in-art` |
+| 140 | How to Write About Your Art Part 3 (revision, hotspotting, editing) | `summaries/140_Write_About_Art_Part3.md` | `/write-about-art` |

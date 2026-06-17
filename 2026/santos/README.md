@@ -1,6 +1,6 @@
 In Latin America, it is common to receive the name of the saint whose feast day coincides with one's birth. To ask for someone's santo is, in effect, to ask for their birthday. This custom reflects a deep cultural belief: that the saint linked to your day of birth becomes a protector, a guide, and a source of inspiration. Saints, historical figures revered for their moral virtue and spiritual significance, are understood to transcend linear time. Through their acts of compassion and faith, they enter a more circular, mythological temporality, becoming enduring presences within the collective imagination of Christianity.
 
-I was raised in a Catholic family. My grandfather used to read to me from a red book in his study, a compendium of saints' lives. Alongside brief narratives, there were illustrations, each saint marked by a halo, captured at the pivotal moment of transformation when the ordinary gave way to the transcendent. Again and again, these stories returned to a common thread: self-sacrifice, service, and devotion to others. The halo functioned as a visual language for this metaphysical shift.
+I was raised in a Catholic family. My grandfather used to read to me from a red book in his study, a compendium of saints' lives. Alongside brief narratives, there were illustrations, each saint marked by a halo, captured at the moment of transformation when the ordinary gave way to the transcendent. Again and again, these stories returned to a common thread: self-sacrifice, service, and devotion to others. The halo functioned as a visual language for this metaphysical shift.
 
 That ethos of service extended into my family's expectations. Professions such as law, medicine, and engineering were valued as pathways toward a life of usefulness and contribution. In my lineage, I cannot trace a single artist. There is one fragile exception, my maternal great-grandmother, a poet who reportedly burned all her writings upon marriage, as though creativity were a deviation to be corrected, a path to be relinquished in favor of duty.
 
@@ -21,7 +21,7 @@ size_pdf: 65%
 
 These portraits continue an exploration of drawing machines begun with [Skylines in 2014](../../2014/skylines/skylines.php?v=01), for which I constructed a wall plotter that slowly reveals an image through custom software translating photographs into lines. In 2025, with the [Hybrids series](../../2025/hybrids/), I began combining plotting with alla prima oil painting, bringing together the forces of machine and hand, code and gesture. In Santos, I use that same approach: converting portrait images into vector paths layered with symbolic elements singular to each subject, plotting the result with acrylic paint on a primed canvas, then completing each portrait by hand with oil.
 
-Like their subjects, the works exist as syntheses: of the material and the immaterial, the earthly and the cosmic, the known and the intuited.
+Behind every portrait in this series stands the absence of my great-grandmother, the poet who burned her writing. Santos is the lineage she was not permitted to enter.
 
 <div class="spacer" style="display:flex; gap:0.5em;">
     <img src="refs/okeeffe_001.jpg" style="width:25%; height:auto;">

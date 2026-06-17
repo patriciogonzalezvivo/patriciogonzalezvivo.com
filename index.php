@@ -216,8 +216,23 @@ include("server/menu.php");
     var items = Array.from(rail.querySelectorAll(':scope > .item'));
     if (items.length === 0) return;
 
-    var current = 0;
-    var locked  = false;
+    var current     = 0;
+    var locked      = false;   /* wheel throttle */
+    var programmatic = false;  /* true while a goTo() smooth-scroll is in flight */
+    var progTimer;
+
+    /* index of the item whose left edge is closest to the rail's scroll start.
+       Width-agnostic, so it stays correct even for items wider than the rail. */
+    function nearestIndex() {
+        var scrollPad = parseFloat(getComputedStyle(rail).scrollPaddingLeft) || 0;
+        var refX = rail.getBoundingClientRect().left + scrollPad;
+        var best = 0, bestDist = Infinity;
+        items.forEach(function (item, i) {
+            var dist = Math.abs(item.getBoundingClientRect().left - refX);
+            if (dist < bestDist) { bestDist = dist; best = i; }
+        });
+        return best;
+    }
 
     function goTo(index) {
         index = Math.max(0, Math.min(index, items.length - 1));
@@ -227,8 +242,17 @@ include("server/menu.php");
                    + items[index].getBoundingClientRect().left
                    - rail.getBoundingClientRect().left
                    - scrollPad;
+        programmatic = true;
+        clearTimeout(progTimer);
         rail.scrollTo({ left: target, behavior: 'smooth' });
         updateUI();
+        /* release the guard once the smooth scroll has settled, then
+           re-sync to wherever snapping actually landed */
+        progTimer = setTimeout(function () {
+            programmatic = false;
+            current = nearestIndex();
+            updateUI();
+        }, 600);
     }
 
     function updateUI() {
@@ -249,22 +273,16 @@ include("server/menu.php");
         }
     }, { passive: false });
 
-    /* track current item during touch/trackpad free-scroll;
-       guard prevents IntersectionObserver from firing wrong index
-       before images have loaded and items have their proper widths */
-    var observerReady = false;
-    setTimeout(function () { observerReady = true; }, 600);
-
-    var observer = new IntersectionObserver(function (entries) {
-        if (!observerReady) return;
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-                current = items.indexOf(entry.target);
-                updateUI();
-            }
+    /* track current item during touch/trackpad free-scroll */
+    var scrollRaf;
+    rail.addEventListener('scroll', function () {
+        if (programmatic) return;
+        if (scrollRaf) cancelAnimationFrame(scrollRaf);
+        scrollRaf = requestAnimationFrame(function () {
+            var idx = nearestIndex();
+            if (idx !== current) { current = idx; updateUI(); }
         });
-    }, { root: rail, threshold: 0.5 });
-    items.forEach(function (item) { observer.observe(item); });
+    }, { passive: true });
 
     /* wrap rail so arrows/dots can be positioned relative to it */
     var wrapper = document.createElement('div');

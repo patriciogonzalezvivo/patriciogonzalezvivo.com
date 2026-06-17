@@ -31,7 +31,7 @@ Beside each map, a rotating globe marks the observer's location. Both the celest
 src: ../../2017/guayupia/images/paths.png
 title: Guayupia
 year: 2017
-link: https://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe
+link: ../../2017/guayupia
 :::
 
 
