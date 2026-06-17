@@ -13,7 +13,7 @@ margin_pdf: 1cm
 Originally trained in clinical psychology and expressive arts therapy, González Vivo's early installations in Buenos Aires explored how collective gesture creates shared meaning. [Efecto Mariposa (2011)](2011/efectomariposa/), built on volcanic ash from the Puyehue eruption, made ecological consequence palpable at the scale of a visitor's hand: participants reshaping a simulated landscape and watching life slowly return to what they had disturbed. That work became his first international exhibition, at FILE Festival São Paulo.
 
 :::wrapfig left
-src: 2017/pixelspirit/images/22383968_1665365133488191_5147193364633286006_o.jåpg
+src: 2017/pixelspirit/images/22383968_1665365133488191_5147193364633286006_o.jpg
 title: Pixel Spirit
 year: 2017
 link: 2017/pixelspirit
