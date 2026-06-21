@@ -71,7 +71,7 @@ var ENVIRONMENT_IS_SHELL = !ENVIRONMENT_IS_WEB && !ENVIRONMENT_IS_NODE && !ENVIR
 
 // --pre-jses are emitted after the Module integration code, so that they can
 // refer to Module (if they choose; they can also define Module)
-// include: /tmp/tmpf9hla1g1.js
+// include: /tmp/tmpaft6luyp.js
 
   if (!Module['expectedDataFileDownloads']) Module['expectedDataFileDownloads'] = 0;
   Module['expectedDataFileDownloads']++;
@@ -206,21 +206,21 @@ Module['FS_createPath']("/", "ttf", true, true);
 
   })();
 
-// end include: /tmp/tmpf9hla1g1.js
-// include: /tmp/tmpbjn6pwxb.js
+// end include: /tmp/tmpaft6luyp.js
+// include: /tmp/tmphwumx2m3.js
 
     // All the pre-js content up to here must remain later on, we need to run
     // it.
     if ((typeof ENVIRONMENT_IS_WASM_WORKER != 'undefined' && ENVIRONMENT_IS_WASM_WORKER) || (typeof ENVIRONMENT_IS_PTHREAD != 'undefined' && ENVIRONMENT_IS_PTHREAD) || (typeof ENVIRONMENT_IS_AUDIO_WORKLET != 'undefined' && ENVIRONMENT_IS_AUDIO_WORKLET)) Module['preRun'] = [];
     var necessaryPreJSTasks = Module['preRun'].slice();
-  // end include: /tmp/tmpbjn6pwxb.js
-// include: /tmp/tmpulrn4fhj.js
+  // end include: /tmp/tmphwumx2m3.js
+// include: /tmp/tmpi4b5b09_.js
 
     if (!Module['preRun']) throw 'Module.preRun should exist because file support used it; did a pre-js delete it?';
     necessaryPreJSTasks.forEach((task) => {
       if (Module['preRun'].indexOf(task) < 0) throw 'All preRun tasks that exist before user pre-js code should remain after; did you replace Module or modify Module.preRun?';
     });
-  // end include: /tmp/tmpulrn4fhj.js
+  // end include: /tmp/tmpi4b5b09_.js
 
 
 var arguments_ = [];
@@ -4379,6 +4379,48 @@ var stringToUTF8Array = (str, heap, outIdx, maxBytesToWrite) => {
       return 0;
     ;
   }
+
+  var readEmAsmArgsArray = [];
+  var readEmAsmArgs = (sigPtr, buf) => {
+      // Nobody should have mutated _readEmAsmArgsArray underneath us to be something else than an array.
+      assert(Array.isArray(readEmAsmArgsArray));
+      // The input buffer is allocated on the stack, so it must be stack-aligned.
+      assert(buf % 16 == 0);
+      readEmAsmArgsArray.length = 0;
+      var ch;
+      // Most arguments are i32s, so shift the buffer pointer so it is a plain
+      // index into HEAP32.
+      while (ch = HEAPU8[sigPtr++]) {
+        var chr = String.fromCharCode(ch);
+        var validChars = ['d', 'f', 'i', 'p'];
+        // In WASM_BIGINT mode we support passing i64 values as bigint.
+        validChars.push('j');
+        assert(validChars.includes(chr), `Invalid character ${ch}("${chr}") in readEmAsmArgs! Use only [${validChars}], and do not specify "v" for void return argument.`);
+        // Floats are always passed as doubles, so all types except for 'i'
+        // are 8 bytes and require alignment.
+        var wide = (ch != 105);
+        wide &= (ch != 112);
+        buf += wide && (buf % 8) ? 4 : 0;
+        readEmAsmArgsArray.push(
+          // Special case for pointers under wasm64 or CAN_ADDRESS_2GB mode.
+          ch == 112 ? HEAPU32[((buf)>>2)] :
+          ch == 106 ? HEAP64[((buf)>>3)] :
+          ch == 105 ?
+            HEAP32[((buf)>>2)] :
+            HEAPF64[((buf)>>3)]
+        );
+        buf += wide ? 8 : 4;
+      }
+      return readEmAsmArgsArray;
+    };
+  var runEmAsmFunction = (code, sigPtr, argbuf) => {
+      var args = readEmAsmArgs(sigPtr, argbuf);
+      assert(ASM_CONSTS.hasOwnProperty(code), `No EM_ASM constant found at address ${code}.  The loaded WebAssembly file is likely out of sync with the generated JavaScript.`);
+      return ASM_CONSTS[code](...args);
+    };
+  var _emscripten_asm_const_int = (code, sigPtr, argbuf) => {
+      return runEmAsmFunction(code, sigPtr, argbuf);
+    };
 
 
   var _emscripten_get_device_pixel_ratio = () => {
@@ -9187,7 +9229,7 @@ if (Module['wasmBinary']) wasmBinary = Module['wasmBinary'];
   'inetNtop6',
   'readSockaddr',
   'writeSockaddr',
-  'readEmAsmArgs',
+  'runMainThreadEmAsm',
   'autoResumeAudioContext',
   'getDynCaller',
   'runtimeKeepalivePush',
@@ -9337,6 +9379,8 @@ missingLibrarySymbols.forEach(missingLibrarySymbol)
   'timers',
   'warnOnce',
   'readEmAsmArgsArray',
+  'readEmAsmArgs',
+  'runEmAsmFunction',
   'jstoi_q',
   'getExecutableName',
   'dynCall',
@@ -9583,6 +9627,10 @@ function checkIncomingModuleAPI() {
   ignoredModuleProp('logReadFiles');
   ignoredModuleProp('loadSplitModule');
 }
+var ASM_CONSTS = {
+  3332128: ($0) => { if (typeof Module['onExportProgress'] === 'function') Module['onExportProgress']($0); },  
+ 3332218: ($0, $1, $2) => { if (typeof Module['onExportComplete'] === 'function') Module['onExportComplete']($0, $1, $2); }
+};
 
 // Imports from the Wasm binary.
 var _setLocationA = Module['_setLocationA'] = makeInvalidEarlyAccess('_setLocationA');
@@ -9639,8 +9687,8 @@ var _getStartLevel = Module['_getStartLevel'] = makeInvalidEarlyAccess('_getStar
 var _setFocus = Module['_setFocus'] = makeInvalidEarlyAccess('_setFocus');
 var _getFocus = Module['_getFocus'] = makeInvalidEarlyAccess('_getFocus');
 var _main = Module['_main'] = makeInvalidEarlyAccess('_main');
-var _free = makeInvalidEarlyAccess('_free');
 var _malloc = Module['_malloc'] = makeInvalidEarlyAccess('_malloc');
+var _free = makeInvalidEarlyAccess('_free');
 var _fflush = makeInvalidEarlyAccess('_fflush');
 var _emscripten_builtin_memalign = makeInvalidEarlyAccess('_emscripten_builtin_memalign');
 var _emscripten_stack_get_end = makeInvalidEarlyAccess('_emscripten_stack_get_end');
@@ -9711,8 +9759,8 @@ function assignWasmExports(wasmExports) {
   assert(typeof wasmExports['setFocus'] != 'undefined', 'missing Wasm export: setFocus');
   assert(typeof wasmExports['getFocus'] != 'undefined', 'missing Wasm export: getFocus');
   assert(typeof wasmExports['__main_argc_argv'] != 'undefined', 'missing Wasm export: __main_argc_argv');
-  assert(typeof wasmExports['free'] != 'undefined', 'missing Wasm export: free');
   assert(typeof wasmExports['malloc'] != 'undefined', 'missing Wasm export: malloc');
+  assert(typeof wasmExports['free'] != 'undefined', 'missing Wasm export: free');
   assert(typeof wasmExports['fflush'] != 'undefined', 'missing Wasm export: fflush');
   assert(typeof wasmExports['emscripten_builtin_memalign'] != 'undefined', 'missing Wasm export: emscripten_builtin_memalign');
   assert(typeof wasmExports['emscripten_stack_get_end'] != 'undefined', 'missing Wasm export: emscripten_stack_get_end');
@@ -9779,8 +9827,8 @@ function assignWasmExports(wasmExports) {
   _setFocus = Module['_setFocus'] = createExportWrapper('setFocus', 1);
   _getFocus = Module['_getFocus'] = createExportWrapper('getFocus', 0);
   _main = Module['_main'] = createExportWrapper('__main_argc_argv', 2);
-  _free = createExportWrapper('free', 1);
   _malloc = Module['_malloc'] = createExportWrapper('malloc', 1);
+  _free = createExportWrapper('free', 1);
   _fflush = createExportWrapper('fflush', 1);
   _emscripten_builtin_memalign = createExportWrapper('emscripten_builtin_memalign', 2);
   _emscripten_stack_get_end = wasmExports['emscripten_stack_get_end'];
@@ -9834,6 +9882,8 @@ var wasmImports = {
   _tzset_js: __tzset_js,
   /** @export */
   clock_time_get: _clock_time_get,
+  /** @export */
+  emscripten_asm_const_int: _emscripten_asm_const_int,
   /** @export */
   emscripten_date_now: _emscripten_date_now,
   /** @export */
