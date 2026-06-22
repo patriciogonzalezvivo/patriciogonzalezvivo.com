@@ -27,7 +27,7 @@ include("server/project_meta.php");
         ['path' => '2018/estrellas'],
         ['path' => '2025/orbitas2', 'title' => 'Órbitas', 'year' => '2018'],
         ['path' => '2017/pixelspirit'],
-        ['path' => '2017/guayupia', 'url' => 'https://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe'],
+        ['path' => '2017/guayupia'],
         ['path' => '2017/luna'],
         ['path' => '2015/thebookofshaders', 'url' => 'http://thebookofshaders.com/', 'title' => 'The Book of Shaders', 'year' => '2015', 'medium' => 'Book'],
         ['path' => '2014/skylines'],
