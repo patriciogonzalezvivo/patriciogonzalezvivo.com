@@ -36,7 +36,7 @@ const glslviewer = new GlslViewerIntegration((msg) => {
             loader.style.visibility = 'hidden';
             loader.shadowRoot.innerHTML = '';
         }
-        setArcana('fool');
+        setArcana('fool', { select: true });
     }
 });
 
@@ -46,7 +46,7 @@ const shadersPromise = Promise.all([
 ]);
 
 let cachedFrag = null;
-let activeArcana = 'fool';
+let selectedArcana = 'fool';
 
 const ARCANA_INDEX = {
     fool: 0, magician: 1, highPriestess: 2, empress: 3, emperator: 4,
@@ -56,33 +56,35 @@ const ARCANA_INDEX = {
 };
 
 // ── Arcana carousel ────────────────────────────────────────────────
-function setArcana(fnName) {
+function setArcana(fnName, { select = false, scroll = false } = {}) {
     if (!cachedFrag) return;
-    activeArcana = fnName;
+    if (select) selectedArcana = fnName;
 
     glslviewer.sendCommand(`u_card,${ARCANA_INDEX[fnName] ?? 0}`);
 
-    document.querySelectorAll('.arcana-item').forEach(el => {
-        el.classList.toggle('active', el.dataset.fn === fnName);
-    });
+    const btn = document.querySelector(`.arcana-item[data-fn="${fnName}"]`);
+    document.querySelectorAll('.arcana-item').forEach(el => el.classList.toggle('active', el === btn));
 
-    const activeEl = document.querySelector(`.arcana-item[data-fn="${fnName}"]`);
-    if (activeEl) {
-        activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const link = document.getElementById('arcana-link');
+    if (link && btn) {
+        link.textContent = btn.dataset.label ?? fnName;
+        link.href = btn.dataset.url ?? '#';
     }
+
+    if (scroll && btn) btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.arcana-item').forEach(btn => {
         btn.addEventListener('mouseenter', () => setArcana(btn.dataset.fn));
-        btn.addEventListener('click', () => setArcana(btn.dataset.fn));
+        btn.addEventListener('click', () => setArcana(btn.dataset.fn, { select: true, scroll: true }));
     });
 
-    // Scroll the initial active item (Magician) into view
+    const carousel = document.getElementById('arcana-carousel');
+    carousel.addEventListener('mouseleave', () => setArcana(selectedArcana));
+
     const initial = document.querySelector('.arcana-item.active');
-    if (initial) {
-        setTimeout(() => initial.scrollIntoView({ inline: 'center' }), 150);
-    }
+    if (initial) setTimeout(() => initial.scrollIntoView({ block: 'nearest', inline: 'center' }), 150);
 });
 
 // ── Module ready → load geometry, camera, shaders ─────────────────

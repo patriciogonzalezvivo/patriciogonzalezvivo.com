@@ -7,13 +7,51 @@
 
 #wrapper { z-index: 99; position: relative; }
 
-/* ── Fullscreen / resize button ───────────────────────────────────── */
+/* Override global 9/16 aspect-ratio (both desktop and mobile specificity) */
+#wrapper.windowed,
+body.windowed-mode #wrapper.windowed {
+    aspect-ratio: 1 / 1;
+}
+
+/* Keep square on mobile too */
+@media (max-width: 800px) {
+    body.windowed-mode #wrapper.windowed {
+        aspect-ratio: 1 / 1;
+    }
+}
+
+/* ── UI overlay: card link + resize button ────────────────────────── */
 #ui {
     position: fixed;
-    bottom: 80px;   /* sits above the carousel bar */
+    bottom: 20px;
     right: 20px;
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
+
+#arcana-link {
+    color: rgba(255,255,255,0.75);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 6px 12px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+}
+
+#arcana-link:hover {
+    color: white;
+    border-color: rgba(255,255,255,0.7);
+}
+
+#arcana-link:empty { display: none; }
 
 #resize-btn {
     background: rgba(0,0,0,0.5);
