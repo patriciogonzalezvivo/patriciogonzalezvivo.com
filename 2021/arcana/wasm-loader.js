@@ -184,7 +184,7 @@ class WasmLoader extends HTMLElement {
 
         // Initialize Module before loading script
         window.Module = {
-            arguments: ['-e', 'pcl_plane,512', '-e', 'camera_position,0.0,0.0,-7.0', '-e', 'look_at,0.0,0.0,0.0'], //, '-e', 'cursor,off'],
+            arguments: ['-e', 'pcl_plane,512', '-e', 'camera_position,0.0,0.0,-7.0', '-e', 'look_at,0.0,0.0,0.0'],//, '-e', 'blend,add'], //, '-e', 'cursor,off'],
             preRun: [],
             // Opaque black background — no transparency bleed-through from the page
             // webglContextAttributes: {
@@ -208,16 +208,8 @@ class WasmLoader extends HTMLElement {
                 }
             },
             postRun: () => {
-                // set weaver-loader visibility to hidden
-                const wasm_loader = document.querySelector('wasm-loader');
-                if (wasm_loader) {
-                    wasm_loader.style.visibility = 'hidden';
-                }
-
-                // destroy shadowRoot to prevent memory leaks
-                this.shadowRoot.innerHTML = '';
                 window.module_loaded = true;
-                
+
                 // Force hide the loader in case setStatus was called after monitorRunDependencies(0)
                 if (window.glslViewerLoader) {
                     window.glslViewerLoader.hide();

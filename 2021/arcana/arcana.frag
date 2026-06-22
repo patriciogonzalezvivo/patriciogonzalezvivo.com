@@ -17,13 +17,10 @@ uniform vec3        u_camera;
 uniform vec2        u_resolution;
 uniform float       u_time;
 uniform int         u_frame;
+uniform float       u_card;
 
 varying vec4        v_color;
 varying vec2        v_texcoord;
-
-#ifndef CARD_FNC
-#define CARD_FNC magician
-#endif
 
 #define LIM 0.0004
 
@@ -405,6 +402,32 @@ float fool (in vec3 p) {
 }
 
 
+float cardSDF(vec3 p) {
+    int card = int(u_card + 0.5);
+    if      (card ==  0) return fool(p);
+    else if (card ==  1) return magician(p);
+    else if (card ==  2) return highPriestess(p);
+    else if (card ==  3) return empress(p);
+    else if (card ==  4) return emperator(p);
+    else if (card ==  5) return hierophant(p);
+    else if (card ==  6) return lovers(p);
+    else if (card ==  7) return chariot(p);
+    else if (card ==  8) return strength(p);
+    else if (card ==  9) return hermit(p);
+    else if (card == 10) return fortune(p);
+    else if (card == 11) return justice(p);
+    else if (card == 12) return hanged(p);
+    else if (card == 13) return death(p);
+    else if (card == 14) return temperance(p);
+    else if (card == 15) return devil(p);
+    else if (card == 16) return tower(p);
+    else if (card == 17) return star(p);
+    else if (card == 18) return moon(p);
+    else if (card == 19) return sun(p);
+    else if (card == 20) return judgement(p);
+    else                 return world(p);
+}
+
 Material raymarchMap( in vec3 pos ) {
     Material res;
     vec3 p = pos.xzy * 1.5;
@@ -412,7 +435,7 @@ Material raymarchMap( in vec3 pos ) {
     p = rotateZ(p, u_time * 0.25);
     p = mix(    p, p2,
                 smoothstep(0.3, 0.4, fract((pos.y) * 0.1 - u_time * 0.01)) );
-    res.sdf = CARD_FNC(p);
+    res.sdf = cardSDF(p);
     return res;
 }
 

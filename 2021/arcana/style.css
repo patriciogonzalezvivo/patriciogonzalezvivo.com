@@ -5,7 +5,7 @@
     }
 }
 
-#wrapper { z-index: 99; }
+#wrapper { z-index: 99; position: relative; }
 
 /* ── Fullscreen / resize button ───────────────────────────────────── */
 #ui {
