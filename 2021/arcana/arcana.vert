@@ -47,7 +47,7 @@ vec3 irri(float x) {
 
 void main(void) {
     v_position = a_position;
-    v_texcoord = a_texcoord;
+    v_texcoord = a_position.xy;
     vec2 size = vec2(512.0);//u_resolution;
     vec2 pixel = 1.0/size;
 
@@ -70,8 +70,10 @@ void main(void) {
                     vec4(irri(spe), 0.99),
                     v_color,
                     abs(fre) );
-    // v_color.a = 0.1 + v_color.a * sdf;
-    gl_PointSize = 10.0;
+    v_color.a = 0.1 + v_color.a * sdf;
+
+    float dist = length(pos - u_camera);
+    gl_PointSize = mix(1.0, 10.0, powFast(1.0 - saturate(dist / 5.0), 3.0));
     
     gl_Position = u_projectionMatrix * u_viewMatrix * v_position;
 }

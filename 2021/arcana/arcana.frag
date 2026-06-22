@@ -438,7 +438,7 @@ void main(void) {
     vec4  buff2 = texture2D(u_buffer3, uv);
     vec3  pos = buff1.xyz * 2.0 - 1.0;
     vec3  vel = buff2.xyz * 2.0 - 1.0;
-    pos = u_frame < 1 ? random3(uv) * 2.0 - 1.0: pos;
+    pos = u_frame < 30 ? random3(uv) * 2.0 - 1.0: pos;
 
     vec3  ray = normalize(vel);
     Material  res = raymarchMap(pos);
@@ -474,36 +474,35 @@ void main(void) {
 #elif defined(BUFFER_3)
     color = texture2D(u_buffer1, uv);
 
-// #elif defined(POSTPROCESSING)
-//     color.rgb = texture2D(u_scene, st).rgb;
+#elif defined(POSTPROCESSING)
 
-//     // pixel = 1.0/u_resolution;
-    
-//     // st = gl_FragCoord.xy * pixel;
-//     // uv = st;
-//     // vec2 uv2 = ratio(uv, u_resolution);
-//     // float sdf = circleSDF(uv2);
+    pixel = 1.0/u_resolution; 
+    st = gl_FragCoord.xy * pixel;
+    uv = st;
 
+    vec2 uv2 = ratio(uv, u_resolution);
+    float sdf = circleSDF(uv2);
 
-//     // vec3 chroma = chromaAB(u_scene, st, 0.1 + sdf * 0.5);
-//     // color.rgb += chroma;
-//     // // color.rgb = blendScreen(color.rgb, chroma);
+    color.rgb = texture2D(u_scene, st).rgb;
+    vec3 chroma = chromaAB(u_scene, st, 0.1 + sdf * 0.5);
+    color.rgb += chroma;
+    // color.rgb = blendScreen(color.rgb, chroma);
 
-//     // vec3 halo = chromaAB(u_scene, uv, .5);
-//     // color.rgb += halo;
-//     // // color.rgb = blendScreen(color.rgb, halo);
+    vec3 halo = chromaAB(u_scene, uv, .5);
+    color.rgb += halo;
+    // color.rgb = blendScreen(color.rgb, halo);
 
-//     // // Ghost sampling
-//     // vec2 st_flipped = scale(vec2(st.x, 1.0-st.y), 0.8);
-//     // const vec2 center = vec2( 0.5 );
-//     // vec2 centerToUV = center - st_flipped;
-//     // vec2 v_ghost = centerToUV * 0.4;
-//     // vec3 ghost = vec3(0.0);
-//     // ghost = barrel( u_scene, st_flipped + v_ghost, .35 ).rgb;
-//     // // ghost = chromaAB(u_scene, st_flipped + v_ghost, 0.5);
-//     // ghost *= vec3(0.1725, 0.149, 0.4863);
-//     // color.rgb = blendScreen(color.rgb, ghost.rgb );
-//     // // color.rgb += ghost;
+    // Ghost sampling
+    vec2 st_flipped = scale(vec2(st.x, 1.0-st.y), 0.8);
+    const vec2 center = vec2( 0.5 );
+    vec2 centerToUV = center - st_flipped;
+    vec2 v_ghost = centerToUV * 0.4;
+    vec3 ghost = vec3(0.0);
+    ghost = barrel( u_scene, st_flipped + v_ghost, .35 ).rgb;
+    // ghost = chromaAB(u_scene, st_flipped + v_ghost, 0.5);
+    ghost *= vec3(0.1725, 0.149, 0.4863);
+    color.rgb = blendScreen(color.rgb, ghost.rgb );
+    // color.rgb += ghost;
 
 #else
     color = v_color;

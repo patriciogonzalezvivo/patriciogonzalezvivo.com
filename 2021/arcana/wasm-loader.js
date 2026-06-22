@@ -5,6 +5,26 @@ class WasmLoader extends HTMLElement {
     }
   
     connectedCallback() {
+        // Move this element inside #wrapper so it overlays only the canvas area
+        const canvas = document.getElementById('canvas');
+        if (canvas && this.parentElement !== canvas.parentElement) {
+            canvas.parentElement.appendChild(this);
+            return;  // connectedCallback fires again after re-parenting
+        }
+
+        // Thumbnail covers the canvas while WASM loads; cleared by postRun
+        const thumbStyle = document.createElement('style');
+        thumbStyle.textContent = [
+            ':host { display:block; position:absolute; inset:0; z-index:3; overflow:hidden; pointer-events:none; }',
+            '#thumbnail { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; }'
+        ].join('\n');
+        this.shadowRoot.appendChild(thumbStyle);
+        const thumb = document.createElement('img');
+        thumb.id = 'thumbnail';
+        thumb.src = new URL('thumbnail.png', import.meta.url).href;
+        thumb.onerror = () => { thumb.style.display = 'none'; };
+        this.shadowRoot.appendChild(thumb);
+
         // Intercept global event listener registration to constrain WASM keyboard input
         // This must be done before the WASM script is loaded.
         const originalAddEventListener = window.addEventListener;
@@ -35,9 +55,6 @@ class WasmLoader extends HTMLElement {
             }
             return originalAddEventListener.call(this, type, listener, options);
         };
-
-        // Create canvas element
-        const canvas = document.getElementById('canvas');
 
         // Keep canvas pixel dimensions in sync with its CSS container so the
         // WASM viewport stays correct after layout changes.
@@ -165,15 +182,11 @@ class WasmLoader extends HTMLElement {
         // this.shadowRoot.appendChild(style);
         // this.shadowRoot.appendChild(loader);
 
-        // Store reference to shadowRoot for Module methods
-        const shadowRoot = null; //this.shadowRoot;
-
-  
         // Initialize Module before loading script
         window.Module = {
             arguments: ['-e', 'pcl_plane,512', '-e', 'camera_position,0.0,0.0,-7.0', '-e', 'look_at,0.0,0.0,0.0'], //, '-e', 'cursor,off'],
             preRun: [],
-            // // Opaque black background — no transparency bleed-through from the page
+            // Opaque black background — no transparency bleed-through from the page
             // webglContextAttributes: {
             //     alpha: false,
             //     premultipliedAlpha: false,

@@ -1,6 +1,5 @@
 @media (min-width: 768px) {
     .item-info {
-        /* bottom: -70px; */
         position: relative;
         z-index: -1;
     }
@@ -8,10 +7,10 @@
 
 #wrapper { z-index: 99; }
 
-/* UI */
+/* ── Fullscreen / resize button ───────────────────────────────────── */
 #ui {
     position: fixed;
-    bottom: 20px;
+    bottom: 80px;   /* sits above the carousel bar */
     right: 20px;
     z-index: 1000;
 }
@@ -32,3 +31,65 @@
 }
 
 #resize-btn:hover { background: rgba(0,0,0,0.8); }
+
+/* ── Arcana carousel ──────────────────────────────────────────────── */
+#arcana-carousel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 6px;
+    padding: 10px 16px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 999;
+    scrollbar-width: none;
+}
+
+#arcana-carousel::-webkit-scrollbar { display: none; }
+
+.arcana-item {
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.55);
+    border-radius: 20px;
+    padding: 5px 13px;
+    cursor: pointer;
+    font-family: inherit;
+    white-space: nowrap;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    line-height: 1.2;
+}
+
+.arcana-item:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.arcana-item.active {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: white;
+    color: white;
+}
+
+.arcana-roman {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    opacity: 0.65;
+}
+
+.arcana-item.active .arcana-roman { opacity: 1; }
+
+.arcana-name {
+    font-size: 11px;
+    letter-spacing: 0.03em;
+}
