@@ -12,13 +12,7 @@ class WasmLoader extends HTMLElement {
             return;  // connectedCallback fires again after re-parenting
         }
 
-        // Thumbnail covers the canvas while WASM loads; cleared by postRun
-        const thumbStyle = document.createElement('style');
-        thumbStyle.textContent = [
-            ':host { display:block; position:absolute; inset:0; z-index:3; overflow:hidden; pointer-events:none; }',
-            '#thumbnail { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; }'
-        ].join('\n');
-        this.shadowRoot.appendChild(thumbStyle);
+        // Thumbnail covers the canvas while WASM loads; cleared on '> render'
         const thumb = document.createElement('img');
         thumb.id = 'thumbnail';
         thumb.src = new URL('thumbnail.png', import.meta.url).href;
@@ -75,126 +69,93 @@ class WasmLoader extends HTMLElement {
         _resizeObserver.observe(canvas.parentElement || canvas);
         this._resizeObserver = _resizeObserver;
 
-        // // Create loader elements
-        // const loader = document.createElement('div');
-        // loader.className = 'emscripten_loader';
-        // loader.id = 'emscripten_loader';
-        // loader.innerHTML = `
-        //     <div class='emscripten_loader' id='spinner'></div>
-        //     <div class='emscripten_loader' id='status'>Downloading...</div>
-        //     <progress class='emscripten_loader' value='50' max='100' id='progress'></progress>
-        // `;
+        // Create loader elements
+        const loader = document.createElement('div');
+        loader.className = 'emscripten_loader';
+        loader.id = 'emscripten_loader';
+        loader.innerHTML = `
+            <div id='spinner'></div>
+            <div id='status'>Downloading...</div>
+            <progress value='50' max='100' id='progress'></progress>
+        `;
 
-        // // Add styles
-        // const style = document.createElement('style');
-        // style.textContent = `
-        //     :host {
-        //         display: block;
-        //         width: 100vw;
-        //         height: 100vh;
-        //         position: fixed;
-        //         top: 0;
-        //         left: 0;
-        //         margin: 0;
-        //         padding: 0;
-        //         overflow: hidden;
-        //         font-family: 'Lucida Console', Monaco, monospace;
-        //         pointer-events: none; /* Allow clicks to pass through by default */
-        //     }
+        // Single unified style block — :host fills #wrapper exactly (position:absolute; inset:0)
+        const style = document.createElement('style');
+        style.textContent = `
+            :host {
+                display: block;
+                position: absolute;
+                inset: 0;
+                z-index: 3;
+                overflow: hidden;
+                pointer-events: none;
+                font-family: 'Lucida Console', Monaco, monospace;
+            }
 
-        //     * {
-        //         pointer-events: auto; /* Enable clicks on children (like loader/spinner) */
-        //         -webkit-box-sizing: border-box;
-        //         box-sizing: border-box;
-        //         -moz-osx-font-smoothing: grayscale;
-        //         -webkit-font-smoothing: antialiased;
-        //         -webkit-tap-highlight-color: transparent;
-        //         -webkit-touch-callout: none;
-        //     }
+            #thumbnail {
+                position: absolute;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                object-fit: cover;
+            }
 
-        //     .emscripten_loader {
-        //         position: absolute;
-        //         top: 50%;
-        //         left: 50%;
-        //         transform: translate(-50%, -50%);
-        //         width: 100%;
-        //         height: 100%;
-        //         display: flex;
-        //         align-items: center;
-        //         justify-content: center;
-        //         z-index: 1000;
-        //     }
+            .emscripten_loader {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 4;
+            }
 
-        //     #spinner {
-        //         height: 100px;
-        //         width: 100px;
-        //         margin: 0;
-        //         margin-top: -50px;
-        //         margin-left: -50px;
-        //         display: inline-block;
-        //         vertical-align: top;
-        //         -webkit-animation: rotation .8s linear infinite;
-        //         -moz-animation: rotation .8s linear infinite;
-        //         -o-animation: rotation .8s linear infinite;
-        //         animation: rotation 0.8s linear infinite;
-        //         border-left: 5px solid rgb(200, 200, 200);
-        //         border-right: 5px solid rgb(200, 200, 200);
-        //         border-bottom: 5px solid rgba(0, 0, 0, 0);
-        //         border-top: 5px solid rgba(0, 0, 0, 0);
-        //         border-radius: 100%;
-        //     }
+            #spinner {
+                width: 100px;
+                height: 100px;
+                border-left: 5px solid rgb(200, 200, 200);
+                border-right: 5px solid rgb(200, 200, 200);
+                border-bottom: 5px solid transparent;
+                border-top: 5px solid transparent;
+                border-radius: 50%;
+                animation: rotation 0.8s linear infinite;
+            }
 
-        //     @-webkit-keyframes rotation {
-        //         from {-webkit-transform: rotate(0deg);}
-        //         to {-webkit-transform: rotate(360deg);}
-        //     }
-        //     @-moz-keyframes rotation {
-        //         from {-moz-transform: rotate(0deg);}
-        //         to {-moz-transform: rotate(360deg);}
-        //     }
-        //     @-o-keyframes rotation {
-        //         from {-o-transform: rotate(0deg);}
-        //         to {-o-transform: rotate(360deg);}
-        //     }
-        //     @keyframes rotation {
-        //         from {transform: rotate(0deg);}
-        //         to {transform: rotate(360deg);}
-        //     }
+            @keyframes rotation {
+                from { transform: rotate(0deg); }
+                to   { transform: rotate(360deg); }
+            }
 
-        //     #status {
-        //         display: fixed;
-        //         left: 50%;
-        //         bottom: 25%;
-        //         transform: translate(-50%, -50%);
-        //         color: rgb(200, 200, 200);
-        //         font-family: monospace;
-        //             }
+            #status {
+                margin-top: 16px;
+                color: rgb(200, 200, 200);
+                font-family: monospace;
+                font-size: 12px;
+            }
 
-        //     #progress {
-        //         height: 10px;
-        //         width: 200px;
-        //         margin-top: 90px;
-        //         color: rgb(200, 200, 200);
-        //         accent-color: rgb(200, 200, 200);
-        //             }
-        //     `;
+            #progress {
+                margin-top: 10px;
+                height: 10px;
+                width: 200px;
+                accent-color: rgb(200, 200, 200);
+            }
+        `;
         
-        // this.shadowRoot.appendChild(style);
-        // this.shadowRoot.appendChild(loader);
+        this.shadowRoot.appendChild(style);
+        this.shadowRoot.appendChild(loader);
 
         // Initialize Module before loading script
         window.Module = {
-            arguments: ['-e', 'pcl_plane,512', '-e', 'camera_position,0.0,0.0,-7.0', '-e', 'look_at,0.0,0.0,0.0'],//, '-e', 'blend,add'], //, '-e', 'cursor,off'],
+            arguments: ['-e', 'pcl_plane,512', '-e', 'camera_position,0.0,0.0,-7.0', '-e', 'look_at,0.0,0.0,0.0'], //, '-e', 'blend,screen'], //, '-e', 'cursor,off'],
             preRun: [],
             // Opaque black background — no transparency bleed-through from the page
-            // webglContextAttributes: {
-            //     alpha: false,
-            //     premultipliedAlpha: false,
-            //     antialias: true,
-            //     depth: true,
-            //     stencil: false,
-            //     preserveDrawingBuffer: false,
-            // },
+            webglContextAttributes: {
+                alpha: false,
+                premultipliedAlpha: false,
+                antialias: true,
+                depth: true,
+                stencil: false,
+                preserveDrawingBuffer: false,
+            },
             keyboardListeningElement: canvas,
             doNotCaptureKeyboard: true,
             // canvas: canvas,

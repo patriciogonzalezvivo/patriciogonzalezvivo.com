@@ -1,7 +1,12 @@
-Real-time interactive 3D light flares amplify The Hermit [Arcana IX], from the Pixel Spirit Tarot Deck (http://pixelspiritdeck.com/).
+An archetype, Jung wrote, is like "the invisible presence of the crystal lattice in a saturated solution," a structure you cannot see, but that shapes everything when conditions are right. The solution crystallizes along its contours. Form precipitates from formlessness.
 
-Technical Description: Real-time GPGPU Particle Simulation driven by Implicit SDF Geometries running on a WASM C++/OpenGL ES custom sandbox (GlslViewer) on the browser as a WebGL 2.0 interactive app.
+*Arcana* is a series of twenty-two generative works, one for each Major Arcana of the tarot. What the viewer sees is light in motion: hundreds of thousands of particles drifting through three-dimensional space, suddenly veering or accelerating as though caught in an invisible current, bouncing back as though they have struck a wall that isn't there. That wall is the archetype: each one encoded as a three-dimensional geometric field, invisible but structurally present, shaping every particle that passes through it. The Fool is a spiral-bounded ring; Death is a suspended tetrahedron; The Hermit is a carved octahedron, its angles exposed. You never see the geometry directly. You see only what it does to light.
 
+This work extends the [Pixel Spirit Tarot Deck](../../2017/pixelspirit/), where each of the twenty-two Major Arcana was encoded as a fragment of shader code, the archetypal DNA of each image, written as a running program. *Arcana* lifts those flat code-forms into three-dimensional space and releases particles inside them. The archetypes are still code; now they are also physics.
+
+The simulation is alive in the literal sense: particle positions and velocities accumulate frame by frame, each collision and deflection written into the GPU's memory and carried forward. What you see at any moment is both the present state of the system and the sediment of everything that preceded it. The composition is never finished; it is always in the act of becoming.
+
+Two incompatible systems share the same surface: the physics of fluid simulation and the symbolic grammar of Jungian archetypes; the precision of a particle solver and the open ambiguity of a tarot reading. Neither resolves the other. The invisible lattice shapes the light. What the light reveals is still up to you.
 
 1. [The Magician](https://objkt.com/tokens/KT1CkDFaHiH8UtZhyR2EvoqhihsntjSikvt9/21?ref=tz1NqueFctvNCQrsELm6k4N6XfwAYu5Qp5LN)
 2. [The High Priestess](https://objkt.com/tokens/KT1CkDFaHiH8UtZhyR2EvoqhihsntjSikvt9/20?ref=tz1NqueFctvNCQrsELm6k4N6XfwAYu5Qp5LN)
