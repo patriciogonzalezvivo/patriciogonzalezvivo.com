@@ -162,15 +162,15 @@ class WasmLoader extends HTMLElement {
         window.Module = {
             arguments: ['-e', 'pcl_plane,512', '-e', 'camera_position,0.0,0.0,-7.0', '-e', 'look_at,0.0,0.0,0.0'], //, '-e', 'blend,screen'], //, '-e', 'cursor,off'],
             preRun: [],
-            // Opaque black background — no transparency bleed-through from the page
-            webglContextAttributes: {
-                alpha: false,
-                premultipliedAlpha: false,
-                antialias: true,
-                depth: true,
-                stencil: false,
-                preserveDrawingBuffer: false,
-            },
+            // // Opaque black background — no transparency bleed-through from the page
+            // webglContextAttributes: {
+            //     alpha: false,
+            //     premultipliedAlpha: false,
+            //     antialias: true,
+            //     depth: true,
+            //     stencil: false,
+            //     preserveDrawingBuffer: false,
+            // },
             keyboardListeningElement: canvas,
             doNotCaptureKeyboard: true,
             // canvas: canvas,
