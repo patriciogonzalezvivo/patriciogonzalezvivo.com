@@ -12,11 +12,25 @@ class WasmLoader extends HTMLElement {
             return;  // connectedCallback fires again after re-parenting
         }
 
-        // Thumbnail covers the canvas while WASM loads; cleared on '> render'
-        const thumb = document.createElement('img');
+        // Animated thumb plays while WASM loads; hidden on '> render'
+        const thumb = document.createElement('video');
         thumb.id = 'thumbnail';
-        thumb.src = new URL('thumbnail.png', import.meta.url).href;
-        thumb.onerror = () => { thumb.style.display = 'none'; };
+        thumb.autoplay = true;
+        thumb.loop = true;
+        thumb.muted = true;
+        thumb.playsInline = true;
+        const src = document.createElement('source');
+        src.src = new URL('thumb.webm', import.meta.url).href;
+        src.type = 'video/webm';
+        thumb.appendChild(src);
+        // Fallback: gif → static png
+        src.addEventListener('error', () => {
+            const gif = document.createElement('img');
+            gif.id = 'thumbnail';
+            gif.src = new URL('thumb.gif', import.meta.url).href;
+            gif.onerror = () => { gif.src = new URL('thumbnail.png', import.meta.url).href; };
+            thumb.replaceWith(gif);
+        }, { once: true });
         this.shadowRoot.appendChild(thumb);
 
         // Intercept global event listener registration to constrain WASM keyboard input
@@ -97,6 +111,7 @@ class WasmLoader extends HTMLElement {
                 top: 0; left: 0;
                 width: 100%; height: 100%;
                 object-fit: cover;
+                display: block;
             }
 
             .emscripten_loader {

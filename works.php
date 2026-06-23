@@ -21,6 +21,7 @@ include("server/project_meta.php");
         // ['path' => '2025/gestures'],
         ['path' => '2023/blink'],
         ['path' => '2022/time'],
+        ['path' => '2021/arcana'],
         ['path' => '2021/memory'],
         ['path' => '2021/fen'],
         ['path' => '2019/hogar'],
