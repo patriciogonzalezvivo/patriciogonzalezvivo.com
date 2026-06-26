@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!btn) return;
 
     const wrapper = document.getElementById('wrapper');
-    let isFullscreen = wrapper.classList.contains('fullscreen');
+    let isFullscreen = false;
 
-    btn.addEventListener('click', () => {
-        isFullscreen = !isFullscreen;
-        if (isFullscreen) {
+    const setFullscreen = (enable) => {
+        isFullscreen = enable;
+        if (enable) {
+            window.scrollTo({ top: 0, behavior: 'instant' });
             wrapper.classList.add('fullscreen');
             wrapper.classList.remove('windowed');
             document.body.classList.remove('windowed-mode');
@@ -20,7 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
             wrapper.classList.add('windowed');
             document.body.classList.add('windowed-mode');
         }
-    });
+        const params = new URLSearchParams(window.location.search);
+        if (enable) params.set('fullscreen', 'true');
+        else params.delete('fullscreen');
+        const s = params.toString();
+        history.replaceState(null, '', s ? '?' + s : window.location.pathname);
+    };
+
+    if (new URLSearchParams(window.location.search).get('fullscreen') === 'true') setFullscreen(true);
+
+    btn.addEventListener('click', () => setFullscreen(!isFullscreen));
 
     new ResizeObserver(() => {
         window.dispatchEvent(new Event('resize'));
@@ -36,7 +46,9 @@ const glslviewer = new GlslViewerIntegration((msg) => {
             loader.style.visibility = 'hidden';
             loader.shadowRoot.innerHTML = '';
         }
-        setArcana('fool', { select: true });
+        const urlCard = new URLSearchParams(window.location.search).get('card');
+        const initialCard = (urlCard && ARCANA_INDEX[urlCard] !== undefined) ? urlCard : 'fool';
+        setArcana(initialCard, { select: true, scroll: true });
     }
 });
 
@@ -58,7 +70,13 @@ const ARCANA_INDEX = {
 // ── Arcana carousel ────────────────────────────────────────────────
 function setArcana(fnName, { select = false, scroll = false } = {}) {
     if (!cachedFrag) return;
-    if (select) selectedArcana = fnName;
+    if (select) {
+        selectedArcana = fnName;
+        const params = new URLSearchParams(window.location.search);
+        params.set('card', fnName);
+        const s = params.toString();
+        history.replaceState(null, '', s ? '?' + s : window.location.pathname);
+    }
 
     glslviewer.sendCommand(`u_card,${ARCANA_INDEX[fnName] ?? 0}`);
 

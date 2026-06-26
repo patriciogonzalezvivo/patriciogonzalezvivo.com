@@ -7,10 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.getElementById('wrapper');
     let isFullscreen = false;
 
-    btn.addEventListener('click', () => {
-        isFullscreen = !isFullscreen;
-
-        if (isFullscreen) {
+    const setFullscreen = (enable) => {
+        isFullscreen = enable;
+        if (enable) {
             window.scrollTo({ top: 0, behavior: 'instant' });
             wrapper.classList.add('fullscreen');
             wrapper.classList.remove('windowed');
@@ -20,7 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
             wrapper.classList.add('windowed');
             document.body.classList.add('windowed-mode');
         }
-    });
+        const params = new URLSearchParams(window.location.search);
+        if (enable) params.set('fullscreen', 'true');
+        else params.delete('fullscreen');
+        const s = params.toString();
+        history.replaceState(null, '', s ? '?' + s : window.location.pathname);
+    };
+
+    if (new URLSearchParams(window.location.search).get('fullscreen') === 'true') setFullscreen(true);
+
+    btn.addEventListener('click', () => setFullscreen(!isFullscreen));
 
     // Use ResizeObserver to handle the CSS transition smoothly
     // This fires repeatedly as the element resizes during transition

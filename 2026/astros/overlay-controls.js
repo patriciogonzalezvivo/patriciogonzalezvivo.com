@@ -246,6 +246,11 @@ class OverlayControls extends HTMLElement {
             params.set('utc_hr', formData.get('utc_hr'));
             params.set('utc_min', formData.get('utc_min'));
 
+            const wrapper = document.getElementById('wrapper');
+            if (wrapper && wrapper.classList.contains('fullscreen')) {
+                params.set('fullscreen', 'true');
+            }
+
             // Update URL and reload page
             window.location.search = params.toString();
         });
