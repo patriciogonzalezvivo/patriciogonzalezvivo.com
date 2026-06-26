@@ -169,12 +169,12 @@ class Loader extends HTMLElement {
                 this.shadowRoot.innerHTML = '';
                 window.Module.command = window.Module.cwrap('command', 'void', ['string']);
                 window.module_loaded = true;
-                navigator.geolocation.getCurrentPosition((position) => {
-                    let lat = position.coords.latitude;
-                    let long = position.coords.longitude;
-                    Module.command('lat,' + lat.toFixed(2));
-                    Module.command('lon,' + long.toFixed(2));
-                });
+                // navigator.geolocation.getCurrentPosition((position) => {
+                //     let lat = position.coords.latitude;
+                //     let long = position.coords.longitude;
+                //     Module.command('lat,' + lat.toFixed(2));
+                //     Module.command('lon,' + long.toFixed(2));
+                // });
             },
 
             print: function(text) {
