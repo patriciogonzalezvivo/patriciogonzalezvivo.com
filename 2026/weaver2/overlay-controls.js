@@ -558,6 +558,11 @@ class OverlayControls extends HTMLElement {
             // params.set('show_a', formData.get('show_a')? 'true' : 'false');
             // params.set('show_b', formData.get('show_b')? 'true' : 'false');
 
+            const wrapper = document.getElementById('wrapper');
+            if (wrapper && wrapper.classList.contains('fullscreen')) {
+                params.set('fullscreen', 'true');
+            }
+
             // Update URL and reload page
             window.location.search = params.toString();
         });
