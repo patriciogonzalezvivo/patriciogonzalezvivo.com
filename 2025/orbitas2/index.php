@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="item-info">
-                <span class="item-title">Estrellas</span>
+                <span class="item-title">Orbitas</span>
                 <span class="item-year">2018</span>
                 <span class="item-medium">Custom real-time software</span>
             </div>
