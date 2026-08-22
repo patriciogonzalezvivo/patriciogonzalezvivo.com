@@ -1,4 +1,4 @@
-**Patricio González Vivo** (b. 1982, Buenos Aires) builds instruments of attention and wonder: a portrait series of secular saints, begun by drawing machines and completed by hand; a digital portal to the night sky his ancestors and he share across centuries; a sandbox of volcanic ash to amplify the ripple effect of reshaping its surface; a tarot deck that maps the grammar of light onto a system of archetypes. The forms are very different. The question underneath them is the same: what does it take for an artifact to develop presence?
+**Patricio González Vivo** (b. 1982, Buenos Aires) is an artist whose iterative, research-driven practice explores the edges of core human experiences such as time, memory, awareness, and self-expression. He works by combining expressive mediums, analog and digital, in the conviction that it is in the act of bridging languages that new meaning emerges.
 
 :::wrapfig right
 src: 2011/efectomariposa/images/12.jpg

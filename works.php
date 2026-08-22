@@ -12,6 +12,7 @@ include("server/project_meta.php");
 ****/
 
     $projects = [
+        ['path' => '2026/medium'],
         ['path' => '2026/astros'],
         ['path' => '2026/santos'],
         // ['path' => '2025/memories'],

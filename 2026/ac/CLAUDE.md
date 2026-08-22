@@ -1,6 +1,6 @@
 # CLAUDE.md — Artist Studio Context
 
-This file is the standing context for all conversations about an artist's practice. Load it at the start of any project session. It maps the theoretical frameworks, critical tools, and practical knowledge available from a completed Artist Commons (AC) program — 23 lessons, 23 summary files, and 20 Claude Code slash commands — and provides routing guidance for applying them to studio work, critique, analysis, writing, and professional decisions.
+This file is the standing context for all conversations about an artist's practice. Load it at the start of any project session. It maps the theoretical frameworks, critical tools, and practical knowledge available from a completed Artist Commons (AC) program — 27 lessons, 27 summary files, and 24 Claude Code slash commands — and provides routing guidance for applying them to studio work, critique, analysis, writing, and professional decisions.
 
 ---
 
@@ -15,10 +15,10 @@ When discussing the artist's work, apply frameworks from this program rather tha
 ## What Is Available
 
 ### Summaries (`2026/ac/summaries/`)
-Twenty-three markdown files, one per lesson. Each covers: overview, key concepts and frameworks, artists and works referenced, core takeaways, and studio reflection questions. Read these when you need the full detail of a framework before applying it.
+Twenty-seven markdown files, one per lesson. Each covers: overview, key concepts and frameworks, artists and works referenced, core takeaways, and studio reflection questions. Read these when you need the full detail of a framework before applying it.
 
 ### Slash Commands (`.claude/commands/`)
-Twenty interactive skill prompts. Each walks the artist through a structured studio exercise using the lesson's frameworks. Invoke by typing `/command-name` followed by a description of the work.
+Twenty-four interactive skill prompts. Each walks the artist through a structured studio exercise using the lesson's frameworks. Invoke by typing `/command-name` followed by a description of the work.
 
 ---
 
@@ -66,6 +66,14 @@ Use this to decide which framework or command to reach for based on what the art
 - Reaching out to curators or galleries: `/approach-curator` (warm vs. cold outreach; dream list of 15–20; curator vs. gallerist distinction; studio visit sequencing).
 - Preparing a pitch or exhibition proposal: `/curator-pitch` (three exhibition pillars: date/location/artist; post-show strategy; warm introductions).
 - Navigating copyright or fair use: `/ip-art-check` (bundle of sticks; copyright at creation vs. registration; idea/expression dichotomy; cease-and-desist discipline).
+- Seeing the practice through a gallerist's eyes: `/gallerist-perspective` (Lesson 144, Stephen Santoro — conviction sells work; trust built on straightforwardness; editions/multiples strategy; the booth as selling floor; the "1% more successful" long game). Reach for this when the question is not how to reach a gallery but whether the work and its presentation hold up to a dealer's scrutiny.
+- Building relationships with collectors and patrons: `/collector-perspective` (Lesson 150, Benny Redbeard — the attention economy runs on one-to-one relationships; call every past collector personally; conviction over expertise; separate the tool from the speculation; patronage as legacy). Distinct from curator/gallery outreach — this is the collector/patron relationship.
+
+### Asking "what makes this work mine?" (originality, authorship, influence)
+- Use `/what-makes-it-mine` (Lesson 146, Rebecca Millsop — four relational questions: Kant on what possibility the work *opens*; Eliot on its place in a *living* tradition; Bloom on where it *swerves* from a precursor; Krauss on what it *repeats* and what you did with it). Especially charged for machine-assisted and generative work. This complements `/originality-audit` (Lesson 129, copy/transform/combine) — reach for `/what-makes-it-mine` for the philosophical account of authorship, `/originality-audit` for the practical source-and-fair-use audit.
+
+### Analyzing how the work represents people or society
+- Use `/portraying-society` (Lesson 152, Polina Rud — three recurring strategies for portraying society: *flattery* that produces a reassuring self-image, *diagnosis* that exposes symptoms then hidden structures, and *eliciting/staging* participatory situations where society reveals itself). The primary tool for reading portraiture — directly relevant to the Hybrids / Memories / Santos portrait work.
 
 ---
 
@@ -161,3 +169,7 @@ When working on any art project in this directory, apply these orientations:
 | 138 | Visiting Artist: Sasha Stiles — Crafting Systems (generative poetry, systems-based artwork) | `summaries/138_Visiting_Artist_Sasha_Stiles.md` | — (see `/systems-uncertainty`, `/write-about-art`) |
 | 139 | Text in Visual Art Part 2 (conceptual art, feminist art, AIDS activism) | `summaries/139_Text_in_Visual_Art_Part2.md` | `/text-in-art` |
 | 140 | How to Write About Your Art Part 3 (revision, hotspotting, editing) | `summaries/140_Write_About_Art_Part3.md` | `/write-about-art` |
+| 144 | Interview: Stephen Santoro (gallerist's-side perspective) | `summaries/144_Interview_Stephen_Santoro.md` | `/gallerist-perspective` |
+| 146 | Philosophy of Art: What Makes It Mine (Millsop — originality, authorship) | `summaries/146_Philosophy_What_Makes_It_Mine.md` | `/what-makes-it-mine` |
+| 150 | Interview: Benny Redbeard (collector & patron perspective) | `summaries/150_Interview_Benny_Redbeard.md` | `/collector-perspective` |
+| 152 | Art History: Portraying Society (Polina Rud — portraiture & social representation) | `summaries/152_Portraying_Society.md` | `/portraying-society` |
