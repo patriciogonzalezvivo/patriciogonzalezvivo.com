@@ -344,11 +344,13 @@ function render_objkt_item($token, $opts) {
     // Thumbnail
     $html .= '<a class="nft-thumb-link" href="' . $e($objkt_url) . '" target="_blank" rel="noopener noreferrer">';
     if ($media['type'] === 'video') {
+        // no-referrer: objkt's CDN hotlink-blocks (403) any Referer other than objkt.com/localhost.
         $html .= '<video class="nft-thumb" src="' . $e($media['src']) . '" '
-               . 'autoplay muted loop playsinline preload="metadata" '
+               . 'autoplay muted loop playsinline preload="metadata" referrerpolicy="no-referrer" '
                . 'aria-label="' . $e($name) . '"></video>';
     } elseif ($media['type'] === 'img') {
-        $html .= '<img class="nft-thumb" src="' . $e($media['src']) . '" alt="' . $e($name) . '" loading="lazy">';
+        // no-referrer: objkt's CDN hotlink-blocks (403) any Referer other than objkt.com/localhost.
+        $html .= '<img class="nft-thumb" src="' . $e($media['src']) . '" alt="' . $e($name) . '" loading="lazy" referrerpolicy="no-referrer">';
     } else {
         $html .= '<div class="nft-thumb nft-thumb-missing" aria-hidden="true"></div>';
     }
