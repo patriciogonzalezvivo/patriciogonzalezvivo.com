@@ -14,21 +14,3 @@ In *Flight Studies*, the gaze is subtly redirected back toward the viewer. Our a
 * [FlightStudies 002](https://objkt.com/asset/hicetnunc/50457), single edition, minted April 2021
 * [FlightStudies 003](https://objkt.com/asset/hicetnunc/50442), edition of 9, minted April 2021
 * [FlightStudies 004](https://objkt.com/asset/hicetnunc/50433), edition of 33, minted April 2021
-
-## Upcycled Displays
-
-Extending the ecological ethos of the work into its physical presentation, Flight Studies is exhibited on bespoke digital frames constructed from repurposed electronic waste. Obsolete LCD screens are diverted from landfills and reconfigured as minimalist display objects, transforming discarded technology into contemplative viewing instruments.
-
-Drawing inspiration from the anti-industrial principles of the Arts and Crafts movement, these frames combine metal, wood, and software into hybrid artifacts. Craftsmanship, sustainability, and digital media converge to produce an object with its own material presence, one that foregrounds care, longevity, and environmental responsibility alongside the immaterial circulation of the NFT itself.
-
-## The FEN
-
-This series of works was produced for [The FEN](http://thefen.io), a coordinated CleanNFT drop initiated by curator [Juliette Bibasse](https://julietteb.com/), visual artist [Joanie Lemercier](https://joanielemercier.com/) and more than 35 pioneering digital media artists in response to the outrageous greenhouse-gas emissions of CryptoArt releases on the Ethereum blockchain (PoW).
-
-Our goal was to encourage the community to transition their NFTs to a low-energy platform, such as hic et nunc (Tezos Blockchain, PoS). Minting an NFT on hic et nunc has associated emissions equivalent to an email.
-
-As part of this project, [The FEN](http://thefen.io) invited each creative to donate 10% of the proceeds to a project of their choice (local project, NGO, activism, etc..).
-
-For more information please visit [thefen.io](http://thefen.io)
-
-Artists include: beesandbombs (Dave Whyte), Memo Akten, Myriam Bleau, Mike Brondbjerg, Cinzia Campolese, Alex J. Champandard, Raphael de Courville, Ali M Demirel, Cadie Desbiens, Zai Divecha, Diane Drubay, Saskia Freeke, Nettrice Gaskins, Han, Auriea Harvey, Mario Klingemann, Joanie Lemercier, Golan Levin, LIA, Zach Lieberman, Shantell Martin, Kelly Richardson, RubenFro, Helena Sarin, Sasha Stiles, Patrick Tresset, Mike Tyka, Universal Everything, Patricio Gonzalez Vivo and Addie Wagenknecht

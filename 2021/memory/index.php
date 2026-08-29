@@ -31,8 +31,19 @@
         <div id="longer-info">
             <?php
             include("../../server/ParsedownExtended.php");
+            include("../../server/objkt.php");
             $Parsedown = new ParsedownExtended();
-            echo $Parsedown->text(file_get_contents('README.md'));
+            echo render_readme_with_objkt('README.md', $Parsedown, [
+                'ref'    => 'tz1NqueFctvNCQrsELm6k4N6XfwAYu5Qp5LN',
+                'tokens' => [
+                    'https://objkt.com/asset/hicetnunc/320118',
+                    'https://objkt.com/asset/hicetnunc/369576',
+                    'https://objkt.com/asset/hicetnunc/396220',
+                    'https://objkt.com/asset/hicetnunc/424348',
+                    'https://objkt.com/asset/hicetnunc/447619',
+                    'https://objkt.com/asset/hicetnunc/479680',
+                ],
+            ]);
             ?>
 
             <h2>Related Works</h2>

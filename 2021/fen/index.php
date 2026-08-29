@@ -26,8 +26,22 @@
 		<div id="longer-info">
             <?php
             include("../../server/ParsedownExtended.php");
+            include("../../server/objkt.php");
             $Parsedown = new ParsedownExtended();
-            echo $Parsedown->text(file_get_contents('README.md'));
+            // These hic et nunc tokens are video/mp4 with no image preview, so the
+            // component uses each token's own artifact (a looping video) as the thumbnail.
+            echo render_readme_with_objkt('README.md', $Parsedown, [
+                'ref'    => 'tz1NqueFctvNCQrsELm6k4N6XfwAYu5Qp5LN',
+                'tokens' => [
+                    'https://objkt.com/asset/hicetnunc/50460',
+                    'https://objkt.com/asset/hicetnunc/50457',
+                    'https://objkt.com/asset/hicetnunc/50442',
+                    'https://objkt.com/asset/hicetnunc/50433',
+                ],
+            ]);
+            
+            echo $Parsedown->text(file_get_contents ('DISPLAYS.md'));
+            echo $Parsedown->text(file_get_contents ('FEN.md'));
             ?>
 
             <h2>Related Works</h2>

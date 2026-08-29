@@ -72,8 +72,25 @@
 
         <?php
         include("../../server/ParsedownExtended.php");
+        include("../../server/objkt.php");
         $Parsedown = new ParsedownExtended();
-        echo $Parsedown->text(file_get_contents('README.md'));
+
+        // Build the token list from the same $arcanas array used by the carousel.
+        $objkt_tokens = [];
+        foreach ($arcanas as $a) {
+            $objkt_tokens[] = $base_url . $a['token'];
+        }
+
+        // The README lists editions as a bare numbered list (no "## Editions"
+        // heading), so strip that contiguous list of objkt links and swap in the
+        // live gallery in its place.
+        echo render_readme_with_objkt('README.md', $Parsedown, [
+            'ref'    => 'tz1NqueFctvNCQrsELm6k4N6XfwAYu5Qp5LN',
+            'tokens' => $objkt_tokens,
+        ], [
+            'strip_pattern' => '/(?:^[ \t]*\d+\.[ \t]*\[[^\]]*\]\([^)]*objkt\.com[^)]*\)[ \t]*\r?\n?)+/im',
+            'heading'       => 'Editions',
+        ]);
         ?>
 
         <h2>Related Works</h2>
