@@ -163,19 +163,27 @@ function objkt_fetch_tokens(array $refs, $ttl = 3600, $cache_dir = null) {
 
     $tokens = objkt_graphql($query);
 
-    // On failure, fall back to stale cache if we have one.
+    // On failure (e.g. outbound requests blocked on the host), fall back to
+    // stale cache, then to the bundled seed data committed in git.
     if ($tokens === null) {
         if (is_file($cache_file)) {
             $stale = json_decode((string)@file_get_contents($cache_file), true);
             if (is_array($stale)) return $stale;
         }
-        return [];
+        return objkt_fallback_tokens($keys);
     }
 
     // Index by contract:token_id.
     $out = [];
     foreach ($tokens as $t) {
         $out[$t['fa_contract'] . ':' . $t['token_id']] = $t;
+    }
+
+    // Backfill any tokens the live API didn't return (e.g. delisted/indexer lag)
+    // with bundled seed data so thumbnails still render.
+    $missing = array_diff_key($keys, $out);
+    if (!empty($missing)) {
+        $out += objkt_fallback_tokens($missing);
     }
 
     // Write cache (best-effort).
