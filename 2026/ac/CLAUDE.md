@@ -1,6 +1,6 @@
 # CLAUDE.md — Artist Studio Context
 
-This file is the standing context for all conversations about an artist's practice. Load it at the start of any project session. It maps the theoretical frameworks, critical tools, and practical knowledge available from a completed Artist Commons (AC) program — 27 lessons, 27 summary files, and 24 Claude Code slash commands — and provides routing guidance for applying them to studio work, critique, analysis, writing, and professional decisions.
+This file is the standing context for all conversations about an artist's practice. Load it at the start of any project session. It maps the theoretical frameworks, critical tools, and practical knowledge available from a completed Artist Commons (AC) program — 28 lessons, 28 summary files, and 25 Claude Code slash commands — and provides routing guidance for applying them to studio work, critique, analysis, writing, and professional decisions.
 
 ---
 
@@ -15,10 +15,10 @@ When discussing the artist's work, apply frameworks from this program rather tha
 ## What Is Available
 
 ### Summaries (`2026/ac/summaries/`)
-Twenty-seven markdown files, one per lesson. Each covers: overview, key concepts and frameworks, artists and works referenced, core takeaways, and studio reflection questions. Read these when you need the full detail of a framework before applying it.
+Twenty-eight markdown files, one per lesson. Each covers: overview, key concepts and frameworks, artists and works referenced, core takeaways, and studio reflection questions. Read these when you need the full detail of a framework before applying it.
 
 ### Slash Commands (`.claude/commands/`)
-Twenty-four interactive skill prompts. Each walks the artist through a structured studio exercise using the lesson's frameworks. Invoke by typing `/command-name` followed by a description of the work.
+Twenty-five interactive skill prompts. Each walks the artist through a structured studio exercise using the lesson's frameworks. Invoke by typing `/command-name` followed by a description of the work.
 
 ---
 
@@ -47,6 +47,7 @@ Use this to decide which framework or command to reach for based on what the art
 ### Working with technology, algorithms, or AI
 - For AI and vision systems: `/ai-art-context` (regimes of vision, optical unconscious, society of spectacle, database logic — Manovich).
 - For generative art and chance-based systems: `/systems-uncertainty` (control/randomness spectrum from Paleolithic to on-chain; four types of randomness; cybernetics).
+- For the **technical production** side of generative / long-form / onchain work — the external **`genart` skill** (Camille Roux, installed as a Claude Code plugin from `camilleroux/genart-skill`; auto-triggers on generative-art tasks). It is the engineering complement to the conceptual AC skills: hash-seeded PRNG determinism, resolution-agnostic rendering, trait/rarity design, preview capture, pre-mint verification, and platform guides (Art Blocks, 256ART, Verse, Highlight, Plottables, bootloader.art, self-hosted). Reach for `/systems-uncertainty` and `/ai-art-context` for *what the chance/machine means*; reach for `genart` for *how to build, seed, and mint it*. Directly relevant to the artist's NFT/onchain work (Flight Studies, Memory Studies, BLINK) and plotter output.
 - For interactive works: `/interactivity-analysis` (object-to-field shift; three cybernetic conflicts: control, constraints, black box).
 - For narrative and database structures: `/narrative-interactivity` (ergodic text; database vs. narrative logic; game vs. play; Net Art as political act).
 
@@ -68,6 +69,7 @@ Use this to decide which framework or command to reach for based on what the art
 - Navigating copyright or fair use: `/ip-art-check` (bundle of sticks; copyright at creation vs. registration; idea/expression dichotomy; cease-and-desist discipline).
 - Seeing the practice through a gallerist's eyes: `/gallerist-perspective` (Lesson 144, Stephen Santoro — conviction sells work; trust built on straightforwardness; editions/multiples strategy; the booth as selling floor; the "1% more successful" long game). Reach for this when the question is not how to reach a gallery but whether the work and its presentation hold up to a dealer's scrutiny.
 - Building relationships with collectors and patrons: `/collector-perspective` (Lesson 150, Benny Redbeard — the attention economy runs on one-to-one relationships; call every past collector personally; conviction over expertise; separate the tool from the speculation; patronage as legacy). Distinct from curator/gallery outreach — this is the collector/patron relationship.
+- Pricing and structuring the prices of work: `/pricing-strategy` (Lesson 153, Haiver — pricing as a financial relationship, not a verdict on worth; the two-column balance of production cost vs. market position; the pricing calculator and its limits; consistent structures within and across mediums; the target-net formula for gallery splits; raising prices on evidence; discounts, payment plans, inventory, auctions, and charity donations). This is the pricing *mechanics* command — reach for it when the question is what number goes on the wall and why the structure holds together, as opposed to who buys (`/collector-perspective`) or whether the work holds up to a dealer (`/gallerist-perspective`).
 
 ### Asking "what makes this work mine?" (originality, authorship, influence)
 - Use `/what-makes-it-mine` (Lesson 146, Rebecca Millsop — four relational questions: Kant on what possibility the work *opens*; Eliot on its place in a *living* tradition; Bloom on where it *swerves* from a precursor; Krauss on what it *repeats* and what you did with it). Especially charged for machine-assisted and generative work. This complements `/originality-audit` (Lesson 129, copy/transform/combine) — reach for `/what-makes-it-mine` for the philosophical account of authorship, `/originality-audit` for the practical source-and-fair-use audit.
@@ -173,3 +175,4 @@ When working on any art project in this directory, apply these orientations:
 | 146 | Philosophy of Art: What Makes It Mine (Millsop — originality, authorship) | `summaries/146_Philosophy_What_Makes_It_Mine.md` | `/what-makes-it-mine` |
 | 150 | Interview: Benny Redbeard (collector & patron perspective) | `summaries/150_Interview_Benny_Redbeard.md` | `/collector-perspective` |
 | 152 | Art History: Portraying Society (Polina Rud — portraiture & social representation) | `summaries/152_Portraying_Society.md` | `/portraying-society` |
+| 153 | Business of Art: Pricing and Editioning Part 1 — Pricing (Haiver) | `summaries/153_Pricing_And_Editioning_Part1.md` | `/pricing-strategy` |

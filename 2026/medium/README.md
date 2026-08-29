@@ -8,6 +8,14 @@ Each piece begins as oil on canvas: loaded brushstrokes made by hand, the weight
 
 Oil is slow, physical, irreversible, and records the hand. The algorithm is weightless, endlessly re-viewable, and records structure. Bound together on one surface, they encode a resonance that amplifies the experience beyond the reach of either material, the way two tones sounded together give rise to a third. This is where I look for the transcendent: not somewhere beyond the materials, but in what happens when they are bound into one another.
 
+:::wrapfig left
+src: ../../2014/skylines/images/14005408208_fbc2fab7ed_b.jpg
+title: Skylines
+year: 2014
+medium: Installation detail at gallery
+link: ../../2014/skylines/
+:::
+
 This series grows directly out of [Hybrids](../../2025/hybrids/), where a machine drew the scaffold and the hand completed the face. Here the collaboration moves inside the paint itself. It returns to a question that has run through the work since [Skylines](../../2014/skylines/): what art making becomes when a mark passes between a machine and a body. And it shares the preoccupations of [Memory](../../2021/memory/) and [Time Studies](../../2022/time/), where the digital is not a clean replacement for matter but a place where matter can be held and re-encountered.
 
 If art making is the binding of inner meaning into matter, these studies ask what a single stroke of oil becomes when it is bound twice: once by the oil, and once by the code.

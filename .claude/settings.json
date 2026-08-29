@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php -l server/gallery.php)",
+      "Bash(pkill -f \"php -S localhost:8000\")"
+    ]
+  }
+}

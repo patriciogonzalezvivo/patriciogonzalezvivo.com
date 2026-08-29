@@ -1,0 +1,6 @@
+title: Xul
+year: 2025
+medium: Oil on canvas
+dimensions: 16 x 12 inches
+print: https://shop.patriciogonzalezvivo.com/products/print-of-xul-2025
+sold: yes

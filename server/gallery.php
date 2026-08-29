@@ -157,9 +157,12 @@ function render_gallery_item($artwork) {
     $html .= 'loading="lazy" ';
     $html .= 'class="painting-thumb">';
     $html .= '</div>';
-    
+
     // Artwork info
     $html .= '<div class="artwork-info">';
+    if ($is_sold) {
+        $html .= '<div class="sold-marker"></div>';
+    }
     $html .= '<div class="artwork-title">' . $title . '</div>';
     
     if (isset($meta['year']) || isset($meta['medium'])) {
@@ -201,7 +204,7 @@ function render_gallery_item($artwork) {
             $email_body .= "I'm interested in the piece ( " . $image_url . " ) and would like to inquire about its availability.\n\n";
 
             $email_href = 'mailto:patriciogonzalezvivo@gmail.com?subject=' . rawurlencode($email_subject) . '&body=' . rawurlencode($email_body);
-            $html .= '<a class="artwork-btn buy-btn" href="' . $email_href . '">Acquire Original</a>';
+            $html .= '<a class="artwork-btn buy-btn" href="' . $email_href . '">Collect Original</a>';
         }
         $html .= '</div>';
     }
@@ -280,13 +283,14 @@ function render_gallery_modal() {
     <button class="nav-arrow nav-arrow-right" aria-label="Next image">&#8250;</button>
     <div class="fullscreen-content">
         <img class="fullscreen-image" src="" alt="Artwork">
+        <div class="sold-marker-fullscreen"></div>
         <div class="fullscreen-info">
             <span class="fullscreen-title"></span>, <span class="fullscreen-year"></span>
             <span class="fullscreen-medium"></span>
             <span class="fullscreen-dimensions"></span>
             <div class="fullscreen-buttons">
                 <a class="artwork-btn buy-print-btn fullscreen-buy-print" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Buy Print</a>
-                <a class="artwork-btn buy-btn fullscreen-buy" href="#" style="display:none;">Acquire Original</a>
+                <a class="artwork-btn buy-btn fullscreen-buy" href="#" style="display:none;">Collect Original</a>
             </div>
         </div>
     </div>
