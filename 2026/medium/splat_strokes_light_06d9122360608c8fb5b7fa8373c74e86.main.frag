@@ -81,6 +81,7 @@ void main(void) {
     vec3 chroma = chromaAB(u_scene, st, sdf * 0.25).rgb ;
     chroma = pow(chroma, vec3(2.2)) * 0.5;
     color.rgb = blendScreen(color.rgb, chroma);
+    color.a = 1.0;
 
     color = linear2gamma(color);
 
