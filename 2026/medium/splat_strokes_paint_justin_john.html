@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>justin_john</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta property="og:image" content="splat_strokes_paint_justin_john.poster.jpg" />
+    <meta property="og:title" content="justin_john" />
+    <style>
+      html, body {
+        margin: 0; padding: 0; width: 100%; height: 100%;
+        overflow: hidden; background: #000;
+      }
+      /* The wrapper fills the document viewport and centers the stage. In embed
+         mode the document viewport is the host <iframe> (see the comment at the
+         bottom of <body>), so the min()/vw/vh sizing below fits the iframe box. */
+      #wrapper {
+        position: fixed; inset: 0;
+        display: flex; align-items: center; justify-content: center;
+      }
+      /* The stage holds the canvas + all overlays; overlays are positioned
+         relative to it so they cover exactly the render area, not the letterbox
+         bars around it. */
+      #stage { position: relative; overflow: hidden; background: #000; }
+
+      /* ── Fullscreen / scale-to-fit mode (index.html, e.g. an objkt token):
+         fill the browser tab on black, scaling the render to fit while keeping
+         its aspect (letterboxed) rather than stretching it. `min(100vw,
+         100vh*aspect)` picks whichever dimension binds; height follows from
+         aspect-ratio. ──────────────────────────────────────────────────────── */
+      body.mode-fullscreen #stage {
+        width: min(100vw, 100vh * var(--aspect));
+        aspect-ratio: var(--aspect);
+      }
+
+      /* ── Embed mode: render at the scene's NATIVE size (512x658),
+         centered on a white page, shrinking to fit smaller viewports while
+         keeping aspect. `min(nativeW, 100vw, 100vh*aspect)` caps at native size
+         yet never overflows the iframe; height follows from aspect-ratio. ──── */
+      /* body.mode-embed, body.mode-embed #wrapper { background: #fff; } */
+      body.mode-embed #stage {
+        background: #fff;
+        width: min(512px, 100vw, 100vh * var(--aspect));
+        aspect-ratio: var(--aspect);
+      }
+      /* When the page goes fullscreen, drop the native cap so the render fills
+         the screen (letterboxed at its true aspect against black). */
+      body.mode-embed.is-fullscreen,
+      body.mode-embed.is-fullscreen #wrapper { background: #000; }
+      body.mode-embed.is-fullscreen #stage {
+        background: #000;
+        width: min(100vw, 100vh * var(--aspect));
+      }
+
+      #canvas {
+        display: block; width: 100%; height: 100%;
+        outline: none; touch-action: none;
+      }
+      /* Poster shown while the wasm runtime + assets stream in. Removed by
+         boot.js once the scene is live (or on error, so it never sticks).
+         object-fit:cover fills the stage; the slight scale hides the
+         transparent fringe the blur would expose at the edges. */
+      #poster {
+        position: absolute; inset: 0; z-index: 10;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        filter: blur(10px);
+        transform: scale(1.06);
+        transition: opacity .5s ease; opacity: 1;
+        pointer-events: none;
+      }
+      #poster.hidden { opacity: 0; }
+      /* Black-and-white loading bar centered over the canvas; the fill grows
+         with fetch progress (boot.js), then fades out with the poster. Dark
+         track + white fill + white hairline outline so it reads on any
+         background (blurred poster, or the white embed page if the poster is
+         missing). */
+      #loadbar {
+        position: absolute; left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 12;
+        width: min(62%, 240px); height: 8px;
+        background: rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.95);
+        border-radius: 5px; overflow: hidden;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+        transition: opacity .5s ease; opacity: 1; pointer-events: none;
+      }
+      #loadbar.hidden { opacity: 0; }
+      #loadbar-fill {
+        height: 100%; width: 0%;
+        background: #fff;
+        transition: width .25s ease;
+      }
+      /* Fullscreen toggle (embed mode only) -- appears on hover in the stage
+         corner. Requests fullscreen on the whole document so the stage stays
+         aspect-locked (letterboxed) rather than the UA stretching a
+         :fullscreen element to fill the screen. */
+      #fsbtn {
+        position: absolute; right: 10px; bottom: 10px; z-index: 15;
+        width: 34px; height: 34px; padding: 7px;
+        border: none; border-radius: 6px;
+        background: rgba(0, 0, 0, 0.35); color: #fff; cursor: pointer;
+        display: none; align-items: center; justify-content: center;
+        opacity: 0; transition: opacity .2s ease, background .2s ease;
+      }
+      body.mode-embed #fsbtn { display: flex; }
+      #stage:hover #fsbtn, #fsbtn:focus-visible { opacity: 1; }
+      #fsbtn:hover { background: rgba(0, 0, 0, 0.6); }
+      #fsbtn svg {
+        width: 100%; height: 100%; display: block;
+        fill: none; stroke: currentColor; stroke-width: 2;
+        stroke-linecap: round; stroke-linejoin: round;
+      }
+      #fsbtn .icon-exit { display: none; }
+      body.is-fullscreen #fsbtn .icon-enter { display: none; }
+      body.is-fullscreen #fsbtn .icon-exit { display: block; }
+      #err {
+        position: absolute; left: 0; right: 0; bottom: 0; z-index: 20;
+        font: 12px/1.4 monospace; color: #f66; background: rgba(0,0,0,.7);
+        padding: 6px 10px; display: none; white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body class="mode-embed" style="--aspect: 0.778116">
+    <div id="wrapper">
+      <div id="stage">
+        <canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+        <video id="poster" poster="splat_strokes_paint_justin_john.poster.jpg" autoplay loop muted playsinline
+               onerror="this.style.display='none'">
+          <source src="splat_strokes_paint_justin_john.poster.webm" type="video/webm" />
+        </video>
+        <div id="loadbar"><div id="loadbar-fill"></div></div>
+        <button id="fsbtn" type="button" title="Toggle fullscreen" aria-label="Toggle fullscreen">
+          <svg class="icon-enter" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />
+          </svg>
+          <svg class="icon-exit" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" />
+          </svg>
+        </button>
+        <pre id="err"></pre>
+      </div>
+    </div>
+
+    <script>
+      // Which scene manifest THIS page loads. In embed mode every sandbox in the
+      // shared folder has a uniquely-named "<sandbox>.scene.json"; boot.js reads
+      // window.SANDBOX_SCENE to know which one (default "scene.json"). Assets are
+      // fetched from the disk names in that manifest (also uniquely prefixed) but
+      // written into this document's own MEMFS under their plain base names, so
+      // the wasm loader's conventions (camera*.csv auto-detect, load order) still
+      // hold -- each iframe has its own MEMFS, so plain names never collide.
+      window.SANDBOX_SCENE = "splat_strokes_paint_justin_john.scene.json";
+
+      // Minimal Emscripten Module bootstrap (no editor/console/CDN deps) --
+      // just enough to bring up the GLFW/WebGL2 canvas and expose ccall/FS.
+      const canvas = document.getElementById('canvas');
+
+      // ── Force a WebGL2 context ────────────────────────────────────────────
+      // The Emscripten GLFW port derives the WebGL context version from the
+      // GLFW context-version hint, which vera sets to major=2 -- that maps to a
+      // WebGL *1* context, even though this wasm is compiled with
+      // USE_WEBGL2=1/FULL_ES3. On WebGL1 the gsplat RGBA32F data texture
+      // (createTextureFloat, 4096-wide float) needs OES_texture_float + wide
+      // float-texture support and samples as garbage for many splats, so a
+      // chunk of them silently drop out (fine natively, broken in the browser).
+      // Shim getContext so any webgl1 request on this canvas transparently
+      // returns a webgl2 context; Emscripten then feature-detects WebGL2 (ES3)
+      // from the returned context at runtime.
+      (function forceWebGL2() {
+        const orig = canvas.getContext.bind(canvas);
+        canvas.getContext = function (type, attrs) {
+          if (type === 'webgl' || type === 'experimental-webgl') {
+            const gl2 = orig('webgl2', attrs);
+            if (gl2) { console.log('forced WebGL2 context'); return gl2; }
+            console.warn('WebGL2 unavailable; falling back to ' + type);
+          }
+          return orig(type, attrs);
+        };
+      })();
+
+      window.module_loaded = false;
+      window.Module = {
+        // Also hint Emscripten's own GL layer to build a WebGL2
+        // (majorVersion:2) context, for builds/ports that honor this instead
+        // of the getContext shim above.
+        webglContextAttributes: { majorVersion: 2, minorVersion: 0 },
+        canvas: (function () {
+          canvas.addEventListener('webglcontextlost', function (e) {
+            e.preventDefault(); location.reload();
+          }, false);
+          return canvas;
+        })(),
+        print: (t) => console.log('WASM:', t),
+        printErr: (t) => console.error('WASM:', t),
+        onRuntimeInitialized: () => console.log('WASM runtime initialized'),
+        postRun: () => { window.module_loaded = true; },
+      };
+    </script>
+    <!-- glslViewer.js / glslViewer.wasm / boot.js are SHARED (one copy per
+         folder) and referenced without a prefix, so several sandboxes in the
+         same folder reuse the same runtime instead of duplicating ~5 MB each. -->
+    <script src="glslViewer.js" async></script>
+    <script type="module" src="boot.js"></script>
+    <!-- ── EMBED THIS SANDBOX ─────────────────────────────────────────────
+      Everything lives flat in ONE folder sharing a single runtime. Copy that
+      folder to your site keeping this layout:
+
+        yourfolder/
+          glslViewer.js  glslViewer.wasm  boot.js   <- shared runtime (one copy)
+          splat_strokes_paint_justin_john.html                               <- THIS embed page (native size)
+          index.html                                <- scale-to-fit page (latest sandbox)
+          splat_strokes_paint_justin_john.scene.json  splat_strokes_paint_justin_john....           <- this sandbox's files
+          <other>.html  <other>.*                   <- more sandboxes, same shape
+          embed-example.html                        <- ready-made gallery
+
+      Drop THIS sandbox onto any page (each sandbox needs its OWN <iframe> --
+      the wasm runtime is one global per document):
+
+        <iframe src="splat_strokes_paint_justin_john.html" width="512" height="658"
+                allowfullscreen style="border:0"></iframe>
+    ──────────────────────────────────────────────────────────────────────── -->
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "title": "justin_john",
+  "prefix": "splat_strokes_paint_justin_john.",
+  "width": 512,
+  "height": 658,
+  "defines": [],
+  "geometry": [
+    "justin_john_strokes.splat"
+  ],
+  "images": [],
+  "textures": {
+    "u_alignedTex": "u_alignedTex.jpg",
+    "u_strokeIndicesTex": "u_strokeIndicesTex.png"
+  },
+  "commands": [
+    "camera,speed,0.1",
+    "camera,arc,90"
+  ],
+  "frag": "main.frag",
+  "vert": "main.vert",
+  "camera": "camera.csv"
+}
