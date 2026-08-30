@@ -1,0 +1,21 @@
+{
+  "title": "06d9122360608c8fb5b7fa8373c74e86",
+  "prefix": "splat_strokes_light_06d9122360608c8fb5b7fa8373c74e86.",
+  "width": 512,
+  "height": 697,
+  "defines": [],
+  "geometry": [
+    "06d9122360608c8fb5b7fa8373c74e86_strokes.splat"
+  ],
+  "images": [],
+  "textures": {
+    "u_alignedTex": "u_alignedTex.jpg"
+  },
+  "commands": [
+    "camera,speed,0.1",
+    "camera,arc,90"
+  ],
+  "frag": "main.frag",
+  "vert": "main.vert",
+  "camera": "camera.csv"
+}

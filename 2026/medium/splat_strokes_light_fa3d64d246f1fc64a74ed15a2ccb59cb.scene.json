@@ -1,0 +1,21 @@
+{
+  "title": "fa3d64d246f1fc64a74ed15a2ccb59cb",
+  "prefix": "splat_strokes_light_fa3d64d246f1fc64a74ed15a2ccb59cb.",
+  "width": 512,
+  "height": 699,
+  "defines": [],
+  "geometry": [
+    "fa3d64d246f1fc64a74ed15a2ccb59cb_strokes.splat"
+  ],
+  "images": [],
+  "textures": {
+    "u_alignedTex": "u_alignedTex.jpg"
+  },
+  "commands": [
+    "camera,speed,0.1",
+    "camera,arc,90"
+  ],
+  "frag": "main.frag",
+  "vert": "main.vert",
+  "camera": "camera.csv"
+}

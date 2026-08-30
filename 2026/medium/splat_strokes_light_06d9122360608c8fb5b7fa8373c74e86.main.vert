@@ -27,14 +27,16 @@ attribute vec2      a_texcoord;
 #endif
 
 varying vec4        v_position;
-varying vec4        v_color;      // only meaningful for the plain-mesh fallback below
-varying vec3        v_normal;     // only meaningful for the plain-mesh fallback below
+varying vec4        v_color;
+varying vec3        v_normal;
 varying vec2        v_texcoord;
 varying vec2        v_uv;
 varying vec2        v_uvStep;
 
 #define SPLAT_SCALE 1.
-#define UV_FILL 0.55
+#define UV_FILL 0.5
+
+#include "lygia/generative/random.glsl"
 
 vec3 octDecode(vec2 f) {
     vec3 n = vec3(f.x, f.y, 1.0 - abs(f.x) - abs(f.y));
@@ -43,8 +45,6 @@ vec3 octDecode(vec2 f) {
     n.y += n.y >= 0.0 ? -t : t;
     return normalize(n);
 }
-
-#include "lygia/generative/random.glsl"
 
 void main() {
 #ifdef MODEL_PRIMITIVE_GSPLATS
@@ -62,6 +62,15 @@ void main() {
     vec4 cam = u_viewMatrix * u_modelMatrix * v_position;
     vec4 pos2d = u_projectionMatrix * cam;
 
+    // Frustum culling
+    float clip = 1.5 * pos2d.w;
+    if (pos2d.z < -pos2d.w || pos2d.z > pos2d.w ||
+        pos2d.x < -clip || pos2d.x > clip ||
+        pos2d.y < -clip || pos2d.y > clip) {
+        gl_Position = vec4(0.0, 0.0, 2.0, 1.0);
+        return;
+    }
+
     vec4 p2 = texture2D(u_gsplatTex, vec2((colStart + 1.5) / width, v));
     vec4 p3 = texture2D(u_gsplatTex, vec2((colStart + 2.5) / width, v));
     vec4 p4 = texture2D(u_gsplatTex, vec2((colStart + 3.5) / width, v));
@@ -78,25 +87,24 @@ void main() {
         p2.z, p3.x, p3.y
     );
 
-    vec3 n = octDecode(p3.zw);
+    vec3 n = octDecode(p3.zw);                       // world thin axis (normal)
     vec3 t1 = normalize(cross((abs(n.x) < 0.9 ? vec3(1.0, 0.0, 0.0)
                                               : vec3(0.0, 1.0, 0.0)), n));
     vec3 t2 = cross(n, t1);
     vec3 Vt1 = Vrk * t1;
     vec3 Vt2 = Vrk * t2;
     float ca = dot(t1, Vt1), cb = dot(t1, Vt2), cd = dot(t2, Vt2);
-
     float da = ca - cd;
     float phi = (abs(cb) < 1e-9 && abs(da) < 1e-9) ? 0.0 : 0.5 * atan(2.0 * cb, da);
+    phi += u_time * (0.25 + fract(fIndex * 0.5) * 2.0);
+
     float cl = 0.5 * (ca + cd);
     float cr = sqrt(max(0.25 * (ca - cd) * (ca - cd) + cb * cb, 0.0));
-
     float s1 = UV_FILL * sqrt(max(cl + cr, 0.0));
     float s2 = UV_FILL * sqrt(max(cl - cr, 0.0));
-    vec3 axis1 = s1 * (cos(phi) * t1 + sin(phi) * t2);         // world major half-axis
-    vec3 axis2 = s2 * (-sin(phi) * t1 + cos(phi) * t2);        // world minor half-axis
-
-    vec2 focalN = u_focal / u_resolution;            // normalized Fx, Fy
+    vec3 axis1 = s1 * (cos(phi) * t1 + sin(phi) * t2);
+    vec3 axis2 = s2 * (-sin(phi) * t1 + cos(phi) * t2);
+    vec2 focalN = u_focal / u_resolution;
     vec3 wCenter = p1.xyz;
     vec3 wCorner = wCenter + a_position.x * axis1 + a_position.y * axis2;
     vec2 uvCenter = focalN * vec2(wCenter.x, -wCenter.y) / (-wCenter.z) + 0.5;
@@ -116,17 +124,18 @@ void main() {
     if (l1n > 1e-8) ndcAxis1 *= max(l1n, minLen) / l1n;
     if (l2n > 1e-8) ndcAxis2 *= max(l2n, minLen) / l2n;
 
-    // Reduce scale for finer splat coverage
+
     v_position = vec4(
         (a_position.x * ndcAxis1 + a_position.y * ndcAxis2),
         pos2d.z / pos2d.w, 1.0
     );
 
+    v_position.y += fract(u_time * 0.05 + fract(fIndex * 0.1) * 3.1415 ) * step(0.9, sin(u_time * 0.1 + fIndex * 0.1));
+
     float scale = SPLAT_SCALE;
-    float t = u_time * 0.125;
-    // scale *= step(0.5, fract(length(cam.z)*1. - t));
-    // scale *= step(0.25, random(cam.xy));
-    // scale *= fract(length(cam.z)*1. - random(cam.xy) - t);
+    float t = u_time * 0.25;
+    // scale *= smoothstep(0.45, 0.5, fract(length(cam.xy)*1. - t));
+    // scale *= smoothstep(1.0, 0.0, fract(pos2d.z * 0.1 - t));
     v_position.xy = vCenter + scale * v_position.xy;
 
     gl_Position = v_position;
@@ -145,5 +154,6 @@ void main() {
     v_uv = v_texcoord;
     v_uvStep = vec2(0.0);
     gl_Position = u_projectionMatrix * u_viewMatrix * v_position;
+
 #endif
 }
