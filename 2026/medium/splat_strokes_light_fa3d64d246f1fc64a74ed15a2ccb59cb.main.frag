@@ -53,6 +53,7 @@ bool sameMark(vec4 a, vec4 b) {
 }
 
 #define BARREL_TYPE vec3
+#define BARREL_OCT_2
 #define BARREL_SAMPLER_FNC(TEX, UV) texture2D(TEX, UV).rgb
 #define BARREL_DISTANCE -(dist*dist)
 #include "lygia/distort/barrel.glsl"
@@ -64,6 +65,7 @@ bool sameMark(vec4 a, vec4 b) {
 #include "lygia/distort/chromaAB.glsl"
 
 #define STRETCH_TYPE vec3
+#define STRETCH_SAMPLES 1
 #define STRETCH_SAMPLER_FNC(TEX, UV) gamma2linear( chromaAB(TEX, toGL(UV), vec2(1.5*length(UV)-1.), 1.5 ) )
 #include "lygia/distort/stretch.glsl"
 

@@ -53,6 +53,7 @@ bool sameMark(vec4 a, vec4 b) {
 }
 
 #define BARREL_TYPE vec3
+#define BARREL_OCT_2
 #define BARREL_SAMPLER_FNC(TEX, UV) texture2D(TEX, UV).rgb
 #define BARREL_DISTANCE -(dist*dist)
 #include "lygia/distort/barrel.glsl"
@@ -64,6 +65,7 @@ bool sameMark(vec4 a, vec4 b) {
 #include "lygia/distort/chromaAB.glsl"
 
 #define STRETCH_TYPE vec3
+#define STRETCH_SAMPLES 1
 #define STRETCH_SAMPLER_FNC(TEX, UV) gamma2linear( chromaAB(TEX, toGL(UV), vec2(1.5*length(UV)-1.), 1.5 ) )
 #include "lygia/distort/stretch.glsl"
 
@@ -85,6 +87,10 @@ void main(void) {
 
     color = linear2gamma(color);
 
+// #elif defined(BACKGROUND)
+//     float pct = clamp(pow(length(u_cameraTrg - u_camera), 1.), 0.0, 1.0);
+//     color = mix(texture2D(u_alignedTex, st), vec4(0.0), pct);
+
 #elif defined(MODEL_PRIMITIVE_GSPLATS)
     vec2 uv = v_uv;
     vec2 uvStep = v_uvStep;
@@ -98,21 +104,14 @@ void main(void) {
     vec2 dir = vec2(pixel.x, 0.0);
     vec2 st2 = (vec2(2.0) + v_texcoord) * 0.25;
 
-    vec2 translation = vec2(fract(u_time + index), 0.0);
+    vec2 translation = vec2(fract(u_time * fract(0.1 + index) + index * 10.0), 0.0);
 
-    float head = stroke(st2.x, translation.x, 0.25, 0.25);
-    head += stroke(st2.x, translation.x, 0.1, 0.1);
+    float head = stroke(st2.x, translation.x, 0.5, 0.25);
+    // head += stroke(st2.x, translation.x, 0.25, 0.1) * 0.5;
 
     vec3 stretched = stretch(u_alignedTex, uvFrag, dir * 10.0 * pixel); 
-    stretched += stretch(u_alignedTex, uvFrag, dir * -10.0 * pixel);
+    // stretched += stretch(u_alignedTex, uvFrag, dir * -10.0 * pixel);
     color.rgb = blendScreen(color.rgb, stretched * 3.0 * amount, head);
-
-    // color.a = sin(st2.x * PI);
-
-    // head = saturate(head);
-    // stretched = saturate(stretched);
-    // color = saturate(color);
-    // color = linear2gamma(color);
 
 #else
     color = v_color;
