@@ -53,7 +53,7 @@ bool sameMark(vec4 a, vec4 b) {
 }
 
 #define BARREL_TYPE vec3
-#define BARREL_OCT_2
+// #define BARREL_OCT_2
 #define BARREL_SAMPLER_FNC(TEX, UV) texture2D(TEX, UV).rgb
 #define BARREL_DISTANCE -(dist*dist)
 #include "lygia/distort/barrel.glsl"
@@ -80,7 +80,7 @@ void main(void) {
     vec2 st2 = ratio(st, u_resolution);
     float sdf = circleSDF(st2);
 
-    vec3 chroma = chromaAB(u_scene, st, sdf * 0.25).rgb ;
+    vec3 chroma = chromaAB(u_scene, st, sdf * 0.3).rgb ;
     chroma = pow(chroma, vec3(2.2)) * 0.5;
     color.rgb = blendScreen(color.rgb, chroma);
     color.a = 1.0;
