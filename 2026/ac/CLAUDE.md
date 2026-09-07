@@ -1,6 +1,6 @@
 # CLAUDE.md — Artist Studio Context
 
-This file is the standing context for all conversations about an artist's practice. Load it at the start of any project session. It maps the theoretical frameworks, critical tools, and practical knowledge available from a completed Artist Commons (AC) program — 28 lessons, 28 summary files, and 25 Claude Code slash commands — and provides routing guidance for applying them to studio work, critique, analysis, writing, and professional decisions.
+This file is the standing context for all conversations about an artist's practice. Load it at the start of any project session. It maps the theoretical frameworks, critical tools, and practical knowledge available from a completed Artist Commons (AC) program — 30 lessons, 30 summary files, and 29 Claude Code slash commands — and provides routing guidance for applying them to studio work, critique, analysis, writing, and professional decisions.
 
 ---
 
@@ -15,10 +15,10 @@ When discussing the artist's work, apply frameworks from this program rather tha
 ## What Is Available
 
 ### Summaries (`2026/ac/summaries/`)
-Twenty-eight markdown files, one per lesson. Each covers: overview, key concepts and frameworks, artists and works referenced, core takeaways, and studio reflection questions. Read these when you need the full detail of a framework before applying it.
+Thirty markdown files, one per lesson. Each covers: overview, key concepts and frameworks, artists and works referenced, core takeaways, and studio reflection questions. Read these when you need the full detail of a framework before applying it.
 
 ### Slash Commands (`.claude/commands/`)
-Twenty-five interactive skill prompts. Each walks the artist through a structured studio exercise using the lesson's frameworks. Invoke by typing `/command-name` followed by a description of the work.
+Twenty-nine interactive skill prompts. Each walks the artist through a structured studio exercise using the lesson's frameworks. Invoke by typing `/command-name` followed by a description of the work.
 
 ---
 
@@ -76,6 +76,9 @@ Use this to decide which framework or command to reach for based on what the art
 
 ### Analyzing how the work represents people or society
 - Use `/portraying-society` (Lesson 152, Polina Rud — three recurring strategies for portraying society: *flattery* that produces a reassuring self-image, *diagnosis* that exposes symptoms then hidden structures, and *eliciting/staging* participatory situations where society reveals itself). The primary tool for reading portraiture — directly relevant to the Hybrids / Memories / Santos portrait work.
+
+### Examining photography, evidence, and the truth-claims of an image
+- Use `/photo-epistemology` (Lesson 156, Elliot Krasnopoler — a chronological account of how photographs work as evidence: Talbot's indexical "drawn by light" promise; science extending sight beyond the human (micrograph, astrophotography, X-ray); the state's use of images for control (Bertillon, Galton, Sekula's "filing cabinet"); documentary's manipulation behind a truth-claim (Lange, Evans, Rosler, Solomon-Godeau); and the present rupture of generative AI (Fontcuberta, Eldagsen, Ritchen)). Reach for this whenever a work makes or implies a claim to be a trustworthy trace of something real — satellite or astronomical instrument-imagery (HOGAR, ESTRELLAS, Weaver, Astros), a machine-rendered face completed by hand (Hybrids, Memories, Santos), a documentary claim about ecological consequence (Efecto Mariposa), or a generated/coded image (BLINK, PixelSpirit). This is the tool for *is this trustworthy as evidence, and why* — distinct from `/semiotics-analysis` (what kind of sign is this) and `/portraying-society` (what does this portrayal do to the subject).
 
 ---
 
@@ -176,3 +179,4 @@ When working on any art project in this directory, apply these orientations:
 | 150 | Interview: Benny Redbeard (collector & patron perspective) | `summaries/150_Interview_Benny_Redbeard.md` | `/collector-perspective` |
 | 152 | Art History: Portraying Society (Polina Rud — portraiture & social representation) | `summaries/152_Portraying_Society.md` | `/portraying-society` |
 | 153 | Business of Art: Pricing and Editioning Part 1 — Pricing (Haiver) | `summaries/153_Pricing_And_Editioning_Part1.md` | `/pricing-strategy` |
+| 156 | Art History: Epistemology of Photography (Elliot Krasnopoler — index, evidence, science, the state, documentary, generative AI) | `summaries/156_Epistemology_of_Photography.md` | `/photo-epistemology` |
