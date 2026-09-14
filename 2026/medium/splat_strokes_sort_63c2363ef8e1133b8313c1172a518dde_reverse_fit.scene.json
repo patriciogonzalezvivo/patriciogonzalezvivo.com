@@ -1,11 +1,11 @@
 {
-  "title": "eb1ab75d654051126f5bf5f4841ed66d",
-  "prefix": "splat_strokes_paint_eb1ab75d654051126f5bf5f4841ed66d.",
+  "title": "63c2363ef8e1133b8313c1172a518dde_reverse_fit",
+  "prefix": "splat_strokes_sort_63c2363ef8e1133b8313c1172a518dde_reverse_fit.",
   "width": 512,
-  "height": 765,
+  "height": 648,
   "defines": [],
   "geometry": [
-    "eb1ab75d654051126f5bf5f4841ed66d_strokes.splat"
+    "63c2363ef8e1133b8313c1172a518dde_reverse_fit_strokes.splat"
   ],
   "images": [],
   "textures": {
@@ -14,8 +14,9 @@
   },
   "commands": [
     "camera,speed,0.1",
-    "camera,arc,90",
-    "camera,constrain,az,90",
+    "camera,arc,45",
+    "camera,dolly,2,3",
+    "camera,constrain,az,45",
     "camera,resume,1",
     "camera,resume,animation,true"
   ],

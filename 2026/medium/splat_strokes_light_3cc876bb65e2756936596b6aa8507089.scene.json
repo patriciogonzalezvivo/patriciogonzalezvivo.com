@@ -13,7 +13,10 @@
   },
   "commands": [
     "camera,speed,0.1",
-    "camera,arc,90"
+    "camera,arc,90",
+    "camera,constrain,az,90",
+    "camera,resume,1",
+    "camera,resume,animation,true"
   ],
   "frag": "main.frag",
   "vert": "main.vert",

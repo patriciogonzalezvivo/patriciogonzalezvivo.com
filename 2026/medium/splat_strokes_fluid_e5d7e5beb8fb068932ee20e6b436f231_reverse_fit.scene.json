@@ -1,11 +1,11 @@
 {
-  "title": "eb1ab75d654051126f5bf5f4841ed66d",
-  "prefix": "splat_strokes_paint_eb1ab75d654051126f5bf5f4841ed66d.",
+  "title": "e5d7e5beb8fb068932ee20e6b436f231_reverse_fit",
+  "prefix": "splat_strokes_fluid_e5d7e5beb8fb068932ee20e6b436f231_reverse_fit.",
   "width": 512,
-  "height": 765,
+  "height": 655,
   "defines": [],
   "geometry": [
-    "eb1ab75d654051126f5bf5f4841ed66d_strokes.splat"
+    "e5d7e5beb8fb068932ee20e6b436f231_reverse_fit_strokes.splat"
   ],
   "images": [],
   "textures": {
@@ -14,7 +14,8 @@
   },
   "commands": [
     "camera,speed,0.1",
-    "camera,arc,90",
+    "camera,arc,45",
+    "camera,dolly,1,2",
     "camera,constrain,az,90",
     "camera,resume,1",
     "camera,resume,animation,true"
