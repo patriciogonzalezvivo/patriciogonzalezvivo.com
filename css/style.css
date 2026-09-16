@@ -1131,6 +1131,23 @@ body.windowed-mode #wrapper.windowed {
     opacity: 0.85;
 }
 
+/* Medium Studies Gallery - uniform square thumbnails, crop instead of distort */
+.medium-studies-gallery .painting-thumb-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.medium-studies-gallery .painting-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* App fullscreen wrapper — must cover the sticky menu */
 #wrapper.fullscreen {
     z-index: 1000;

@@ -14,7 +14,11 @@
       "Bash(curl -s --max-time 25 -X POST https://data.objkt.com/v3/graphql -H 'Content-Type: application/json' -d '{\"query\":\"query { token\\(where: {fa_contract: {_eq: \\\\\"KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton\\\\\"}, token_id: {_in: [\\\\\"50460\\\\\",\\\\\"50433\\\\\"]}}, order_by:{token_id:asc}\\) { token_id name mime artifact_uri display_uri thumbnail_uri } }\"}')",
       "Bash(curl -s --max-time 25 -X POST https://data.objkt.com/v3/graphql -H 'Content-Type: application/json' -d '{\"query\":\"query { token\\(where: {fa_contract: {_eq: \\\\\"KT1RJ6PbjHpwc3M5rw5s2Nbmefwbuwbdxton\\\\\"}, token_id: {_eq: \\\\\"369576\\\\\"}}\\) { token_id name mime artifact_uri display_uri thumbnail_uri } }\"}')",
       "Bash(kill 79178)",
-      "Bash(pkill -f \"php -S localhost:812\")"
+      "Bash(pkill -f \"php -S localhost:812\")",
+      "Bash(php -l /Users/patricio/Desktop/patriciogonzalezvivo.com/2026/medium/index.php)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8123/2026/medium/splat_strokes_light_06d9122360608c8fb5b7fa8373c74e86.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8123/2026/medium/splat_strokes_light_06d9122360608c8fb5b7fa8373c74e86.poster.webm)",
+      "Bash(pkill -f \"php -S localhost:8123\")"
     ]
   }
 }

@@ -7,18 +7,51 @@
 	include("../../server/gallery.php");
 ?>
 <?php include("../../server/menu.php");?>
-    <article class="item">
-        <div class="item-image">
-            <iframe src="splat_strokes_paint_b9e4b33399ba7602a648f0dbc8f1abc1.html" width="512" height="717" loading="lazy"></iframe>
-        </div>
-        <div class="item-info">
-            <span class="item-title"><?php echo htmlspecialchars($meta['title'] ?? ''); ?></span>
-            <span class="item-year"><?php echo htmlspecialchars($meta['year'] ?? ''); ?></span>
-            <span class="item-medium"><?php echo htmlspecialchars($meta['medium'] ?? ''); ?></span>
-            <span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions'] ?? ''); ?></span>
-            <p class="item-description"><?php echo htmlspecialchars($meta['description'] ?? ''); ?></p>
-        </div>
-    </article>
+
+    <?php
+        // Each study is a self-contained sandboxed HTML piece with a matching
+        // looping .poster.webm preview (splat_strokes_<shader>_<hash>.html).
+        $splat_files = glob('splat_strokes_*.html');
+        natsort($splat_files);
+
+        // Count shader variants so repeats can be numbered (Light I, Light II, ...)
+        $shader_counts = [];
+        foreach ($splat_files as $file) {
+            if (preg_match('/^splat_strokes_([a-zA-Z]+)_/', basename($file), $m)) {
+                $shader_counts[$m[1]] = ($shader_counts[$m[1]] ?? 0) + 1;
+            }
+        }
+        $shader_seen = [];
+        $roman = ['', 'I', 'II', 'III', 'IV', 'V', 'VI'];
+    ?>
+    <div class="paintings-gallery medium-studies-gallery">
+        <?php foreach ($splat_files as $file):
+            $base = pathinfo($file, PATHINFO_FILENAME);
+            $webm = $base . '.poster.webm';
+            $poster = $base . '.poster.jpg';
+
+            $title = 'Study';
+            if (preg_match('/^splat_strokes_([a-zA-Z]+)_/', basename($file), $m)) {
+                $shader = $m[1];
+                $shader_seen[$shader] = ($shader_seen[$shader] ?? 0) + 1;
+                $title = ucfirst($shader);
+                if ($shader_counts[$shader] > 1) {
+                    $title .= ' ' . $roman[$shader_seen[$shader]];
+                }
+            }
+        ?>
+        <a class="painting-item" href="<?php echo htmlspecialchars($file); ?>">
+            <div class="painting-thumb-wrapper">
+                <video class="painting-thumb" autoplay loop muted playsinline preload="metadata" poster="<?php echo htmlspecialchars($poster); ?>">
+                    <source src="<?php echo htmlspecialchars($webm); ?>" type="video/webm">
+                </video>
+            </div>
+            <div class="artwork-info">
+                <div class="artwork-title"><?php echo htmlspecialchars($title); ?></div>
+            </div>
+        </a>
+        <?php endforeach; ?>
+    </div>
 
 	<div id="longer-info">
 
