@@ -17,6 +17,7 @@
   "commands": [
     "camera,speed,0.1",
     "camera,arc,45",
+    "camera,dolly,1,2",
     "camera,constrain,az,45",
     "camera,resume,1",
     "camera,resume,animation,true"
