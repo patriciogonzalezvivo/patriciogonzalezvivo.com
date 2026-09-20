@@ -58,7 +58,7 @@
 		<?php
 		include("../../server/ParsedownExtended.php");
 		$Parsedown = new ParsedownExtended();
-		echo $Parsedown->text(file_get_contents ('README.md'));
+		// echo $Parsedown->text(file_get_contents ('README.md'));
 		?>
 
 		<h2>Related Works</h2>
