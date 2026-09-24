@@ -318,7 +318,7 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '', logo
 
     for kind, payload in render_plan:
         if kind == 'group':
-            latex += _build_group_page(payload, project_url, logo_file)
+            latex += _build_group_page(payload, project_url)
         else:  # 'individual'
             latex += _build_individual_page(payload, base_path, indiv_idx, project_url)
             indiv_idx += 1
@@ -330,14 +330,32 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '', logo
 # Group page helper
 # ---------------------------------------------------------------------------
 
-# Fraction of \textwidth for each image in a 2/3/4-image group page.
+# Fraction of \textwidth for each image in a 2/3-image group page.
 # Trailing entries assume each image takes ~1/n with a small margin for gutters.
-_GROUP_IMG_FRAC: Dict[int, str] = {2: '0.47', 3: '0.31', 4: '0.235'}
-_GROUP_IMG_HEIGHT = '0.78\\textheight'
+_GROUP_IMG_FRAC: Dict[int, str] = {2: '0.47', 3: '0.31'}
+_GROUP_IMG_HEIGHT = '0.88\\textheight'
+
+# 4-image groups render as a 2x2 grid instead of a single row of 4.
+_GRID_IMG_FRAC   = '0.47'
+_GRID_IMG_HEIGHT = '0.42\\textheight'
 
 
-def _build_group_page(group: List, project_url: str = '', logo_file: str = '') -> str:
-    """Return LaTeX for a page showing ``len(group)`` portrait images side-by-side.
+def _image_minipage(img_path: str, meta: Dict, project_url: str, frac: str, height: str) -> str:
+    """Return a ``minipage`` containing a single linked, height/width-capped image."""
+    img_url = _image_url(img_path, project_url) if project_url else ''
+    img_content = (
+        f"  \\href{{{img_url}}}{{\\includegraphics[width=\\linewidth,height={height},keepaspectratio]{{{img_path}}}}}\n"
+        if img_url else
+        f"  \\includegraphics[width=\\linewidth,height={height},keepaspectratio]{{{img_path}}}\n"
+    )
+    return f"\\begin{{minipage}}[b]{{{frac}\\textwidth}}\n" + img_content + "\\end{minipage}"
+
+
+def _build_group_page(group: List, project_url: str = '') -> str:
+    """Return LaTeX for a page showing ``len(group)`` portrait images.
+
+    Groups of 2 or 3 are placed side-by-side in a single row; groups of 4
+    are laid out as a 2x2 grid.
 
     Args:
         group:       List of ``(img_path, meta_dict)`` tuples (2–4 items).
@@ -346,26 +364,23 @@ def _build_group_page(group: List, project_url: str = '', logo_file: str = '') -
     Returns:
         LaTeX string starting with ``\\clearpage``.
     """
-    n        = len(group)
-    img_frac = _GROUP_IMG_FRAC.get(n, _GROUP_IMG_FRAC[4])
-    img_h    = _GROUP_IMG_HEIGHT
+    n = len(group)
 
-    latex  = "\\clearpage\n{\\setlength{\\parskip}{0pt}%\n\\noindent\n"
+    latex = "\\clearpage\n{\\setlength{\\parskip}{0pt}%\n\\noindent\n"
 
-    # Images side-by-side
-    for k, (img_path, _meta) in enumerate(group):
-        img_url = _image_url(img_path, project_url) if project_url else ''
-        img_content = (
-            f"  \\href{{{img_url}}}{{\\includegraphics[width=\\linewidth,height={img_h},keepaspectratio]{{{img_path}}}}}\n"
-            if img_url else
-            f"  \\includegraphics[width=\\linewidth,height={img_h},keepaspectratio]{{{img_path}}}\n"
-        )
-        latex += (
-            f"\\begin{{minipage}}[b]{{{img_frac}\\textwidth}}\n"
-            + img_content
-            + f"\\end{{minipage}}"
-        )
-        latex += "\\hfill\n" if k < n - 1 else "\n"
+    if n == 4:
+        # 2x2 grid: two rows of two images each.
+        for row in (group[0:2], group[2:4]):
+            for k, (img_path, meta) in enumerate(row):
+                latex += _image_minipage(img_path, meta, project_url, _GRID_IMG_FRAC, _GRID_IMG_HEIGHT)
+                latex += "\\hfill\n" if k < len(row) - 1 else "\n"
+            latex += "\\vspace{0.4em}\n\\noindent\n"
+    else:
+        # Single row, side-by-side.
+        img_frac = _GROUP_IMG_FRAC.get(n, _GROUP_IMG_FRAC[3])
+        for k, (img_path, meta) in enumerate(group):
+            latex += _image_minipage(img_path, meta, project_url, img_frac, _GROUP_IMG_HEIGHT)
+            latex += "\\hfill\n" if k < n - 1 else "\n"
 
     # Caption: individual titles/years, then shared medium + dimensions
     title_parts = []
@@ -401,7 +416,6 @@ def _build_group_page(group: List, project_url: str = '', logo_file: str = '') -
             "\\end{tabular}}\n"
         )
     latex += "}%\n"  # close \parskip=0 group
-    latex += _logo_if_space(logo_file)
     return latex
 
 

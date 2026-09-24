@@ -163,22 +163,29 @@ def build_render_plan(
 ) -> List[tuple]:
     """Classify images into grouped and individual render entries.
 
-    Portrait images (height > width) that share the same *medium* **and**
-    *dimensions* sidecar values are collected into consecutive runs; complete
-    runs of length ``≥ group_size`` are split into groups of exactly
-    ``group_size`` images.  Any remainder, and all other images, become
-    individual entries.
+    Two grouping strategies apply, tried in order for each run of images:
+
+      1. **Metadata-matched** — portrait images (height > width) that share
+         the same *medium* **and** *dimensions* sidecar values are collected
+         into consecutive runs (the painting-gallery case, e.g. Santos).
+      2. **Plain** — consecutive images that have *no* sidecar ``.txt`` file
+         at all (documentation photos with no per-image metadata) are
+         grouped regardless of orientation.
+
+    Complete runs of length ``≥ group_size`` are split into groups of
+    exactly ``group_size`` images. Any remainder, and all other images,
+    become individual entries.
 
     Args:
         images:     Ordered list of workspace-relative image paths.
         base_path:  Workspace root used to resolve full paths for dimension
                     reading and sidecar parsing.
-        group_size: Number of portrait images to place side-by-side (2–4).
+        group_size: Number of images to place side-by-side (2–4).
                     Pass 1 to disable grouping entirely.
 
     Returns:
         A list of ``(kind, payload)`` tuples where:
-          - ``('group', [(img_path, meta), ...])`` — ``group_size`` portraits.
+          - ``('group', [(img_path, meta), ...])`` — ``group_size`` images.
           - ``('individual', img_path)``            — single image.
     """
     plan: List[tuple] = []
@@ -188,8 +195,9 @@ def build_render_plan(
         img = images[i]
         full = base_path / img
         w, h = read_image_dimensions(full)
+        has_sidecar = full.with_suffix('.txt').exists()
 
-        if group_size >= 2 and h > w > 0:
+        if group_size >= 2 and h > w > 0 and has_sidecar:
             meta = parse_sidecar(full)
             medium = meta.get('medium', '')
             dims   = meta.get('dimensions') or meta.get('dimension', '')
@@ -221,6 +229,24 @@ def build_render_plan(
                         plan.append(('individual', img_path))
                     i = j
                     continue
+
+        if group_size >= 2 and not has_sidecar:
+            # No per-image metadata at all — group plain consecutive images
+            # (any orientation) into chunks of group_size.
+            run: List[Tuple[str, Dict]] = [(img, {})]
+            j = i + 1
+            while j < len(images) and not (base_path / images[j]).with_suffix('.txt').exists():
+                run.append((images[j], {}))
+                j += 1
+
+            if len(run) >= group_size:
+                n_groups = len(run) // group_size
+                for g in range(n_groups):
+                    plan.append(('group', run[g * group_size:(g + 1) * group_size]))
+                for img_path, _ in run[n_groups * group_size:]:
+                    plan.append(('individual', img_path))
+                i = j
+                continue
 
         plan.append(('individual', img))
         i += 1
