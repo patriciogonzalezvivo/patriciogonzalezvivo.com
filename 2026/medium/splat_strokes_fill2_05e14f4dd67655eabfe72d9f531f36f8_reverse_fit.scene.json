@@ -1,0 +1,26 @@
+{
+  "title": "05e14f4dd67655eabfe72d9f531f36f8_reverse_fit",
+  "prefix": "splat_strokes_fill2_05e14f4dd67655eabfe72d9f531f36f8_reverse_fit.",
+  "width": 512,
+  "height": 681,
+  "defines": [],
+  "geometry": [
+    "05e14f4dd67655eabfe72d9f531f36f8_reverse_fit_strokes.splat",
+    "05e14f4dd67655eabfe72d9f531f36f8_reverse_fit_lines.glb"
+  ],
+  "images": [],
+  "textures": {
+    "u_alignedTex": "u_alignedTex.jpg",
+    "u_strokeIndicesTex": "u_strokeIndicesTex.png"
+  },
+  "commands": [
+    "camera,speed,0.1",
+    "camera,arc,45",
+    "camera,constrain,az,45",
+    "camera,resume,1",
+    "camera,resume,animation,true"
+  ],
+  "frag": "main.frag",
+  "vert": "main.vert",
+  "camera": "camera.csv"
+}

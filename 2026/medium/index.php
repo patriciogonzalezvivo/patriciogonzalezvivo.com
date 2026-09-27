@@ -22,7 +22,17 @@
             }
         }
         $shader_seen = [];
-        $roman = ['', 'I', 'II', 'III', 'IV', 'V', 'VI'];
+        function to_roman($num) {
+            $map = ['M'=>1000,'CM'=>900,'D'=>500,'CD'=>400,'C'=>100,'XC'=>90,'L'=>50,'XL'=>40,'X'=>10,'IX'=>9,'V'=>5,'IV'=>4,'I'=>1];
+            $result = '';
+            foreach ($map as $roman => $value) {
+                while ($num >= $value) {
+                    $result .= $roman;
+                    $num -= $value;
+                }
+            }
+            return $result;
+        }
     ?>
     <div class="paintings-gallery medium-studies-gallery">
         <?php foreach ($splat_files as $file):
@@ -36,7 +46,7 @@
                 $shader_seen[$shader] = ($shader_seen[$shader] ?? 0) + 1;
                 $title = ucfirst($shader);
                 if ($shader_counts[$shader] > 1) {
-                    $title .= ' ' . $roman[$shader_seen[$shader]];
+                    $title .= ' ' . to_roman($shader_seen[$shader]);
                 }
             }
         ?>

@@ -1,0 +1,26 @@
+{
+  "title": "okeeffe_001_reverse_fit",
+  "prefix": "splat_strokes_fill2_okeeffe_001_reverse_fit.",
+  "width": 512,
+  "height": 770,
+  "defines": [],
+  "geometry": [
+    "okeeffe_001_reverse_fit_strokes.splat",
+    "okeeffe_001_reverse_fit_lines.glb"
+  ],
+  "images": [],
+  "textures": {
+    "u_alignedTex": "u_alignedTex.jpg",
+    "u_strokeIndicesTex": "u_strokeIndicesTex.png"
+  },
+  "commands": [
+    "camera,speed,0.1",
+    "camera,arc,45",
+    "camera,constrain,az,45",
+    "camera,resume,1",
+    "camera,resume,animation,true"
+  ],
+  "frag": "main.frag",
+  "vert": "main.vert",
+  "camera": "camera.csv"
+}
