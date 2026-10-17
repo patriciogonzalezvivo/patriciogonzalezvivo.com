@@ -1,0 +1,46 @@
+# rsync filter rules for `make deploy` (first match wins).
+# Excluded paths are never uploaded AND never deleted on the server.
+
+# Server-only paths that do not exist in this repo
+- /.git/
+- /git-pull.php
+- /cache/
+- /glslCanvas/
+- /glslEditor/
+- /glslGallery/
+- /press/
+- /2015/thebookofshaders/
+
+# Repo, editor and OS files
+- /.gitignore
+- /.gitmodules
+- /.deploy-filter
+- .DS_Store
+- ._*
+- *.swp
+
+# AI/course notes and private material
+- /.claude/
+- CLAUDE.md
+- /2026/ac/
+
+# PDF portfolio generator (local tooling, not part of the site)
+- /portfolio/
+- /generate_portfolio.py
+- /make_thumbnails.sh
+- /Makefile
+- /*.pdf
+- __pycache__/
+- *.pyc
+
+# Working / source files
+- *.ai
+- *.sketch
+- /2026/medium/tmp/
++ /2014/skylines/Design/
++ /2014/skylines/Design/sk01.png
+- /2014/skylines/Design/*
+
+# Unreferenced videos (2025/weaver/index.php points at a missing 000.mp4)
+- /2025/weaver/IMG_4879.MP4
+- /2025/weaver/relics.mp4

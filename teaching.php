@@ -2,7 +2,7 @@
 include("server/project_meta.php");
 
     $projects = [
-        ['path' => '2022/shader_prototyping', 'url' => 'https://maximalexpression.notion.site/SHADER-PROTOTYPING-146da33982c54746a0589ebcbdbf717a', 'title' => 'Shader Prototyping Course', 'year' => '2022', 'thumbnail' => '2022/shader_prototyping/momento_006.gif'],
+        ['path' => '2022/shader_prototyping', 'url' => 'https://maximalexpression.notion.site/SHADER-PROTOTYPING-146da33982c54746a0589ebcbdbf717a', 'title' => 'Shader Prototyping Course', 'year' => '2022', 'thumbnail' => '2022/shader_prototyping/momento_006.webm'],
         ['path' => '2016/sfpc', 'title' => 'Introduction to the Language of Light', 'year' => '2016', 'medium' => 'School for Poetic Computation'],
         ['path' => '2015/shaderstudio', 'title' => 'Shader Studio', 'year' => '2016', 'medium' => 'Parsons MFA D&T'],
         ['path' => '2015/thebookofshaders', 'url' => 'https://thebookofshaders.com/', 'title' => 'The Book of Shaders', 'year' => '2015', 'medium' => 'Book'],

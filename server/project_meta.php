@@ -149,7 +149,7 @@ function render_project_item($meta, $commented = false) {
             ? htmlspecialchars($thumbnail)
             : htmlspecialchars($path) . '/' . htmlspecialchars($thumb);
 
-        if ($thumb && str_ends_with($thumb, '.webm')) {
+        if (str_ends_with($thumb_src, '.webm')) {
             $html .= '<video class="photoTh" autoplay loop muted playsinline loading="lazy">'
                    . '<source src="' . $thumb_src . '" type="video/webm">'
                    . '</video>';

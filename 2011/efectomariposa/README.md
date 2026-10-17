@@ -10,7 +10,7 @@ The installation opens with a simple invitation: reach in and touch. The ash shi
 
 What takes longer to perceive is the depth of those connections. Playing with the surface, visitors begin to notice that life returns at its own pace, that some things recover quickly while others take time, that smaller adjustments leave more room for watching, that the space between one touch and the next is also part of the piece. The awareness of complexity arrives through the hands, quietly, as the system reveals more of itself the longer you stay with it.
 
-![](004.gif)
+<video src="004.webm" autoplay loop muted playsinline style="max-width:100%"></video>
 
 ![](001.gif)
 

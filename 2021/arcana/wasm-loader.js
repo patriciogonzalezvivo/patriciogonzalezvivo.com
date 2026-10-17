@@ -23,13 +23,12 @@ class WasmLoader extends HTMLElement {
         src.src = new URL('thumb.webm', import.meta.url).href;
         src.type = 'video/webm';
         thumb.appendChild(src);
-        // Fallback: gif → static png
+        // Fallback: static png
         src.addEventListener('error', () => {
-            const gif = document.createElement('img');
-            gif.id = 'thumbnail';
-            gif.src = new URL('thumb.gif', import.meta.url).href;
-            gif.onerror = () => { gif.src = new URL('thumbnail.png', import.meta.url).href; };
-            thumb.replaceWith(gif);
+            const img = document.createElement('img');
+            img.id = 'thumbnail';
+            img.src = new URL('thumbnail.png', import.meta.url).href;
+            thumb.replaceWith(img);
         }, { once: true });
         this.shadowRoot.appendChild(thumb);
 
