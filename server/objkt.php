@@ -350,7 +350,25 @@ function render_objkt_item($token, $opts) {
                . 'aria-label="' . $e($name) . '"></video>';
     } elseif ($media['type'] === 'img') {
         // no-referrer: objkt's CDN hotlink-blocks (403) any Referer other than objkt.com/localhost.
-        $html .= '<img class="nft-thumb" src="' . $e($media['src']) . '" alt="' . $e($name) . '" loading="lazy" referrerpolicy="no-referrer">';
+        // Fallbacks tried in order if the primary (objkt CDN) fails to load.
+        $fallbacks = [];
+        $gateways  = array_unique(array_filter([
+            isset($opts['gateway']) ? $opts['gateway'] : '',
+            'https://gateway.pinata.cloud/ipfs/',
+            'https://ipfs.io/ipfs/',
+            'https://dweb.link/ipfs/',
+        ]));
+        foreach (['display_uri', 'artifact_uri', 'thumbnail_uri'] as $field) {
+            if (empty($token[$field]) || strpos($token[$field], OBJKT_PLACEHOLDER_THUMB) !== false) continue;
+            foreach ($gateways as $gw) {
+                $url = objkt_ipfs_to_http($token[$field], $gw);
+                if ($url !== $media['src']) $fallbacks[] = $url;
+            }
+            if (count($fallbacks) >= 6) break;
+        }
+        $onerror = "var f=(this.dataset.fb||'').split(' ').filter(Boolean),u=f.shift();this.dataset.fb=f.join(' ');if(u){this.src=u}else{this.onerror=null}";
+        $html .= '<img class="nft-thumb" src="' . $e($media['src']) . '" alt="' . $e($name) . '" loading="lazy" referrerpolicy="no-referrer"'
+               . ' data-fb="' . $e(implode(' ', $fallbacks)) . '" onerror="' . $e($onerror) . '">';
     } else {
         $html .= '<div class="nft-thumb nft-thumb-missing" aria-hidden="true"></div>';
     }
