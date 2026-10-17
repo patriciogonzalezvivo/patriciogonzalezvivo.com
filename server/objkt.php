@@ -291,6 +291,10 @@ function objkt_thumb_media($token, $opts) {
     $gateway  = $opts['gateway'];
     $cdn_size = isset($opts['cdn_size']) ? $opts['cdn_size'] : 'thumb400';
 
+    // 0. Local looping video (animated tokens); the still thumb is its poster.
+    if (!empty($opts['video'])) {
+        return ['type' => 'video', 'src' => $opts['video'], 'poster' => isset($opts['thumb']) ? $opts['thumb'] : ''];
+    }
     // 1. Explicit local override.
     if (!empty($opts['thumb'])) {
         return ['type' => 'img', 'src' => $opts['thumb']];
@@ -346,6 +350,7 @@ function render_objkt_item($token, $opts) {
     if ($media['type'] === 'video') {
         // no-referrer: objkt's CDN hotlink-blocks (403) any Referer other than objkt.com/localhost.
         $html .= '<video class="nft-thumb" src="' . $e($media['src']) . '" '
+               . (!empty($media['poster']) ? 'poster="' . $e($media['poster']) . '" ' : '')
                . 'autoplay muted loop playsinline preload="metadata" referrerpolicy="no-referrer" '
                . 'aria-label="' . $e($name) . '"></video>';
     } elseif ($media['type'] === 'img') {
@@ -358,7 +363,11 @@ function render_objkt_item($token, $opts) {
             'https://ipfs.io/ipfs/',
             'https://dweb.link/ipfs/',
         ]));
-        foreach (['display_uri', 'artifact_uri', 'thumbnail_uri'] as $field) {
+        // Video tokens can't show as <img>; after the images fail, play the artifact itself.
+        $is_video  = isset($token['mime']) && strpos($token['mime'], 'video/') === 0;
+        $video_src = '';
+        $fields    = $is_video ? ['display_uri', 'thumbnail_uri'] : ['display_uri', 'artifact_uri', 'thumbnail_uri'];
+        foreach ($fields as $field) {
             if (empty($token[$field]) || strpos($token[$field], OBJKT_PLACEHOLDER_THUMB) !== false) continue;
             foreach ($gateways as $gw) {
                 $url = objkt_ipfs_to_http($token[$field], $gw);
@@ -366,9 +375,17 @@ function render_objkt_item($token, $opts) {
             }
             if (count($fallbacks) >= 6) break;
         }
-        $onerror = "var f=(this.dataset.fb||'').split(' ').filter(Boolean),u=f.shift();this.dataset.fb=f.join(' ');if(u){this.src=u}else{this.onerror=null}";
+        if ($is_video && !empty($token['artifact_uri'])) {
+            $video_src = objkt_ipfs_to_http($token['artifact_uri'], 'https://gateway.pinata.cloud/ipfs/');
+        }
+        $onerror = "var f=(this.dataset.fb||'').split(' ').filter(Boolean),u=f.shift();this.dataset.fb=f.join(' ');"
+                 . "if(u){this.src=u}else{this.onerror=null;var v=this.dataset.video;"
+                 . "if(v){var e=document.createElement('video');e.className=this.className;e.src=v;e.muted=true;e.loop=true;"
+                 . "e.autoplay=true;e.playsInline=true;e.preload='metadata';e.setAttribute('referrerpolicy','no-referrer');this.replaceWith(e)}}";
         $html .= '<img class="nft-thumb" src="' . $e($media['src']) . '" alt="' . $e($name) . '" loading="lazy" referrerpolicy="no-referrer"'
-               . ' data-fb="' . $e(implode(' ', $fallbacks)) . '" onerror="' . $e($onerror) . '">';
+               . ' data-fb="' . $e(implode(' ', $fallbacks)) . '"'
+               . ($video_src !== '' ? ' data-video="' . $e($video_src) . '"' : '')
+               . ' onerror="' . $e($onerror) . '">';
     } else {
         $html .= '<div class="nft-thumb nft-thumb-missing" aria-hidden="true"></div>';
     }
@@ -455,11 +472,19 @@ function render_objkt_gallery($options = []) {
             'fa_contract' => $entry['parsed']['fa_contract'],
             'token_id'    => $entry['parsed']['token_id'],
         ];
+        // Local thumbnail (nft-thumbs/<contract>_<token>.jpg next to the page) wins over
+        // third-party image hosts, which are slow or unreachable at times.
+        $thumb = isset($entry['thumb']) ? $entry['thumb'] : '';
+        $video = '';
+        $local = 'nft-thumbs/' . $entry['parsed']['fa_contract'] . '_' . $entry['parsed']['token_id'];
+        if ($thumb === '' && is_file($local . '.jpg')) $thumb = $local . '.jpg';
+        if (is_file($local . '.webm')) $video = $local . '.webm';
         $html .= render_objkt_item($token, [
             'ref'      => $opts['ref'],
             'gateway'  => $opts['gateway'],
             'cdn_size' => $opts['cdn_size'],
-            'thumb'    => isset($entry['thumb']) ? $entry['thumb'] : '',
+            'thumb'    => $thumb,
+            'video'    => $video,
         ]);
     }
     $html .= '</div>';
