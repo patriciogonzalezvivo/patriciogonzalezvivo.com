@@ -1,21 +1,27 @@
-Art making, for me, is a way of encoding meaning into matter. The artist draws from two sources at once, the visible world and their own inner life, and binds them together. When the binding is true, the material stops being only material. It begins to carry a meaning from within, and the work becomes transcendent.
+## Every painting is a portrait
 
-Every medium carries its own expressive resonance. Oil holds light and time differently than code does, and each lets the artist say something the other cannot. The medium is never neutral. It is the binder through which meaning is encoded, and it shapes the meaning it carries.
+Painting is the slow construction of images. A sensual sedimentary process, on which layers of pigments suspended on linsey oil and bee wax, gradually cover the surface of a primed canvas; revealing an image that is as much a view of the world as the artist is itself. 
 
-This series studies how mediums can be combined, and what new meaning that combination can encode.
+Guided by the noble pursuit of likeness, portrait painting is both a technical challenge that requires chemical and psychological mastery as a sensitive and porous predisposition for listening and discovery through a medium. Like peeking through a key hole, the artist's focus moves from one element to another. Each different aspect is stitched together in a fluid quilting of different jigsaw puzzles into one. Some fragments are born from accurate measurement, others from loose perceptions, subjective estimations or unconscious projections.
 
-Each piece begins as oil on canvas: loaded brushstrokes made by hand, the weight and hesitation of the gesture still in them. Those strokes are then reconstructed as a volumetric field of Gaussian splats, a digital canvas that holds real paint not as a flat surface but as a space you can move around and through. The stroke keeps its body. What changes is that it now lives inside the procedural, navigable logic of code.
+Is this fluid and continuous change of focus, mirrored by the movement of the brush over the surface of the canvas, which traces down the strokes that tiles an image together that ultimately comes together only in the viewer's mind.
 
-Oil is slow, physical, irreversible, and records the hand. The algorithm is weightless, endlessly re-viewable, and records structure. Bound together on one surface, they encode a resonance that amplifies the experience beyond the reach of either material, the way two tones sounded together give rise to a third. This is where I look for the transcendent: not somewhere beyond the materials, but in what happens when they are bound into one another.
+
+## The medium is the intention
+
+This series searches to extend this process beyond the noble medium of oil painting to the more novel use of computer shading languages. The former being characterized by the efficient and accurate simulation of light at blazing speeds, is -in this study- blended and molded to serve as a continuation and emotional augmentation of its ancient counterpart. 
+
+Pigments and pixels, Code and brushstrokes, are combined to produce a series of living images that conveys the elusive nature of capturing someone likeness.
+
+
+## The machine and the hand
 
 :::wrapfig left
-src: ../../2014/skylines/images/14005408208_fbc2fab7ed_b.jpg
-title: Skylines
-year: 2014
-medium: Installation detail at gallery
-link: ../../2014/skylines/
+src: ../../2025/hybrids/process.png
+title: Hybrids
+year: 2025
+medium: Oil on Canvas
+link: ../../2025/hybrids
 :::
 
 This series grows directly out of [Hybrids](../../2025/hybrids/), where a machine drew the scaffold and the hand completed the face. Here the collaboration moves inside the paint itself. It returns to a question that has run through the work since [Skylines](../../2014/skylines/): what art making becomes when a mark passes between a machine and a body. And it shares the preoccupations of [Memory](../../2021/memory/) and [Time Studies](../../2022/time/), where the digital is not a clean replacement for matter but a place where matter can be held and re-encountered.
-
-If art making is the binding of inner meaning into matter, these studies ask what a single stroke of oil becomes when it is bound twice: once by the oil, and once by the code.
