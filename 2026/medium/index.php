@@ -8,15 +8,26 @@
 ?>
 <?php include("../../server/menu.php");?>
 
-    <div class="medium-hero" style="position:relative; max-width:768px; margin:0 auto; padding:0 16px;">
-        <iframe id="hero-frame" src="singleview__me_005__splat_strokes_fill/index.html" title="me_005" allowfullscreen
-                style="display:block; width:100%; aspect-ratio:3/4; border:0; background:#000; pointer-events:none;"></iframe>
-    </div>
+    <article class="item medium-hero">
+        <div class="item-image" style="width:min(384px, 100%);">
+            <iframe id="hero-frame" src="singleview__me_005__splat_strokes_fill/index.html" title="me_005" allowfullscreen
+                    style="display:block; width:100%; aspect-ratio:3/4; border:0; background:#000; pointer-events:none;"></iframe>
+        </div>
+        <div class="item-info">
+            <span class="item-title"><?php echo htmlspecialchars($meta['title'] ?? ''); ?></span>
+            <span class="item-year"><?php echo htmlspecialchars($meta['year'] ?? ''); ?></span>
+            <span class="item-medium"><?php echo htmlspecialchars($meta['medium'] ?? ''); ?></span>
+            <?php if (!empty($meta['dimensions'])): ?>
+                <span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions']); ?></span>
+            <?php endif; ?>
+            <p class="item-description"><?php echo htmlspecialchars($meta['description'] ?? ''); ?></p>
+        </div>
+    </article>
     <script>
         // The embedded piece captures wheel/touch events, which traps page scroll.
         // Keep it inert until the user clicks it; release again when the pointer leaves.
         (function () {
-            var hero = document.querySelector('.medium-hero');
+            var hero = document.querySelector('.medium-hero .item-image');
             var frame = document.getElementById('hero-frame');
             hero.addEventListener('click', function () { frame.style.pointerEvents = 'auto'; });
             hero.addEventListener('mouseleave', function () { frame.style.pointerEvents = 'none'; });

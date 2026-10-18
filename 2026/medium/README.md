@@ -1,4 +1,4 @@
-## Every painting is a self-portrait
+## Medium Studies: Every painting is a self-portrait
 These are oil portraits, animated in real time with shaders, in which the identity of each sitter drifts in and out of focus. Pigments and pixels, code and brushstrokes, make living images that hold the elusive nature of likeness.
 
 Painting a likeness is both a technical and a psychological challenge. Like peeking through a keyhole, my focus moves from one element to another: an eye, then the angle of a jaw, then a shadow. Each is its own small puzzle, and the portrait stitches them together into one. Some fragments come from careful measurement, others from loose perceptions, estimations, and projections I don't notice making.
