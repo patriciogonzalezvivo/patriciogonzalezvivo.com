@@ -14,25 +14,6 @@
         $splat_files = glob('splat_strokes_*.html');
         natsort($splat_files);
 
-        // Count shader variants so repeats can be numbered (Light I, Light II, ...)
-        $shader_counts = [];
-        foreach ($splat_files as $file) {
-            if (preg_match('/^splat_strokes_([a-zA-Z]+)_/', basename($file), $m)) {
-                $shader_counts[$m[1]] = ($shader_counts[$m[1]] ?? 0) + 1;
-            }
-        }
-        $shader_seen = [];
-        function to_roman($num) {
-            $map = ['M'=>1000,'CM'=>900,'D'=>500,'CD'=>400,'C'=>100,'XC'=>90,'L'=>50,'XL'=>40,'X'=>10,'IX'=>9,'V'=>5,'IV'=>4,'I'=>1];
-            $result = '';
-            foreach ($map as $roman => $value) {
-                while ($num >= $value) {
-                    $result .= $roman;
-                    $num -= $value;
-                }
-            }
-            return $result;
-        }
     ?>
     <div class="paintings-gallery medium-studies-gallery">
         <?php foreach ($splat_files as $file):
@@ -40,14 +21,10 @@
             $webm = $base . '.poster.webm';
             $poster = $base . '.poster.jpg';
 
+            // splat_strokes_<shader>_<asset>[_reverse_fit] -> "Shader (asset)"
             $title = 'Study';
-            if (preg_match('/^splat_strokes_([a-zA-Z]+)_/', basename($file), $m)) {
-                $shader = $m[1];
-                $shader_seen[$shader] = ($shader_seen[$shader] ?? 0) + 1;
-                $title = ucfirst($shader);
-                if ($shader_counts[$shader] > 1) {
-                    $title .= ' ' . to_roman($shader_seen[$shader]);
-                }
+            if (preg_match('/^splat_strokes_([a-zA-Z0-9]+)_(.+?)(?:_reverse_fit)?$/', $base, $m)) {
+                $title = ucfirst($m[1]) . ' (' . $m[2] . ')';
             }
         ?>
         <a class="painting-item" href="<?php echo htmlspecialchars($file); ?>">
