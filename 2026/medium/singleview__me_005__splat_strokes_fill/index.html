@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>54ccdf5131f483e3874487ff28fd6119_reverse_fit</title>
+    <title>me_005</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta property="og:image" content="splat_strokes_fill_54ccdf5131f483e3874487ff28fd6119_reverse_fit.poster.jpg" />
-    <meta property="og:title" content="54ccdf5131f483e3874487ff28fd6119_reverse_fit" />
+    <meta property="og:image" content="splat_strokes_fill_me_005.poster.jpg" />
+    <meta property="og:title" content="me_005" />
     <style>
       html, body {
         margin: 0; padding: 0; width: 100%; height: 100%;
@@ -33,14 +33,14 @@
         aspect-ratio: var(--aspect);
       }
 
-      /* ── Embed mode: render at the scene's NATIVE size (512x647),
+      /* ── Embed mode: render at the scene's NATIVE size (768x1024),
          centered on a white page, shrinking to fit smaller viewports while
          keeping aspect. `min(nativeW, 100vw, 100vh*aspect)` caps at native size
          yet never overflows the iframe; height follows from aspect-ratio. ──── */
       /* body.mode-embed, body.mode-embed #wrapper { background: #fff; } */
       body.mode-embed #stage {
         background: #fff;
-        width: min(512px, 100vw, 100vh * var(--aspect));
+        width: min(768px, 100vw, 100vh * var(--aspect));
         aspect-ratio: var(--aspect);
       }
       /* When the page goes fullscreen, drop the native cap so the render fills
@@ -122,13 +122,13 @@
       }
     </style>
   </head>
-  <body class="mode-embed" style="--aspect: 0.791345">
+  <body class="mode-fullscreen" style="--aspect: 0.750000">
     <div id="wrapper">
       <div id="stage">
         <canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
-        <video id="poster" poster="splat_strokes_fill_54ccdf5131f483e3874487ff28fd6119_reverse_fit.poster.jpg" autoplay loop muted playsinline
+        <video id="poster" poster="splat_strokes_fill_me_005.poster.jpg" autoplay loop muted playsinline
                onerror="this.style.display='none'">
-          <source src="splat_strokes_fill_54ccdf5131f483e3874487ff28fd6119_reverse_fit.poster.webm" type="video/webm" />
+          <source src="splat_strokes_fill_me_005.poster.webm" type="video/webm" />
         </video>
         <div id="loadbar"><div id="loadbar-fill"></div></div>
         <button id="fsbtn" type="button" title="Toggle fullscreen" aria-label="Toggle fullscreen">
@@ -151,7 +151,7 @@
       // written into this document's own MEMFS under their plain base names, so
       // the wasm loader's conventions (camera*.csv auto-detect, load order) still
       // hold -- each iframe has its own MEMFS, so plain names never collide.
-      window.SANDBOX_SCENE = "splat_strokes_fill_54ccdf5131f483e3874487ff28fd6119_reverse_fit.scene.json";
+      window.SANDBOX_SCENE = "splat_strokes_fill_me_005.scene.json";
 
       // Minimal Emscripten Module bootstrap (no editor/console/CDN deps) --
       // just enough to bring up the GLFW/WebGL2 canvas and expose ccall/FS.
@@ -203,23 +203,6 @@
          same folder reuse the same runtime instead of duplicating ~5 MB each. -->
     <script src="glslViewer.js" async></script>
     <script type="module" src="boot.js"></script>
-    <!-- ── EMBED THIS SANDBOX ─────────────────────────────────────────────
-      Everything lives flat in ONE folder sharing a single runtime. Copy that
-      folder to your site keeping this layout:
 
-        yourfolder/
-          glslViewer.js  glslViewer.wasm  boot.js   <- shared runtime (one copy)
-          splat_strokes_fill_54ccdf5131f483e3874487ff28fd6119_reverse_fit.html                               <- THIS embed page (native size)
-          index.html                                <- scale-to-fit page (latest sandbox)
-          splat_strokes_fill_54ccdf5131f483e3874487ff28fd6119_reverse_fit.scene.json  splat_strokes_fill_54ccdf5131f483e3874487ff28fd6119_reverse_fit....           <- this sandbox's files
-          <other>.html  <other>.*                   <- more sandboxes, same shape
-          embed-example.html                        <- ready-made gallery
-
-      Drop THIS sandbox onto any page (each sandbox needs its OWN <iframe> --
-      the wasm runtime is one global per document):
-
-        <iframe src="splat_strokes_fill_54ccdf5131f483e3874487ff28fd6119_reverse_fit.html" width="512" height="647"
-                allowfullscreen style="border:0"></iframe>
-    ──────────────────────────────────────────────────────────────────────── -->
   </body>
 </html>

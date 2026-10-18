@@ -1,16 +1,16 @@
 {
-  "title": "54ccdf5131f483e3874487ff28fd6119_reverse_fit",
-  "prefix": "splat_strokes_fill_54ccdf5131f483e3874487ff28fd6119_reverse_fit.",
-  "width": 512,
-  "height": 647,
+  "title": "me_005",
+  "prefix": "splat_strokes_fill_me_005.",
+  "width": 768,
+  "height": 1024,
   "defines": [],
   "geometry": [
-    "54ccdf5131f483e3874487ff28fd6119_reverse_fit_strokes.splat",
-    "54ccdf5131f483e3874487ff28fd6119_reverse_fit_lines.glb"
+    "me_005_strokes.splat",
+    "me_005_lines.glb"
   ],
   "images": [],
   "textures": {
-    "u_alignedTex": "u_alignedTex.jpg",
+    "u_alignedTex": "u_alignedTex.png",
     "u_strokeIndicesTex": "u_strokeIndicesTex.png"
   },
   "commands": [

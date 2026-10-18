@@ -12,20 +12,7 @@ In this series in particular the Patricio recognizes the bias of the sample of t
 
 The realtime transformations of this series of portraits are an invitation to stay open to these questions, to hold space and meditate on this pivotal moment. To be aware of what we notice, how we react and what we do with it.
 
-## The medium is intention
+## Medium is intention
 For this deep exploration Patricio amplifies the noble medium of oil painting to the more novel use of computer shading languages in order to combine the careful process of painting with the open ended nature of digital simulations.
 
 Pigments and pixels, Code and brushstrokes, are combined to produce a series of living images that conveys the elusive nature of likeness. 
-
-
-## Previous related work
-
-:::wrapfig left
-src: ../../2025/hybrids/process.png
-title: Hybrids
-year: 2025
-medium: Oil on Canvas
-link: ../../2025/hybrids
-:::
-
-This series grows directly out of [Hybrids](../../2025/hybrids/), where a machine drew the scaffold and the hand completed the face. Here the collaboration moves inside the paint itself. It returns to a question that has run through the work since [Skylines](../../2014/skylines/): what art making becomes when a mark passes between a machine and a body. And it shares the preoccupations of [Memory](../../2021/memory/) and [Time Studies](../../2022/time/), where the digital is not a clean replacement for matter but a place where matter can be held and re-encountered.

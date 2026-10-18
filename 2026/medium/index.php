@@ -8,6 +8,32 @@
 ?>
 <?php include("../../server/menu.php");?>
 
+    <div class="medium-hero" style="position:relative; max-width:768px; margin:0 auto; padding:0 16px;">
+        <iframe id="hero-frame" src="singleview__me_005__splat_strokes_fill/index.html" title="me_005" allowfullscreen
+                style="display:block; width:100%; aspect-ratio:3/4; border:0; background:#000; pointer-events:none;"></iframe>
+    </div>
+    <script>
+        // The embedded piece captures wheel/touch events, which traps page scroll.
+        // Keep it inert until the user clicks it; release again when the pointer leaves.
+        (function () {
+            var hero = document.querySelector('.medium-hero');
+            var frame = document.getElementById('hero-frame');
+            hero.addEventListener('click', function () { frame.style.pointerEvents = 'auto'; });
+            hero.addEventListener('mouseleave', function () { frame.style.pointerEvents = 'none'; });
+            document.addEventListener('touchstart', function (e) {
+                if (!hero.contains(e.target)) frame.style.pointerEvents = 'none';
+            }, { passive: true });
+        })();
+    </script>
+
+	<div id="longer-info">
+
+		<?php
+		include("../../server/ParsedownExtended.php");
+		$Parsedown = new ParsedownExtended();
+		echo $Parsedown->text(file_get_contents ('README.md'));
+		?>
+
     <?php
         // Each study is a self-contained sandboxed HTML piece with a matching
         // looping .poster.webm preview (splat_strokes_<shader>_<hash>.html).
@@ -38,14 +64,6 @@
         </a>
         <?php endforeach; ?>
     </div>
-
-	<div id="longer-info">
-
-		<?php
-		include("../../server/ParsedownExtended.php");
-		$Parsedown = new ParsedownExtended();
-		echo $Parsedown->text(file_get_contents ('README.md'));
-		?>
 
 		<h2>Related Works</h2>
             <?php
