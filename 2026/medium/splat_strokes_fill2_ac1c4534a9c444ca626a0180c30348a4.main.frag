@@ -140,7 +140,7 @@ void main(void) {
         discard;
 
     vec4 tex = sampleImg(u_alignedTex, uvFrag);
-    float l = pow(luma(tex.rgb), 10.);
+    // float l = pow(luma(tex.rgb), 10.);
     color.rgb = tex.rgb;
 
 #else

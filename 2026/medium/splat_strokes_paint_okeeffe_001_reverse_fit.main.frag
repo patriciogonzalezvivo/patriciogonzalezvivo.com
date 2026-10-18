@@ -183,7 +183,7 @@ void main(void) {
         discard;
 
     vec4 tex = sampleImg(u_alignedTex, uvFrag);
-    float l = pow(luma(tex.rgb), 10.);
+    // float l = pow(luma(tex.rgb), 10.);
     color.rgb = tex.rgb;
     color.a = step(0.5, l + (uvSplat.x) * 0.5 + fract(index + t - uvFrag.y));
 
