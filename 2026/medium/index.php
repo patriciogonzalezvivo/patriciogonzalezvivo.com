@@ -20,7 +20,7 @@
             <?php if (!empty($meta['dimensions'])): ?>
                 <span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions']); ?></span>
             <?php endif; ?>
-            <p class="item-description"><?php echo htmlspecialchars($meta['description'] ?? ''); ?></p>
+            <!-- <p class="item-description"><?php echo htmlspecialchars($meta['description'] ?? ''); ?></p> -->
         </div>
     </article>
     <script>
