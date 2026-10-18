@@ -27,12 +27,12 @@
     </script>
 
 	<div id="longer-info">
-
 		<?php
 		include("../../server/ParsedownExtended.php");
 		$Parsedown = new ParsedownExtended();
 		echo $Parsedown->text(file_get_contents ('README.md'));
 		?>
+    </div>
 
     <?php
         // Each study is a self-contained sandboxed HTML piece with a matching
@@ -65,6 +65,7 @@
         <?php endforeach; ?>
     </div>
 
+    <div id="longer-info">
 		<h2>Related Works</h2>
             <?php
                 $projects = [

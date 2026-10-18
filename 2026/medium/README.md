@@ -1,18 +1,10 @@
 ## Every painting is a self-portrait
-Painting is the slow construction of images. A sensual sedimentary process, on which layers of pigments suspended on linsey oil and bee wax, gradually cover the surface of a primed canvas; revealing an image that is as much a view of the world as the artist is itself. 
+These are oil portraits, animated in real time with shaders, in which the identity of each sitter drifts in and out of focus. Pigments and pixels, code and brushstrokes, make living images that hold the elusive nature of likeness.
 
-Guided by the noble pursuit of likeness, portrait painting is both a technical challenge that requires chemical and psychological mastery as a sensitive and porous predisposition for listening and discovery through a medium. Like peeking through a key hole, the artist's focus moves from one element to another. Each different aspect is stitched together in a fluid quilting of different jigsaw puzzles into one. Some fragments are born from accurate measurement, others from loose perceptions, subjective estimations and unconscious projections.
+Painting a likeness is both a technical and a psychological challenge. Like peeking through a keyhole, my focus moves from one element to another: an eye, then the angle of a jaw, then a shadow. Each is its own small puzzle, and the portrait stitches them together into one. Some fragments come from careful measurement, others from loose perceptions, estimations, and projections I don't notice making.
 
-Is this fluid and continuous change of focus, mirrored by the movement of the brush over the surface of the canvas, which traces down the strokes that tiles an image together. In that process the artist values and perception leaks into the work. Like ink in water, his subjectivity saturates every element of the image. Moreover, the work becomes an externalization of an intimate dialog. The work stands as the material traces of a process of search and recognition.
+That continuous shifting of focus is mirrored by the brush, which traces it stroke by stroke. In the process, what I value and how I see leaks into the work. Like ink in water, my subjectivity saturates every element of the image. The portrait becomes the material trace of an intimate dialog, a search and a recognition.
 
-## Construction of identity
-Portraits are an exercise of identity, not only of the sitter but on the artist too. From the selection of the sitters, to the capture likeness, is a stack of choices where the artist's own individuality is used as a resonance voice.
+A portrait is an exercise in identity, not only the sitter's but the painter's. Who I choose to paint is a stack of choices in which my own character is the instrument that resonates. I recognize that the sitters, mostly men, are a biased sample, and I treat that as a question about masculinity. How can male identity be depicted in a decade that shows its crisis so openly? What is being shaped from its pieces? What needs to be shed, transformed, or abandoned?
 
-In this series in particular the Patricio recognizes the bias of the sample of the sitters as an interrogation on masculinity. Who could male identity be depicted in a decade that really shows its crisis. What’s being shaped from its pieces. What needs to be shedded, transformed or abandoned.
-
-The realtime transformations of this series of portraits are an invitation to stay open to these questions, to hold space and meditate on this pivotal moment. To be aware of what we notice, how we react and what we do with it.
-
-## Medium is intention
-For this deep exploration Patricio amplifies the noble medium of oil painting to the more novel use of computer shading languages in order to combine the careful process of painting with the open ended nature of digital simulations.
-
-Pigments and pixels, Code and brushstrokes, are combined to produce a series of living images that conveys the elusive nature of likeness. 
+A face that keeps losing and regaining focus holds those questions open. It's an invitation to hold space and meditate on this pivotal moment, and to notice what we notice, how we react, and what we do with it.
