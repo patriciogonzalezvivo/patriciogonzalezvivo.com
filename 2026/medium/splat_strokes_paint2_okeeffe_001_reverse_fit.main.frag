@@ -115,9 +115,9 @@ void main(void) {
     // tex.rgb = tex.rgb * 1.5;
     vec4 prevPaint = displace(u_doubleBuffer0, u_doubleBuffer1, st, pixel);
 
-    color.rgb = mix(prevPaint.rgb * (0.99 + pct1 * 0.01), tex.rgb, tex.a);
-    color.rgb = mix(tex.rgb, color.rgb, color.a);
-    color.a = max(color.r, max(color.g, color.b));
+    color.rgb = mix(prevPaint.rgb * (0.97 + pct1 * 0.03), tex.rgb, tex.a);
+    // color.rgb = mix(tex.rgb, color.rgb, color.a);
+    // color.a = max(color.r, max(color.g, color.b));
 
 #elif defined(POSTPROCESSING)
     vec4 paint = texture2D(u_doubleBuffer1, st);

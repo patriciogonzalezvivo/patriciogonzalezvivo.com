@@ -153,8 +153,8 @@ void main(void) {
 
     color.rgb = mix(prevPaint.rgb, tex.rgb, tex.a);
     
-    color.rgb = mix(tex.rgb, color.rgb, color.a);
-    color.a = max(color.r, max(color.g, color.b));
+    // color.rgb = mix(tex.rgb, color.rgb, color.a);
+    // color.a = max(color.r, max(color.g, color.b));
 
     color *= 1.0-clamp(depth, 0.0, 10.0)*0.0005;
 

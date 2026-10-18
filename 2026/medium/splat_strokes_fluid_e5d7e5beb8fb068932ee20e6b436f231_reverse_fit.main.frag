@@ -114,6 +114,7 @@ void main(void) {
     color = mix( color, tex, alpha );
 
     color.rgb *= 0.998;
+    color.a = 1.0;
 
     // float pct = clamp(pow(length(u_cameraTrg - u_camera)*10., 1.), 0.0, 1.0);
     // color = mix(texture2D(u_alignedTex, st), color, pct);
