@@ -13,7 +13,6 @@
         // looping .poster.webm preview (splat_strokes_<shader>_<hash>.html).
         $splat_files = glob('splat_strokes_*.html');
         natsort($splat_files);
-
     ?>
     <div class="paintings-gallery medium-studies-gallery">
         <?php foreach ($splat_files as $file):
