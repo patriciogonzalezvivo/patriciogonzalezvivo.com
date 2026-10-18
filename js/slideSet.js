@@ -39,8 +39,9 @@ function initSlideSet(slideSet) {
 	}
 
 	function start() {
-		// Show the last image initially
-		images[images.length - 1].classList.add("photoFront");
+		// Show the first image initially; the last one comes at the end of the cycle
+		images[0].classList.add("photoFront");
+		counter = (images.length > 1) ? 1 : 0;
 
 		var height = firstImage.offsetHeight;
 		if (height > 0) {
