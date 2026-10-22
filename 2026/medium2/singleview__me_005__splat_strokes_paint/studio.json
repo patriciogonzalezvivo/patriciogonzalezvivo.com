@@ -1,0 +1,10 @@
+{
+ "scene": "singleview",
+ "target": "item",
+ "stem": "me_005",
+ "shader": "splat_strokes_paint",
+ "size": 768,
+ "geoms": null,
+ "obfuscate": true,
+ "poster": 3.0
+}

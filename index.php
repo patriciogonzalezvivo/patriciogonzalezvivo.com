@@ -22,7 +22,7 @@ include_once("server/slideSet.php");
 
 $projects = [
     // [
-    //     'path'         => '2026/medium',
+    //     'path'         => '2026/medium2',
     //     'type'         => 'thumbnail',
     // ],
     // [

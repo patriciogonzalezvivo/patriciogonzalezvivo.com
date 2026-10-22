@@ -1,0 +1,11 @@
+{
+ "scene": "singleview",
+ "target": "item",
+ "stem": "2212d8cc710620d64f6a5efd494eed27",
+ "shader": "splat_strokes_paint",
+ "size": 768,
+ "geoms": null,
+ "obfuscate": true,
+ "poster": 3.0,
+ "commands": null
+}

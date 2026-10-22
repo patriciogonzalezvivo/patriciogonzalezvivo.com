@@ -1,0 +1,97 @@
+<?php
+	 include("../../server/project_meta.php");
+    $meta = get_current_project_meta();
+    $page_title = $meta['title'];
+    $page_description = $meta['description'];
+	include("../../server/header.php");
+	include("../../server/gallery.php");
+?>
+<?php include("../../server/menu.php");?>
+
+    <article class="item medium-hero">
+        <div class="item-image" style="width:min(384px, 100%);">
+            <iframe id="hero-frame" src="thumb/index.html" title="me_005" allowfullscreen
+                    style="display:block; width:100%; aspect-ratio:3/4; border:0; background:#000; pointer-events:none;"></iframe>
+        </div>
+        <div class="item-info">
+            <span class="item-title"><?php echo htmlspecialchars($meta['title'] ?? ''); ?></span>
+            <span class="item-year"><?php echo htmlspecialchars($meta['year'] ?? ''); ?></span>
+            <span class="item-medium"><?php echo htmlspecialchars($meta['medium'] ?? ''); ?></span>
+            <?php if (!empty($meta['dimensions'])): ?>
+                <span class="item-dimensions"><?php echo htmlspecialchars($meta['dimensions']); ?></span>
+            <?php endif; ?>
+            <!-- <p class="item-description"><?php echo htmlspecialchars($meta['description'] ?? ''); ?></p> -->
+        </div>
+    </article>
+    <script>
+        // The embedded piece captures wheel/touch events, which traps page scroll.
+        // Keep it inert until the user clicks it; release again when the pointer leaves.
+        (function () {
+            var hero = document.querySelector('.medium-hero .item-image');
+            var frame = document.getElementById('hero-frame');
+            hero.addEventListener('click', function () { frame.style.pointerEvents = 'auto'; });
+            hero.addEventListener('mouseleave', function () { frame.style.pointerEvents = 'none'; });
+            document.addEventListener('touchstart', function (e) {
+                if (!hero.contains(e.target)) frame.style.pointerEvents = 'none';
+            }, { passive: true });
+        })();
+    </script>
+
+	<div id="longer-info">
+		<?php
+		include("../../server/ParsedownExtended.php");
+		$Parsedown = new ParsedownExtended();
+		echo $Parsedown->text(file_get_contents ('README.md'));
+		?>
+    </div>
+
+    <?php
+        // Each study is a self-contained sandboxed folder with its own index.html and
+        // a looping *.poster.webm preview (singleview__<asset>[_fit]__splat_strokes_<shader>/).
+        $splat_dirs = glob('singleview__*', GLOB_ONLYDIR);
+        natsort($splat_dirs);
+    ?>
+    <div class="paintings-gallery medium-studies-gallery">
+        <?php foreach ($splat_dirs as $dir):
+            $webm = glob($dir . '/*.poster.webm');
+            $poster = glob($dir . '/*.poster.jpg');
+            if (!file_exists($dir . '/index.html') || !$webm) continue;
+            $webm = $webm[0];
+            $poster = $poster ? $poster[0] : '';
+
+            // singleview__<asset>[_fit]__splat_strokes_<shader> -> "Shader (asset)"
+            $title = 'Study';
+            if (preg_match('/^singleview__(.+?)__splat_strokes_([a-zA-Z0-9_]+)$/', $dir, $m)) {
+                $title = ucfirst($m[2]) . ' (' . $m[1] . ')';
+            }
+            $file = $dir . '/index.html';
+        ?>
+        <a class="painting-item" href="<?php echo htmlspecialchars($file); ?>">
+            <div class="painting-thumb-wrapper">
+                <video class="painting-thumb" autoplay loop muted playsinline preload="metadata" poster="<?php echo htmlspecialchars($poster); ?>">
+                    <source src="<?php echo htmlspecialchars($webm); ?>" type="video/webm">
+                </video>
+            </div>
+            <div class="artwork-info">
+                <div class="artwork-title"><?php echo htmlspecialchars($title); ?></div>
+            </div>
+        </a>
+        <?php endforeach; ?>
+    </div>
+
+    <div id="longer-info">
+		<h2>Related Works</h2>
+            <?php
+                $projects = [
+                    ['path' => '2025/hybrids'],
+                    ['path' => '2022/time'],
+                    ['path' => '2021/memory'],
+                    ['path' => '2021/fen'],
+                    ['path' => '2014/skylines']
+                ];
+
+                echo render_projects_list($projects, '../../');
+            ?>
+	</div>
+	
+<?php include("../../server/footer.php"); ?>

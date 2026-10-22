@@ -162,7 +162,7 @@ void main() {
 
     #endif
 
-    v_color = vec4(0.6, 0.8, 0.9, 1.);
+    v_color = vec4(0.6,0.8,0.9,1.0);
     #ifdef MODEL_VERTEX_COLOR
     v_color = a_color;
     #endif

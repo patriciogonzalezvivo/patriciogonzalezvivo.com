@@ -1,0 +1,26 @@
+{
+  "title": "43fd8e2c47a0c738811eea8888d16af8_fit",
+  "prefix": "splat_strokes_fluid2_43fd8e2c47a0c738811eea8888d16af8_fit.",
+  "width": 768,
+  "height": 1016,
+  "defines": [],
+  "geometry": [
+    "43fd8e2c47a0c738811eea8888d16af8_fit_strokes.splat"
+  ],
+  "images": [],
+  "textures": {
+    "u_alignedTex": "u_alignedTex.jpg",
+    "u_strokeIndicesTex": "u_strokeIndicesTex.png"
+  },
+  "commands": [
+    "camera,speed,0.1",
+    "camera,arc,15",
+    "camera,dolly,1,2",
+    "camera,constrain,az,90",
+    "camera,resume,1",
+    "camera,resume,animation,true"
+  ],
+  "frag": "main.frag",
+  "vert": "main.vert",
+  "camera": "camera.csv"
+}
