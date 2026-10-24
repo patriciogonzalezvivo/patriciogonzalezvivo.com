@@ -1,0 +1,27 @@
+{
+  "title": "354728908173446889",
+  "prefix": "splat_strokes_solvent_354728908173446889.",
+  "width": 768,
+  "height": 1024,
+  "defines": [],
+  "geometry": [
+    "354728908173446889_strokes.splat",
+    "354728908173446889_lines.glb"
+  ],
+  "images": [],
+  "textures": {
+    "u_alignedTex": "u_alignedTex.png",
+    "u_strokeIndicesTex": "u_strokeIndicesTex.png"
+  },
+  "commands": [
+    "camera,speed,0.1",
+    "camera,arc,45",
+    "camera,constrain,az,45",
+    "camera,resume,1",
+    "camera,resume,animation,true",
+    "u_color,0.0,0.4,0.6,0.9"
+  ],
+  "frag": "main.frag",
+  "vert": "main.vert",
+  "camera": "camera.csv"
+}

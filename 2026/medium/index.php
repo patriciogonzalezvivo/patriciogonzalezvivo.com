@@ -10,8 +10,8 @@
 
     <article class="item medium-hero">
         <div class="item-image" style="width:min(384px, 100%);">
-            <iframe id="hero-frame" src="singleview__me_005__splat_strokes_fill/index.html" title="me_005" allowfullscreen
-                    style="display:block; width:100%; aspect-ratio:3/4; border:0; background:#000; pointer-events:none;"></iframe>
+            <iframe id="hero-frame" src="thumb/index.html" title="me_005" allowfullscreen
+                    style="display:block; width:100%; aspect-ratio:3/4; border:0; background:#fff; pointer-events:none;"></iframe>
         </div>
         <div class="item-info">
             <span class="item-title"><?php echo htmlspecialchars($meta['title'] ?? ''); ?></span>
@@ -46,22 +46,25 @@
     </div>
 
     <?php
-        // Each study is a self-contained sandboxed HTML piece with a matching
-        // looping .poster.webm preview (splat_strokes_<shader>_<hash>.html).
-        $splat_files = glob('splat_strokes_*.html');
-        natsort($splat_files);
+        // Each study is a self-contained sandboxed folder with its own index.html and
+        // a looping *.poster.webm preview (singleview__<asset>[_fit]__splat_strokes_<shader>/).
+        $splat_dirs = glob('singleview__*', GLOB_ONLYDIR);
+        natsort($splat_dirs);
     ?>
     <div class="paintings-gallery medium-studies-gallery">
-        <?php foreach ($splat_files as $file):
-            $base = pathinfo($file, PATHINFO_FILENAME);
-            $webm = $base . '.poster.webm';
-            $poster = $base . '.poster.jpg';
+        <?php foreach ($splat_dirs as $dir):
+            $webm = glob($dir . '/*.poster.webm');
+            $poster = glob($dir . '/*.poster.jpg');
+            if (!file_exists($dir . '/index.html') || !$webm) continue;
+            $webm = $webm[0];
+            $poster = $poster ? $poster[0] : '';
 
-            // splat_strokes_<shader>_<asset>[_reverse_fit] -> "Shader (asset)"
+            // singleview__<asset>[_fit]__splat_strokes_<shader> -> "Shader (asset)"
             $title = 'Study';
-            if (preg_match('/^splat_strokes_([a-zA-Z0-9]+)_(.+?)(?:_reverse_fit)?$/', $base, $m)) {
-                $title = ucfirst($m[1]) . ' (' . $m[2] . ')';
+            if (preg_match('/^singleview__(.+?)__splat_strokes_([a-zA-Z0-9_]+)$/', $dir, $m)) {
+                $title = ucfirst($m[2]) . ' (' . $m[1] . ')';
             }
+            $file = $dir . '/index.html';
         ?>
         <a class="painting-item" href="<?php echo htmlspecialchars($file); ?>">
             <div class="painting-thumb-wrapper">

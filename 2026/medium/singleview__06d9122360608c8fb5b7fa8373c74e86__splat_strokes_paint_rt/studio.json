@@ -1,0 +1,17 @@
+{
+ "scene": "singleview",
+ "target": "item",
+ "stem": "06d9122360608c8fb5b7fa8373c74e86",
+ "shader": "splat_strokes_paint_rt",
+ "size": 768,
+ "geoms": null,
+ "obfuscate": true,
+ "poster_start": 3.0,
+ "poster_end": 6.0,
+ "base_commands": [
+  "camera,speed,0.1",
+  "camera,arc,90",
+  "camera,constrain,az,90",
+  "camera,resume,1"
+ ]
+}

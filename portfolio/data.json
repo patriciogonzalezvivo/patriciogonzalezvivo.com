@@ -7,10 +7,13 @@
     "phone": "+1 415 999 9999",
     "location": "1234 Street, City, Country",
     "logo": "images/logo-gray.png",
-    "bio_file": "README.md",
-    "artist_statement_file": "artist_statement.md"
+    "bio_file": "README.md"
   },
   "sections": [
+    {
+      "path": "2026/medium",
+      "images_per_page": 2
+    },
     {
       "path": "2026/santos",
       "images_per_page": 1

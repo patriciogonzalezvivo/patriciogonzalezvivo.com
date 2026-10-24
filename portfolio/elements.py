@@ -14,8 +14,25 @@ from berthe.berthe import Surface, Group
 # works regardless of the current working directory.
 _WORKSPACE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _LOGO_PATH = os.path.join(_WORKSPACE_ROOT, 'images', 'logo-gray.png')
+_PORTRAIT_PATH = os.path.join(_WORKSPACE_ROOT, 'images', 'portrait.png')
 
 A4_LANDSCAPE_SIZE = (297, 210)  # in mm
+
+_PORTRAIT_MAX_WIDTH = 2000  # px; keeps the base64-embedded SVG under libxml2's 10 MB limit
+
+
+def _downscaled_portrait(path):
+    """Return a cached, smaller copy of *path* that rsvg-convert can parse."""
+    from PIL import Image as PILImage
+    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'portrait_label.png')
+    if os.path.exists(out) and os.path.getmtime(out) >= os.path.getmtime(path):
+        return out
+    with PILImage.open(path) as img:
+        if img.size[0] > _PORTRAIT_MAX_WIDTH:
+            h = round(img.size[1] * _PORTRAIT_MAX_WIDTH / img.size[0])
+            img = img.resize((_PORTRAIT_MAX_WIDTH, h), PILImage.LANCZOS)
+        img.save(out, optimize=True)
+    return out
 
 
 def rays_pattern(sun_center, width, height, press=2):
@@ -59,7 +76,7 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, for_name=Non
     w = size[0] * scale
     h = size[1] * scale
 
-    rows_pct = [0.3, 0.1, 0.15, 0.15, 0.15]
+    rows_pct = [0.6, 0.1, 0.15]
     rows = len(rows_pct)
     row_height = h / rows
     margin = 1.5 * scale
@@ -73,24 +90,17 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, for_name=Non
             grp_label_black.line( (x, y), (x+w, y), stroke_width=stroke_width )
 
         if i == 1:
-            grp_label_black.text( 'Patricio Gonzalez Vivo'.upper(), (x+margin, y + row_height * 0.4), scale=0.12 * scale, align='left', weight=150, letter_spacing=6 )
-            # if os.path.exists(_LOGO_PATH):
-            #     grp_label_black.bitmap(
-            #         _LOGO_PATH,
-            #         pos=(x - margin * 4, y - 4 * scale),
-            #         align='top_right',
-            #         scale=0.5,
-            #     )
-        # elif i == 3:
-        #     _for_name = for_name if for_name is not None else gallery_name
-        #     grp_label_black.text( "For", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
-        #     grp_label_black.text( _for_name, (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
-        #     grp_label_black.line( (x+w*0.6, y), (x + w*0.6, y+row_height), stroke_width=stroke_width )
-        #     grp_label_black.text( "Date" , (x + w * 0.6 + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140  )
-        #     grp_label_red.text( datetime.now().strftime("%m-%d-%Y"), (x + w * 0.6 + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
-        # elif i == 4:
-        #     grp_label_black.text( "Web", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
-        #     grp_label_black.text( "patriciogonzalezvivo.com", (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
+            grp_label_black.text( 'Patricio Gonzalez Vivo'.upper(), (x+margin, y + row_height * 0.4), scale=0.15 * scale, align='left', weight=200, letter_spacing=8 )
+        elif i == 2:
+            _for_name = for_name if for_name is not None else gallery_name
+            # grp_label_black.text( "For", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
+            # grp_label_black.text( _for_name, (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
+            grp_label_black.text( "Web", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
+            grp_label_black.text( "patriciogonzalezvivo.com", (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
+            grp_label_black.line( (x+w*0.6, y), (x + w*0.6, y+row_height), stroke_width=stroke_width )
+            grp_label_black.text( "Date" , (x + w * 0.6 + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140  )
+            grp_label_red.text( datetime.now().strftime("%m-%d-%Y"), (x + w * 0.6 + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
+            
 
     return Group( name='label', children=[grp_label_black, grp_label_red] )
 
@@ -102,13 +112,9 @@ def generate_label_svg(gallery_name: str, output_path: str, for_name: str = None
     size = [90, 50]
     scale = 1.0
 
-    grp_label = label(gallery_name, top_left=top_left, size=size, scale=scale,
-                      for_name=for_name)
-    axi.add(grp_label)
-
     color_extra = 'rgb(200, 200, 200)'
     grp_extra = Group( name='rays', color='gray' )
- 
+
     y = top_left[1]
 
     width = A4_LANDSCAPE_SIZE[0]
@@ -116,15 +122,6 @@ def generate_label_svg(gallery_name: str, output_path: str, for_name: str = None
     margin = 1.5 * scale
 
     logo_center = (40, y + size[1] * 0.5)
-
-    if os.path.exists(_LOGO_PATH):
-        grp_extra.bitmap(
-            _LOGO_PATH,
-            pos=(logo_center[0], logo_center[1]),
-            align='center',
-            scale=0.5,
-            # rotate=5,
-        )
 
     moon_edge = 50
     circle = Circle(center=logo_center, radius=moon_edge, color=color_extra).getPath()
@@ -148,7 +145,36 @@ def generate_label_svg(gallery_name: str, output_path: str, for_name: str = None
     pattern_path = pattern.getPath(optimize=True)
     grp_extra.path(pattern_path, color=color_extra, stroke_width=0.5)
 
+    # Draw order: rays (bottom) → full-page background → logo → label
     axi.add(grp_extra)
+
+    if os.path.exists(_PORTRAIT_PATH):
+        from PIL import Image as PILImage
+        portrait_path = _downscaled_portrait(_PORTRAIT_PATH)
+        with PILImage.open(portrait_path) as img:
+            natural_width_mm = img.size[0] * 0.264583  # px → mm @ 96 DPI
+        grp_background = Group( name='background' )
+        grp_background.bitmap(
+            portrait_path,
+            pos=(0, 0),
+            align='top_left',
+            scale=A4_LANDSCAPE_SIZE[0] / natural_width_mm,
+        )
+        axi.add(grp_background)
+
+    if os.path.exists(_LOGO_PATH):
+        grp_logo = Group( name='logo', color='gray' )
+        grp_logo.bitmap(
+            _LOGO_PATH,
+            pos=(logo_center[0], logo_center[1]),
+            align='center',
+            scale=0.5,
+        )
+        axi.add(grp_logo)
+
+    grp_label = label(gallery_name, top_left=top_left, size=size, scale=scale,
+                      for_name=for_name)
+    axi.add(grp_label)
 
     axi.toSVG(output_path)
 

@@ -1,0 +1,27 @@
+{
+  "title": "3a6a7d43775d925c1bab1cb1a243b746",
+  "prefix": "splat_strokes_fill2_3a6a7d43775d925c1bab1cb1a243b746.",
+  "width": 768,
+  "height": 960,
+  "defines": [],
+  "geometry": [
+    "3a6a7d43775d925c1bab1cb1a243b746_strokes.splat",
+    "3a6a7d43775d925c1bab1cb1a243b746_lines.glb"
+  ],
+  "images": [],
+  "textures": {
+    "u_alignedTex": "u_alignedTex.png",
+    "u_strokeIndicesTex": "u_strokeIndicesTex.png"
+  },
+  "commands": [
+    "camera,speed,0.1",
+    "camera,arc,45",
+    "camera,constrain,az,45",
+    "camera,resume,1",
+    "camera,resume,animation,true",
+    "u_color,0.8,0.0,0.4,0.9"
+  ],
+  "frag": "main.frag",
+  "vert": "main.vert",
+  "camera": "camera.csv"
+}

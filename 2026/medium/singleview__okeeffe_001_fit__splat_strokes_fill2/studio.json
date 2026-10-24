@@ -1,0 +1,19 @@
+{
+ "scene": "singleview",
+ "target": "item",
+ "stem": "okeeffe_001_fit",
+ "shader": "splat_strokes_fill2",
+ "size": 768,
+ "geoms": null,
+ "obfuscate": true,
+ "poster_start": 3.0,
+ "poster_end": 6.0,
+ "base_commands": [
+  "camera,speed,0.1",
+  "camera,arc,45",
+  "camera,constrain,az,45",
+  "camera,resume,1",
+  "camera,resume,animation,true",
+  "u_color,0.0, 0.4,0.6,0.9"
+ ]
+}

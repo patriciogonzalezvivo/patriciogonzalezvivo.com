@@ -1,0 +1,24 @@
+{
+  "title": "27139018e1337f1171924809cbb19230_fit",
+  "prefix": "splat_strokes_paint_rt_27139018e1337f1171924809cbb19230_fit.",
+  "width": 768,
+  "height": 1001,
+  "defines": [],
+  "geometry": [
+    "27139018e1337f1171924809cbb19230_fit_strokes.splat"
+  ],
+  "images": [],
+  "textures": {
+    "u_alignedTex": "u_alignedTex.jpg",
+    "u_strokeIndicesTex": "u_strokeIndicesTex.png"
+  },
+  "commands": [
+    "camera,speed,0.1",
+    "camera,arc,90",
+    "camera,constrain,az,90",
+    "camera,resume,1"
+  ],
+  "frag": "main.frag",
+  "vert": "main.vert",
+  "camera": "camera.csv"
+}
