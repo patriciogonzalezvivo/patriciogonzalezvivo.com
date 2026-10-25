@@ -1,9 +1,7 @@
-These are oil portraits, algorithmically animated in real time, in which the identity of each sitter drifts in and out of focus. Pigments and pixels, code and brushstrokes, make living images that hold the elusive nature of likeness.
+These are oil portraits extended into living images which hold the elusive essence of singularity. This dual nature has let me explore what is deliberate and what is unconscious. Pigments and pixels. Code and brushstrokes. Subjective and objective.
 
-Painting a likeness is both a technical and a psychological challenge. Like peeking through a keyhole, my focus moves from one element to another: an eye, then the angle of a jaw, then a shadow. Each is its own small puzzle, and the portrait stitches them together into one. Some fragments come from careful measurement, others from loose perceptions, estimations, and projections I don't notice making.
+Each digital portrait becomes first the material trace of an intimate dialog, a private search; and then, when animated, into a recurring reenactment of the psychological exercise of recognition.
 
-That continuous shifting of focus is mirrored by the brush, which traces it stroke by stroke. In the process, what I value and how I see leaks into the work. Like ink in water, my subjectivity saturates every element of the image. The portrait becomes the material trace of an intimate dialog, a search and a recognition.
+I noticed after the fact that most of the sitters I have chosen are men. I came to understand this bias as a reflection of my interest in the construction of masculinity. How can we depict male identity in a decade that shows its crisis so shamelessly? What is being shaped from its pieces? What needs to be preserved? What needs to be transformed? And what needs to be shed?
 
-A portrait is an exercise in identity, not only the sitter's but the painter's to. Painting is a stack of choices in which my own character is the instrument that resonates. I recognize that the sitters, mostly men, are a biased sample, and I treat that as a question about the construction of masculinity. How can male identity be depicted in a decade that shows its crisis so openly? What is being shaped from its pieces? What needs to be preserved, what needs to be transformed, and what needs to be abandoned?
-
-A face that keeps losing and regaining focus holds those questions open. It's an invitation to hold space and meditate on this pivotal moment, and to notice what we notice, how we react, and what we do with it.
+The portraits hold all these questions open by refusing to settle on an answer.
