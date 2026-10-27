@@ -48,58 +48,51 @@
     <?php
         // Each study is a self-contained sandboxed folder with its own index.html and
         // a looping *.poster.webm preview (singleview__<asset>[_fit]__splat_strokes_<shader>/).
-        $splat_dirs = glob('singleview__*', GLOB_ONLYDIR);
-        natsort($splat_dirs);
-    ?>
-    <div class="paintings-gallery medium-studies-gallery">
-        <?php foreach ($splat_dirs as $dir):
-            $webm = glob($dir . '/*.poster.webm');
-            $poster = glob($dir . '/*.poster.jpg');
-            if (!file_exists($dir . '/index.html') || !$webm) continue;
-            $webm = $webm[0];
-            $poster = $poster ? $poster[0] : '';
-
-            // singleview__<asset>[_fit]__splat_strokes_<shader> -> "Shader (asset)"
-            $title = 'Study';
-            if (preg_match('/^singleview__(.+?)__splat_strokes_([a-zA-Z0-9_]+)$/', $dir, $m)) {
-                $title = ucfirst($m[2]) . ' (' . $m[1] . ')';
+        // Index them by asset so each one sits next to the painting it inspired
+        // (paintings/<asset>[_fit].jpg); the "_fit" suffix is ignored when matching.
+        $studies = [];
+        foreach (glob('singleview__*', GLOB_ONLYDIR) as $dir) {
+            if (preg_match('/^singleview__(.+?)(?:_fit)?__splat_strokes_([a-zA-Z0-9_]+)$/', $dir, $m)) {
+                $studies[$m[1]] = ['dir' => $dir, 'asset' => $m[1], 'shader' => $m[2]];
             }
-            $file = $dir . '/index.html';
+        }
+        $paintings = get_gallery_artworks('paintings', '*.{jpg,JPG,jpeg,png}', [
+            'title' => 'Untitled',
+            'year' => '2025',
+            'medium' => 'Oil and Acrylic on canvas',
+            'dimensions' => '16 x 12 inches',
+            'sold' => false,
+        ]);
+    ?>
+    <div class="paintings-gallery medium-pairs-gallery">
+        <?php foreach ($paintings as $artwork):
+            $key = preg_replace('/_fit$/', '', $artwork['basename']);
+            $study = $studies[$key] ?? null;
         ?>
-        <a class="painting-item" href="<?php echo htmlspecialchars($file); ?>">
-            <div class="painting-thumb-wrapper">
-                <video class="painting-thumb" autoplay loop muted playsinline preload="metadata" poster="<?php echo htmlspecialchars($poster); ?>">
-                    <source src="<?php echo htmlspecialchars($webm); ?>" type="video/webm">
-                </video>
-            </div>
-            <div class="artwork-info">
-                <div class="artwork-title"><?php echo htmlspecialchars($title); ?></div>
-            </div>
-        </a>
+        <div class="medium-pair">
+            <?php echo render_gallery_item($artwork); ?>
+            <?php if ($study):
+                $dir = $study['dir'];
+                $webm = glob($dir . '/*.poster.webm');
+                $poster = glob($dir . '/*.poster.jpg');
+                if (file_exists($dir . '/index.html') && $webm):
+                    $poster = $poster ? $poster[0] : '';
+            ?>
+            <a class="painting-item medium-study" href="<?php echo htmlspecialchars($dir . '/index.html'); ?>">
+                <div class="painting-thumb-wrapper">
+                    <video class="painting-thumb" autoplay loop muted playsinline preload="metadata" poster="<?php echo htmlspecialchars($poster); ?>">
+                        <source src="<?php echo htmlspecialchars($webm[0]); ?>" type="video/webm">
+                    </video>
+                </div>
+                <div class="artwork-info">
+                    <div class="artwork-title"><?php echo htmlspecialchars(ucfirst($study['shader']) . ' (' . $study['asset'] . ')'); ?></div>
+                </div>
+            </a>
+            <?php endif; endif; ?>
+        </div>
         <?php endforeach; ?>
     </div>
-
-    <div id="longer-info">
-		<?php
-		$Parsedown = new ParsedownExtended();
-		echo $Parsedown->text(file_get_contents ('README2.md'));
-		?>
-    </div>
-
-    <?php
-		// Render the gallery using the helper function
-		echo render_gallery([
-			'images_dir' => 'paintings',
-				'pattern' => '*.{jpg,JPG,jpeg,png}',
-			'defaults' => [
-				'title' => 'Untitled',
-				'year' => '2025',
-				'medium' => 'Oil and Acrylic on canvas',
-				'dimensions' => '16 x 12 inches',
-				'sold' => false,
-			],
-		]);
-	?>
+    <?php echo render_gallery_modal(); ?>
 
     <div id="longer-info">
 		<h2>Related Works</h2>

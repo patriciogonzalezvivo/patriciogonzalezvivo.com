@@ -1131,15 +1131,33 @@ body.windowed-mode #wrapper.windowed {
     opacity: 0.85;
 }
 
-/* Medium Studies Gallery - uniform square thumbnails, crop instead of distort */
-.medium-studies-gallery .painting-thumb-wrapper {
+/* Medium pairs: each painting beside its digital counterpart.
+   Both halves share one aspect ratio; the grid shows 1, 2, 3 or 4 pairs per row
+   (2, 4, 6 or 8 columns of work). */
+.paintings-gallery.medium-pairs-gallery {
+    grid-template-columns: 1fr;
+    max-width: 1800px;
+}
+
+@media (min-width: 700px)  { .paintings-gallery.medium-pairs-gallery { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .paintings-gallery.medium-pairs-gallery { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1500px) { .paintings-gallery.medium-pairs-gallery { grid-template-columns: repeat(4, 1fr); } }
+
+.medium-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: start;
+}
+
+.medium-pair .painting-thumb-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1240 / 1754;
     overflow: hidden;
 }
 
-.medium-studies-gallery .painting-thumb {
+.medium-pair .painting-thumb {
     position: absolute;
     top: 0;
     left: 0;
