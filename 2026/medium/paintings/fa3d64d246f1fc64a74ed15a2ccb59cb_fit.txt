@@ -2,4 +2,3 @@ title: Acrylic No. 11
 year: 2024
 medium: Acrylic on cardboard
 dimensions: 16 x 12 inches
-sold: yes
