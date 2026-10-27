@@ -173,6 +173,11 @@ function prevImage() {
 // Click on portrait item (not just thumb) to open fullscreen
 portraitItems.forEach((item, index) => {
 	item.addEventListener('click', function() {
+		// Items that link elsewhere (e.g. a sandbox) open their target instead of the modal
+		if (item.dataset.href) {
+			window.location.href = item.dataset.href;
+			return;
+		}
 		showImage(index, 'main');
 	});
 });

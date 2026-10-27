@@ -91,6 +91,7 @@
                 $info = json_encode(['title' => $study_title, 'year' => $study_meta['year'], 'medium' => $study_meta['medium']]);
             ?>
             <div class="painting-item medium-study" data-id="<?php echo htmlspecialchars($dir); ?>"
+                 data-href="<?php echo htmlspecialchars($dir . '/index.html'); ?>"
                  data-full="<?php echo htmlspecialchars($still ? $still[0] : $poster); ?>"
                  data-info='<?php echo htmlspecialchars($info, ENT_QUOTES, 'UTF-8'); ?>'>
                 <div class="painting-thumb-wrapper">

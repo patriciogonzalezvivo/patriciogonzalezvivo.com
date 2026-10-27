@@ -6,6 +6,14 @@
  "size": 768,
  "geoms": null,
  "obfuscate": true,
- "poster": 3.0,
- "commands": null
+ "poster_start": 3.0,
+ "poster_end": 6.0,
+ "base_commands": [
+  "camera,speed,0.1",
+  "camera,arc,15",
+  "camera,dolly,1,2",
+  "camera,constrain,az,90",
+  "camera,resume,1",
+  "camera,resume,animation,true"
+ ]
 }
