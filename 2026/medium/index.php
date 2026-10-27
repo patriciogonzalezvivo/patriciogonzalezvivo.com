@@ -81,8 +81,14 @@
             <?php
                 // The modal shows the still render in images/ that matches this sandbox.
                 $still = glob('images/' . $dir . '_t*_2480x3508.jpg');
-                $study_title = ucfirst($study['shader']) . ' (' . $study['asset'] . ')';
-                $info = json_encode(['title' => $study_title, 'year' => '2026', 'medium' => 'Digital sandbox']);
+                // Title / year / medium come from <sandbox>/info.txt (same key: value format as paintings).
+                $study_meta = load_artwork_metadata($dir . '/info.txt', [
+                    'title' => ucfirst($study['shader']) . ' (' . $study['asset'] . ')',
+                    'year' => '2026',
+                    'medium' => 'Digital sandbox',
+                ]);
+                $study_title = $study_meta['title'];
+                $info = json_encode(['title' => $study_title, 'year' => $study_meta['year'], 'medium' => $study_meta['medium']]);
             ?>
             <div class="painting-item medium-study" data-id="<?php echo htmlspecialchars($dir); ?>"
                  data-full="<?php echo htmlspecialchars($still ? $still[0] : $poster); ?>"
@@ -94,6 +100,7 @@
                 </div>
                 <div class="artwork-info">
                     <div class="artwork-title"><?php echo htmlspecialchars($study_title); ?></div>
+                    <div class="artwork-details"><?php echo htmlspecialchars($study_meta['year'] . ' | ' . $study_meta['medium']); ?></div>
                     <div class="artwork-buttons">
                         <a class="artwork-btn" href="<?php echo htmlspecialchars($dir . '/index.html'); ?>">Open Sandbox</a>
                     </div>

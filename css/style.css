@@ -1147,7 +1147,26 @@ body.windowed-mode #wrapper.windowed {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-    align-items: start;
+    align-items: stretch;
+}
+
+/* Both cards in a pair share one caption height: the painting caption carries a
+   size line and buttons the digital one lacks, so reserve that space on both. */
+.medium-pair .painting-item {
+    height: 100%;
+}
+
+.medium-pair .artwork-info {
+    flex: 1;
+    min-height: 78px;
+}
+
+/* Hover buttons overlay the caption instead of reserving a row under it. */
+.medium-pair .artwork-buttons {
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+    margin-top: 0;
 }
 
 .medium-pair .painting-thumb-wrapper {
