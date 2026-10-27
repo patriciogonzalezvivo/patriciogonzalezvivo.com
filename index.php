@@ -21,10 +21,10 @@ include_once("server/slideSet.php");
 ********************/
 
 $projects = [
-    [
-        'path'         => '2026/medium',
-        'type'         => 'thumbnail',
-    ],
+    // [
+    //     'path'         => '2026/medium',
+    //     'type'         => 'thumbnail',
+    // ],
     // [
     //     'path'         => '2026/astros',
     //     'type'         => 'big_thumbnail',

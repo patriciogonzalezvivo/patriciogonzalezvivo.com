@@ -9,6 +9,7 @@
   ],
   "images": [],
   "textures": {
+    "u_backgroundTex": "u_backgroundTex.jpg",
     "u_alignedTex": "u_alignedTex.jpg",
     "u_strokeIndicesTex": "u_strokeIndicesTex.png"
   },

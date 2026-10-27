@@ -10,6 +10,7 @@
   ],
   "images": [],
   "textures": {
+    "u_backgroundTex": "u_backgroundTex.jpg",
     "u_alignedTex": "u_alignedTex.png",
     "u_strokeIndicesTex": "u_strokeIndicesTex.png"
   },
@@ -19,7 +20,7 @@
     "camera,constrain,az,45",
     "camera,resume,1",
     "camera,resume,animation,true",
-    "u_color,0.8,0.0,0.4,0.9"
+    "u_color,0.5,0.2,0.6,1.0"
   ],
   "frag": "main.frag",
   "vert": "main.vert",

@@ -1,4 +1,11 @@
 {
+ "u_backgroundTex.jpg": {
+  "source": "3cc876bb65e2756936596b6aa8507089.jpg",
+  "src_size": 2332987,
+  "src_mtime": 1793024135708698124,
+  "percent": 50,
+  "auto": true
+ },
  "u_alignedTex.jpg": {
   "source": "3cc876bb65e2756936596b6aa8507089.jpg",
   "src_size": 1982174,

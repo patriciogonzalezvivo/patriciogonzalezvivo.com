@@ -80,6 +80,28 @@
     </div>
 
     <div id="longer-info">
+		<?php
+		$Parsedown = new ParsedownExtended();
+		echo $Parsedown->text(file_get_contents ('README2.md'));
+		?>
+    </div>
+
+    <?php
+		// Render the gallery using the helper function
+		echo render_gallery([
+			'images_dir' => 'paintings',
+				'pattern' => '*.{jpg,JPG,jpeg,png}',
+			'defaults' => [
+				'title' => 'Untitled',
+				'year' => '2025',
+				'medium' => 'Oil and Acrylic on canvas',
+				'dimensions' => '16 x 12 inches',
+				'sold' => false,
+			],
+		]);
+	?>
+
+    <div id="longer-info">
 		<h2>Related Works</h2>
             <?php
                 $projects = [

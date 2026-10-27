@@ -5,7 +5,9 @@
 #ifdef GL_ES
 precision highp float;
 #endif
-uniform sampler2D u_alignedTex;uniform sampler2D u_depthTex;uniform sampler2D u_doubleBuffer0;uniform sampler2D u_doubleBuffer1;uniform sampler2D u_scene;uniform vec3 u_camera;uniform vec3 u_cameraTrg;uniform bool u_cameraDrag;uniform vec2 u_resolution;uniform float u_time;uniform int u_frame;uniform vec3 u_light;uniform vec3 u_lightColor;uniform float u_lightFalloff;uniform float u_lightIntensity;uniform float u_iblLuminance;uniform samplerCube u_cubeMap;uniform vec3 u_SH[9];varying vec4 v_position;varying vec4 v_color;varying vec3 v_normal;varying vec2 v_texcoord;varying vec2 v_uv;varying vec2 v_uvStep;
+uniform sampler2D u_alignedTex;uniform sampler2D u_depthTex;uniform sampler2D u_backgroundTex;uniform sampler2D u_doubleBuffer0; // 0.5
+uniform sampler2D u_doubleBuffer1;uniform sampler2D u_doubleBuffer2; // 0.1
+uniform sampler2D u_scene;uniform vec3 u_camera;uniform vec3 u_cameraTrg;uniform bool u_cameraDrag;uniform vec2 u_resolution;uniform float u_time;uniform int u_frame;varying vec4 v_position;varying vec4 v_color;varying vec3 v_normal;varying vec2 v_texcoord;varying vec2 v_uv;varying vec2 v_uvStep;
 #ifndef MAP_FLIP_Y
 #define MAP_FLIP_Y 1
 #endif
@@ -22,14 +24,14 @@ uniform sampler2D u_alignedTex;uniform sampler2D u_depthTex;uniform sampler2D u_
 #define MAP_INDEX_RESOLUTION u_strokeIndicesTexResolution
 uniform sampler2D u_strokeIndicesTex;uniform vec2 u_strokeIndicesTexResolution;
 #endif
-vec2 aX(vec2 G){
+vec2 a9(vec2 F){
 #if MAP_FLIP_Y
-G.y=1.0-G.y;
+F.y=1.0-F.y;
 #endif
 #if MAP_WRAP
-G=fract(G);
+F=fract(F);
 #endif
-return G;}vec4 bf(sampler2D tex,vec2 G){return texture2D(tex,aX(G));}vec4 aT(vec2 G){vec2 g=aX(G);if(MAP_INDEX_RESOLUTION.x>0.5)g=(floor(g*MAP_INDEX_RESOLUTION)+0.5)/MAP_INDEX_RESOLUTION;return texture2D(MAP_INDEX_TEX,g);}bool be(vec4 a,vec4 b){if(a.a<0.5||b.a<0.5)return false;vec3 d=abs(a.rgb-b.rgb);return max(d.r,max(d.g,d.b))<=MAP_SAMEMARK_EPSILON;}
+return F;}vec4 bn(sampler2D tex,vec2 F){return texture2D(tex,a9(F));}vec4 a4(vec2 F){vec2 g=a9(F);if(MAP_INDEX_RESOLUTION.x>0.5)g=(floor(g*MAP_INDEX_RESOLUTION)+0.5)/MAP_INDEX_RESOLUTION;return texture2D(MAP_INDEX_TEX,g);}bool bm(vec4 a,vec4 b){if(a.a<0.5||b.a<0.5)return false;vec3 d=abs(a.rgb-b.rgb);return max(d.r,max(d.g,d.b))<=MAP_SAMEMARK_EPSILON;}
 #endif
 #include "lygia/sampler.glsl"
 #include "lygia/math/const.glsl"
@@ -40,47 +42,54 @@ return G;}vec4 bf(sampler2D tex,vec2 G){return texture2D(tex,aX(G));}vec4 aT(vec
 #include "lygia/math/saturate.glsl"
 #include "lygia/generative/fbm.glsl"
 #include "lygia/sample/clamp2edge.glsl"
-#define RICHTER_LAYERS 3
-#define RICHTER_PERIOD_MIN 2.0
-#define RICHTER_PERIOD_MAX 5.0
-#define RICHTER_DUTY 0.6
-#define RICHTER_SPEED 6.0
+#include "lygia/color/space/srgb2oklab.glsl"
+#include "lygia/color/space/oklab2srgb.glsl"
+#define RICHTER_LAYERS 2
+#define RICHTER_PERIOD_MIN 8.0
+#define RICHTER_PERIOD_MAX 20.0
+#define RICHTER_DUTY 0.8
+#define RICHTER_SPEED 3.0
 #define RICHTER_BAND_PX 1.5
 #define RICHTER_BAND_WAVE 7.0
 #define RICHTER_BAND_FREQ 0.012
 #define RICHTER_SKIP 0.15
 #define RICHTER_SMEAR 0.25
-#define RICHTER_FLUID_FORCE 30.0
+#define RICHTER_FLUID_FORCE 0.5
 #define RICHTER_FLUID_SLOW 0.5
-#define RICHTER_FLUID_TIME 0.1
-#define RICHTER_FLUID_SCALE 4.0
+#define RICHTER_FLUID_TIME 0.51
+#define RICHTER_FLUID_SCALE 1.0
+#define RICHTER_DRYING 0.01
+#define RICHTER_WET_REACH 0.06
 #define RICHTER_DEPTH_MIN 0.15
 #define RICHTER_EDGE_NOISE 0.012
 #define RICHTER_GRIP_NOISE 0.5
-#define RICHTER_DEPOSIT 0.06
+#define RICHTER_DEPOSIT 0.26
 #define RICHTER_DRAG_DEPOSIT 0.3
-float br(vec2 G){return 1.0-smoothstep(0.1,0.5,texture2D(u_depthTex,G).r);}
-#define LATTICEBOLTZMANN_BOUNDARY
-#define LATTICEBOLTZMANN_SAMPLER_FNC(TEX, UV) (sampleClamp2edge(TEX,UV,u_resolution)*2.0-1.0)
-#include "lygia/simulate/latticeBoltzmann.glsl"
-#define FLUIDSOLVER_FNC(T, S, P, V) latticeBoltzmann(T,S,P,V*RICHTER_FLUID_FORCE)
+#define RICHTER_CHROMA 0.5
+#define RICHTER_CHROMA_BOOST 1.1
+float bk(vec2 F){return 1.0-smoothstep(0.1,0.5,texture2D(u_depthTex,F).r);}vec4 bz(vec4 v){return vec4(v.xy*2.0-1.0,v.z,v.w*2.0-1.0);}vec4 a2(vec4 v){return vec4(saturate(v.xy*0.5+0.5),saturate(v.z),saturate(v.w*0.5+0.5));}
+#define RAYLEIGHTAYLOR_SAMPLER_FNC(TEX, UV) bz(sampleClamp2edge(TEX,UV,u_resolution))
+#include "lygia/simulate/rayleighTaylor.glsl"
+#define FLUIDSOLVER_FNC(T, S, P, V) rayleighTaylor(T,S,P,V*RICHTER_FLUID_FORCE)
 #include "lygia/color/mixSpectral.glsl"
 #define DISPLACE_FNC(A,B,C) mixSpectral(A,B,C)
-#define DISPLACE_VEL_SAMPLER_FNC(TEX, UV) ((sampleClamp2edge(TEX,UV,u_resolution)*2.0-1.0)*br(UV)*RICHTER_FLUID_SLOW)
+vec4 bA(sampler2D tex,vec2 F){vec2 vel=sampleClamp2edge(tex,F,u_resolution).xy*2.0-1.0;return vec4(vel,0.0,1.0)*bk(F)*RICHTER_FLUID_SLOW;}
+#define DISPLACE_VEL_SAMPLER_FNC(TEX, UV) bA(TEX,UV)
 #define DISPLACE_FROM_CONDITION (sourceVal.a>=currVal.a)
 #define DISPLACE_TO_AMOUNT 1.0-(currVel.w*0.5+0.5)
-#define DISPLACE_DIRECTIONS 16
 #include "lygia/distort/displace.glsl"
-vec2 bc(float r){return r<0.5?vec2(1.0,0.0):vec2(0.0,1.0);}void main(void){vec4 E=vec4(vec3(0.0),1.0);vec2 pixel=1.0/u_resolution.xy;vec2 st=gl_FragCoord.xy*pixel;float t=u_time*0.25;
+vec2 bj(float r){return r<0.5?vec2(1.0,0.0):vec2(0.0,1.0);}float a3(int k,vec2 st,out vec2 dir,out float Z){dir=vec2(0.0);Z=1.0;float I=float(k);float bh=mix(RICHTER_PERIOD_MIN,RICHTER_PERIOD_MAX,random(vec2(I,1.31)));float a8=u_time/bh+random(vec2(I,7.7));float H=floor(a8);float f=fract(a8);if(f>RICHTER_DUTY)return 0.0;f/=RICHTER_DUTY;vec2 ad=vec2(H,I*13.0);vec2 Y=bj(random(ad+0.1));vec2 ao=Y.yx;float ab=mix(0.25,1.0,random(ad+0.2));float aD=mix(0.08,0.7,pow(random(ad+0.3),1.5));vec2 aA=Y*ab+ao*aD;vec2 aV=vec2(random(ad+0.4),random(ad+0.5))*(1.0-aA);float bo=dot(aV+aA*0.5-0.5,Y);dir=Y*(bo<0.0?-1.0:1.0);vec2 aZ=(st-aV)/aA;float a=dot(aZ,Y);float c=dot(aZ,ao);float aX=dot(st,Y)*9.0;float az=dot(st,ao)*9.0;float J=RICHTER_EDGE_NOISE;if(c<snoise(vec2(aX,H+I*5.0))*J/aD||c>1.0+snoise(vec2(aX,H+I*5.0+3.7))*J/aD||a<snoise(vec2(az,H+I*5.0+7.1))*J/ab||a>1.0+snoise(vec2(az,H+I*5.0+9.3))*J/ab)return 0.0;float s=(dir.x+dir.y<0.0)?1.0-a:a;float aT=smoothstep(0.0,1.0,f)+snoise(vec2(az*2.0,H+I*5.0+11.0))*J*2.0/ab+(random(gl_FragCoord.xy+H)-0.5)*0.004/ab;if(s>aT)return 0.0;Z=(aT-s)*ab;float ar=dot(gl_FragCoord.xy,Y);float aG=dot(gl_FragCoord.xy,ao)+RICHTER_BAND_WAVE*snoise(vec2(ar*RICHTER_BAND_FREQ,H+I*5.0+2.0))+0.25*RICHTER_BAND_WAVE*snoise(vec2(ar*RICHTER_BAND_FREQ*5.0,H+I*5.0+4.0));float ba=RICHTER_BAND_PX*mix(1.0,4.0,random(ad+0.6));float aJ=floor(aG/ba);float au=random(vec2(aJ,H+I*3.1));au*=1.0+RICHTER_GRIP_NOISE*snoise(vec2(aG*0.08,ar*0.02+H));au*=0.9+0.2*random(gl_FragCoord.xy*0.37+H);float O=RICHTER_SPEED*mix(0.3,1.4,au);O*=step(RICHTER_SKIP,random(vec2(aJ*0.37,H+I)));if(O<0.25)return 0.0;return O;}void main(void){vec4 o=vec4(vec3(0.0),1.0);vec2 pixel=1.0/u_resolution.xy;vec2 st=gl_FragCoord.xy*pixel;float t=u_time*0.25;
 #if defined(DOUBLE_BUFFER_0)
-vec2 G=ratio(st,u_resolution);vec2 ad=vec2(0.0);float aN=u_time*RICHTER_FLUID_TIME;ad.x=fbm(G*(RICHTER_FLUID_SCALE+2.0)-0.2*aN);ad.y=fbm(G*(RICHTER_FLUID_SCALE+3.0)+0.23*aN);E=FLUIDSOLVER_FNC(u_doubleBuffer0,st,pixel,ad);E.xy*=0.99;E.xy=saturate(E.xy*0.5+0.5);E.z=saturate(E.z);E.w=1.0;
+vec2 F=ratio(st,u_resolution);vec2 ai=vec2(0.0);float aU=u_time*RICHTER_FLUID_TIME;ai.x=fbm(F*(RICHTER_FLUID_SCALE+2.0)-0.2*aU);ai.y=fbm(F*(RICHTER_FLUID_SCALE+3.0)+0.23*aU);if(u_frame<2){o=a2(rayleighTaylorInit(u_backgroundTex,st));}else{o=FLUIDSOLVER_FNC(u_doubleBuffer0,st,pixel,ai);o=a2(o);}
 #elif defined(DOUBLE_BUFFER_1)
-vec4 at=texture2D(u_scene,st);if(u_frame<2){E=at;}else{E=displace(u_doubleBuffer0,u_doubleBuffer1,st,pixel);E.a=1.0;for(int k=0;k<RICHTER_LAYERS;k++){float I=float(k);float ba=mix(RICHTER_PERIOD_MIN,RICHTER_PERIOD_MAX,random(vec2(I,1.31)));float aW=u_time/ba+random(vec2(I,7.7));float H=floor(aW);float f=fract(aW);if(f>RICHTER_DUTY)continue;f/=RICHTER_DUTY;vec2 Y=vec2(H,I*13.0);vec2 W=bc(random(Y+0.1));vec2 aj=W.yx;float ab=mix(0.25,1.0,random(Y+0.2));float ax=mix(0.08,0.7,pow(random(Y+0.3),1.5));vec2 au=W*ab+aj*ax;vec2 aO=vec2(random(Y+0.4),random(Y+0.5))*(1.0-au);float bg=dot(aO+au*0.5-0.5,W);vec2 dir=W*(bg<0.0?-1.0:1.0);vec2 aS=(st-aO)/au;float a=dot(aS,W);float c=dot(aS,aj);float aQ=dot(st,W)*9.0;float as=dot(st,aj)*9.0;float J=RICHTER_EDGE_NOISE;if(c<snoise(vec2(aQ,H+I*5.0))*J/ax||c>1.0+snoise(vec2(aQ,H+I*5.0+3.7))*J/ax||a<snoise(vec2(as,H+I*5.0+7.1))*J/ab||a>1.0+snoise(vec2(as,H+I*5.0+9.3))*J/ab)continue;float s=(dir.x+dir.y<0.0)?1.0-a:a;float a6=smoothstep(0.0,1.0,f)+snoise(vec2(as*2.0,H+I*5.0+11.0))*J*2.0/ab+(random(gl_FragCoord.xy+H)-0.5)*0.004/ab;if(s>a6)continue;float am=dot(gl_FragCoord.xy,W);float aA=dot(gl_FragCoord.xy,aj)+RICHTER_BAND_WAVE*snoise(vec2(am*RICHTER_BAND_FREQ,H+I*5.0+2.0))+0.25*RICHTER_BAND_WAVE*snoise(vec2(am*RICHTER_BAND_FREQ*5.0,H+I*5.0+4.0));float aZ=RICHTER_BAND_PX*mix(1.0,4.0,random(Y+0.6));float aD=floor(aA/aZ);float ao=random(vec2(aD,H+I*3.1));ao*=1.0+RICHTER_GRIP_NOISE*snoise(vec2(aA*0.08,am*0.02+H));ao*=0.9+0.2*random(gl_FragCoord.xy*0.37+H);float a4=texture2D(u_depthTex,st).r;float af=RICHTER_SPEED*mix(0.3,1.4,ao)*mix(RICHTER_DEPTH_MIN,1.0,a4);af*=step(RICHTER_SKIP,random(vec2(aD*0.37,H+I)));if(af<0.25)continue;vec4 bb=texture2D(u_doubleBuffer1,st-dir*af*pixel);vec4 bh=texture2D(u_doubleBuffer1,st-dir*af*2.0*pixel);E=mix(bb,bh,RICHTER_SMEAR);}float a3=u_cameraDrag?RICHTER_DRAG_DEPOSIT:RICHTER_DEPOSIT;E=mix(E,vec4(at.rgb,1.0),at.a*a3);}
+o=texture2D(u_backgroundTex,st);vec4 ac=texture2D(u_scene,st);o=mix(o,ac,ac.a);if(u_frame>=2){float ak=1.0-texture2D(u_doubleBuffer2,st).r;o=mix(displace(u_doubleBuffer0,u_doubleBuffer1,st,pixel),texture2D(u_doubleBuffer1,st),ak);for(int k=0;k<RICHTER_LAYERS;k++){vec2 dir;float Z;float O=a3(k,st,dir,Z);if(O<=0.0)continue;vec4 bi=texture2D(u_doubleBuffer1,st-dir*O*pixel);vec4 bp=texture2D(u_doubleBuffer1,st-dir*O*2.0*pixel);o=DISPLACE_FNC(bi,bp,RICHTER_SMEAR);}float as=u_cameraDrag?RICHTER_DRAG_DEPOSIT:RICHTER_DEPOSIT;vec3 ag=srgb2oklab(o.rgb);vec3 a5=srgb2oklab(ac.rgb);ag.x=mix(ag.x,a5.x,ac.a*as);ag.yz=mix(ag.yz,a5.yz*RICHTER_CHROMA_BOOST,ac.a*max(as,RICHTER_CHROMA));o.rgb=saturate(oklab2srgb(ag));o.a=mix(o.a,1.0,ac.a*as);}
+#elif defined(DOUBLE_BUFFER_2)
+float ak=0.0;for(int k=0;k<RICHTER_LAYERS;k++){vec2 dir;float Z;float O=a3(k,st,dir,Z);if(O>0.0)ak=max(ak,1.0-smoothstep(0.0,RICHTER_WET_REACH,Z));}float aw=(u_frame<2)?0.0:max(texture2D(u_doubleBuffer2,st).r-RICHTER_DRYING,0.0);aw=max(aw,ak);o=vec4(vec3(aw),1.0);
 #elif defined(POSTPROCESSING)
-vec4 aR=texture2D(u_doubleBuffer1,st);E.rgb=mix(E.rgb,aR.rgb,aR.a);E.a=1.0;
+o=texture2D(u_backgroundTex,st);vec4 aY=texture2D(u_doubleBuffer1,st);o.rgb=mix(o.rgb,aY.rgb,saturate(aY.a));o.a=1.0;
 #elif defined(MODEL_PRIMITIVE_GSPLATS)
-vec2 av=v_uv+vec2(-v_uvStep.x,v_uvStep.y);vec2 bp=v_texcoord.xy;vec4 aa=aT(v_uv);vec4 a8=aT(av);float a9=(aa.r*255.0*255.0+aa.g*255.0+aa.b*255.0)/(255.0*255.0);if(aa.a>=.5&&!be(aa,a8))discard;vec4 tex=bf(u_alignedTex,av);E.rgb=tex.rgb;float l=pow(luma(tex.rgb),10.);E.a=step(0.5,l+(bp.x)*0.5+fract(a9+t-av.y));
+vec2 aB=v_uv+vec2(-v_uvStep.x,v_uvStep.y);vec2 bx=v_texcoord.xy;vec4 af=a4(v_uv);vec4 be=a4(aB);float bf=(af.r*255.0*255.0+af.g*255.0+af.b*255.0)/(255.0*255.0);if(af.a>=.5&&!bm(af,be))discard;vec4 tex=bn(u_alignedTex,aB);o.rgb=tex.rgb;float l=pow(luma(tex.rgb),10.);o.a=step(0.5,l+(bx.x)*0.5+fract(bf+t-aB.y));
 #else
-E=v_color;
+o=v_color;
 #endif
-gl_FragColor=E;}
+gl_FragColor=o;}

@@ -23,7 +23,7 @@ attribute vec4 a_color;
 varying vec4 v_position;varying vec4 v_color;varying vec3 v_normal;varying vec2 v_texcoord;varying vec2 v_uv;varying vec2 v_uvStep;
 #define SPLAT_SCALE 1.
 #define UV_FILL 0.55
-vec3 a_(vec2 f){vec3 M=vec3(f.x,f.y,1.0-abs(f.x)-abs(f.y));float t=max(-M.z,0.0);M.x+=M.x>=0.0?-t:t;M.y+=M.y>=0.0?-t:t;return normalize(M);}
+vec3 bg(vec2 f){vec3 N=vec3(f.x,f.y,1.0-abs(f.x)-abs(f.y));float t=max(-N.z,0.0);N.x+=N.x>=0.0?-t:t;N.y+=N.y>=0.0?-t:t;return normalize(N);}
 #include "lygia/color/luma.glsl"
 #include "lygia/generative/snoise.glsl"
 #ifdef STROKES_ATLAS
@@ -33,27 +33,27 @@ uniform sampler2D u_strokesAtlasCamTex;
 #ifndef STROKES_ATLAS_MAX_VIEWS
 #define STROKES_ATLAS_MAX_VIEWS 64
 #endif
-vec2 F(float o,float bl){vec2 st=vec2((bl+0.5)/STROKES_ATLAS_CAM_TEXELS,1.0-(o+0.5)/STROKES_ATLAS_VIEWS);vec4 c=floor(texture2D(u_strokesAtlasCamTex,st)*255.0+0.5);vec2 ad=vec2(c.r*256.0+c.g,c.b*256.0+c.a)/65535.0;return(ad*2.0-1.0)*STROKES_ATLAS_CAM_RANGE;}void aU(float o,out vec3 N,out vec3 O,out vec3 Q,out vec3 t,out vec4 L,out vec4 U){vec2 a=F(o,0.0);vec2 b=F(o,1.0);vec2 c=F(o,2.0);vec2 d=F(o,3.0);vec2 J=F(o,4.0);vec2 f=F(o,5.0);N=vec3(a.x,a.y,b.x);O=vec3(b.y,c.x,c.y);Q=vec3(d.x,d.y,J.x);t=vec3(J.y,f.x,f.y);L=vec4(F(o,6.0),F(o,7.0));U=vec4(F(o,8.0),F(o,9.0));}float bj(vec2 G){vec2 aF=floor(clamp(G,0.0,0.99999)*vec2(STROKES_ATLAS_COLS,STROKES_ATLAS_ROWS));return aF.y*STROKES_ATLAS_COLS+aF.x;}vec2 aV(vec3 N,vec3 O,vec3 Q,vec3 t,vec4 L,vec3 w){vec3 c=vec3(dot(N,w),dot(O,w),dot(Q,w))+t;return L.xy*c.xy/c.z+L.zw;}vec2 bk(vec2 bm,vec3 X,vec3 Z){vec3 N,O,Q,t;vec4 L,U;aU(bj(bm),N,O,Q,t,L,U);vec2 d=(aV(N,O,Q,t,L,Z)-aV(N,O,Q,t,L,X))*U.zw;return vec2(-d.x,d.y);}vec3 bi(float o){vec2 a=F(o,0.0);vec2 b=F(o,1.0);vec2 c=F(o,2.0);vec2 d=F(o,3.0);vec2 J=F(o,4.0);vec2 f=F(o,5.0);vec3 t=vec3(J.y,f.x,f.y);return-(vec3(a.x,a.y,b.x)*t.x+vec3(b.y,c.x,c.y)*t.y+vec3(d.x,d.y,J.x)*t.z);}float bs(vec3 a5,out float an){float aE=0.0;an=1e20;for(int i=0;i<STROKES_ATLAS_MAX_VIEWS;i++){if(float(i)>=STROKES_ATLAS_VIEWS)break;float d=length(bi(float(i))-a5);if(d<an){an=d;aE=float(i);}}return aE;}vec2 bt(float o,vec2 st){vec3 N,O,Q,t;vec4 L,U;aU(o,N,O,Q,t,L,U);return U.xy+vec2(st.x,1.0-st.y)*U.zw;}
+vec2 G(float E,float bt){vec2 st=vec2((bt+0.5)/STROKES_ATLAS_CAM_TEXELS,1.0-(E+0.5)/STROKES_ATLAS_VIEWS);vec4 c=floor(texture2D(u_strokesAtlasCamTex,st)*255.0+0.5);vec2 ai=vec2(c.r*256.0+c.g,c.b*256.0+c.a)/65535.0;return(ai*2.0-1.0)*STROKES_ATLAS_CAM_RANGE;}void a6(float E,out vec3 Q,out vec3 U,out vec3 W,out vec3 t,out vec4 M,out vec4 X){vec2 a=G(E,0.0);vec2 b=G(E,1.0);vec2 c=G(E,2.0);vec2 d=G(E,3.0);vec2 J=G(E,4.0);vec2 f=G(E,5.0);Q=vec3(a.x,a.y,b.x);U=vec3(b.y,c.x,c.y);W=vec3(d.x,d.y,J.x);t=vec3(J.y,f.x,f.y);M=vec4(G(E,6.0),G(E,7.0));X=vec4(G(E,8.0),G(E,9.0));}float br(vec2 F){vec2 aL=floor(clamp(F,0.0,0.99999)*vec2(STROKES_ATLAS_COLS,STROKES_ATLAS_ROWS));return aL.y*STROKES_ATLAS_COLS+aL.x;}vec2 a7(vec3 Q,vec3 U,vec3 W,vec3 t,vec4 M,vec3 w){vec3 c=vec3(dot(Q,w),dot(U,w),dot(W,w))+t;return M.xy*c.xy/c.z+M.zw;}vec2 bs(vec2 bu,vec3 aa,vec3 ae){vec3 Q,U,W,t;vec4 M,X;a6(br(bu),Q,U,W,t,M,X);vec2 d=(a7(Q,U,W,t,M,ae)-a7(Q,U,W,t,M,aa))*X.zw;return vec2(-d.x,d.y);}vec3 bq(float E){vec2 a=G(E,0.0);vec2 b=G(E,1.0);vec2 c=G(E,2.0);vec2 d=G(E,3.0);vec2 J=G(E,4.0);vec2 f=G(E,5.0);vec3 t=vec3(J.y,f.x,f.y);return-(vec3(a.x,a.y,b.x)*t.x+vec3(b.y,c.x,c.y)*t.y+vec3(d.x,d.y,J.x)*t.z);}float bB(vec3 bc,out float at){float aK=0.0;at=1e20;for(int i=0;i<STROKES_ATLAS_MAX_VIEWS;i++){if(float(i)>=STROKES_ATLAS_VIEWS)break;float d=length(bq(float(i))-bc);if(d<at){at=d;aK=float(i);}}return aK;}vec2 bC(float E,vec2 st){vec3 Q,U,W,t;vec4 M,X;a6(E,Q,U,W,t,M,X);return X.xy+vec2(st.x,1.0-st.y)*X.zw;}
 #endif
 #endif
 void main(){float t=u_time*0.25;
 #ifdef MODEL_PRIMITIVE_GSPLATS
-float al=u_gsplatTexResolution.x;float a7=u_gsplatTexResolution.y;float aL=a_index;float bd=floor(aL/1024.0);float ai=mod(aL,1024.0)*4.0;float v=(bd+0.5)/a7;vec4 p1=texture2D(u_gsplatTex,vec2((ai+0.5)/al,v));v_position=vec4(p1.xyz,1.0);vec4 ah=u_viewMatrix*u_modelMatrix*v_position;vec4 ac=u_projectionMatrix*ah;vec4 p2=texture2D(u_gsplatTex,vec2((ai+1.5)/al,v));vec4 p3=texture2D(u_gsplatTex,vec2((ai+2.5)/al,v));vec4 p4=texture2D(u_gsplatTex,vec2((ai+3.5)/al,v));float u_hi=floor(p4.r*255.0+0.5);float u_lo=floor(p4.g*255.0+0.5);float v_hi=floor(p4.b*255.0+0.5);float v_lo=floor(p4.a*255.0+0.5);v_uv=vec2(u_hi*256.0+u_lo,v_hi*256.0+v_lo)/65535.0;mat3 ay=mat3(p2.x,p2.y,p2.z,p2.y,p2.w,p3.x,p2.z,p3.x,p3.y);vec3 M=a_(p3.zw);vec3 t1=normalize(cross((abs(M.x)<0.9?vec3(1.0,0.0,0.0):vec3(0.0,1.0,0.0)),M));vec3 t2=cross(M,t1);vec3 aY=ay*t1;vec3 az=ay*t2;float ag=dot(t1,aY),cb=dot(t1,az),cd=dot(t2,az);float aK=ag-cd;float ak=(abs(cb)<1e-9&&abs(aK)<1e-9)?0.0:0.5*atan(2.0*cb,aK);float aG=0.5*(ag+cd);float aJ=sqrt(max(0.25*(ag-cd)*(ag-cd)+cb*cb,0.0));float s1=UV_FILL*sqrt(max(aG+aJ,0.0));float s2=UV_FILL*sqrt(max(aG-aJ,0.0));vec3 aB=s1*(cos(ak)*t1+sin(ak)*t2);vec3 aC=s2*(-sin(ak)*t1+cos(ak)*t2);vec2 aM=u_focal/u_resolution;vec3 X=p1.xyz;vec3 Z=X+a_position.x*aB+a_position.y*aC;vec2 bn=aM*vec2(X.x,-X.y)/(-X.z)+0.5;vec2 bo=aM*vec2(Z.x,-Z.y)/(-Z.z)+0.5;
+float aq=u_gsplatTexResolution.x;float bd=u_gsplatTexResolution.y;float aR=a_index;float bl=floor(aR/1024.0);float an=mod(aR,1024.0)*4.0;float v=(bl+0.5)/bd;vec4 p1=texture2D(u_gsplatTex,vec2((an+0.5)/aq,v));v_position=vec4(p1.xyz,1.0);vec4 am=u_viewMatrix*u_modelMatrix*v_position;vec4 ah=u_projectionMatrix*am;vec4 p2=texture2D(u_gsplatTex,vec2((an+1.5)/aq,v));vec4 p3=texture2D(u_gsplatTex,vec2((an+2.5)/aq,v));vec4 p4=texture2D(u_gsplatTex,vec2((an+3.5)/aq,v));float u_hi=floor(p4.r*255.0+0.5);float u_lo=floor(p4.g*255.0+0.5);float v_hi=floor(p4.b*255.0+0.5);float v_lo=floor(p4.a*255.0+0.5);v_uv=vec2(u_hi*256.0+u_lo,v_hi*256.0+v_lo)/65535.0;mat3 aE=mat3(p2.x,p2.y,p2.z,p2.y,p2.w,p3.x,p2.z,p3.x,p3.y);vec3 N=bg(p3.zw);vec3 t1=normalize(cross((abs(N.x)<0.9?vec3(1.0,0.0,0.0):vec3(0.0,1.0,0.0)),N));vec3 t2=cross(N,t1);vec3 a_=aE*t1;vec3 aF=aE*t2;float al=dot(t1,a_),cb=dot(t1,aF),cd=dot(t2,aF);float aQ=al-cd;float ap=(abs(cb)<1e-9&&abs(aQ)<1e-9)?0.0:0.5*atan(2.0*cb,aQ);float aM=0.5*(al+cd);float aP=sqrt(max(0.25*(al-cd)*(al-cd)+cb*cb,0.0));float s1=UV_FILL*sqrt(max(aM+aP,0.0));float s2=UV_FILL*sqrt(max(aM-aP,0.0));vec3 aH=s1*(cos(ap)*t1+sin(ap)*t2);vec3 aI=s2*(-sin(ap)*t1+cos(ap)*t2);vec2 aS=u_focal/u_resolution;vec3 aa=p1.xyz;vec3 ae=aa+a_position.x*aH+a_position.y*aI;vec2 bv=aS*vec2(aa.x,-aa.y)/(-aa.z)+0.5;vec2 bw=aS*vec2(ae.x,-ae.y)/(-ae.z)+0.5;
 #ifdef STROKES_ATLAS
-v_uvStep=bk(v_uv,X,Z);
+v_uvStep=bs(v_uv,aa,ae);
 #else
-v_uvStep=bo-bn;
+v_uvStep=bw-bv;
 #endif
-v_texcoord=a_position;vec2 aw=ac.xy/ac.w;vec4 aH=u_projectionMatrix*u_viewMatrix*u_modelMatrix*vec4(p1.xyz+aB,1.0);vec4 aI=u_projectionMatrix*u_viewMatrix*u_modelMatrix*vec4(p1.xyz+aC,1.0);vec2 aq=aH.xy/aH.w-aw;vec2 ar=aI.xy/aI.w-aw;float aP=2.0/max(u_resolution.x,u_resolution.y);float ap=length(aq),l2n=length(ar);if(ap>1e-8)aq*=max(ap,aP)/ap;if(l2n>1e-8)ar*=max(l2n,aP)/l2n;v_position=vec4((a_position.x*aq+a_position.y*ar),ac.z/ac.w,1.0);float ae=SPLAT_SCALE;v_position.xy=aw+ae*v_position.xy;gl_Position=v_position;
+v_texcoord=a_position;vec2 aC=ah.xy/ah.w;vec4 aN=u_projectionMatrix*u_viewMatrix*u_modelMatrix*vec4(p1.xyz+aH,1.0);vec4 aO=u_projectionMatrix*u_viewMatrix*u_modelMatrix*vec4(p1.xyz+aI,1.0);vec2 ax=aN.xy/aN.w-aC;vec2 ay=aO.xy/aO.w-aC;float aW=2.0/max(u_resolution.x,u_resolution.y);float av=length(ax),l2n=length(ay);if(av>1e-8)ax*=max(av,aW)/av;if(l2n>1e-8)ay*=max(l2n,aW)/l2n;v_position=vec4((a_position.x*ax+a_position.y*ay),ah.z/ah.w,1.0);float aj=SPLAT_SCALE;v_position.xy=aC+aj*v_position.xy;gl_Position=v_position;
 #else
-v_position=u_modelMatrix*a_position;v_texcoord=a_position.xy*0.5+0.5;vec4 ah=u_viewMatrix*u_modelMatrix*a_position;vec4 ac=u_projectionMatrix*ah;;float ae=6.0;ae*=smoothstep(0.45,0.5,1.0-fract(length(ah.z)-t));
+v_position=u_modelMatrix*a_position;v_texcoord=a_position.xy*0.5+0.5;vec4 am=u_viewMatrix*u_modelMatrix*a_position;vec4 ah=u_projectionMatrix*am;;float aj=6.0;aj*=smoothstep(0.45,0.5,1.0-fract(length(am.z)-t));
 #ifdef MODEL_VERTEX_TEXCOORD
 v_texcoord=a_texcoord;
 #endif
 #ifdef MODEL_VERTEX_NORMAL
 v_normal=normalize(u_normalMatrix*a_normal);
 #if !defined(MODEL_PRIMITIVE_POINTS)
-float a2=luma(texture2D(u_alignedTex,v_texcoord).rgb);float bq=a2;v_position.xyz+=v_normal*(0.0025*bq);
+float bb=luma(texture2D(u_alignedTex,v_texcoord).rgb);float by=bb;v_position.xyz+=v_normal*(0.0025*by);
 #endif
 #endif
 v_color=vec4(vec3(0.15,0.1,0.2),1.0);
@@ -62,7 +62,7 @@ v_color=a_color;
 #endif
 v_uv=v_texcoord;v_uvStep=vec2(0.0);
 #if defined(MODEL_PRIMITIVE_POINTS)
-gl_PointSize=ae;if(ae>0.0){gl_Position=u_projectionMatrix*u_viewMatrix*v_position;}else{gl_Position=vec4(0.0);}
+gl_PointSize=aj;if(aj>0.0){gl_Position=u_projectionMatrix*u_viewMatrix*v_position;}else{gl_Position=vec4(0.0);}
 #else
 gl_Position=u_projectionMatrix*u_viewMatrix*v_position;
 #endif
