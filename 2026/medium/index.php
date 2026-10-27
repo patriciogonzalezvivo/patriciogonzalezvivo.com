@@ -78,16 +78,27 @@
                 if (file_exists($dir . '/index.html') && $webm):
                     $poster = $poster ? $poster[0] : '';
             ?>
-            <a class="painting-item medium-study" href="<?php echo htmlspecialchars($dir . '/index.html'); ?>">
+            <?php
+                // The modal shows the still render in images/ that matches this sandbox.
+                $still = glob('images/' . $dir . '_t*_2480x3508.jpg');
+                $study_title = ucfirst($study['shader']) . ' (' . $study['asset'] . ')';
+                $info = json_encode(['title' => $study_title, 'year' => '2026', 'medium' => 'Digital sandbox']);
+            ?>
+            <div class="painting-item medium-study" data-id="<?php echo htmlspecialchars($dir); ?>"
+                 data-full="<?php echo htmlspecialchars($still ? $still[0] : $poster); ?>"
+                 data-info='<?php echo htmlspecialchars($info, ENT_QUOTES, 'UTF-8'); ?>'>
                 <div class="painting-thumb-wrapper">
                     <video class="painting-thumb" autoplay loop muted playsinline preload="metadata" poster="<?php echo htmlspecialchars($poster); ?>">
                         <source src="<?php echo htmlspecialchars($webm[0]); ?>" type="video/webm">
                     </video>
                 </div>
                 <div class="artwork-info">
-                    <div class="artwork-title"><?php echo htmlspecialchars(ucfirst($study['shader']) . ' (' . $study['asset'] . ')'); ?></div>
+                    <div class="artwork-title"><?php echo htmlspecialchars($study_title); ?></div>
+                    <div class="artwork-buttons">
+                        <a class="artwork-btn" href="<?php echo htmlspecialchars($dir . '/index.html'); ?>">Open Sandbox</a>
+                    </div>
                 </div>
-            </a>
+            </div>
             <?php endif; endif; ?>
         </div>
         <?php endforeach; ?>
