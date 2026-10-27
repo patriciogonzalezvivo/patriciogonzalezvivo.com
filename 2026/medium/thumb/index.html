@@ -54,7 +54,9 @@
 
       #canvas {
         display: block; width: 100%; height: 100%;
-        outline: none; touch-action: none;
+        /* pan-y: a vertical swipe scrolls the host page (iPhone), while horizontal
+           drags still reach the canvas to orbit the camera. */
+        outline: none; touch-action: pan-y;
       }
       /* Poster shown while the wasm runtime + assets stream in. Removed by
          boot.js once the scene is live (or on error, so it never sticks).
