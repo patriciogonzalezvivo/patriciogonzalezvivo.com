@@ -1,3 +1,4 @@
 title: Digital No. 10
 year: 2026
 medium: Acrylic on digital Canvas
+dimensions: Variable dimensions

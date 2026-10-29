@@ -1,3 +1,4 @@
 title: Digital No. 19
 year: 2026
 medium: Oil on digital Canvas
+dimensions: Variable dimensions
