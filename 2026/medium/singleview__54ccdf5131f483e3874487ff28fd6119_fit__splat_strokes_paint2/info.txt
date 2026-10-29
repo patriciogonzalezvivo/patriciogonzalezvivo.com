@@ -1,0 +1,5 @@
+title: Digital No. 20
+year: 2026
+medium: Oil on digital Canvas
+dimensions: Variable dimensions
+shader: splat_strokes_paint2
