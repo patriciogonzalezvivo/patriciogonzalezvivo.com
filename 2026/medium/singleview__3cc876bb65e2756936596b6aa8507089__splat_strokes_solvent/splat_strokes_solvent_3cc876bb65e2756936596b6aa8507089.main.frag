@@ -8,7 +8,7 @@ precision highp float;
 uniform sampler2D u_cameraTex;uniform sampler2D u_alignedTex;uniform sampler2D u_backgroundTex;uniform sampler2D u_buffer0; // 0.25
 uniform sampler2D u_buffer1; // 0.25
 uniform sampler2D u_doubleBuffer0; // 0.1
-uniform sampler2D u_doubleBuffer1;uniform sampler2D u_doubleBuffer2;uniform sampler2D u_scene;uniform vec3 u_camera;uniform vec3 u_cameraTrg;uniform float u_cameraPct;uniform float u_cameraNearClip;uniform float u_cameraFarClip;uniform bool u_cameraDrag;uniform vec2 u_resolution;uniform float u_time;uniform int u_frame;uniform int u_change;varying vec4 v_position;varying vec4 v_color;varying vec3 v_normal;varying vec2 v_texcoord;varying vec2 v_uv;varying vec2 v_uvStep;
+uniform sampler2D u_doubleBuffer1;uniform sampler2D u_doubleBuffer2;uniform sampler2D u_scene;uniform bool u_cameraDrag;uniform vec2 u_resolution;uniform float u_time;uniform int u_frame;uniform int u_change;varying vec4 v_position;varying vec4 v_color;varying vec3 v_normal;varying vec2 v_texcoord;varying vec2 v_uv;varying vec2 v_uvStep;
 #ifndef MAP_FLIP_Y
 #define MAP_FLIP_Y 1
 #endif
@@ -34,8 +34,6 @@ uv=fract(uv);
 #endif
 return uv;}vec4 aT(sampler2D tex,vec2 uv){return texture2D(tex,aI(uv));}vec4 aE(vec2 uv){vec2 g=aI(uv);if(MAP_INDEX_RESOLUTION.x>0.5)g=(floor(g*MAP_INDEX_RESOLUTION)+0.5)/MAP_INDEX_RESOLUTION;return texture2D(MAP_INDEX_TEX,g);}bool aS(vec4 a,vec4 b){if(a.a<0.5||b.a<0.5)return false;vec3 d=abs(a.rgb-b.rgb);return max(d.r,max(d.g,d.b))<=MAP_SAMEMARK_EPSILON;}
 #endif
-#define CAMERA_NEAR_CLIP u_cameraNearClip
-#define CAMERA_FAR_CLIP u_cameraFarClip
 #include "lygia/sampler.glsl"
 #include "lygia/math/const.glsl"
 #include "lygia/math/saturate.glsl"
@@ -77,9 +75,9 @@ vec2 vel=(texture2D(u_doubleBuffer0,st).xy*2.0-1.0)/FLUID_SCALE*MARBLE_FLOW_SPEE
 #elif defined(DOUBLE_BUFFER_2)
 A=texture2D(u_doubleBuffer2,st);vec4 tex=aC(st);if(marbleBake(float(u_frame))){A=marble(u_doubleBuffer2,u_doubleBuffer1,st)*MARBLE_FADE;A=mix(A,tex,tex.a);}if(u_cameraDrag)A=tex;
 #elif defined(POSTPROCESSING)
-A=texture2D(u_backgroundTex,st);vec4 ab=texture2D(u_doubleBuffer2,st);if(!marbleBake(float(u_frame)))ab=marble(u_doubleBuffer2,u_doubleBuffer1,st);ab=mix(A,ab,ab.a);vec4 tex=aC(st);A=mix(ab,tex,tex.a);A.a=1.0;
+vec4 vel=texture2D(u_doubleBuffer0,st);vel.xy=vel.xy*2.0-1.0;vec2 aU=st+vel.xy*pixel*50.0;A=texture2D(u_backgroundTex,aU);vec4 ab=texture2D(u_doubleBuffer2,st);if(!marbleBake(float(u_frame)))ab=marble(u_doubleBuffer2,u_doubleBuffer1,st);ab=mix(A,ab,ab.a);vec4 tex=aC(st);A=mix(ab,tex,tex.a);A.a=1.0;
 #elif defined(MODEL_PRIMITIVE_GSPLATS)
-vec2 aJ=v_uv+vec2(-v_uvStep.x,v_uvStep.y);vec2 a7=v_texcoord.xy;vec4 aa=aE(v_uv);vec4 aP=aE(aJ);float a4=(aa.r*255.0*255.0+aa.g*255.0+aa.b*255.0)/(255.0*255.0);if(aa.a>=.5&&!aS(aa,aP))discard;vec4 tex=aT(u_alignedTex,aJ);A.rgb=pow(tex.rgb,vec3(1.25));
+vec2 aJ=v_uv+vec2(-v_uvStep.x,v_uvStep.y);vec2 a8=v_texcoord.xy;vec4 aa=aE(v_uv);vec4 aP=aE(aJ);float a5=(aa.r*255.0*255.0+aa.g*255.0+aa.b*255.0)/(255.0*255.0);if(aa.a>=.5&&!aS(aa,aP))discard;vec4 tex=aT(u_alignedTex,aJ);A.rgb=pow(tex.rgb,vec3(1.25));
 #else
 A=v_color;
 #endif

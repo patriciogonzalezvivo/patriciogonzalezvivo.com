@@ -2,3 +2,4 @@ title: Digital No. 23
 year: 2026
 medium: Oil on digital Canvas
 dimensions: Variable dimensions
+shader: splat_strokes_fluid2

@@ -65,9 +65,9 @@ vec2 G=ratio(st,u_resolution);vec2 W=vec2(0.0);float depth=linearizeDepth(textur
 #elif defined(DOUBLE_BUFFER_1)
 vec4 tex=sampleClamp2edge(u_scene,st,u_resolution);vec4 aH=displace(u_doubleBuffer0,u_doubleBuffer1,st,pixel);tex.a+=u_cameraDrag?0.05:0.0;E=mix(aH,tex,tex.a);float depth=linearizeDepth(texture2D(u_sceneDepth,st).x);E*=1.0-clamp(depth,0.0,10.0)*0.0005;
 #elif defined(POSTPROCESSING)
-E=texture2D(u_backgroundTex,st);vec4 av=texture2D(u_doubleBuffer1,st);E=mix(E,av,av.a);E.a=1.0;
+vec4 vel=texture2D(u_doubleBuffer0,st);vel.xy=vel.xy*2.0-1.0;vec2 aL=st+vel.xy*pixel*10.0;E=texture2D(u_backgroundTex,aL);E.rgb*=0.8;vec4 av=texture2D(u_doubleBuffer1,st);E=mix(E,av,av.a);E.a=1.0;
 #elif defined(MODEL_PRIMITIVE_GSPLATS)
-vec2 af=v_uv+vec2(-v_uvStep.x,v_uvStep.y);vec2 aS=v_texcoord.xy;vec4 U=aw(v_uv);vec4 aE=aw(af);float aF=(U.r*255.0*255.0+U.g*255.0+U.b*255.0)/(255.0*255.0);if(U.a>=.5&&!aJ(U,aE))discard;vec4 tex=aK(u_alignedTex,af);float l=pow(luma(tex.rgb),10.);E.rgb=tex.rgb;E.a=step(0.5,u_cameraDrag?1.0:l+(aS.x)*0.5+fract(aF+t-af.y));
+vec2 af=v_uv+vec2(-v_uvStep.x,v_uvStep.y);vec2 aT=v_texcoord.xy;vec4 U=aw(v_uv);vec4 aE=aw(af);float aF=(U.r*255.0*255.0+U.g*255.0+U.b*255.0)/(255.0*255.0);if(U.a>=.5&&!aJ(U,aE))discard;vec4 tex=aK(u_alignedTex,af);float l=pow(luma(tex.rgb),10.);E.rgb=tex.rgb;E.a=step(0.5,u_cameraDrag?1.0:l+(aT.x)*0.5+fract(aF+t-af.y));
 #else
 Material material=materialNew();material.metallic=0.0;material.roughness=0.9;E=pbr(material);E=linear2gamma(E);
 #endif

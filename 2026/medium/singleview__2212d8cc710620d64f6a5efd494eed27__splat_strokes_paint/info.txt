@@ -1,4 +1,5 @@
 title: Digital No. 4
-year: 2026
+year: 2025
 medium: Oil on digital Canvas
 dimensions: Variable dimensions
+shader: splat_strokes_paint

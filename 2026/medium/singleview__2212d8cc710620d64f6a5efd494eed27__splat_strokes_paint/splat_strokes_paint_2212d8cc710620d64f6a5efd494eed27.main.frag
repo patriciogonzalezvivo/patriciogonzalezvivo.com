@@ -5,7 +5,7 @@
 #ifdef GL_ES
 precision highp float;
 #endif
-uniform sampler2D u_alignedTex;uniform sampler2D u_backgroundTex;uniform sampler2D u_doubleBuffer0;uniform sampler2D u_doubleBuffer1;uniform sampler2D u_scene;uniform sampler2D u_sceneDepth;uniform sampler2D u_cameraTex;uniform sampler2D u_cameraNextTex;uniform vec3 u_camera;uniform vec3 u_cameraTrg;uniform float u_cameraPct;uniform float u_cameraNearClip;uniform float u_cameraFarClip;uniform bool u_cameraDrag;uniform vec2 u_resolution;uniform float u_time;uniform int u_frame;uniform int u_change;uniform vec3 u_light;uniform vec3 u_lightColor;uniform float u_lightFalloff;uniform float u_lightIntensity;uniform float u_iblLuminance;uniform samplerCube u_cubeMap;uniform vec3 u_SH[9];varying vec4 v_position;varying vec4 v_color;varying vec3 v_normal;varying vec2 v_texcoord;varying vec2 v_uv;varying vec2 v_uvStep;
+uniform sampler2D u_alignedTex;uniform sampler2D u_backgroundTex;uniform sampler2D u_doubleBuffer0;uniform sampler2D u_doubleBuffer1;uniform sampler2D u_scene;uniform sampler2D u_sceneDepth;uniform vec3 u_camera;uniform vec3 u_cameraTrg;uniform float u_cameraPct;uniform float u_cameraNearClip;uniform float u_cameraFarClip;uniform bool u_cameraDrag;uniform vec2 u_resolution;uniform float u_time;uniform int u_frame;uniform int u_change;uniform vec3 u_light;uniform vec3 u_lightColor;uniform float u_lightFalloff;uniform float u_lightIntensity;uniform float u_iblLuminance;uniform samplerCube u_cubeMap;uniform vec3 u_SH[9];varying vec4 v_position;varying vec4 v_color;varying vec3 v_normal;varying vec2 v_texcoord;varying vec2 v_uv;varying vec2 v_uvStep;
 #ifndef MAP_FLIP_Y
 #define MAP_FLIP_Y 1
 #endif
@@ -29,7 +29,7 @@ G.y=1.0-G.y;
 #if MAP_WRAP
 G=fract(G);
 #endif
-return G;}vec4 aL(sampler2D tex,vec2 G){return texture2D(tex,az(G));}vec4 aw(vec2 G){vec2 g=az(G);if(MAP_INDEX_RESOLUTION.x>0.5)g=(floor(g*MAP_INDEX_RESOLUTION)+0.5)/MAP_INDEX_RESOLUTION;return texture2D(MAP_INDEX_TEX,g);}bool aK(vec4 a,vec4 b){if(a.a<0.5||b.a<0.5)return false;vec3 d=abs(a.rgb-b.rgb);return max(d.r,max(d.g,d.b))<=MAP_SAMEMARK_EPSILON;}
+return G;}vec4 aK(sampler2D tex,vec2 G){return texture2D(tex,az(G));}vec4 aw(vec2 G){vec2 g=az(G);if(MAP_INDEX_RESOLUTION.x>0.5)g=(floor(g*MAP_INDEX_RESOLUTION)+0.5)/MAP_INDEX_RESOLUTION;return texture2D(MAP_INDEX_TEX,g);}bool aJ(vec4 a,vec4 b){if(a.a<0.5||b.a<0.5)return false;vec3 d=abs(a.rgb-b.rgb);return max(d.r,max(d.g,d.b))<=MAP_SAMEMARK_EPSILON;}
 #endif
 #define CAMERA_NEAR_CLIP u_cameraNearClip
 #define CAMERA_FAR_CLIP u_cameraFarClip
@@ -59,16 +59,16 @@ return G;}vec4 aL(sampler2D tex,vec2 G){return texture2D(tex,az(G));}vec4 aw(vec
 #include "lygia/distort/displace.glsl"
 #define PAINT_DECAY .99
 #define FLUID_EXTEND_RADIUS 1
-void main(void){vec4 o=vec4(vec3(0.0),1.0);vec2 pixel=1.0/u_resolution.xy;vec2 st=gl_FragCoord.xy*pixel;float t=u_time*0.25;
+void main(void){vec4 E=vec4(vec3(0.0),1.0);vec2 pixel=1.0/u_resolution.xy;vec2 st=gl_FragCoord.xy*pixel;float t=u_time*0.25;
 #if defined(DOUBLE_BUFFER_0)
-float depth=linearizeDepth(texture2D(u_sceneDepth,st).x);vec2 G=ratio(st,u_resolution);vec2 W=vec2(0.0);float scale=(15.0-clamp(depth,0.0,10.0));W.x=fbm(G*(scale+2.0)-0.2*t);W.y=fbm(G*(scale+3.0)+0.23*t);vec2 v=W;o=FLUIDSOLVER_FNC(u_doubleBuffer0,st,pixel,v);o.xy*=0.99;o.xy=saturate(o.xy*0.5+0.5);o.z=saturate(o.z);o.w=1.0;
+vec2 G=ratio(st,u_resolution);vec2 W=vec2(0.0);float depth=linearizeDepth(texture2D(u_sceneDepth,st).x);float scale=(15.0-clamp(depth,0.0,10.0));W.x=fbm(G*(scale+2.0)-0.2*t);W.y=fbm(G*(scale+3.0)+0.23*t);vec2 v=W;E=FLUIDSOLVER_FNC(u_doubleBuffer0,st,pixel,v);E.xy*=0.99;E.xy=saturate(E.xy*0.5+0.5);E.z=saturate(E.z);E.w=1.0;
 #elif defined(DOUBLE_BUFFER_1)
-vec4 tex=sampleClamp2edge(u_scene,st,u_resolution);vec4 aI=displace(u_doubleBuffer0,u_doubleBuffer1,st,pixel);tex.a+=u_cameraDrag?0.05:0.0;o=mix(aI,tex,tex.a);float depth=linearizeDepth(texture2D(u_sceneDepth,st).x);o*=1.0-clamp(depth,0.0,10.0)*0.0005;
+vec4 tex=sampleClamp2edge(u_scene,st,u_resolution);vec4 aH=displace(u_doubleBuffer0,u_doubleBuffer1,st,pixel);tex.a+=u_cameraDrag?0.05:0.0;E=mix(aH,tex,tex.a);float depth=linearizeDepth(texture2D(u_sceneDepth,st).x);E*=1.0-clamp(depth,0.0,10.0)*0.0005;
 #elif defined(POSTPROCESSING)
-o=texture2D(u_backgroundTex,st);vec4 av=texture2D(u_doubleBuffer1,st);float aH=clamp(pow(length(u_cameraTrg-u_camera),.2),0.0,1.0);o=mix(texture2D(u_alignedTex,fract(st)),o,aH);o=mix(o,av,av.a);o.a=1.0;
+vec4 vel=texture2D(u_doubleBuffer0,st);vel.xy=vel.xy*2.0-1.0;vec2 aL=st+vel.xy*pixel*10.0;E=texture2D(u_backgroundTex,aL);E.rgb*=0.8;vec4 av=texture2D(u_doubleBuffer1,st);E=mix(E,av,av.a);E.a=1.0;
 #elif defined(MODEL_PRIMITIVE_GSPLATS)
-vec2 af=v_uv+vec2(-v_uvStep.x,v_uvStep.y);vec2 aT=v_texcoord.xy;vec4 U=aw(v_uv);vec4 aE=aw(af);float aF=(U.r*255.0*255.0+U.g*255.0+U.b*255.0)/(255.0*255.0);if(U.a>=.5&&!aK(U,aE))discard;vec4 tex=aL(u_alignedTex,af);float l=pow(luma(tex.rgb),10.);o.rgb=tex.rgb;o.a=step(0.5,u_cameraDrag?1.0:l+(aT.x)*0.5+fract(aF+t-af.y));
+vec2 af=v_uv+vec2(-v_uvStep.x,v_uvStep.y);vec2 aT=v_texcoord.xy;vec4 U=aw(v_uv);vec4 aE=aw(af);float aF=(U.r*255.0*255.0+U.g*255.0+U.b*255.0)/(255.0*255.0);if(U.a>=.5&&!aJ(U,aE))discard;vec4 tex=aK(u_alignedTex,af);float l=pow(luma(tex.rgb),10.);E.rgb=tex.rgb;E.a=step(0.5,u_cameraDrag?1.0:l+(aT.x)*0.5+fract(aF+t-af.y));
 #else
-Material material=materialNew();material.metallic=0.0;material.roughness=0.9;o=pbr(material);o=linear2gamma(o);
+Material material=materialNew();material.metallic=0.0;material.roughness=0.9;E=pbr(material);E=linear2gamma(E);
 #endif
-gl_FragColor=o;}
+gl_FragColor=E;}

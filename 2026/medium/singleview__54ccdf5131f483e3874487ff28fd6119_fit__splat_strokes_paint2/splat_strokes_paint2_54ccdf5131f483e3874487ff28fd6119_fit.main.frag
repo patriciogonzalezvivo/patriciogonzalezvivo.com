@@ -56,9 +56,9 @@ vec2 E=ratio(st,u_resolution);vec2 O=vec2(0.0);O.x=fbm(E*2.0-0.2*o);O.y=fbm(E*3.
 #elif defined(DOUBLE_BUFFER_1)
 vec4 tex=sampleClamp2edge(u_scene,st,u_resolution);vec4 aN=displace(u_doubleBuffer0,u_doubleBuffer1,st,pixel);tex.a+=u_cameraDrag?0.01:0.0;F=mix(aN*(0.97+aB*0.03),tex,tex.a);
 #elif defined(POSTPROCESSING)
-F=texture2D(u_backgroundTex,st);vec4 aA=texture2D(u_doubleBuffer1,st);F.rgb=mix(F.rgb,aA.rgb,aA.a);F.a=1.0;
+vec4 vel=texture2D(u_doubleBuffer0,st);vel.xy=vel.xy*2.0-1.0;vec2 aR=st+vel.xy*pixel*20.0;F=texture2D(u_backgroundTex,aR);vec4 aA=texture2D(u_doubleBuffer1,st);F.rgb=mix(F.rgb,aA.rgb,aA.a);F.a=1.0;
 #elif defined(MODEL_PRIMITIVE_GSPLATS)
-vec2 aG=v_uv+vec2(-v_uvStep.x,v_uvStep.y);vec2 a4=v_texcoord.xy;vec4 X=aC(v_uv);vec4 aL=aC(aG);float aZ=(X.r*255.0*255.0+X.g*255.0+X.b*255.0)/(255.0*255.0);if(X.a>=.5&&!aP(X,aL))discard;vec4 tex=aQ(u_alignedTex,aG);F.rgb=tex.rgb;
+vec2 aG=v_uv+vec2(-v_uvStep.x,v_uvStep.y);vec2 a5=v_texcoord.xy;vec4 X=aC(v_uv);vec4 aL=aC(aG);float a2=(X.r*255.0*255.0+X.g*255.0+X.b*255.0)/(255.0*255.0);if(X.a>=.5&&!aP(X,aL))discard;vec4 tex=aQ(u_alignedTex,aG);F.rgb=tex.rgb;
 #else
 F=v_color;
 #endif
