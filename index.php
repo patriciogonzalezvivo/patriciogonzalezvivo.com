@@ -29,12 +29,12 @@ $projects = [
     //     'path'         => '2026/astros',
     //     'type'         => 'big_thumbnail',
     // ],
-    [
-        'path'         => '2026/santos',
-        'type'         => 'gallery',
-        'images_dir'   => '2026/santos/images/thumbnails',
-        'pattern'      => 'DSF*.{jpg,jpeg,png,gif}',
-    ],
+    // [
+    //     'path'         => '2026/santos',
+    //     'type'         => 'gallery',
+    //     'images_dir'   => '2026/santos/images/thumbnails',
+    //     'pattern'      => 'DSF*.{jpg,jpeg,png,gif}',
+    // ],
 
     [
         'path'         => '2026/weaver2',
