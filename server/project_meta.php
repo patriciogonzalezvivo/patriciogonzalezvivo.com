@@ -134,6 +134,10 @@ function render_project_item($meta, $commented = false) {
     $path        = $meta['path']        ?? '';
     $thumb       = $meta['thumb']       ?? null;
     $thumbnail   = $meta['thumbnail']   ?? '';
+    $thumb_position = $meta['thumb_position'] ?? '';
+    $thumb_style = $thumb_position !== ''
+        ? ' style="object-position: ' . htmlspecialchars($thumb_position) . ';"'
+        : '';
 
     $html = $commented ? "        <!-- " : '';
 
@@ -150,11 +154,11 @@ function render_project_item($meta, $commented = false) {
             : htmlspecialchars($path) . '/' . htmlspecialchars($thumb);
 
         if (str_ends_with($thumb_src, '.webm')) {
-            $html .= '<video class="photoTh" autoplay loop muted playsinline loading="lazy">'
+            $html .= '<video class="photoTh"' . $thumb_style . ' autoplay loop muted playsinline loading="lazy">'
                    . '<source src="' . $thumb_src . '" type="video/webm">'
                    . '</video>';
         } else {
-            $html .= '<img class="photoTh" loading="lazy" src="' . $thumb_src . '" alt="' . htmlspecialchars($title) . '"/>';
+            $html .= '<img class="photoTh"' . $thumb_style . ' loading="lazy" src="' . $thumb_src . '" alt="' . htmlspecialchars($title) . '"/>';
         }
     }
 
@@ -186,7 +190,7 @@ function render_project_item($meta, $commented = false) {
  *  - ``['path' => 'YEAR/folder', ...overrides]``  — local project; loads
  *    metadata from the folder and applies any provided overrides
  *    (``title``, ``year``, ``medium``, ``dimensions``, ``description``,
- *    ``url``, ``thumbnail``, ``commented``).
+ *    ``url``, ``thumbnail``, ``thumb_position``, ``commented``).
  *  - ``['title' => '...', 'url' => '...', ...]``  — external project; uses
  *    the provided values directly with no folder lookup.
  *
@@ -210,7 +214,7 @@ function render_projects_list($projects, $base_path = '') {
                 $meta['path'] = $base_path . $meta['path'];
             }
             // Apply explicit overrides
-            foreach (['title', 'year', 'medium', 'dimensions', 'description', 'url', 'thumbnail'] as $key) {
+            foreach (['title', 'year', 'medium', 'dimensions', 'description', 'url', 'thumbnail', 'thumb_position'] as $key) {
                 if (isset($project[$key])) $meta[$key] = $project[$key];
             }
         } else {
@@ -223,6 +227,7 @@ function render_projects_list($projects, $base_path = '') {
                 'description' => $project['description'] ?? '',
                 'url'         => $project['url']         ?? '',
                 'thumbnail'   => $project['thumbnail']   ?? '',
+                'thumb_position' => $project['thumb_position'] ?? '',
                 'thumb'       => null,
             ];
         }

@@ -7,12 +7,13 @@ include("server/project_meta.php");
      - 'path': folder path for local projects (will load metadata from TITLE.txt, MEDIUM.txt, etc.)
      - 'url': custom URL (for external sites or overriding the default path URL)
      - 'thumbnail': custom thumbnail URL (overrides auto-detected thumb)
+     - 'thumb_position': CSS object-position for the cropped thumbnail, e.g. '50% 20%' (x y; default center)
      - 'commented': true to render as HTML comment
      - For external projects without local metadata, add 'title', 'year', 'medium', 'dimensions' directly
 ****/
 
     $projects = [
-        // ['path' => '2026/medium'],
+        ['path' => '2026/medium', 'thumb_position' => '50% 30%'],
         ['path' => '2026/astros'],
         ['path' => '2026/santos'],
         // ['path' => '2025/memories'],
