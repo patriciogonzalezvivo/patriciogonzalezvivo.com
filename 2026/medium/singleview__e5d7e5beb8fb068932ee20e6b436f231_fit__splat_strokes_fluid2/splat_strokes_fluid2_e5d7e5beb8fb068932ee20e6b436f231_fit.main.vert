@@ -23,12 +23,17 @@ attribute vec2 a_texcoord;
 varying vec4 v_position;varying vec4 v_color;varying vec3 v_normal;varying vec2 v_texcoord;varying vec2 v_uv;varying vec2 v_uvStep;
 #include "lygia/math/toMat3.glsl"
 #if defined(SCENE_BUFFER_NORMAL)
-#define SPLAT_SCALE 1.5
+#define SPLAT_SCALE 0.75
 #else
-#define SPLAT_SCALE .75
+#define SPLAT_SCALE 0.75
 #endif
 #define UV_FILL 0.5
-vec3 aO(vec2 f){vec3 H=vec3(f.x,f.y,1.0-abs(f.x)-abs(f.y));float E=max(-H.z,0.0);H.x+=H.x>=0.0?-E:E;H.y+=H.y>=0.0?-E:E;return normalize(H);}
+#define SPLAT_NORMAL_SIGN -1.0
+#define SPLAT_BACKFACE_CULL 0.0
+#define SPLAT_NEAR_DIST 0.9
+#define SPLAT_NEAR_POWER 0.25
+#define SPLAT_NEAR_MAX 1.0
+vec3 a2(vec2 f){vec3 J=vec3(f.x,f.y,1.0-abs(f.x)-abs(f.y));float t=max(-J.z,0.0);J.x+=J.x>=0.0?-t:t;J.y+=J.y>=0.0?-t:t;return normalize(J);}
 #ifdef STROKES_ATLAS
 #ifndef STROKES_ATLAS_GLSL
 #define STROKES_ATLAS_GLSL
@@ -36,22 +41,22 @@ uniform sampler2D u_strokesAtlasCamTex;
 #ifndef STROKES_ATLAS_MAX_VIEWS
 #define STROKES_ATLAS_MAX_VIEWS 64
 #endif
-vec2 F(float o,float aV){vec2 st=vec2((aV+0.5)/STROKES_ATLAS_CAM_TEXELS,1.0-(o+0.5)/STROKES_ATLAS_VIEWS);vec4 c=floor(texture2D(u_strokesAtlasCamTex,st)*255.0+0.5);vec2 O=vec2(c.r*256.0+c.g,c.b*256.0+c.a)/65535.0;return(O*2.0-1.0)*STROKES_ATLAS_CAM_RANGE;}void aF(float o,out vec3 J,out vec3 M,out vec3 N,out vec3 E,out vec4 I,out vec4 Q){vec2 a=F(o,0.0);vec2 b=F(o,1.0);vec2 c=F(o,2.0);vec2 d=F(o,3.0);vec2 Y=F(o,4.0);vec2 f=F(o,5.0);J=vec3(a.x,a.y,b.x);M=vec3(b.y,c.x,c.y);N=vec3(d.x,d.y,Y.x);E=vec3(Y.y,f.x,f.y);I=vec4(F(o,6.0),F(o,7.0));Q=vec4(F(o,8.0),F(o,9.0));}float aT(vec2 G){vec2 at=floor(clamp(G,0.0,0.99999)*vec2(STROKES_ATLAS_COLS,STROKES_ATLAS_ROWS));return at.y*STROKES_ATLAS_COLS+at.x;}vec2 aG(vec3 J,vec3 M,vec3 N,vec3 E,vec4 I,vec3 w){vec3 c=vec3(dot(J,w),dot(M,w),dot(N,w))+E;return I.xy*c.xy/c.z+I.zw;}vec2 aU(vec2 aW,vec3 U,vec3 X){vec3 J,M,N,E;vec4 I,Q;aF(aT(aW),J,M,N,E,I,Q);vec2 d=(aG(J,M,N,E,I,X)-aG(J,M,N,E,I,U))*Q.zw;return vec2(-d.x,d.y);}vec3 aS(float o){vec2 a=F(o,0.0);vec2 b=F(o,1.0);vec2 c=F(o,2.0);vec2 d=F(o,3.0);vec2 Y=F(o,4.0);vec2 f=F(o,5.0);vec3 E=vec3(Y.y,f.x,f.y);return-(vec3(a.x,a.y,b.x)*E.x+vec3(b.y,c.x,c.y)*E.y+vec3(d.x,d.y,Y.x)*E.z);}float aZ(vec3 aL,out float ai){float ar=0.0;ai=1e20;for(int i=0;i<STROKES_ATLAS_MAX_VIEWS;i++){if(float(i)>=STROKES_ATLAS_VIEWS)break;float d=length(aS(float(i))-aL);if(d<ai){ai=d;ar=float(i);}}return ar;}vec2 a2(float o,vec2 st){vec3 J,M,N,E;vec4 I,Q;aF(o,J,M,N,E,I,Q);return Q.xy+vec2(st.x,1.0-st.y)*Q.zw;}
+vec2 G(float E,float bb){vec2 st=vec2((bb+0.5)/STROKES_ATLAS_CAM_TEXELS,1.0-(E+0.5)/STROKES_ATLAS_VIEWS);vec4 c=floor(texture2D(u_strokesAtlasCamTex,st)*255.0+0.5);vec2 N=vec2(c.r*256.0+c.g,c.b*256.0+c.a)/65535.0;return(N*2.0-1.0)*STROKES_ATLAS_CAM_RANGE;}void aK(float E,out vec3 O,out vec3 Q,out vec3 U,out vec3 t,out vec4 M,out vec4 W){vec2 a=G(E,0.0);vec2 b=G(E,1.0);vec2 c=G(E,2.0);vec2 d=G(E,3.0);vec2 aa=G(E,4.0);vec2 f=G(E,5.0);O=vec3(a.x,a.y,b.x);Q=vec3(b.y,c.x,c.y);U=vec3(d.x,d.y,aa.x);t=vec3(aa.y,f.x,f.y);M=vec4(G(E,6.0),G(E,7.0));W=vec4(G(E,8.0),G(E,9.0));}float a_(vec2 o){vec2 aw=floor(clamp(o,0.0,0.99999)*vec2(STROKES_ATLAS_COLS,STROKES_ATLAS_ROWS));return aw.y*STROKES_ATLAS_COLS+aw.x;}vec2 aL(vec3 O,vec3 Q,vec3 U,vec3 t,vec4 M,vec3 w){vec3 c=vec3(dot(O,w),dot(Q,w),dot(U,w))+t;return M.xy*c.xy/c.z+M.zw;}vec2 ba(vec2 bc,vec3 X,vec3 Z){vec3 O,Q,U,t;vec4 M,W;aK(a_(bc),O,Q,U,t,M,W);vec2 d=(aL(O,Q,U,t,M,Z)-aL(O,Q,U,t,M,X))*W.zw;return vec2(-d.x,d.y);}vec3 a9(float E){vec2 a=G(E,0.0);vec2 b=G(E,1.0);vec2 c=G(E,2.0);vec2 d=G(E,3.0);vec2 aa=G(E,4.0);vec2 f=G(E,5.0);vec3 t=vec3(aa.y,f.x,f.y);return-(vec3(a.x,a.y,b.x)*t.x+vec3(b.y,c.x,c.y)*t.y+vec3(d.x,d.y,aa.x)*t.z);}float bg(vec3 aT,out float am){float av=0.0;am=1e20;for(int i=0;i<STROKES_ATLAS_MAX_VIEWS;i++){if(float(i)>=STROKES_ATLAS_VIEWS)break;float d=length(a9(float(i))-aT);if(d<am){am=d;av=float(i);}}return av;}vec2 bh(float E,vec2 st){vec3 O,Q,U,t;vec4 M,W;aK(E,O,Q,U,t,M,W);return W.xy+vec2(st.x,1.0-st.y)*W.zw;}
 #endif
 #endif
 void main(){
 #ifdef MODEL_PRIMITIVE_GSPLATS
-float ah=u_gsplatTexResolution.x;float aM=u_gsplatTexResolution.y;float az=a_index;float aP=floor(az/1024.0);float ab=mod(az,1024.0)*4.0;float v=(aP+0.5)/aM;vec4 p1=texture2D(u_gsplatTex,vec2((ab+0.5)/ah,v));v_position=vec4(p1.xyz,1.0);vec4 as=u_viewMatrix*u_modelMatrix*v_position;vec4 ae=u_projectionMatrix*as;vec4 p2=texture2D(u_gsplatTex,vec2((ab+1.5)/ah,v));vec4 p3=texture2D(u_gsplatTex,vec2((ab+2.5)/ah,v));vec4 p4=texture2D(u_gsplatTex,vec2((ab+3.5)/ah,v));float u_hi=floor(p4.r*255.0+0.5);float u_lo=floor(p4.g*255.0+0.5);float v_hi=floor(p4.b*255.0+0.5);float v_lo=floor(p4.a*255.0+0.5);v_uv=vec2(u_hi*256.0+u_lo,v_hi*256.0+v_lo)/65535.0;mat3 an=mat3(p2.x,p2.y,p2.z,p2.y,p2.w,p3.x,p2.z,p3.x,p3.y);vec3 H=aO(p3.zw);v_normal=normalize(toMat3(u_viewMatrix*u_modelMatrix)*H);if(dot(v_normal,as.xyz)>0.0)v_normal=-v_normal;vec3 W=normalize(cross((abs(H.x)<0.9?vec3(1.0,0.0,0.0):vec3(0.0,1.0,0.0)),H));vec3 ag=cross(H,W);vec3 aJ=an*W;vec3 ao=an*ag;float aa=dot(W,aJ),cb=dot(W,ao),cd=dot(ag,ao);float ay=aa-cd;float ad=(abs(cb)<1e-9&&abs(ay)<1e-9)?0.0:0.5*atan(2.0*cb,ay);float au=0.5*(aa+cd);float ax=sqrt(max(0.25*(aa-cd)*(aa-cd)+cb*cb,0.0));float s1=UV_FILL*sqrt(max(au+ax,0.0));float s2=UV_FILL*sqrt(max(au-ax,0.0));vec3 ap=s1*(cos(ad)*W+sin(ad)*ag);vec3 aq=s2*(-sin(ad)*W+cos(ad)*ag);vec2 aA=u_focal/u_resolution;vec3 U=p1.xyz;vec3 X=U+a_position.x*ap+a_position.y*aq;vec2 aX=aA*vec2(U.x,-U.y)/(-U.z)+0.5;vec2 aY=aA*vec2(X.x,-X.y)/(-X.z)+0.5;
+float al=u_gsplatTexResolution.x;float aV=u_gsplatTexResolution.y;float aC=a_index;float a4=floor(aC/1024.0);float ag=mod(aC,1024.0)*4.0;float v=(a4+0.5)/aV;vec4 p1=texture2D(u_gsplatTex,vec2((ag+0.5)/al,v));v_position=vec4(p1.xyz,1.0);vec4 ae=u_viewMatrix*u_modelMatrix*v_position;vec4 I=u_projectionMatrix*ae;float af=1.5*I.w;if(I.z<-I.w||I.z>I.w||I.x<-af||I.x>af||I.y<-af||I.y>af){gl_Position=vec4(0.0,0.0,2.0,1.0);return;}vec4 p2=texture2D(u_gsplatTex,vec2((ag+1.5)/al,v));vec4 p3=texture2D(u_gsplatTex,vec2((ag+2.5)/al,v));vec4 p4=texture2D(u_gsplatTex,vec2((ag+3.5)/al,v));float u_hi=floor(p4.r*255.0+0.5);float u_lo=floor(p4.g*255.0+0.5);float v_hi=floor(p4.b*255.0+0.5);float v_lo=floor(p4.a*255.0+0.5);v_uv=vec2(u_hi*256.0+u_lo,v_hi*256.0+v_lo)/65535.0;mat3 ar=mat3(p2.x,p2.y,p2.z,p2.y,p2.w,p3.x,p2.z,p3.x,p3.y);vec3 J=a2(p3.zw);v_normal=normalize(toMat3(u_viewMatrix*u_modelMatrix)*J);if(dot(SPLAT_NORMAL_SIGN*v_normal,normalize(ae.xyz))>SPLAT_BACKFACE_CULL){gl_Position=vec4(0.0,0.0,2.0,1.0);return;}if(dot(v_normal,ae.xyz)>0.0)v_normal=-v_normal;vec3 t1=normalize(cross((abs(J.x)<0.9?vec3(1.0,0.0,0.0):vec3(0.0,1.0,0.0)),J));vec3 t2=cross(J,t1);vec3 aP=ar*t1;vec3 as=ar*t2;float ad=dot(t1,aP),cb=dot(t1,as),cd=dot(t2,as);float aB=ad-cd;float aj=(abs(cb)<1e-9&&abs(aB)<1e-9)?0.0:0.5*atan(2.0*cb,aB);float ax=0.5*(ad+cd);float aA=sqrt(max(0.25*(ad-cd)*(ad-cd)+cb*cb,0.0));float s1=UV_FILL*sqrt(max(ax+aA,0.0));float s2=UV_FILL*sqrt(max(ax-aA,0.0));vec3 at=s1*(cos(aj)*t1+sin(aj)*t2);vec3 au=s2*(-sin(aj)*t1+cos(aj)*t2);vec2 aD=u_focal/u_resolution;vec3 X=p1.xyz;vec3 Z=X+a_position.x*at+a_position.y*au;vec2 bd=aD*vec2(X.x,-X.y)/(-X.z)+0.5;vec2 be=aD*vec2(Z.x,-Z.y)/(-Z.z)+0.5;
 #ifdef STROKES_ATLAS
-v_uvStep=aU(v_uv,U,X);
+v_uvStep=ba(v_uv,X,Z);
 #else
-v_uvStep=aY-aX;
+v_uvStep=be-bd;
 #endif
-v_texcoord=a_position;vec2 am=ae.xy/ae.w;vec4 av=u_projectionMatrix*u_viewMatrix*u_modelMatrix*vec4(p1.xyz+ap,1.0);vec4 aw=u_projectionMatrix*u_viewMatrix*u_modelMatrix*vec4(p1.xyz+aq,1.0);vec2 ak=av.xy/av.w-am;vec2 al=aw.xy/aw.w-am;float aC=2.0/max(u_resolution.x,u_resolution.y);float aj=length(ak),l2n=length(al);if(aj>1e-8)ak*=max(aj,aC)/aj;if(l2n>1e-8)al*=max(l2n,aC)/l2n;v_position=vec4((a_position.x*ak+a_position.y*al),ae.z/ae.w,1.0);float af=SPLAT_SCALE;
+v_texcoord=a_position;vec2 aq=I.xy/I.w;vec4 ay=u_projectionMatrix*u_viewMatrix*u_modelMatrix*vec4(p1.xyz+at,1.0);vec4 az=u_projectionMatrix*u_viewMatrix*u_modelMatrix*vec4(p1.xyz+au,1.0);vec2 ao=ay.xy/ay.w-aq;vec2 ap=az.xy/az.w-aq;float aH=2.0/max(u_resolution.x,u_resolution.y);float an=length(ao),l2n=length(ap);if(an>1e-8)ao*=max(an,aH)/an;if(l2n>1e-8)ap*=max(l2n,aH)/l2n;v_position=vec4((a_position.x*ao+a_position.y*ap),I.z/I.w,1.0);float ab=SPLAT_SCALE;
 #if !defined(SCENE_BUFFER_NORMAL)
-float Z=1.0-dot(v_normal,vec3(0.0,0.0,1.0));af*=(1.0-Z);af=mix(af,1.2,Z);
+float ac=1.0-dot(v_normal,vec3(0.0,0.0,1.0));ab*=(1.0-ac);ab=mix(ab,1.2,ac);
 #endif
-float E=u_time*0.25;v_position.xy=am+af*v_position.xy;gl_Position=v_position;
+float aR=max(-ae.z,1e-3);ab*=clamp(pow(SPLAT_NEAR_DIST/aR,SPLAT_NEAR_POWER),1.0,SPLAT_NEAR_MAX);float t=u_time*0.25;v_position.xy=aq+ab*v_position.xy;gl_Position=v_position;
 #else
 v_position=u_modelMatrix*a_position;v_texcoord=a_position.xy*0.5+0.5;
 #ifdef MODEL_VERTEX_TEXCOORD

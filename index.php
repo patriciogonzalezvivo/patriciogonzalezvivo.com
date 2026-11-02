@@ -21,48 +21,42 @@ include_once("server/slideSet.php");
 ********************/
 
 $projects = [
-    [
-        'path'         => '2026/medium',
-        'type'         => 'thumbnail'
-    ],
+    // [
+    //     'path'         => '2026/medium',
+    //     'type'         => 'thumbnail'
+    // ],
     // [
     //     'path'         => '2026/astros',
     //     'type'         => 'big_thumbnail',
     // ],
-    // [
-    //     'path'         => '2026/santos',
-    //     'type'         => 'gallery',
-    //     'images_dir'   => '2026/santos/images/thumbnails',
-    //     'pattern'      => 'DSF*.{jpg,jpeg,png,gif}',
-    // ],
-
+    [
+        'path'         => '2026/santos',
+        'type'         => 'gallery',
+        'images_dir'   => '2026/santos/images/thumbnails',
+        'pattern'      => 'DSF*.{jpg,jpeg,png,gif}',
+    ],
     [
         'path'         => '2026/weaver2',
         'type'         => 'big_thumbnail',
     ],
-
     // [
     //     'path'         => '2025/hybrids',
     //     'type'         => 'gallery',
     //     'images_dir'   => '2025/hybrids/images',
     //     'pattern'      => '_DSF*.{jpg,jpeg,png,gif}',
     // ],
-
     // [
     //     'path'         => '2023/blink',
     //     'type'         => 'live',
     // ],
-
     // [
     //     'path'         => '2021/fen',
     //     'type'         => 'live',
     // ],
-
     // [
     //     'path'         => '2021/memory',
     //     'type'         => 'live',
     // ],
-
     // [
     //     'path'         => '2018/estrellas',
     //     'type'         => 'live',
