@@ -1,5 +1,63 @@
 const apiKey = '16e572a980874e67af8b12c4feab7462';
 
+// The keys and command line switches of the desktop app, as controls. `id` is the name MainApp::setOption knows, `key` the key
+// (or --flag) it mirrors; the same ids are URL parameters (?ui=1&mode=chord&gi=cascades&tempo=96), so a link carries them.
+// `names` are the words the URL accepts besides numbers.
+const ASTROS_OPTIONS = [
+    { group: 'Display', items: [
+        { id: 'ui',             type: 'bool',   label: 'More information',                 key: 'u' },
+        { id: 'horizon',        type: 'bool',   label: 'Horizon',                          key: 'h' },
+        { id: 'debug',          type: 'bool',   label: 'Aspects and what each channel plays', key: 'd' },
+        { id: 'angles',         type: 'bool',   label: 'Degrees in the sign',              key: 'a' },
+        { id: 'aspects',        type: 'bool',   label: 'Aspect lines',                     key: 's' },
+        { id: 'extended',       type: 'bool',   label: 'Ascendant, nodes and Chiron',      key: 'e' },
+        { id: 'gi',             type: 'select', label: 'Light',                            key: 'g',
+          options: [[0, 'Auto'], [1, 'Raymarching'], [2, 'Radiance cascades'], [3, 'Off']], names: { auto: 0, raymarching: 1, cascades: 2, off: 3 } },
+        { id: 'cascades_scale', type: 'select', label: 'Cascades resolution',              key: '[ ]',
+          options: [[0.125, '1/8'], [0.25, '1/4'], [0.5, '1/2'], [1, 'Full']] },
+        { id: 'timelapse',      type: 'bool',   label: 'Time-lapse',                       key: 'space' },
+    ]},
+    { group: 'Sound', items: [
+        { id: 'play',           type: 'bool',   label: 'Play the reading',                 key: '/' },
+        { id: 'mode',           type: 'select', label: 'Reading',                          key: 'm',
+          options: [[0, 'Circular'], [1, 'Astrological'], [2, 'Astral chord']], names: { circular: 0, astrological: 1, chord: 2 } },
+        { id: 'chord',          type: 'select', label: 'Chord style',                      key: 'c',
+          options: [[0, 'Weighted'], [1, 'One by one']], names: { weighted: 0, one: 1 } },
+        { id: 'period',         type: 'number', label: 'Seconds per revolution',           key: '--period', min: 20, max: 3600, step: 10 },
+        { id: 'tempo',          type: 'number', label: 'Tempo (bpm)',                      key: '; \' t', min: 10, max: 300, step: 1 },
+        { id: 'drone',          type: 'bool',   label: 'Sun drone',                        key: 'k' },
+        { id: 'follow_clock',   type: 'bool',   label: 'Follow MIDI clock',                key: 'y' },
+        { id: 'mute1',          type: 'bool',   label: 'Mute channel 1 (the Sun)',         key: '1' },
+        { id: 'mute2',          type: 'bool',   label: 'Mute channel 2 (union)',           key: '2' },
+        { id: 'mute3',          type: 'bool',   label: 'Mute channel 3 (harmony)',         key: '3' },
+        { id: 'mute4',          type: 'bool',   label: 'Mute channel 4 (tension)',         key: '4' },
+    ], actions: [
+        { id: 'tap',    label: 'Tap tempo',  key: 't' },
+        { id: 'slower', label: 'Slower',     key: ';' },
+        { id: 'faster', label: 'Faster',     key: "'" },
+        { id: 'now',    label: 'Now',        key: 'n' },
+        { id: 'panic',  label: 'Silence',    key: 'p' },
+    ]},
+];
+
+const astros_option_list = ASTROS_OPTIONS.flatMap(g => g.items);
+
+function astros_options_html() {
+    return ASTROS_OPTIONS.map(g => `
+                <div class="observer_group options_group">
+                    <h3>${g.group}</h3>
+                    ${g.items.map(o => {
+                        const hint = `<span class="key-hint">${o.key}</span>`;
+                        if (o.type === 'bool')
+                            return `<div class="option-row"><label for="opt_${o.id}">${o.label} ${hint}</label><input type="checkbox" id="opt_${o.id}" name="${o.id}" data-option="${o.id}" /></div>`;
+                        if (o.type === 'select')
+                            return `<div class="option-row"><label for="opt_${o.id}">${o.label} ${hint}</label><select id="opt_${o.id}" name="${o.id}" data-option="${o.id}">${o.options.map(v => `<option value="${v[0]}">${v[1]}</option>`).join('')}</select></div>`;
+                        return `<div class="option-row"><label for="opt_${o.id}">${o.label} ${hint}</label><input type="number" id="opt_${o.id}" name="${o.id}" data-option="${o.id}" min="${o.min}" max="${o.max}" step="any" /></div>`;
+                    }).join('')}
+                    ${g.actions ? `<div class="option-actions">${g.actions.map(a => `<button type="button" class="action-button" data-action="${a.id}" title="key ${a.key}">${a.label}</button>`).join('')}</div>` : ''}
+                </div>`).join('');
+}
+
 class OverlayControls extends HTMLElement {
     constructor() {
       super();
@@ -20,6 +78,7 @@ class OverlayControls extends HTMLElement {
             </svg>`;
 
         settingsButton.title = 'Settings';
+        this.settingsButton = settingsButton;
         settingsButton.onclick = () => this.toggle_settings();
   
         // Add styles
@@ -57,11 +116,11 @@ class OverlayControls extends HTMLElement {
                     <div class="form-group" id="location">
                         <div class="form-group">
                             <label for="lat">Latitude:</label>
-                            <input type="number" id="lat" name="lat" step="0.0001" required />
+                            <input type="number" id="lat" name="lat" step="0.0001" />
                         </div>
                         <div class="form-group">
                             <label for="lng">Longitude:</label>
-                            <input type="number" id="lng" name="lng" step="0.0001" required />
+                            <input type="number" id="lng" name="lng" step="0.0001" />
                         </div>
                     </div>
                             
@@ -92,33 +151,7 @@ class OverlayControls extends HTMLElement {
                     </div>
                 </div>
   
-                <div class="display_group">
-                    <h3>Display</h3>
-
-                    <div class="form-group toggle-group">
-                        <label for="toggle_ui">UI Labels</label>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="toggle_ui" name="toggle_ui" />
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="form-group toggle-group">
-                        <label for="toggle_degrees">Degrees</label>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="toggle_degrees" name="toggle_degrees" />
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-
-                    <div class="form-group toggle-group">
-                        <label for="toggle_horizon">Horizon</label>
-                        <label class="toggle-switch">
-                            <input type="checkbox" id="toggle_horizon" name="toggle_horizon" />
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                </div>
+                ${astros_options_html()}
 
                 <button type="submit" class="submit-button">Apply Settings</button>
             </form>
@@ -143,12 +176,25 @@ class OverlayControls extends HTMLElement {
             if (!window.Module)
                 return;
 
+            // a key / command line switch of the app (Display, Sound)
+            if (field.dataset.option) {
+                if (window.Module.setOption) {
+                    const v = field.type === 'checkbox' ? (field.checked ? 1 : 0) : parseFloat(field.value);
+                    if (!isNaN(v))
+                        window.Module.setOption(field.dataset.option, v);
+                    // some switches move others (the reading stops, a mode starts): show what the app says now
+                    if (field.dataset.option === 'mode' || field.dataset.option === 'play')
+                        this.sync_options();
+                }
+                return;
+            }
+
             switch (field.id) {
                 case 'lat':
                 case 'lng':
                     const lat = parseFloat(settingsPanel.querySelector('#lat').value);
                     const lng = parseFloat(settingsPanel.querySelector('#lng').value);
-                    if (lat && lng) {
+                    if (Number.isFinite(lat) && Number.isFinite(lng)) {
                         window.Module.setLocation(lat, lng);
                     }
                     break;
@@ -168,32 +214,6 @@ class OverlayControls extends HTMLElement {
                     }
                     break;
 
-                case 'utc_year':
-                case 'utc_month':
-                case 'utc_day':
-                case 'utc_hr':
-                case 'utc_min':
-                    const utc_year = parseInt(settingsPanel.querySelector('#utc_year').value);
-                    const utc_month = parseInt(settingsPanel.querySelector('#utc_month').value);
-                    const utc_day = parseInt(settingsPanel.querySelector('#utc_day').value);
-                    const utc_hr = parseInt(settingsPanel.querySelector('#utc_hr').value);
-                    const utc_min = parseInt(settingsPanel.querySelector('#utc_min').value);
-                    if (utc_year && utc_month && utc_day && utc_hr >= 0 && utc_min >= 0) {
-                        window.Module.setUTCTime(utc_year, utc_month, utc_day, utc_hr, utc_min);
-                    }
-                    break;
-
-                case 'toggle_ui':
-                    window.Module.setUi(field.checked ? 1 : 0);
-                    break;
-
-                case 'toggle_degrees':
-                    window.Module.setDegrees(field.checked ? 1 : 0);
-                    break;
-
-                case 'toggle_horizon':
-                    window.Module.setHorizon(field.checked ? 1 : 0);
-                    break;
             }
         }
 
@@ -215,22 +235,25 @@ class OverlayControls extends HTMLElement {
             });
         });
 
+        settingsPanel.querySelectorAll('[data-action]').forEach(button => {
+            button.addEventListener('click', () => {
+                if (window.Module && window.Module.doAction)
+                    window.Module.doAction(button.dataset.action);
+                setTimeout(() => this.sync_options(), 100);      // tempo, the reading ... may have moved
+            });
+        });
+
         // Handle form submission
         settingsPanel.querySelector('#settings-form').addEventListener('submit', (e) => {
             e.preventDefault();
             const formData = new FormData(e.target);
-            const params = new URLSearchParams();
+            const params = new URLSearchParams(window.location.search);     // keeps what the panel does not own (?midi=...)
 
             // Add location params
             if (formData.get('lat') && formData.get('lng')) {
                 params.set('lat', formData.get('lat'));
                 params.set('lng', formData.get('lng'));
             }
-
-            // Add display toggle params
-            params.set('ui', formData.get('toggle_ui') ? '1' : '0');
-            params.set('degrees', formData.get('toggle_degrees') ? '1' : '0');
-            params.set('horizon', formData.get('toggle_horizon') ? '1' : '0');
 
             // Add local time params
             params.set('local_year', formData.get('local_year'));
@@ -239,17 +262,12 @@ class OverlayControls extends HTMLElement {
             params.set('local_hr', formData.get('local_hr'));
             params.set('local_min', formData.get('local_min'));
 
-            // Add UTC time params
-            params.set('utc_year', formData.get('utc_year'));
-            params.set('utc_month', formData.get('utc_month'));
-            params.set('utc_day', formData.get('utc_day'));
-            params.set('utc_hr', formData.get('utc_hr'));
-            params.set('utc_min', formData.get('utc_min'));
-
-            const wrapper = document.getElementById('wrapper');
-            if (wrapper && wrapper.classList.contains('fullscreen')) {
-                params.set('fullscreen', 'true');
-            }
+            // Add the display and sound switches (the same names as the URL reads back)
+            astros_option_list.forEach(o => {
+                const field = settingsPanel.querySelector('#opt_' + o.id);
+                if (field)
+                    params.set(o.id, o.type === 'bool' ? (field.checked ? '1' : '0') : field.value);
+            });
 
             // Update URL and reload page
             window.location.search = params.toString();
@@ -261,9 +279,38 @@ class OverlayControls extends HTMLElement {
         this.load_params_from_url();
     }
   
+    // Shows the app's current state in the Display and Sound controls (the keys change it too).
+    sync_options() {
+        if (!window.module_loaded || !window.Module || !window.Module.getOption || !this.settingsPanel)
+            return;
+        astros_option_list.forEach(o => {
+            const field = this.settingsPanel.querySelector('#opt_' + o.id);
+            if (!field)
+                return;
+            const v = window.Module.getOption(o.id);
+            if (o.type === 'bool')
+                field.checked = v > 0.5;
+            else if (o.type === 'select') {
+                let best = field.options[0], bestD = Infinity;
+                for (const opt of field.options) {
+                    const d = Math.abs(parseFloat(opt.value) - v);
+                    if (d < bestD) { bestD = d; best = opt; }
+                }
+                field.value = best.value;
+            }
+            else if (document.activeElement !== field && this.shadowRoot.activeElement !== field)
+                field.value = Math.round(v * 10) / 10;
+        });
+    }
+
     toggle_settings() {
         this.showSettings = !this.showSettings;
         this.settingsPanel.style.right = this.showSettings ? '0' : '-150%';
+        // the gear gives way to the panel (its own × closes it) and comes back with it closed
+        if (this.settingsButton)
+            this.settingsButton.style.display = this.showSettings ? 'none' : '';
+        if (this.showSettings)
+            this.sync_options();        // the keys may have changed things since it was last open
 
         this.handleFocus();
     }
@@ -332,39 +379,24 @@ class OverlayControls extends HTMLElement {
             window.Module.setLocalTime(local_year, local_month, local_day, local_hr, local_min);
         }
 
-        // Load UTC time (only if provided in URL params)
-        if (params.has('utc_year')) {
-            const utc_year = parseInt(params.get('utc_year'));
-            const utc_month = parseInt(params.get('utc_month'));
-            const utc_day = parseInt(params.get('utc_day'));
-            const utc_hr = parseInt(params.get('utc_hr'));
-            const utc_min = parseInt(params.get('utc_min'));
-            
-            this.settingsPanel.querySelector('#utc_year').value = utc_year;
-            this.settingsPanel.querySelector('#utc_month').value = utc_month;
-            this.settingsPanel.querySelector('#utc_day').value = utc_day;
-            this.settingsPanel.querySelector('#utc_hr').value = utc_hr;
-            this.settingsPanel.querySelector('#utc_min').value = utc_min;
-            
-            window.Module.setUTCTime(utc_year, utc_month, utc_day, utc_hr, utc_min);
-        }
-
-        // Load display toggles from URL params
-        if (params.has('ui')) {
-            const val = params.get('ui') === '1';
-            this.settingsPanel.querySelector('#toggle_ui').checked = val;
-            window.Module.setUi(val ? 1 : 0);
-        }
-        if (params.has('degrees')) {
-            const val = params.get('degrees') === '1';
-            this.settingsPanel.querySelector('#toggle_degrees').checked = val;
-            window.Module.setDegrees(val ? 1 : 0);
-        }
-        if (params.has('horizon')) {
-            const val = params.get('horizon') === '1';
-            this.settingsPanel.querySelector('#toggle_horizon').checked = val;
-            window.Module.setHorizon(val ? 1 : 0);
-        }
+        // The display and sound switches from the URL (?ui=1&mode=chord&gi=cascades&tempo=96&mute3=1), as the command line would
+        astros_option_list.forEach(o => {
+            if (!params.has(o.id))
+                return;
+            const raw = params.get(o.id).toLowerCase();
+            let v;
+            if (o.names && raw in o.names)
+                v = o.names[raw];
+            else if (raw === 'true' || raw === 'on')
+                v = 1;
+            else if (raw === 'false' || raw === 'off')
+                v = 0;
+            else
+                v = parseFloat(raw);
+            if (!isNaN(v))
+                window.Module.setOption(o.id, v);
+        });
+        this.sync_options();
 
         // Initialize city autocomplete
         fetch('cities.zip')
@@ -582,7 +614,7 @@ a {
 .observer_group {
     margin-top: 20px;
     padding: 15px;
-    background: rgba(36, 67, 79, 0.88);
+    background: rgba(30, 30, 30, 1.0);
     border-radius: 8px;
 }
 
@@ -594,6 +626,71 @@ a {
 
 .form-group {
     margin-bottom: 15px;
+}
+
+.option-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.option-row label {
+    flex: 1;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.option-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #8ec5d6;
+}
+
+.option-row select,
+.option-row input[type="number"] {
+    width: 45%;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.option-row select option {
+    color: black;
+}
+
+.key-hint {
+    margin-left: 4px;
+    padding: 0 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.option-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.action-button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.action-button:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .form-group label {
@@ -609,7 +706,7 @@ a {
     width: 97%;
     padding: 4px;
     border-radius: 4px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     -webkit-tap-highlight-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.1);
@@ -654,11 +751,11 @@ a {
 .submit-button {
     width: 100%;
     padding: 10px;
-    background: #4CAF50;
+    background: #000000;
     color: white;
     border: none;
     border-radius: 4px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
     margin-top: 20px;
     transition: background-color 0.3s;
@@ -719,69 +816,6 @@ a {
 
 .autocomplete-suggestion:hover {
     background: rgba(255, 255, 255, 0.1);
-}
-
-.display_group {
-    margin-top: 20px;
-    padding: 15px;
-    background: rgba(36, 67, 79, 0.88);
-    border-radius: 8px;
-}
-
-.display_group h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.toggle-group {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.toggle-switch {
-    position: relative;
-    display: inline-block;
-    width: 44px;
-    height: 24px;
-    flex-shrink: 0;
-}
-
-.toggle-switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.toggle-slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(255,255,255,0.2);
-    border-radius: 24px;
-    transition: background-color 0.2s;
-}
-
-.toggle-slider:before {
-    position: absolute;
-    content: "";
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
-    background-color: white;
-    border-radius: 50%;
-    transition: transform 0.2s;
-}
-
-.toggle-switch input:checked + .toggle-slider {
-    background-color: #4CAF50;
-}
-
-.toggle-switch input:checked + .toggle-slider:before {
-    transform: translateX(20px);
 }
 `;
   

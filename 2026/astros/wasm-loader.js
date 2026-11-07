@@ -148,18 +148,11 @@ class WasmLoader extends HTMLElement {
                 window.Module.setLocation =   window.Module.cwrap('setLocation', 'void', ['number', 'number']);
                 window.Module.setLocalTime =    window.Module.cwrap('setLocalTime', 'void', [ 'number', 'number', 'number', 'number', 'number']);
                 window.Module.setUTCTime =    window.Module.cwrap('setUTCTime', 'void', [ 'number', 'number', 'number', 'number', 'number']);
-                window.Module.setNow =         window.Module.cwrap('setNow', 'void', ['number']);
-                window.Module.setUi =          window.Module.cwrap('setUi', 'void', ['number']);
-                window.Module.setDegrees =     window.Module.cwrap('setDegrees', 'void', ['number']);
-                window.Module.setHorizon =     window.Module.cwrap('setHorizon', 'void', ['number']);
+                // the keys and command line switches by name (MainApp::setOption): the settings panel's Display and Sound
+                window.Module.setOption =     window.Module.cwrap('setOption', 'void', ['string', 'number']);
+                window.Module.getOption =     window.Module.cwrap('getOption', 'number', ['string']);
+                window.Module.doAction =      window.Module.cwrap('doAction', 'void', ['string']);
                 window.module_loaded = true;
-
-                navigator.geolocation.getCurrentPosition((position) => {
-                    let lat = position.coords.latitude;
-                    let long = position.coords.longitude;
-                    window.Module.setLocation(lat, long);
-                    console.log('WASM Location set to', lat, long);
-                });
             },
 
             print: function(text) {

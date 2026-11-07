@@ -7,6 +7,7 @@
     include("../../server/header.php");?>
         <?php include("../../server/menu.php");?>
         <link rel="stylesheet" href="style.css" type="text/css" />
+        <script src="midi.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
@@ -36,6 +37,7 @@
 			include("../../server/ParsedownExtended.php");
 			$Parsedown = new ParsedownExtended();
 			echo $Parsedown->text(file_get_contents ('README.md'));
+            echo $Parsedown->text(file_get_contents ('connect.md'));
 			?>
 
             <!-- <script src="https://fast.wistia.com/player.js" async></script>
