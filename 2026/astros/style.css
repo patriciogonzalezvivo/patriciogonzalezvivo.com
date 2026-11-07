@@ -32,3 +32,22 @@
 }
 
 #resize-btn:hover { background: rgba(0,0,0,0.8); }
+
+/* The canvas keeps its alpha: whatever the app leaves translucent shows what is behind it. In fullscreen that is always solid black,
+   never the page (the body is still fading from white when the button is pressed), for the page's button and the browser's Fullscreen API. */
+#wrapper.fullscreen,
+#wrapper.fullscreen canvas.emscripten {
+    background-color: #000;
+}
+
+canvas.emscripten:fullscreen {
+    background-color: #000;
+}
+
+canvas.emscripten:-webkit-full-screen {
+    background-color: #000;
+}
+
+canvas.emscripten::backdrop {
+    background-color: #000;
+}

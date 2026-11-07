@@ -614,7 +614,7 @@ a {
 .observer_group {
     margin-top: 20px;
     padding: 15px;
-    background: rgba(30, 30, 30, 1.0);
+    background: rgba(36, 67, 79, 0.88);
     border-radius: 8px;
 }
 
@@ -751,7 +751,7 @@ a {
 .submit-button {
     width: 100%;
     padding: 10px;
-    background: #000000;
+    background: #4CAF50;
     color: white;
     border: none;
     border-radius: 4px;

@@ -1,6 +1,29 @@
 import './overlay-controls.js'; 
 import './wasm-loader.js';
 
+// The right button plays the header (the app reads window.AstrosPointer.right every frame). It counts when it went down on the chart
+// (the canvas or the layers around it), not on the settings panel or the page's buttons, and it lets go when the button comes up
+// anywhere, on window blur, or when a move arrives with the button no longer held. Check it in the console: AstrosPointer.right.
+window.AstrosPointer = { right: false };
+(function () {
+    const pointer = window.AstrosPointer;
+    const onChart = (e) => {
+        const path = e.composedPath ? e.composedPath() : [e.target];
+        for (const n of path) {
+            if (n === window.Module?.canvas || n.id === 'canvas' || n.id === 'wrapper') return true;
+            if (n.tagName === 'OVERLAY-CONTROLS' || n.id === 'ui' || n.tagName === 'BUTTON' || n.tagName === 'INPUT' || n.tagName === 'SELECT') return false;
+        }
+        return e.target === document.body || e.target === document.documentElement;
+    };
+    window.addEventListener('mousedown', (e) => { if (e.button === 2 && onChart(e)) pointer.right = true; }, true);
+    window.addEventListener('pointerdown', (e) => { if (e.button === 2 && e.pointerType === 'mouse' && onChart(e)) pointer.right = true; }, true);
+    window.addEventListener('mouseup', (e) => { if (e.button === 2) pointer.right = false; }, true);
+    window.addEventListener('pointerup', (e) => { if (e.button === 2) pointer.right = false; }, true);
+    window.addEventListener('mousemove', (e) => { if (pointer.right && !(e.buttons & 2)) pointer.right = false; }, true);
+    window.addEventListener('blur', () => { pointer.right = false; });
+    window.addEventListener('contextmenu', (e) => { if (onChart(e)) e.preventDefault(); }, true);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('resize-btn');
     if (!btn) return;
