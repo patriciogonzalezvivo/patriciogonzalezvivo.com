@@ -110,12 +110,19 @@ def generate_from_template(
         for_name=artist.get('for', None),
     )
     if label_pdf:
+        web = artist.get('website', '')
+        web_url = artist.get('website_url', f'https://{web}' if web else '')
         label_page_latex = (
             "\\thispagestyle{empty}\n"
             "\\begin{tikzpicture}[overlay, remember picture]\n"
             "  \\node[anchor=center] at (current page.center) {%\n"
             f"    \\includegraphics[width=\\paperwidth,height=\\paperheight]{{{label_pdf}}}%\n"
             "  };\n"
+            # Clickable hyperlink over the "Web" text baked into the label
+            # (label SVG: text at x≈196mm, y≈183.5mm from top, ~40 x 5.5 mm).
+            f"  \\node[anchor=north west, inner sep=0pt, xshift=196mm, yshift=-183.5mm]\n"
+            f"    at (current page.north west)\n"
+            f"    {{\\href{{{web_url}}}{{\\rule{{0pt}}{{5.5mm}}\\hspace{{40mm}}}}}};\n"
             "\\end{tikzpicture}\n"
             "\\clearpage"
         )

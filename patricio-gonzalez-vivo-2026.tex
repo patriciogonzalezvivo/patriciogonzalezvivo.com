@@ -12,12 +12,12 @@
 % Compile with xelatex (required for fontspec).
 % =========================================================
 
-\documentclass[12pt]{article}
+\documentclass[11pt]{article}
 
 % ---------------------------------------------------------
 % PAGE LAYOUT
 % ---------------------------------------------------------
-\usepackage[a4paper, landscape, margin=0.8in, headheight=22pt, headsep=14pt]{geometry}
+\usepackage[a4paper, landscape, margin=0.8in, headheight=18pt, headsep=12pt]{geometry}
 
 % ---------------------------------------------------------
 % PACKAGES
@@ -144,6 +144,9 @@ Dimensions: & #5 \\
   \node[anchor=center] at (current page.center) {%
     \includegraphics[width=\paperwidth,height=\paperheight]{portfolio/label_output.pdf}%
   };
+  \node[anchor=north west, inner sep=0pt, xshift=196mm, yshift=-183.5mm]
+    at (current page.north west)
+    {\href{https://patriciogonzalezvivo.com}{\rule{0pt}{5.5mm}\hspace{40mm}}};
 \end{tikzpicture}
 \clearpage
 
@@ -173,12 +176,14 @@ Dimensions: & #5 \\
 % \clearpage
 
 \markright{Bio}
-\textbf{Patricio Gonzalez Vivo} (b. 1982, Buenos Aires) is a multidisciplinary artist working across traditional and digital media. He explores awareness, perception, and self-discovery through motifs such as celestial artifacts, esoteric symbolism, and temporal cartographies. His work weaves together the poetic and the procedural, revealing hidden structures behind the ways we measure and make sense of the world.
+\textbf{Patricio González Vivo} (b. 1982, Buenos Aires) is a multidisciplinary artist with a research-driven practice that explores the edges of core human experiences such as memory, awareness, and self-expression. By combining expressive mediums, both analog and digital, his work attempts to bridge languages and ways of knowing.
 
-\begin{wrapfigure}{r}{0.40\textwidth}
+His two main mediums are shader code and oil paint. Shader code is a computational language for programming the behavior of light and physics, letting him build real-time simulations that keep changing and responding as someone interacts with them. Oil paint, by contrast, is an old and demanding medium that has given generations of artists an expressive range nothing else has matched.
+
+\begin{wrapfigure}{r}{\dimexpr 0.28\textwidth + 1cm\relax}
 \vspace{-\intextsep}
-\href{https://patriciogonzalezvivo.com/2011/efectomariposa/}{\includegraphics[width=\linewidth,keepaspectratio]{2011/efectomariposa/images/12.jpg}}
-\par\vspace{0.4em}
+\hspace{1cm}\href{https://patriciogonzalezvivo.com/2011/efectomariposa/}{\includegraphics[width=\dimexpr\linewidth - 1cm\relax,keepaspectratio]{2011/efectomariposa/images/12.jpg}}
+\par\vspace{0.1em}
 {\small \raggedleft
 \textbf{Efecto Mariposa}, 2011 \\
 FILE Festival, São Paulo
@@ -187,55 +192,220 @@ FILE Festival, São Paulo
 \end{wrapfigure}
 
 
-Originally trained in clinical psychology and expressive arts therapy, Patricio's early works centered on participatory installations designed to foster the experience of collective co-creation. One of his first major work, \href{https://patriciogonzalezvivo.com/2010/communitas/}{\textbf{Communitas (2010)}}, invited visitors to collaboratively construct a shared image through mutual observation and gesture. His first international breakthrough, \href{https://patriciogonzalezvivo.com/2011/efectomariposa/}{\textbf{Efecto Mariposa (2011)}}, was an ash-based installation that simulated an interactive ecosystem in which visitors experienced the cascading consequences of their actions. These projects examined the tensions between chaos and order, the individual, and the collective, the ephemeral, and the enduring.
+Originally trained in clinical psychology and arts therapy, his early interactive installations in Buenos Aires explored how collective gestures create shared meaning. That work led to his first international exhibition, at \textbf{FILE Festival} São Paulo, and to an MFA at \textbf{Parsons School of Design} in New York, where his thesis introduced him to the drawing machines that anchor his practice today: custom plotters that translate perception into material trace.
 
-In 2012, he relocated to the United States to pursue an MFA in Design \& Technology at Parsons School of Design. During this period, his practice shifted toward the construction of algorithmic tools and custom creative systems like: \href{https://www.patriciogonzalezvivo.com/2014/skylines/skylines.php?v=01}{\textbf{drawing machines}}, \href{https://patriciogonzalezvivo.com/tools.php}{\textbf{live-coding environments, open-source libraries}}, some of which are still the buildings blocks of his practice. Since 2017, he has expanded this research through the creation of his own astronomical instruments, exploring the relationship between inner experience and the cosmos through scale, time, and presence.
+Alongside his studio work, an ongoing commitment to open pedagogy led him to author the \href{https://thebookofshaders.com/}{\textbf{Book of Shaders}}, now a foundational resource for learning GLSL and shader programming used by artists and educators worldwide who work with computational art. In addition to his current career as a digital toolmaker, that same commitment has taken him into classrooms at \textbf{Parsons School of Design}'s graduate program, \textbf{ITP NYU}, and the \textbf{School for Poetic Computation}, and most recently into mentoring the \textbf{Processing Foundation}'s Lead Developer and serving as a dedicated mentor at \textbf{NEW INC}. He has also been invited to give talks for \textbf{STUDIO for Creative Inquiry} at \textbf{Carnegie Mellon University} and \textbf{Future Sketches} at the \textbf{MIT Media Lab}.
 
-In more recent years, and particularly in response to the proliferation of machine-generated imagery, Patricio has returned to traditional oil painting, not as a rejection of technology, but as a way of insisting on something machines cannot replicate: the slow accumulation of attention, the risk of failure, the presence of a body in time. For Patricio, human intelligence is fundamentally embodied, it emerges through sensation, intuition, and lived experience, and this conviction shapes every dimension of his practice. 
-
-\begin{wrapfigure}{l}{0.40\textwidth}
-\vspace{-\intextsep}
-\href{https://pixelspiritdeck.com}{\includegraphics[width=\linewidth,keepaspectratio]{2017/pixelspirit/images/22383968_1665365133488191_5147193364633286006_o.jpg}}
-\par\vspace{0.4em}
-{\small \raggedright
-\textbf{Pixel Spirit}, 2017 \\
-Tarot Deck, 50 cards, 4.75 x 2.5 inches each
-\par}
-\vspace{-\intextsep}
-\end{wrapfigure}
+His work has been exhibited internationally at \textbf{Espacio Fundación Telefónica} in Buenos Aires, \textbf{FlyingTokyo} in Japan, the \textbf{Museum of Moving Image} in Queens, \textbf{EYEO} in Minneapolis, \textbf{Resonate} in Belgrade, \textbf{BrightMoments} in Buenos Aires, \textbf{FILE Festival} in São Paulo, Rio de Janeiro, and Petrópolis.
 
 
-A defining commitment of Patricio's work is open dissemination. He develops and releases open-source libraries and platforms that expand the possibilities of digital art, positioning software as both a medium for knowledge and for expression. His influential \href{https://thebookofshaders.com/}{\textbf{Book of Shaders (2015)}} become a foundational resource for digital artists working. Similarly his \href{https://patriciogonzalezvivo.com/www.pixelspiritdeck.com}{\textbf{PixelSpirit tarot Deck (2017)}}, which bridges the ancient divination system with shader programming, it's another education tool that bridges the poetic nature of code with esoteric knowledge. Patricio also shares openly his digital building blocks in the form of libraries such as \href{https://github.com/patriciogonzalezvivo/lygia}{\textbf{Lygia}}, \href{https://github.com/patriciogonzalezvivo/vera}{\textbf{Vera}}, \href{https://github.com/patriciogonzalezvivo/berthe}{\textbf{Berthe}}, and \href{https://github.com/patriciogonzalezvivo/hypatia}{\textbf{Hypatia}}, which are ongoing as instruments for creative exploration. For the artist, this open sharing is not ancillary to the work, it is itself a form of authorship and cultural contribution.
-
-His work has been exhibited and presented internationally at platforms such as \href{http://eyeofestival.com/}{\textbf{EYEO}}, \href{http://resonate.io/}{\textbf{Resonate}}, \href{https://www.grow.paris/}{\textbf{GROW}}, \href{http://file.org.br/}{\textbf{FILE}}, \href{http://espacio.fundaciontelefonica.com/}{\textbf{Espacio Fundación Telefónica}}, \href{https://www.brightmoments.io/}{\textbf{BrightMoments}}, \href{https://youtu.be/aIjeF9QgH-Q}{\textbf{FlyingTokyo}}, \href{https://www.dotdotdot.it/conn/graphics-machine-learning-patricio.php}{\textbf{DotDotDot}} and \href{http://encuentrofase.com.ar/}{\textbf{FASE}}. He has delivered talks and lectures at institutions including the \href{https://www.media.mit.edu/}{\textbf{MIT Media Lab}}, \href{https://www.cmu.edu/cfa/studio/}{\textbf{Carnegie Mellon University, Frank-Ratchye Studio for Creative Inquiry}} and Politecnico di Milano. He has taught at \href{http://www.newschool.edu/parsons/mfa-design-technology/}{\textbf{Parsons School of Design}}, \href{http://tisch.nyu.edu/itp}{\textbf{ITP NYU}}, \href{http://sfpc.io/}{\textbf{SFPC (School for Poetic Computation)}}, and the Instituto Universitario Nacional de Arte in Argentina.
-\vspace{3em}
+\ifdim\dimexpr\pagegoal-\pagetotal\relax > 3.5cm
 \begin{center}
 \includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}
 \end{center}
-
-
-\clearpage
-
-\markright{Artist Statement}
-
-\section*{Artist Statement}
-
-For years I built computational systems: drawing machines, generative software, real-time tools that translate structure into image. Now I am also a painter. These are not two practices in conflict — they are two ways of asking the same questions about memory, perception, and what it means to look at another person or place with genuine attention.
-
-My hybrid paintings begin with custom software: a computer vision program analyzes a portrait and translates its structure into vector paths, which a plotter draws onto a primed canvas. What the machine produces is accurate but incomplete — a skeleton, waiting. Then I return with oil and brush. Freed from measurement, I can enter the painting as a space to inhabit rather than to describe. The scaffold is given; the presence is earned.
-
-The same investigation runs through my software works. \textit{Weaver} maps two observers' night skies onto each other to find the stars they hold in common. \textit{BLINK} translates the Baroque vanitas — the soap bubble as memento mori — into a real-time system at planetary scale. These works are not illustrations of ideas. They are systems built to produce a specific kind of encounter: an experience of time, scale, or connection that would not exist otherwise.
-
-What holds across all of it is a single conviction: that intelligence is embodied, that attention is a material, and that making something slowly — with a brush, with code, with a hand-built machine — remains a meaningful act of care.
+\fi
 
 
 
-\clearpage
 
 % ---------------------------------------------------------
 % SELECTED WORKS
 % ---------------------------------------------------------
 % \section*{Selected Works}
+
+\clearpage
+\markright{\href{https://patriciogonzalezvivo.com/2026/medium/}{Medium Studies}, 2026}
+\noindent{\Large\textbf{\href{https://patriciogonzalezvivo.com/2026/medium/}{Medium Studies}}}\hfill{\large \href{https://patriciogonzalezvivo.com/2026/}{\textcolor{red}{2026}}}
+
+\begin{wrapfigure}{r}{0.40\textwidth}
+\vspace{-\intextsep}
+\noindent\hfill \href{https://patriciogonzalezvivo.com/2026/medium/}{\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{2026/medium/thumbnail.jpg}}
+\vspace{-\intextsep}
+\end{wrapfigure}
+These are oil portraits extended into living images which hold the elusive essence of singularity. This dual nature has let me explore what is deliberate and what is unconscious. Pigments and pixels. Code and brushstrokes. Subjective and objective.
+
+Each digital portrait is first the material trace of an intimate dialog, and then, when animated, into a recurring reenactment of the psychological exercise of recognition.
+
+I noticed after the fact that most of the sitters I have chosen are men. I came to understand this bias as a reflection of my interest in the construction of masculinity. How can we depict male identity in a decade that shows its crisis so shamelessly? What is being shaped from its pieces? What needs to be preserved? What needs to be transformed? And what needs to be shed?
+
+The portraits hold all these questions open by refusing to settle on an answer.
+
+\ifdim\dimexpr\pagegoal-\pagetotal\relax > 3.5cm
+\begin{center}
+\includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}
+\end{center}
+\fi
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__05e14f4dd67655eabfe72d9f531f36f8__splat_strokes_fill2_t12.70_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__05e14f4dd67655eabfe72d9f531f36f8__splat_strokes_fill2_t12.70_2480x3508.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__06d9122360608c8fb5b7fa8373c74e86__splat_strokes_paint_rt_t2.62_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__06d9122360608c8fb5b7fa8373c74e86__splat_strokes_paint_rt_t2.62_2480x3508.jpg}}
+\end{minipage}
+
+\vspace{0.6em}
+\noindent
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+\textit{Digital No. 12} (2026), \textit{Digital No. 1} (2025)\\
+Oil on digital Canvas\\
+Variable dimensions
+\end{tabular}}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__2212d8cc710620d64f6a5efd494eed27__splat_strokes_paint_t4.65_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__2212d8cc710620d64f6a5efd494eed27__splat_strokes_paint_t4.65_2480x3508.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__22bb3f9d1ad87946917f647a120eb440__splat_strokes_disolve_t6.23_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__22bb3f9d1ad87946917f647a120eb440__splat_strokes_disolve_t6.23_2480x3508.jpg}}
+\end{minipage}
+
+\vspace{0.6em}
+\noindent
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+\textit{Digital No. 4} (2025), \textit{Digital No. 9} (2025)\\
+Oil on digital Canvas\\
+Variable dimensions
+\end{tabular}}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__303ddbc50da6b3bc0b69c12c4c5300b3__splat_strokes_fill2_t12.84_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__303ddbc50da6b3bc0b69c12c4c5300b3__splat_strokes_fill2_t12.84_2480x3508.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__354728908173446889__splat_strokes_solvent_t14.91_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__354728908173446889__splat_strokes_solvent_t14.91_2480x3508.jpg}}
+\end{minipage}
+
+\vspace{0.6em}
+\noindent
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+\textit{Digital No. 10} (2024), \textit{Digital No. 15} (2026)\\
+Oil on digital Canvas\\
+Variable dimensions
+\end{tabular}}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__3cc876bb65e2756936596b6aa8507089__splat_strokes_solvent_t15.32_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__3cc876bb65e2756936596b6aa8507089__splat_strokes_solvent_t15.32_2480x3508.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__43fd8e2c47a0c738811eea8888d16af8_fit__splat_strokes_fluid2_t64.43_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__43fd8e2c47a0c738811eea8888d16af8_fit__splat_strokes_fluid2_t64.43_2480x3508.jpg}}
+\end{minipage}
+
+\vspace{0.6em}
+\noindent
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+\textit{Digital No. 2} (2025), \textit{Digital No. 18} (2026)\\
+Oil on digital Canvas\\
+Variable dimensions
+\end{tabular}}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__49471902089a08ff21404df3ca673911_fit__splat_strokes_solvent_t27.09_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__49471902089a08ff21404df3ca673911_fit__splat_strokes_solvent_t27.09_2480x3508.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__54ccdf5131f483e3874487ff28fd6119_fit__splat_strokes_paint_t2.56_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__54ccdf5131f483e3874487ff28fd6119_fit__splat_strokes_paint_t2.56_2480x3508.jpg}}
+\end{minipage}
+
+\vspace{0.6em}
+\noindent
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+\textit{Digital No. 19} (2026), \textit{Digital No. 20} (2026)\\
+Oil on digital Canvas\\
+Variable dimensions
+\end{tabular}}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__58f0e97c08629d737649e8c90338e9c9_fit__splat_strokes_fill2_t60.39_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__58f0e97c08629d737649e8c90338e9c9_fit__splat_strokes_fill2_t60.39_2480x3508.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__63c2363ef8e1133b8313c1172a518dde_fit__splat_strokes_paint2_rt_t2.95_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__63c2363ef8e1133b8313c1172a518dde_fit__splat_strokes_paint2_rt_t2.95_2480x3508.jpg}}
+\end{minipage}
+
+\vspace{0.6em}
+\noindent
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+\textit{Digital No. 6} (2026), \textit{Digital No. 21} (2026)\\
+Oil on digital Canvas\\
+Variable dimensions
+\end{tabular}}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__ac1c4534a9c444ca626a0180c30348a4__splat_strokes_fill2_t14.57_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__ac1c4534a9c444ca626a0180c30348a4__splat_strokes_fill2_t14.57_2480x3508.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__b9e4b33399ba7602a648f0dbc8f1abc1__splat_strokes_solvent_t12.89_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__b9e4b33399ba7602a648f0dbc8f1abc1__splat_strokes_solvent_t12.89_2480x3508.jpg}}
+\end{minipage}
+
+\vspace{0.6em}
+\noindent
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+\textit{Digital No. 5} (2025), \textit{Digital No. 7} (2025)\\
+Oil on digital Canvas\\
+Variable dimensions
+\end{tabular}}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__e5d7e5beb8fb068932ee20e6b436f231_fit__splat_strokes_fluid2_t6.28_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__e5d7e5beb8fb068932ee20e6b436f231_fit__splat_strokes_fluid2_t6.28_2480x3508.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__eb1ab75d654051126f5bf5f4841ed66d__splat_strokes_fill2_t12.60_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__eb1ab75d654051126f5bf5f4841ed66d__splat_strokes_fill2_t12.60_2480x3508.jpg}}
+\end{minipage}
+
+\vspace{0.6em}
+\noindent
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+\textit{Digital No. 23} (2026), \textit{Digital No. 8} (2025)\\
+Oil on digital Canvas\\
+Variable dimensions
+\end{tabular}}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__fa3d64d246f1fc64a74ed15a2ccb59cb_fit__splat_strokes_disolve_t8.15_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__fa3d64d246f1fc64a74ed15a2ccb59cb_fit__splat_strokes_disolve_t8.15_2480x3508.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__okeeffe_001_fit__splat_strokes_fill2_t27.17_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__okeeffe_001_fit__splat_strokes_fill2_t27.17_2480x3508.jpg}}
+\end{minipage}
+
+\vspace{0.6em}
+\noindent
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+\textit{Digital No. 11} (2024), \textit{Digital No. 3} (2026)\\
+Oil on digital Canvas\\
+Variable dimensions
+\end{tabular}}
+}%
 
 \clearpage
 \markright{\href{https://patriciogonzalezvivo.com/2026/santos/}{Santos}, 2025-2026}
@@ -248,7 +418,7 @@ What holds across all of it is a single conviction: that intelligence is embodie
 \end{wrapfigure}
 In Latin America, it is common to receive the name of the saint whose feast day coincides with one's birth. To ask for someone's santo is, in effect, to ask for their birthday. This custom reflects a deep cultural belief: that the saint linked to your day of birth becomes a protector, a guide, and a source of inspiration. Saints, historical figures revered for their moral virtue and spiritual significance, are understood to transcend linear time. Through their acts of compassion and faith, they enter a more circular, mythological temporality, becoming enduring presences within the collective imagination of Christianity.
 
-I was raised in a Catholic family. My grandfather used to read to me from a red book in his study, a compendium of saints' lives. Alongside brief narratives, there were illustrations, each saint marked by a halo, captured at the pivotal moment of transformation when the ordinary gave way to the transcendent. Again and again, these stories returned to a common thread: self-sacrifice, service, and devotion to others. The halo functioned as a visual language for this metaphysical shift.
+I was raised in a Catholic family. My grandfather used to read to me from a red book in his study, a compendium of saints' lives. Alongside brief narratives, there were illustrations, each saint marked by a halo, captured at the moment of transformation when the ordinary gave way to the transcendent. Again and again, these stories returned to a common thread: self-sacrifice, service, and devotion to others. The halo functioned as a visual language for this metaphysical shift.
 
 That ethos of service extended into my family's expectations. Professions such as law, medicine, and engineering were valued as pathways toward a life of usefulness and contribution. In my lineage, I cannot trace a single artist. There is one fragile exception, my maternal great-grandmother, a poet who reportedly burned all her writings upon marriage, as though creativity were a deviation to be corrected, a path to be relinquished in favor of duty.
 
@@ -256,12 +426,16 @@ This series of portraits emerges from a personal search for an alternative linea
 
 If there is a creator who invites us into existence as co-creators, then this lineage of artists stands as a kind of secular sainthood. They are not exemplars of moral virtue in the traditional sense, but they are, for me, figures of devotion, visionaries with whom I seek communion and dialogue.
 
----
 
-\begin{wrapfigure}{l}{0.40\textwidth}
+
+\vspace{0.8em}\begin{center}\rule{0.3\textwidth}{0.4pt}\end{center}\vspace{0.8em}
+
+
+
+\begin{wrapfigure}{l}{0.26\textwidth}
 \vspace{-\intextsep}
 \href{https://patriciogonzalezvivo.com/2014/skylines/}{\includegraphics[width=\linewidth,keepaspectratio]{2026/santos/../../2014/skylines/images/14005408208_fbc2fab7ed_b.jpg}}
-\par\vspace{0.4em}
+\par\vspace{0.1em}
 {\small \raggedright
 \textbf{Skylines}, 2014 \\
 Installation detail at gallery
@@ -272,159 +446,147 @@ Installation detail at gallery
 
 These portraits continue an exploration of drawing machines begun with \href{https://patriciogonzalezvivo.com/2014/skylines/skylines.php?v=01}{\textbf{Skylines in 2014}}, for which I constructed a wall plotter that slowly reveals an image through custom software translating photographs into lines. In 2025, with the \href{https://patriciogonzalezvivo.com/2025/hybrids/}{\textbf{Hybrids series}}, I began combining plotting with alla prima oil painting, bringing together the forces of machine and hand, code and gesture. In Santos, I use that same approach: converting portrait images into vector paths layered with symbolic elements singular to each subject, plotting the result with acrylic paint on a primed canvas, then completing each portrait by hand with oil.
 
-Like their subjects, the works exist as syntheses: of the material and the immaterial, the earthly and the cosmic, the known and the intuited. They stand as reflections on creativity's enduring capacity to transcend boundaries and connect us to something beyond ourselves.
+Behind every portrait in this series stands the absence of my great-grandmother, the poet who burned her writing. Santos is the lineage she was not permitted to enter.
 
 
 
+\ifdim\dimexpr\pagegoal-\pagetotal\relax > 3.5cm
 \begin{center}
-  \includegraphics[width=\linewidth]{temp_portfolio/html_renders/html_block_c7a95fbc92ce.png}
+\includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}
 \end{center}
+\fi
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1036}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1036.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1037}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1037.jpg}}
+\end{minipage}
 
+\vspace{0.6em}
+\noindent
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+\textit{Jorge Luis} (2025), \textit{Hilma} (2025)\\
+Oil on canvas\\
+16 x 12 inches
+\end{tabular}}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1038}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1038.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1039}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1039.jpg}}
+\end{minipage}
 
+\vspace{0.6em}
+\noindent
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+\textit{James} (2025), \textit{Octavia} (2025)\\
+Oil on canvas\\
+16 x 12 inches
+\end{tabular}}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1040}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1040.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1043}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1043.jpg}}
+\end{minipage}
 
-\clearpage
-{\setlength{\parskip}{0pt}%
+\vspace{0.6em}
 \noindent
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \hfill\href{https://patriciogonzalezvivo.com/2026/santos/#DSF1035}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1035.jpg}}
-\end{minipage}
-\hfill
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
 \begin{tabular}[b]{@{}l@{}}
-Audre, 2025\\
+\textit{David} (2026), \textit{Toni Cade} (2026)\\
 Oil on canvas\\
 16 x 12 inches
 \end{tabular}}
-\end{minipage}%
 }%
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \hfill{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}r@{}}
-Jorge Luis, 2025\\
-Oil on canvas\\
-16 x 12 inches
-\end{tabular}}
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1046}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1046.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1047}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1047.jpg}}
 \end{minipage}
-\hfill
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1036}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1036.jpg}}
-\end{minipage}%
-}%
-\clearpage
-{\setlength{\parskip}{0pt}%
+
+\vspace{0.6em}
 \noindent
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \hfill\href{https://patriciogonzalezvivo.com/2026/santos/#DSF1037}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1037.jpg}}
-\end{minipage}
-\hfill
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
 \begin{tabular}[b]{@{}l@{}}
-Hilma, 2025\\
+\textit{Lygia} (2025), \textit{Xul} (2025)\\
 Oil on canvas\\
 16 x 12 inches
 \end{tabular}}
-\end{minipage}%
 }%
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \hfill{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}r@{}}
-James, 2025\\
-Oil on canvas\\
-16 x 12 inches
-\end{tabular}}
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1048}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1048.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1147}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1147.jpg}}
 \end{minipage}
-\hfill
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1038}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1038.jpg}}
-\end{minipage}%
-}%
-\clearpage
-{\setlength{\parskip}{0pt}%
+
+\vspace{0.6em}
 \noindent
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \hfill\href{https://patriciogonzalezvivo.com/2026/santos/#DSF1039}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1039.jpg}}
-\end{minipage}
-\hfill
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
 \begin{tabular}[b]{@{}l@{}}
-Octavia, 2025\\
+\textit{Xul} (2026), \textit{Mercedes} (2026)\\
 Oil on canvas\\
 16 x 12 inches
 \end{tabular}}
-\end{minipage}%
 }%
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \hfill{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}r@{}}
-David, 2026\\
-Oil on canvas\\
-16 x 12 inches
-\end{tabular}}
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1148}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1148.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1150}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1150.jpg}}
 \end{minipage}
-\hfill
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1040}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1040.jpg}}
-\end{minipage}%
-}%
-\clearpage
-{\setlength{\parskip}{0pt}%
+
+\vspace{0.6em}
 \noindent
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \hfill\href{https://patriciogonzalezvivo.com/2026/santos/#DSF1043}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1043.jpg}}
-\end{minipage}
-\hfill
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
 \begin{tabular}[b]{@{}l@{}}
-Toni, 2026\\
+\textit{Toni} (2026), \textit{Georgia} (2026)\\
 Oil on canvas\\
 16 x 12 inches
 \end{tabular}}
-\end{minipage}%
 }%
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \hfill{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}r@{}}
-Lygia, 2026\\
-Oil on canvas\\
-16 x 12 inches
-\end{tabular}}
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1153}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1153.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1154}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1154.jpg}}
 \end{minipage}
-\hfill
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1045}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1045.jpg}}
-\end{minipage}%
-}%
-\clearpage
-{\setlength{\parskip}{0pt}%
+
+\vspace{0.6em}
 \noindent
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \hfill\href{https://patriciogonzalezvivo.com/2026/santos/#DSF1047}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1047.jpg}}
-\end{minipage}
-\hfill
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
 \begin{tabular}[b]{@{}l@{}}
-Xul, 2025\\
+\textit{Maria Elena} (2026), \textit{Audre} (2026)\\
 Oil on canvas\\
 16 x 12 inches
 \end{tabular}}
-\end{minipage}%
 }%
 
 \clearpage
@@ -436,79 +598,83 @@ Oil on canvas\\
 \noindent\hfill \href{https://patriciogonzalezvivo.com/2026/weaver2/}{\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{2026/weaver2/thumbnail.jpg}}
 \vspace{-\intextsep}
 \end{wrapfigure}
-\begin{wrapfigure}{l}{0.40\textwidth}
+In the middle of the nineteenth century, during the Great Potato Famine, Dudley Sarsfield Brennan and Mary Colcough left Ireland and crossed the Atlantic to Argentina. I imagine them on the deck at night, breathing the cold ocean air as familiar constellations disappeared and unknown stars emerged above them. I imagine a mixture of grief and hope, an awareness of being small beneath the immensity of the universe: a ship crossing a dark sea on a planet drifting through space. They eventually settled in Magdalena, where their son Patricio was born in 1870. More than twenty years later, Enrico Vivo and Maria Viva made a similar journey from Anacapri, Italy, to Argentina. Though the two couples never met, they shared the experience of migration and became part of the same lineage. From one side of that lineage I inherited the name Patricio; from the other, the surname Vivo. 
+
+I stand at the far end of their horizon, beneath a different sky, with only fragments of their stories and the sky itself. From this desire to connect across time, I created Weaver: a way of threading my present to their future and my past to their present, a way of seeing what they saw and allowing future generations to see what I see.
+
+
+
+\vspace{0.8em}\begin{center}\rule{0.3\textwidth}{0.4pt}\end{center}\vspace{0.8em}
+
+
+
+\begin{wrapfigure}{l}{0.16\textwidth}
 \vspace{-\intextsep}
 \includegraphics[width=\linewidth,keepaspectratio]{temp_portfolio/html_renders/looom_000_light_f0.png}
 \vspace{-\intextsep}
 \end{wrapfigure}
 
 
-In the middle of the nineteenth century, during the Great Potato Famine, Dudley Sarsfield Brennan (b. 1810, Ireland) and Mary Colcough (b. 1826, Ireland) left their homeland and crossed the Atlantic toward Argentina. The voyage lasted between four to six months, likely beginning on early summer. At the time, such journeys were long and unforgiving.
+Weaver is an interactive work that invites two people to meet across time and space through a shared fragment of the night sky. Like a prayer or a ritual, it offers a passage beyond immediate experience into a quiet awareness of what connects us, not despite distance, but through it.
 
-I imagine them walking the deck at night beneath an open sky, breathing the cold ocean air. As the ship moved southward, familiar constellations slowly disappeared beyond the northern horizon while unknown stars emerged from the southern sky. I imagine them speaking quietly, sometimes in conversation, sometimes in silence, wondering about the life awaiting them across the ocean. I feel in them a mixture of grief and hope: the awareness of being small and transient beneath the immensity of the universe. A metal ship crossing a dark sea on a planet spinning around a sun, itself drifting through space.
+Two celestial maps overlap: one for each observer. Each is rendered in a distinct color, reflecting the night sky from a specific place and moment. In the region where the maps intersect lie the constellations both participants share, a common sky that exists beyond distance or time.
 
-Eventually they arrived in Buenos Aires and settled in the town of Magdalena, where their only child, Patricio, was born in 1870.
-
-More than twenty years later, Enrico Vivo (b. 1868, Italy) and Maria Viva (b. 1870, Italy), also driven by hunger and the search for a better future, made a similar passage from the island of Anacapri to Argentina. These two couples never met, yet they shared the experience of migration and became part of the same lineage.
-
-From my paternal family I inherited the name Patricio; from my maternal family, the surname Vivo. I stand at the far end of their horizon, beneath a different sky from the one that greeted them in Buenos Aires. My lineage is one of voyagers, nomads, and wanderers. I long to connect with them, yet all I possess are fragments of their stories and the sky itself.
-
-From this desire, I created Weaver: a way of threading my present to their future, my past to their present. A way of seeing what they saw, and of allowing future generations to see what I see.
-
---- 
-
-\begin{wrapfigure}{r}{0.40\textwidth}
+\begin{wrapfigure}{r}{0.10\textwidth}
 \vspace{-\intextsep}
 \includegraphics[width=\linewidth,keepaspectratio]{temp_portfolio/html_renders/looom_001_light_f0.png}
 \vspace{-\intextsep}
 \end{wrapfigure}
 
 
-Weaver is an interactive work that invites two people to meet across time and space through a shared fragment of the night sky. Like a prayer or a ritual, it offers a passage beyond immediate experience into a quiet awareness of what connects us, not despite distance, but through it.
-
-<!--  -->
-
-Two celestial maps overlap: one for each observer. Each is rendered in a distinct color, reflecting the night sky from a specific place and moment. In the region where the maps intersect lie the constellations both participants share, a common sky that exists beyond distance or time.
-
 Each map uses a polar projection. Stars near the outer edge rest close to the horizon (marked by the cardinal directions), while those at the center hover directly overhead. This perspective situates each observer within their own sky, while revealing where their visions align.
 
-<!--  -->
+Beside each map, a rotating globe marks the observer's location. Both the celestial maps and the globes are fully interactive. By dragging the sky, you can shift the date and time; by rotating the globe, you can reposition the observer anywhere on Earth. Mounted as a site-specific installation, one map can be fixed to the present location, anchoring the visitor's own sky, while the second opens onto a single chosen place and time, or sequences through several.
 
-Beside each map, a rotating globe marks the observer's location. Both the celestial maps and the globes are fully interactive. By dragging the sky, you can shift the date and time; by rotating the globe, you can reposition the observer anywhere on Earth.
 
---- 
 
-\begin{wrapfigure}{l}{0.40\textwidth}
+\vspace{0.8em}\begin{center}\rule{0.3\textwidth}{0.4pt}\end{center}\vspace{0.8em}
+
+
+
+\begin{wrapfigure}{l}{0.18\textwidth}
 \vspace{-\intextsep}
-\href{https://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe}{\includegraphics[width=\linewidth,keepaspectratio]{2026/weaver2/../../2017/guayupia/images/paths.png}}
-\par\vspace{0.4em}
+\href{https://patriciogonzalezvivo.com/2017/guayupia}{\includegraphics[width=\linewidth,keepaspectratio]{2026/weaver2/../../2017/guayupia/images/paths.png}}
+\par\vspace{0.1em}
 {\small \raggedright
-\textbf{Guayupia}, 2017 \\
-Digital map
+\textbf{Guayupia}, 2017
 \par}
 \vspace{-\intextsep}
 \end{wrapfigure}
 
 
-This project continue a personal exploration of my family history and the experience of migration started with the project \href{https://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe}{\textbf{Guayupia (2017) for the digital exposition Territory}} in collaboration with \href{https://www.jenlowe.net/}{\textbf{Jen Lowe}}. 
+This project continues a personal exploration of my family history and the experience of migration started with the project \href{https://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe}{\textbf{Guayupia (2017) for the digital exposition Territory}} in collaboration with \href{https://www.jenlowe.net/}{\textbf{Jen Lowe}}. 
 
-The addition of the stars and the sky on Guaypuia was the begining of a 10 years long obsession for learning about the movement of the stars and planets. An passion that lead me to study astronomy through the creation of my own astronomical library call \href{https://github.com/patriciogonzalezvivo/hypatia}{\textbf{Hypathia}} and the creation of several artworks exploring the relationship between the sky and human awareness, such as \href{https://patriciogonzalezvivo.com/2017/luna/}{\textbf{LUNA (2017)}} and \href{https://patriciogonzalezvivo.com/2025/orbitas2/}{\textbf{Orbitas (2018)}}, \href{https://patriciogonzalezvivo.com/2018/estrellas/}{\textbf{ESTRELLAS (2018)}} and \href{https://patriciogonzalezvivo.com/2019/hogar/}{\textbf{HOGAR (2019)}}.
+The stars on Guayupia was the beginning of a 10 years long obsession for learning about the movement of the stars and planets; which lead to the creation of several artworks exploring the relationship between the sky and human awareness, such as \href{https://patriciogonzalezvivo.com/2017/luna/}{\textbf{LUNA (2017)}} and \href{https://patriciogonzalezvivo.com/2018/orbitas/}{\textbf{Orbitas (2018)}}, \href{https://patriciogonzalezvivo.com/2018/estrellas/}{\textbf{ESTRELLAS (2018)}} and \href{https://patriciogonzalezvivo.com/2019/hogar/}{\textbf{HOGAR (2019)}}.
 
+\ifdim\dimexpr\pagegoal-\pagetotal\relax > 3.5cm
+\begin{center}
+\includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}
+\end{center}
+\fi
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b][\textheight][c]{\textwidth}
-  \centering
-  \href{https://patriciogonzalezvivo.com/2026/weaver2/#000}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/weaver2/images/000.jpg}}
-\end{minipage}%
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/weaver2/#003_small}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/weaver2/images/003_small.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/weaver2/#03_offeringtable}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/weaver2/images/03_offeringtable.png}}
+\end{minipage}
 }%
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b][\textheight][c]{\textwidth}
-  \centering
-  \href{https://patriciogonzalezvivo.com/2026/weaver2/#001}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/weaver2/images/001.jpg}}
-\end{minipage}%
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/weaver2/#_DSF1193}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/weaver2/images/_DSF1193.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/weaver2/#_DSF1216_clean}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/weaver2/images/_DSF1216_clean.png}}
+\end{minipage}
 }%
 
 \clearpage
@@ -516,16 +682,6 @@ The addition of the stars and the sky on Guaypuia was the begining of a 10 years
 \par\vspace{0.5em}\noindent\hrulefill\par\vspace{1em}
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[t]{0.31\textwidth}
-\href{https://patriciogonzalezvivo.com/2019/hogar/}{\includegraphics[width=\linewidth,height=0.72\textheight,keepaspectratio]{2019/hogar/thumbnail.png}}
-\vspace{0.5em}
-{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}l@{}}
-Hogar, 2019\\
-Custom real-time software\\
-Variable dimensions
-\end{tabular}}
-\end{minipage}\hfill
 \begin{minipage}[t]{0.31\textwidth}
 \href{https://patriciogonzalezvivo.com/2018/estrellas/}{\includegraphics[width=\linewidth,height=0.72\textheight,keepaspectratio]{2018/estrellas/thumbnail.png}}
 \vspace{0.5em}
@@ -537,15 +693,74 @@ Variable dimensions
 \end{tabular}}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.31\textwidth}
-\href{https://patriciogonzalezvivo.com/2017/luna/}{\includegraphics[width=\linewidth,height=0.72\textheight,keepaspectratio]{2017/luna/thumbnail.png}}
+\href{https://patriciogonzalezvivo.com/2017/luna/}{\includegraphics[width=\linewidth,height=0.72\textheight,keepaspectratio]{2017/luna/thumbnail.jpg}}
 \vspace{0.5em}
 {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
 \begin{tabular}[b]{@{}l@{}}
 Luna, 2017\\
 Custom real-time software\\
-Variable dimensions
+20.5 x 11 x 2 inches
+\end{tabular}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.31\textwidth}
+\href{https://patriciogonzalezvivo.com/2017/pixelspirit/}{\includegraphics[width=\linewidth,height=0.72\textheight,keepaspectratio]{2017/pixelspirit/thumbnail.jpg}}
+\vspace{0.5em}
+{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}l@{}}
+Pixel Spirit Deck, 2017\\
+Tarot Deck\\
+50 cards, 2.75 × 4.75 inches
 \end{tabular}}
 \end{minipage}
+}%
+
+\clearpage
+\markright{\href{https://patriciogonzalezvivo.com/2011/efectomariposa/}{Efecto Mariposa}, 2011}
+\noindent{\Large\textbf{\href{https://patriciogonzalezvivo.com/2011/efectomariposa/}{Efecto Mariposa}}}\hfill{\large \href{https://patriciogonzalezvivo.com/2011/}{\textcolor{red}{2011}}}
+
+\begin{wrapfigure}{r}{0.40\textwidth}
+\vspace{-\intextsep}
+\noindent\hfill \href{https://patriciogonzalezvivo.com/2011/efectomariposa/}{\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{2011/efectomariposa/thumbnail.jpg}}
+\vspace{-\intextsep}
+\end{wrapfigure}
+On Saturday June 4, 2011, after decades of inactivity, the Puyehue volcano ejected a plume of ash ten kilometers high. The eruption destroyed thousands of living beings across the region. That same ash would guarantee the fertility of the soil for years to come.
+
+The same ash is the surface of this work.
+
+\textit{Efecto Mariposa} is an interactive installation built on a bed of that volcanic ash. Visitors reach in with their hands and reshape it, raising ridges, opening valleys, redirecting what might become a river. A depth sensor reads every change to the surface and feeds it into a simulation that renders the consequences across four interconnected layers: geology, hydrology, atmosphere, and life.
+
+The layers do not respond at the same speed. Geological change is immediate: reshape the ash and the topography shifts at once. The hydrosphere follows: rivers carve new paths through the altered contours, moisture redistributes through the simulated air. But life is the slowest of all. It is destroyed the moment the ground shifts significantly beneath it. And then it takes a long time to return, to root itself in the changed terrain and begin again. That asymmetry is not a technical detail. It is the subject of the work.
+
+The installation opens with a simple invitation: reach in and touch. The ash shifts under your hands, and the world above responds: rivers find new courses, moisture moves, the simulated landscape settles into a new configuration. The connection between the gesture and its effects is immediate, and the pleasure of it is real.
+
+What takes longer to perceive is the depth of those connections. Playing with the surface, visitors begin to notice that life returns at its own pace, that some things recover quickly while others take time, that smaller adjustments leave more room for watching, that the space between one touch and the next is also part of the piece. The awareness of complexity arrives through the hands, quietly, as the system reveals more of itself the longer you stay with it.
+
+\textit{Efecto Mariposa} (Spanish for "butterfly effect") was presented at FILE Festival São Paulo, 2011. The ash that forms its surface was already a consequence when it arrived: geological force crystallized into mineral, destruction and future fertility held in the same grain.
+
+\ifdim\dimexpr\pagegoal-\pagetotal\relax > 3.5cm
+\begin{center}
+\includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}
+\end{center}
+\fi
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2011/efectomariposa/#01}{\includegraphics[width=\linewidth,height=0.42\textheight,keepaspectratio]{2011/efectomariposa/images/01.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2011/efectomariposa/#02}{\includegraphics[width=\linewidth,height=0.42\textheight,keepaspectratio]{2011/efectomariposa/images/02.jpg}}
+\end{minipage}
+\vspace{0.4em}
+\noindent
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2011/efectomariposa/#05}{\includegraphics[width=\linewidth,height=0.42\textheight,keepaspectratio]{2011/efectomariposa/images/05.jpg}}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2011/efectomariposa/#12}{\includegraphics[width=\linewidth,height=0.42\textheight,keepaspectratio]{2011/efectomariposa/images/12.jpg}}
+\end{minipage}
+\vspace{0.4em}
+\noindent
 }%
 
 \clearpage
