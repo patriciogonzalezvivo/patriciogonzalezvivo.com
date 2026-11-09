@@ -83,7 +83,7 @@ def label(gallery_name, top_left=[10,10], size=(90, 57.5), scale=1.0, for_name=N
     rows = len(rows_pct)
     row_height = h / rows
     margin = 1.5 * scale
-    stroke_width = 0.5
+    stroke_width = 0.1
 
     for i in range(rows):
         row_height = h * rows_pct[i]
@@ -93,18 +93,18 @@ def label(gallery_name, top_left=[10,10], size=(90, 57.5), scale=1.0, for_name=N
             grp_label_black.line( (x, y), (x+w, y), stroke_width=stroke_width )
 
         if i == 1:
-            grp_label_black.text( 'Patricio Gonzalez Vivo'.upper(), (x+margin, y + row_height * 0.4), scale=0.15 * scale, align='left', weight=200, letter_spacing=8 )
+            grp_label_black.text( 'Patricio Gonzalez Vivo'.upper(), (x+margin, y + row_height * 0.4), scale=0.15 * scale, align='left', weight=150, letter_spacing=8 )
         elif i == 2:
             _for_name = for_name if for_name is not None else gallery_name
             # grp_label_black.text( "For", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
             # grp_label_black.text( _for_name, (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
-            grp_label_black.text( "Web", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
+            grp_label_black.text( "Web", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=130 )
             grp_label_black.text( "patriciogonzalezvivo.com", (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
             grp_label_black.line( (x+w*0.6, y), (x + w*0.6, y+row_height), stroke_width=stroke_width )
-            grp_label_black.text( "Date" , (x + w * 0.6 + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140  )
+            grp_label_black.text( "Date" , (x + w * 0.6 + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=130  )
             grp_label_red.text( datetime.now().strftime("%m-%d-%Y"), (x + w * 0.6 + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
         elif i == 3:
-            grp_label_black.text( "Email", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
+            grp_label_black.text( "Email", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=130 )
             grp_label_black.text( email, (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
 
     return Group( name='label', children=[grp_label_black, grp_label_red] )
