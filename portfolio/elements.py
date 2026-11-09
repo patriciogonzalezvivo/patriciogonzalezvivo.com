@@ -14,6 +14,7 @@ from berthe.berthe import Surface, Group
 # works regardless of the current working directory.
 _WORKSPACE_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 _LOGO_PATH = os.path.join(_WORKSPACE_ROOT, 'images', 'logo-gray.png')
+_QR_PATH   = os.path.join(_WORKSPACE_ROOT, 'images', 'qr-code.png')
 _PORTRAIT_PATH = os.path.join(_WORKSPACE_ROOT, 'images', 'portrait.png')
 
 A4_LANDSCAPE_SIZE = (297, 210)  # in mm
@@ -65,7 +66,7 @@ def ripple_pattern(center, width, height, max_ripple=20):
     return ripples_pattern
 
 
-def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, for_name=None):
+def label(gallery_name, top_left=[10,10], size=(90, 57.5), scale=1.0, for_name=None, email=None):
     grp_label_black = Group( name='label_black' )
     grp_label_red = Group( name='label_red', color='red' )
     
@@ -76,7 +77,9 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, for_name=Non
     w = size[0] * scale
     h = size[1] * scale
 
-    rows_pct = [0.6, 0.1, 0.15]
+    # Row heights in mm: image area, name, web/date, email (email only if given)
+    rows_mm = [30, 5, 7.5] + ([7.5] if email else [])
+    rows_pct = [m / size[1] for m in rows_mm]
     rows = len(rows_pct)
     row_height = h / rows
     margin = 1.5 * scale
@@ -86,7 +89,7 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, for_name=Non
         row_height = h * rows_pct[i]
         y += row_height
 
-        if i > 1 and i < 3:
+        if i > 1:
             grp_label_black.line( (x, y), (x+w, y), stroke_width=stroke_width )
 
         if i == 1:
@@ -100,16 +103,19 @@ def label(gallery_name, top_left=[10,10], size=(90, 50), scale=1.0, for_name=Non
             grp_label_black.line( (x+w*0.6, y), (x + w*0.6, y+row_height), stroke_width=stroke_width )
             grp_label_black.text( "Date" , (x + w * 0.6 + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140  )
             grp_label_red.text( datetime.now().strftime("%m-%d-%Y"), (x + w * 0.6 + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
-            
+        elif i == 3:
+            grp_label_black.text( "Email", (x + margin, y + row_height * 0.5), scale=0.1 * scale, align='left', weight=140 )
+            grp_label_black.text( email, (x + margin + 10 * scale, y + row_height * 0.5), scale=0.1 * scale, align='left' )
 
     return Group( name='label', children=[grp_label_black, grp_label_red] )
 
 
-def generate_label_svg(gallery_name: str, output_path: str, for_name: str = None) -> None:
+def generate_label_svg(gallery_name: str, output_path: str, for_name: str = None,
+                       email: str = None) -> None:
     """Generate a full A4-landscape SVG with the label near the lower-right corner."""
     axi = Surface(size='A4_landscape')
     top_left = [185, 140]
-    size = [90, 50]
+    size = [90, 57.5 if email else 50]
     scale = 1.0
 
     color_extra = 'rgb(200, 200, 200)'
@@ -121,7 +127,17 @@ def generate_label_svg(gallery_name: str, output_path: str, for_name: str = None
     height = A4_LANDSCAPE_SIZE[1]
     margin = 1.5 * scale
 
-    logo_center = (40, y + size[1] * 0.5)
+    # Label plate geometry (mm).  The QR code is sized and placed to match it:
+    # same top and bottom edges, and the same distance from the page edge as
+    # the plate has on the opposite (right) side.
+    pad, radius = 3.0, 3.0   # air around the label content, plate corner radius
+    plate_x = top_left[0] - pad
+    plate_y = top_left[1] + 30 + 1.0 - pad   # name row starts at +30mm; ~6mm of air above the text
+    plate_w = size[0] * scale + 2 * pad
+    plate_h = top_left[1] + size[1] * scale + pad - plate_y
+    side_margin = width - (plate_x + plate_w)
+    qr_mm = plate_h
+    logo_center = (side_margin + qr_mm / 2, plate_y + plate_h / 2)
 
     moon_edge = 50
     circle = Circle(center=logo_center, radius=moon_edge, color=color_extra).getPath()
@@ -162,21 +178,39 @@ def generate_label_svg(gallery_name: str, output_path: str, for_name: str = None
         )
         axi.add(grp_background)
 
-    if os.path.exists(_LOGO_PATH):
+    # The QR code replaces the tree logo (it carries the contact page's job).
+    # Falls back to the logo when no QR image is available.
+    from PIL import Image as PILImage
+    mark_path, mark_mm = (_QR_PATH, qr_mm) if os.path.exists(_QR_PATH) else (_LOGO_PATH, 31.0)
+    if os.path.exists(mark_path):
+        with PILImage.open(mark_path) as img:
+            natural_mm = img.size[0] * 0.264583  # px → mm @ 96 DPI
         grp_logo = Group( name='logo', color='gray' )
         grp_logo.bitmap(
-            _LOGO_PATH,
+            mark_path,
             pos=(logo_center[0], logo_center[1]),
             align='center',
-            scale=0.5,
+            scale=mark_mm / natural_mm,
         )
         axi.add(grp_logo)
 
     grp_label = label(gallery_name, top_left=top_left, size=size, scale=scale,
-                      for_name=for_name)
+                      for_name=for_name, email=email)
     axi.add(grp_label)
 
     axi.toSVG(output_path)
+
+    # Translucent white plate behind the name / web rows so the text reads
+    # against the painting.  Inserted just before the label group (berthe has
+    # no opacity support), i.e. above background + logo, below the text.
+    plate = (f'<rect id="label_plate" x="{plate_x}" y="{plate_y}" width="{plate_w}" '
+             f'height="{plate_h}" rx="{radius}" ry="{radius}" '
+             f'fill="white" fill-opacity="0.8" stroke="none"/>')
+    with open(output_path, 'r', encoding='utf-8') as f:
+        svg = f.read()
+    svg = svg.replace('<g id="label"', plate + '<g id="label"', 1)
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(svg)
 
 if __name__ == '__main__':
     generate_label_svg("Example Gallery", "label.svg")

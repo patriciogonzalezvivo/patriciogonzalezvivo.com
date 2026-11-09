@@ -59,7 +59,7 @@ def _derive_output_filename(data: dict) -> str:
 
 
 def _generate_label_pdf(gallery_name: str, base_path: Path,
-                        for_name: str = None) -> Optional[str]:
+                        for_name: str = None, email: str = None) -> Optional[str]:
     """Generate a label SVG/PDF and return the PDF path relative to *base_path*.
 
     Uses portfolio/elements.py to create a full A4-landscape SVG with the label
@@ -69,7 +69,7 @@ def _generate_label_pdf(gallery_name: str, base_path: Path,
     from portfolio.elements import generate_label_svg
 
     svg_path = base_path / 'portfolio' / 'label_output.svg'
-    generate_label_svg(gallery_name, str(svg_path), for_name=for_name)
+    generate_label_svg(gallery_name, str(svg_path), for_name=for_name, email=email)
 
     pdf_path = svg_to_pdf(svg_path)
     if pdf_path is None:
@@ -108,24 +108,34 @@ def generate_from_template(
     label_pdf = _generate_label_pdf(
         gallery_name, base_path,
         for_name=artist.get('for', None),
+        email=artist.get('email') or None,
     )
     if label_pdf:
         web = artist.get('website', '')
         web_url = artist.get('website_url', f'https://{web}' if web else '')
+        def _link(url, width_mm, bottom_mm):
+            # Link annotation emitted directly: \\href on an empty/rule-only
+            # box produces no annotation under xdvipdfmx.  Label text starts
+            # at x≈196mm; the box extends 5.5mm up from `bottom_mm`.
+            return (
+                f"  \\node[anchor=north west, inner sep=0pt, xshift=196mm, yshift=-{bottom_mm}mm]\n"
+                f"    at (current page.north west)\n"
+                f"    {{\\special{{pdf:ann width {width_mm}mm height 5.5mm depth 0pt "
+                f"<</Type/Annot/Subtype/Link/Border[0 0 0]/A<</S/URI/URI({url})>>>>}}}};\n"
+            )
+
+        links = _link(web_url, 40, 189)
+        email = artist.get('email', '')
+        if email:
+            links += _link(f"mailto:{email}", 55, 196.5)
+
         label_page_latex = (
             "\\thispagestyle{empty}\n"
             "\\begin{tikzpicture}[overlay, remember picture]\n"
             "  \\node[anchor=center] at (current page.center) {%\n"
             f"    \\includegraphics[width=\\paperwidth,height=\\paperheight]{{{label_pdf}}}%\n"
             "  };\n"
-            # Clickable hyperlink over the "Web" text baked into the label.
-            # (\\href on an empty/rule-only box produces no annotation under
-            # xdvipdfmx, so emit the link annotation directly.)
-            # Label text sits at x≈196mm, y≈183.5–189mm from the page top.
-            f"  \\node[anchor=north west, inner sep=0pt, xshift=196mm, yshift=-189mm]\n"
-            f"    at (current page.north west)\n"
-            f"    {{\\special{{pdf:ann width 40mm height 5.5mm depth 0pt "
-            f"<</Type/Annot/Subtype/Link/Border[0 0 0]/A<</S/URI/URI({web_url})>>>>}}}};\n"
+            + links +
             "\\end{tikzpicture}\n"
             "\\clearpage"
         )

@@ -353,15 +353,39 @@ _GRID_IMG_FRAC   = '0.47'
 _GRID_IMG_HEIGHT = '0.42\\textheight'
 
 
+def _meta_caption(meta: Dict) -> str:
+    """Caption lines (title, year / medium / dimensions) for one image's metadata."""
+    t = escape_latex(meta.get('title', ''))
+    y = escape_latex(meta.get('year', ''))
+    first = ", ".join(filter(None, [f"\\textit{{{t}}}" if t else "", y]))
+    lines = [first] if first else []
+    if meta.get('medium'):
+        lines.append(escape_latex(meta['medium']))
+    dim = meta.get('dimensions') or meta.get('dimension', '')
+    if dim:
+        lines.append(escape_latex(dim))
+    if not lines:
+        return ""
+    return (
+        "  \\par\\vspace{0.6em}\\noindent\n"
+        "  {\\renewcommand{\\arraystretch}{1.0}\\setstretch{1.0}\\selectfont\n"
+        "  \\begin{tabular}[t]{@{}l@{}}\n  "
+        + "\\\\\n  ".join(lines) + "\n"
+        "  \\end{tabular}}\n"
+    )
+
+
 def _image_minipage(img_path: str, meta: Dict, project_url: str, frac: str, height: str) -> str:
-    """Return a ``minipage`` containing a single linked, height/width-capped image."""
+    """Return a top-aligned ``minipage`` with a linked, height/width-capped image
+    and its own caption directly underneath."""
     img_url = _image_url(img_path, project_url) if project_url else ''
     img_content = (
         f"  \\href{{{img_url}}}{{\\includegraphics[width=\\linewidth,height={height},keepaspectratio]{{{img_path}}}}}\n"
         if img_url else
         f"  \\includegraphics[width=\\linewidth,height={height},keepaspectratio]{{{img_path}}}\n"
     )
-    return f"\\begin{{minipage}}[b]{{{frac}\\textwidth}}\n" + img_content + "\\end{minipage}"
+    return (f"\\begin{{minipage}}[t]{{{frac}\\textwidth}}\n" + img_content
+            + _meta_caption(meta) + "\\end{minipage}")
 
 
 def _build_group_page(group: List, project_url: str = '') -> str:
@@ -395,39 +419,6 @@ def _build_group_page(group: List, project_url: str = '') -> str:
             latex += _image_minipage(img_path, meta, project_url, img_frac, _GROUP_IMG_HEIGHT)
             latex += "\\hfill\n" if k < n - 1 else "\n"
 
-    # Caption: individual titles/years, then shared medium + dimensions
-    title_parts = []
-    for _img, meta in group:
-        t = escape_latex(meta.get('title', ''))
-        y = escape_latex(meta.get('year', ''))
-        if t and y:
-            title_parts.append(f"\\textit{{{t}}} ({y})")
-        elif t:
-            title_parts.append(f"\\textit{{{t}}}")
-
-    first_meta    = group[0][1]
-    common_medium = escape_latex(first_meta.get('medium', ''))
-    common_dims   = escape_latex(
-        first_meta.get('dimensions') or first_meta.get('dimension', '')
-    )
-
-    group_caption_lines = []
-    if title_parts:
-        group_caption_lines.append(", ".join(title_parts))
-    if common_medium:
-        group_caption_lines.append(common_medium)
-    if common_dims:
-        group_caption_lines.append(common_dims)
-
-    if group_caption_lines:
-        rows = "\\\\\n".join(group_caption_lines)
-        latex += (
-            "\n\\vspace{0.6em}\n\\noindent\n"
-            "{\\renewcommand{\\arraystretch}{1.0}\\setstretch{1.0}\\selectfont\n"
-            "\\begin{tabular}[b]{@{}l@{}}\n"
-            + rows + "\n"
-            "\\end{tabular}}\n"
-        )
     latex += "}%\n"  # close \parskip=0 group
     return latex
 
