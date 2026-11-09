@@ -118,11 +118,14 @@ def generate_from_template(
             "  \\node[anchor=center] at (current page.center) {%\n"
             f"    \\includegraphics[width=\\paperwidth,height=\\paperheight]{{{label_pdf}}}%\n"
             "  };\n"
-            # Clickable hyperlink over the "Web" text baked into the label
-            # (label SVG: text at x≈196mm, y≈183.5mm from top, ~40 x 5.5 mm).
-            f"  \\node[anchor=north west, inner sep=0pt, xshift=196mm, yshift=-183.5mm]\n"
+            # Clickable hyperlink over the "Web" text baked into the label.
+            # (\\href on an empty/rule-only box produces no annotation under
+            # xdvipdfmx, so emit the link annotation directly.)
+            # Label text sits at x≈196mm, y≈183.5–189mm from the page top.
+            f"  \\node[anchor=north west, inner sep=0pt, xshift=196mm, yshift=-189mm]\n"
             f"    at (current page.north west)\n"
-            f"    {{\\href{{{web_url}}}{{\\rule{{0pt}}{{5.5mm}}\\hspace{{40mm}}}}}};\n"
+            f"    {{\\special{{pdf:ann width 40mm height 5.5mm depth 0pt "
+            f"<</Type/Annot/Subtype/Link/Border[0 0 0]/A<</S/URI/URI({web_url})>>>>}}}};\n"
             "\\end{tikzpicture}\n"
             "\\clearpage"
         )

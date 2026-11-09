@@ -228,11 +228,24 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '', logo
 
     # Exclude GIFs, missing files, and any names listed in project['skip']
     skip_stems = {Path(s).stem for s in project.get('skip', [])}
+
+    def _sidecar_skip(img):
+        """True when the image's .txt sidecar has ``skip: yes`` (portfolio only)."""
+        txt = (base_path / img).with_suffix('.txt')
+        if not txt.exists():
+            return False
+        for line in txt.read_text().splitlines():
+            key, _, val = line.partition(':')
+            if key.strip().lower() == 'skip':
+                return val.strip().lower() in ('yes', 'true', '1', 'skip')
+        return False
+
     images = [
         img for img in project['images']
         if not img.endswith('.gif')
         and (base_path / img).exists()
         and Path(img).stem not in skip_stems
+        and not _sidecar_skip(img)
     ]
 
     latex = ""
