@@ -15,6 +15,12 @@ const ASTROS_OPTIONS = [
           options: [[0, 'Auto'], [1, 'Raymarching'], [2, 'Radiance cascades'], [3, 'Off']], names: { auto: 0, raymarching: 1, cascades: 2, off: 3 } },
         { id: 'cascades_scale', type: 'select', label: 'Cascades resolution',              key: '[ ]',
           options: [[0.125, '1/8'], [0.25, '1/4'], [0.5, '1/2'], [1, 'Full']] },
+        { id: 'gi_scale',       type: 'select', label: 'Light resolution',                 key: '',
+          options: [[0, 'Auto'], [2, '200% (supersampled)'], [1.5, '150% (supersampled)'], [1, '100%'], [0.75, '75%'], [0.5, '50%'], [0.35, '35%']] },
+        { id: 'light_rate',     type: 'select', label: 'Light refresh',                    key: '',
+          options: [[0, 'Every frame'], [30, '30 a second'], [20, '20 a second'], [15, '15 a second']] },
+        { id: 'chroma',         type: 'select', label: 'Spectral rays',                    key: 'z x',
+          options: [[0, 'Off'], [0.0015, 'Faint'], [0.003, 'Subtle'], [0.006, 'Medium'], [0.012, 'Strong']] },
         { id: 'timelapse',      type: 'bool',   label: 'Time-lapse',                       key: 'space' },
     ]},
     { group: 'Sound', items: [
