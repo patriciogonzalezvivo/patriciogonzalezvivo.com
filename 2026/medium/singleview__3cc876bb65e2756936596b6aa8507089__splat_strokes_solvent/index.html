@@ -15,7 +15,7 @@
          mode the document viewport is the host <iframe> (see the comment at the
          bottom of <body>), so the min()/vw/vh sizing below fits the iframe box. */
       #wrapper {
-        position: fixed; inset: 0;
+        position: fixed; left: 0; top: 0; width: var(--vw, 100%); height: var(--vh, 100%);
         display: flex; align-items: center; justify-content: center;
       }
       /* The stage holds the canvas + all overlays; overlays are positioned
@@ -25,11 +25,11 @@
 
       /* ── Fullscreen / scale-to-fit mode (index.html, e.g. an objkt token):
          fill the browser tab on black, scaling the render to fit while keeping
-         its aspect (letterboxed) rather than stretching it. `min(100vw,
+         its aspect (letterboxed) rather than stretching it. `min(var(--vw, 100vw),
          100vh*aspect)` picks whichever dimension binds; height follows from
          aspect-ratio. ──────────────────────────────────────────────────────── */
       body.mode-fullscreen #stage {
-        width: min(100vw, 100vh * var(--aspect));
+        width: min(var(--vw, 100vw), var(--vh, 100vh) * var(--aspect));
         aspect-ratio: var(--aspect);
       }
 
@@ -40,7 +40,7 @@
       /* body.mode-embed, body.mode-embed #wrapper { background: #fff; } */
       body.mode-embed #stage {
         background: #fff;
-        width: min(768px, 100vw, 100vh * var(--aspect));
+        width: min(768px, var(--vw, 100vw), var(--vh, 100vh) * var(--aspect));
         aspect-ratio: var(--aspect);
       }
       /* When the page goes fullscreen, drop the native cap so the render fills
@@ -49,7 +49,7 @@
       body.mode-embed.is-fullscreen #wrapper { background: #000; }
       body.mode-embed.is-fullscreen #stage {
         background: #000;
-        width: min(100vw, 100vh * var(--aspect));
+        width: min(var(--vw, 100vw), var(--vh, 100vh) * var(--aspect));
       }
 
       #canvas {
@@ -120,7 +120,31 @@
         font: 12px/1.4 monospace; color: #f66; background: rgba(0,0,0,.7);
         padding: 6px 10px; display: none; white-space: pre-wrap;
       }
+      /* Keep the wasm runtime from resizing the canvas in pixels: the canvas always
+         fills the (centered, aspect-locked) stage. */
+      #canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; margin: 0 !important; }
     </style>
+    <script>
+      // iPad/iOS Safari: 100vh/100vw are the *largest* viewport, not the visible one,
+      // so the stage was sized for a bigger area and drifted off-center. Track the
+      // real visible size and expose it as --vw/--vh for the stage sizing rules.
+      (function () {
+        var r = document.documentElement;
+        function fit() {
+          var v = window.visualViewport;
+          var w = Math.round(v ? v.width : window.innerWidth);
+          var h = Math.round(v ? v.height : window.innerHeight);
+          r.style.setProperty('--vw', w + 'px');
+          r.style.setProperty('--vh', h + 'px');
+        }
+        fit();
+        window.addEventListener('resize', fit);
+        window.addEventListener('orientationchange', function () { setTimeout(fit, 150); });
+        if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+        document.addEventListener('fullscreenchange', function () { setTimeout(fit, 100); });
+        document.addEventListener('webkitfullscreenchange', function () { setTimeout(fit, 100); });
+      })();
+    </script>
   </head>
   <body class="mode-fullscreen" style="--aspect: 0.666667">
     <div id="wrapper">
