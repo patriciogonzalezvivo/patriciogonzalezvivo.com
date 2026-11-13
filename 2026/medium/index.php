@@ -45,6 +45,12 @@
 		?>
     </div>
 
+    <!-- add a new line across the page -->
+    <div id="longer-info">
+        <hr>
+        <p>.</p>
+    </div>
+
     <?php
         // Each study is a self-contained sandboxed folder with its own index.html and
         // a looping *.poster.webm preview (singleview__<asset>[_fit]__splat_strokes_<shader>/).
