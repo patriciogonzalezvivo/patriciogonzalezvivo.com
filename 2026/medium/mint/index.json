@@ -1,0 +1,146 @@
+{
+ "05e14f4dd67655eabfe72d9f531f36f8": {
+  "source": "singleview__05e14f4dd67655eabfe72d9f531f36f8__splat_strokes_fill2",
+  "shader": "fill2",
+  "size_bytes": 5664338,
+  "files": 15
+ },
+ "06d9122360608c8fb5b7fa8373c74e86": {
+  "source": "singleview__06d9122360608c8fb5b7fa8373c74e86__splat_strokes_paint_rt",
+  "shader": "paint_rt",
+  "size_bytes": 5419930,
+  "files": 14
+ },
+ "2212d8cc710620d64f6a5efd494eed27": {
+  "source": "singleview__2212d8cc710620d64f6a5efd494eed27__splat_strokes_paint",
+  "shader": "paint",
+  "size_bytes": 4001644,
+  "files": 14
+ },
+ "22bb3f9d1ad87946917f647a120eb440": {
+  "source": "singleview__22bb3f9d1ad87946917f647a120eb440__splat_strokes_disolve",
+  "shader": "disolve",
+  "size_bytes": 5332297,
+  "files": 14
+ },
+ "27139018e1337f1171924809cbb19230_fit": {
+  "source": "singleview__27139018e1337f1171924809cbb19230_fit__splat_strokes_paint_rt",
+  "shader": "paint_rt",
+  "size_bytes": 4989399,
+  "files": 14
+ },
+ "303ddbc50da6b3bc0b69c12c4c5300b3": {
+  "source": "singleview__303ddbc50da6b3bc0b69c12c4c5300b3__splat_strokes_fill2",
+  "shader": "fill2",
+  "size_bytes": 5474162,
+  "files": 15
+ },
+ "354728908173446889": {
+  "source": "singleview__354728908173446889__splat_strokes_solvent",
+  "shader": "solvent",
+  "size_bytes": 7506025,
+  "files": 15
+ },
+ "3a6a7d43775d925c1bab1cb1a243b746": {
+  "source": "singleview__3a6a7d43775d925c1bab1cb1a243b746__splat_strokes_fill2",
+  "shader": "fill2",
+  "size_bytes": 4883333,
+  "files": 15
+ },
+ "3cc876bb65e2756936596b6aa8507089": {
+  "source": "singleview__3cc876bb65e2756936596b6aa8507089__splat_strokes_solvent",
+  "shader": "solvent",
+  "size_bytes": 6489897,
+  "files": 15
+ },
+ "3d185ffde1158174d492bce1357e1261_fit": {
+  "source": "singleview__3d185ffde1158174d492bce1357e1261_fit__splat_strokes_richter",
+  "shader": "richter",
+  "size_bytes": 6286407,
+  "files": 16
+ },
+ "4040dc20f6e9196ec2e341131c9ace56_fit": {
+  "source": "singleview__4040dc20f6e9196ec2e341131c9ace56_fit__splat_strokes_solvent",
+  "shader": "solvent",
+  "size_bytes": 7411045,
+  "files": 15
+ },
+ "43fd8e2c47a0c738811eea8888d16af8_fit": {
+  "source": "singleview__43fd8e2c47a0c738811eea8888d16af8_fit__splat_strokes_fluid2",
+  "shader": "fluid2",
+  "size_bytes": 4931079,
+  "files": 14
+ },
+ "49471902089a08ff21404df3ca673911_fit": {
+  "source": "singleview__49471902089a08ff21404df3ca673911_fit__splat_strokes_paint",
+  "shader": "paint",
+  "size_bytes": 5061904,
+  "files": 14
+ },
+ "54ccdf5131f483e3874487ff28fd6119_fit": {
+  "source": "singleview__54ccdf5131f483e3874487ff28fd6119_fit__splat_strokes_paint2",
+  "shader": "paint2",
+  "size_bytes": 5026402,
+  "files": 14
+ },
+ "58f0e97c08629d737649e8c90338e9c9_fit": {
+  "source": "singleview__58f0e97c08629d737649e8c90338e9c9_fit__splat_strokes_fill2",
+  "shader": "fill2",
+  "size_bytes": 7488346,
+  "files": 15
+ },
+ "63c2363ef8e1133b8313c1172a518dde_fit": {
+  "source": "singleview__63c2363ef8e1133b8313c1172a518dde_fit__splat_strokes_paint2_rt",
+  "shader": "paint2_rt",
+  "size_bytes": 6232327,
+  "files": 14
+ },
+ "97d055f528e17f87b91f7bb320b5d8ad_fit": {
+  "source": "singleview__97d055f528e17f87b91f7bb320b5d8ad_fit__splat_strokes_paint_rt",
+  "shader": "paint_rt",
+  "size_bytes": 5062222,
+  "files": 14
+ },
+ "ac1c4534a9c444ca626a0180c30348a4": {
+  "source": "singleview__ac1c4534a9c444ca626a0180c30348a4__splat_strokes_solvent",
+  "shader": "solvent",
+  "size_bytes": 6571253,
+  "files": 15
+ },
+ "b9e4b33399ba7602a648f0dbc8f1abc1": {
+  "source": "singleview__b9e4b33399ba7602a648f0dbc8f1abc1__splat_strokes_fill2",
+  "shader": "fill2",
+  "size_bytes": 5871010,
+  "files": 15
+ },
+ "e5d7e5beb8fb068932ee20e6b436f231_fit": {
+  "source": "singleview__e5d7e5beb8fb068932ee20e6b436f231_fit__splat_strokes_fluid2",
+  "shader": "fluid2",
+  "size_bytes": 6323522,
+  "files": 14
+ },
+ "eb1ab75d654051126f5bf5f4841ed66d": {
+  "source": "singleview__eb1ab75d654051126f5bf5f4841ed66d__splat_strokes_paint",
+  "shader": "paint",
+  "size_bytes": 5711746,
+  "files": 14
+ },
+ "fa3d64d246f1fc64a74ed15a2ccb59cb_fit": {
+  "source": "singleview__fa3d64d246f1fc64a74ed15a2ccb59cb_fit__splat_strokes_disolve",
+  "shader": "disolve",
+  "size_bytes": 4974740,
+  "files": 14
+ },
+ "me_005": {
+  "source": "singleview__me_005__splat_strokes_solvent",
+  "shader": "solvent",
+  "size_bytes": 6875505,
+  "files": 15
+ },
+ "okeeffe_001_fit": {
+  "source": "singleview__okeeffe_001_fit__splat_strokes_fill2",
+  "shader": "fill2",
+  "size_bytes": 7909818,
+  "files": 15
+ }
+}
