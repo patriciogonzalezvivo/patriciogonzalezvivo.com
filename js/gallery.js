@@ -51,7 +51,12 @@ function updateGalleryDots(index) {
 }
 
 // Function to display an image in fullscreen
-function showImage(index, view = 'main') {
+// If an image source is missing (404), skip to the next artwork in the direction of travel.
+// `skipped` counts consecutive failures so a page with no valid images can't loop forever.
+let skipped = 0;
+let skipDir = 1;
+function showImage(index, view = 'main', dir = 1) {
+	skipDir = dir;
 	const portraitItem = portraitItems[index];
 	// Get data from the parent .painting-item div, not the img
 	const fullSrc = portraitItem.getAttribute('data-full');
@@ -71,6 +76,13 @@ function showImage(index, view = 'main') {
 	}
 	
 	currentView = view;
+	modalImg.onload = () => { skipped = 0; };
+	modalImg.onerror = () => {
+		if (modal.style.display !== 'flex') return;
+		if (view !== 'main') { showImage(index, 'main', skipDir); return; } // missing detail/installation: fall back to main
+		if (++skipped >= portraitItems.length) { skipped = 0; modal.style.display = 'none'; clearHash(); return; }
+		showImage((index + skipDir + portraitItems.length) % portraitItems.length, 'main', skipDir);
+	};
 	modalImg.src = imageSrc;
 	modal.style.display = 'flex';
 	currentIndex = index;
@@ -164,13 +176,13 @@ function updateViewButtons(portraitItem) {
 // Navigate to next image (with looping)
 function nextImage() {
 	currentIndex = (currentIndex + 1) % portraitItems.length;
-	showImage(currentIndex, currentView);
+	showImage(currentIndex, currentView, 1);
 }
 
 // Navigate to previous image (with looping)
 function prevImage() {
 	currentIndex = (currentIndex - 1 + portraitItems.length) % portraitItems.length;
-	showImage(currentIndex, currentView);
+	showImage(currentIndex, currentView, -1);
 }
 
 // Click on portrait item (not just thumb) to open fullscreen
