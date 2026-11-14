@@ -12,7 +12,8 @@
   "sections": [
     {
       "path": "2026/medium",
-      "images_per_page": 1
+      "images_per_page": 1,
+      "thumbnail_size": "55%"
     },
     {
       "path": "2026/santos",

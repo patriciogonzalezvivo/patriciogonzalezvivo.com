@@ -53,7 +53,11 @@ def _logo_if_space(logo_file: str) -> str:
     if not logo_file:
         return ''
     return (
-        "\\ifdim\\dimexpr\\pagegoal-\\pagetotal\\relax > 3.5cm\n"
+        # A pending wrapfigure's height isn't in \pagetotal, so reserve the
+        # lines it still occupies (WF@wrappedlines) on top of the logo's 3.5cm,
+        # then drop below the figure before placing the logo.
+        "\\par\\ifdim\\dimexpr\\pagegoal-\\pagetotal-\\value{WF@wrappedlines}\\baselineskip\\relax > 3.5cm\n"
+        "\\vspace*{\\dimexpr\\value{WF@wrappedlines}\\baselineskip\\relax}\\setcounter{WF@wrappedlines}{0}\n"
         "\\begin{center}\n"
         f"\\includegraphics[height=2cm,keepaspectratio]{{{logo_file}}}\n"
         "\\end{center}\n"
@@ -293,13 +297,22 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '', logo
         # \noindent\hfill right-aligns the image within the wrapfigure box so
         # that portrait thumbnails (where keepaspectratio makes the rendered
         # width narrower than the box) stay flush with the right margin.
-        thumb_href = (
-            f"\\href{{{project_url}}}{{\\includegraphics[width=\\linewidth,height=0.75\\textheight,keepaspectratio]{{{thumb_img}}}}}"
-            if project_url else
-            f"\\includegraphics[width=\\linewidth,height=0.75\\textheight,keepaspectratio]{{{thumb_img}}}"
-        )
+        # Optional per-section "thumbnail_size" (e.g. "60%" or 0.6) scales
+        # the thumbnail down for the PDF only.
+        _scale = 1.0
+        _ts = str(project.get('thumbnail_size') or '').strip()
+        if _ts:
+            try:
+                _v = float(_ts.rstrip('%'))
+                _scale = _v / 100.0 if (_ts.endswith('%') or _v > 1) else _v
+            except ValueError:
+                pass
+        _wfrac = 0.40 * _scale
+        _hfrac = 0.75 * _scale
+        thumb_inc = f"\\includegraphics[width=\\linewidth,height={_hfrac:.3f}\\textheight,keepaspectratio]{{{thumb_img}}}"
+        thumb_href = f"\\href{{{project_url}}}{{{thumb_inc}}}" if project_url else thumb_inc
         latex += (
-            f"\\begin{{wrapfigure}}{{r}}{{0.40\\textwidth}}\n"
+            f"\\begin{{wrapfigure}}{{r}}{{{_wfrac:.3f}\\textwidth}}\n"
             "\\vspace{-\\intextsep}\n"
             "\\noindent\\hfill "
             + thumb_href + "\n"

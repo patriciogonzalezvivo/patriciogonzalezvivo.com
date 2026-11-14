@@ -36,6 +36,6 @@ size_pdf: 45%
 :::
 
 
-This project continues a personal exploration of my family history and the experience of migration started with the project [Guayupia (2017) for the digital exposition Territory](https://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe) in collaboration with [Jen Lowe](https://www.jenlowe.net/). 
+This project is inspired on the work on nonlinear time by the Black Feminist poet and scholar [Alexis Pauline Gumbs](https://www.alexispauline.com/). Also it's a continuation of a personal exploration of my family history and the experience of migration started with the project [Guayupia (2017) for the digital exposition Territory](https://themapisnot.com/issue-iv-patricio-gonzalez-vivo-jen-lowe) in collaboration with [Jen Lowe](https://www.jenlowe.net/). 
 
 The stars on Guayupia was the beginning of a 10 years long obsession for learning about the movement of the stars and planets; which lead to the creation of several artworks exploring the relationship between the sky and human awareness, such as [LUNA (2017)](../../2017/luna/) and [Orbitas (2018)](../../2018/orbitas/), [ESTRELLAS (2018)](../../2018/estrellas/) and [HOGAR (2019)](../../2019/hogar/).

@@ -1,6 +1,6 @@
-**Patricio González Vivo** (b. 1982, Buenos Aires) is a multidisciplinary artist with a research-driven practice that explores the edges of core human experiences such as memory, awareness, and self-expression. By combining expressive mediums, both analog and digital, his work attempts to bridge languages and ways of knowing.
+**Patricio González Vivo** (b. 1982, Buenos Aires) is a multidisciplinary artist whose research-driven practice follows non-linear experiences such as memory, awareness and self-expression. Each project is another iteration of that inquiry, bridging analog and digital languages as ways of knowing.
 
-His two main mediums are shader code and oil paint. Shader code is a computational language for programming the behavior of light and physics, letting him build real-time simulations that keep changing and responding as someone interacts with them. Oil paint, by contrast, is an old and demanding medium that has given generations of artists an expressive range nothing else has matched.
+His two main mediums are computer code and oil paint. Shaders program the behavior of light, building simulations that keep changing as someone interacts with them. The plotter draws the skeleton of a portrait, and the brush finishes it by hand. In Medium, code sets oil portraits in motion. In Santos, he builds a lineage of artists to answer a great-grandmother who burned her poems. For ten years the same tools have also looked up, from the Moon and the stars to Weaver, which connects two people through the night sky they share.
 
 :::wrapfig right
 src: 2011/efectomariposa/images/12.jpg

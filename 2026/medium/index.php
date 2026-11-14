@@ -52,15 +52,30 @@
     </div>
 
     <?php
-        // Each study is a self-contained sandboxed folder with its own index.html and
-        // a looping *.poster.webm preview (singleview__<asset>[_fit]__splat_strokes_<shader>/).
-        // Index them by asset so each one sits next to the painting it inspired
-        // (paintings/<asset>[_fit].jpg); the "_fit" suffix is ignored when matching.
+        // Each study is a minted edition: mint/medium_nNN.html (loads the piece from IPFS)
+        // plus mint/medium_nNN.gif (looping preview). The HTML carries its folder CID;
+        // mint/cids.json maps asset -> CID, so the CID tells us which painting it pairs with
+        // (paintings/<asset>[_fit].jpg). The "_fit" suffix is ignored when matching.
+        $cids = json_decode(@file_get_contents('mint/cids.json'), true) ?: [];
+        $mint_index = json_decode(@file_get_contents('mint/index.json'), true) ?: [];
+        $asset_by_cid = array_flip(array_filter($cids));
+        // Each edition is live on Transient; tokens.json maps edition number -> token ID.
+        $tokens = json_decode(@file_get_contents('tokens.json'), true) ?: [];
         $studies = [];
-        foreach (glob('singleview__*', GLOB_ONLYDIR) as $dir) {
-            if (preg_match('/^singleview__(.+?)(?:_fit)?__splat_strokes_([a-zA-Z0-9_]+)$/', $dir, $m)) {
-                $studies[$m[1]] = ['dir' => $dir, 'asset' => $m[1], 'shader' => $m[2]];
-            }
+        foreach (glob('mint/medium_n*.html') as $html) {
+            $gif = preg_replace('/\.html$/', '.gif', $html);
+            $src = file_get_contents($html);
+            if (!file_exists($gif) || !preg_match('/const ARTWORK_CID = "([^"]+)"/', $src, $m) || !isset($asset_by_cid[$m[1]])) continue;
+            $asset = $asset_by_cid[$m[1]];
+            $n = (int) preg_replace('/\D/', '', basename($html, '.html'));
+            $token = $tokens['tokens'][$n] ?? null;
+            $transient = $token ? str_replace(['{contract}', '{token}'], [$tokens['contract'], $token], $tokens['url']) : '';
+            $studies[preg_replace('/_fit$/', '', $asset)] = [
+                'html' => $html, 'gif' => $gif, 'asset' => $asset,
+                'title' => sprintf('Medium Study No. %02d', $n),  // same title as the minted token
+                'href' => $transient ?: $html,                    // fall back to the IPFS-backed page
+                'source' => $mint_index[$asset]['source'] ?? '',
+            ];
         }
         $paintings = get_gallery_artworks('paintings', '*.{jpg,JPG,jpeg,png}', [
             'title' => 'Untitled',
@@ -78,42 +93,28 @@
         <div class="medium-pair">
             <?php echo render_gallery_item($artwork); ?>
             <?php if ($study):
-                $dir = $study['dir'];
-                $webm = glob($dir . '/*.poster.webm');
-                $poster = glob($dir . '/*.poster.jpg');
-                if (file_exists($dir . '/index.html') && $webm):
-                    $poster = $poster ? $poster[0] : '';
+                // The modal shows the still render in images/ that matches this study
+                // (named after its original sandbox); the GIF is the fallback.
+                $still = $study['source'] ? glob('images/' . $study['source'] . '_t*_2480x3508.jpg') : [];
+                $study_title = $study['title'];
+                $info = json_encode(['title' => $study_title, 'year' => '2026', 'medium' => 'Digital sandbox']);
             ?>
-            <?php
-                // The modal shows the still render in images/ that matches this sandbox.
-                $still = glob('images/' . $dir . '_t*_2480x3508.jpg');
-                // Title / year / medium come from <sandbox>/info.txt (same key: value format as paintings).
-                $study_meta = load_artwork_metadata($dir . '/info.txt', [
-                    'title' => ucfirst($study['shader']) . ' (' . $study['asset'] . ')',
-                    'year' => '2026',
-                    'medium' => 'Digital sandbox',
-                ]);
-                $study_title = $study_meta['title'];
-                $info = json_encode(['title' => $study_title, 'year' => $study_meta['year'], 'medium' => $study_meta['medium']]);
-            ?>
-            <div class="painting-item medium-study" data-id="<?php echo htmlspecialchars($dir); ?>"
-                 data-href="<?php echo htmlspecialchars($dir . '/index.html'); ?>"
-                 data-full="<?php echo htmlspecialchars($still ? $still[0] : $poster); ?>"
+            <div class="painting-item medium-study" data-id="<?php echo htmlspecialchars($study['asset']); ?>"
+                 data-href="<?php echo htmlspecialchars($study['href']); ?>"
+                 data-full="<?php echo htmlspecialchars($still ? $still[0] : $study['gif']); ?>"
                  data-info='<?php echo htmlspecialchars($info, ENT_QUOTES, 'UTF-8'); ?>'>
                 <div class="painting-thumb-wrapper">
-                    <video class="painting-thumb" autoplay loop muted playsinline preload="metadata" poster="<?php echo htmlspecialchars($poster); ?>">
-                        <source src="<?php echo htmlspecialchars($webm[0]); ?>" type="video/webm">
-                    </video>
+                    <img class="painting-thumb" src="<?php echo htmlspecialchars($study['gif']); ?>" alt="<?php echo htmlspecialchars($study_title); ?>" loading="lazy">
                 </div>
                 <div class="artwork-info">
                     <div class="artwork-title"><?php echo htmlspecialchars($study_title); ?></div>
-                    <div class="artwork-details"><?php echo htmlspecialchars($study_meta['year'] . ' | ' . $study_meta['medium']); ?></div>
+                    <div class="artwork-details"><?php echo htmlspecialchars('2026 | Digital sandbox'); ?></div>
                     <div class="artwork-buttons">
-                        <a class="artwork-btn" href="<?php echo htmlspecialchars($dir . '/index.html'); ?>">Open Sandbox</a>
+                        <a class="artwork-btn" href="<?php echo htmlspecialchars($study['href']); ?>" target="_blank" rel="noopener">View on Transient</a>
                     </div>
                 </div>
             </div>
-            <?php endif; endif; ?>
+            <?php endif; ?>
         </div>
         <?php endforeach; ?>
     </div>

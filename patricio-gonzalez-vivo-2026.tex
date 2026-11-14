@@ -17,7 +17,7 @@
 % ---------------------------------------------------------
 % PAGE LAYOUT
 % ---------------------------------------------------------
-\usepackage[a4paper, landscape, margin=0.8in, headheight=18pt, headsep=12pt]{geometry}
+\usepackage[a4paper, landscape, margin=0.35in, nohead, nofoot]{geometry}
 
 % ---------------------------------------------------------
 % PACKAGES
@@ -64,7 +64,7 @@
 % ---------------------------------------------------------
 % HEADER / FOOTER
 % ---------------------------------------------------------
-\pagestyle{fancy}
+\pagestyle{empty}   % no running header: pictures and captions use the full page
 \fancyhf{}
 \fancyhead[L]{\small {\addfontfeature{LetterSpace=8}\href{https://patriciogonzalezvivo.com}{\MakeUppercase{Patricio Gonzalez Vivo}}}}
 \fancyhead[R]{\footnotesize \rightmark}
@@ -144,9 +144,12 @@ Dimensions: & #5 \\
   \node[anchor=center] at (current page.center) {%
     \includegraphics[width=\paperwidth,height=\paperheight]{portfolio/label_output.pdf}%
   };
-  \node[anchor=north west, inner sep=0pt, xshift=196mm, yshift=-183.5mm]
+  \node[anchor=north west, inner sep=0pt, xshift=196mm, yshift=-189mm]
     at (current page.north west)
-    {\href{https://patriciogonzalezvivo.com}{\rule{0pt}{5.5mm}\hspace{40mm}}};
+    {\special{pdf:ann width 40mm height 5.5mm depth 0pt <</Type/Annot/Subtype/Link/Border[0 0 0]/A<</S/URI/URI(https://patriciogonzalezvivo.com)>>>>}};
+  \node[anchor=north west, inner sep=0pt, xshift=196mm, yshift=-196.5mm]
+    at (current page.north west)
+    {\special{pdf:ann width 55mm height 5.5mm depth 0pt <</Type/Annot/Subtype/Link/Border[0 0 0]/A<</S/URI/URI(mailto:patriciogonzalezvivo@gmail.com)>>>>}};
 \end{tikzpicture}
 \clearpage
 
@@ -217,9 +220,9 @@ His work has been exhibited internationally at \textbf{Espacio Fundación Telef�
 \markright{\href{https://patriciogonzalezvivo.com/2026/medium/}{Medium Studies}, 2026}
 \noindent{\Large\textbf{\href{https://patriciogonzalezvivo.com/2026/medium/}{Medium Studies}}}\hfill{\large \href{https://patriciogonzalezvivo.com/2026/}{\textcolor{red}{2026}}}
 
-\begin{wrapfigure}{r}{0.40\textwidth}
+\begin{wrapfigure}{r}{0.240\textwidth}
 \vspace{-\intextsep}
-\noindent\hfill \href{https://patriciogonzalezvivo.com/2026/medium/}{\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{2026/medium/thumbnail.jpg}}
+\noindent\hfill \href{https://patriciogonzalezvivo.com/2026/medium/}{\includegraphics[width=\linewidth,height=0.450\textheight,keepaspectratio]{2026/medium/thumbnail.jpg}}
 \vspace{-\intextsep}
 \end{wrapfigure}
 These are oil portraits extended into living images which hold the elusive essence of singularity. This dual nature has let me explore what is deliberate and what is unconscious. Pigments and pixels. Code and brushstrokes. Subjective and objective.
@@ -230,114 +233,130 @@ I noticed after the fact that most of the sitters I have chosen are men. I came 
 
 The portraits hold all these questions open by refusing to settle on an answer.
 
-\ifdim\dimexpr\pagegoal-\pagetotal\relax > 3.5cm
-\begin{center}
-\includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}
-\end{center}
-\fi
+
+
+\vspace{0.8em}\begin{center}\rule{0.3\textwidth}{0.4pt}\end{center}\vspace{0.8em}
+
+
+
+\begin{wrapfigure}{l}{0.28\textwidth}
+\vspace{-\intextsep}
+\href{https://patriciogonzalezvivo.com/2025/hybrids/}{\includegraphics[width=\linewidth,keepaspectratio]{2026/medium/../../2025/hybrids/process.png}}
+\par\vspace{0.1em}
+{\small \raggedright
+\textbf{Hybrid Studies}, 2025 \\
+Oil on Canvas
+\par}
+\vspace{-\intextsep}
+\end{wrapfigure}
+
+
+These portraits continue an exploration started with \href{https://patriciogonzalezvivo.com/2025/hybrids/}{\textbf{Hybrid Studies in 2025}} around ways of bridging traditional and digital portrait making, by combining computer vision and plotting to the practice of oil paintings.
+
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__2212d8cc710620d64f6a5efd494eed27__splat_strokes_paint_t4.65_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__2212d8cc710620d64f6a5efd494eed27__splat_strokes_paint_t4.65_2480x3508.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__22bb3f9d1ad87946917f647a120eb440__splat_strokes_disolve_t6.23_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__22bb3f9d1ad87946917f647a120eb440__splat_strokes_disolve_t6.23_2480x3508.jpg}}
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill\href{https://patriciogonzalezvivo.com/2026/medium/#singleview__2212d8cc710620d64f6a5efd494eed27__splat_strokes_paint_t4.65_2480x3508}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/medium/images/singleview__2212d8cc710620d64f6a5efd494eed27__splat_strokes_paint_t4.65_2480x3508.jpg}}
 \end{minipage}
-
-\vspace{0.6em}
-\noindent
-{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
 \begin{tabular}[b]{@{}l@{}}
-\textit{Digital No. 4} (2026), \textit{Digital No. 9} (2026)\\
+Digital No. 4, 2026\\
 Oil on digital Canvas\\
 Variable dimensions
 \end{tabular}}
+\end{minipage}%
 }%
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__354728908173446889__splat_strokes_solvent_t14.91_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__354728908173446889__splat_strokes_solvent_t14.91_2480x3508.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__54ccdf5131f483e3874487ff28fd6119_fit__splat_strokes_paint_t2.56_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__54ccdf5131f483e3874487ff28fd6119_fit__splat_strokes_paint_t2.56_2480x3508.jpg}}
-\end{minipage}
-
-\vspace{0.6em}
-\noindent
-{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}l@{}}
-\textit{Digital No. 15} (2026), \textit{Digital No. 20} (2026)\\
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}r@{}}
+Digital No. 9, 2026\\
 Oil on digital Canvas\\
 Variable dimensions
 \end{tabular}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__22bb3f9d1ad87946917f647a120eb440__splat_strokes_disolve_t6.23_2480x3508}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/medium/images/singleview__22bb3f9d1ad87946917f647a120eb440__splat_strokes_disolve_t6.23_2480x3508.jpg}}
+\end{minipage}%
 }%
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__58f0e97c08629d737649e8c90338e9c9_fit__splat_strokes_fill2_t60.39_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__58f0e97c08629d737649e8c90338e9c9_fit__splat_strokes_fill2_t60.39_2480x3508.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__ac1c4534a9c444ca626a0180c30348a4__splat_strokes_fill2_t14.57_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__ac1c4534a9c444ca626a0180c30348a4__splat_strokes_fill2_t14.57_2480x3508.jpg}}
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill\href{https://patriciogonzalezvivo.com/2026/medium/#singleview__354728908173446889__splat_strokes_solvent_t14.91_2480x3508}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/medium/images/singleview__354728908173446889__splat_strokes_solvent_t14.91_2480x3508.jpg}}
 \end{minipage}
-
-\vspace{0.6em}
-\noindent
-{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
 \begin{tabular}[b]{@{}l@{}}
-\textit{Digital No. 6} (2026), \textit{Digital No. 5} (2026)\\
+Digital No. 15, 2026\\
 Oil on digital Canvas\\
 Variable dimensions
 \end{tabular}}
+\end{minipage}%
 }%
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__b9e4b33399ba7602a648f0dbc8f1abc1__splat_strokes_solvent_t12.89_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__b9e4b33399ba7602a648f0dbc8f1abc1__splat_strokes_solvent_t12.89_2480x3508.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__e5d7e5beb8fb068932ee20e6b436f231_fit__splat_strokes_fluid2_t6.28_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__e5d7e5beb8fb068932ee20e6b436f231_fit__splat_strokes_fluid2_t6.28_2480x3508.jpg}}
-\end{minipage}
-
-\vspace{0.6em}
-\noindent
-{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}l@{}}
-\textit{Digital No. 7} (2026), \textit{Digital No. 23} (2026)\\
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}r@{}}
+Digital No. 7, 2026\\
 Oil on digital Canvas\\
 Variable dimensions
 \end{tabular}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__b9e4b33399ba7602a648f0dbc8f1abc1__splat_strokes_solvent_t12.89_2480x3508}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/medium/images/singleview__b9e4b33399ba7602a648f0dbc8f1abc1__splat_strokes_solvent_t12.89_2480x3508.jpg}}
+\end{minipage}%
 }%
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__eb1ab75d654051126f5bf5f4841ed66d__splat_strokes_fill2_t12.60_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__eb1ab75d654051126f5bf5f4841ed66d__splat_strokes_fill2_t12.60_2480x3508.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__fa3d64d246f1fc64a74ed15a2ccb59cb_fit__splat_strokes_disolve_t8.15_2480x3508}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/medium/images/singleview__fa3d64d246f1fc64a74ed15a2ccb59cb_fit__splat_strokes_disolve_t8.15_2480x3508.jpg}}
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill\href{https://patriciogonzalezvivo.com/2026/medium/#singleview__eb1ab75d654051126f5bf5f4841ed66d__splat_strokes_fill2_t12.60_2480x3508}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/medium/images/singleview__eb1ab75d654051126f5bf5f4841ed66d__splat_strokes_fill2_t12.60_2480x3508.jpg}}
 \end{minipage}
-
-\vspace{0.6em}
-\noindent
-{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
 \begin{tabular}[b]{@{}l@{}}
-\textit{Digital No. 8} (2026), \textit{Digital No. 11} (2026)\\
+Digital No. 8, 2026\\
 Oil on digital Canvas\\
 Variable dimensions
 \end{tabular}}
+\end{minipage}%
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \hfill{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+\begin{tabular}[b]{@{}r@{}}
+Digital No. 11, 2026\\
+Oil on digital Canvas\\
+Variable dimensions
+\end{tabular}}
+\end{minipage}
+\hfill
+\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/medium/#singleview__fa3d64d246f1fc64a74ed15a2ccb59cb_fit__splat_strokes_disolve_t8.15_2480x3508}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/medium/images/singleview__fa3d64d246f1fc64a74ed15a2ccb59cb_fit__splat_strokes_disolve_t8.15_2480x3508.jpg}}
+\end{minipage}%
 }%
 
 \clearpage
 \markright{\href{https://patriciogonzalezvivo.com/2026/santos/}{Santos}, 2025-2026}
 \noindent{\Large\textbf{\href{https://patriciogonzalezvivo.com/2026/santos/}{Santos}}}\hfill{\large \href{https://patriciogonzalezvivo.com/2025-2026/}{\textcolor{red}{2025-2026}}}
 
-\begin{wrapfigure}{r}{0.40\textwidth}
+\begin{wrapfigure}{r}{0.400\textwidth}
 \vspace{-\intextsep}
-\noindent\hfill \href{https://patriciogonzalezvivo.com/2026/santos/}{\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{2026/santos/thumbnail.jpg}}
+\noindent\hfill \href{https://patriciogonzalezvivo.com/2026/santos/}{\includegraphics[width=\linewidth,height=0.750\textheight,keepaspectratio]{2026/santos/thumbnail.jpg}}
 \vspace{-\intextsep}
 \end{wrapfigure}
 In Latin America, it is common to receive the name of the saint whose feast day coincides with one's birth. To ask for someone's santo is, in effect, to ask for their birthday. This custom reflects a deep cultural belief: that the saint linked to your day of birth becomes a protector, a guide, and a source of inspiration. Saints, historical figures revered for their moral virtue and spiritual significance, are understood to transcend linear time. Through their acts of compassion and faith, they enter a more circular, mythological temporality, becoming enduring presences within the collective imagination of Christianity.
@@ -374,111 +393,110 @@ Behind every portrait in this series stands the absence of my great-grandmother,
 
 
 
-\ifdim\dimexpr\pagegoal-\pagetotal\relax > 3.5cm
-\begin{center}
-\includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}
-\end{center}
-\fi
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b]{0.47\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
   \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1036}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1036.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1037}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1037.jpg}}
-\end{minipage}
-
-\vspace{0.6em}
-\noindent
-{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}l@{}}
-\textit{Jorge Luis} (2025), \textit{Hilma} (2025)\\
-Oil on canvas\\
-16 x 12 inches
-\end{tabular}}
-}%
-\clearpage
-{\setlength{\parskip}{0pt}%
-\noindent
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1038}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1038.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1039}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1039.jpg}}
-\end{minipage}
-
-\vspace{0.6em}
-\noindent
-{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}l@{}}
-\textit{James} (2025), \textit{Octavia} (2025)\\
-Oil on canvas\\
-16 x 12 inches
-\end{tabular}}
-}%
-\clearpage
-{\setlength{\parskip}{0pt}%
-\noindent
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1040}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1040.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1043}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1043.jpg}}
-\end{minipage}
-
-\vspace{0.6em}
-\noindent
-{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}l@{}}
-\textit{David} (2026), \textit{Toni Cade} (2026)\\
-Oil on canvas\\
-16 x 12 inches
-\end{tabular}}
-}%
-\clearpage
-{\setlength{\parskip}{0pt}%
-\noindent
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1048}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1048.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1150}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1150.jpg}}
-\end{minipage}
-
-\vspace{0.6em}
-\noindent
-{\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}l@{}}
-\textit{Xul} (2026), \textit{Georgia} (2026)\\
-Oil on canvas\\
-16 x 12 inches
-\end{tabular}}
-}%
-\clearpage
-{\setlength{\parskip}{0pt}%
-\noindent
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
-  \hfill\href{https://patriciogonzalezvivo.com/2026/santos/#DSF1153}{\includegraphics[width=\linewidth,height=\textheight,keepaspectratio]{2026/santos/images/DSF1153.jpg}}
-\end{minipage}
-\hfill
-\begin{minipage}[b][\textheight][b]{0.48\textwidth}
+  \par\vspace{0.6em}\noindent
   {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
-\begin{tabular}[b]{@{}l@{}}
-Maria Elena, 2026\\
-Oil on canvas\\
-16 x 12 inches
-\end{tabular}}
-\end{minipage}%
+  \begin{tabular}[t]{@{}l@{}}
+  \textit{Jorge Luis}, 2025\\
+  Oil on canvas\\
+  16 x 12 inches
+  \end{tabular}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1037}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1037.jpg}}
+  \par\vspace{0.6em}\noindent
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+  \begin{tabular}[t]{@{}l@{}}
+  \textit{Hilma}, 2025\\
+  Oil on canvas\\
+  16 x 12 inches
+  \end{tabular}}
+\end{minipage}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[t]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1038}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1038.jpg}}
+  \par\vspace{0.6em}\noindent
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+  \begin{tabular}[t]{@{}l@{}}
+  \textit{James}, 2025\\
+  Oil on canvas\\
+  16 x 12 inches
+  \end{tabular}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1039}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1039.jpg}}
+  \par\vspace{0.6em}\noindent
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+  \begin{tabular}[t]{@{}l@{}}
+  \textit{Octavia}, 2025\\
+  Oil on canvas\\
+  16 x 12 inches
+  \end{tabular}}
+\end{minipage}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[t]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1040}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1040.jpg}}
+  \par\vspace{0.6em}\noindent
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+  \begin{tabular}[t]{@{}l@{}}
+  \textit{David}, 2026\\
+  Oil on canvas\\
+  16 x 12 inches
+  \end{tabular}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1043}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1043.jpg}}
+  \par\vspace{0.6em}\noindent
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+  \begin{tabular}[t]{@{}l@{}}
+  \textit{Toni Cade}, 2026\\
+  Oil on canvas\\
+  16 x 12 inches
+  \end{tabular}}
+\end{minipage}
+}%
+\clearpage
+{\setlength{\parskip}{0pt}%
+\noindent
+\begin{minipage}[t]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1048}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1048.jpg}}
+  \par\vspace{0.6em}\noindent
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+  \begin{tabular}[t]{@{}l@{}}
+  \textit{Xul}, 2026\\
+  Oil on canvas\\
+  16 x 12 inches
+  \end{tabular}}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/santos/#DSF1153}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/santos/images/DSF1153.jpg}}
+  \par\vspace{0.6em}\noindent
+  {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
+  \begin{tabular}[t]{@{}l@{}}
+  \textit{Maria Elena}, 2026\\
+  Oil on canvas\\
+  16 x 12 inches
+  \end{tabular}}
+\end{minipage}
 }%
 
 \clearpage
 \markright{\href{https://patriciogonzalezvivo.com/2026/weaver2/}{Weaver}, 2025-2026}
 \noindent{\Large\textbf{\href{https://patriciogonzalezvivo.com/2026/weaver2/}{Weaver}}}\hfill{\large \href{https://patriciogonzalezvivo.com/2025-2026/}{\textcolor{red}{2025-2026}}}
 
-\begin{wrapfigure}{r}{0.40\textwidth}
+\begin{wrapfigure}{r}{0.400\textwidth}
 \vspace{-\intextsep}
-\noindent\hfill \href{https://patriciogonzalezvivo.com/2026/weaver2/}{\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{2026/weaver2/thumbnail.jpg}}
+\noindent\hfill \href{https://patriciogonzalezvivo.com/2026/weaver2/}{\includegraphics[width=\linewidth,height=0.750\textheight,keepaspectratio]{2026/weaver2/thumbnail.jpg}}
 \vspace{-\intextsep}
 \end{wrapfigure}
 In the middle of the nineteenth century, during the Great Potato Famine, Dudley Sarsfield Brennan and Mary Colcough left Ireland and crossed the Atlantic to Argentina. I imagine them on the deck at night, breathing the cold ocean air as familiar constellations disappeared and unknown stars emerged above them. I imagine a mixture of grief and hope, an awareness of being small beneath the immensity of the universe: a ship crossing a dark sea on a planet drifting through space. They eventually settled in Magdalena, where their son Patricio was born in 1870. More than twenty years later, Enrico Vivo and Maria Viva made a similar journey from Anacapri, Italy, to Argentina. Though the two couples never met, they shared the experience of migration and became part of the same lineage. From one side of that lineage I inherited the name Patricio; from the other, the surname Vivo. 
@@ -534,29 +552,14 @@ This project continues a personal exploration of my family history and the exper
 
 The stars on Guayupia was the beginning of a 10 years long obsession for learning about the movement of the stars and planets; which lead to the creation of several artworks exploring the relationship between the sky and human awareness, such as \href{https://patriciogonzalezvivo.com/2017/luna/}{\textbf{LUNA (2017)}} and \href{https://patriciogonzalezvivo.com/2018/orbitas/}{\textbf{Orbitas (2018)}}, \href{https://patriciogonzalezvivo.com/2018/estrellas/}{\textbf{ESTRELLAS (2018)}} and \href{https://patriciogonzalezvivo.com/2019/hogar/}{\textbf{HOGAR (2019)}}.
 
-\ifdim\dimexpr\pagegoal-\pagetotal\relax > 3.5cm
-\begin{center}
-\includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}
-\end{center}
-\fi
 \clearpage
 {\setlength{\parskip}{0pt}%
 \noindent
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/weaver2/#003_small}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/weaver2/images/003_small.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/weaver2/#03_offeringtable}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/weaver2/images/03_offeringtable.png}}
-\end{minipage}
-}%
-\clearpage
-{\setlength{\parskip}{0pt}%
-\noindent
-\begin{minipage}[b]{0.47\textwidth}
+\begin{minipage}[t]{0.47\textwidth}
   \href{https://patriciogonzalezvivo.com/2026/weaver2/#_DSF1193}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/weaver2/images/_DSF1193.jpg}}
 \end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2026/weaver2/#_DSF1216_clean}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/weaver2/images/_DSF1216_clean.png}}
+\begin{minipage}[t]{0.47\textwidth}
+  \href{https://patriciogonzalezvivo.com/2026/weaver2/#_small}{\includegraphics[width=\linewidth,height=0.88\textheight,keepaspectratio]{2026/weaver2/images/_small.jpg}}
 \end{minipage}
 }%
 
@@ -566,12 +569,12 @@ The stars on Guayupia was the beginning of a 10 years long obsession for learnin
 {\setlength{\parskip}{0pt}%
 \noindent
 \begin{minipage}[t]{0.31\textwidth}
-\href{https://patriciogonzalezvivo.com/2018/estrellas/}{\includegraphics[width=\linewidth,height=0.72\textheight,keepaspectratio]{2018/estrellas/thumbnail.png}}
+\href{https://patriciogonzalezvivo.com/2026/astros/}{\includegraphics[width=\linewidth,height=0.72\textheight,keepaspectratio]{2026/astros/thumbnail.jpg}}
 \vspace{0.5em}
 {\renewcommand{\arraystretch}{1.0}\setstretch{1.0}\selectfont
 \begin{tabular}[b]{@{}l@{}}
-Estrellas, 2018\\
-Custom real-time software\\
+Astros, 2026\\
+Generative real-time software\\
 Variable dimensions
 \end{tabular}}
 \end{minipage}\hfill
@@ -598,55 +601,6 @@ Tarot Deck\\
 }%
 
 \clearpage
-\markright{\href{https://patriciogonzalezvivo.com/2011/efectomariposa/}{Efecto Mariposa}, 2011}
-\noindent{\Large\textbf{\href{https://patriciogonzalezvivo.com/2011/efectomariposa/}{Efecto Mariposa}}}\hfill{\large \href{https://patriciogonzalezvivo.com/2011/}{\textcolor{red}{2011}}}
-
-\begin{wrapfigure}{r}{0.40\textwidth}
-\vspace{-\intextsep}
-\noindent\hfill \href{https://patriciogonzalezvivo.com/2011/efectomariposa/}{\includegraphics[width=\linewidth,height=0.75\textheight,keepaspectratio]{2011/efectomariposa/thumbnail.jpg}}
-\vspace{-\intextsep}
-\end{wrapfigure}
-On Saturday June 4, 2011, after decades of inactivity, the Puyehue volcano ejected a plume of ash ten kilometers high. The eruption destroyed thousands of living beings across the region. That same ash would guarantee the fertility of the soil for years to come.
-
-The same ash is the surface of this work.
-
-\textit{Efecto Mariposa} is an interactive installation built on a bed of that volcanic ash. Visitors reach in with their hands and reshape it, raising ridges, opening valleys, redirecting what might become a river. A depth sensor reads every change to the surface and feeds it into a simulation that renders the consequences across four interconnected layers: geology, hydrology, atmosphere, and life.
-
-The layers do not respond at the same speed. Geological change is immediate: reshape the ash and the topography shifts at once. The hydrosphere follows: rivers carve new paths through the altered contours, moisture redistributes through the simulated air. But life is the slowest of all. It is destroyed the moment the ground shifts significantly beneath it. And then it takes a long time to return, to root itself in the changed terrain and begin again. That asymmetry is not a technical detail. It is the subject of the work.
-
-The installation opens with a simple invitation: reach in and touch. The ash shifts under your hands, and the world above responds: rivers find new courses, moisture moves, the simulated landscape settles into a new configuration. The connection between the gesture and its effects is immediate, and the pleasure of it is real.
-
-What takes longer to perceive is the depth of those connections. Playing with the surface, visitors begin to notice that life returns at its own pace, that some things recover quickly while others take time, that smaller adjustments leave more room for watching, that the space between one touch and the next is also part of the piece. The awareness of complexity arrives through the hands, quietly, as the system reveals more of itself the longer you stay with it.
-
-\textit{Efecto Mariposa} (Spanish for "butterfly effect") was presented at FILE Festival São Paulo, 2011. The ash that forms its surface was already a consequence when it arrived: geological force crystallized into mineral, destruction and future fertility held in the same grain.
-
-\ifdim\dimexpr\pagegoal-\pagetotal\relax > 3.5cm
-\begin{center}
-\includegraphics[height=2cm,keepaspectratio]{images/logo-gray.png}
-\end{center}
-\fi
-\clearpage
-{\setlength{\parskip}{0pt}%
-\noindent
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2011/efectomariposa/#01}{\includegraphics[width=\linewidth,height=0.42\textheight,keepaspectratio]{2011/efectomariposa/images/01.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2011/efectomariposa/#02}{\includegraphics[width=\linewidth,height=0.42\textheight,keepaspectratio]{2011/efectomariposa/images/02.jpg}}
-\end{minipage}
-\vspace{0.4em}
-\noindent
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2011/efectomariposa/#05}{\includegraphics[width=\linewidth,height=0.42\textheight,keepaspectratio]{2011/efectomariposa/images/05.jpg}}
-\end{minipage}\hfill
-\begin{minipage}[b]{0.47\textwidth}
-  \href{https://patriciogonzalezvivo.com/2011/efectomariposa/#12}{\includegraphics[width=\linewidth,height=0.42\textheight,keepaspectratio]{2011/efectomariposa/images/12.jpg}}
-\end{minipage}
-\vspace{0.4em}
-\noindent
-}%
-
-\clearpage
 
 
 
@@ -659,8 +613,9 @@ What takes longer to perceive is the depth of those connections. Playing with th
 % ---------------------------------------------------------
 % CONTACT PAGE
 % ---------------------------------------------------------
-\clearpage
-\markright{Contact}
+% Contact page removed: name, web, email and QR now live on the cover label.
+% \clearpage
+% \markright{Contact}
 
 % \noindent
 % \begin{minipage}[t]{0.15\textwidth}
@@ -668,26 +623,26 @@ What takes longer to perceive is the depth of those connections. Playing with th
 % \includegraphics[width=\linewidth,keepaspectratio]{images/logo-gray.png}
 % \end{minipage}%
 % \hfill
-\begin{minipage}[t]{0.50\textwidth}
-\vspace{0.3in}
-\raggedright
-\begin{tabular}{rl}
+% \begin{minipage}[t]{0.50\textwidth}
+% \vspace{0.3in}
+% \raggedright
+% \begin{tabular}{rl}
 % \textbf{Name}:     & Patricio Gonzalez Vivo     \\
-\textbf{Location} & 1234 Street, City, Country \\
-\textbf{Phone}    & +1 415 999 9999    \\
-\textbf{Email}    & \href{mailto:patriciogonzalezvivo@gmail.com}{patriciogonzalezvivo@gmail.com} \\
-\textbf{Web}      & \href{https://patriciogonzalezvivo.com}{patriciogonzalezvivo.com} \\
-\textbf{Instagram} & \href{https://instagram.com/patriciogonzalezvivo}{@patriciogonzalezvivo} \\
-\end{tabular}
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{0.25\textwidth}
-\vspace{0pt}
-\raggedleft
-\includegraphics[width=\linewidth,keepaspectratio]{images/qr-code.png}
-\end{minipage}
+% \textbf{Location} & 1234 Street, City, Country \\
+% \textbf{Phone}    & +1 415 999 9999    \\
+% \textbf{Email}    & \href{mailto:patriciogonzalezvivo@gmail.com}{patriciogonzalezvivo@gmail.com} \\
+% \textbf{Web}      & \href{https://patriciogonzalezvivo.com}{patriciogonzalezvivo.com} \\
+% \textbf{Instagram} & \href{https://instagram.com/patriciogonzalezvivo}{@patriciogonzalezvivo} \\
+% \end{tabular}
+% \end{minipage}%
+% \hfill
+% \begin{minipage}[t]{0.25\textwidth}
+% \vspace{0pt}
+% \raggedleft
+% \includegraphics[width=\linewidth,keepaspectratio]{images/qr-code.png}
+% \end{minipage}
 
-\vspace{1cm}
+% \vspace{1cm}
 
 % =========================================================
 % END DOCUMENT

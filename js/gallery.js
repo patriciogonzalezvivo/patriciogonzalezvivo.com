@@ -5,7 +5,10 @@ const soldMarker = modal ? modal.querySelector('.sold-marker-fullscreen') : null
 const closeBtn = modal ? modal.querySelector('.close-modal') : null;
 const navLeft = modal ? modal.querySelector('.nav-arrow-left') : null;
 const navRight = modal ? modal.querySelector('.nav-arrow-right') : null;
-const portraitItems = document.querySelectorAll('.painting-item');
+const allItems = document.querySelectorAll('.painting-item');
+// Only items that open in the modal take part in navigation (arrows, dots, #hash).
+// Items with data-href link elsewhere (e.g. a minted edition) and are skipped.
+const portraitItems = Array.from(allItems).filter(item => !item.dataset.href);
 
 let currentIndex = 0;
 
@@ -171,14 +174,14 @@ function prevImage() {
 }
 
 // Click on portrait item (not just thumb) to open fullscreen
-portraitItems.forEach((item, index) => {
+allItems.forEach((item) => {
 	item.addEventListener('click', function() {
-		// Items that link elsewhere (e.g. a sandbox) open their target instead of the modal
+		// Items that link elsewhere (e.g. a minted edition) open their target instead of the modal
 		if (item.dataset.href) {
 			window.location.href = item.dataset.href;
 			return;
 		}
-		showImage(index, 'main');
+		showImage(portraitItems.indexOf(item), 'main');
 	});
 });
 

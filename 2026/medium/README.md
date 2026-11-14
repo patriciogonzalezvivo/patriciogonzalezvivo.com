@@ -14,7 +14,6 @@ title: Hybrid Studies
 year: 2025
 medium: Oil on Canvas
 link: ../../2025/hybrids/
-size_pdf: 70%
 :::
 
 These portraits continue an exploration started with [Hybrid Studies in 2025](../../2025/hybrids/) around ways of bridging traditional and digital portrait making, by combining computer vision and plotting to the practice of oil paintings.

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Medium No. 19</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta property="og:title" content="Medium No. 19" />
+    <style>
+      html, body {
+        margin: 0; padding: 0; width: 100%; height: 100%;
+        overflow: hidden; background: transparent;
+      }
+      /* Black only when shown on its own; transparent in embed mode so the host page shows around the stage. */
+      body.mode-fullscreen { background: #000; }
+      /* The wrapper fills the document viewport and centers the stage. In embed
+         mode the document viewport is the host <iframe> (see the comment at the
+         bottom of <body>), so the min()/vw/vh sizing below fits the iframe box. */
+      #wrapper {
+        position: fixed; left: 0; top: 0; width: var(--vw, 100%); height: var(--vh, 100%);
+        display: flex; align-items: center; justify-content: center;
+      }
+      /* The stage holds the canvas + all overlays; overlays are positioned
+         relative to it so they cover exactly the render area, not the letterbox
+         bars around it. */
+      #stage { position: relative; overflow: hidden; background: #000; }
+
+      /* ── Fullscreen / scale-to-fit mode (index.html, e.g. an objkt token):
+         fill the browser tab on black, scaling the render to fit while keeping
+         its aspect (letterboxed) rather than stretching it. `min(var(--vw, 100vw),
+         100vh*aspect)` picks whichever dimension binds; height follows from
+         aspect-ratio. ──────────────────────────────────────────────────────── */
+      body.mode-fullscreen #stage {
+        width: min(var(--vw, 100vw), var(--vh, 100vh) * var(--aspect));
+        aspect-ratio: var(--aspect);
+      }
+
+      /* ── Embed mode: render at the scene's NATIVE size (768x1010),
+         centered on a white page, shrinking to fit smaller viewports while
+         keeping aspect. `min(nativeW, 100vw, 100vh*aspect)` caps at native size
+         yet never overflows the iframe; height follows from aspect-ratio. ──── */
+      /* body.mode-embed, body.mode-embed #wrapper { background: #fff; } */
+      body.mode-embed #stage {
+        background: transparent;
+        width: min(768px, var(--vw, 100vw), var(--vh, 100vh) * var(--aspect));
+        aspect-ratio: var(--aspect);
+      }
+      /* When the page goes fullscreen, drop the native cap so the render fills
+         the screen (letterboxed at its true aspect against black). */
+      body.mode-embed.is-fullscreen,
+      body.mode-embed.is-fullscreen #wrapper { background: #000; }
+      body.mode-embed.is-fullscreen #stage {
+        background: #000;
+        width: min(var(--vw, 100vw), var(--vh, 100vh) * var(--aspect));
+      }
+
+      #canvas {
+        display: block; width: 100%; height: 100%;
+        outline: none; touch-action: none;
+      }
+      /* Poster shown while the wasm runtime + assets stream in. Removed by
+         boot.js once the scene is live (or on error, so it never sticks).
+         object-fit:cover fills the stage; the slight scale hides the
+         transparent fringe the blur would expose at the edges. */
+      #poster {
+        position: absolute; inset: 0; z-index: 10;
+        width: 100%; height: 100%;
+        object-fit: cover;
+        filter: blur(10px);
+        transform: scale(1.06);
+        transition: opacity .5s ease; opacity: 1;
+        pointer-events: none;
+      }
+      #poster.hidden { opacity: 0; }
+      /* Black-and-white loading bar centered over the canvas; the fill grows
+         with fetch progress (boot.js), then fades out with the poster. Dark
+         track + white fill + white hairline outline so it reads on any
+         background (blurred poster, or the white embed page if the poster is
+         missing). */
+      #loadbar {
+        position: absolute; left: 50%; top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 12;
+        width: min(62%, 240px); height: 8px;
+        background: rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.95);
+        border-radius: 5px; overflow: hidden;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+        transition: opacity .5s ease; opacity: 1; pointer-events: none;
+      }
+      #loadbar.hidden { opacity: 0; }
+      #loadbar-fill {
+        height: 100%; width: 0%;
+        background: #fff;
+        transition: width .25s ease;
+      }
+      /* Fullscreen toggle (embed mode only) -- appears on hover in the stage
+         corner. Requests fullscreen on the whole document so the stage stays
+         aspect-locked (letterboxed) rather than the UA stretching a
+         :fullscreen element to fill the screen. */
+      #fsbtn {
+        position: absolute; right: 10px; bottom: 10px; z-index: 15;
+        width: 34px; height: 34px; padding: 7px;
+        border: none; border-radius: 6px;
+        background: rgba(0, 0, 0, 0.35); color: #fff; cursor: pointer;
+        display: none; align-items: center; justify-content: center;
+        opacity: 0; transition: opacity .2s ease, background .2s ease;
+      }
+      body.mode-embed #fsbtn { display: flex; }
+      #stage:hover #fsbtn, #fsbtn:focus-visible { opacity: 1; }
+      #fsbtn:hover { background: rgba(0, 0, 0, 0.6); }
+      #fsbtn svg {
+        width: 100%; height: 100%; display: block;
+        fill: none; stroke: currentColor; stroke-width: 2;
+        stroke-linecap: round; stroke-linejoin: round;
+      }
+      #fsbtn .icon-exit { display: none; }
+      body.is-fullscreen #fsbtn .icon-enter { display: none; }
+      body.is-fullscreen #fsbtn .icon-exit { display: block; }
+      #err {
+        position: absolute; left: 0; right: 0; bottom: 0; z-index: 20;
+        font: 12px/1.4 monospace; color: #f66; background: rgba(0,0,0,.7);
+        padding: 6px 10px; display: none; white-space: pre-wrap;
+      }
+      #canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; margin: 0 !important; }
+    </style>
+    <script>
+      // iPad/iOS Safari: 100vh/100vw are the *largest* viewport, not the visible one.
+      // Track the real visible size and expose it as --vw/--vh for the stage rules.
+      (function () {
+        var r = document.documentElement;
+        function fit() {
+          var v = window.visualViewport;
+          r.style.setProperty('--vw', Math.round(v ? v.width : window.innerWidth) + 'px');
+          r.style.setProperty('--vh', Math.round(v ? v.height : window.innerHeight) + 'px');
+        }
+        fit();
+        window.addEventListener('resize', fit);
+        window.addEventListener('orientationchange', function () { setTimeout(fit, 150); });
+        if (window.visualViewport) window.visualViewport.addEventListener('resize', fit);
+        document.addEventListener('fullscreenchange', function () { setTimeout(fit, 100); });
+        document.addEventListener('webkitfullscreenchange', function () { setTimeout(fit, 100); });
+      })();
+    </script>
+  </head>
+  <body class="mode-fullscreen" style="--aspect: 0.760396">
+    <script>
+      // Inside an iframe (or ?embed=1) switch to embed mode before first paint.
+      try { if (window.self !== window.top || /[?&]embed=1/.test(location.search)) document.body.className = "mode-embed"; }
+      catch (e) { document.body.className = "mode-embed"; }
+    </script>
+    <div id="wrapper">
+      <div id="stage">
+        <canvas id="canvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+        <video id="poster" autoplay loop muted playsinline
+               onerror="this.style.display='none'">
+          <source type="video/webm" />
+        </video>
+        <div id="loadbar"><div id="loadbar-fill"></div></div>
+        <button id="fsbtn" type="button" title="Toggle fullscreen" aria-label="Toggle fullscreen">
+          <svg class="icon-enter" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" />
+          </svg>
+          <svg class="icon-exit" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5" />
+          </svg>
+        </button>
+        <pre id="err"></pre>
+      </div>
+    </div>
+
+    <script>
+      // ARTIST: after uploading the companion folder to IPFS, replace only the
+      // placeholder below. Paste the folder CID itself, not an ipfs:// or HTTP URL.
+      const ARTWORK_CID = "bafybeifvqjudxi7qutoep2cydonddv3puwx5jwteizgu4woxpn4zovvj2y";
+
+      // Requests start at a different gateway on each page load. Once scene.json
+      // succeeds, every dependency for that session uses that same gateway.
+      // Put a dedicated gateway first if the artwork has one.
+      const GATEWAY_TEMPLATES = [
+        "https://ipfs.io/ipfs/{cid}/",
+        "https://ipfs.filebase.io/ipfs/{cid}/",
+        "https://gateway.pinata.cloud/ipfs/{cid}/",
+        "https://ipfs2.seadn.io/ipfs/{cid}/",
+        "https://ipfs.transientusercontent.xyz/ipfs/{cid}/",
+        "https://ipfs.4everland.io/ipfs/{cid}/",
+      ];
+
+      const SCENE_FILE = "scene.json";
+      const POSTER_IMAGE = "splat_strokes_paint_49471902089a08ff21404df3ca673911_fit.poster.jpg";
+      const POSTER_VIDEO = "splat_strokes_paint_49471902089a08ff21404df3ca673911_fit.poster.webm";
+
+      window.SANDBOX_SCENE = SCENE_FILE;
+
+      // Minimal Emscripten Module bootstrap (no editor/console/CDN deps) --
+      // just enough to bring up the GLFW/WebGL2 canvas and expose ccall/FS.
+      const canvas = document.getElementById('canvas');
+
+      // ── Force a WebGL2 context ────────────────────────────────────────────
+      // The Emscripten GLFW port derives the WebGL context version from the
+      // GLFW context-version hint, which vera sets to major=2 -- that maps to a
+      // WebGL *1* context, even though this wasm is compiled with
+      // USE_WEBGL2=1/FULL_ES3. On WebGL1 the gsplat RGBA32F data texture
+      // (createTextureFloat, 4096-wide float) needs OES_texture_float + wide
+      // float-texture support and samples as garbage for many splats, so a
+      // chunk of them silently drop out (fine natively, broken in the browser).
+      // Shim getContext so any webgl1 request on this canvas transparently
+      // returns a webgl2 context; Emscripten then feature-detects WebGL2 (ES3)
+      // from the returned context at runtime.
+      (function forceWebGL2() {
+        const orig = canvas.getContext.bind(canvas);
+        canvas.getContext = function (type, attrs) {
+          if (type === 'webgl' || type === 'experimental-webgl') {
+            const gl2 = orig('webgl2', attrs);
+            if (gl2) { console.log('forced WebGL2 context'); return gl2; }
+            console.warn('WebGL2 unavailable; falling back to ' + type);
+          }
+          return orig(type, attrs);
+        };
+      })();
+
+      window.module_loaded = false;
+      window.Module = {
+        // Also hint Emscripten's own GL layer to build a WebGL2
+        // (majorVersion:2) context, for builds/ports that honor this instead
+        // of the getContext shim above.
+        webglContextAttributes: { majorVersion: 2, minorVersion: 0 },
+        // glslViewer.js normally looks for glslViewer.wasm beside the uploaded
+        // HTML. Point it at the gateway selected by the launcher instead.
+        locateFile: (path) => new URL(path, window.IPFS_ASSET_BASE).href,
+        canvas: (function () {
+          canvas.addEventListener('webglcontextlost', function (e) {
+            e.preventDefault(); location.reload();
+          }, false);
+          return canvas;
+        })(),
+        print: (t) => console.log('WASM:', t),
+        printErr: (t) => console.error('WASM:', t),
+        onAbort: (reason) => showLaunchError('WebAssembly failed: ' + reason),
+        onRuntimeInitialized: () => console.log('WASM runtime initialized'),
+        postRun: () => { window.module_loaded = true; },
+      };
+
+      function showLaunchError(message) {
+        const el = document.getElementById('err');
+        el.style.display = 'block';
+        el.textContent = message;
+        console.error(message);
+      }
+    </script>
+    <script>
+      (async function launchFromIpfs() {
+        if (!ARTWORK_CID || ARTWORK_CID === 'PASTE_FOLDER_CID_HERE' || /[\s/]/.test(ARTWORK_CID)) {
+          showLaunchError('Setup required: replace PASTE_FOLDER_CID_HERE with the IPFS folder CID.');
+          return;
+        }
+
+        const bases = GATEWAY_TEMPLATES.map((template) =>
+          template.replace('{cid}', encodeURIComponent(ARTWORK_CID))
+        );
+
+        // Rotate the priority per page load to distribute traffic, but probe and
+        // select only once so one render never mixes responses from gateways.
+        const random = new Uint32Array(1);
+        crypto.getRandomValues(random);
+        const offset = random[0] % bases.length;
+        const candidates = bases.slice(offset).concat(bases.slice(0, offset));
+        const failures = [];
+
+        for (const base of candidates) {
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 8000);
+          try {
+            const response = await fetch(new URL(SCENE_FILE, base), {
+              cache: 'no-store',
+              signal: controller.signal,
+            });
+            if (!response.ok) throw new Error('HTTP ' + response.status);
+            const scene = await response.json();
+            if (!scene || (!scene.frag && !scene.vert && !scene.geometry)) {
+              throw new Error('scene.json is not a scene manifest');
+            }
+            window.IPFS_ASSET_BASE = base;
+            break;
+          } catch (error) {
+            failures.push(base + ' — ' + (error.name === 'AbortError' ? 'timeout' : error.message));
+          } finally {
+            clearTimeout(timeout);
+          }
+        }
+
+        if (!window.IPFS_ASSET_BASE) {
+          showLaunchError('No IPFS gateway could load the artwork.\n' + failures.join('\n'));
+          return;
+        }
+
+        const assetUrl = (path) => new URL(path, window.IPFS_ASSET_BASE).href;
+        const poster = document.getElementById('poster');
+        poster.poster = assetUrl(POSTER_IMAGE);
+        poster.querySelector('source').src = assetUrl(POSTER_VIDEO);
+        poster.load();
+
+        try {
+          await new Promise((resolve, reject) => {
+            const runtime = document.createElement('script');
+            runtime.src = assetUrl('glslViewer.js');
+            runtime.onload = resolve;
+            runtime.onerror = () => reject(new Error('Could not load glslViewer.js'));
+            document.head.appendChild(runtime);
+          });
+          await import(assetUrl('boot.js'));
+        } catch (error) {
+          showLaunchError('Artwork startup failed: ' + error.message);
+        }
+      })();
+    </script>
+
+  </body>
+</html>
