@@ -53,28 +53,26 @@
 
     <?php
         // Each study is a minted edition: mint/medium_nNN.html (loads the piece from IPFS)
-        // plus mint/medium_nNN.gif (looping preview). The HTML carries its folder CID;
+        // plus mint/medium_nNN.webm (looping preview). The HTML carries its folder CID;
         // mint/cids.json maps asset -> CID, so the CID tells us which painting it pairs with
         // (paintings/<asset>[_fit].jpg). The "_fit" suffix is ignored when matching.
         $cids = json_decode(@file_get_contents('mint/cids.json'), true) ?: [];
-        $mint_index = json_decode(@file_get_contents('mint/index.json'), true) ?: [];
         $asset_by_cid = array_flip(array_filter($cids));
         // Each edition is live on Transient; tokens.json maps edition number -> token ID.
         $tokens = json_decode(@file_get_contents('tokens.json'), true) ?: [];
         $studies = [];
         foreach (glob('mint/medium_n*.html') as $html) {
-            $gif = preg_replace('/\.html$/', '.gif', $html);
+            $webm = preg_replace('/\.html$/', '.webm', $html);
             $src = file_get_contents($html);
-            if (!file_exists($gif) || !preg_match('/const ARTWORK_CID = "([^"]+)"/', $src, $m) || !isset($asset_by_cid[$m[1]])) continue;
+            if (!file_exists($webm) || !preg_match('/const ARTWORK_CID = "([^"]+)"/', $src, $m) || !isset($asset_by_cid[$m[1]])) continue;
             $asset = $asset_by_cid[$m[1]];
             $n = (int) preg_replace('/\D/', '', basename($html, '.html'));
             $token = $tokens['tokens'][$n] ?? null;
             $transient = $token ? str_replace(['{contract}', '{token}'], [$tokens['contract'], $token], $tokens['url']) : '';
             $studies[preg_replace('/_fit$/', '', $asset)] = [
-                'html' => $html, 'gif' => $gif, 'asset' => $asset,
+                'html' => $html, 'webm' => $webm, 'asset' => $asset,
                 'title' => sprintf('Medium Study No. %02d', $n),  // same title as the minted token
                 'href' => $transient ?: $html,                    // fall back to the IPFS-backed page
-                'source' => $mint_index[$asset]['source'] ?? '',
             ];
         }
         $paintings = get_gallery_artworks('paintings', '*.{jpg,JPG,jpeg,png}', [
@@ -93,18 +91,17 @@
         <div class="medium-pair">
             <?php echo render_gallery_item($artwork); ?>
             <?php if ($study):
-                // The modal shows the still render in images/ that matches this study
-                // (named after its original sandbox); the GIF is the fallback.
-                $still = $study['source'] ? glob('images/' . $study['source'] . '_t*_2480x3508.jpg') : [];
+                // Studies link out (data-href) and never open the fullscreen modal.
                 $study_title = $study['title'];
                 $info = json_encode(['title' => $study_title, 'year' => '2026', 'medium' => 'Digital sandbox']);
             ?>
             <div class="painting-item medium-study" data-id="<?php echo htmlspecialchars($study['asset']); ?>"
                  data-href="<?php echo htmlspecialchars($study['href']); ?>"
-                 data-full="<?php echo htmlspecialchars($still ? $still[0] : $study['gif']); ?>"
                  data-info='<?php echo htmlspecialchars($info, ENT_QUOTES, 'UTF-8'); ?>'>
                 <div class="painting-thumb-wrapper">
-                    <img class="painting-thumb" src="<?php echo htmlspecialchars($study['gif']); ?>" alt="<?php echo htmlspecialchars($study_title); ?>" loading="lazy">
+                    <video class="painting-thumb" autoplay loop muted playsinline preload="metadata" aria-label="<?php echo htmlspecialchars($study_title); ?>">
+                        <source src="<?php echo htmlspecialchars($study['webm']); ?>" type="video/webm">
+                    </video>
                 </div>
                 <div class="artwork-info">
                     <div class="artwork-title"><?php echo htmlspecialchars($study_title); ?></div>
