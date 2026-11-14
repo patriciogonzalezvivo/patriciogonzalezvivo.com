@@ -2,7 +2,7 @@ These are oil portraits extended into living images which hold the elusive essen
 
 Each digital portrait is first the material trace of an intimate dialog, and then, when animated, into a recurring reenactment of the psychological exercise of recognition.
 
-I noticed after the fact that most of the sitters I have chosen are men. I came to understand this bias as a reflection of my interest in the construction of masculinity. How can we depict male identity in a decade that shows its crisis so shamelessly? What is being shaped from its pieces? What needs to be preserved? What needs to be transformed? And what needs to be shed?
+The sitters are mostly men, and the portraits take up that imbalance as their subject: the construction of masculinity at a moment when its crisis is hard to miss. What is being shaped from its pieces? What needs to be preserved? What transformed? What shed?
 
 The portraits hold all these questions open by refusing to settle on an answer.
 
