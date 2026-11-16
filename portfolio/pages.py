@@ -269,7 +269,7 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '', logo
     )
     latex += f"\\markright{{{_mark_text}}}\n"
     latex += (
-        f"\\noindent{{\\Large\\textbf{{\\href{{{project_url}}}{{{title}}}}}}}"
+        f"\\noindent{{\\LARGE\\textbf{{\\href{{{project_url}}}{{{title}}}}}}}"
         f"\\hfill{{\\large \\href{{{year_url}}}{{\\textcolor{{red}}{{{year}}}}}}}\n\n"
     )
     # Detect a thumbnail.* in the project root to place beside the
@@ -416,7 +416,7 @@ def _build_group_page(group: List, project_url: str = '') -> str:
     """
     n = len(group)
 
-    latex = "\\clearpage\n{\\setlength{\\parskip}{0pt}%\n\\noindent\n"
+    latex = "\\clearpage\\newgeometry{margin=0.35in}\n{\\setlength{\\parskip}{0pt}%\n\\noindent\n"
 
     if n == 4:
         # 2x2 grid: two rows of two images each.
@@ -432,7 +432,7 @@ def _build_group_page(group: List, project_url: str = '') -> str:
             latex += _image_minipage(img_path, meta, project_url, img_frac, _GROUP_IMG_HEIGHT)
             latex += "\\hfill\n" if k < n - 1 else "\n"
 
-    latex += "}%\n"  # close \parskip=0 group
+    latex += "}%\n\\restoregeometry\n"  # close \parskip=0 group, back to wide margins
     return latex
 
 
@@ -468,7 +468,7 @@ def _build_individual_page(img_path: str, base_path: Path, index: int, project_u
     linked_inc = f"\\href{{{img_url}}}{{{raw_inc}}}" if img_url else raw_inc
     img_line   = linked_inc + "\n"
 
-    latex = "\\clearpage\n{\\setlength{\\parskip}{0pt}%\n"
+    latex = "\\clearpage\\newgeometry{margin=0.35in}\n{\\setlength{\\parskip}{0pt}%\n"
 
     if caption:
         if image_on_right:
@@ -505,7 +505,7 @@ def _build_individual_page(img_path: str, base_path: Path, index: int, project_u
             "\\end{minipage}%\n"
         )
 
-    latex += "}%\n"  # close \parskip=0 group
+    latex += "}%\n\\restoregeometry\n"  # close \parskip=0 group, back to wide margins
     return latex
 
 
@@ -523,6 +523,47 @@ _FEATURED_IMG_FRAC: Dict[int, str] = {1: '0.60', 2: '0.47', 3: '0.31', 4: '0.235
 # Image height — all items share the same fixed maximum so thumbnails align.
 # Kept a bit below \textheight to leave vertical space for the caption block.
 _FEATURED_IMG_HEIGHT = '0.72\\textheight'
+
+
+def _featured_thumb_path(meta: Dict, base_path: Path):
+    """Return the workspace-relative thumbnail path for a featured item, or None."""
+    if meta.get('thumb'):
+        candidate = base_path / meta['path'] / meta['thumb']
+        if candidate.exists():
+            return str(candidate.relative_to(base_path))
+    return None
+
+
+def _crop_to_aspect(img_rel: str, aspect: float, base_path: Path) -> str:
+    """Centre-crop an image (sides or top/bottom) to ``aspect`` (w/h).
+
+    The cropped copy is cached under ``temp_portfolio/featured_crops/`` and its
+    workspace-relative path is returned.  If the image already matches (within
+    1 %) or cannot be opened, the original path is returned unchanged.
+    """
+    import hashlib
+    from PIL import Image
+    src = base_path / img_rel
+    try:
+        with Image.open(src) as im:
+            w, h = im.size
+            cur = w / h
+            if abs(cur - aspect) / aspect < 0.01:
+                return img_rel
+            if cur > aspect:           # too wide → crop the sides
+                nw, nh = round(h * aspect), h
+            else:                      # too tall → crop top/bottom
+                nw, nh = w, round(w / aspect)
+            x0, y0 = (w - nw) // 2, (h - nh) // 2
+            out_dir = base_path / 'temp_portfolio' / 'featured_crops'
+            out_dir.mkdir(parents=True, exist_ok=True)
+            key = hashlib.md5(f"{img_rel}{aspect:.4f}{src.stat().st_mtime}".encode()).hexdigest()[:10]
+            out = out_dir / f"{src.stem}_{key}.png"
+            if not out.exists():
+                im.convert('RGB').crop((x0, y0, x0 + nw, y0 + nh)).save(out)
+            return str(out.relative_to(base_path))
+    except Exception:
+        return img_rel
 
 
 def build_featured_section_pages(section: Dict, base_path: Path, base_url: str = '', logo_file: str = '') -> str:
@@ -587,6 +628,20 @@ def build_featured_section_pages(section: Dict, base_path: Path, base_url: str =
         img_frac  = _FEATURED_IMG_FRAC.get(n, _FEATURED_IMG_FRAC[4])
         img_h     = _FEATURED_IMG_HEIGHT
 
+        # Crop every thumbnail on this page to the narrowest aspect ratio so
+        # all images share the same height (sides of wider ones are trimmed).
+        from PIL import Image as _PILImage
+        _aspects = []
+        for _m in page_items:
+            _t = _featured_thumb_path(_m, base_path)
+            if _t:
+                try:
+                    with _PILImage.open(base_path / _t) as _im:
+                        _aspects.append(_im.size[0] / _im.size[1])
+                except Exception:
+                    pass
+        target_aspect = min(_aspects) if _aspects else None
+
         # All N items in a single row, separated by \hfill.
         latex += "{\\setlength{\\parskip}{0pt}%\n\\noindent\n"
 
@@ -598,11 +653,9 @@ def build_featured_section_pages(section: Dict, base_path: Path, base_url: str =
             )
 
             # Workspace-relative thumbnail path (must exist on disk).
-            thumb_rel = None
-            if meta.get('thumb'):
-                candidate = base_path / meta['path'] / meta['thumb']
-                if candidate.exists():
-                    thumb_rel = str(candidate.relative_to(base_path))
+            thumb_rel = _featured_thumb_path(meta, base_path)
+            if thumb_rel and target_aspect:
+                thumb_rel = _crop_to_aspect(thumb_rel, target_aspect, base_path)
 
             # Image — linked to project page when base_url is available.
             if thumb_rel:

@@ -57,9 +57,12 @@ def build_bio_block(artist: Dict, base_path: Path, base_url: str = '') -> str:
         return ''
 
     logo_file = artist.get('logo', 'images/logo-gray.png')
+    # Bio only: 1cm of air between the last line of text and the logo, so the
+    # fit test is raised from 3.5cm to 4.5cm to account for it.
     logo_tex = (
-        "\\ifdim\\dimexpr\\pagegoal-\\pagetotal\\relax > 3.5cm\n"
+        "\\ifdim\\dimexpr\\pagegoal-\\pagetotal\\relax > 4.5cm\n"
         "\\begin{center}\n"
+        "\\vspace{1cm}\n"
         f"\\includegraphics[height=2cm,keepaspectratio]{{{logo_file}}}\n"
         "\\end{center}\n"
         "\\fi\n"

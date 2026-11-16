@@ -113,18 +113,24 @@ def generate_from_template(
     if label_pdf:
         web = artist.get('website', '')
         web_url = artist.get('website_url', f'https://{web}' if web else '')
-        def _link(url, width_mm, bottom_mm):
+        def _link(url, width_mm, bottom_mm, x_mm=196, height_mm=5.5):
             # Link annotation emitted directly: \\href on an empty/rule-only
             # box produces no annotation under xdvipdfmx.  Label text starts
             # at x≈196mm; the box extends 5.5mm up from `bottom_mm`.
             return (
-                f"  \\node[anchor=north west, inner sep=0pt, xshift=196mm, yshift=-{bottom_mm}mm]\n"
+                f"  \\node[anchor=north west, inner sep=0pt, xshift={x_mm}mm, yshift=-{bottom_mm}mm]\n"
                 f"    at (current page.north west)\n"
-                f"    {{\\special{{pdf:ann width {width_mm}mm height 5.5mm depth 0pt "
+                f"    {{\\special{{pdf:ann width {width_mm}mm height {height_mm}mm depth 0pt "
                 f"<</Type/Annot/Subtype/Link/Border[0 0 0]/A<</S/URI/URI({url})>>>>}}}};\n"
             )
 
         links = _link(web_url, 40, 189)
+        # QR code: square at the left of the page, same geometry as
+        # elements.generate_label_svg (plate_y=168mm, side_margin=19mm,
+        # side = label height - 25mm).  Points to the website.
+        if web_url:
+            qr_mm = (57.5 if artist.get('email') else 50.0) - 25.0
+            links += _link(web_url, qr_mm, 168 + qr_mm, x_mm=19, height_mm=qr_mm)
         email = artist.get('email', '')
         if email:
             links += _link(f"mailto:{email}", 55, 196.5)

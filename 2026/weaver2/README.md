@@ -1,17 +1,13 @@
+Weaver is an interactive work that invites two people to meet across time and space through a shared fragment of the night sky. Like a prayer or a ritual, it offers a passage beyond immediate experience into a quiet awareness of what connects us, not despite distance, but through it.
 
-In the middle of the nineteenth century, during the Great Potato Famine, Dudley Sarsfield Brennan and Mary Colcough left Ireland and crossed the Atlantic to Argentina. I imagine them on the deck at night, breathing the cold ocean air as familiar constellations disappeared and unknown stars emerged above them. I imagine a mixture of grief and hope, an awareness of being small beneath the immensity of the universe: a ship crossing a dark sea on a planet drifting through space. They eventually settled in Magdalena, where their son Patricio was born in 1870. More than twenty years later, Enrico Vivo and Maria Viva made a similar journey from Anacapri, Italy, to Argentina. Though the two couples never met, they shared the experience of migration and became part of the same lineage. From one side of that lineage I inherited the name Patricio; from the other, the surname Vivo. 
-
-I stand at the far end of their horizon, beneath a different sky, with only fragments of their stories and the sky itself. From this desire to connect across time, I created Weaver: a way of threading my present to their future and my past to their present, a way of seeing what they saw and allowing future generations to see what I see.
-
-
----
+In the middle of the nineteenth century, during the Great Potato Famine, Dudley Sarsfield Brennan and Mary Colcough left Ireland and crossed the Atlantic to Argentina. I imagine them on the deck at night, breathing the cold ocean air as familiar constellations disappeared and unknown stars emerged above them. I imagine a mixture of grief and hope, an awareness of being small beneath the immensity of the universe: a ship crossing a dark sea on a planet drifting through space. They eventually settled in Magdalena, where their son Patricio was born in 1870. 
 
 :::wrapfig left
 src: svg/000_light.svg
 size_pdf: 40%
-:::  
+::: 
 
-Weaver is an interactive work that invites two people to meet across time and space through a shared fragment of the night sky. Like a prayer or a ritual, it offers a passage beyond immediate experience into a quiet awareness of what connects us, not despite distance, but through it.
+I stand at the far end of their horizon, beneath a different sky, with only fragments of their stories and the sky itself. From this desire to connect across time, I created Weaver: a way of threading my present to their future and my past to their present, a way of seeing what they saw and allowing future generations to see what I see.
 
 Two celestial maps overlap: one for each observer. Each is rendered in a distinct color, reflecting the night sky from a specific place and moment. In the region where the maps intersect lie the constellations both participants share, a common sky that exists beyond distance or time.
 
