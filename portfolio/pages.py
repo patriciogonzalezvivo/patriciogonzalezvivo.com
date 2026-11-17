@@ -621,7 +621,7 @@ def build_featured_section_pages(section: Dict, base_path: Path, base_url: str =
         if page_idx == 0:
             latex += (
                 f"\\noindent{{\\Large\\textbf{{{title}}}}}\n"
-                "\\par\\vspace{0.5em}\\noindent\\hrulefill\\par\\vspace{1em}\n"
+                "\\par\\vspace{1em}\n"
             )
 
         n         = len(page_items)
