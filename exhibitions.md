@@ -1,5 +1,7 @@
 ### Exhibitions and Residencies
 
+- **2026** [Medium Studies at Transient.xyz](https://www.transient.xyz/nfts/ethereum/0x16d291efbfa270835399b45c7452669caa3f8230)
+
 - **2025** Solar Biennale, at [Museum of Contemporary Design](https://www.instagram.com/mudaclausanne/), Switzerland
 
 - **2025** [NetGala](https://thenetgala.com/), New York City

@@ -17,7 +17,7 @@
 % ---------------------------------------------------------
 % PAGE LAYOUT
 % ---------------------------------------------------------
-\usepackage[a4paper, landscape, left=1in, right=1in, top=0.75in, bottom=0.5in, nohead, nofoot]{geometry}
+\usepackage[a4paper, landscape, left=1in, right=1in, top=1in, bottom=0.5in, nohead, nofoot]{geometry}
 
 % ---------------------------------------------------------
 % PACKAGES
@@ -189,36 +189,49 @@ Dimensions: & #5 \\
 % ---------------------------------------------------------
 % CONTACT PAGE
 % ---------------------------------------------------------
-% Contact page removed: name, web, email and QR now live on the cover label.
-% \clearpage
-% \markright{Contact}
+\clearpage
+\markright{Contact}
 
-% \noindent
-% \begin{minipage}[t]{0.15\textwidth}
-% \vspace{0pt}
-% \includegraphics[width=\linewidth,keepaspectratio]{%%ARTIST_LOGO%%}
-% \end{minipage}%
-% \hfill
-% \begin{minipage}[t]{0.50\textwidth}
-% \vspace{0.3in}
-% \raggedright
-% \begin{tabular}{rl}
-% \textbf{Name}:     & %%ARTIST_NAME%%     \\
-% \textbf{Location} & %%ARTIST_LOCATION%% \\
-% \textbf{Phone}    & %%ARTIST_PHONE%%    \\
-% \textbf{Email}    & \href{mailto:%%ARTIST_EMAIL%%}{%%ARTIST_EMAIL_LABEL%%} \\
-% \textbf{Web}      & \href{%%ARTIST_WEBSITE_URL%%}{%%ARTIST_WEBSITE%%} \\
-% \textbf{Instagram} & \href{https://instagram.com/%%ARTIST_INSTAGRAM%%}{@%%ARTIST_INSTAGRAM_LABEL%%} \\
-% \end{tabular}
-% \end{minipage}%
-% \hfill
-% \begin{minipage}[t]{0.25\textwidth}
-% \vspace{0pt}
-% \raggedleft
-% \includegraphics[width=\linewidth,keepaspectratio]{images/qr-code.png}
-% \end{minipage}
+\section*{Let's Chat}
 
-% \vspace{1cm}
+\noindent
+\begin{minipage}[t]{0.58\textwidth}
+\vspace{0pt}
+\raggedright
+I am currently seeking select opportunities, including solo exhibitions,
+live installations and gallery representation. I am also open to
+commissions, residencies and collaborations with institutions and
+collectors who want to bring instruments of attention into a room.
+
+\bigskip
+
+If a piece here stayed with you, write to me. Tell me which one, and
+where you imagine it living.
+
+\medskip
+
+\noindent\href{mailto:%%ARTIST_EMAIL%%?subject=Let's\%20chat&body=Hi\%20Patricio\%2C\%0A\%0AI\%20saw\%20your\%20portfolio\%20and\%20I'd\%20like\%20to\%20talk\%20about\%E2\%80\%A6\%0A\%0A}{\textbf{$\rightarrow$ You can reach me at}}
+
+\bigskip
+
+\begin{tabular}{rl}
+\textbf{Email}     & \href{mailto:%%ARTIST_EMAIL%%}{%%ARTIST_EMAIL_LABEL%%} \\
+\textbf{Web}       & \href{%%ARTIST_WEBSITE_URL%%}{%%ARTIST_WEBSITE%%} \\
+\textbf{Instagram} & \href{https://instagram.com/%%ARTIST_INSTAGRAM%%}{@%%ARTIST_INSTAGRAM_LABEL%%} \\
+\end{tabular}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.30\textwidth}
+\vspace{0pt}
+\centering
+\href{%%ARTIST_WEBSITE_URL%%}{\includegraphics[width=\linewidth,keepaspectratio]{images/qr-code.png}}
+
+\smallskip
+{\small Scan to visit the site}
+
+\vspace{1cm}
+\includegraphics[width=0.5\linewidth,keepaspectratio]{%%ARTIST_LOGO%%}
+\end{minipage}
 
 % =========================================================
 % END DOCUMENT

@@ -178,10 +178,8 @@ def generate_label_svg(gallery_name: str, output_path: str, for_name: str = None
         )
         axi.add(grp_background)
 
-    # The QR code replaces the tree logo (it carries the contact page's job).
-    # Falls back to the logo when no QR image is available.
     from PIL import Image as PILImage
-    mark_path, mark_mm = (_QR_PATH, qr_mm) if os.path.exists(_QR_PATH) else (_LOGO_PATH, 31.0)
+    mark_path, mark_mm = _LOGO_PATH, 31.0
     if os.path.exists(mark_path):
         with PILImage.open(mark_path) as img:
             natural_mm = img.size[0] * 0.264583  # px → mm @ 96 DPI

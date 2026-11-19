@@ -125,12 +125,6 @@ def generate_from_template(
             )
 
         links = _link(web_url, 40, 189)
-        # QR code: square at the left of the page, same geometry as
-        # elements.generate_label_svg (plate_y=168mm, side_margin=19mm,
-        # side = label height - 25mm).  Points to the website.
-        if web_url:
-            qr_mm = (57.5 if artist.get('email') else 50.0) - 25.0
-            links += _link(web_url, qr_mm, 168 + qr_mm, x_mm=19, height_mm=qr_mm)
         email = artist.get('email', '')
         if email:
             links += _link(f"mailto:{email}", 55, 196.5)
