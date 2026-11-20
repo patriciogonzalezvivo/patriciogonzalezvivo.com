@@ -177,12 +177,12 @@
       // succeeds, every dependency for that session uses that same gateway.
       // Put a dedicated gateway first if the artwork has one.
       const GATEWAY_TEMPLATES = [
-        "https://ipfs.io/ipfs/{cid}/",
         "https://ipfs.filebase.io/ipfs/{cid}/",
         "https://gateway.pinata.cloud/ipfs/{cid}/",
+        "https://ipfs.4everland.io/ipfs/{cid}/",
         "https://ipfs2.seadn.io/ipfs/{cid}/",
         "https://ipfs.transientusercontent.xyz/ipfs/{cid}/",
-        "https://ipfs.4everland.io/ipfs/{cid}/",
+        "https://ipfs.io/ipfs/{cid}/",
       ];
 
       const SCENE_FILE = "scene.json";
@@ -254,43 +254,104 @@
           return;
         }
 
+        // Gateways are tried in order (Filebase first: it serves from storage we
+        // control). Public gateways sometimes answer cold requests with a 429/5xx
+        // that has no CORS header, which the browser reports as a CORS error.
+        // So every request below can fail over to the next gateway.
         const bases = GATEWAY_TEMPLATES.map((template) =>
           template.replace('{cid}', encodeURIComponent(ARTWORK_CID))
         );
+        const PROBE_MS = 8000;
+        const ASSET_MS = 30000;
+        const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+        const origFetch = window.fetch.bind(window);
 
-        // Rotate the priority per page load to distribute traffic, but probe and
-        // select only once so one render never mixes responses from gateways.
-        const random = new Uint32Array(1);
-        crypto.getRandomValues(random);
-        const offset = random[0] % bases.length;
-        const candidates = bases.slice(offset).concat(bases.slice(0, offset));
-        const failures = [];
-
-        for (const base of candidates) {
+        async function fetchTimed(url, init, ms) {
           const controller = new AbortController();
-          const timeout = setTimeout(() => controller.abort(), 8000);
+          const timer = setTimeout(() => controller.abort(), ms);
           try {
-            const response = await fetch(new URL(SCENE_FILE, base), {
-              cache: 'no-store',
-              signal: controller.signal,
-            });
+            return await origFetch(url, Object.assign({}, init, { signal: controller.signal }));
+          } finally {
+            clearTimeout(timer);
+          }
+        }
+
+        // 1. Pick a gateway that serves the manifest AND a real shader file.
+        const failures = [];
+        for (const base of bases) {
+          try {
+            const response = await fetchTimed(new URL(SCENE_FILE, base), { cache: 'no-store' }, PROBE_MS);
             if (!response.ok) throw new Error('HTTP ' + response.status);
             const scene = await response.json();
             if (!scene || (!scene.frag && !scene.vert && !scene.geometry)) {
               throw new Error('scene.json is not a scene manifest');
             }
+            const probe = scene.vert || scene.frag;
+            if (probe) {
+              const r = await fetchTimed(new URL((scene.prefix || '') + probe, base), { cache: 'no-store' }, PROBE_MS);
+              if (!r.ok) throw new Error('shader HTTP ' + r.status);
+              await r.arrayBuffer();
+            }
             window.IPFS_ASSET_BASE = base;
             break;
           } catch (error) {
             failures.push(base + ' — ' + (error.name === 'AbortError' ? 'timeout' : error.message));
-          } finally {
-            clearTimeout(timeout);
           }
         }
 
         if (!window.IPFS_ASSET_BASE) {
           showLaunchError('No IPFS gateway could load the artwork.\n' + failures.join('\n'));
           return;
+        }
+
+        // Selected gateway first, then the rest.
+        const ordered = [window.IPFS_ASSET_BASE].concat(bases.filter((b) => b !== window.IPFS_ASSET_BASE));
+
+        // 2. Any request for an artwork file (shaders, textures, wasm, boot.js
+        // internals) is retried on the next gateway if it fails.
+        window.fetch = async function (input, init) {
+          const url = typeof input === 'string' ? input : (input && input.url) || String(input);
+          const method = ((init && init.method) || (input && input.method) || 'GET').toUpperCase();
+          const base = bases.find((b) => url.startsWith(b));
+          if (!base || method !== 'GET') return origFetch(input, init);
+          const rel = url.slice(base.length);
+          let last;
+          for (let round = 0; round < 2; round++) {
+            for (const b of ordered) {
+              try {
+                const r = await fetchTimed(b + rel, init && init.signal ? Object.assign({}, init, { signal: undefined }) : init, ASSET_MS);
+                if (r.ok) return r;
+                last = r;
+              } catch (e) {
+                last = e;
+              }
+            }
+            await sleep(600);
+          }
+          if (last instanceof Response) return last;
+          throw last;
+        };
+
+        // <script> and import() don't use fetch, so give them the same failover.
+        function loadScriptFrom(i, path) {
+          return new Promise((resolve, reject) => {
+            const s = document.createElement('script');
+            s.src = new URL(path, ordered[i]).href;
+            s.onload = resolve;
+            s.onerror = () => {
+              s.remove();
+              if (i + 1 < ordered.length) loadScriptFrom(i + 1, path).then(resolve, reject);
+              else reject(new Error('Could not load ' + path));
+            };
+            document.head.appendChild(s);
+          });
+        }
+        async function importFrom(path) {
+          let err;
+          for (const b of ordered) {
+            try { return await import(new URL(path, b).href); } catch (e) { err = e; }
+          }
+          throw err;
         }
 
         const assetUrl = (path) => new URL(path, window.IPFS_ASSET_BASE).href;
@@ -300,14 +361,8 @@
         poster.load();
 
         try {
-          await new Promise((resolve, reject) => {
-            const runtime = document.createElement('script');
-            runtime.src = assetUrl('glslViewer.js');
-            runtime.onload = resolve;
-            runtime.onerror = () => reject(new Error('Could not load glslViewer.js'));
-            document.head.appendChild(runtime);
-          });
-          await import(assetUrl('boot.js'));
+          await loadScriptFrom(0, 'glslViewer.js');
+          await importFrom('boot.js');
         } catch (error) {
           showLaunchError('Artwork startup failed: ' + error.message);
         }
