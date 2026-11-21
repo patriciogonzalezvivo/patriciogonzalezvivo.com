@@ -580,20 +580,6 @@ def _background_overlay(pdf_rel) -> str:
     )
 
 
-def _divider_background(has_quote: bool, base_path: Path) -> str:
-    """Rays-and-ripples drawing behind a divider page, with a clear window for the text.
-
-    Reuses the label page's pattern (portfolio/elements.py). Returns "" when
-    the PDF cannot be produced.
-    """
-    from portfolio.elements import generate_rays_svg
-
-    svg_path = base_path / 'portfolio' / 'divider_rays.svg'
-    generate_rays_svg(str(svg_path), clear_size=(175, 100) if has_quote else (150, 60))
-    pdf_path = svg_to_pdf(svg_path)
-    return _background_overlay(pdf_path.relative_to(base_path)) if pdf_path else ""
-
-
 # Contact page geometry (mm, origin top-left, A4 landscape). The sun sits on the
 # logo; windows keep the heading, the text column and the QR code readable.
 _CONTACT_SUN = (234.0, 150.0)
@@ -634,33 +620,103 @@ def build_contact_background(logo_file: str, base_path: Path) -> str:
     )
 
 
+# ---------------------------------------------------------------------------
+# Divider pages
+# ---------------------------------------------------------------------------
+# Every line of a divider is placed at an absolute position (mm from the top-left
+# of the A4 landscape page), so the drawing behind it can follow the text.
+_PAGE_W, _PAGE_H = 297.0, 210.0
+_PT = 25.4 / 72.0
+_MONT = Path(__file__).resolve().parent / 'montserrat'
+# (font file, size pt, line height pt, visible band height mm) per kind of line
+_DIV_STYLES = {
+    'title':  ('Montserrat-SemiBold.ttf',    36, 44, 11.0),
+    'quote':  ('Montserrat-LightItalic.ttf', 10, 12,  5.0),
+    'author': ('Montserrat-Light.ttf',        8, 10,  3.6),
+}
+_QUOTE_PITCH = 6.5      # mm between quote baselines
+_TITLE_TO_QUOTE = 22.3  # mm, title centre to first quote line centre
+_QUOTE_TO_AUTHOR = 11.3 # mm, last quote line centre to author centre
+_PAD_X = {'title': 7.0, 'quote': 5.5, 'author': 5.5}   # air left/right of a line (mm)
+_PAD_Y = 3.0                                           # air above/below a line (mm)
+
+
+def _text_width_mm(text: str, kind: str) -> float:
+    from PIL import ImageFont
+    font, size, _lh, _band = _DIV_STYLES[kind]
+    return ImageFont.truetype(str(_MONT / font), 1000).getlength(text) * size / 1000 * _PT
+
+
+def _divider_layout(title: str, quote: str, author: str):
+    """Return [(kind, raw_text, cx, cy, width_mm)] with the block centred on the page."""
+    items = [('title', title, 0.0)]
+    cy = 0.0
+    if quote:
+        lines = quote.split("\n")
+        lines[0] = "\u201c" + lines[0]
+        lines[-1] = lines[-1] + "\u201d"
+        cy = _TITLE_TO_QUOTE
+        for line in lines:
+            items.append(('quote', line, cy))
+            cy += _QUOTE_PITCH
+        cy -= _QUOTE_PITCH
+        if author:
+            cy += _QUOTE_TO_AUTHOR
+            items.append(('author', author, cy))
+    # visible extent: top of the title band to bottom of the last line
+    top = -_DIV_STYLES['title'][3] / 2
+    bottom = cy + _DIV_STYLES[items[-1][0]][3] / 2
+    shift = _PAGE_H / 2 - (top + bottom) / 2
+    return [(k, t, _PAGE_W / 2, y + shift, _text_width_mm(t, k)) for k, t, y in items]
+
+
 def build_divider_page(section: Dict, base_path: Path = Path('.')) -> str:
-    """A full page with a title and an optional quote, centred horizontally and vertically.
+    """A page with a title and an optional quote, centred on the page both ways.
 
     Section keys:
       divider     (str)   title, e.g. "Selected Works"
-      quote       (str)   optional phrase or quote; a newline starts a new line
-      author      (str)   optional attribution shown under the quote
-      background  (bool)  rays-and-ripples drawing behind the text (default true)
+      quote       (str)   optional phrase or quote; one line per newline (lines are
+                          not wrapped, keep them short)
+      author      (str)   optional attribution under the quote
+      background  (bool)  rays-and-ripples drawing behind the text (default true);
+                          the clear area follows the outline of the text
     """
-    title  = escape_latex(section.get('divider', ''))
-    quote  = section.get('quote') or ''
-    author = section.get('author') or ''
+    layout = _divider_layout(section.get('divider', ''), section.get('quote') or '',
+                             section.get('author') or '')
 
-    latex  = "\\clearpage\n"
-    latex += "\\thispagestyle{empty}\n"
+    latex = "\\clearpage\n\\thispagestyle{empty}\n"
+
     if section.get('background', True):
-        latex += _divider_background(bool(quote), base_path)
-    latex += "\\begin{center}\n\\vspace*{\\fill}\n"
-    latex += f"{{\\fontsize{{36}}{{44}}\\selectfont\\bfseries {title}}}\\par\n"
-    if quote:
-        body = " \\\\\n".join(escape_latex(line) for line in quote.split("\n"))
-        latex += "\\vspace{1.4cm}\n\\begin{minipage}{0.6\\textwidth}\n\\centering\n"
-        latex += f"{{\\large\\itshape \u201c{body}\u201d}}\\par\n"
-        if author:
-            latex += f"\\vspace{{0.5cm}}\n{{\\small {escape_latex(author)}}}\\par\n"
-        latex += "\\end{minipage}\n"
-    latex += "\\vspace*{\\fill}\n\\end{center}\n\\clearpage\n"
+        from portfolio.elements import generate_rays_svg
+        capsules = []
+        prev = None   # (top, bottom, narrow width) of the previous line's window
+        for kind, _t, cx, cy, w in layout:
+            band = _DIV_STYLES[kind][3]
+            cw, ch = w + 2 * _PAD_X[kind], band + 2 * _PAD_Y
+            capsules.append((cx, cy, cw, ch))
+            top, bottom = cy - ch / 2, cy + ch / 2
+            if prev and prev[1] < top + 1.0:
+                # bridge the gap with the narrower of the two windows, so no stray
+                # rays are left between lines and the outline stays continuous
+                gap_top, gap_bottom = prev[1] - 2.0, top + 2.0
+                capsules.append((cx, (gap_top + gap_bottom) / 2, min(prev[2], cw), gap_bottom - gap_top))
+            prev = (top, bottom, cw)
+        svg_path = base_path / 'portfolio' / 'divider_rays.svg'
+        generate_rays_svg(str(svg_path), clear_capsules=capsules)
+        pdf_path = svg_to_pdf(svg_path)
+        if pdf_path:
+            latex += _background_overlay(pdf_path.relative_to(base_path))
+
+    latex += "\\vbox to 0pt{%\n\\begin{tikzpicture}[overlay, remember picture]\n"
+    for kind, text, cx, cy, _w in layout:
+        _font, size, lh, _band = _DIV_STYLES[kind]
+        face = {'title': '\\bfseries', 'quote': '\\itshape', 'author': ''}[kind]
+        latex += (
+            f"  \\node[anchor=center, inner sep=0pt] at "
+            f"([xshift={cx:.2f}mm, yshift=-{cy:.2f}mm]current page.north west) "
+            f"{{\\fontsize{{{size}}}{{{lh}}}\\selectfont{face} {escape_latex(text)}}};\n"
+        )
+    latex += "\\end{tikzpicture}\\vss}\\nointerlineskip\n\\clearpage\n"
     return latex
 
 

@@ -110,9 +110,25 @@ def label(gallery_name, top_left=[10,10], size=(90, 57.5), scale=1.0, for_name=N
     return Group( name='label', children=[grp_label_black, grp_label_red] )
 
 
+def _capsule_points(cx, cy, w, h, steps=24):
+    """Closed outline of a rounded band (stadium) centred on (cx, cy)."""
+    import math
+    r = h / 2.0
+    r = min(r, w / 2.0)
+    pts = []
+    for i in range(steps + 1):          # right cap, bottom -> top
+        a = -math.pi / 2 + math.pi * i / steps
+        pts.append([cx + w / 2.0 - r + r * math.cos(a), cy + r * math.sin(a) * (h / 2.0) / r])
+    for i in range(steps + 1):          # left cap, top -> bottom
+        a = math.pi / 2 + math.pi * i / steps
+        pts.append([cx - w / 2.0 + r + r * math.cos(a), cy + r * math.sin(a) * (h / 2.0) / r])
+    return pts
+
+
 def generate_rays_svg(output_path: str, clear_size=(170, 80), center=None,
                       color='rgb(200, 200, 200)', stroke_width=0.5,
-                      clear_rects=None, clear_radius=0, logo_path=None, logo_mm=30.0) -> None:
+                      clear_rects=None, clear_radius=0, clear_capsules=None,
+                      logo_path=None, logo_mm=30.0) -> None:
     """Full A4-landscape SVG with only the rays-and-ripples pattern of the label page.
 
     The sun sits at *center* (default: the page centre).
@@ -120,6 +136,8 @@ def generate_rays_svg(output_path: str, clear_size=(170, 80), center=None,
       *clear_rects* is given.
     - *clear_rects*: list of (x, y, w, h) mm windows (top-left origin) carved out.
     - *clear_radius* mm: a round window around the sun, e.g. for a logo.
+    - *clear_capsules*: list of (cx, cy, w, h) mm rounded bands carved out; stacked
+      bands merge into one outline that follows lines of text.
     - *logo_path*: image drawn at the sun, *logo_mm* wide.
     """
     width, height = A4_LANDSCAPE_SIZE
@@ -137,11 +155,13 @@ def generate_rays_svg(output_path: str, clear_size=(170, 80), center=None,
     pattern_path.add(ripple_pat.getPath())
     pattern = pattern_path.getPattern(width, height)
 
-    if clear_rects is None:
+    if clear_rects is None and not clear_capsules:
         cw, ch = clear_size
         clear_rects = [(center[0] - cw / 2, center[1] - ch / 2, cw, ch)]
-    for (x, y, w, h) in clear_rects:
+    for (x, y, w, h) in (clear_rects or []):
         pattern.carve(Polyline(Rectangle([x, y], [w, h], align='top_left').getPoints()))
+    for (cx, cy, w, h) in (clear_capsules or []):
+        pattern.carve(Polyline(_capsule_points(cx, cy, w, h)))
     if clear_radius:
         pattern.carve(Polyline(Circle(center, clear_radius).getPoints()))
     grp.path(pattern.getPath(optimize=True), color=color, stroke_width=stroke_width)
