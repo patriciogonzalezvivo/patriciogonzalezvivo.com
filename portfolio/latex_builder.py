@@ -21,7 +21,9 @@ from pathlib import Path
 from typing import Dict, List
 
 from portfolio.utils import escape_latex
-from portfolio.pages import build_artwork_pages, build_caption, build_featured_section_pages  # re-exported
+from portfolio.pages import (  # re-exported
+    build_artwork_pages, build_caption, build_featured_section_pages, build_divider_page,
+)
 from portfolio.sections import (
     build_bio_block, build_artist_statement, build_optional_section,
 )
@@ -43,6 +45,8 @@ def _section_logo(section: Dict, default_logo: str) -> str:
 
 def _render_section(section: Dict, base_path: Path, base_url: str, logo_file: str = '') -> str:
     """Dispatch a section dict to the appropriate LaTeX page builder."""
+    if 'divider' in section:
+        return build_divider_page(section)
     if 'path' in section:
         return build_artwork_pages(section, base_path, base_url, logo_file=logo_file)
     if 'projects' in section:

@@ -566,6 +566,33 @@ def _crop_to_aspect(img_rel: str, aspect: float, base_path: Path) -> str:
         return img_rel
 
 
+def build_divider_page(section: Dict) -> str:
+    """A full page with a title and an optional quote, centred horizontally and vertically.
+
+    Section keys:
+      divider  (str)  title, e.g. "Selected Works"
+      quote    (str)  optional phrase or quote; a newline starts a new line
+      author   (str)  optional attribution shown under the quote
+    """
+    title  = escape_latex(section.get('divider', ''))
+    quote  = section.get('quote') or ''
+    author = section.get('author') or ''
+
+    latex  = "\\clearpage\n"
+    latex += "\\thispagestyle{empty}\n"
+    latex += "\\begin{center}\n\\vspace*{\\fill}\n"
+    latex += f"{{\\fontsize{{36}}{{44}}\\selectfont\\bfseries {title}}}\\par\n"
+    if quote:
+        body = " \\\\\n".join(escape_latex(line) for line in quote.split("\n"))
+        latex += "\\vspace{1.4cm}\n\\begin{minipage}{0.6\\textwidth}\n\\centering\n"
+        latex += f"{{\\large\\itshape \u201c{body}\u201d}}\\par\n"
+        if author:
+            latex += f"\\vspace{{0.5cm}}\n{{\\small \u2014 {escape_latex(author)}}}\\par\n"
+        latex += "\\end{minipage}\n"
+    latex += "\\vspace*{\\fill}\n\\end{center}\n\\clearpage\n"
+    return latex
+
+
 def build_featured_section_pages(section: Dict, base_path: Path, base_url: str = '', logo_file: str = '') -> str:
     """Return LaTeX for a *featured projects* section.
 

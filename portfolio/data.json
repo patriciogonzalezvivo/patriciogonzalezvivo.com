@@ -4,13 +4,16 @@
     "email": "patriciogonzalezvivo@gmail.com",
     "website": "patriciogonzalezvivo.com",
     "instagram": "patriciogonzalezvivo",
-    "phone": "+1 415 999 9999",
-    "location": "1234 Street, City, Country",
     "logo": "images/logo-gray.png",
     "bio_file": "README.md",
     "exhibitions_file": "exhibitions.md"
   },
   "sections": [
+    {
+      "divider": "Selected Works",
+      "quote": "Time present and time past\nAre both perhaps present in time future,\nAnd time future contained in time past.",
+      "author": "T.S. Eliot (Four Quartets)"
+    },
     {
       "path": "2026/medium",
       "images_per_page": 1

@@ -1,19 +1,30 @@
 #!/usr/bin/env python3
-"""Build one Transient/IPFS mint kit per singleview__* sandbox.
+"""Build one Transient/IPFS mint kit per singleview__* sandbox.  (see mint/README.md)
 
-  python3 mint_build.py            # build mint/<asset>/ (IPFS folder) + mint/<asset>.html (for Transient)
-  python3 mint_build.py --cids mint/cids.json   # also inject folder CIDs into the HTMLs
+  python3 mint_build.py                          # -> build/<asset>/<asset>/ (IPFS folder) + build/medium_nNN.html
+  python3 mint_build.py --cids mint/cids.json    # also write the folder CIDs into the HTMLs
+  python3 mint_build.py --sandboxes DIR          # sandboxes elsewhere (e.g. restored from git)
+  python3 mint_build.py --template FILE          # base HTML (default: Transient's kit if present,
+                                                 # else an already minted mint/medium_nNN.html)
+  python3 mint_build.py --out DIR [--force]      # output dir (never mint/ unless --force)
 
 Each IPFS folder is self-contained (runtime + scene). The runtime files are
-byte-identical across all 24, so IPFS content-addressing stores them once.
-Layout/loader follow artist-mint-kit/ (Transient's instructions).
+byte-identical across all folders, so IPFS content-addressing stores them once.
+The launcher inside every HTML (gateway order, per-asset failover) comes from
+mint_launcher.py, whichever base template is used.
 """
 import argparse, glob, json, os, re, shutil, sys
+
+from mint_launcher import apply_launcher
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 RUNTIME = os.path.join(ROOT, '_runtime', '471bc23c')
 KIT_HTML = os.path.join(ROOT, 'artist-mint-kit', '2-upload-html-to-transient', 'transient-upload.html')
-OUT = os.path.join(ROOT, 'mint')
+OUT = os.path.join(ROOT, 'build')          # never the committed mint/ folder (see --out / --force)
+TEMPLATE_PATH = None
+FORCE = False
+SANDBOXES = ROOT                            # where the singleview__* folders are
+MINTED_TEMPLATE = os.path.join(ROOT, 'mint', 'medium_n01.html')  # fallback base when the kit file is gone
 RUNTIME_FILES = ['boot.js', 'glslViewer.js', 'glslViewer.wasm', 'LYGIA_LICENSE.md']
 # Site-only files that must not go to IPFS.
 SKIP = re.compile(r'(^index\.html$|^embed-example\.html$|^info\.txt$|^studio\.json$|\.downscale\.json$|\.html$)')
@@ -74,8 +85,8 @@ IPAD_JS = '''    <script>
 IPAD_CSS = '''      #canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; margin: 0 !important; }
 '''
 
-def make_template():
-    s = open(KIT_HTML).read()
+def template_from_kit(path):
+    s = open(path).read()
     s = s.replace('100vh * var(--aspect)', 'var(--vh, 100vh) * var(--aspect)')
     s = re.sub(r'(min\((?:\d+px, )?)100vw,', r'\1var(--vw, 100vw),', s)
     s = sub1(s, 'position: fixed; inset: 0;\n        display: flex',
@@ -93,15 +104,47 @@ def make_template():
     s = sub1(s, '"splat_strokes_solvent_me_005.poster.webm"', '"@POSTER_WEBM@"')
     return s
 
+def template_from_minted(path):
+    """Turn an already minted medium_nNN.html back into a template (placeholders for per-artwork values)."""
+    s = open(path).read()
+    title = re.search(r'<title>(.*?)</title>', s).group(1)
+    aspect = re.search(r'style="--aspect: ([\d.]+)"', s).group(1)
+    w, h = re.search(r'NATIVE size \((\d+)x(\d+)\)', s).groups()
+    scene = re.search(r'const SCENE_FILE = "([^"]+)";', s).group(1)
+    pjpg = re.search(r'const POSTER_IMAGE = "([^"]+)";', s).group(1)
+    pwebm = re.search(r'const POSTER_VIDEO = "([^"]+)";', s).group(1)
+    s = sub1(s, '<title>%s</title>' % title, '<title>@TITLE@</title>')
+    s = sub1(s, 'content="%s"' % title, 'content="@TITLE@"')
+    s = sub1(s, 'style="--aspect: %s"' % aspect, 'style="--aspect: @ASPECT@"')
+    s = sub1(s, 'min(%spx,' % w, 'min(@WIDTH@px,')
+    s = sub1(s, 'NATIVE size (%sx%s)' % (w, h), 'NATIVE size (@WIDTH@x@HEIGHT@)')
+    s = sub1(s, 'const SCENE_FILE = "%s";' % scene, 'const SCENE_FILE = "@SCENE@";')
+    s = sub1(s, '"%s"' % pjpg, '"@POSTER_JPG@"')
+    s = sub1(s, '"%s"' % pwebm, '"@POSTER_WEBM@"')
+    return s
+
+def make_template(path=None):
+    """Base HTML with @PLACEHOLDERS@ and the current launcher. Kit file if present, else a minted HTML."""
+    path = path or (KIT_HTML if os.path.exists(KIT_HTML) else MINTED_TEMPLATE)
+    if not os.path.exists(path):
+        sys.exit('No base HTML: %s not found. Get Transient\'s kit or pass --template mint/medium_nNN.html' % path)
+    is_kit = '<title>me_005' in open(path).read()   # Transient's kit ships a me_005 demo page
+    s = template_from_kit(path) if is_kit else template_from_minted(path)
+    print('template:', os.path.relpath(path, ROOT))
+    return apply_launcher(s)
+
 def inject_cid(html, cid):
     return re.sub(r'const ARTWORK_CID = "[^"]*";', 'const ARTWORK_CID = "%s";' % cid, html, count=1)
 
 def build(cids):
-    template = make_template()
+    template = make_template(TEMPLATE_PATH)
     boot = patched_boot()
+    protected = glob.glob(os.path.join(OUT, 'medium_n*.html')) + glob.glob(os.path.join(OUT, '*.webm'))
+    if os.path.exists(OUT) and protected and not FORCE:
+        sys.exit('%s already holds finished mint files (%d). Use another --out, or --force to wipe it.' % (OUT, len(protected)))
     shutil.rmtree(OUT, ignore_errors=True)
     index = {}
-    for d in sorted(glob.glob(os.path.join(ROOT, 'singleview__*'))):
+    for d in sorted(glob.glob(os.path.join(SANDBOXES, 'singleview__*'))):
         name = os.path.basename(d)
         m = DIR_RE.match(name)
         if not m: print('skip (name)', name); continue
@@ -128,16 +171,17 @@ def build(cids):
         missing += [p for p in (poster_jpg, poster_webm) if not os.path.exists(os.path.join(folder, p))]
         if missing: sys.exit('MISSING in %s: %s' % (asset, missing))
         w, h = scene['width'], scene['height']
-        title = 'Medium No. %d' % edition_number(d, asset)
+        edition = edition_number(d, asset)
+        title = 'Medium No. %d' % edition
         html = template
         for k, v in {'@TITLE@': title, '@ASPECT@': '%.6f' % (w / h), '@WIDTH@': str(w), '@HEIGHT@': str(h),
                      '@SCENE@': 'scene.json', '@POSTER_JPG@': poster_jpg, '@POSTER_WEBM@': poster_webm}.items():
             html = html.replace(k, v)
         assert '@' not in re.sub(r'[\w.+-]+@[\w.-]+', '', html.split('<script')[0]), 'unfilled placeholder'
         if asset in cids: html = inject_cid(html, cids[asset])
-        open(os.path.join(OUT, asset + '.html'), 'w').write(html)  # the one file for Transient
+        open(os.path.join(OUT, 'medium_n%02d.html' % edition), 'w').write(html)  # the one file for Transient
         size = sum(os.path.getsize(os.path.join(folder, f)) for f in os.listdir(folder))
-        index[asset] = {'source': name, 'shader': m.group(3), 'size_bytes': size, 'files': len(os.listdir(folder))}
+        index[asset] = {'edition': edition, 'source': name, 'shader': m.group(3), 'size_bytes': size, 'files': len(os.listdir(folder))}
         print('%-44s %5.1f MB  %d files  %dx%d' % (asset, size / 1e6, index[asset]['files'], w, h))
     json.dump({a: '' for a in index}, open(os.path.join(OUT, 'cids.template.json'), 'w'), indent=1)
     if cids: json.dump({a: cids.get(a, '') for a in index}, open(os.path.join(OUT, 'cids.json'), 'w'), indent=1)  # rmtree above would otherwise delete it
@@ -148,6 +192,11 @@ def build(cids):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()
     ap.add_argument('--cids', help='JSON {asset: folder CID} to inject into the HTMLs')
+    ap.add_argument('--out', default=OUT, help='output dir (default: build/)')
+    ap.add_argument('--sandboxes', default=SANDBOXES, help='dir holding the singleview__* folders')
+    ap.add_argument('--template', help='base HTML (kit file or a minted medium_nNN.html)')
+    ap.add_argument('--force', action='store_true', help='allow wiping an --out that holds finished mint files')
     a = ap.parse_args()
+    OUT, SANDBOXES, TEMPLATE_PATH, FORCE = os.path.abspath(a.out), os.path.abspath(a.sandboxes), a.template, a.force
     cids = json.load(open(a.cids)) if a.cids else {}
     build({k: v for k, v in cids.items() if v})

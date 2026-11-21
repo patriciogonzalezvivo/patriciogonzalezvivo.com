@@ -145,7 +145,11 @@ def generate_from_template(
     for s in sections_list:
         # Featured section: has a 'projects' list but no 'path' key.
         # Pass it through as-is; build_featured_section_pages reads metadata lazily.
-        if isinstance(s, dict) and 'path' not in s and 'projects' in s:
+        # Divider page: {"divider": "Selected Works", "quote": "...", "author": "..."}
+        if isinstance(s, dict) and 'divider' in s:
+            print(f"  - [divider] {s['divider']}")
+            sections.append(s)
+        elif isinstance(s, dict) and 'path' not in s and 'projects' in s:
             print(f"  - [featured] {s.get('title', '(untitled)')}")
             sections.append(s)
         else:

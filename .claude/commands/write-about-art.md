@@ -196,4 +196,13 @@ All of these dislocate the writer from over-familiar text so they can see it cle
 
 ---
 
+## When the artist is Patricio
+
+Read `CLAUDE.md` first: it holds his voice rules, the current frame of the practice and the status of each project statement. Three adjustments to the framework above:
+- The cliché list is a floor, not a ceiling. His own rules are stricter: no em dashes, few semicolons, no wordplay. A transcendent register is welcome when a concrete object in the work earns it.
+- Question 2 ("what might it mean?") is where the non-linear time thread lives (sky across two moments, lineage built across time, the loop). Offer it as a question about the work, not as a conclusion.
+- Question 1 is usually his weakest: several statements open on a concept before the viewer can picture the work. Check that first.
+
+---
+
 Work to analyze or reflect on: $ARGUMENTS

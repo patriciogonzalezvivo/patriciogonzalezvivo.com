@@ -14,13 +14,26 @@ Argument received: $ARGUMENTS
 
 ---
 
-## About Patricio's writing style
+## About Patricio's writing style and practice
 
-His statements are literary, grounded in personal history and cultural references. He writes in full paragraphs, using precise but accessible language — no bullet points, no academic jargon. He connects technical process to emotional and conceptual meaning. His voice is reflective, specific, and quietly philosophical.
+Read `CLAUDE.md` (practice, project status, style guide) before reviewing. Read `2026/ac/CLAUDE.md` when a framework from the Artist Commons program is needed.
 
-Preserve this voice in any revision. Do not sanitize or flatten it into generic art-speak.
+**Voice.** Literary, grounded in personal history and cultural references. Full paragraphs, precise but accessible language, no bullet points, no academic jargon. He connects technical process to emotional and conceptual meaning. Reflective, specific, quietly philosophical. Sincere over clever. A spiritual, transcendent register is welcome (art making as encoding meaning into matter), but it must be earned by a concrete object in the work: the halo in the grandfather's book of saints, the burned poems, the plotted line under the brushstroke. Preserve this voice. Do not flatten it into generic art-speak.
 
----
+**Hard rules from his own feedback.**
+- No em dashes, anywhere. Go easy on semicolons. Use commas, colons and periods. Grep the revision for the character before showing it.
+- No clever wordplay or double meanings (the word "medium" as binder or conduit was cut).
+- "Bridging languages / combining mediums" is his own thesis: keep it where it names the real practice, never as filler.
+- Do not bring back the retired leads: "instruments of attention and wonder", "what does it take for an artifact to develop presence?", "what neither holds alone".
+- `README.md` at the repo root (the bio) is not a project statement: do not propose edits to it unless he asks.
+
+**The thread to look for: non-linear time.** The bio says the practice "follows non-linear experiences such as memory, awareness and self-expression." In the work, time is a field, not a line: the sky overlaid across two places and moments (Weaver, after Alexis Pauline Gumbs), a chosen lineage built across time against a break in the inherited one (Santos), the loop that makes each viewing a first meeting and a repetition (Medium), the mark as a trace made at one moment and held on a surface now. Interlocutors he has named: T.S. Eliot (*Four Quartets*, the portfolio epigraph), Gumbs, Borges, Octavia Butler, James Baldwin, and the other Santos sitters (Audre, David, Georgia, Hilma, Jorge Luis, Lygia, Maria Elena, Mercedes, Toni, Toni Cade, Xul). When reviewing, ask whether the statement leaves the time structure unnamed or flattens it into a line (for example, technology told as linear progress). Offer this as a question, never impose it: it is a working synthesis, not his own claim.
+
+**Pick the frameworks that fit the project** (use the AC command named, do not recite them all):
+- Any portrait series (Hybrids, Memories, Santos, Medium): `/portraying-society` (flattery, diagnosis, eliciting), `/photo-epistemology` for the plotted and machine-seen face, `/what-makes-it-mine` for lineage (Eliot, Bloom: where does the work swerve from its precursors?) and authorship (Haraway: what does his situated position bring? Benjamin: his tools and circulation are authorial too).
+- Santos and any lineage claim: `/originality-audit` and `/what-makes-it-mine`; also ask who the sitters are to the viewer and who is allowed to be seen (Rancière, `/what-am-i-making`).
+- Sky and instrument works (Weaver, Astros, LUNA, HOGAR): `/photo-epistemology` for the truth-claim of instrument imagery, `/meaning-conditions` (Barthes: what myth is in the material? astrology and astronomy are two codes), `/semiotics-analysis` (Peirce: the mark and the star as index).
+- Generative, loop and chance works (Medium, Time, BLINK): `/systems-uncertainty`, `/interactivity-analysis` for what the viewer does, `/meaning-conditions` (Eco: is it guided, open or underbuilt?).
 
 ## Why artist statements matter
 
@@ -161,6 +174,8 @@ A complete rewritten version of the statement. Preserve Patricio's voice and all
 
 - Do NOT write in a generic "artist statement" tone. Patricio's voice is specific — maintain it.
 - Do NOT invent new content. Work entirely from what is already in the text.
+- Do NOT use em dashes in the revision, and check for them before presenting it.
+- When a sentence is vague, ask Patricio for the concrete detail instead of supplying one. Never invent biography, sitters, dates or process.
 - Do NOT make the writing simpler than it needs to be. Depth is welcome; obscurity is not.
 - Do NOT apply changes to the file until Patricio explicitly confirms he wants them.
 - When proposing the revision, present it as a quoted block so it is easy to compare with the original.

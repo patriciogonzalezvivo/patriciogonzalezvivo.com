@@ -30,3 +30,7 @@ press/
 # Medium mint: big GIF previews and the upload zip stay out of git (site uses mint/*.webm)
 2026/medium/mint/*.gif
 2026/medium/mint/medium.zip
+
+# Medium: mint_build.py output (rebuildable, large)
+2026/medium/build/
+2026/medium/__pycache__/
