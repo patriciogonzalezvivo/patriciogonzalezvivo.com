@@ -47,6 +47,11 @@ include("server/project_meta.php");
 
 set_random_og_image($projects);
 
+// Page metadata for search engines and link previews (server/seo.php, server/header.php)
+$seo_kind = 'collection';
+$page_title = 'Archive';
+$page_description = 'Archive of work by Patricio Gonzalez Vivo since 2007: oil paintings, plotter drawings, generative code, astronomical instruments, software and interactive web.';
+
 include("server/header.php");
 include("server/menu.php");
 ?>

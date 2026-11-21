@@ -1,0 +1,44 @@
+# patriciogonzalezvivo.com
+# Open to search engines and to AI search / answer engines, so they can find, quote and credit
+# the work. Closed to anything that trains models, builds datasets or generates work from it.
+# (robots.txt is a request honored by well-behaved crawlers; see also the noai meta tags,
+# the TDM reservation and the copyright statement in server/header.php and llms.txt.)
+
+# Training and dataset crawlers: no
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: FacebookBot
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: Diffbot
+User-agent: ImagesiftBot
+User-agent: Omgilibot
+User-agent: Omgili
+User-agent: Timpibot
+User-agent: YouBot
+User-agent: Ai2Bot
+User-agent: Ai2Bot-Dolma
+User-agent: img2dataset
+User-agent: Scrapy
+Disallow: /
+
+# AI search, answer engines and assistants fetching a page for a person: yes, with credit.
+# (OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User,
+#  DuckAssistBot, MistralAI-User, meta-externalfetcher fall through to the rule below.)
+
+# Everyone else (search engines and the answer engines above): pages and artworks are open
+User-agent: *
+Allow: /
+# PHP includes and local caches: never pages
+Disallow: /server/
+Disallow: /cache/
+
+Sitemap: https://patriciogonzalezvivo.com/sitemap.xml

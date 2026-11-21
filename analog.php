@@ -13,6 +13,11 @@ include("server/project_meta.php");
 
 set_random_og_image($projects);
 
+// Page metadata for search engines and link previews (server/seo.php, server/header.php)
+$seo_kind = 'collection';
+$page_title = 'Oil paintings and drawings';
+$page_description = 'Oil paintings and plotter drawings by Patricio Gonzalez Vivo: portraits where a machine plots the structure of a face and the brush returns to it, again and again.';
+
 include("server/header.php");
 include("server/menu.php");
 ?>

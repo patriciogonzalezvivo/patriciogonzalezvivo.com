@@ -34,6 +34,11 @@ include("server/project_meta.php");
 
 set_random_og_image($projects);
 
+// Page metadata for search engines and link previews (server/seo.php, server/header.php)
+$seo_kind = 'collection';
+$page_title = 'Open-source tools';
+$page_description = 'Open-source tools for creative coding by Patricio Gonzalez Vivo: the LYGIA shader library, VERA, HILMA, ADA and BERTHE, a vector line library for pen plotters.';
+
 include("server/header.php");
 include("server/menu.php");
 ?>

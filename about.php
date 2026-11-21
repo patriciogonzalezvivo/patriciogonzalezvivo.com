@@ -1,4 +1,10 @@
-<?php include("server/header.php"); ?>
+<?php
+	// ProfilePage: the structured data names him, his bio and his work (see server/seo.php)
+	$seo_kind = 'profile';
+	$page_title = 'About Patricio Gonzalez Vivo';
+	$page_description = 'Patricio González Vivo (b. 1982, Buenos Aires) is a new media artist bridging oil paint and code. MFA Parsons. Author of The Book of Shaders.';
+	include("server/header.php");
+?>
 <?php include("server/menu.php"); ?>
 
 	<!-- <img src="/images/about.jpg" alt="Patricio Gonzalez Vivo"> -->

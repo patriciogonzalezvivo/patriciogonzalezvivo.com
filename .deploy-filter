@@ -27,6 +27,7 @@
 # PDF portfolio generator (local tooling, not part of the site)
 - /portfolio/
 - /generate_portfolio.py
+- /generate_sitemap.py
 - /make_thumbnails.sh
 - /Makefile
 - /*.pdf

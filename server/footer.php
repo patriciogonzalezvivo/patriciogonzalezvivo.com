@@ -11,7 +11,7 @@ echo '
 		<script type="text/javascript" src="/js/gallery.js" defer></script>
 
 		<footer>
-			<p>© Patricio Gonzalez Vivo ' . date('Y') . '</p>
+			<p>© Patricio Gonzalez Vivo ' . date('Y') . '. All rights reserved. Not licensed for AI training or for generating work in my name or style.</p>
 		</footer>
 	</body>
 </html>

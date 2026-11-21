@@ -1,0 +1,8 @@
+# Refuse AI-training and dataset crawlers for every file (pages, images, video).
+# AI search / answer bots and normal search engines are not listed. Keep in sync with
+# SEO_BLOCKED_AGENTS in server/seo.php, robots.txt and server/ai_block.nginx.conf.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} (GPTBot|ClaudeBot|anthropic-ai|CCBot|Bytespider|Amazonbot|meta-externalagent|FacebookBot|cohere-ai|cohere-training-data-crawler|Diffbot|ImagesiftBot|Omgilibot|Omgili|Timpibot|YouBot|Ai2Bot|img2dataset|Scrapy|GoogleOther) [NC]
+RewriteRule .* - [F,L]
+</IfModule>

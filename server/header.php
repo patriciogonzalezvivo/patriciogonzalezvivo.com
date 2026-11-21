@@ -1,34 +1,57 @@
 <?php
 
-// Default values - can be overridden by setting variables before including header.php
-if (!isset($page_title)) $page_title = "Patricio Gonzalez Vivo";
-if (!isset($page_author)) $page_author = "Patricio Gonzalez Vivo";
-if (!isset($page_description)) $page_description = "Patricio Gonzalez Vivo multidisciplinary artist working across traditional and digital mediums. In his work, he pursues awareness and self-discovery through themes like celestial bodies, symbolic knowledge, clocks and maps.";
-if (!isset($page_keywords)) $page_keywords = "digital, art, oil, painting, plotting, symbolism, astrology, tarot, clocks, lenses, alchemy, time and space";
+require_once __DIR__ . '/seo.php';
+if (seo_is_blocked_agent(isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '')) {
+	http_response_code(403);
+	header('Content-Type: text/plain; charset=utf-8');
+	exit("Forbidden: this work is not licensed for AI training or dataset building. See /llms.txt\n");
+}
+if (!function_exists('read_meta_file')) require_once __DIR__ . '/project_meta.php';   // project pages that skip it still get their TITLE/MEDIUM
 
+// Where are we: canonical path, and which kind of page (home, project, listing, about).
+// Pages may set $seo_kind before including this file: 'profile' (about), 'collection' (a listing).
+$seo_path = seo_request_path(isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '');
+$seo_project = seo_project_path($seo_path);
+if (!isset($seo_kind)) $seo_kind = ($seo_path === '/') ? 'home' : ($seo_project ? 'work' : 'page');
+$is_embed = isset($_GET['embed']) && $_GET['embed'] === '1';
+
+// Project facts (cwd is the project folder): TITLE/MEDIUM/YEAR .txt
+$seo_year = $seo_project ? $seo_project['year'] : null;
+$seo_medium = null;
+if ($seo_kind === 'work' && function_exists('read_meta_file')) {
+	$seo_medium = read_meta_file('./MEDIUM.txt');
+	$seo_year = read_meta_file('./YEAR.txt') ?: $seo_year;
+	// 50+ project pages have no TITLE.txt and used to share one <title>; use the folder name instead.
+	if (!isset($page_title)) $page_title = read_meta_file('./TITLE.txt') ?: (seo_pretty_folder($seo_project['folder']) . ' (' . $seo_year . ')');
+}
+
+// Default values - can be overridden by setting variables before including header.php
+if (!isset($page_title)) $page_title = ($seo_kind === 'home') ? SEO_HOME_TITLE : SEO_NAME;
+$seo_name = $page_title;   // the page's own name, without the site suffix (structured data, breadcrumbs)
+if (!isset($page_author)) $page_author = SEO_NAME;
+if (!isset($page_description)) $page_description = ($seo_kind === 'work') ? '' : SEO_DESCRIPTION;
+if ($seo_kind === 'work') {
+	// A project's own words: DESCRIPTION.txt, padded from its README when that is terse.
+	$page_description = seo_project_description($page_description, '.', 160);
+	if ($page_description === '') $page_description = seo_work_fallback_description($seo_name, $seo_medium, $seo_year);
+}
+$page_description = seo_clean($page_description);
+if (!isset($page_keywords)) $page_keywords = SEO_KEYWORDS;
 
 // Open Graph defaults
-if (!isset($og_site_name)) $og_site_name = "Patricio Gonzalez Vivo";
-if (isset($page_title) && $page_title !== $og_site_name) {
+if (!isset($og_site_name)) $og_site_name = SEO_NAME;
+// Append the site name unless the title already carries it.
+if (stripos($page_title, $og_site_name) === false && stripos($page_title, SEO_NAME_ALT) === false) {
 	$page_title = $page_title . " - " . $og_site_name;
 }
 if (!isset($og_title)) $og_title = $page_title;
-if (!isset($og_type)) $og_type = "website";
+if (!isset($og_type)) $og_type = ($seo_kind === 'profile') ? 'profile' : 'website';
 if (!isset($og_description)) $og_description = $page_description;
 if (!isset($og_locale)) $og_locale = "en_US";
 if (!isset($og_author)) $og_author = $page_author;
 
-// Auto-generate og_url from current path if not set
-if (!isset($og_url)) {
-	$request_uri = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '';
-	// Remove query string if present
-	$path = strtok($request_uri, '?');
-	// Ensure trailing slash for directories
-	if ($path && substr($path, -1) !== '/' && !pathinfo($path, PATHINFO_EXTENSION)) {
-		$path .= '/';
-	}
-	$og_url = "https://patriciogonzalezvivo.com" . $path;
-}
+// Canonical URL: https, no www, no query string, directories as '/', index.php dropped.
+if (!isset($og_url)) $og_url = SEO_SITE_URL . $seo_path;
 
 // Auto-detect thumbnail image if not set. og:image only supports static
 // formats, so we restrict to THUMBNAIL_EXTS_STATIC and prefer the
@@ -82,7 +105,11 @@ if (isset($og_image) && !isset($og_image_type)) {
 }
 
 // Default alt text for og:image (accessibility + social previews)
-if (isset($og_image) && !isset($og_image_alt)) $og_image_alt = $og_title;
+if (isset($og_image) && !isset($og_image_alt)) {
+	$og_image_alt = ($seo_kind === 'work')
+		? implode(', ', array_filter([$seo_name, $seo_medium, $seo_year])) . ' - ' . SEO_NAME
+		: $og_title;
+}
 
 // Twitter/X Card — set $twitter_handle = '@yourhandle' before including header.php
 // Used as fallback by Bluesky, Discord, Slack, Telegram, WhatsApp, iMessage, LinkedIn
@@ -105,6 +132,23 @@ if (!isset($theme_color)) $theme_color = '#000000';
 // Google Fonts - can be array or string
 if (!isset($google_fonts)) $google_fonts = "Source+Sans+Pro:200,300,400,600,200italic,300italic,400italic";
 
+// Structured data (not for ?embed=1 iframes)
+$seo_jsonld = '';
+if (!$is_embed) {
+	$seo_crumbs = [['Home', SEO_SITE_URL . '/']];
+	if ($seo_kind === 'work') {
+		if (is_file('../index.php')) $seo_crumbs[] = [$seo_project['year'], SEO_SITE_URL . '/' . $seo_project['year'] . '/'];
+		$seo_crumbs[] = [$seo_name, $og_url];
+	} elseif ($seo_kind !== 'home') {
+		$seo_crumbs[] = [$seo_name, $og_url];
+	}
+	$seo_jsonld = seo_jsonld_tag(seo_graph([
+		'kind' => $seo_kind, 'url' => $og_url, 'name' => $seo_name, 'description' => $page_description,
+		'image' => isset($og_image) ? $og_image : null, 'year' => $seo_year, 'medium' => $seo_medium, 'crumbs' => $seo_crumbs,
+	]));
+}
+$seo_robots = $is_embed ? 'noindex, follow, noai, noimageai' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1, noai, noimageai';
+
 // main menu
 echo '
 <!DOCTYPE html>
@@ -117,6 +161,10 @@ echo '
 		<meta name="keywords" content="' . htmlspecialchars($page_keywords) . '" />
 		<meta name="description" content="' . htmlspecialchars($page_description) . '" />
 		<meta name="author" content="' . htmlspecialchars($page_author) . '" />
+		<meta name="robots" content="' . htmlspecialchars($seo_robots) . '" />
+		<meta name="tdm-reservation" content="1" />
+		<meta name="copyright" content="' . htmlspecialchars(seo_copyright()) . '" />
+		<link rel="author" href="' . SEO_SITE_URL . '/about.php" />
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="theme-color" content="' . htmlspecialchars($theme_color) . '" />
@@ -128,6 +176,12 @@ echo '
 		<meta property="og:locale" content="' . htmlspecialchars($og_locale) . '" />
 		<meta property="og:author" content="' . htmlspecialchars($og_author) . '" />
 		<meta property="og:description" content="' . htmlspecialchars($og_description) . '" />';
+
+if ($og_type === 'profile') {
+	echo '
+		<meta property="profile:first_name" content="Patricio" />
+		<meta property="profile:last_name" content="Gonzalez Vivo" />';
+}
 
 if (isset($og_image)) {
 	echo '
@@ -181,6 +235,7 @@ if (isset($og_url)) {
 }
 
 echo '
+		<link rel="sitemap" type="application/xml" href="/sitemap.xml" />' . $seo_jsonld . '
 
 		<link href="/ico.gif" rel="shortcut icon"  />
 		<link href="/css/style.css" rel="stylesheet" />';
@@ -195,8 +250,6 @@ if (is_array($google_fonts)) {
 	echo '
 		<link href="https://fonts.googleapis.com/css?family=' . $google_fonts . '" rel="stylesheet" type="text/css">';
 }
-
-$is_embed = isset($_GET['embed']) && $_GET['embed'] === '1';
 
 if (!$is_embed) {
 	echo '

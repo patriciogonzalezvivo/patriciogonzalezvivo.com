@@ -17,6 +17,11 @@ include("server/project_meta.php");
 
 set_random_og_image($projects);
 
+// Page metadata for search engines and link previews (server/seo.php, server/header.php)
+$seo_kind = 'collection';
+$page_title = 'Teaching and learning resources';
+$page_description = 'Courses and open learning resources by Patricio Gonzalez Vivo, including The Book of Shaders, taught at Parsons, ITP NYU and the School for Poetic Computation.';
+
 include("server/header.php");
 include("server/menu.php");
 ?>

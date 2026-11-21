@@ -1,1 +1,1 @@
-Astrological Clock
+A real-time astrological clock that renders the present sky as light and sound, four voices on one scale

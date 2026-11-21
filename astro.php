@@ -13,6 +13,11 @@ include("server/project_meta.php");
 
 set_random_og_image($projects);
 
+// Page metadata for search engines and link previews (server/seo.php, server/header.php)
+$seo_kind = 'collection';
+$page_title = 'Astronomy, star maps and orbits';
+$page_description = 'Star maps, orbital visualizations and astronomical instruments by Patricio Gonzalez Vivo, including HYPATIA, a geo-astronomical library.';
+
 include("server/header.php");
 include("server/menu.php");
 ?>

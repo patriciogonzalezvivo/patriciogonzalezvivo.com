@@ -17,6 +17,11 @@ include("server/project_meta.php");
     ];
 
 set_random_og_image($projects);
+// Page metadata for search engines and link previews (server/seo.php, server/header.php)
+$seo_kind = 'collection';
+$page_title = 'Collaborations';
+$page_description = 'Collaborations by Patricio Gonzalez Vivo with studios and labs including RunwayML, Facebook and HellicarAndLewis: shaders, depth estimation, installations.';
+
 include("server/header.php");
 include("server/menu.php");
 ?>

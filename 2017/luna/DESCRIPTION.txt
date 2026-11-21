@@ -1,1 +1,1 @@
-Made In collaboration with Jen Lowe
+A real-time portrait of the Moon, accurate to the current hour, in a frame made from an old monitor and a Raspberry Pi. Made with Jen Lowe

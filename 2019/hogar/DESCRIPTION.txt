@@ -1,1 +1,1 @@
-Real-time satellite view of Earth
+A real-time window onto Earth from GOES satellite images, with the atmospheric glow the sensors filtered out added back

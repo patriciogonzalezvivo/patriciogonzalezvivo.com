@@ -30,6 +30,17 @@ sort($projects);
 $_og_entries = array_map(fn($f) => ['path' => $year . '/' . $f], $projects);
 set_random_og_image($_og_entries, $root_dir);
 
+require_once $root_dir . '/server/seo.php';
+// Year page: name the projects in it (titles come from TITLE.txt), so search engines see what it holds.
+$_titles = array_values(array_filter(array_map(fn($f) => read_meta_file($year_dir . '/' . $f . '/TITLE.txt'), $projects)));
+$seo_kind = 'collection';
+$page_title = 'Work from ' . $year;
+if ($_titles) {
+    $page_description = seo_truncate('Work by Patricio Gonzalez Vivo from ' . $year . ': ' . implode(', ', array_slice($_titles, 0, 8)) . (count($_titles) > 8 ? ' and more.' : '.'), 160);
+} else {
+    $page_description = 'Projects by Patricio Gonzalez Vivo from ' . $year . ': art, software and experiments in oil paint, code and drawing machines.';
+}
+
 include($root_dir . "/server/header.php");
 include($root_dir . "/server/menu.php");
 ?>

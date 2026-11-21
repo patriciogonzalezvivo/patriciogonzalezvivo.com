@@ -1,1 +1,1 @@
-Made In collaboration with Jen Lowe
+A real-time installation that renders the accurate star field for this exact place and moment. Made with Jen Lowe

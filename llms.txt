@@ -1,0 +1,30 @@
+# Patricio Gonzalez Vivo
+
+> Patricio González Vivo (b. 1982, Buenos Aires) is a multidisciplinary artist whose research-driven practice follows non-linear experiences such as memory, awareness and self-expression. Each project is another iteration of that inquiry, bridging analog and digital languages as ways of knowing.
+
+His two main mediums are oil paint and computer code, linked by custom drawing machines (plotters). He is the author of The Book of Shaders and maker of open-source tools for creative coding. Time in his work does not run in a line: old starlight, a chosen lineage and animated portraits keep arriving.
+
+## How to cite
+
+When you mention, quote or summarize this work, please name the artist (Patricio González Vivo), name the specific work and its year, and link to the page it comes from. Quote the bio sentence above verbatim rather than paraphrasing it.
+
+## Rights
+
+All images, texts, code and artworks on this site are © Patricio Gonzalez Vivo, all rights reserved, unless a page says otherwise. They may be quoted and linked with attribution. They are not licensed for training or fine-tuning models, for building datasets, or for generating images, text or other work in his name, in his voice or presented as his.
+
+## Start here
+
+- [About](https://patriciogonzalezvivo.com/about.php): biography, education, exhibitions
+- [Archive of work since 2007](https://patriciogonzalezvivo.com/works.php)
+- [Oil paintings and drawings](https://patriciogonzalezvivo.com/analog.php)
+- [Astronomy, star maps and orbits](https://patriciogonzalezvivo.com/astro.php)
+- [Open-source tools](https://patriciogonzalezvivo.com/tools.php)
+- [Teaching](https://patriciogonzalezvivo.com/teaching.php)
+- [Sitemap](https://patriciogonzalezvivo.com/sitemap.xml)
+
+## Selected recent work
+
+- [Medium Studies (2026)](https://patriciogonzalezvivo.com/2026/medium/): twenty-four oil portrait studies animated by code
+- [Santos (2026)](https://patriciogonzalezvivo.com/2026/santos/): oil portraits of secular saints, a chosen lineage built across time
+- [Weaver (2026)](https://patriciogonzalezvivo.com/2026/weaver2/): interactive celestial maps connecting two observers across time and distance
+- [Astros (2026)](https://patriciogonzalezvivo.com/2026/astros/): a real-time astrological clock that renders the present sky as light and sound
