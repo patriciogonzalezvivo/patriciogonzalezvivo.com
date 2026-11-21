@@ -566,13 +566,82 @@ def _crop_to_aspect(img_rel: str, aspect: float, base_path: Path) -> str:
         return img_rel
 
 
-def build_divider_page(section: Dict) -> str:
+def _background_overlay(pdf_rel) -> str:
+    """Stretch a full-page PDF behind the next page shipped out.
+
+    Uses the shipout background hook, so the drawing takes no space in the page
+    flow (an in-flow box would push the page content down). Call right after a
+    \\clearpage, so the next page shipped is the one being built.
+    """
+    return (
+        "\\AddToHookNext{shipout/background}{%\n"
+        f"  \\put(0,-\\paperheight){{\\includegraphics[width=\\paperwidth,height=\\paperheight]{{{pdf_rel}}}}}%\n"
+        "}\n"
+    )
+
+
+def _divider_background(has_quote: bool, base_path: Path) -> str:
+    """Rays-and-ripples drawing behind a divider page, with a clear window for the text.
+
+    Reuses the label page's pattern (portfolio/elements.py). Returns "" when
+    the PDF cannot be produced.
+    """
+    from portfolio.elements import generate_rays_svg
+
+    svg_path = base_path / 'portfolio' / 'divider_rays.svg'
+    generate_rays_svg(str(svg_path), clear_size=(175, 100) if has_quote else (150, 60))
+    pdf_path = svg_to_pdf(svg_path)
+    return _background_overlay(pdf_path.relative_to(base_path)) if pdf_path else ""
+
+
+# Contact page geometry (mm, origin top-left, A4 landscape). The sun sits on the
+# logo; windows keep the heading, the text column and the QR code readable.
+_CONTACT_SUN = (234.0, 150.0)
+_CONTACT_LOGO_MM = 34.0
+_CONTACT_CLEAR_RADIUS = 26.0
+_CONTACT_CLEAR_RECTS = [
+    (14.0, 20.0, 269.0, 16.0),     # heading band
+    (14.0, 20.0, 164.0, 86.0),     # text column
+    (196.0, 36.0, 76.0, 88.0),     # QR code and caption
+]
+
+
+def build_contact_background(logo_file: str, base_path: Path) -> str:
+    """Contact page background: rays converging on the logo.
+
+    Falls back to the plain logo at the same spot if the PDF cannot be made.
+    """
+    from portfolio.elements import generate_rays_svg
+
+    logo_abs = base_path / logo_file if logo_file else None
+    svg_path = base_path / 'portfolio' / 'contact_rays.svg'
+    generate_rays_svg(
+        str(svg_path), center=_CONTACT_SUN, clear_rects=_CONTACT_CLEAR_RECTS,
+        clear_radius=_CONTACT_CLEAR_RADIUS,
+        logo_path=str(logo_abs) if logo_abs else None, logo_mm=_CONTACT_LOGO_MM,
+    )
+    pdf_path = svg_to_pdf(svg_path)
+    if pdf_path:
+        return _background_overlay(pdf_path.relative_to(base_path))
+    if not logo_file:
+        return ""
+    x, y = _CONTACT_SUN
+    w = _CONTACT_LOGO_MM
+    return (
+        "\\AddToHookNext{shipout/background}{%\n"
+        f"  {{\\setlength{{\\unitlength}}{{1mm}}\\put({x},-{y}){{\\makebox(0,0){{\\includegraphics[width={w}mm,keepaspectratio]{{{logo_file}}}}}}}}}%\n"
+        "}\n"
+    )
+
+
+def build_divider_page(section: Dict, base_path: Path = Path('.')) -> str:
     """A full page with a title and an optional quote, centred horizontally and vertically.
 
     Section keys:
-      divider  (str)  title, e.g. "Selected Works"
-      quote    (str)  optional phrase or quote; a newline starts a new line
-      author   (str)  optional attribution shown under the quote
+      divider     (str)   title, e.g. "Selected Works"
+      quote       (str)   optional phrase or quote; a newline starts a new line
+      author      (str)   optional attribution shown under the quote
+      background  (bool)  rays-and-ripples drawing behind the text (default true)
     """
     title  = escape_latex(section.get('divider', ''))
     quote  = section.get('quote') or ''
@@ -580,6 +649,8 @@ def build_divider_page(section: Dict) -> str:
 
     latex  = "\\clearpage\n"
     latex += "\\thispagestyle{empty}\n"
+    if section.get('background', True):
+        latex += _divider_background(bool(quote), base_path)
     latex += "\\begin{center}\n\\vspace*{\\fill}\n"
     latex += f"{{\\fontsize{{36}}{{44}}\\selectfont\\bfseries {title}}}\\par\n"
     if quote:
@@ -587,7 +658,7 @@ def build_divider_page(section: Dict) -> str:
         latex += "\\vspace{1.4cm}\n\\begin{minipage}{0.6\\textwidth}\n\\centering\n"
         latex += f"{{\\large\\itshape \u201c{body}\u201d}}\\par\n"
         if author:
-            latex += f"\\vspace{{0.5cm}}\n{{\\small \u2014 {escape_latex(author)}}}\\par\n"
+            latex += f"\\vspace{{0.5cm}}\n{{\\small {escape_latex(author)}}}\\par\n"
         latex += "\\end{minipage}\n"
     latex += "\\vspace*{\\fill}\n\\end{center}\n\\clearpage\n"
     return latex

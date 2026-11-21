@@ -106,7 +106,8 @@ portfolio/
 
 ```json
 { "divider": "Selected Works",                       // full page, title (+ optional quote) centred
-  "quote": "Line one\nLine two", "author": "Name" }   // newline = line break in the quote
+  "quote": "Line one\nLine two", "author": "Name",   // newline = line break in the quote
+  "background": true }                                // rays and ripples behind the text (default true; false = plain)
 { "path": "2026/santos", "images_per_page": 1, "skip": ["DSF1046"], "skip_thumbnail": false,
   "inject_svgs": false, "logo": false }               // a project; logo: absent=inherit, false=none, "img.png"=override
 { "title": "Related Works", "logo": false,
@@ -117,6 +118,7 @@ Current order: divider "Selected Works" (T.S. Eliot, *Four Quartets*: "Time pres
 
 ### Page layout
 
+- The label page's rays-and-ripples pattern is reused (`generate_rays_svg()` in `elements.py`) as the background of divider pages (`portfolio/divider_rays.*`) and of the contact page (`portfolio/contact_rays.*`, rays converge on the tree logo; window geometry in `pages.py`, `_CONTACT_*`). Both are gitignored. Backgrounds attach through the `shipout/background` hook so they never shift the page layout; the contact page no longer holds the logo in its TeX, the background draws it.
 - Running header is off (`\pagestyle{empty}`): images and captions use the whole page.
 - **Project page 1:** large bold title with linked year, description, `thumbnail.jpg` as a `\wrapfigure` if present. **Further pages:** portraits sharing the same `medium`+`dimensions` sidecar are grouped (`images_per_page`); others get one page each, with caption from the sidecar. Sidecar `skip: yes` excludes an image.
 - The logo is added to the bottom of title pages, group pages and featured pages when at least 3.5 cm remain; never on single-image pages.

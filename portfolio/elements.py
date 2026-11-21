@@ -110,6 +110,54 @@ def label(gallery_name, top_left=[10,10], size=(90, 57.5), scale=1.0, for_name=N
     return Group( name='label', children=[grp_label_black, grp_label_red] )
 
 
+def generate_rays_svg(output_path: str, clear_size=(170, 80), center=None,
+                      color='rgb(200, 200, 200)', stroke_width=0.5,
+                      clear_rects=None, clear_radius=0, logo_path=None, logo_mm=30.0) -> None:
+    """Full A4-landscape SVG with only the rays-and-ripples pattern of the label page.
+
+    The sun sits at *center* (default: the page centre).
+    - *clear_size* (w, h) mm: a centred window carved out for text; ignored when
+      *clear_rects* is given.
+    - *clear_rects*: list of (x, y, w, h) mm windows (top-left origin) carved out.
+    - *clear_radius* mm: a round window around the sun, e.g. for a logo.
+    - *logo_path*: image drawn at the sun, *logo_mm* wide.
+    """
+    width, height = A4_LANDSCAPE_SIZE
+    center = center or (width / 2, height / 2)
+    axi = Surface(size='A4_landscape')
+    grp = Group(name='rays', color='gray')
+
+    moon_edge = 60
+    circle = Circle(center=center, radius=moon_edge, color=color).getPath()
+    moon_center = polar2xy(center, -45, moon_edge)
+    ripple_pat = ripple_pattern(moon_center, width, height, max_ripple=300).getPattern(width, height)
+    ripple_pat.carve(circle)
+
+    pattern_path = rays_pattern(center, width, height, press=2)
+    pattern_path.add(ripple_pat.getPath())
+    pattern = pattern_path.getPattern(width, height)
+
+    if clear_rects is None:
+        cw, ch = clear_size
+        clear_rects = [(center[0] - cw / 2, center[1] - ch / 2, cw, ch)]
+    for (x, y, w, h) in clear_rects:
+        pattern.carve(Polyline(Rectangle([x, y], [w, h], align='top_left').getPoints()))
+    if clear_radius:
+        pattern.carve(Polyline(Circle(center, clear_radius).getPoints()))
+    grp.path(pattern.getPath(optimize=True), color=color, stroke_width=stroke_width)
+    axi.add(grp)
+
+    if logo_path and os.path.exists(logo_path):
+        from PIL import Image as PILImage
+        with PILImage.open(logo_path) as img:
+            natural_mm = img.size[0] * 0.264583  # px -> mm @ 96 DPI
+        grp_logo = Group(name='logo', color='gray')
+        grp_logo.bitmap(logo_path, pos=(center[0], center[1]), align='center', scale=logo_mm / natural_mm)
+        axi.add(grp_logo)
+
+    axi.toSVG(output_path)
+
+
 def generate_label_svg(gallery_name: str, output_path: str, for_name: str = None,
                        email: str = None) -> None:
     """Generate a full A4-landscape SVG with the label near the lower-right corner."""

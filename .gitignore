@@ -34,3 +34,5 @@ press/
 # Medium: mint_build.py output (rebuildable, large)
 2026/medium/build/
 2026/medium/__pycache__/
+portfolio/divider_rays.*
+portfolio/contact_rays.*
