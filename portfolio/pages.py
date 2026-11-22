@@ -567,7 +567,7 @@ def _crop_to_aspect(img_rel: str, aspect: float, base_path: Path) -> str:
         return img_rel
 
 
-def _background_overlay(pdf_rel) -> str:
+def _background_overlay(pdf_rel, extra: str = '') -> str:
     """Stretch a full-page PDF behind the next page shipped out.
 
     Uses the shipout background hook, so the drawing takes no space in the page
@@ -577,46 +577,61 @@ def _background_overlay(pdf_rel) -> str:
     return (
         "\\AddToHookNext{shipout/background}{%\n"
         f"  \\put(0,-\\paperheight){{\\includegraphics[width=\\paperwidth,height=\\paperheight]{{{pdf_rel}}}}}%\n"
+        + extra +
         "}\n"
     )
 
 
-# Contact page geometry (mm, origin top-left, A4 landscape). The sun sits on the
-# logo; windows keep the heading, the text column and the QR code readable.
-_CONTACT_SUN = (234.0, 150.0)
-_CONTACT_LOGO_MM = 34.0
-_CONTACT_CLEAR_RADIUS = 26.0
+# Contact page geometry (mm, origin top-left, A4 landscape, 25.4 mm margins). The
+# text sits in two columns: contact on the left, the exhibitions list on the right.
+# The QR code is the sun: the rays start at its edge and radiate over the page
+# wherever there is no text.
+_CONTACT_QR_FILE = 'images/qr-code.png'
+_CONTACT_QR_MM = 40.0
+_CONTACT_SUN = (81.0, 151.0)               # centre of the QR code (centre of the left column)
+_CONTACT_QR_QUIET = 5.0                    # mm of clear air around the QR code
+_CONTACT_CAPTION_MM = 6.0                  # extra clear air below it for the caption
 _CONTACT_CLEAR_RECTS = [
-    (14.0, 20.0, 269.0, 16.0),     # heading band
-    (14.0, 20.0, 164.0, 86.0),     # text column
-    (196.0, 36.0, 76.0, 88.0),     # QR code and caption
+    (20.0, 20.0, 122.0, 104.0),            # left column text
+    (150.0, 20.0, 127.0, 172.0),           # right column list
+    (_CONTACT_SUN[0] - _CONTACT_QR_MM / 2 - _CONTACT_QR_QUIET,
+     _CONTACT_SUN[1] - _CONTACT_QR_MM / 2 - _CONTACT_QR_QUIET,
+     _CONTACT_QR_MM + 2 * _CONTACT_QR_QUIET,
+     _CONTACT_QR_MM + 2 * _CONTACT_QR_QUIET + _CONTACT_CAPTION_MM),   # QR and caption
 ]
 
 
-def build_contact_background(logo_file: str, base_path: Path) -> str:
-    """Contact page background: rays converging on the logo.
+def _contact_qr(website_url: str) -> str:
+    """QR code (linked to the website) and its caption, centred on the sun, as picture-env puts."""
+    x, y = _CONTACT_SUN
+    w = _CONTACT_QR_MM
+    img = f"\\includegraphics[width={w}mm,keepaspectratio]{{{_CONTACT_QR_FILE}}}"
+    if website_url:
+        img = f"\\href{{{website_url}}}{{{img}}}"
+    cap_y = y + w / 2 + 3.5
+    return (
+        "  {\\setlength{\\unitlength}{1mm}%\n"
+        f"   \\put({x},-{y}){{\\makebox(0,0){{{img}}}}}%\n"
+        f"   \\put({x},-{cap_y}){{\\makebox(0,0){{\\scriptsize Scan to visit the site}}}}}}%\n"
+    )
 
-    Falls back to the plain logo at the same spot if the PDF cannot be made.
+
+def build_contact_background(website_url: str, base_path: Path) -> str:
+    """Contact page background: rays emerging from the QR code, plus the QR code itself.
+
+    Falls back to the QR code alone if the rays PDF cannot be made.
     """
     from portfolio.elements import generate_rays_svg
 
-    logo_abs = base_path / logo_file if logo_file else None
+    qr = _contact_qr(website_url)
     svg_path = base_path / 'portfolio' / 'contact_rays.svg'
-    generate_rays_svg(
-        str(svg_path), center=_CONTACT_SUN, clear_rects=_CONTACT_CLEAR_RECTS,
-        clear_radius=_CONTACT_CLEAR_RADIUS,
-        logo_path=str(logo_abs) if logo_abs else None, logo_mm=_CONTACT_LOGO_MM,
-    )
+    generate_rays_svg(str(svg_path), center=_CONTACT_SUN, clear_rects=_CONTACT_CLEAR_RECTS)
     pdf_path = svg_to_pdf(svg_path)
     if pdf_path:
-        return _background_overlay(pdf_path.relative_to(base_path))
-    if not logo_file:
-        return ""
-    x, y = _CONTACT_SUN
-    w = _CONTACT_LOGO_MM
+        return _background_overlay(pdf_path.relative_to(base_path), extra=qr)
     return (
         "\\AddToHookNext{shipout/background}{%\n"
-        f"  {{\\setlength{{\\unitlength}}{{1mm}}\\put({x},-{y}){{\\makebox(0,0){{\\includegraphics[width={w}mm,keepaspectratio]{{{logo_file}}}}}}}}}%\n"
+        + qr +
         "}\n"
     )
 

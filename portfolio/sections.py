@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Dict
 from urllib.parse import urljoin
 
-from portfolio.utils import markdown_to_latex
+from portfolio.utils import escape_latex, markdown_to_latex
 
 
 # Maps data.json file keys to their display names used in section headers.
@@ -151,3 +151,32 @@ def build_optional_section(file_key: str, artist: Dict, base_path: Path) -> str:
     section_name = SECTION_DISPLAY_NAMES.get(file_key, '')
     mark = f"\\markright{{{section_name}}}\n\n" if section_name else ""
     return f"\\clearpage\n\n{mark}{content}\n"
+
+
+def build_optional_column(file_key: str, artist: Dict, base_path: Path) -> str:
+    """Return an optional appendix file as a heading plus body, with no page break.
+
+    For setting a list beside something else on one page (the exhibitions list
+    next to the contact text). A leading Markdown heading line becomes
+    ``\\section*{...}``; the rest is converted as usual. Empty string when the key
+    is absent or the file is missing.
+    """
+    filepath = artist.get(file_key)
+    if not filepath:
+        return ''
+    full_path = base_path / filepath
+    if not full_path.exists():
+        print(f"  (skipping {file_key}: {filepath} not found)")
+        return ''
+
+    text = full_path.read_text(encoding='utf-8').strip()
+    heading = ''
+    m = re.match(r'^#{1,6}[ \t]+(.+?)[ \t]*\n', text)
+    if m:
+        heading = f"\\section*{{{escape_latex(m.group(1))}}}\n\n"
+        text = text[m.end():]
+    body = markdown_to_latex(text)
+    if not body.strip():
+        return ''
+    print(f"  + {file_key}: {filepath} (column)")
+    return heading + body

@@ -26,7 +26,7 @@ from portfolio.pages import (  # re-exported
     build_contact_background,
 )
 from portfolio.sections import (
-    build_bio_block, build_artist_statement, build_optional_section,
+    build_bio_block, build_artist_statement, build_optional_section, build_optional_column,
 )
 from portfolio.legacy import build_legacy_document  # re-exported
 
@@ -85,6 +85,7 @@ def populate_template(
     print("Resolving optional file sections…")
     optional_cv          = build_optional_section('cv_file',          artist, base_path)
     optional_exhibitions = build_optional_section('exhibitions_file', artist, base_path)
+    exhibitions_column   = build_optional_column('exhibitions_file',  artist, base_path)
     optional_talks       = build_optional_section('talks_file',       artist, base_path)
     optional_press       = build_optional_section('press_file',       artist, base_path)
 
@@ -115,9 +116,10 @@ def populate_template(
         '%%ARTWORKS%%':                  artworks_latex,
         '%%OPTIONAL_CV%%':               optional_cv,
         '%%OPTIONAL_EXHIBITIONS%%':      optional_exhibitions,
+        '%%EXHIBITIONS_COLUMN%%':        exhibitions_column,
         '%%OPTIONAL_TALKS%%':            optional_talks,
         '%%OPTIONAL_PRESS%%':            optional_press,
-        '%%CONTACT_BACKGROUND%%':        build_contact_background(artist.get('logo', ''), base_path),
+        '%%CONTACT_BACKGROUND%%':        build_contact_background(website_url, base_path),
     }
 
     for placeholder, value in replacements.items():

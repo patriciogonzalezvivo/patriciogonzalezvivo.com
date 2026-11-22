@@ -181,7 +181,7 @@ Dimensions: & #5 \\
 % ARTIST STATEMENT (before exhibitions)
 %%OPTIONAL_ARTIST_STATEMENT%%
 
-%%OPTIONAL_EXHIBITIONS%%
+%% (exhibitions are set beside the contact text, on the last page)
 
 %%OPTIONAL_TALKS%%
 
@@ -194,21 +194,23 @@ Dimensions: & #5 \\
 \markright{Contact}
 
 %%CONTACT_BACKGROUND%%
-\section*{Let's Chat}
-
 \noindent
-\begin{minipage}[t]{0.58\textwidth}
+\begin{minipage}[t]{0.45\textwidth}
 \vspace{0pt}
 \raggedright
-I am currently seeking select opportunities, including solo exhibitions,
-live installations and gallery representation. I am also open to
-commissions, residencies and collaborations with institutions and
-collectors who want to bring instruments of attention into a room.
+\section*{Let's Chat}
+
+If you are curating a show that needs work bridging digital and analog,
+I can help. I make oil portraits that move through code, installations
+that render the sky above the room where they hang, and drawings that
+a plotter starts and my hand finishes.
 
 \bigskip
 
-If a piece here stayed with you, write to me. Tell me which one, and
-where you imagine it living.
+If you are a curator, gallerist or collector, or commissioning for a
+space, write to me. Tell me about the room and who will walk into it,
+and I will suggest the piece that fits. I am open to solo exhibitions,
+live installations, commissions, residencies and representation.
 
 \medskip
 
@@ -221,16 +223,15 @@ where you imagine it living.
 \textbf{Web}       & \href{%%ARTIST_WEBSITE_URL%%}{%%ARTIST_WEBSITE%%} \\
 \textbf{Instagram} & \href{https://instagram.com/%%ARTIST_INSTAGRAM%%}{@%%ARTIST_INSTAGRAM_LABEL%%} \\
 \end{tabular}
+
+% The QR code (the sun the rays come from) is drawn in the page background:
+% see build_contact_background() in pages.py.
 \end{minipage}%
 \hfill
-\begin{minipage}[t]{0.30\textwidth}
+\begin{minipage}[t]{0.45\textwidth}
 \vspace{0pt}
-\centering
-\href{%%ARTIST_WEBSITE_URL%%}{\includegraphics[width=\linewidth,keepaspectratio]{images/qr-code.png}}
-
-\smallskip
-{\small Scan to visit the site}
-
+\raggedright
+%%EXHIBITIONS_COLUMN%%
 \end{minipage}
 
 % =========================================================
