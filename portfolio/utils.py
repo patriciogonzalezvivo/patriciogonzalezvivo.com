@@ -100,6 +100,9 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
                ``1em``).  Defaults to LaTeX's current ``\columnsep``.
     margin_pdf Same as ``margin`` but applies only to the PDF output;
                overrides ``margin`` when both are present.
+    only       ``pdf`` shows the block in the PDF only (the website skips it);
+               ``web`` shows it on the website only (the PDF skips it).
+               Omitted: both.
     =========  =============================================================
     """
     params: dict = {}
@@ -107,6 +110,9 @@ def _wrapfig_to_latex(side: str, body: str) -> str:
         if ':' in line:
             k, _, v = line.partition(':')
             params[k.strip().lower()] = v.strip()
+
+    if params.get('only', '').lower() == 'web':
+        return ''   # website-only block: leave it out of the PDF
 
     src     = params.get('src', '')
     title   = params.get('title', '')

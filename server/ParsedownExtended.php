@@ -29,6 +29,8 @@
  *   width    – CSS width of the float (default: 40%).
  *              Accepts CSS values ("40%", "320px") or a LaTeX-style
  *              fraction ("0.40") which is auto-converted to a percentage.
+ *   only     – "pdf" leaves the block out of the website (it still renders in the
+ *              PDF portfolio); "web" is the reverse and is handled by portfolio/utils.py.
  *
  * HTML output
  * -----------
@@ -127,7 +129,8 @@ class ParsedownExtended extends Parsedown
         $width   = isset($params['width'])   ? trim($params['width'])   : '40%';
         $size    = isset($params['size'])    ? trim($params['size'])    : '100%';
 
-        if ($src === '') {
+        // only: pdf -> PDF portfolio only, not shown on the website
+        if ($src === '' || (isset($params['only']) && strtolower(trim($params['only'])) === 'pdf')) {
             $Block['markup'] = '';
             return $Block;
         }

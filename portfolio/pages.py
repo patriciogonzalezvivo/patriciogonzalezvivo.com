@@ -190,6 +190,7 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '', logo
         LaTeX string (starts with ``\\clearpage``).
     """
     title = escape_latex(project['title'])
+    title_caps = escape_latex(project['title'].upper())   # big opening title: capitals (upper-cased before escaping)
     year  = escape_latex(project['year'])
 
     # ------------------------------------------------------------------
@@ -269,7 +270,7 @@ def build_artwork_pages(project: Dict, base_path: Path, base_url: str = '', logo
     )
     latex += f"\\markright{{{_mark_text}}}\n"
     latex += (
-        f"\\noindent{{\\LARGE\\textbf{{\\href{{{project_url}}}{{{title}}}}}}}"
+        f"\\noindent{{\\huge\\textbf{{\\href{{{project_url}}}{{{title_caps}}}}}}}"
         f"\\hfill{{\\large \\href{{{year_url}}}{{\\textcolor{{red}}{{{year}}}}}}}\n\n"
     )
     # Detect a thumbnail.* in the project root to place beside the

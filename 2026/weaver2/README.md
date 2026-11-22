@@ -11,10 +11,11 @@ I stand at the far end of their horizon, beneath a different sky, with only frag
 
 Two celestial maps overlap: one for each observer. Each is rendered in a distinct color, reflecting the night sky from a specific place and moment. In the region where the maps intersect lie the constellations both participants share, a common sky that exists beyond distance or time.
 
-:::wrapfig right
-src: svg/001_light.svg
+:::wrapfig left
+src: images/_DSF1193.jpg
 size: 50%
-size_pdf: 25%
+size_pdf: 100%
+only: pdf
 ::: 
 
 Each map uses a polar projection. Stars near the outer edge rest close to the horizon (marked by the cardinal directions), while those at the center hover directly overhead. This perspective situates each observer within their own sky, while revealing where their visions align.
@@ -23,12 +24,13 @@ Beside each map, a rotating globe marks the observer's location. Both the celest
 
 ---
 
-:::wrapfig left
+:::wrapfig right
 src: ../../2017/guayupia/images/paths.png
 title: Guayupia
 year: 2017
 link: ../../2017/guayupia
 size_pdf: 45%
+only: web
 :::
 
 
